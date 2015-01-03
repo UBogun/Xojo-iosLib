@@ -20,3 +20,4 @@ Currently included classes:
 - UITextField: An iOSTextField subclass adding TextEditBegin & TextEditEnded events
 
 Feel free to use, change or add more objects. Check forum.xojo.com for a lot more Xojo iOS extensions.
+I am sorry the project is binary format currently. Will be changed as soon as possible.
