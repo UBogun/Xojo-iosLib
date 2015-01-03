@@ -3,7 +3,7 @@ Xojo-iOSLib
 
 A Library extending Xojo's iOS feature by adding extension modules and classes.
 While the classes are not fully independent, they are to a high degree, meaning you can cut this lib to a few items if your project does not need all the added classes. 
-To the outside, the classes are usually communication via Xojo native data types and modules, which should make it easy to adapt this lib to newly added Xojo features. The data type and objects conversions are included to.
+To the outside, the classes are usually communicating via Xojo native data types and modules, which should make it easy to adapt this lib to newly added Xojo features. The data type and objects conversions are included to.
 Basic functionality is mostly added via modules, so you can have NSObject & UIVIew features in every Xojo control that inherits from iOSControl.
 Please check the demo app for the main features and the documentation inside for the various classes and modules.
 
