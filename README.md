@@ -10,7 +10,7 @@ Please check the demo app for the main features and the documentation inside for
 Currently included modules:
 - iOSControl module: UIVIew and NSObject features for every control, including old style animations.
 - iOSView module: Animated transitions for views.
-- iOSImageView module: Highlighted images and GIS-like animations for iOSView
+- iOSImageView module: Highlighted images and GIF-like animations for iOSView
 - iOSTextField extension: more features for your iOSTextfields.
 - Conversion modules
 
