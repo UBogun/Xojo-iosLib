@@ -21,3 +21,4 @@ Currently included classes:
 
 Feel free to use, change or add more objects. Check forum.xojo.com for a lot more Xojo iOS extensions.
 I am sorry the project is binary format currently. Will be changed as soon as possible.
+Other great ressources are https://github.com/Mitchboo/XojoiOSWrapper/tree/master for legacy and conversion methods (and a lot more) and https://github.com/sbeardsl/xojoGestures for an implementation of UIGestureRecognizers.
