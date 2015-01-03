@@ -11,7 +11,7 @@ Currently included modules:
 - iOSControl module: UIVIew and NSObject features for every control, including old style animations.
 - iOSView module: Animated transitions for views.
 - iOSImageView module: Highlighted images and GIF-like animations for iOSView
-- iOSTextField extension: more features for your iOSTextfields, including images and colors
+- iOSTextField module: more features for your iOSTextfields, including images and colors
 - Conversion modules
 
 Currently included classes:
