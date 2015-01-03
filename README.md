@@ -1,7 +1,7 @@
 Xojo-iOSLib
 ===========
 
-A library extending Xojo's iOS feature by adding extension modules and classes.
+A library extending Xojo's iOS features by adding extension modules and classes.
 While the classes are not fully independent, they are to a high degree, meaning you can cut this lib to a few items if your project does not need all the added classes. 
 To the outside, the classes are usually communicating via Xojo native data types and modules, which should make it easy to adapt this lib to newly added Xojo features. The data type and objects conversions are included too.
 Basic functionality is mostly added via modules, so you can have NSObject & UIVIew features in every Xojo control that inherits from iOSControl.
@@ -11,7 +11,7 @@ Currently included modules:
 - iOSControl module: UIVIew and NSObject features for every control, including old style animations.
 - iOSView module: Animated transitions for views.
 - iOSImageView module: Highlighted images and GIF-like animations for iOSView
-- iOSTextField extension: more features for your iOSTextfields.
+- iOSTextField extension: more features for your iOSTextfields, including images and colors
 - Conversion modules
 
 Currently included classes:
