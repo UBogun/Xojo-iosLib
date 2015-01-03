@@ -8,15 +8,15 @@ Basic functionality is mostly added via modules, so you can have NSObject & UIVI
 Please check the demo app for the main features and the documentation inside for the various classes and modules.
 
 Currently included modules:
-– iOSControl module: UIVIew and NSObject features for every control, including old style animations.
-– iOSView module: Animated transitions for views.
-– iOSImageView module: Highlighted images and GIS-like animations for iOSView
+- iOSControl module: UIVIew and NSObject features for every control, including old style animations.
+- iOSView module: Animated transitions for views.
+- iOSImageView module: Highlighted images and GIS-like animations for iOSView
 - iOSTextField extension: more features for your iOSTextfields.
 - Conversion modules
 
 Currently included classes:
-– UIVIew: Block animations & events for iOSViews
-– NSNotification & NSNotificationCenter: Catch appwide NSEvents or attach a specialized NotificationCenter to a Control for easy event handling.
-– UITextField: An iOSTextField subclass adding TextEditBegin & TextEditEnded events
+- UIVIew: Block animations & events for iOSViews
+- NSNotification & NSNotificationCenter: Catch appwide NSEvents or attach a specialized NotificationCenter to a Control for easy event handling.
+- UITextField: An iOSTextField subclass adding TextEditBegin & TextEditEnded events
 
 Feel free to use, change or add more objects. Check forum.xojo.com for a lot more Xojo iOS extensions.
