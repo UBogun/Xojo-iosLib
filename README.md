@@ -12,6 +12,7 @@ Currently included modules:
 - iOSView module: Animated transitions for views.
 - iOSImageView module: Highlighted images and GIF-like animations for iOSView
 - iOSTextField module: more features for your iOSTextfields, including images and colors
+- iOTextArea module: adding UIScrollView and UITextView features to Textareas.
 - Conversion modules
 
 Currently included classes:
