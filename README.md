@@ -17,7 +17,9 @@ Currently included modules:
 - Conversion modules
 
 Currently included classes:
-- UIVIew: Block animations & events for iOSViews
+- NSIndexPath: For handling Table cells & sections.
+- UIImageView: Block animations for iOSImageViews.
+- UIVIew: Block animations & events for iOSViews.
 - NSNotification & NSNotificationCenter: Catch appwide NSEvents or attach a specialized NotificationCenter to a Control for easy event handling.
 - UITextField: An iOSTextField subclass adding TextEditBegin & TextEditEnded events
 
