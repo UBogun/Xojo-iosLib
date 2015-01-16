@@ -17,7 +17,7 @@ Inherits iosView
 	#tag Method, Flags = &h1000
 		Sub Constructor(aFrame as rect)
 		  dim myrect as CGRect = aFrame.tocGRect
-		  mid = iOSControlExtension.initWithFrame(iOSControlExtension.classptr, myrect)
+		  mid = iOSControlExtension.initWithFrame(alloc(iOSControlExtension.classptr), myrect)
 		End Sub
 	#tag EndMethod
 

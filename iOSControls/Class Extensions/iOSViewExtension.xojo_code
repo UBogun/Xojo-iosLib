@@ -27,7 +27,7 @@ Protected Module iOSViewExtension
 
 	#tag Method, Flags = &h0
 		Sub BackgroundColor(extends v as iOSView, assigns value as color)
-		  iOSControlExtension.setBackgroundColor getView (v.handle), value.uicolor
+		  iOSControlExtension.setBackgroundColor getView (v.handle), value.touicolor
 		End Sub
 	#tag EndMethod
 

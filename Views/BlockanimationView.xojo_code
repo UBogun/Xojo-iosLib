@@ -10,9 +10,9 @@ Begin iosView BlockanimationView
    Begin iOSButton AFrameButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   AFrameButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   AFrameButton, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   AFrameButton, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   AFrameButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   AFrameButton, 4, ARotationButton, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       Caption         =   "Animate Frame"
       Enabled         =   True
@@ -43,9 +43,9 @@ Begin iosView BlockanimationView
    Begin iostextfield DurationField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   DurationField, 7, , 0, False, +1.00, 2, 1, 43, 
       AutoLayout      =   DurationField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   DurationField, 4, Label4, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   DurationField, 7, , 0, False, +1.00, 2, 1, 43, 
       AutoLayout      =   DurationField, 2, Label3, 2, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   31.0
@@ -67,9 +67,9 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 64, 
-      AutoLayout      =   Label1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
@@ -88,9 +88,9 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 46, 
       AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 21, 
       AutoLayout      =   Label2, 3, Label1, 4, False, +1.00, 2, 1, *kStdControlGapV, 
-      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 46, 
       AutoLayout      =   Label2, 1, Label1, 1, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   21.0
@@ -109,9 +109,9 @@ Begin iosView BlockanimationView
    Begin iostextfield FXField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   FXField, 3, Label2, 4, False, +1.00, 2, 1, 5, 
       AutoLayout      =   FXField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   FXField, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   FXField, 3, Label2, 4, False, +1.00, 2, 1, 5, 
       AutoLayout      =   FXField, 7, , 0, False, +1.00, 2, 1, 45, 
       Enabled         =   True
       Height          =   31.0
@@ -133,9 +133,9 @@ Begin iosView BlockanimationView
    Begin iostextfield FYField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   FYField, 2, FXField, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   FYField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   FYField, 1, FXField, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   FYField, 2, FXField, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   FYField, 3, FXField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
@@ -157,9 +157,9 @@ Begin iosView BlockanimationView
    Begin iostextfield FWField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   FWField, 2, FYField, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   FWField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   FWField, 1, FYField, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   FWField, 2, FYField, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   FWField, 3, FYField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
@@ -181,9 +181,9 @@ Begin iosView BlockanimationView
    Begin iostextfield FHField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   FHField, 3, FWField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   FHField, 1, FWField, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   FHField, 2, FWField, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   FHField, 3, FWField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   FHField, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
@@ -205,9 +205,9 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label3, 1, Label2, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 58, 
       AutoLayout      =   Label3, 3, Label2, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Label3, 1, Label2, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 21, 
       Enabled         =   True
       Height          =   21.0
@@ -226,9 +226,9 @@ Begin iosView BlockanimationView
    Begin iostextfield BHField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   BHField, 3, FHField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BHField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   BHField, 2, BWField, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   BHField, 3, FHField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BHField, 7, , 0, False, +1.00, 1, 1, 45, 
       Enabled         =   True
       Height          =   31.0
@@ -250,9 +250,9 @@ Begin iosView BlockanimationView
    Begin iostextfield BWField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   BWField, 3, FWField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BWField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   BWField, 2, BYField, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   BWField, 3, FWField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BWField, 7, , 0, False, +1.00, 1, 1, 45, 
       Enabled         =   True
       Height          =   31.0
@@ -274,9 +274,9 @@ Begin iosView BlockanimationView
    Begin iostextfield BXField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   BXField, 3, FXField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BXField, 1, Label3, 1, False, +1.00, 2, 1, 0, 
       AutoLayout      =   BXField, 7, , 0, False, +1.00, 1, 1, 45, 
-      AutoLayout      =   BXField, 3, FXField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BXField, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
@@ -298,9 +298,9 @@ Begin iosView BlockanimationView
    Begin iostextfield BYField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   BYField, 3, FYField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BYField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   BYField, 2, BXField, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   BYField, 3, FYField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BYField, 7, , 0, False, +1.00, 1, 1, 45, 
       Enabled         =   True
       Height          =   31.0
@@ -322,9 +322,9 @@ Begin iosView BlockanimationView
    Begin iOSButton ABoundsButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ABoundsButton, 3, AFrameButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ABoundsButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   ABoundsButton, 1, AFrameButton, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   ABoundsButton, 3, AFrameButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ABoundsButton, 7, , 0, False, +1.00, 1, 1, 114, 
       Caption         =   "Animate Bounds"
       Enabled         =   True
@@ -342,13 +342,13 @@ Begin iosView BlockanimationView
    Begin iOSSwitch Begincurrent
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Begincurrent, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Begincurrent, 3, Label1, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Begincurrent, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   Begincurrent, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Begincurrent, 3, Label1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Begincurrent, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Begincurrent, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   953
+      Left            =   249
       LockedInPosition=   False
       Scope           =   0
       Top             =   73
@@ -359,13 +359,13 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label4, 3, Begincurrent, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 2, Begincurrent, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   Label4, 7, , 0, False, +1.00, 1, 1, 127, 
-      AutoLayout      =   Label4, 3, Begincurrent, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 4, Label3, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   818
+      Left            =   114
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Begin from current"
@@ -380,13 +380,13 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label5
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label5, 2, Repeat, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   Label5, 7, , 0, False, +1.00, 1, 1, 163, 
       AutoLayout      =   Label5, 3, Repeat, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label5, 2, Repeat, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   Label5, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   782
+      Left            =   78
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Repeat"
@@ -401,13 +401,13 @@ Begin iosView BlockanimationView
    Begin iOSSwitch Repeat
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Repeat, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   Repeat, 3, Begincurrent, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Repeat, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Repeat, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Repeat, 3, Begincurrent, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Repeat, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Repeat, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   953
+      Left            =   249
       LockedInPosition=   False
       Scope           =   0
       Top             =   112
@@ -418,13 +418,13 @@ Begin iosView BlockanimationView
    Begin iOSSwitch AutoReverse
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   AutoReverse, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   AutoReverse, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   AutoReverse, 3, Repeat, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   AutoReverse, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   AutoReverse, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   AutoReverse, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   AutoReverse, 3, Repeat, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   953
+      Left            =   249
       LockedInPosition=   False
       Scope           =   0
       Top             =   151
@@ -435,13 +435,13 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label6
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label6, 2, AutoReverse, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   Label6, 7, , 0, False, +1.00, 1, 1, 163, 
       AutoLayout      =   Label6, 3, AutoReverse, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label6, 2, AutoReverse, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   Label6, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   782
+      Left            =   78
       LockedInPosition=   False
       Scope           =   0
       Text            =   "AutoReverse"
@@ -456,14 +456,14 @@ Begin iosView BlockanimationView
    Begin iOSButton SBoundsButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   SBoundsButton, 3, ABoundsButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SBoundsButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   SBoundsButton, 7, , 0, False, +1.00, 1, 1, 86, 
-      AutoLayout      =   SBoundsButton, 3, ABoundsButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SBoundsButton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Set Bounds"
       Enabled         =   True
       Height          =   30.0
-      Left            =   918
+      Left            =   214
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -476,14 +476,14 @@ Begin iosView BlockanimationView
    Begin iOSButton SFrameButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   SFrameButton, 3, SBoundsButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SFrameButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   SFrameButton, 2, SBoundsButton, 1, False, +1.00, 4, 1, -16, 
-      AutoLayout      =   SFrameButton, 3, SBoundsButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SFrameButton, 7, , 0, False, +1.00, 1, 1, 73, 
       Caption         =   "Set Frame"
       Enabled         =   True
       Height          =   30.0
-      Left            =   829
+      Left            =   125
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -496,9 +496,9 @@ Begin iosView BlockanimationView
    Begin iOSSegmentedControl AnimationOptControl
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   AnimationOptControl, 8, , 0, True, +1.00, 1, 1, 29, 
       AutoLayout      =   AnimationOptControl, 7, , 0, False, +1.00, 1, 1, 215, 
       AutoLayout      =   AnimationOptControl, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   AnimationOptControl, 8, , 0, True, +1.00, 1, 1, 29, 
       AutoLayout      =   AnimationOptControl, 4, SFrameButton, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       Caption         =   ""
       Enabled         =   True
@@ -515,9 +515,9 @@ Begin iosView BlockanimationView
    Begin ioslabel TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TextArea1, 4, AnimationOptControl, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   TextArea1, 1, AnimationOptControl, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   TextArea1, 2, SBoundsButton, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   TextArea1, 4, AnimationOptControl, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 2, 1, 97, 
       Enabled         =   False
       Height          =   97.0
@@ -531,18 +531,18 @@ Begin iosView BlockanimationView
       TextSize        =   0
       Top             =   262
       Visible         =   True
-      Width           =   984.0
+      Width           =   280.0
       Begin iostextfield TrF0
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
+         AutoLayout      =   TrF0, 3, VelocityField, 4, False, +1.00, 1, 1, 28, 
          AutoLayout      =   TrF0, 8, , 0, False, +1.00, 1, 1, 31, 
          AutoLayout      =   TrF0, 2, VelocityField, 2, False, +1.00, 2, 1, 0, 
-         AutoLayout      =   TrF0, 3, VelocityField, 4, False, +1.00, 1, 1, 28, 
          AutoLayout      =   TrF0, 7, , 0, False, +1.00, 1, 1, 45, 
          Enabled         =   False
          Height          =   31.0
          KeyboardType    =   "2"
-         Left            =   959
+         Left            =   255
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "TextArea1"
@@ -561,14 +561,14 @@ Begin iosView BlockanimationView
       Begin iostextfield TRFB
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
+         AutoLayout      =   TRFB, 3, TrF0, 3, False, +1.00, 1, 1, 0, 
          AutoLayout      =   TRFB, 8, , 0, False, +1.00, 2, 1, 31, 
          AutoLayout      =   TRFB, 2, TrF0, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
-         AutoLayout      =   TRFB, 3, TrF0, 3, False, +1.00, 1, 1, 0, 
          AutoLayout      =   TRFB, 7, , 0, False, +1.00, 1, 1, 79, 
          Enabled         =   False
          Height          =   31.0
          KeyboardType    =   "2"
-         Left            =   872
+         Left            =   168
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "TextArea1"
@@ -587,14 +587,14 @@ Begin iosView BlockanimationView
       Begin iostextfield TRFA
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
+         AutoLayout      =   TRFA, 3, TRFB, 3, False, +1.00, 1, 1, 0, 
          AutoLayout      =   TRFA, 2, TRFB, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
          AutoLayout      =   TRFA, 7, , 0, False, +1.00, 1, 1, 79, 
-         AutoLayout      =   TRFA, 3, TRFB, 3, False, +1.00, 1, 1, 0, 
          AutoLayout      =   TRFA, 8, , 0, False, +1.00, 1, 1, 31, 
          Enabled         =   False
          Height          =   31.0
          KeyboardType    =   "2"
-         Left            =   785
+         Left            =   81
          LockedInPosition=   False
          PanelIndex      =   0
          Parent          =   "TextArea1"
@@ -614,13 +614,13 @@ Begin iosView BlockanimationView
    Begin iOSLabel AnimationEndedLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   AnimationEndedLabel, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   AnimationEndedLabel, 4, TextArea1, 4, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   AnimationEndedLabel, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   AnimationEndedLabel, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   AnimationEndedLabel, 7, , 0, False, +1.00, 2, 1, 250, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   387
+      Left            =   35
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
@@ -635,9 +635,9 @@ Begin iosView BlockanimationView
    Begin iostextfield BGColorField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   BGColorField, 2, BHField, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BGColorField, 8, , 0, False, +1.00, 1, 1, 36, 
       AutoLayout      =   BGColorField, 1, TextArea1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   BGColorField, 2, BHField, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   BGColorField, 3, Label7, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Enabled         =   True
       Height          =   36.0
@@ -659,9 +659,9 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label7
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label7, 3, BHField, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       AutoLayout      =   Label7, 8, , 0, False, +1.00, 1, 1, 21, 
       AutoLayout      =   Label7, 1, BGColorField, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label7, 3, BHField, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       AutoLayout      =   Label7, 7, , 0, False, +1.00, 1, 1, 137, 
       Enabled         =   True
       Height          =   21.0
@@ -680,14 +680,14 @@ Begin iosView BlockanimationView
    Begin iOSButton SFrameButton1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   SFrameButton1, 3, SFrameButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SFrameButton1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   SFrameButton1, 2, SFrameButton, 1, False, +1.00, 4, 1, -*kStdControlGapH, 
-      AutoLayout      =   SFrameButton1, 3, SFrameButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SFrameButton1, 7, , 0, False, +1.00, 1, 1, 92, 
       Caption         =   "Set BGColor"
       Enabled         =   True
       Height          =   30.0
-      Left            =   729
+      Left            =   25
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -700,9 +700,9 @@ Begin iosView BlockanimationView
    Begin iOSButton AColorButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   AColorButton, 3, ABoundsButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AColorButton, 1, ABoundsButton, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   AColorButton, 7, , 0, False, +1.00, 1, 1, 119, 
-      AutoLayout      =   AColorButton, 3, ABoundsButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AColorButton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Animate BGColor"
       Enabled         =   True
@@ -720,13 +720,13 @@ Begin iosView BlockanimationView
    Begin iOSSwitch Spring
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Spring, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   Spring, 3, AutoReverse, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Spring, 2, AutoReverse, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Spring, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Spring, 3, AutoReverse, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Spring, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Spring, 2, AutoReverse, 2, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   953
+      Left            =   249
       LockedInPosition=   False
       Scope           =   0
       Top             =   190
@@ -737,13 +737,13 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label8
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label8, 3, Spring, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label8, 8, , 0, False, +1.00, 2, 1, 30, 
       AutoLayout      =   Label8, 2, Spring, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
-      AutoLayout      =   Label8, 3, Spring, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label8, 7, , 0, False, +1.00, 1, 1, 135, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   810
+      Left            =   106
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Spring Animation"
@@ -758,9 +758,9 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label9
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label9, 1, DurationField, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label9, 7, , 0, False, +1.00, 1, 1, 41, 
       AutoLayout      =   Label9, 3, Label4, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label9, 1, DurationField, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label9, 4, Label4, 4, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
@@ -779,9 +779,9 @@ Begin iosView BlockanimationView
    Begin iostextfield DelayField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   DelayField, 3, Label9, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   DelayField, 1, Label9, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   DelayField, 7, , 0, False, +1.00, 1, 1, 43, 
-      AutoLayout      =   DelayField, 3, Label9, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   DelayField, 8, , 0, False, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
@@ -803,14 +803,14 @@ Begin iosView BlockanimationView
    Begin iostextfield DampingField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   DampingField, 3, Spring, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   DampingField, 8, , 0, False, +1.00, 1, 1, 31, 
       AutoLayout      =   DampingField, 1, Spring, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   DampingField, 3, Spring, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   DampingField, 7, , 0, False, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "2"
-      Left            =   953
+      Left            =   249
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   ""
@@ -827,8 +827,8 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label10
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label10, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label10, 2, DampingField, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
+      AutoLayout      =   Label10, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label10, 3, Spring, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Enabled         =   True
       Height          =   30.0
@@ -842,18 +842,18 @@ Begin iosView BlockanimationView
       TextSize        =   0
       Top             =   229
       Visible         =   True
-      Width           =   108.0
+      Width           =   -596.0
    End
    Begin iOSLabel Label11
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label11, 3, DampingField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label11, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label11, 2, VelocityField, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
-      AutoLayout      =   Label11, 3, DampingField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label11, 7, , 0, False, +1.00, 1, 1, 108, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   837
+      Left            =   133
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Velocity"
@@ -868,14 +868,14 @@ Begin iosView BlockanimationView
    Begin iostextfield VelocityField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   VelocityField, 2, DampingField, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   VelocityField, 8, , 0, False, +1.00, 1, 1, 31, 
       AutoLayout      =   VelocityField, 1, DampingField, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   VelocityField, 2, DampingField, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   VelocityField, 3, DampingField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "2"
-      Left            =   953
+      Left            =   249
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   ""
@@ -892,14 +892,14 @@ Begin iosView BlockanimationView
    Begin iOSButton ResetButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ResetButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   ResetButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ResetButton, 7, , 0, False, +1.00, 1, 1, 67, 
-      AutoLayout      =   ResetButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   ResetButton, 4, SBoundsButton, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Caption         =   "Reset"
       Enabled         =   True
       Height          =   30.0
-      Left            =   937
+      Left            =   233
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -912,9 +912,9 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label12
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label12, 3, BGColorField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label12, 8, , 0, False, +1.00, 1, 1, 21, 
       AutoLayout      =   Label12, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Label12, 3, BGColorField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label12, 7, , 0, False, +1.00, 1, 1, 137, 
       Enabled         =   True
       Height          =   21.0
@@ -933,9 +933,9 @@ Begin iosView BlockanimationView
    Begin iostextfield RotationField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   RotationField, 3, Label12, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   RotationField, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   RotationField, 7, , 0, False, +1.00, 1, 1, 99, 
-      AutoLayout      =   RotationField, 3, Label12, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   RotationField, 8, , 0, False, +1.00, 1, 1, 36, 
       Enabled         =   True
       Height          =   36.0
@@ -957,13 +957,13 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label13
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label13, 1, TRFA, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label13, 4, TRFA, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   Label13, 8, , 0, False, +1.00, 1, 1, 21, 
-      AutoLayout      =   Label13, 1, TRFA, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label13, 7, , 0, False, +1.00, 1, 1, 137, 
       Enabled         =   True
       Height          =   21.0
-      Left            =   785
+      Left            =   81
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Transformation"
@@ -978,8 +978,8 @@ Begin iosView BlockanimationView
    Begin iOSButton ARotationButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ARotationButton, 4, BottomLayoutGuide, 3, False, +1.00, 4, 1, -*kStdControlGapV, 
       AutoLayout      =   ARotationButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   ARotationButton, 4, BottomLayoutGuide, 3, False, +1.00, 4, 1, -*kStdControlGapV, 
       AutoLayout      =   ARotationButton, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       Caption         =   "Animate Rotation"
       Enabled         =   True
@@ -992,19 +992,19 @@ Begin iosView BlockanimationView
       TextSize        =   0
       Top             =   442
       Visible         =   True
-      Width           =   -248.0
+      Width           =   -148.0
    End
    Begin iostextfield TrF01
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TrF01, 3, TrF0, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TrF01, 8, , 0, False, +1.00, 1, 1, 31, 
       AutoLayout      =   TrF01, 1, TrF0, 1, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   TrF01, 3, TrF0, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TrF01, 7, , 0, False, +1.00, 1, 1, 45, 
       Enabled         =   False
       Height          =   31.0
       KeyboardType    =   "2"
-      Left            =   959
+      Left            =   255
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   "0"
@@ -1021,14 +1021,14 @@ Begin iosView BlockanimationView
    Begin iostextfield TrF1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TrF1, 3, TrF01, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TrF1, 8, , 0, False, +1.00, 1, 1, 31, 
       AutoLayout      =   TrF1, 1, TrFTY, 2, False, +1.00, 2, 1, *kStdControlGapH, 
-      AutoLayout      =   TrF1, 3, TrF01, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TrF1, 7, , 0, False, +1.00, 1, 1, 45, 
       Enabled         =   False
       Height          =   31.0
       KeyboardType    =   "2"
-      Left            =   959
+      Left            =   255
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   "1"
@@ -1045,14 +1045,14 @@ Begin iosView BlockanimationView
    Begin iostextfield TrFTY
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TrFTY, 3, TrF1, 3, False, +1.00, 1, 1, 1, 
       AutoLayout      =   TrFTY, 1, TrFD, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   TrFTY, 7, , 0, False, +1.00, 1, 1, 79, 
-      AutoLayout      =   TrFTY, 3, TrF1, 3, False, +1.00, 1, 1, 1, 
       AutoLayout      =   TrFTY, 8, , 0, False, +1.00, 1, 1, 31, 
       Enabled         =   False
       Height          =   31.0
       KeyboardType    =   "2"
-      Left            =   872
+      Left            =   168
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   "1"
@@ -1069,14 +1069,14 @@ Begin iosView BlockanimationView
    Begin iostextfield TrFD
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TrFD, 3, TrF01, 3, False, +1.00, 1, 1, 1, 
       AutoLayout      =   TrFD, 2, TrF01, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   TrFD, 7, , 0, False, +1.00, 1, 1, 79, 
-      AutoLayout      =   TrFD, 3, TrF01, 3, False, +1.00, 1, 1, 1, 
       AutoLayout      =   TrFD, 8, , 0, False, +1.00, 1, 1, 31, 
       Enabled         =   False
       Height          =   31.0
       KeyboardType    =   "2"
-      Left            =   872
+      Left            =   168
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   "0"
@@ -1093,14 +1093,14 @@ Begin iosView BlockanimationView
    Begin iostextfield TrFC
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TrFC, 3, TRFA, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TrFC, 2, TRFA, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   TrFC, 7, , 0, False, +1.00, 1, 1, 79, 
-      AutoLayout      =   TrFC, 3, TRFA, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TrFC, 8, , 0, False, +1.00, 1, 1, 31, 
       Enabled         =   False
       Height          =   31.0
       KeyboardType    =   "2"
-      Left            =   785
+      Left            =   81
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   "0"
@@ -1117,14 +1117,14 @@ Begin iosView BlockanimationView
    Begin iostextfield TrFTX
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TrFTX, 3, TrFC, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TrFTX, 1, TrFC, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   TrFTX, 7, , 0, False, +1.00, 1, 1, 79, 
-      AutoLayout      =   TrFTX, 3, TrFC, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TrFTX, 8, , 0, False, +1.00, 1, 1, 31, 
       Enabled         =   False
       Height          =   31.0
       KeyboardType    =   "2"
-      Left            =   785
+      Left            =   81
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   "1"
@@ -1141,14 +1141,14 @@ Begin iosView BlockanimationView
    Begin iOSButton Setrotationbutton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Setrotationbutton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Setrotationbutton, 7, , 0, False, +1.00, 2, 1, 100, 
       AutoLayout      =   Setrotationbutton, 3, ARotationButton, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Setrotationbutton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Setrotationbutton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Set Rotation"
       Enabled         =   True
       Height          =   30.0
-      Left            =   904
+      Left            =   200
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -1161,9 +1161,9 @@ Begin iosView BlockanimationView
    Begin iostextfield CXField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   CXField, 3, BXField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   CXField, 8, , 0, False, +1.00, 1, 1, 31, 
       AutoLayout      =   CXField, 1, BXField, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   CXField, 3, BXField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   CXField, 7, , 0, False, +1.00, 1, 1, 45, 
       Enabled         =   True
       Height          =   31.0
@@ -1185,9 +1185,9 @@ Begin iosView BlockanimationView
    Begin iOSLabel CenterLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   CenterLabel, 3, Label3, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   CenterLabel, 8, , 0, False, +1.00, 1, 1, 21, 
       AutoLayout      =   CenterLabel, 1, CXField, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   CenterLabel, 3, Label3, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   CenterLabel, 7, , 0, False, +1.00, 1, 1, 58, 
       Enabled         =   True
       Height          =   21.0
@@ -1206,9 +1206,9 @@ Begin iosView BlockanimationView
    Begin iostextfield CYField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   CYField, 3, BYField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   CYField, 8, , 0, False, +1.00, 1, 1, 31, 
       AutoLayout      =   CYField, 1, CXField, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   CYField, 3, BYField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   CYField, 7, , 0, False, +1.00, 1, 1, 45, 
       Enabled         =   True
       Height          =   31.0
@@ -1230,14 +1230,14 @@ Begin iosView BlockanimationView
    Begin iOSButton SetCenterbutton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   SetCenterbutton, 3, Setrotationbutton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SetCenterbutton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   SetCenterbutton, 2, Setrotationbutton, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
-      AutoLayout      =   SetCenterbutton, 3, Setrotationbutton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SetCenterbutton, 7, , 0, False, +1.00, 1, 1, 86, 
       Caption         =   "Set Center"
       Enabled         =   True
       Height          =   30.0
-      Left            =   810
+      Left            =   106
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -1250,14 +1250,14 @@ Begin iosView BlockanimationView
    Begin iOSButton ACenterButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ACenterButton, 1, ARotationButton, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ACenterButton, 7, , 0, False, +1.00, 1, 1, 112, 
       AutoLayout      =   ACenterButton, 3, ARotationButton, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ACenterButton, 1, ARotationButton, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ACenterButton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Animate Center"
       Enabled         =   True
       Height          =   30.0
-      Left            =   -220
+      Left            =   -120
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -1270,9 +1270,9 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label14
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label14, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Label14, 7, , 0, False, +1.00, 1, 1, 137, 
       AutoLayout      =   Label14, 3, RotationField, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label14, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Label14, 8, , 0, False, +1.00, 1, 1, 21, 
       Enabled         =   True
       Height          =   21.0
@@ -1290,9 +1290,9 @@ Begin iosView BlockanimationView
       Begin iOSLabel Label17
          AccessibilityHint=   ""
          AccessibilityLabel=   ""
+         AutoLayout      =   Label17, 7, , 0, False, +1.00, 1, 1, 137, 
          AutoLayout      =   Label17, 3, Label14, 3, False, +1.00, 1, 1, 0, 
          AutoLayout      =   Label17, 1, Label14, 1, False, +1.00, 1, 1, 0, 
-         AutoLayout      =   Label17, 7, , 0, False, +1.00, 1, 1, 137, 
          AutoLayout      =   Label17, 8, , 0, False, +1.00, 1, 1, 21, 
          Enabled         =   True
          Height          =   21.0
@@ -1314,9 +1314,9 @@ Begin iosView BlockanimationView
    Begin iostextfield Alphafield
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Alphafield, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Alphafield, 7, , 0, False, +1.00, 1, 1, 99, 
       AutoLayout      =   Alphafield, 3, Label14, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Alphafield, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Alphafield, 8, , 0, False, +1.00, 1, 1, 36, 
       Enabled         =   True
       Height          =   36.0
@@ -1338,14 +1338,14 @@ Begin iosView BlockanimationView
    Begin iOSButton AAlphaButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   AAlphaButton, 3, ACenterButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AAlphaButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   AAlphaButton, 1, ACenterButton, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   AAlphaButton, 3, ACenterButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AAlphaButton, 7, , 0, False, +1.00, 1, 1, 112, 
       Caption         =   "Animate Alpha"
       Enabled         =   True
       Height          =   30.0
-      Left            =   -100
+      Left            =   0
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -1358,14 +1358,14 @@ Begin iosView BlockanimationView
    Begin iOSButton SetAlphaButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   SetAlphaButton, 3, SetCenterbutton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SetAlphaButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   SetAlphaButton, 2, SetCenterbutton, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
-      AutoLayout      =   SetAlphaButton, 3, SetCenterbutton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SetAlphaButton, 7, , 0, False, +1.00, 1, 1, 86, 
       Caption         =   "Set Alpha"
       Enabled         =   True
       Height          =   30.0
-      Left            =   716
+      Left            =   12
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -1378,9 +1378,9 @@ Begin iosView BlockanimationView
    Begin iOSSegmentedControl TransitionOptControl
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TransitionOptControl, 3, AnimationOptControl, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   TransitionOptControl, 1, AnimationOptControl, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   TransitionOptControl, 7, , 0, False, +1.00, 1, 1, 431, 
-      AutoLayout      =   TransitionOptControl, 3, AnimationOptControl, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   TransitionOptControl, 8, , 0, True, +1.00, 1, 1, 29, 
       Caption         =   ""
       Enabled         =   True
@@ -1397,9 +1397,9 @@ Begin iosView BlockanimationView
    Begin iOSButton TestButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TestButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   TestButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   TestButton, 2, CenterLabel, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   TestButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   TestButton, 4, TextArea1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Caption         =   "Return to Menu"
       Enabled         =   True
@@ -1417,13 +1417,13 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label15
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label15, 2, Transistions, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   Label15, 7, , 0, False, +1.00, 1, 1, 127, 
       AutoLayout      =   Label15, 3, Transistions, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label15, 2, Transistions, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   Label15, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   624
+      Left            =   -80
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Transitions"
@@ -1438,13 +1438,13 @@ Begin iosView BlockanimationView
    Begin iOSSwitch Transistions
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Transistions, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Transistions, 2, Label4, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
-      AutoLayout      =   Transistions, 3, Begincurrent, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Transistions, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Transistions, 2, Label4, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
+      AutoLayout      =   Transistions, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Transistions, 3, Begincurrent, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   759
+      Left            =   55
       LockedInPosition=   False
       Scope           =   0
       Top             =   73
@@ -1455,9 +1455,9 @@ Begin iosView BlockanimationView
    Begin iostextfield ScaleField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ScaleField, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   ScaleField, 7, , 0, False, +1.00, 1, 1, 99, 
       AutoLayout      =   ScaleField, 3, Label18, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ScaleField, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   ScaleField, 8, , 0, False, +1.00, 1, 1, 36, 
       Enabled         =   True
       Height          =   36.0
@@ -1479,14 +1479,14 @@ Begin iosView BlockanimationView
    Begin iOSButton SetScaleButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   SetScaleButton, 7, , 0, False, +1.00, 1, 1, 112, 
       AutoLayout      =   SetScaleButton, 3, AAlphaButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   SetScaleButton, 1, AAlphaButton, 1, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   SetScaleButton, 7, , 0, False, +1.00, 1, 1, 112, 
       AutoLayout      =   SetScaleButton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Set Scale"
       Enabled         =   True
       Height          =   30.0
-      Left            =   0
+      Left            =   100
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
@@ -1499,9 +1499,9 @@ Begin iosView BlockanimationView
    Begin iOSLabel Label18
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label18, 1, TestButton, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label18, 7, , 0, False, +1.00, 1, 1, 137, 
       AutoLayout      =   Label18, 3, Alphafield, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label18, 1, TestButton, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label18, 8, , 0, False, +1.00, 1, 1, 21, 
       Enabled         =   True
       Height          =   21.0
@@ -1520,9 +1520,9 @@ Begin iosView BlockanimationView
    Begin iOSButton AnimateScaleButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   AnimateScaleButton, 3, AColorButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AnimateScaleButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   AnimateScaleButton, 1, AColorButton, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   AnimateScaleButton, 3, AColorButton, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AnimateScaleButton, 7, , 0, False, +1.00, 1, 1, 81, 
       Caption         =   "An. Scale"
       Enabled         =   True
@@ -1790,7 +1790,7 @@ End
 		  dim velocity as double = double.FromText (VelocityField.text)
 		  
 		  dim newcolor as color = BGColorField.text.ColorFromHex
-		  if Spring.value then 
+		  if Spring.value then
 		    ImageView.AnimateSpring (newcolor, seconds,  dampingRatio, velocity, options, delay)
 		  else
 		    ImageView.Animate (newcolor, seconds,  options, delay, Transistions.value)

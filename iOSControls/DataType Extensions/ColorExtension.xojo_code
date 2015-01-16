@@ -11,7 +11,7 @@ Protected Module ColorExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function UIColor(extends c as color) As Ptr
+		Function toUIColor(extends c as color) As Ptr
 		  // returns a Ptr to a new Uicolor Created from a Xojo Color
 		  
 		  declare function colorFromRGBA lib UIKit selector "colorWithRed:green:blue:alpha:" (id as Ptr, red as Single, green as Single, blue as Single, alpha as Single) as Ptr

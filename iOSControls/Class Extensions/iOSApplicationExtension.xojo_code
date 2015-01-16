@@ -14,7 +14,7 @@ Protected Module iOSApplicationExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub HideStatusBarAnimated(extends a as iOSApplication,  value as StatusBarAnimation)
+		Sub HideStatusBarAnimated(extends a as iOSApplication, value as StatusBarAnimation)
 		  setStatusbarhiddenwithAnimation a.Handle, true, value
 		End Sub
 	#tag EndMethod
@@ -34,7 +34,7 @@ Protected Module iOSApplicationExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ShowStatusBarAnimated(extends a as iOSApplication,  value as StatusBarAnimation)
+		Sub ShowStatusBarAnimated(extends a as iOSApplication, value as StatusBarAnimation)
 		  setStatusbarhiddenwithAnimation a.Handle, false, value
 		End Sub
 	#tag EndMethod

@@ -51,7 +51,7 @@ Protected Module PtrExtension
 
 	#tag Method, Flags = &h0
 		Function toAutoArray(extends NSArray as Ptr) As Auto()
-		   // Converts an NSArray to a Xojo Array
+		  // Converts an NSArray to a Xojo Array
 		  
 		  dim myarray() as Auto
 		  for q as uinteger = 0 to NSArray.count -1
@@ -84,7 +84,7 @@ Protected Module PtrExtension
 
 	#tag Method, Flags = &h0
 		Function toIOSImageArray(extends NSArray as Ptr) As iosimage()
-		   // Converts an NSArray to a Xojo Array
+		  // Converts an NSArray to a Xojo Array
 		  
 		  dim myarray() as iOSImage
 		  for q as uinteger = 0 to NSArray.count -1
@@ -96,7 +96,7 @@ Protected Module PtrExtension
 
 	#tag Method, Flags = &h0
 		Function toPtrArray(extends NSArray as Ptr) As Ptr()
-		   // Converts an NSArray to a Xojo Array
+		  // Converts an NSArray to a Xojo Array
 		  
 		  dim myarray() as Ptr
 		  for q as uinteger = 0 to NSArray.count -1

@@ -2,7 +2,7 @@
 Protected Class UIImageView
 Inherits iOSImageView
 	#tag Method, Flags = &h0
-		Sub Animate(NewColor as Color, seconds as double,  options as uinteger = 0, delay as double = 0, withTransitions as Boolean = False)
+		Sub Animate(NewColor as Color, seconds as double, options as uinteger = 0, delay as double = 0, withTransitions as Boolean = False)
 		  TransformToBackgroundColor = NewColor
 		  dim block as new iOSBlock (AddressOf TransformColorBlock)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
@@ -30,7 +30,7 @@ Inherits iOSImageView
 	#tag Method, Flags = &h0
 		Sub Animate(Xfactor as Double, YFactor as Double, Seconds as Double = 0.2, options as uinteger = 0, delay as double = 0, fromoriginal as Boolean = false, withTransition as Boolean = false)
 		  Xfactor = Xfactor / 100
-		  if YFactor = 0 then 
+		  if YFactor = 0 then
 		    YFactor = Xfactor
 		  else
 		    YFactor = YFactor / 100
@@ -53,7 +53,7 @@ Inherits iOSImageView
 		Sub Animate(Degrees as single, Seconds as Double = 0.2, options as uinteger = 0, delay as double = 0, fromoriginal as boolean = true, withTransition as Boolean = False)
 		  dim radians as single = Degrees.DegreesToRadians
 		  transformtotransformation  = if (fromOriginal,  iOSControlExtension.CGAffineTransformMakeRotation (radians), _
-		   iOSControlExtension.CGAffineTransformRotate (Transform, radians))
+		  iOSControlExtension.CGAffineTransformRotate (Transform, radians))
 		  dim block as new iOSBlock (AddressOf TransformTransformationBlock)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
 		  if withTransition then
@@ -65,7 +65,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Animate(NewCenter as Xojo.core.Point, seconds as double = 0.2 , options as uinteger = 0, delay as double = 0, withTransition as Boolean = False)
+		Sub Animate(NewCenter as Xojo.core.Point, seconds as double = 0.2, options as uinteger = 0, delay as double = 0, withTransition as Boolean = False)
 		  TransformToCenter = NewCenter
 		  dim block as new iOSBlock (AddressOf TransformCenterBlock)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
@@ -111,7 +111,7 @@ Inherits iOSImageView
 		  
 		  TransFormToBackgroundColor = endcolor
 		  transformtotransformation = if (fromOriginal,  iOSControlExtension.CGAffineTransformMakeRotation (angle), _
-		   iOSControlExtension.CGAffineTransformRotate (Transform, angle))
+		  iOSControlExtension.CGAffineTransformRotate (Transform, angle))
 		  dim block as new iOSBlock (AddressOf TransformBlock)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
 		  if withTransistion then
@@ -165,7 +165,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateSpring(NewColor as Color, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0,  delay as Double = 0)
+		Sub AnimateSpring(NewColor as Color, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0, delay as Double = 0)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
 		  
 		  
@@ -177,7 +177,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateSpring(Alpha as Double, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0,  delay as Double = 0)
+		Sub AnimateSpring(Alpha as Double, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0, delay as Double = 0)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
 		  TransformToAlpha = alpha
 		  dim block as new iOSBlock (AddressOf TransformAlphaBlock)
@@ -186,7 +186,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateSpring(Xfactor as Double, Yfactor as Double, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0,  delay as Double = 0, fromoriginal as boolean = true)
+		Sub AnimateSpring(Xfactor as Double, Yfactor as Double, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0, delay as Double = 0, fromoriginal as boolean = true)
 		  Xfactor = Xfactor / 100
 		  if YFactor = 0 then
 		    YFactor = Xfactor
@@ -203,7 +203,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateSpring(Degrees as single, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0,  delay as Double = 0, fromoriginal as boolean = true)
+		Sub AnimateSpring(Degrees as single, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0, delay as Double = 0, fromoriginal as boolean = true)
 		  Dim radians as single = Degrees.DegreesToRadians
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
 		  transformtotransformation  = if (fromOriginal,  iOSControlExtension.CGAffineTransformMakeRotation (radians), _
@@ -214,7 +214,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateSpring(NewCenter as Xojo.core.Point, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0,  delay as Double = 0)
+		Sub AnimateSpring(NewCenter as Xojo.core.Point, seconds as double, DampingRatio as double = 1, velocity as double = 1, options as uinteger = 0, delay as Double = 0)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
 		  TransformToCenter = NewCenter
 		  dim block as new iOSBlock (AddressOf TransformCenterBlock)
@@ -241,7 +241,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateSpringAll(angle as Single, EndAlpha As Double, Endframe as xojo.core.rect, Endbounds as xojo.core.rect = NIL, endCenter as Xojo.Core.Point = NIL, endcolor as color, seconds as Double = 0.2,  DampingRatio as double = 1, velocity as double = 1, delay as double = 0, options as uinteger = 0, fromOriginal as Boolean = true)
+		Sub AnimateSpringAll(angle as Single, EndAlpha As Double, Endframe as xojo.core.rect, Endbounds as xojo.core.rect = NIL, endCenter as Xojo.Core.Point = NIL, endcolor as color, seconds as Double = 0.2, DampingRatio as double = 1, velocity as double = 1, delay as double = 0, options as uinteger = 0, fromOriginal as Boolean = true)
 		  TransformToAlpha = EndAlpha
 		  TransFormToFrame = if (Endframe= NIL, Frame, Endframe)
 		  TransFormToBounds = if (Endbounds = NIL, bounds, Endbounds)
@@ -249,7 +249,7 @@ Inherits iOSImageView
 		  
 		  TransFormToBackgroundColor = endcolor
 		  TransformToTransformation = if (fromOriginal,  iOSControlExtension.CGAffineTransformMakeRotation (angle), _
-		   iOSControlExtension.CGAffineTransformRotate (Transform, angle))
+		  iOSControlExtension.CGAffineTransformRotate (Transform, angle))
 		  dim block as new iOSBlock (AddressOf TransformBlock)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
 		  animateWithSpring (classptr, seconds, DampingRatio, velocity, block.handle, completion.Handle, delay, options)
@@ -342,7 +342,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub performSystemAnimation(id as Ptr, onviews as ptr, animations as ptr,  options as uinteger = 0, completion as ptr)
+		Private Sub performSystemAnimation(id as Ptr, onviews as ptr, animations as ptr, options as uinteger = 0, completion as ptr)
 		  Declare sub performSystemAnimation lib UIKit selector "performSystemAnimation:onViews:options:animations:completion:" _
 		  (id as ptr, onviews as ptr, options as uinteger, animations as ptr, completion as ptr)
 		  performSystemAnimation id, onviews,  options, Animations, completion
@@ -426,7 +426,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub transitionFromView(fromview as Ptr, toView as Ptr, duration as Double, options as  uinteger,  completion as ptr)
+		 Shared Sub transitionFromView(fromview as Ptr, toView as Ptr, duration as Double, options as uinteger, completion as ptr)
 		  dim uiviewptr as ptr = NSClassFromString ("UIView")
 		  Declare sub transitionFromView lib UIKit selector "transitionFromView:toView:duration:options:completion:" _
 		  (id as ptr, fromview as ptr, toview as ptr, duration as Double, options as uinteger, completion as ptr)
@@ -436,7 +436,7 @@ Inherits iOSImageView
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub transitionWithDuration(duration as Double, options as  uinteger, animations as ptr, completion as ptr)
+		Private Sub transitionWithDuration(duration as Double, options as uinteger, animations as ptr, completion as ptr)
 		  Declare sub transitionWithView lib UIKit selector "transitionWithView:duration:options:animations:completion:" _
 		  (id as ptr, view as ptr, duration as Double, options as uinteger, animations as ptr, completion as ptr)
 		  transitionWithView ClassPtr, id, duration, options,  animations, completion
