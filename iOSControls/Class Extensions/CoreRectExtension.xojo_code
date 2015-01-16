@@ -1,6 +1,12 @@
 #tag Module
 Protected Module CoreRectExtension
 	#tag Method, Flags = &h0
+		Function fromCGRect(aRect as CGRect) As Rect
+		  return new rect (CorePointExtension.fromGCPoint (aRect.origin), CoreSizeExtension.fromCGSize (aRect.rectSize))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function toCGRect(extends arect as xojo.core.rect) As CGRect
 		  dim myrect as CGRect
 		  myrect.origin = aRect.Origin.toCGPoint

@@ -11,7 +11,7 @@ Protected Module iOSControlExtension
 		  // case UIGestureRecognizer.GestureRecognizerTypes.Tap
 		  //  newRecognizer = new UITapGestureRecognizer (c.Handle)
 		  // // newRecognizer = new UITapGestureRecognizer (c.Handle,  UIGestureRecognizer.GestureRecognizerTypes.Tap, UIGestureRecognizer.classptr)
-		  // 
+		  //
 		  // end select
 		  // AddGestureRecognizer (c.Handle, newRecognizer.Handle)
 		  // end if
@@ -43,7 +43,7 @@ Protected Module iOSControlExtension
 	#tag Method, Flags = &h0
 		Function alloc(aClass as Ptr) As Ptr
 		  declare function alloc lib UIKit selector "alloc" (id as ptr) as ptr
-		  return alloc (aclass) 
+		  return alloc (aclass)
 		End Function
 	#tag EndMethod
 
@@ -162,7 +162,7 @@ Protected Module iOSControlExtension
 
 	#tag Method, Flags = &h0
 		Sub BackgroundColor(extends c as iOSControl, assigns value as color)
-		  setBackgroundColor c.Handle, value.uicolor
+		  setBackgroundColor c.Handle, value.touicolor
 		End Sub
 	#tag EndMethod
 
@@ -495,6 +495,13 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
+		Protected Function getDelegate(id as ptr) As ptr
+		  declare function delegate_ lib uikit selector "delegate" (id as ptr) as ptr
+		  return Delegate_ (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
 		Protected Function getExclusiveTouch(id as ptr) As Boolean
 		  declare Function isExclusiveTouch lib UIKit selector "isExclusiveTouch" (id as ptr) as Boolean
 		  return isExclusiveTouch (id)
@@ -511,7 +518,7 @@ Protected Module iOSControlExtension
 	#tag Method, Flags = &h1
 		Protected Function getGestureRecognizers(id as ptr) As Ptr
 		  declare function gestureRecognizers lib UIKit selector "gestureRecognizers"(id as ptr) as ptr
-		  return gestureRecognizers (id) 
+		  return gestureRecognizers (id)
 		End Function
 	#tag EndMethod
 
@@ -697,7 +704,7 @@ Protected Module iOSControlExtension
 
 	#tag Method, Flags = &h1
 		Protected Function init(obj_id as ptr) As ptr
-		  declare function init lib UIKit selector "init" (obj_id as ptr) as ptr  
+		  declare function init lib UIKit selector "init" (obj_id as ptr) as ptr
 		  Return init(obj_id)
 		End Function
 	#tag EndMethod
@@ -903,7 +910,7 @@ Protected Module iOSControlExtension
 
 	#tag Method, Flags = &h0
 		Sub performSelector(extends c as ioscontrol, aSelector as cfstringref, delay as double, anObject as Ptr = NIL)
-		  Declare Sub performSelectorwithObjectafterDelay lib UIKit selector "performSelector:withObject:afterDelay:"(id as ptr, aselector as Ptr, withObject as Ptr, delay as double) 
+		  Declare Sub performSelectorwithObjectafterDelay lib UIKit selector "performSelector:withObject:afterDelay:"(id as ptr, aselector as Ptr, withObject as Ptr, delay as double)
 		  
 		  performSelectorwithObjectafterDelay (c.handle, NSSelectorFromString (aSelector), anObject, delay)
 		  
@@ -1040,7 +1047,7 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RotateAnimated(extends c as ioscontrol, angle as Single, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef ="")
+		Sub RotateAnimated(extends c as ioscontrol, angle as Single, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef = "")
 		  c.setOldAnimationProperties (Seconds, delay, curve, transition, cacheTransition, repeat, autoreverse, continueFromCurrentState, fromCurrentTransform, startdate, animationname)
 		  c.Transform = if (fromCurrentTransform, CGAffineTransformRotate (c.Transform, angle.DegreesToRadians), CGAffineTransformMakeRotation (angle.DegreesToRadians))
 		  commitAnimations
@@ -1050,10 +1057,10 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Scale(extends c as ioscontrol, Xscale as double, yScale as Double= 0, fromCurrent as Boolean = false)
+		Sub Scale(extends c as ioscontrol, Xscale as double, yScale as Double = 0, fromCurrent as Boolean = false)
 		  Xscale = Xscale / 100
 		  if yScale = 0 then
-		     yScale = Xscale // proprtional if only one value
+		    yScale = Xscale // proprtional if only one value
 		  else
 		    yScale = yScale / 100
 		  end if
@@ -1062,7 +1069,7 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ScaleAnimated(extends c as ioscontrol, Xscale as double, yScale as Double= 0,  Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef ="")
+		Sub ScaleAnimated(extends c as ioscontrol, Xscale as double, yScale as Double = 0, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef = "")
 		  Xscale = Xscale / 100
 		  if yScale = 0 then
 		    yScale = Xscale // proprtional if only one value
@@ -1113,7 +1120,7 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub setAlphaAnimated(extends c as ioscontrol, NewAlpha as Double, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef ="")
+		Sub setAlphaAnimated(extends c as ioscontrol, NewAlpha as Double, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef = "")
 		  c.setOldAnimationProperties (Seconds, delay, curve, transition, cacheTransition, repeat, autoreverse, continueFromCurrentState, fromCurrentTransform, startdate, animationname)
 		  c.alpha = NewAlpha
 		  commitAnimations
@@ -1215,7 +1222,7 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub setBackgroundColorAnimated(extends c as ioscontrol, NewColor as Color, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef ="")
+		Sub setBackgroundColorAnimated(extends c as ioscontrol, NewColor as Color, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef = "")
 		  c.setOldAnimationProperties (Seconds, delay, curve, transition, cacheTransition, repeat, autoreverse, continueFromCurrentState, fromCurrentTransform, startdate, animationname)
 		  c.BackgroundColor = NewColor
 		  commitAnimations
@@ -1232,7 +1239,7 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub setBoundsAnimated(extends c as ioscontrol, NewBounds as Xojo.Core.rect, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef ="")
+		Sub setBoundsAnimated(extends c as ioscontrol, NewBounds as Xojo.Core.rect, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef = "")
 		  c.setOldAnimationProperties (Seconds, delay, curve, transition, cacheTransition, repeat, autoreverse, continueFromCurrentState, fromCurrentTransform, startdate, animationname)
 		  c.Bounds = NewBounds
 		  commitAnimations
@@ -1249,7 +1256,7 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub setCenterAnimated(extends c as ioscontrol, NewCenter as Xojo.Core.point, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef ="")
+		Sub setCenterAnimated(extends c as ioscontrol, NewCenter as Xojo.Core.point, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef = "")
 		  c.setOldAnimationProperties (Seconds, delay, curve, transition, cacheTransition, repeat, autoreverse, continueFromCurrentState, fromCurrentTransform, startdate, animationname)
 		  c.Center = NewCenter
 		  commitAnimations
@@ -1282,12 +1289,12 @@ Protected Module iOSControlExtension
 	#tag Method, Flags = &h1
 		Protected Sub setFrame(id as ptr, value as CGRect)
 		  declare Sub setFrame lib UIKit selector "setFrame:" (id as ptr, value as cgrect)
-		   setFrame id, value
+		  setFrame id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub setFrameAnimated(extends c as ioscontrol, NewFrame as Xojo.Core.rect, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef ="")
+		Sub setFrameAnimated(extends c as ioscontrol, NewFrame as Xojo.Core.rect, Seconds as Double = 0.2, delay as double = 0, curve as AnimationCurve = animationcurve.easeInEaseOut, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean = True, repeat as single = 0, autoreverse as boolean = false, continueFromCurrentState as Boolean = True, fromCurrentTransform as Boolean = false, startdate as xojo.core.date = NIL, animationname as CFStringRef = "")
 		  c.setOldAnimationProperties (Seconds, delay, curve, transition, cacheTransition, repeat, autoreverse, continueFromCurrentState, fromCurrentTransform, startdate, animationname)
 		  c.Frame = NewFrame
 		  commitAnimations
@@ -1304,7 +1311,7 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setLayerClass(id as ptr,  value as ptr)
+		Protected Sub setLayerClass(id as ptr, value as ptr)
 		  declare sub setlayerClass lib UIKit selector "setLayerClass:" (id as ptr, value as ptr)
 		  setlayerClass id, value
 		End Sub
@@ -1318,14 +1325,14 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setMultipleTouchEnabled(id as ptr,  value as boolean)
+		Protected Sub setMultipleTouchEnabled(id as ptr, value as boolean)
 		  declare Sub multipleTouchEnabled lib UIKit selector "multipleTouchEnabled:" (id as ptr, value as Boolean)
 		  setmultipleTouchEnabled id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub setOldAnimationProperties(extends c as ioscontrol, Seconds as Double, delay as double, curve as AnimationCurve, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean, repeat as single,  autoreverse as boolean, continueFromCurrentState as Boolean, fromCurrentTransform as Boolean, startdate as xojo.core.date, animationname as CFStringRef)
+		Private Sub setOldAnimationProperties(extends c as ioscontrol, Seconds as Double, delay as double, curve as AnimationCurve, transition as oldtransitionmode = oldtransitionmode.none, cacheTransition as Boolean, repeat as single, autoreverse as boolean, continueFromCurrentState as Boolean, fromCurrentTransform as Boolean, startdate as xojo.core.date, animationname as CFStringRef)
 		  beginAnimations  animationname, NIL
 		  setAnimationDuration Seconds
 		  setAnimationDelay delay
@@ -1492,7 +1499,7 @@ Protected Module iOSControlExtension
 
 	#tag Method, Flags = &h0
 		Sub TintColor(extends c as iOSControl, assigns aColor as Color)
-		  setTintColor c.handle, aColor.uicolor
+		  setTintColor c.handle, aColor.touicolor
 		End Sub
 	#tag EndMethod
 

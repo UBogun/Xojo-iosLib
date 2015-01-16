@@ -1,5 +1,5 @@
 Type=iOS
-RBProjectVersion=2014.031
+RBProjectVersion=2014.032
 MinIDEVersion=20140300
 Module=CorePointExtension;iOSControls/Class Extensions/CorePointExtension.xojo_code;&h480AE47D;&h34569DBF;false
 Module=CoreSizeExtension;iOSControls/Class Extensions/CoreSizeExtension.xojo_code;&h34D3968F;&h34569DBF;false
@@ -65,6 +65,7 @@ iOSView=TextAreaView;Views/TextAreaView.xojo_code;&hF8B53BA;&h3F16B090;false
 Module=iOSTextAreaExtension;iOSControls/Class Extensions/iOSTextAreaExtension.xojo_code;&h42621F5;&h34569DBF;false
 iOSView=TableView;Views/TableView.xojo_code;&h650998D2;&h3F16B090;false
 Module=iOSTableExtension;iOSControls/Class Extensions/iOSTableExtension.xojo_code;&h59107876;&h34569DBF;false
+Class=NSIndexPath;iOSControls/iosClasses/NSIndexPath.xojo_code;&h1DA082D2;&h243D469B;false
 DefaultTabletScreen=iPadScreen
 MajorVersion=1
 MinorVersion=0

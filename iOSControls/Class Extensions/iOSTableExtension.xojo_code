@@ -60,6 +60,32 @@ Protected Module iOSTableExtension
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h1
+		Protected Function Cell(extends a as iostable, row as integer, section as integer) As Ptr
+		  dim IP as new NSIndexPath (row, section)
+		  return getcellForRowAtIndexPath (a.Handle, IP)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub CellBackgroundColor(extends a as iostable, row as integer, section as integer, assigns aColor as color)
+		  dim aCell as Ptr = a.cell (row, section)
+		  setcellbackgroundcolor (acell, acolor)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub CellsBackgroundColor(extends a as iOSTable, assigns aColor as color)
+		  for section as integer = 0 to a.SectionCount - 1
+		    for row as integer = 0 to a.RowCount (section) -1
+		      dim aCell as Ptr = a.cell (row, section)
+		      setcellbackgroundcolor acell, acolor
+		    next
+		  next
+		  // timer.CallLater 200, AddressOf a.reloaddata
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Function ContentInset(extends a as iOSTable) As UIEdgeInsets64Bit
 		  return iOSTextAreaExtension.getcontentInset (a.handle)
@@ -100,6 +126,12 @@ Protected Module iOSTableExtension
 		Sub ContentSize(extends a as iostable, assigns value as xojo.core.size)
 		  iOSTextAreaExtension.setcontentSize a.handle, value.tocgsize
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function DataSourcePtr(extends a as iOSTable) As Ptr
+		  return getdataSource (a.handle)
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -144,6 +176,54 @@ Protected Module iOSTableExtension
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function FooterViewForSection(extends a as iostable, section as integer) As Ptr
+		  return getFooterViewForSection (a.handle, section)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getbackgroundView(id as ptr) As Ptr
+		  declare function backgroundView lib uikit selector "backgroundView" (id as ptr) as Ptr
+		  return backgroundView (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getcellForRowAtIndexPath(id as ptr, IndexPath as NSIndexPath) As Ptr
+		  declare function cellForRowAtIndexPath lib uikit selector "cellForRowAtIndexPath:" (id as ptr, indexpath as ptr) as Ptr
+		  return cellForRowAtIndexPath (id, indexpath.Handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getdataSource(id as ptr) As Ptr
+		  declare function dataSource lib uikit selector "dataSource" (id as ptr) as Ptr
+		  return dataSource (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getFooterViewForSection(id as ptr, section as integer) As Ptr
+		  declare function footerViewForSection lib uikit selector "footerViewForSection:" (id as ptr, section as integer) as Ptr
+		  return footerViewForSection (id, section)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getheaderViewForSection(id as ptr, section as integer) As Ptr
+		  declare function headerViewForSection lib uikit selector "headerViewForSection:" (id as ptr, section as integer) as Ptr
+		  return headerViewForSection (id, section)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getindexPathForCell(id as ptr, cell as ptr) As Ptr
+		  declare function indexPathForCell_ lib uikit selector "indexPathForCell:" (id as ptr, cell as ptr) as Ptr
+		  return indexPathForCell_ (id, cell)
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Function getRowHeight(id as ptr) As double
 		  #if target64bit
@@ -152,6 +232,81 @@ Protected Module iOSTableExtension
 		    declare function rowHeight lib uikit selector "rowHeight" (id as ptr) as single
 		  #endif
 		  return rowheight (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getSectionFooterHeight(id as ptr) As double
+		  #if target64bit
+		    declare function sectionFooterHeight lib uikit selector "sectionFooterHeight" (id as ptr) as double
+		  #elseif Target32Bit
+		    declare function sectionFooterHeight lib uikit selector "sectionFooterHeight" (id as ptr) as single
+		  #endif
+		  return sectionFooterHeight (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getSectionHeaderHeight(id as ptr) As double
+		  #if target64bit
+		    declare function sectionHeaderHeight lib uikit selector "sectionHeaderHeight" (id as ptr) as double
+		  #elseif Target32Bit
+		    declare function sectionHeaderHeight lib uikit selector "sectionHeaderHeight" (id as ptr) as single
+		  #endif
+		  return sectionHeaderHeight (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getSeparatorColor(id as ptr) As Ptr
+		  declare function separatorColor lib uikit selector "separatorColor" (id as ptr) as Ptr
+		  return separatorColor (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getseparatorInset(id as ptr) As UIEdgeInsets64Bit
+		  #if target32bit
+		    declare function separatorInset lib UIKit selector "separatorInset" (id as ptr) as UIEdgeInsets32Bit
+		    dim myInsets as UIEdgeInsets32Bit = separatorInset (id)
+		    return iOSTextAreaExtension.Inset32toInset64 (myInsets)
+		  #elseif target64bit
+		    declare function separatorInset lib UIKit selector "separatorInset" (id as ptr) as UIEdgeInsets64Bit
+		    return separatorInset (id)
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getSeparatorStyle(id as ptr) As SeparatorStyles
+		  declare function separatorStyle lib uikit selector "separatorStyle" (id as ptr) as SeparatorStyles
+		  return separatorStyle (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function gettableFooterView(id as ptr) As Ptr
+		  declare function tableFooterView lib uikit selector "tableFooterView" (id as ptr) as Ptr
+		  return tableFooterView (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function gettableHeaderView(id as ptr) As Ptr
+		  declare function tableHeaderView lib uikit selector "tableHeaderView" (id as ptr) as Ptr
+		  return tableHeaderView (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function HeaderViewForSection(extends a as iostable, section as integer) As Ptr
+		  return getheaderViewForSection (a.handle, section)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function IndexPathForCell(extends a as iostable, cell as iOSTableCellData) As NSIndexPath
+		  // return new NSIndexPath (getindexPathForCell (a.Handle, cell.Handle))
 		End Function
 	#tag EndMethod
 
@@ -294,6 +449,30 @@ Protected Module iOSTableExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function SectionFooterHeight(extends a as iOSTable) As double
+		  return getSectionFooterHeight (a.handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SectionFooterHeight(extends a as iOSTable, assigns value as double)
+		  setsectionFooterHeight a.handle, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function SectionHeaderHeight(extends a as iOSTable) As double
+		  return getSectionHeaderHeight (a.handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SectionHeaderHeight(extends a as iOSTable, assigns value as double)
+		  setsectionHeaderHeight a.handle, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Selectable(extends a as iOSTable) As Boolean
 		  return iOSTextAreaExtension.getSelectable (a.handle)
 		End Function
@@ -305,6 +484,65 @@ Protected Module iOSTableExtension
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function SeparatorColor(extends a as iostable) As color
+		  return getSeparatorColor (a.handle).tocolor
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SeparatorColor(extends a as iostable, assigns value as color)
+		  setSeparatorColor a.handle, value.touicolor
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function SeparatorInset(extends a as iostable) As UIEdgeInsets64Bit
+		  return getseparatorInset (a.handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SeparatorInset(extends a as iostable, assigns value as UIEdgeInsets64Bit)
+		  setseparatorInset a.handle, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function SeparatorStyle(extends a as iostable) As SeparatorStyles
+		  return getSeparatorStyle (a.handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SeparatorStyle(extends a as iostable, assigns value as SeparatorStyles)
+		  setSeparatorStyle a.handle, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setbackgroundView(id as ptr, value as ptr)
+		  declare sub setbackgroundView_ lib uikit selector "setBackgroundView:" (id as ptr, value as ptr)
+		  setbackgroundView_ id, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SetCellBackgroundColor(cell as ptr, aColor as color)
+		  iOSControlExtension.setBackgroundColor (cell, acolor.touicolor)
+		  dim bgview as ptr = getbackgroundView (cell) // the background view feature doesn't help. This all has to be redone once a datasource cell paint event is available.
+		  if bgview = nil then
+		    dim newview as new uiview (CoreRectExtension.fromCGRect (iOSControlExtension.getBounds(cell)))
+		    setbackgroundView cell, newview.id
+		  end if
+		  
+		  iOSControlExtension.setBackgroundColor getbackgroundView (Cell), aColor.toUIColor // setting the color for bg view too.
+		  dim mycolor as color = iOSControlExtension.getBackgroundColor(cell).tocolor // and looking what color is really inside now
+		  system.debuglog if (mycolor = aColor, "Colors match", "Colors don't match")+" : "+aColor.totext+", "+mycolor.totext
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Sub setRowHeight(id as ptr, value as double)
 		  #if target64bit
@@ -313,6 +551,68 @@ Protected Module iOSTableExtension
 		    declare sub setRowHeight lib uikit selector "setRowHeight:" (id as ptr, value as single)
 		  #endif
 		  setrowheight id, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setsectionFooterHeight(id as ptr, value as double)
+		  #if target64bit
+		    declare sub setsectionFooterHeight_ lib uikit selector "setSectionFooterHeight:" (id as ptr, value as double)
+		  #elseif Target32Bit
+		    declare sub setsectionFooterHeight_ lib uikit selector "setSectionFooterHeight:" (id as ptr, value as single)
+		  #endif
+		  setSectionFooterHeight_ id, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setsectionHeaderHeight(id as ptr, value as double)
+		  #if target64bit
+		    declare sub setSectionHeaderHeight_ lib uikit selector "setSectionHeaderHeight:" (id as ptr, value as double)
+		  #elseif Target32Bit
+		    declare sub setSectionHeaderHeight_ lib uikit selector "setSectionHeaderHeight:" (id as ptr, value as single)
+		  #endif
+		  setSectionHeaderHeight_ id, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setSeparatorColor(id as ptr, value as ptr)
+		  declare sub setSeparatorColor_ lib uikit selector "setSeparatorColor:" (id as ptr, value as ptr)
+		  setSeparatorColor_ id, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setseparatorInset(id as ptr, value as UIEdgeInsets64Bit)
+		  #if target32bit
+		    declare sub setSeparatorInset_ lib UIKit selector "setSeparatorInset:" (id as ptr, value as UIEdgeInsets32Bit)
+		    setSeparatorInset_ id, iOSTextAreaExtension.Inset64toInset32 (value)
+		  #elseif target64bit
+		    declare sub setSeparatorInset_ lib UIKit selector "setSeparatorInset:" (id as ptr, value as UIEdgeInsets64Bit)
+		    setSeparatorInset_ id, value
+		  #endif
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setSeparatorStyle(id as ptr, value as SeparatorStyles)
+		  declare sub setseparatorStyle_ lib uikit selector "setSeparatorStyle:" (id as ptr, value as SeparatorStyles)
+		  setseparatorStyle_ id, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub settableFooterView(id as ptr, value as ptr)
+		  declare sub settableFooterView_ lib uikit selector "setTableFooterView:" (id as ptr, value as ptr)
+		  settableFooterView_ id, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub settableHeaderView(id as ptr, value as ptr)
+		  declare sub settableHeaderView_ lib uikit selector "setTableHeaderView:" (id as ptr, value as ptr)
+		  settableHeaderView_ id, value
 		End Sub
 	#tag EndMethod
 
@@ -337,6 +637,42 @@ Protected Module iOSTableExtension
 	#tag Method, Flags = &h0
 		Sub ShowsVerticalScrollBar(extends a as iostable, assigns value as boolean)
 		  iOSTextAreaExtension.setshowsVerticalScrollIndicator a.Handle, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function TableFooterView(extends a as iOSTable) As Ptr
+		  return gettableFooterView (a.Handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub TableFooterView(extends a as iOSTable, assigns value as ptr)
+		  settableFooterView a.Handle, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function TableHeaderView(extends a as iOSTable) As Ptr
+		  return gettableHeaderView (a.Handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub TableHeaderView(extends a as iOSTable, assigns value as ptr)
+		  settableHeaderView a.Handle, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ViewHandle(extends a as iOSTable) As Ptr
+		  return getbackgroundView (a.Handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ViewHandle(extends a as iOSTable, assigns value as ptr)
+		  setbackgroundView a.Handle, value
 		End Sub
 	#tag EndMethod
 
@@ -421,6 +757,9 @@ Protected Module iOSTableExtension
 		
 		– CanCancelContentTouches: If True, initiates a scroll that started with a touch that was registered by an underlying view. If False, the view will not scroll.
 		
+		– CellBackgroundColor (row, section) (Color): Lets you set the backgroundcolor for the cell in row/section.
+		   * There seems to be an error, the cell colors are not consistent and change when you scroll back & forth. *
+		
 		– ContentInset (UIEdgeInset): The inset in points for top.left, bottom and right indentation. I find this seems to work rather strange – maybe a problem of the 32/64 bit handling?
 		
 		– ContentOffset (Xojo.Core.Point): sets the offset of the contents. To raise indentation, feed it with negative values.
@@ -428,6 +767,9 @@ Protected Module iOSTableExtension
 		– ContentOffsetAnimated (Xojo.Core.Point, write-only): same as above but animates the change.
 		
 		– ContentSize (Size): TheSize in Points of the view's content
+		
+		– DataSourcePtr (Ptr, Read-only): The dataSource object of the table. Could basically be a write function too but you would have to design a custom DataSource object.
+		   Used for row handling by some functions.
 		
 		– DelaysContentTouches (Boolean): If true, holds back a touch event until it is sure it is no scroll event (or it is one).
 		
@@ -461,13 +803,29 @@ Protected Module iOSTableExtension
 		
 		– ScrollToTopEnabled (Boolean): Enables the Tap on status bar gesture to scroll to the top.
 		
+		– SectionFooterHeight (Double): The height of section footers.
+		
+		– SectionHeaderHeight (Double): The height of section headers.
+		
 		– Selectable (Boolean): Sets the user's ability to select content and interact with URLs and attachments.
+		
+		– SeparatorColor (Color): Lets you set the row separator line color
+		
+		– SeparatorInset (UIEdgeInsets64Bit): The default inset for all cells in the table. Only left and right values are used.
+		
+		– SeparatorStyle (SeparatorStyles): Lets you chose between No, SingleLine and Etched Single Line Style.
 		
 		– ShowsHorizontalScrollbar (Boolean): Whether the horizontal scrollbar appears.
 		
 		– ShowsVerticalScrollbar (Boolean): Whether the vertical scrollbar appears.
 		
-		– ZoomScale (Double):The zoom scale of the content
+		– TableFooterView (Ptr): Ptr to an accessory view below the table. Standard is NIL.
+		
+		– TableHeaderView (Ptr): Ptr to an accessory view above the table. Standard is NIL.
+		
+		– ViewHandle (Ptr): A Ptr to the table's background view which is placed behind all cells etc. Set to NIL if you want to set the table's backgroundcolor.
+		
+		– ZoomScale (Double): The zoom scale of the content
 		
 		– ZoomScaleAnimated (Double, write-only): The content gets scaled with an animation.
 		   Both don't seem to work with iosTables. Probably only useful for other scrollViews. If it proves to be so, the Zoom objects should probably better be removed.
@@ -478,6 +836,10 @@ Protected Module iOSTableExtension
 		* Methods *
 		
 		– flashScrollIndicators(): Shows the scroll bars temporarily
+		
+		– FooterViewForSection (Section as Integer): A Ptr to the section's footer view
+		
+		– HeaderiewForSection (Section as Integer): A Ptr to the section's header view
 		
 		– ScrollToRange (aRange asNSRange): Scrolls the text to show the selected range.
 		
@@ -499,6 +861,13 @@ Protected Module iOSTableExtension
 		
 		
 	#tag EndNote
+
+
+	#tag Enum, Name = SeparatorStyles, Type = Integer, Flags = &h1
+		None
+		  SingleLine
+		SingleLineEtched
+	#tag EndEnum
 
 
 	#tag ViewBehavior
