@@ -10,9 +10,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label3, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Label3, 3, <Parent>, 3, False, +1.00, 1, 1, 91, 
       AutoLayout      =   Label3, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   Label3, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 36, 
       Enabled         =   True
       Height          =   36.0
@@ -31,9 +31,9 @@ Begin iosView TextAreaView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 2, 1, 20, 
       AutoLayout      =   Button1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 141, 
       Caption         =   "Return to menu"
       Enabled         =   True
@@ -51,9 +51,9 @@ Begin iosView TextAreaView
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TextArea1, 3, <Parent>, 3, False, +1.00, 1, 1, 147, 
       AutoLayout      =   TextArea1, 2, Label3, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 336, 
-      AutoLayout      =   TextArea1, 3, <Parent>, 3, False, +1.00, 1, 1, 147, 
       AutoLayout      =   TextArea1, 1, Label3, 1, False, +1.00, 1, 1, 0, 
       Editable        =   True
       Height          =   336.0
@@ -73,10 +73,10 @@ Begin iosView TextAreaView
    Begin iOSSwitch Switch1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch1, 3, TextArea1, 4, False, +1.00, 1, 1, 40, 
-      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   Switch1, 1, TextArea1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch1, 3, TextArea1, 4, False, +1.00, 1, 1, 40, 
+      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   20
@@ -90,9 +90,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label1, 3, Switch1, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 264, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 3, Switch1, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 1, Switch1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       Enabled         =   True
       Height          =   30.0
@@ -111,9 +111,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label4, 3, Switch2, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 2, Label9, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
       AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label4, 3, Switch2, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 1, Switch2, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       Enabled         =   True
       Height          =   30.0
@@ -132,10 +132,10 @@ Begin iosView TextAreaView
    Begin iOSSwitch Switch2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch2, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   Switch2, 1, TextArea1, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Switch2, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   Switch2, 3, TextArea1, 4, False, +1.00, 1, 1, 40, 
+      AutoLayout      =   Switch2, 1, TextArea1, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch2, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Switch2, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       Left            =   160
@@ -149,9 +149,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ContentOffsetX
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ContentOffsetX, 3, Label5, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentOffsetX, 7, , 0, False, +1.00, 1, 1, 91, 
       AutoLayout      =   ContentOffsetX, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ContentOffsetX, 3, Label5, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentOffsetX, 1, Label5, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       Enabled         =   True
       Height          =   31.0
@@ -173,9 +173,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label5
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label5, 3, Switch1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label5, 7, , 0, False, +1.00, 1, 1, 148, 
       AutoLayout      =   Label5, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label5, 3, Switch1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label5, 1, Switch1, 1, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
@@ -194,9 +194,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ContentOffsetY
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ContentOffsetY, 3, Label5, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentOffsetY, 7, , 0, False, +1.00, 1, 1, 91, 
       AutoLayout      =   ContentOffsetY, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ContentOffsetY, 3, Label5, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentOffsetY, 1, ContentOffsetX, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       Enabled         =   True
       Height          =   31.0
@@ -218,9 +218,9 @@ Begin iosView TextAreaView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button2, 3, ContentOffsetY, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 1, Switch2, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button2, 4, Label5, 4, False, +1.00, 1, 1, 0, 
       Caption         =   "Set"
       Enabled         =   True
@@ -238,10 +238,10 @@ Begin iosView TextAreaView
    Begin iOSSwitch animatedSwitch
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   animatedSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   animatedSwitch, 1, Button2, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   animatedSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   animatedSwitch, 3, ContentOffsetX, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   animatedSwitch, 1, Button2, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+      AutoLayout      =   animatedSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   animatedSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       Left            =   268
@@ -255,9 +255,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label6
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label6, 1, animatedSwitch, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label6, 2, TextArea1, 2, False, +1.00, 1, 1, -103, 
       AutoLayout      =   Label6, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label6, 1, animatedSwitch, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label6, 3, Switch1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Enabled         =   True
       Height          =   30.0
@@ -276,9 +276,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label7
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label7, 2, ContentOffsetY, 1, False, +1.00, 2, 1, 2, 
       AutoLayout      =   Label7, 3, animatedSwitch, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label7, 1, Switch1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label7, 2, ContentOffsetY, 1, False, +1.00, 2, 1, 2, 
       AutoLayout      =   Label7, 4, ContentinsetTop, 4, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   31.0
@@ -297,9 +297,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ContentinsetTop
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ContentinsetTop, 1, Label7, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ContentinsetTop, 3, Label7, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentinsetTop, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ContentinsetTop, 1, Label7, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ContentinsetTop, 7, , 0, False, +1.00, 1, 1, 91, 
       Enabled         =   True
       Height          =   31.0
@@ -321,9 +321,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ContentInsetLeft
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ContentInsetLeft, 3, ContentinsetTop, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentInsetLeft, 7, , 0, False, +1.00, 1, 1, 91, 
       AutoLayout      =   ContentInsetLeft, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ContentInsetLeft, 3, ContentinsetTop, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentInsetLeft, 1, ContentinsetTop, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       Enabled         =   True
       Height          =   31.0
@@ -345,9 +345,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ContentInsetBottom
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ContentInsetBottom, 3, ContentinsetTop, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentInsetBottom, 1, ContentInsetLeft, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ContentInsetBottom, 7, , 0, False, +1.00, 1, 1, 91, 
-      AutoLayout      =   ContentInsetBottom, 3, ContentinsetTop, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentInsetBottom, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
@@ -369,9 +369,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ContentInsetRight
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ContentInsetRight, 1, ContentInsetBottom, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ContentInsetRight, 3, ContentInsetBottom, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentInsetRight, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ContentInsetRight, 1, ContentInsetBottom, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ContentInsetRight, 7, , 0, False, +1.00, 1, 1, 91, 
       Enabled         =   True
       Height          =   31.0
@@ -393,9 +393,9 @@ Begin iosView TextAreaView
    Begin iOSButton Button3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button3, 3, ContentInsetRight, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button3, 7, , 0, False, +1.00, 1, 1, 64, 
       AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button3, 3, ContentInsetRight, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button3, 1, ContentInsetRight, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       Caption         =   "Set"
       Enabled         =   True
@@ -413,9 +413,9 @@ Begin iosView TextAreaView
    Begin iOSButton Button5
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button5, 3, Label6, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button5, 1, Label6, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Button5, 7, , 0, False, +1.00, 1, 1, 64, 
-      AutoLayout      =   Button5, 3, Label6, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button5, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Refresh"
       Enabled         =   True
@@ -433,10 +433,10 @@ Begin iosView TextAreaView
    Begin iOSSwitch Switch3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch3, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch3, 3, Label7, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Switch3, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   Switch3, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Switch3, 3, Label7, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Switch3, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch3, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   20
@@ -450,9 +450,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label8
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label8, 7, , 0, False, +1.00, 1, 1, 422, 
       AutoLayout      =   Label8, 3, Switch3, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label8, 1, Switch3, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Label8, 7, , 0, False, +1.00, 1, 1, 422, 
       AutoLayout      =   Label8, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
@@ -471,10 +471,10 @@ Begin iosView TextAreaView
    Begin iOSSwitch DirectionalSwitch
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   DirectionalSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   DirectionalSwitch, 3, Label8, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   DirectionalSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   DirectionalSwitch, 1, Label8, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+      AutoLayout      =   DirectionalSwitch, 3, Label8, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   DirectionalSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   DirectionalSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   509
@@ -488,8 +488,8 @@ Begin iosView TextAreaView
    Begin iOSLabel Label9
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label9, 1, DirectionalSwitch, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label9, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label9, 1, DirectionalSwitch, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label9, 3, DirectionalSwitch, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
@@ -508,9 +508,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ScrollRectLeft
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ScrollRectLeft, 1, Scrollbutton, 2, False, +1.00, 2, 1, *kStdControlGapH, 
       AutoLayout      =   ScrollRectLeft, 3, Scrollbutton, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   ScrollRectLeft, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ScrollRectLeft, 1, Scrollbutton, 2, False, +1.00, 2, 1, *kStdControlGapH, 
       AutoLayout      =   ScrollRectLeft, 7, , 0, False, +1.00, 1, 1, 91, 
       Enabled         =   True
       Height          =   31.0
@@ -532,9 +532,9 @@ Begin iosView TextAreaView
    Begin iOSTextField Scrollrecttop
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Scrollrecttop, 1, ScrollRectLeft, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Scrollrecttop, 3, ScrollRectLeft, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Scrollrecttop, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Scrollrecttop, 1, ScrollRectLeft, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Scrollrecttop, 7, , 0, False, +1.00, 1, 1, 91, 
       Enabled         =   True
       Height          =   31.0
@@ -556,9 +556,9 @@ Begin iosView TextAreaView
    Begin iOSButton Scrollbutton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Scrollbutton, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Scrollbutton, 3, Switch3, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Scrollbutton, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Scrollbutton, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Scrollbutton, 7, , 0, False, +1.00, 1, 1, 105, 
       Caption         =   "Scroll To Rect"
       Enabled         =   True
@@ -576,9 +576,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ScrollrectHeigth
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ScrollrectHeigth, 1, ScrollRectWidth, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ScrollrectHeigth, 3, ScrollRectWidth, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ScrollrectHeigth, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ScrollrectHeigth, 1, ScrollRectWidth, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ScrollrectHeigth, 7, , 0, False, +1.00, 1, 1, 91, 
       Enabled         =   True
       Height          =   31.0
@@ -600,9 +600,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ScrollRectWidth
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ScrollRectWidth, 1, Scrollrecttop, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ScrollRectWidth, 3, Scrollrecttop, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ScrollRectWidth, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ScrollRectWidth, 1, Scrollrecttop, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ScrollRectWidth, 7, , 0, False, +1.00, 1, 1, 91, 
       Enabled         =   True
       Height          =   31.0
@@ -624,10 +624,10 @@ Begin iosView TextAreaView
    Begin iOSSwitch Switch4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch4, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch4, 3, Scrollbutton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Switch4, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   Switch4, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Switch4, 3, Scrollbutton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Switch4, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch4, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   20
@@ -641,9 +641,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label12
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label12, 2, Button1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label12, 3, Switch4, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label12, 1, Switch4, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Label12, 2, Button1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label12, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
@@ -662,9 +662,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label13
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label13, 7, , 0, False, +1.00, 1, 1, 83, 
       AutoLayout      =   Label13, 3, Switch5, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label13, 1, Switch5, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Label13, 7, , 0, False, +1.00, 1, 1, 83, 
       AutoLayout      =   Label13, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
@@ -683,10 +683,10 @@ Begin iosView TextAreaView
    Begin iOSSwitch Switch5
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch5, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch5, 3, Label4, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Switch5, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   Switch5, 1, Label4, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+      AutoLayout      =   Switch5, 3, Label4, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch5, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch5, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   568
@@ -700,9 +700,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label14
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label14, 7, , 0, False, +1.00, 1, 1, 124, 
       AutoLayout      =   Label14, 3, Label12, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label14, 1, <Parent>, 1, False, +1.00, 1, 1, 162, 
-      AutoLayout      =   Label14, 7, , 0, False, +1.00, 1, 1, 124, 
       AutoLayout      =   Label14, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
@@ -721,10 +721,10 @@ Begin iosView TextAreaView
    Begin iOSSwitch alwysBH
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   alwysBH, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   alwysBH, 1, Label14, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   alwysBH, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   alwysBH, 3, Label14, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   alwysBH, 1, Label14, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+      AutoLayout      =   alwysBH, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   alwysBH, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       Left            =   294
@@ -738,9 +738,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label15
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label15, 7, , 0, False, +1.00, 1, 1, 82, 
       AutoLayout      =   Label15, 3, alwysBH, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label15, 1, alwysBH, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Label15, 7, , 0, False, +1.00, 1, 1, 82, 
       AutoLayout      =   Label15, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
@@ -759,9 +759,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label16
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label16, 2, Switch5, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
       AutoLayout      =   Label16, 3, alwysBV, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label16, 1, alwysBV, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Label16, 2, Switch5, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
       AutoLayout      =   Label16, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
@@ -780,10 +780,10 @@ Begin iosView TextAreaView
    Begin iOSSwitch alwysBV
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   alwysBV, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   alwysBV, 3, alwysBH, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   alwysBV, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   alwysBV, 1, Label15, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+      AutoLayout      =   alwysBV, 3, alwysBH, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   alwysBV, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   alwysBV, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   443
@@ -797,9 +797,9 @@ Begin iosView TextAreaView
    Begin iOSButton Button6
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button6, 7, , 0, False, +1.00, 1, 1, 152, 
       AutoLayout      =   Button6, 3, ScrollRectWidth, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Button6, 1, Label16, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Button6, 7, , 0, False, +1.00, 1, 1, 152, 
       AutoLayout      =   Button6, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Flash Scrollbars"
       Enabled         =   True
@@ -817,9 +817,9 @@ Begin iosView TextAreaView
    Begin iOSSegmentedControl IndicatorControl
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   IndicatorControl, 1, Switch4, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   IndicatorControl, 2, Scrollrecttop, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
       AutoLayout      =   IndicatorControl, 8, , 0, True, +1.00, 1, 1, 29, 
-      AutoLayout      =   IndicatorControl, 1, Switch4, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   IndicatorControl, 3, Switch4, 4, False, +1.00, 1, 1, 26, 
       Caption         =   ""
       Enabled         =   True
@@ -836,8 +836,8 @@ Begin iosView TextAreaView
    Begin iOSLabel Label17
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label17, 1, IndicatorControl, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label17, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label17, 1, IndicatorControl, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label17, 3, IndicatorControl, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
@@ -856,9 +856,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ContentSizeW
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ContentSizeW, 1, Label17, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ContentSizeW, 3, Label17, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentSizeW, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ContentSizeW, 1, Label17, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ContentSizeW, 7, , 0, False, +1.00, 1, 1, 91, 
       Enabled         =   True
       Height          =   31.0
@@ -880,9 +880,9 @@ Begin iosView TextAreaView
    Begin iOSTextField ContentSizeH
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ContentSizeH, 1, ContentSizeW, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ContentSizeH, 3, ContentSizeW, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ContentSizeH, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ContentSizeH, 1, ContentSizeW, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ContentSizeH, 7, , 0, False, +1.00, 1, 1, 91, 
       Enabled         =   True
       Height          =   31.0
@@ -904,9 +904,9 @@ Begin iosView TextAreaView
    Begin iOSButton Button7
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button7, 1, ContentSizeH, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Button7, 3, ContentSizeH, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button7, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button7, 1, ContentSizeH, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Button7, 7, , 0, False, +1.00, 1, 1, 64, 
       Caption         =   "Set"
       Enabled         =   True
@@ -924,9 +924,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label18
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label18, 2, Label14, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
       AutoLayout      =   Label18, 3, IndicatorControl, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Label18, 1, IndicatorControl, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label18, 2, Label14, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
       AutoLayout      =   Label18, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
@@ -945,9 +945,9 @@ Begin iosView TextAreaView
    Begin iOSTextField DecRate
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   DecRate, 2, alwysBH, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
       AutoLayout      =   DecRate, 3, Label18, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   DecRate, 1, Label18, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   DecRate, 2, alwysBH, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
       AutoLayout      =   DecRate, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
@@ -969,9 +969,9 @@ Begin iosView TextAreaView
    Begin iOSButton Button8
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button8, 1, DecRate, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Button8, 3, DecRate, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button8, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button8, 1, DecRate, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Button8, 7, , 0, False, +1.00, 1, 1, 64, 
       Caption         =   "Set"
       Enabled         =   True
@@ -989,9 +989,9 @@ Begin iosView TextAreaView
    Begin iOSButton Scrollbutton1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Scrollbutton1, 1, ScrollrectHeigth, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Scrollbutton1, 3, ScrollrectHeigth, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Scrollbutton1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Scrollbutton1, 1, ScrollrectHeigth, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Scrollbutton1, 7, , 0, False, +1.00, 1, 1, 105, 
       Caption         =   "Zoom To Rect"
       Enabled         =   True
@@ -1009,9 +1009,9 @@ Begin iosView TextAreaView
    Begin iOSSegmentedControl DDetectorControl
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   DDetectorControl, 1, Label18, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   DDetectorControl, 3, Button8, 4, False, +1.00, 1, 1, 24, 
       AutoLayout      =   DDetectorControl, 8, , 0, True, +1.00, 1, 1, 29, 
-      AutoLayout      =   DDetectorControl, 1, Label18, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   DDetectorControl, 7, , 0, False, +1.00, 1, 1, 579, 
       Caption         =   ""
       Enabled         =   True
@@ -1028,9 +1028,9 @@ Begin iosView TextAreaView
    Begin iOSLabel Label19
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label19, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Label19, 2, Button3, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label19, 8, , 0, False, +1.00, 1, 1, 42, 
-      AutoLayout      =   Label19, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Label19, 3, DDetectorControl, 4, False, +1.00, 1, 1, 20, 
       Enabled         =   True
       Height          =   42.0

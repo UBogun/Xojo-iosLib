@@ -60,8 +60,8 @@ Protected Module iOSControlExtension
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Function AmbiguousLayout(extends c as iOSControl) As Boolean
+	#tag Method, Flags = &h0
+		Function AmbiguousLayout(extends c as iOSControl) As Boolean
 		  return hasAmbiguousLayout (c.handle)
 		End Function
 	#tag EndMethod
@@ -558,9 +558,9 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getMethodSignatureForSelector(id as ptr, aSelector as ptr) As MethodSignature
+		Protected Function getMethodSignatureForSelector(id as ptr, aSelector as ptr) As NSMethodSignature
 		  declare function methodSignatureForSelector lib UIKit selector "methodSignatureForSelector:" (id as ptr, selector as ptr) as Ptr
-		  return new MethodSignature (methodSignatureForSelector (id, aSelector))
+		  return new NSMethodSignature (methodSignatureForSelector (id, aSelector))
 		End Function
 	#tag EndMethod
 
@@ -861,7 +861,7 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function MethodSignature(extends c as iOSControl, aSelector as CFStringRef, isClassMethod as Boolean = false) As MethodSignature
+		Function MethodSignature(extends c as iOSControl, aSelector as CFStringRef, isClassMethod as Boolean = false) As NSMethodSignature
 		  return getMethodSignatureForSelector (if (isClassMethod, class_(c.handle),c.handle), NSSelectorFromString (aSelector))
 		End Function
 	#tag EndMethod
