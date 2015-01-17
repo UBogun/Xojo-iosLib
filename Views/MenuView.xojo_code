@@ -10,9 +10,9 @@ Begin iosView MenuView
    Begin iOSButton BlockAnimateButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   BlockAnimateButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   BlockAnimateButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   BlockAnimateButton, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   BlockAnimateButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   BlockAnimateButton, 3, OldAnimateButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Caption         =   "Block Animations / UIImageView"
       Enabled         =   True
@@ -30,9 +30,9 @@ Begin iosView MenuView
    Begin iOSButton ViewTransitionButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ViewTransitionButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   ViewTransitionButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   ViewTransitionButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ViewTransitionButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   ViewTransitionButton, 3, BlockAnimateButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Caption         =   "View Transitions / UIVIew"
       Enabled         =   True
@@ -50,9 +50,9 @@ Begin iosView MenuView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 69, 
       AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 120, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 31, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 69, 
       AutoLayout      =   Label1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -*kStdControlGapV, 
       Enabled         =   False
       Height          =   31.0
@@ -64,23 +64,23 @@ Begin iosView MenuView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   441
+      Top             =   985
       Visible         =   False
       Width           =   120.0
    End
    Begin iOSSwitch Switch1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Switch1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   Switch1, 1, <Parent>, 1, False, +1.00, 1, 1, 10, 
+      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   False
       Height          =   31.0
       Left            =   10
       LockedInPosition=   False
       Scope           =   0
-      Top             =   441
+      Top             =   985
       Value           =   False
       Visible         =   False
       Width           =   51.0
@@ -88,16 +88,16 @@ Begin iosView MenuView
    Begin iOSSwitch animatedswitch
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   animatedswitch, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   animatedswitch, 3, Switch1, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   animatedswitch, 1, Label1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+      AutoLayout      =   animatedswitch, 3, Switch1, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   animatedswitch, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   animatedswitch, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   False
       Height          =   31.0
       Left            =   197
       LockedInPosition=   False
       Scope           =   0
-      Top             =   441
+      Top             =   985
       Value           =   False
       Visible         =   False
       Width           =   51.0
@@ -105,9 +105,9 @@ Begin iosView MenuView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 31, 
       AutoLayout      =   Label2, 1, animatedswitch, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Label2, 3, animatedswitch, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 31, 
       AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 120, 
       Enabled         =   False
       Height          =   31.0
@@ -119,16 +119,16 @@ Begin iosView MenuView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   441
+      Top             =   985
       Visible         =   False
       Width           =   120.0
    End
    Begin iOSButton OldAnimateButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   OldAnimateButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   OldAnimateButton, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   OldAnimateButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   OldAnimateButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   OldAnimateButton, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 35, 
       Caption         =   "Old Animations / iOSControlExtension"
       Enabled         =   True
@@ -146,11 +146,10 @@ Begin iosView MenuView
    Begin iOSButton NotificationsButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   NotificationsButton, 7, , 0, False, +1.00, 1, 1, 728, 
-      AutoLayout      =   NotificationsButton, 3, ViewTransitionButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   NotificationsButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   NotificationsButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   NotificationsButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   NotificationsButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   NotificationsButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   NotificationsButton, 3, ViewTransitionButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Caption         =   "Notifications"
       Enabled         =   True
       Height          =   30.0
@@ -167,9 +166,9 @@ Begin iosView MenuView
    Begin iOSButton TextFieldButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextFieldButton, 3, NotificationsButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TextFieldButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextFieldButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TextFieldButton, 3, NotificationsButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TextFieldButton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Textfield Extension"
       Enabled         =   True
@@ -187,9 +186,9 @@ Begin iosView MenuView
    Begin iOSButton TextAreaButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextAreaButton, 3, TextFieldButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TextAreaButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextAreaButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TextAreaButton, 3, TextFieldButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   TextAreaButton, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "TextArea Extension"
       Enabled         =   True
@@ -207,20 +206,40 @@ Begin iosView MenuView
    Begin iOSButton TableButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TableButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   TableButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   TableButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   TableButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   TableButton, 3, TextAreaButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Caption         =   "Table Extension"
       Enabled         =   True
       Height          =   30.0
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   328.0
+      Top             =   328
+      Visible         =   True
+      Width           =   728.0
+   End
+   Begin iOSButton EffectButton
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   EffectButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   EffectButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   EffectButton, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   EffectButton, 3, TableButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      Caption         =   "VisualEffects/iOSCOntrolExtension"
+      Enabled         =   True
+      Height          =   30.0
+      Left            =   20
+      LockedInPosition=   False
+      Scope           =   0
+      TextColor       =   &c007AFF00
+      TextFont        =   ""
+      TextSize        =   0
+      Top             =   366
       Visible         =   True
       Width           =   728.0
    End
@@ -258,11 +277,11 @@ End
 #tag Events Switch1
 	#tag Event
 		Sub ValueChanged()
-		  if animatedswitch.value then 
+		  if animatedswitch.value then
 		    if me.Value then
-		       app.HideStatusBarAnimated (iOSApplicationExtension.StatusBarAnimation.Fade) 
-		    else 
-		      app.ShowStatusBarAnimated  (iOSApplicationExtension.StatusBarAnimation.Slide) 
+		      app.HideStatusBarAnimated (iOSApplicationExtension.StatusBarAnimation.Fade)
+		    else
+		      app.ShowStatusBarAnimated  (iOSApplicationExtension.StatusBarAnimation.Slide)
 		    end if
 		  else
 		    app.StatusBarHidden = me.value
@@ -326,6 +345,15 @@ End
 		Sub Action()
 		  dim v1 as new TableView
 		  v1.ModalTransitionStyle = iOSViewExtension.TransitionStyle.CrossDissolve
+		  self.AnimateModalTo v1
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events EffectButton
+	#tag Event
+		Sub Action()
+		  dim v1 as new EffectView
+		  v1.ModalTransitionStyle = iOSViewExtension.TransitionStyle.CoverVertical
 		  self.AnimateModalTo v1
 		End Sub
 	#tag EndEvent
