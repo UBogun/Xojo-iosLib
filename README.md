@@ -27,6 +27,7 @@ Currently included modules:
 - ObjectiveCRuntime FrameWork giving access to low-level iOS methods.
 
 Currently included classes:
+
 – iOSControlsEffectView classes for UIVisualEffectView features.
 - NSIndexPath: For handling Table cells & sections.
 - NSNotification & NSNotificationCenter: Catch appwide NSEvents or attach a specialized NotificationCenter to a control for easy event handling. Uses NotificationReceiverInterface (included).
