@@ -316,6 +316,19 @@ Inherits iOSImageView
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h1000
+		Sub Constructor(anImage as IOSImage)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From iOSImageView
+		  // Constructor() -- From iOSControl
+		  // Constructor(deserializer As xojo.Core._Deserializer) -- From iOSControl
+		  Declare Function initWithImage lib UIKit selector "initWithImage:" (id as ptr, anImage as Ptr) as ptr
+		  mid = initWithImage (alloc(classptr), anImage.handle)
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1021
 		Private Sub Constructor(id as Ptr)
 		  // Calling the overridden superclass constructor.
@@ -326,19 +339,6 @@ Inherits iOSImageView
 		  // Constructor(deserializer As xojo.Core._Deserializer) -- From iOSControl
 		  mid = id
 		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Function MakeUIImageView(id as ptr, anImage as IOSImage) As Ptr
-		  return MakeUIImageView (id, anImage.Handle)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Function MakeUIImageView(id as ptr, anImage as Ptr) As Ptr
-		  Declare Function initWithImage lib UIKit selector "initWithImage:" (id as ptr, anImage as Ptr) as ptr
-		  return initWithImage (id, anImage)
-		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
@@ -508,6 +508,10 @@ Inherits iOSImageView
 		Most Properties are added via IOSImageView Extension. Look there.
 		For animations, you will have to use this subclass as I found no way to attach the blocks and helper properties to the original class via a module.
 		
+		
+		* Constructor *
+		– (iosimage) : Creates a new UIImageView from an iOSImage
+		   Syntax: Dim myUIImage as new UIImage (myImage)
 		
 		
 		*Methods *

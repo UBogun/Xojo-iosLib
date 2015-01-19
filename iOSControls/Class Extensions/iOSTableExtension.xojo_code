@@ -25,6 +25,25 @@ Protected Module iOSTableExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub BackgroundImage(extends a as iostable, assigns value as iOSImage)
+		  dim newview as new uiimageview (value)
+		  a.BackgroundViewHandle = newview.Id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function BackgroundViewHandle(extends a as iostable) As Ptr
+		  return getbackgroundView (a.handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub BackgroundViewHandle(extends a as iostable, assigns value as ptr)
+		  setbackgroundView a.handle, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function BouncesZoom(extends a as iOSTable) As Boolean
 		  return iOSTextAreaExtension.getBouncesZoom (a.Handle)
 		End Function
@@ -60,8 +79,8 @@ Protected Module iOSTableExtension
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Function Cell(extends a as iostable, row as integer, section as integer) As Ptr
+	#tag Method, Flags = &h0
+		Function Cell(extends a as iostable, row as integer, section as integer) As Ptr
 		  dim IP as new NSIndexPath (row, section)
 		  return getcellForRowAtIndexPath (a.Handle, IP)
 		End Function
@@ -71,6 +90,13 @@ Protected Module iOSTableExtension
 		Sub CellBackgroundColor(extends a as iostable, row as integer, section as integer, assigns aColor as color)
 		  dim aCell as Ptr = a.cell (row, section)
 		  setcellbackgroundcolor (acell, acolor)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub CellBackgroundView(extends a as iostable, row as integer, section as integer, assigns aView as Ptr)
+		  dim aCell as Ptr = a.cell (row, section)
+		  setCellBackgroundView (acell, aview)
 		End Sub
 	#tag EndMethod
 
@@ -261,6 +287,13 @@ Protected Module iOSTableExtension
 		Protected Function getSeparatorColor(id as ptr) As Ptr
 		  declare function separatorColor lib uikit selector "separatorColor" (id as ptr) as Ptr
 		  return separatorColor (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getseparatorEffect(id as ptr) As Ptr
+		  declare function separatorEffect lib uikit selector "separatorEffect" (id as ptr) as Ptr
+		  return separatorEffect (id)
 		End Function
 	#tag EndMethod
 
@@ -497,6 +530,13 @@ Protected Module iOSTableExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub SeparatorEffect(extends a as iostable, EffectType as UIVisualEffectView.EffectType = UIVisualEffectView.EffectType.Vibrancy, EffectStyle as UIVisualEffectView.BlurEffectStyle = UIVisualEffectView.BlurEffectStyle.Light)
+		  dim myeffect as new UIVibrancyEffect (EffectType, EffectStyle)
+		  setseparatorEffect (a.Handle, myeffect.Handle)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function SeparatorInset(extends a as iostable) As UIEdgeInsets64Bit
 		  return getseparatorInset (a.handle)
 		End Function
@@ -531,14 +571,21 @@ Protected Module iOSTableExtension
 		Sub SetCellBackgroundColor(cell as ptr, aColor as color)
 		  iOSControlExtension.setBackgroundColor (cell, acolor.touicolor)
 		  dim bgview as ptr = getbackgroundView (cell) // the background view feature doesn't help. This all has to be redone once a datasource cell paint event is available.
-		  if bgview = nil then
-		    dim newview as new uiview (CoreRectExtension.fromCGRect (iOSControlExtension.getBounds(cell)))
-		    setbackgroundView cell, newview.id
-		  end if
+		  // if bgview = nil then
+		  // dim newview as new uiview (CoreRectExtension.fromCGRect (iOSControlExtension.getBounds(cell)))
+		  // setbackgroundView cell, newview.id
+		  // end if
 		  
 		  iOSControlExtension.setBackgroundColor getbackgroundView (Cell), aColor.toUIColor // setting the color for bg view too.
 		  dim mycolor as color = iOSControlExtension.getBackgroundColor(cell).tocolor // and looking what color is really inside now
 		  system.debuglog if (mycolor = aColor, "Colors match", "Colors don't match")+" : "+aColor.totext+", "+mycolor.totext
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setCellBackgroundView(cell as ptr, aView as Ptr)
+		  setbackgroundView cell, aview
 		  
 		End Sub
 	#tag EndMethod
@@ -580,6 +627,13 @@ Protected Module iOSTableExtension
 		Protected Sub setSeparatorColor(id as ptr, value as ptr)
 		  declare sub setSeparatorColor_ lib uikit selector "setSeparatorColor:" (id as ptr, value as ptr)
 		  setSeparatorColor_ id, value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setseparatorEffect(id as ptr, value as ptr)
+		  declare sub setseparatorEffect_ lib uikit selector "setSeparatorEffect:" (id as ptr, value as ptr)
+		  setseparatorEffect_ id, value
 		End Sub
 	#tag EndMethod
 
