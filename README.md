@@ -13,6 +13,8 @@ As of today, there is no "package" function in Xojo enabling you to add external
 And skip the request for App Icon and launch images. There are none; the project will run once you skip them.
 Sorry for this inconvenience. If you know of any better method to include external files, please let me know.
 
+Christian informed me that it would be wise to encpasulate subclasses by giving them unqiue names. I started so with the iOSControlsEffectView classes and will rename more classes in the future.
+
 
 Currently included modules:
 - Conversion modules for several conversion to and from Xojo/iOS classes.
@@ -25,6 +27,7 @@ Currently included modules:
 - ObjectiveCRuntime FrameWork giving access to low-level iOS methods.
 
 Currently included classes:
+– iOSControlsEffectView classes for UIVisualEffectView features.
 - NSIndexPath: For handling Table cells & sections.
 - NSNotification & NSNotificationCenter: Catch appwide NSEvents or attach a specialized NotificationCenter to a control for easy event handling. Uses NotificationReceiverInterface (included).
 - NSMethodSignature for low-level introspections
