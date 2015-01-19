@@ -1,26 +1,28 @@
 #tag Class
 Protected Class UIVisualEffectView
 	#tag Method, Flags = &h0
-		Sub Constructor(Type as EffectType, blurstyle as BlurEffectStyle = blureffectstyle.Light)
-		  declare function initWithEffect lib uikit selector "initWithEffect:" (id as ptr, effectStyle as Ptr) as Ptr
-		  select case type
-		  case EffectType.Blur
-		    myEffect = new UIBlurEffect (blurstyle)
-		  case EffectType.Vibrancy
-		    dim myBlurEffect as new UIBlurEffect (blurstyle)
-		    myEffect = new UIVibrancyEffect (myBlurEffect)
-		  end select
-		  mHandle = initWithEffect (alloc(ClassPtr), myEffect.handle)
-		  
-		  // NOTE: A selector for Vibrancy:NotificationCenterEffect shouldprobably be added.
-		  // Thats the constructor myEffect = new UIVibrancyEffect ()
-		  
+		Sub Constructor(id as ptr)
+		  mhandle = id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(id as ptr)
-		  mhandle = id
+		Sub Constructor(Type as UIVisualEffectView.EffectType, blurstyle as UIVisualEffectView.BlurEffectStyle = UIVisualEffectView.blureffectstyle.Light)
+		  declare function initWithEffect lib uikit selector "initWithEffect:" (id as ptr, effectStyle as Ptr) as Ptr
+		  select case type
+		  case UIVisualEffectView.EffectType.Blur
+		    dim BlurEffect as new UIBlurEffect (blurstyle)
+		    mHandle = initWithEffect (alloc(ClassPtr), BlurEffect.Handle)
+		  case UIVisualEffectView.EffectType.Vibrancy
+		    dim BlurEffect as new UIBlurEffect (blurstyle)
+		    dim VibrancyEffect as new UIVibrancyEffect (BlurEffect.Handle)
+		    mHandle = initWithEffect (alloc(ClassPtr), VibrancyEffect.Handle)
+		    myEffect = VibrancyEffect
+		  end select
+		  
+		  // NOTE: A selector for Vibrancy:NotificationCenterEffect shouldprobably be added.
+		  // Thats the constructor myEffect = new UIVibrancyEffect ()
+		  
 		End Sub
 	#tag EndMethod
 
@@ -73,13 +75,13 @@ Protected Class UIVisualEffectView
 	#tag EndProperty
 
 
-	#tag Enum, Name = BlurEffectStyle, Type = Integer, Flags = &h0
+	#tag Enum, Name = BlurEffectStyle, Flags = &h0
 		ExtraLight
 		  Light
 		Dark
 	#tag EndEnum
 
-	#tag Enum, Name = EffectType, Type = Integer, Flags = &h0
+	#tag Enum, Name = EffectType, Flags = &h0
 		Blur
 		Vibrancy
 	#tag EndEnum

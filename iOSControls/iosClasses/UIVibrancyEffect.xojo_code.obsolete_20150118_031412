@@ -1,10 +1,17 @@
 #tag Class
-Protected Class UIBlurEffect
+Protected Class UIVibrancyEffect
 Inherits UIVisualEffectView
 	#tag Method, Flags = &h1000
-		Sub Constructor(Style as uivisualeffectview.BlurEffectStyle)
-		  declare function effectWithStyle lib UIKit selector "effectWithStyle:" (id as ptr, Style as uivisualeffectview.BlurEffectStyle) as ptr
-		  mHandle = effectWithStyle (ClassPtr, style)
+		Sub Constructor()
+		  declare function notificationCenterVibrancyEffect lib UIKit selector "notificationCenterVibrancyEffect" (id as ptr) as ptr
+		  mVibrancyHandle = notificationCenterVibrancyEffect (ClassPtr)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(Effect as UIBlurEffect)
+		  declare function effectForBlurEffect lib UIKit selector "effectForBlurEffect:" (id as ptr, effect as ptr) as ptr
+		  mVibrancyHandle = effectForBlurEffect (ClassPtr, effect.EffectHandle)
 		End Sub
 	#tag EndMethod
 
@@ -12,25 +19,25 @@ Inherits UIVisualEffectView
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIBlurEffect")
+			  static mClassPtr as Ptr = NSClassFromString ("UIVibrancyEffect")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
+	#tag Property, Flags = &h21
+		Private mVibrancyHandle As Ptr
+	#tag EndProperty
+
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return mHandle
+			  return mVibrancyHandle
 			End Get
 		#tag EndGetter
-		Handle As Ptr
+		VibrancyHandle As Ptr
 	#tag EndComputedProperty
-
-	#tag Property, Flags = &h21
-		Private mHandle As Ptr
-	#tag EndProperty
 
 
 	#tag ViewBehavior
