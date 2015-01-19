@@ -8,7 +8,7 @@ Basic functionality is mostly added via modules, so you can have NSObject & UIVI
 Please check the demo app for the main features and the documentation inside for the various classes and modules.
 
 * IMPORTANT *
-Upen loading the project (file iosLib.xojo_project), Xojo will inform you that a few images could not be located. There are 4 images included which need to be relocated. They are used only for some demo screens and can be ignored if you only need the lib for your own projects but not the demo views.
+Upon loading the project (file iosLib.xojo_project), Xojo will inform you that a few images could not be located. There are 4 images included which need to be relocated. They are used only for some demo screens and can be ignored if you only need the lib for your own projects but not the demo views.
 As of today, there is no "package" function in Xojo enabling you to add external files with a relocation of the internal references. So if you want to view the demo screens, please select the four images Apfel, Apfel-chrom, Verlauf gelb and Verlauf blau that are included.
 And skip the request for App Icon and launch images. There are none; the project will run once you skip them.
 Sorry for this inconvenience. If you know of any better method to include external files, please let me know.
