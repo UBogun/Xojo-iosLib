@@ -7,6 +7,9 @@ To the outside, the classes are usually communicating via Xojo native data types
 Basic functionality is mostly added via modules, so you can have NSObject & UIVIew features in every Xojo control that inherits from iOSControl.
 Please check the demo app for the main features and the documentation inside for the various classes and modules.
 
+#Very important
+Currently this version is not 64bit ready. I was lacking time to make the needed adjustments, hope to find time to add them soon.
+
 * IMPORTANT *
 Upon loading the project (file iosLib.xojo_project), Xojo will inform you that a few images could not be located. There are 4 images included which need to be relocated. They are used only for some demo screens and can be ignored if you only need the lib for your own projects but not the demo views.
 As of today, there is no "package" function in Xojo enabling you to add external files with a relocation of the internal references. So if you want to view the demo screens, please select the four images Apfel, Apfel-chrom, Verlauf gelb and Verlauf blau that are included.
