@@ -144,6 +144,13 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub ExerciseAmbiguityInLayout()
+		  Declare Sub exerciseAmbiguityInLayout lib UIKit selector "exerciseAmbiguityInLayout" (id as ptr)
+		  exerciseAmbiguityInLayout id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub InsertSubviewAbove(aView as iOSLibView, aboveView as iOSLibView)
 		  declare sub insertSubview lib UIKit selector "insertSubview:aboveSubview:" (id as ptr, aview as ptr, aboveView as ptr)
 		  insertSubview id, aView.id, aboveView.id
@@ -168,6 +175,13 @@ Inherits iOSLibResponder
 		Sub InvertTransform()
 		  Transform = CGAffineTransformInvert (Transform)
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function IsDescendantOfView(aView As iOSLibView) As Boolean
+		  Declare Function IsDescendantOfView lib UIKit selector "isDescendantOfView:" (id as ptr, aview as ptr) as Boolean
+		  Return IsDescendantOfView (id, aView.id)
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -579,6 +593,16 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  Declare Function hasAmbiguousLayout lib UIKit selector "hasAmbiguousLayout" (id as ptr) as Boolean
+			  return hasAmbiguousLayout (id)
+			End Get
+		#tag EndGetter
+		HasAmbiguousLayout As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare Function hidden lib UIKit selector "isHidden" (id as ptr) as Boolean
 			  return hidden (id)
 			End Get
@@ -661,6 +685,16 @@ Inherits iOSLibResponder
 			End Set
 		#tag EndSetter
 		Opaque As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function requiresConstraintBasedLayout lib UIKit selector "requiresConstraintBasedLayout" (id as ptr) as Boolean
+			  Return requiresConstraintBasedLayout (classptr)
+			End Get
+		#tag EndGetter
+		Shared RequiresConstraintBasedLayout As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -787,6 +821,22 @@ Inherits iOSLibResponder
 	#tag Property, Flags = &h21
 		Private TransformToTransform As CGAffineTransform
 	#tag EndProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function translatesAutoresizingMaskIntoConstraints lib UIKit selector "translatesAutoresizingMaskIntoConstraints" (id as ptr) as Boolean
+			  return translatesAutoresizingMaskIntoConstraints (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare sub setTranslatesAutoresizingMaskIntoConstraints lib UIKit selector "setTranslatesAutoresizingMaskIntoConstraints:" (id as ptr, value as Boolean)
+			  setTranslatesAutoresizingMaskIntoConstraints id, value
+			End Set
+		#tag EndSetter
+		TranslatesAutoresizingMaskIntoConstraints As Boolean
+	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter

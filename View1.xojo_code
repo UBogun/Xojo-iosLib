@@ -10,10 +10,10 @@ Begin iosView View1
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
-      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 160, 
       AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 160, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "2005797609"
@@ -27,10 +27,10 @@ Begin iosView View1
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 71, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 69, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 71, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       Caption         =   "Animate :-)"
       Enabled         =   True
       Height          =   30.0
@@ -47,10 +47,10 @@ Begin iosView View1
    Begin iostable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 258, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
-      AutoLayout      =   Table1, 7, , 0, False, +1.00, 1, 1, 320, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 258, 
+      AutoLayout      =   Table1, 7, , 0, False, +1.00, 1, 1, 320, 
       Format          =   "0"
       Height          =   258.0
       Left            =   0
@@ -65,10 +65,10 @@ Begin iosView View1
    Begin iOSImageView ImageView2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView2, 8, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 190, 
-      AutoLayout      =   ImageView2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ImageView2, 7, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 190, 
+      AutoLayout      =   ImageView2, 8, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "2005797609"
@@ -112,7 +112,7 @@ End
 #tag Events Button1
 	#tag Event
 		Sub Action()
-		  me.Caption = IntegerSize.totext
+		  me.Caption = "IntegerSize: "+IntegerSize.totext
 		  
 		  ImageView1.iOSLibView.TransitionWithAlpha (0.2, iOSLibView.UIVIewAnimationTransition.FlipFromRight, iOSLibViewAnimationOption.OptionRepeatAndReverse, 2.5, iOSLibView.UIVIewAnimationCurve.EaseInEaseOut)
 		  dim newframe as new Rect (200,250,160,160)
@@ -126,8 +126,7 @@ End
 		  myoption.Repeat = true
 		  myoption.OverrideInheritedOptions = true
 		  ImageView1.iOSLibView.AnimateTransform myTransform, myoption, 3, iOSLibView.UIVIewAnimationCurve.Linear
-		  
-		  
+		  ImageView1.iOSLibView.TranslatesAutoresizingMaskIntoConstraints = true
 		  
 		End Sub
 	#tag EndEvent
@@ -135,6 +134,7 @@ End
 #tag Events Table1
 	#tag Event
 		Sub Open()
+		  me.AddSection "Yes, that's a rotating table!"
 		  dim angle as double = 180
 		  dim myTransform as CGAffineTransform = CGAffineTransformMakeRotation (angle.DegreeToRadian)
 		  dim myoption as  iOSLibViewAnimationOption = iOSLibViewAnimationOption.OptionRepeat

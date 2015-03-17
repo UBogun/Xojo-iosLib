@@ -18,11 +18,10 @@ Protected Class iOSLibObject
 	#tag Method, Flags = &h0
 		Sub Constructor(AnId as Ptr)
 		  mid = anid
-		   if not IsNIL then
+		  if not IsNIL then
 		    system.DebugLog "Created "+me.DebugDescription
-		  else 
+		  else
 		    system.DebugLog "Error creating Object – method returned NIL"
-		    break
 		  end if
 		  
 		End Sub
