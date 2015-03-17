@@ -10,10 +10,10 @@ Begin iosView View1
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
+      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "2005797609"
@@ -27,10 +27,10 @@ Begin iosView View1
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 69, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 71, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 71, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 69, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Animate :-)"
       Enabled         =   True
       Height          =   30.0
@@ -47,10 +47,10 @@ Begin iosView View1
    Begin iostable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 258, 
       AutoLayout      =   Table1, 7, , 0, False, +1.00, 1, 1, 320, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 258, 
       Format          =   "0"
       Height          =   258.0
       Left            =   0
@@ -65,19 +65,36 @@ Begin iosView View1
    Begin iOSImageView ImageView2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView2, 7, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 190, 
       AutoLayout      =   ImageView2, 8, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 199, 
+      AutoLayout      =   ImageView2, 7, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "2005797609"
-      Left            =   140
+      Left            =   160
       LockedInPosition=   False
       Scope           =   0
-      Top             =   190
+      Top             =   199
       Visible         =   True
       Width           =   160.0
+   End
+   Begin iOSImageView ImageView3
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   ImageView3, 8, , 0, False, +1.00, 1, 1, 107, 
+      AutoLayout      =   ImageView3, 3, <Parent>, 3, False, +1.00, 1, 1, -16, 
+      AutoLayout      =   ImageView3, 7, , 0, False, +1.00, 1, 1, 117, 
+      AutoLayout      =   ImageView3, 1, <Parent>, 1, False, +1.00, 1, 1, 222, 
+      ContentMode     =   "1"
+      Height          =   107.0
+      Image           =   "2005797609"
+      Left            =   222.0
+      LockedInPosition=   False
+      Scope           =   0
+      Top             =   -16.0
+      Visible         =   True
+      Width           =   117.0
    End
 End
 #tag EndIOSView
@@ -91,7 +108,7 @@ End
 		  dim newcolor1 as color  = &cD9D0EF00
 		  dim option as  iOSLibViewAnimationOption = iOSLibViewAnimationOption.OptionRepeatAndReverse
 		  option.AllowUserInteraction = true
-		  me.View.AnimateColor (newcolor1.toiOSLibColor, option, 3.8)
+		  me.View.springAnimateColor (newcolor1.toiOSLibColor, option, 0.1, 20, 10)
 		  
 		End Sub
 	#tag EndEvent
@@ -149,6 +166,17 @@ End
 		  dim newframe1 as new Rect (200,850,30,30)
 		  me.iOSLibView.AnimateFrame (newframe1.ToNSRect, iOSLibViewAnimationOption.OptionRepeatAndReverse, 2)
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ImageView3
+	#tag Event
+		Sub Open()
+		  me.iOSLibView.SpringAnimateAlpha (0.5, iOSLibViewAnimationOption.OptionRepeatAndReverse, 0.2, 8, 1)
+		  dim newframe as new Rect (50,50,5,5)
+		  me.iOSLibView.SpringAnimateBounds (newframe.ToNSRect, iOSLibViewAnimationOption.OptionRepeatAndReverse, 0.5, 8, 1)
+		  dim newpos as new rect (600,50, 107,107)
+		  me.iOSLibView.SpringAnimateFrame (newpos.toNSRect, iOSLibViewAnimationOption.OptionRepeatAndReverse, 0.3, 2, 10)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

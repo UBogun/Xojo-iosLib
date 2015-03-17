@@ -13,11 +13,7 @@ Inherits iOSLibResponder
 		  TransformToAlpha = alpha
 		  dim block as new iOSBlock (AddressOf TransformAlphaBlock)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
-		  // if Transition = UIVIewAnimationTransition.None then
 		  animateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None))
-		  // else
-		  // TransitionWithDuration ( seconds, block.handle, completion.Handle,  AnimationOption (options, curve, Transition))
-		  // end if
 		  
 		End Sub
 	#tag EndMethod
@@ -77,7 +73,6 @@ Inherits iOSLibResponder
 		  Declare sub animateWithDuration_ lib UIKit selector "animateWithDuration:delay:options:animations:completion:" _
 		  (id as ptr, duration as Double, delay as double, options as uinteger, animations as ptr, completion as ptr)
 		  animateWithDuration_ classptr, duration, delay, options, Animations, completion
-		  System.DebugLog options.totext
 		  
 		End Sub
 	#tag EndMethod
@@ -260,6 +255,86 @@ Inherits iOSLibResponder
 		  Declare function snapshotViewAfterScreenUpdates lib UIKit selector "snapshotViewAfterScreenUpdates:" (id as ptr, afterupdate as boolean) as ptr
 		  return new iOSLibView (snapshotViewAfterScreenUpdates (id, afterUpdates))
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SpringAnimateAlpha(alpha as Double, options as ioslibViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		  TransformToAlpha = alpha
+		  dim block as new iOSBlock (AddressOf TransformAlphaBlock)
+		  dim completion as new iOSBlock (AddressOf CompletionBlock)
+		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SpringAnimateBounds(NewBounds As NSRect, options as ioslibViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		  TransformToBounds = newBounds
+		  dim block as new iOSBlock (AddressOf TransformBoundsBlock)
+		  dim completion as new iOSBlock (AddressOf CompletionBlock)
+		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SpringAnimateCenter(NewCenter As NSPoint, options as ioslibViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		  TransformToCenter = NewCenter
+		  dim block as new iOSBlock (AddressOf TransformCenterBlock)
+		  dim completion as new iOSBlock (AddressOf CompletionBlock)
+		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SpringAnimateColor(NewColor As ioslibColor, options as ioslibViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		  TransformToColor = NewColor
+		  dim block as new iOSBlock (AddressOf TransformColorBlock)
+		  dim completion as new iOSBlock (AddressOf CompletionBlock)
+		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SpringAnimateFrame(NewFrame As NSRect, options as ioslibViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		  TransformToFrame = NewFrame
+		  dim block as new iOSBlock (AddressOf TransformFrameBlock)
+		  dim completion as new iOSBlock (AddressOf CompletionBlock)
+		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SpringAnimateTransform(NewTransform As CGAffineTransform, options as ioslibViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		  TransformToTransform = NewTransform
+		  dim block as new iOSBlock (AddressOf TransformTransformBlock)
+		  dim completion as new iOSBlock (AddressOf CompletionBlock)
+		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Shared Sub SpringanimateWithDuration(duration as Double, animations as ptr, completion as ptr, delay as double = 0, options as uinteger = 0, DampingRatio as Double = 1, Velocity as Double = 0.5)
+		  #if Target64Bit
+		    Declare sub springanimateWithDuration_ lib UIKit selector "animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:" _
+		    (id as ptr, duration as Double, delay as double, DampingRatio as Double, Velocity As Double, options as uinteger, animations as ptr, completion as ptr)
+		  #elseif Target32Bit
+		    Declare sub springanimateWithDuration_ lib UIKit selector "animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:" _
+		    (id as ptr, duration as Double, delay as double, DampingRatio as Single, Velocity As Single, options as uinteger, animations as ptr, completion as ptr)
+		  #endif
+		  springanimateWithDuration_ classptr, duration, delay, DampingRatio, Velocity, options, Animations, completion
+		  
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
@@ -957,6 +1032,11 @@ Inherits iOSLibResponder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="HasAmbiguousLayout"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -1029,6 +1109,11 @@ Inherits iOSLibResponder
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TranslatesAutoresizingMaskIntoConstraints"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="UserInteractionEnabled"
