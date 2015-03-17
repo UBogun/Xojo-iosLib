@@ -49,7 +49,7 @@ Inherits iosLibObject
 		  #elseif Target64Bit
 		    declare function getColors Lib UIKit selector "getRed:green:blue:alpha:" _
 		    (Id as ptr, byref red as Double, byref green as Double, byref blue as Double, byref alpha as Double) as boolean
-		    result = getcolors (id, red, green, blue, alpha) 
+		    result = getcolors (id, red, green, blue, alpha)
 		  #endif
 		  return result
 		  

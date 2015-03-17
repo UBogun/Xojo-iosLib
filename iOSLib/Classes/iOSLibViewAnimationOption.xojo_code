@@ -9,7 +9,7 @@ Protected Class iOSLibViewAnimationOption
 		#tag Setter
 			Set
 			  if value then
-			     moption.SetBit (7)
+			    moption.SetBit (7)
 			  else
 			    mOption.clearbit(7)
 			  end if

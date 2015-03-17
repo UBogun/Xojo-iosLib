@@ -63,7 +63,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateTransform(aTransform as CGAffineTransform, options as ioslibViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut,  delay as double = 0)
+		Sub AnimateTransform(aTransform as CGAffineTransform, options as ioslibViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
 		  TransformToTransform = aTransform
 		  dim block as new iOSBlock (AddressOf TransformTransformBlock)
 		  dim completion as new iOSBlock (AddressOf CompletionBlock)
@@ -470,7 +470,7 @@ Inherits iOSLibResponder
 			    return center (id)
 			  #elseif Target32Bit
 			    Declare function center lib UIKit selector "center" (id as ptr) as NSPoint32Bit
-			    return center(id).toNSPoint 
+			    return center(id).toNSPoint
 			  #endif
 			End Get
 		#tag EndGetter
@@ -698,7 +698,7 @@ Inherits iOSLibResponder
 		#tag Setter
 			Set
 			  Declare Sub setTag lib UIKit selector "setTag:" (id as ptr, value as integer)
-			  setTag id, value 
+			  setTag id, value
 			End Set
 		#tag EndSetter
 		Tag As Integer
