@@ -112,6 +112,8 @@ End
 #tag Events Button1
 	#tag Event
 		Sub Action()
+		  me.Caption = IntegerSize.totext
+		  
 		  ImageView1.iOSLibView.TransitionWithAlpha (0.2, iOSLibView.UIVIewAnimationTransition.FlipFromRight, iOSLibViewAnimationOption.OptionRepeatAndReverse, 2.5, iOSLibView.UIVIewAnimationCurve.EaseInEaseOut)
 		  dim newframe as new Rect (200,250,160,160)
 		  ImageView1.iOSLibView.AnimateFrame (newframe.ToNSRect, iOSLibViewAnimationOption.OptionRepeatAndReverse, 2)

@@ -134,6 +134,20 @@ Protected Module iOSFoundation
 	#tag EndMethod
 
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if Target64Bit
+			    return 8
+			  #elseif Target32Bit
+			    return 4
+			  #endif
+			End Get
+		#tag EndGetter
+		IntegerSize As UInteger
+	#tag EndComputedProperty
+
+
 	#tag Constant, Name = CoreFoundation, Type = Text, Dynamic = False, Default = \"CoreFoundation.framework", Scope = Public
 	#tag EndConstant
 
