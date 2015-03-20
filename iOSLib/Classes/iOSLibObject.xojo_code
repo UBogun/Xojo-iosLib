@@ -19,7 +19,7 @@ Protected Class iOSLibObject
 		Sub Constructor(AnId as Ptr)
 		  mid = anid
 		  if not IsNIL then
-		    system.DebugLog "Created "+me.DebugDescription
+		    // system.DebugLog "Created "+me.DebugDescription
 		  else
 		    system.DebugLog "Error creating Object – method returned NIL"
 		  end if
