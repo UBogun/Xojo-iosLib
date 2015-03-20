@@ -51,8 +51,21 @@ Protected Class iOSLibObject
 
 	#tag Method, Flags = &h21
 		Private Sub Destructor()
-		  if mHasOwnership then Release
+		  
+		  if mHasOwnership then 
+		    system.DebugLog "Releasing "+DebugDescription
+		    Release
+		  else
+		    // system.DebugLog "Losing Handle on "+DebugDescription
+		  end if
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getCount() As UInteger
+		  Declare Function count lib UIKit selector "count" (id as ptr) as UInteger
+		  Return count (id)
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1

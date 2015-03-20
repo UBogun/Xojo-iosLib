@@ -141,6 +141,32 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub SpringAnimateBackgroundColor(extends c as ioscontrol, newcolor as color, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		  c.iOSLibView.springAnimateColor newcolor.toiOSLibColor, iOSLibViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SpringAnimateSize(extends c as ioscontrol, width as Double, height as Double, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		  dim newFrame as new rect (0,0,Width, Height)
+		  c.iOSLibView.SpringAnimateBounds (newFrame.toNSRect, iOSLibViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SpringAnimateTransform(extends c as ioscontrol, aTransform as CGAffineTransform, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		  c.iOSLibView.SpringAnimateTransform (aTransform, iOSLibViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SpringMoveTo(extends c as ioscontrol, x as Double, y as Double, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		  dim newFrame as new rect (x, y ,c.Width, c.Height)
+		  c.iOSLibView.SpringAnimateFrame (newFrame.toNSRect, iOSLibViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function TintColor(extends c as iOSControl) As Color
 		  Return c.iOSLibView.TintColor.toColor
 		End Function

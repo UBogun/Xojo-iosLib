@@ -10,10 +10,10 @@ Begin iosView View1
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
-      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 160, 
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
+      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 160, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "2005797609"
@@ -27,10 +27,10 @@ Begin iosView View1
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 71, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 69, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 71, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 69, 
       Caption         =   "Animate :-)"
       Enabled         =   True
       Height          =   30.0
@@ -47,10 +47,10 @@ Begin iosView View1
    Begin iostable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 7, , 0, False, +1.00, 1, 1, 320, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 258, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
+      AutoLayout      =   Table1, 7, , 0, False, +1.00, 1, 1, 320, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   258.0
       Left            =   0
@@ -65,10 +65,10 @@ Begin iosView View1
    Begin iOSImageView ImageView2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView2, 8, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 199, 
-      AutoLayout      =   ImageView2, 7, , 0, False, +1.00, 1, 1, 160, 
       AutoLayout      =   ImageView2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 199, 
+      AutoLayout      =   ImageView2, 8, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView2, 7, , 0, False, +1.00, 1, 1, 160, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "2005797609"
@@ -82,17 +82,17 @@ Begin iosView View1
    Begin iOSImageView ImageView3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView3, 8, , 0, False, +1.00, 1, 1, 107, 
-      AutoLayout      =   ImageView3, 3, <Parent>, 3, False, +1.00, 1, 1, -16, 
-      AutoLayout      =   ImageView3, 7, , 0, False, +1.00, 1, 1, 117, 
       AutoLayout      =   ImageView3, 1, <Parent>, 1, False, +1.00, 1, 1, 222, 
+      AutoLayout      =   ImageView3, 3, <Parent>, 3, False, +1.00, 1, 1, -16, 
+      AutoLayout      =   ImageView3, 8, , 0, False, +1.00, 1, 1, 107, 
+      AutoLayout      =   ImageView3, 7, , 0, False, +1.00, 1, 1, 117, 
       ContentMode     =   "1"
       Height          =   107.0
       Image           =   "2005797609"
-      Left            =   222.0
+      Left            =   222
       LockedInPosition=   False
       Scope           =   0
-      Top             =   -16.0
+      Top             =   -16
       Visible         =   True
       Width           =   117.0
    End
@@ -110,8 +110,14 @@ End
 		  option.AllowUserInteraction = true
 		  me.View.springAnimateColor (newcolor1.toiOSLibColor, option, 0.1, 20, 10)
 		  
+		  dim nc as new iOSLibNotificationCenter ("", nil)
 		End Sub
 	#tag EndEvent
+
+
+	#tag Property, Flags = &h0
+		NC As iOSLibNotificationCenter
+	#tag EndProperty
 
 
 #tag EndWindowCode
@@ -144,6 +150,11 @@ End
 		  myoption.OverrideInheritedOptions = true
 		  ImageView1.iOSLibView.AnimateTransform myTransform, myoption, 3, iOSLibView.UIVIewAnimationCurve.Linear
 		  ImageView1.iOSLibView.TranslatesAutoresizingMaskIntoConstraints = true
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Close()
 		  
 		End Sub
 	#tag EndEvent

@@ -1,5 +1,5 @@
 #tag Class
-Protected Class iOSLibView
+Protected Class iOSLibViewCore
 Inherits iOSLibResponder
 	#tag Method, Flags = &h0
 		Sub AddSubview(aView as iOSLibView)
@@ -633,22 +633,6 @@ Inherits iOSLibResponder
 			End Set
 		#tag EndSetter
 		ContentMode As UIViewContentMode
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare Function areAnimationsEnabled lib UIKit selector "areAnimationsEnabled" (id as ptr) as Boolean
-			  Return areAnimationsEnabled (classptr)
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare Sub setAnimationsEnabled lib UIKit selector "setAnimationsEnabled" (id as ptr, value as Boolean)
-			  setAnimationsEnabled (classptr, value)
-			End Set
-		#tag EndSetter
-		Shared EnableAnimations As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
