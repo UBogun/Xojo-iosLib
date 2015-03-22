@@ -325,15 +325,10 @@ Inherits iOSLibresponder
 		#tag Getter
 			Get
 			  dim myptr as ptr = getDelegate
-			  return if (myptr <> NIL, new iOSLibObject (myptr), NIL)
+			  return if (myptr <> NIL, new iOSLibView (myptr), NIL)
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  setDelegate value.id
-			End Set
-		#tag EndSetter
-		Delegate_ As iOSLibObject
+		DelegateiosLibView As iosLibView
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -778,12 +773,67 @@ Inherits iOSLibresponder
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="AnchorPointZ"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BorderWidth"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentsFlipped"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentsScale"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CornerRadius"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="DebugDescription"
 			Group="Behavior"
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="DoubleSided"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DrawsAsynchronously"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="EdgeAntialiasing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="GeometryFlipped"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="GroupOpacity"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hidden"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -807,10 +857,45 @@ Inherits iOSLibresponder
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="MasksToBounds"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Opacity"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Opaque"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RasterizationScale"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ShadowOpacity"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ShadowRadius"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ShouldRasterize"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
@@ -824,6 +909,11 @@ Inherits iOSLibresponder
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ZPosition"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

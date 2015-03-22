@@ -965,14 +965,12 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function userInteractionEnabled lib UIKit selector "isUserInteractionEnabled" (id as ptr) as Boolean
-			  return userInteractionEnabled (id)
+			  return getUserInteractionEnabled
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setUserInteractionEnabled lib UIKit selector "setUserInteractionEnabled:" (id as ptr, value as Boolean)
-			  setUserInteractionEnabled id, value
+			  setuserinteractionenabled value
 			End Set
 		#tag EndSetter
 		UserInteractionEnabled As Boolean

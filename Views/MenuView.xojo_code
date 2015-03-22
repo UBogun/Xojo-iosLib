@@ -10,10 +10,10 @@ Begin iosView MenuView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 116, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 91, 
+      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 116, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       ContentMode     =   "1"
       Height          =   91.0
       Image           =   "547002367"
@@ -27,9 +27,9 @@ Begin iosView MenuView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 129, 
       AutoLayout      =   Button1, 4, <Parent>, 4, False, +1.00, 1, 1, -4, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 129, 
       Caption         =   "Return to menu"
       Enabled         =   True
       Height          =   30.0
@@ -44,17 +44,19 @@ Begin iosView MenuView
       Width           =   129.0
    End
    Begin iOSTable Table1
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 308, 
-      AutoLayout      =   Table1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 308, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       Format          =   "0"
       Height          =   308.0
-      Left            =   0.0
+      Left            =   0
       LockedInPosition=   False
       Scope           =   0
       SectionCount    =   0
-      Top             =   127.0
+      Top             =   127
       Visible         =   True
       Width           =   320.0
    End
@@ -102,8 +104,11 @@ End
 		  me.addrow 0, "Block animations"
 		  me.AddSection "iOSLibCALayer (CALayer)"
 		  me.AddRow 1, "Layer properties"
+		  me.AddRow 1, "Transform properties"
 		  me.AddSection "iOSLibNotificationCenter"
 		  me.AddRow 2, "Shared Notifications"
+		  me.AddSection "iOSHTMLViewer Extension"
+		  me.AddRow 3, "UIWebView features"
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -117,9 +122,12 @@ End
 		  case "Layer properties"
 		    dim v3 as new CALayerView
 		    self.PushToCover v3
-		  case "Shared Notifications"
+		  case "Transform properties"
+		    dim v3 as new TransformView
+		    self.PushToSlide v3
+		  case "Shared Notifications", "UIWebView features"
 		    dim v3 as new NotificationView
-		    self.PushToCover v3
+		    self.PushToSlide v3
 		  End Select
 		End Sub
 	#tag EndEvent

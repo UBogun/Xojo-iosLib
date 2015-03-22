@@ -63,6 +63,7 @@ iOSView=NotificationView;Views/NotificationView.xojo_code;&h3E8017FF;&h467FDFFF;
 Class=iOSLibNotificationCenter;iOSLib/Classes/iOSLibNotificationCenter.xojo_code;&h7F6EBD0C;&h6EA48FFF;false
 Class=iOSLibNotificationCenterWithInterface;iOSLib/Classes/iOSLibNotificationCenterWithInterface.xojo_code;&h77B60AAF;&h6EA48FFF;false
 Folder=Interfaces;iOSLib/Interfaces;&h3560DAB9;&h482A47FF;false
+iOSView=TransformView;Views/TransformView.xojo_code;&h68E80A32;&h467FDFFF;false
 DefaultScreen=iPhoneScreen
 DefaultTabletScreen=iPadScreen
 MajorVersion=1

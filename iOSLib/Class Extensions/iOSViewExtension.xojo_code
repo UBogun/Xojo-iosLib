@@ -39,7 +39,7 @@ Protected Module iOSViewExtension
 	#tag Method, Flags = &h0
 		Sub PushToSlide(extends v as iOSView, newview as iosview)
 		  dim newController as new iOSLibViewController (newview.Handle)
-		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.CoverVertical
+		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.FlipHorizontal
 		  v.iosLibViewController.Present newController, true
 		End Sub
 	#tag EndMethod

@@ -44,6 +44,12 @@ Protected Module QuartzCoreLib
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function CATransform3DIdentity() As CATransform3D
+		  return CATransform3DMakeTranslation (0,0,0)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function CATransform3DInvert(T As CATransform3D) As CATransform3D
 		  #if target32bit
 		    Declare function CATransform3DInvert lib QuartzCore (T As CATransform3D32Bit) as CATransform3D32Bit

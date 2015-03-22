@@ -61,6 +61,13 @@ Inherits iOSLibObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function getUserInteractionEnabled() As Boolean
+		  Declare Function userInteractionEnabled lib UIKit selector "isUserInteractionEnabled" (id as ptr) as Boolean
+		  return userInteractionEnabled (id)
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Sub setBounds(value as NSRect)
 		  #if Target64bit
@@ -99,6 +106,13 @@ Inherits iOSLibObject
 		  declare sub setOpaque lib UIKit selector "setOpaque:" (id as ptr, value as Boolean)
 		  setOpaque id, value
 		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub setUserInteractionEnabled(value as boolean)
+		  Declare sub setUserInteractionEnabled lib UIKit selector "setUserInteractionEnabled:" (id as ptr, value as Boolean)
+		  setUserInteractionEnabled id, value
 		End Sub
 	#tag EndMethod
 
