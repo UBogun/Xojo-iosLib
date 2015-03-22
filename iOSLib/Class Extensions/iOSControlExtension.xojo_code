@@ -44,6 +44,12 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function BackgroundLayer(extends c as ioscontrol) As iOSLibCALayer
+		  return c.iOSLibView.Layer
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function ClipsToBounds(extends c as iOSControl) As Boolean
 		  Return c.iOSLibView.ClipsToBounds
 		End Function

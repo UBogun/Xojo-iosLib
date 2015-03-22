@@ -35,6 +35,13 @@ Inherits iOSLibObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
+		Protected Function getDelegate() As Ptr
+		  Declare Function getDelegate lib uikit selector "delegate" (id as ptr) as Ptr
+		  return getDelegate (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
 		Protected Function getFrame() As NSRect
 		  #if target32bit
 		    declare function getframe lib UIKit selector "frame" (id as Ptr) as NSRect32Bit
@@ -48,7 +55,7 @@ Inherits iOSLibObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getOpaque(id as Ptr) As Boolean
+		Protected Function getOpaque() As Boolean
 		  declare function opaque lib UIKit selector "isOpaque" (id as ptr) as Boolean
 		  return opaque (id)
 		End Function
@@ -68,6 +75,13 @@ Inherits iOSLibObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
+		Protected Sub setDelegate(value as Ptr)
+		  Declare Sub setDelegate lib uikit selector "setDelegate:" (id as ptr, value as Ptr)
+		  setDelegate (id, value)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
 		Protected Sub setFrame(value as NSRect)
 		  #if target32bit
 		    declare sub setFrame lib UIKit selector "setFrame:" (id as Ptr, value as NSRect32Bit)
@@ -81,7 +95,7 @@ Inherits iOSLibObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setOpaque(id as Ptr, value as boolean)
+		Protected Sub setOpaque(value as boolean)
 		  declare sub setOpaque lib UIKit selector "setOpaque:" (id as ptr, value as Boolean)
 		  setOpaque id, value
 		  

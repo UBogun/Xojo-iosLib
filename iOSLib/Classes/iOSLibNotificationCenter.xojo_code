@@ -2,11 +2,10 @@
 Protected Class iOSLibNotificationCenter
 Inherits iosLibObject
 	#tag Method, Flags = &h1
-		Protected Function addObserverForName(NotificationName as CFStringRef, Obj as ptr, queue as ptr, block as ptr) As Ptr
+		Protected Function addObserverForName(NotificationName as CFStringRef, Obj as ptr, queue as iosliboperationsqueue, block as ptr) As Ptr
 		  declare function addObserverForName lib UIKit selector "addObserverForName:object:queue:usingBlock:" _
 		  (id as ptr, NotificationName as CFStringRef, Obj as Ptr, queue as ptr, block as ptr) as ptr
-		  dim did as ptr = DefaultCenter
-		  return addObserverForName (DefaultCenter, NotificationName, obj, iOSLibOperationsQueue.mainQueue.id, block)
+		  return addObserverForName (DefaultCenter, NotificationName, obj, Queue.id, block)
 		End Function
 	#tag EndMethod
 
@@ -17,10 +16,10 @@ Inherits iosLibObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(NotificationName as CFStringRef, Obj as ptr)
+		Sub Constructor(NotificationName as CFStringRef, Obj as ioslibobject)
 		  dim block as new iOSBlock (AddressOf NotificationBlock)
-		  // dim queue as NSOperationQueue = NSOperationQueue.MainQueue
-		  super.Constructor( addObserverForName (nil, obj, nil, block.handle))
+		  dim queue as iOSLibOperationsQueue = iOSLibOperationsQueue.MainQueue
+		  super.Constructor( addObserverForName (NotificationName, if (obj <> NIL, obj.id, NIL), queue, block.handle))
 		  mHasOwnership = true
 		  
 		End Sub
@@ -36,9 +35,9 @@ Inherits iosLibObject
 	#tag Method, Flags = &h21
 		Private Sub NotificationBlock(NotificationPtr as Ptr)
 		  // if self <> NIL then RaiseEvent ReceivedNotification (new NSNotification (notificationptr))
-		  if self <> nil then 
-		    dim notification as new iOSLibObject (NotificationPtr)
-		    System.DebugLog notification.DebugDescription
+		  if self <> nil then
+		    dim notification as new iOSLibNotification (NotificationPtr)
+		    System.DebugLog notification.Name + if (not (notification.Sender.IsNIL), notification.Sender.DebugDescription,"")
 		  end if
 		End Sub
 	#tag EndMethod

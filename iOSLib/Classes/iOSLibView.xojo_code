@@ -638,6 +638,20 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  if ObjectiveCRuntime.class_respondsToSelector (Class_, NSSelectorFromString("delegate")) then return if (getDelegate <> NIL, new iOSLibObject (getDelegate), NIL)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setDelegate value.Id
+			End Set
+		#tag EndSetter
+		Delegate_ As iOSLibObject
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare Function areAnimationsEnabled lib UIKit selector "areAnimationsEnabled" (id as ptr) as Boolean
 			  Return areAnimationsEnabled (classptr)
 			End Get
@@ -710,6 +724,16 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  Declare Function layer lib UIKit selector "layer" (id as ptr) as Ptr
+			  Return new ioslibCALayer (layer (id))
+			End Get
+		#tag EndGetter
+		Layer As iOSLibCALayer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare function layerclass lib UIKit selector "layerClass" (id as ptr) as ptr
 			  return layerclass (classptr)
 			End Get
@@ -735,14 +759,21 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function maskView lib UIKit selector "maskView" (id as ptr) as ptr
-			  return new iOSLibView (maskView(id))
+			  const SEL as text = "maskView"
+			  if ObjectiveCRuntime.class_respondsToSelector (class_, NSSelectorFromString (SEL)) then
+			    Declare function maskView lib UIKit selector "maskView" (id as ptr) as ptr
+			    dim myPtr as Ptr = maskview(id)
+			    return if (myptr <> NIL,  new iOSLibView (maskView(id)), NIL)
+			  end if
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setMaskView lib UIKit selector "setMaskView:" (id as ptr, value as ptr)
-			  setMaskView id, value.id
+			  const SEL as text = "setMaskView:"
+			  if ObjectiveCRuntime.class_respondsToSelector (class_, NSSelectorFromString (SEL)) then
+			    Declare sub setMaskView lib UIKit selector "setMaskView:" (id as ptr, value as ptr)
+			    setMaskView id, value.id
+			  end if
 			End Set
 		#tag EndSetter
 		Mask As iOSLibView
@@ -767,12 +798,12 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return getOpaque (id)
+			  return getOpaque
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  setOpaque (id, value)
+			  setOpaque (value)
 			End Set
 		#tag EndSetter
 		Opaque As Boolean
@@ -807,7 +838,8 @@ Inherits iOSLibResponder
 		#tag Getter
 			Get
 			  Declare function superview lib UIKit selector "superview" (id as ptr) as ptr
-			  return new iOSLibView (superview(id))
+			  dim myptr as ptr = superview (id)
+			  return if (myptr <> NIL, new iOSLibview (superview(id)), NIL)
 			End Get
 		#tag EndGetter
 		SuperView As iOSLibView
@@ -849,7 +881,8 @@ Inherits iOSLibResponder
 		#tag Getter
 			Get
 			  Declare function tintColor lib UIKit selector "tintColor" (id as ptr) as ptr
-			  return new iOSLibColor (tintColor(id))
+			  dim myptr as ptr = tintColor (id)
+			  return if (myptr <> NIL, new iOSLibColor (tintColor(id)), NIL)
 			End Get
 		#tag EndGetter
 		#tag Setter
