@@ -1,5 +1,5 @@
 #tag IOSView
-Begin iosView NotificationView
+Begin iosView NotificationView Implements NotificationReceiver
    BackButtonTitle =   ""
    Compatibility   =   ""
    Left            =   0
@@ -34,11 +34,11 @@ Begin iosView NotificationView
    Begin iOSHTMLViewer HTMLViewer1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 302, 
+      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 273, 
+      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -29, 
       AutoLayout      =   HTMLViewer1, 7, , 0, False, +1.00, 1, 1, 320, 
       AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      Height          =   302.0
+      Height          =   273.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   0
@@ -69,43 +69,79 @@ Begin iosView NotificationView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   Label1, 4, HTMLViewer1, 3, False, +1.00, 1, 1, -24, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 93, 
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 101, 
+      AutoLayout      =   Label1, 4, HTMLViewer1, 3, False, +1.00, 1, 1, -8, 
       AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Enabled         =   True
-      Height          =   61.0
+      Height          =   69.0
       Left            =   20
       LockedInPosition=   False
       Scope           =   0
-      Text            =   "Switch on the DebugLog view in Xojos IDE and tap on ""Goto"" to see WebProgressEstimations."
+      Text            =   "Switch on the DebugLog view in Xojo’s IDE and tap on ""Goto"" to see WebProgressEstimations. Watch the back and forward buttons appear as you surf."
       TextAlignment   =   "0"
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   93
+      Top             =   101
       Visible         =   True
       Width           =   280.0
    End
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 149, 
       AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 98, 
+      AutoLayout      =   Button2, 1, HTMLViewer1, 1, False, +1.00, 1, 1, 0, 
       Caption         =   "Return"
       Enabled         =   True
       Height          =   30.0
-      Left            =   211
+      Left            =   0
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   149
+      Top             =   450
       Visible         =   True
       Width           =   98.0
+   End
+   Begin iOSButton BackButton
+      AutoLayout      =   BackButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   BackButton, 3, , 0, False, +1.00, 1, 1, 73, 
+      AutoLayout      =   BackButton, 7, , 0, False, +1.00, 1, 1, 70, 
+      AutoLayout      =   BackButton, 1, Label1, 1, False, +1.00, 1, 1, 0, 
+      Caption         =   "Back"
+      Enabled         =   False
+      Height          =   30.0
+      Left            =   20.0
+      LockedInPosition=   False
+      Scope           =   0
+      TextColor       =   &c007AFF00
+      TextFont        =   ""
+      TextSize        =   0
+      Top             =   73.0
+      Visible         =   False
+      Width           =   70.0
+   End
+   Begin iOSButton ForwardButton
+      AutoLayout      =   ForwardButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   ForwardButton, 7, , 0, False, +1.00, 1, 1, 70, 
+      AutoLayout      =   ForwardButton, 1, <Parent>, 1, False, +1.00, 1, 1, 98, 
+      AutoLayout      =   ForwardButton, 3, <Parent>, 3, False, +1.00, 1, 1, 73, 
+      Caption         =   "Forward"
+      Enabled         =   False
+      Height          =   30.0
+      Left            =   98.0
+      LockedInPosition=   False
+      Scope           =   0
+      TextColor       =   &c007AFF00
+      TextFont        =   ""
+      TextSize        =   0
+      Top             =   73.0
+      Visible         =   False
+      Width           =   70.0
    End
 End
 #tag EndIOSView
@@ -113,10 +149,23 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  dim NotificationCenter as new iOSLibNotificationCenter ("WebProgressEstimateChangedNotification", NIL)
-		  
+		  dim NotificationCenter as new iOSLibNotificationCenterWithInterface ("WebProgressEstimateChangedNotification", NIL)
+		  NotificationCenter.RegisterObserver self
 		End Sub
 	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub ReveicedNotification()
+		  // Part of the NotificationReceiver interface.
+		  
+		  BackButton.Enabled = HTMLViewer1.iosLibWebView.CanGoBack
+		  BackButton.Visible = HTMLViewer1.iosLibWebView.CanGoBack
+		  
+		  ForwardButton.Enabled = HTMLViewer1.iosLibWebView.CanGoForward
+		  ForwardButton.Visible = HTMLViewer1.iosLibWebView.CanGoForward
+		End Sub
+	#tag EndMethod
 
 
 	#tag Property, Flags = &h21
@@ -142,6 +191,20 @@ End
 	#tag Event
 		Sub Close()
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events BackButton
+	#tag Event
+		Sub Action()
+		  HTMLViewer1.iosLibWebView.GoBack
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ForwardButton
+	#tag Event
+		Sub Action()
+		  HTMLViewer1.iosLibWebView.GoForward
 		End Sub
 	#tag EndEvent
 #tag EndEvents

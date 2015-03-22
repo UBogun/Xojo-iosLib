@@ -10,10 +10,10 @@ Begin iosView View2
    Begin iOSTextField TextField1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextField1, 3, <Parent>, 3, False, +1.00, 1, 1, 43, 
-      AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 175, 
-      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, 28, 
+      AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 175, 
+      AutoLayout      =   TextField1, 3, <Parent>, 3, False, +1.00, 1, 1, 43, 
+      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -34,10 +34,10 @@ Begin iosView View2
    Begin iOSHTMLViewer HTMLViewer1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   HTMLViewer1, 7, , 0, False, +1.00, 1, 1, 320, 
-      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 320, 
+      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 7, , 0, False, +1.00, 1, 1, 320, 
+      AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Height          =   320.0
       Left            =   0
       LockedInPosition=   False
@@ -49,10 +49,10 @@ Begin iosView View2
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 65, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 1, TextField1, 2, False, +1.00, 1, 1, 43, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 65, 
+      AutoLayout      =   Button1, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Goto"
       Enabled         =   True
       Height          =   30.0
@@ -69,10 +69,10 @@ Begin iosView View2
    Begin iOStextfield Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 260, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label1, 1, TextField1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 260, 
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       KeyboardType    =   "0"
@@ -93,10 +93,10 @@ Begin iosView View2
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 246, 
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 65, 
-      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 130, 
       AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 65, 
+      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 246, 
+      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 130, 
       Caption         =   "Create"
       Enabled         =   True
       Height          =   30.0
@@ -116,7 +116,9 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  dim NotificationCenter as new iOSLibNotificationCenter ("WebProgressEstimateChangedNotification", NIL)
+		  dim NotificationCenter as new iOSLibNotificationCenter ("webViewDidStartLoad", NIL)
+		  // dim NotificationCenter as new iOSLibNotificationCenter ("WebProgressEstimateChangedNotification", NIL)
+		  
 		  dim myint as integer = integer (HTMLViewer1.iosLibWebView.id)
 		  dim myint1 as integer = integer (HTMLViewer1.handle)
 		  //

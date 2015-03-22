@@ -8,28 +8,32 @@ Begin iosView SplashView
    Title           =   ""
    Top             =   0
    Begin iOSImageView ImageView1
-      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 243, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 243, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   243.0
       Image           =   "547002367"
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
-      Top             =   28.0
+      Top             =   28
       Visible         =   True
       Width           =   280.0
    End
    Begin iOSLabel Label1
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       Text            =   "2015 by Ulrich Bogun, xojoblog.me"
@@ -37,42 +41,46 @@ Begin iosView SplashView
       TextColor       =   &c0F237700
       TextFont        =   ""
       TextSize        =   12
-      Top             =   279.0
+      Top             =   279
       Visible         =   True
       Width           =   280.0
    End
    Begin iOSButton Button1
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 3, , 0, False, +1.00, 1, 1, -37, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, -37, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       Caption         =   "Info"
       Enabled         =   True
       Height          =   30.0
-      Left            =   110.0
+      Left            =   110
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   -37.0
+      Top             =   -37
       Visible         =   True
       Width           =   100.0
    End
    Begin iOSButton Button2
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   Button2, 9, <Parent>, 9, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
-      AutoLayout      =   Button2, 9, <Parent>, 9, False, +1.00, 2, 1, 0, 
       Caption         =   "Menu"
       Enabled         =   True
       Height          =   30.0
-      Left            =   110.0
+      Left            =   110
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   388.0
+      Top             =   388
       Visible         =   True
       Width           =   100.0
    End
@@ -98,7 +106,7 @@ End
 	#tag Event
 		Sub Open()
 		  me.iOSLibView.SetScale 80
-		  me.AnimateSize 0.5, 0.5, 3
+		  me.AnimateSize 0.5, 0.5, 2
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -106,14 +114,14 @@ End
 	#tag Event
 		Sub Open()
 		  me.Alpha = 0
-		  me.iOSLibView.AnimateAlpha 1, iOSLibViewAnimationOption.OptionNone, 1, iOSLibView.UIVIewAnimationCurve.EaseInEaseOut, 3
+		  me.iOSLibView.AnimateAlpha 1, iOSLibViewAnimationOption.OptionNone, 1, iOSLibView.UIVIewAnimationCurve.EaseInEaseOut, 2
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events Button1
 	#tag Event
 		Sub Open()
-		  Timer.CallLater (3000, AddressOf buttonmove)
+		  Timer.CallLater (2000, AddressOf buttonmove)
 		End Sub
 	#tag EndEvent
 	#tag Event

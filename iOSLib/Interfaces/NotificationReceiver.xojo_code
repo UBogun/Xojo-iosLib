@@ -1,28 +1,19 @@
-#tag Class
-Protected Class iOSLibNotificationCenter
-Inherits iOSLibNotificationCenterCore
+#tag Interface
+Protected Interface NotificationReceiver
+	#tag Method, Flags = &h0
+		Sub ReveicedNotification()
+		  
+		End Sub
+	#tag EndMethod
+
+
 	#tag ViewBehavior
-		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -51,5 +42,5 @@ Inherits iOSLibNotificationCenterCore
 			Type="Integer"
 		#tag EndViewProperty
 	#tag EndViewBehavior
-End Class
-#tag EndClass
+End Interface
+#tag EndInterface
