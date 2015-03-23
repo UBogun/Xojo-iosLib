@@ -1,6 +1,14 @@
 #tag Class
 Protected Class iOSLibCALayer
 Inherits iOSLibresponder
+	#tag Method, Flags = &h0
+		Sub AddSubLayer(ALAyer as iOSLibCALayer)
+		  declare sub addSublayer lib UIKit selector "addSublayer:" (id as ptr, aLayer as ptr)
+		  addSublayer id, ALAyer.id
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1000
 		Sub Constructor()
 		  Super.Constructor (Init(Alloc(ClassPtr)))
@@ -14,6 +22,39 @@ Inherits iOSLibresponder
 		  Declare Function initWithLayer lib UIKit selector "initWithLayer:" (id as ptr, aLayer as ptr) as Ptr
 		  Super.Constructor (initWithLayer (alloc(ClassPtr), aLayer.Id))
 		  mHasOwnership = true
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub InsertSubLayer(ALayer as ioslibcalayer, position as LayerOrderingMode)
+		  declare sub insertSublayerBelow lib UIKit selector "insertSublayer:below" (id as ptr, aLayer as ptr)
+		  declare sub insertSublayerAbove lib UIKit selector "insertSublayer:above" (id as ptr, aLayer as ptr)
+		  declare sub replaceSublayer lib UIKit selector "replaceSublayer:with" (id as ptr, aLayer as ptr)
+		  select case position
+		  case LayerOrderingMode.Below
+		    insertSublayerBelow (id, ALAyer.id)
+		  case LayerOrderingMode.Above
+		    insertSublayerAbove (id, ALAyer.id)
+		  case LayerOrderingMode.Replace
+		    replaceSublayer id, ALayer.id
+		  end select
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub InsertSubLayer(ALayer as ioslibcalayer, index as UInt32)
+		  declare sub insertSublayer lib UIKit selector "insertSublayer:atIndex:" (id as ptr, aLayer as ptr, Index as UInt32)
+		  insertSublayer id, ALayer.id, index
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub RemoveFromSuperlayer()
+		  declare sub removeFromSuperlayer lib UIKit selector "removeFromSuperlayer" (id as ptr)
+		  removeFromSuperlayer id
 		  
 		End Sub
 	#tag EndMethod
@@ -97,6 +138,18 @@ Inherits iOSLibresponder
 			End Set
 		#tag EndSetter
 		AnchorPointZ As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function animationKeys lib UIKit selector "animationKeys" (id as Ptr) as ptr
+			  dim myptr as ptr = animationKeys (id)
+			  return if (myptr <> NIL,  new iOSLibArray (myptr), NIL)
+			  
+			End Get
+		#tag EndGetter
+		AnimationKeys As iOSLibArray
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -719,6 +772,66 @@ Inherits iOSLibresponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  DEclare Function sublayers lib UIKit selector "sublayers" (id as ptr) as ptr
+			  dim myptr as ptr = sublayers (id)
+			  return if (myptr <> NIL, new iOSLibArray (myptr), NIL)
+			  
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  DEclare Sub setSubLayers lib UIKit selector "setSublayers:" (id as ptr, value as ptr)
+			  setSubLayers id, value.Id
+			  
+			End Set
+		#tag EndSetter
+		SubLayers As ioslibarray
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if target32bit
+			    DEclare Function sublayerTransform lib UIKit selector "sublayerTransform" (id as ptr) as CATransform3D32Bit
+			    return sublayerTransform(id).toCATransform3D
+			  #elseif Target64Bit
+			    DEclare Function sublayerTransform lib UIKit selector "sublayerTransform" (id as ptr) as CATransform3D
+			    return sublayerTransform (id)
+			  #endif
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if target32bit
+			    DEclare Sub setSublayerTransform lib UIKit selector "setSublayerTransform:" (id as ptr, value as CATransform3D32Bit)
+			    setSublayerTransform id, value.toCATransform3D32Bit
+			  #elseif Target64Bit
+			    DEclare Sub setSublayerTransform lib UIKit selector "setSublayerTransform:" (id as ptr, value as CATransform3D)
+			    setSublayerTransform id, value
+			  #endif
+			  
+			End Set
+		#tag EndSetter
+		SublayerTransform As CATransform3D
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  DEclare Function superlayer lib UIKit selector "superlayer" (id as ptr) as ptr
+			  dim myptr as ptr = superlayer (id)
+			  return if (myptr <> NIL, new iOSLibCALayer (myptr), NIL)
+			  
+			End Get
+		#tag EndGetter
+		SuperLayer As iOSLibCALayer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  #if target32bit
 			    DEclare Function transform lib UIKit selector "transform" (id as ptr) as CATransform3D32Bit
 			    return transform(id).toCATransform3D
@@ -769,6 +882,13 @@ Inherits iOSLibresponder
 		#tag EndSetter
 		ZPosition As Double
 	#tag EndComputedProperty
+
+
+	#tag Enum, Name = LayerOrderingMode, Type = Integer, Flags = &h0
+		Above = 1
+		  Below = -1
+		Replace = 0
+	#tag EndEnum
 
 
 	#tag ViewBehavior

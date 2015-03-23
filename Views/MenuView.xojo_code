@@ -109,6 +109,8 @@ End
 		  me.AddRow 2, "Shared Notifications"
 		  me.AddSection "iOSHTMLViewer Extension"
 		  me.AddRow 3, "UIWebView features"
+		  me.AddSection "iOSCFBundle"
+		  me.AddRow 4, "Open Bundles/Frameworks"
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -128,6 +130,9 @@ End
 		  case "Shared Notifications", "UIWebView features"
 		    dim v3 as new NotificationView
 		    self.PushToSlide v3
+		  case "Open Bundles/Frameworks"
+		    dim v3 as new FrameWorkView
+		    self.PushToDissolve v3
 		  End Select
 		End Sub
 	#tag EndEvent

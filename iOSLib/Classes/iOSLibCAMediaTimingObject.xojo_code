@@ -1,0 +1,343 @@
+#tag Class
+Protected Class iOSLibCAMediaTimingObject
+Inherits iosLibObject
+	#tag Method, Flags = &h0
+		 Shared Function DefaultValueForKey(Key As CFStringRef) As ioslibobject
+		  declare function defaultValueForKey lib UIKit selector "defaultValueForKey:" (id as ptr, key as CFStringRef) as Ptr
+		  dim myptr as ptr = defaultValueForKey (classptr, key)
+		  return if (myptr <> NIL, new iOSLibObject (myptr), NIL)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getFillMode(id as ptr) As CFStringRef
+		  declare function fillMode lib UIKit selector "fillMode" (id as ptr) as CFStringRef
+		  return fillMode (id)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setFillMode(id as ptr, mode as CFstringRef)
+		  declare sub setFillMode lib UIKit selector "setFillMode:" (id as ptr, value as CFStringRef)
+		  setfillMode (id, mode)
+		  
+		End Sub
+	#tag EndMethod
+
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function autoreverses lib UIKit selector "autoreverses" (id as ptr) as Boolean
+			  return autoreverses (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setAutoreverses lib UIKit selector "setAutoreverses:" (id as ptr, value as Boolean)
+			  setAutoreverses (id, value)
+			  
+			End Set
+		#tag EndSetter
+		Autoreverses As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function beginTime lib UIKit selector "beginTime" (id as ptr) as Double
+			  return beginTime (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setBeginTime lib UIKit selector "setBeginTime:" (id as ptr, value as Double)
+			  setBeginTime (id, value)
+			  
+			End Set
+		#tag EndSetter
+		BeginTime As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function duration lib UIKit selector "duration" (id as ptr) as Double
+			  return duration (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setDuration lib UIKit selector "setDuration:" (id as ptr, value as Double)
+			  setDuration (id, value)
+			  
+			End Set
+		#tag EndSetter
+		Duration As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  dim mymode as text = getFillMode (id)
+			  select case mymode
+			  case FillmodeBackward
+			    return FillModes.Reset
+			  case FillmodeBoth
+			    return fillmodes.Both
+			  case FillmodeForward
+			    return FillModes.Remain
+			  case FillmodeRemove
+			    return FillModes.Remove
+			  end select
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  dim mymode as text
+			  Select case value
+			  case FillModes.Both
+			    mymode = FillmodeBoth
+			  case FillModes.Remain
+			    mymode = FillmodeForward
+			  case FillModes.Remove
+			    mymode = FillmodeRemove
+			  case FillModes.Reset
+			    mymode = FillmodeBackward
+			  End Select
+			  setFillMode (id, mymode)
+			End Set
+		#tag EndSetter
+		FillMode As FillModes
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static FMFwd As Text = ioslibcfbundle.SystemConstantName ("kCAFillModeBackwards", QuartzCorePath)
+			  return FMFwd
+			End Get
+		#tag EndGetter
+		Protected Shared FillmodeBackward As CFStringRef
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static FMBoth As Text = iOSLibCFBundle.SystemConstantName ("kCAFillModeBoth", QuartzCorePath)
+			  return FMBoth
+			End Get
+		#tag EndGetter
+		Protected Shared FillmodeBoth As CFStringRef
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static FMFwd As Text = iOSLibCFBundle.SystemConstantName ("kCAFillModeForwards", QuartzCorePath)
+			  return FMFwd
+			End Get
+		#tag EndGetter
+		Protected Shared FillmodeForward As CFStringRef
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static FMRemove As Text = iOSLibCFBundle.SystemConstantName ("kCAFillModeRemoved", QuartzCorePath)
+			  return FMRemove
+			End Get
+		#tag EndGetter
+		Protected Shared FillmodeRemove As CFStringRef
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function repeatCount lib UIKit selector "repeatCount" (id as ptr) as Single
+			  return repeatCount (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setRepeatCount lib UIKit selector "setRepeatCount:" (id as ptr, value as Single)
+			  setRepeatCount (id, value)
+			  
+			End Set
+		#tag EndSetter
+		RepeatCount As Single
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function repeatDuration lib UIKit selector "repeatDuration" (id as ptr) as Double
+			  return repeatDuration (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setRepeatDuration lib UIKit selector "setRepeatDuration:" (id as ptr, value as Double)
+			  setRepeatDuration (id, value)
+			  
+			End Set
+		#tag EndSetter
+		RepeatDuration As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function speed lib UIKit selector "speed" (id as ptr) as Single
+			  return speed (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setSpeed lib UIKit selector "setSpeed:" (id as ptr, value as Single)
+			  setSpeed (id, value)
+			  
+			End Set
+		#tag EndSetter
+		Speed As Single
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function timeOffset lib UIKit selector "timeOffset" (id as ptr) as Double
+			  return timeOffset (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setTimeOffset lib UIKit selector "setTimeOffset:" (id as ptr, value as Double)
+			  setTimeOffset (id, value)
+			  
+			End Set
+		#tag EndSetter
+		TimeOffset As Double
+	#tag EndComputedProperty
+
+
+	#tag Enum, Name = FillModes, Flags = &h0
+		Remove
+		  Remain
+		  Reset
+		Both
+	#tag EndEnum
+
+	#tag Enum, Name = Properties, Type = Integer, Flags = &h0
+		Position
+		  Anchorpoint
+		  BorderColor
+		  BackgroundColor
+		  ShadowColor
+		  Bounds
+		  BorderWidth
+		  CornerRadius
+		  Hidden
+		  MasksToBounds
+		  ShadowRadius
+		  ShadowOffset
+		  ContentsRect
+		  Filters
+		  Opacity
+		  ShadowOpacity
+		Transform
+	#tag EndEnum
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Autoreverses"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BeginTime"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Duration"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="FillMode"
+			Group="Behavior"
+			Type="FillModes"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Remove"
+				"1 - Remain"
+				"2 - Reset"
+				"3 - Both"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RepeatCount"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RepeatDuration"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Speed"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TimeOffset"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass

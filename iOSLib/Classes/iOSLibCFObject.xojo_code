@@ -1,5 +1,6 @@
 #tag Class
 Protected Class iOSLibCFObject
+Implements iOSLibGeneralObject
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function CFCopyDescription Lib CoreFoundation (CFTypeRef as Ptr) As CFStringRef
 	#tag EndExternalMethod
@@ -53,6 +54,14 @@ Protected Class iOSLibCFObject
 	#tag Method, Flags = &h1
 		Protected Function Equals(anotherCFTypeObject as iOSLibCFObject) As boolean
 		  return CFEqual (mCFTypeRef, anotherCFTypeObject.CFTypeRef)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function GeneralID() As Ptr
+		  // Part of the iOSLibGeneralObject interface.
+		  
+		  return mCFTypeRef
 		End Function
 	#tag EndMethod
 

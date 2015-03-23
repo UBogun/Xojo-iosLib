@@ -28,11 +28,13 @@ Protected Module TextExtension
 
 	#tag Method, Flags = &h0
 		Function toCommaList(extends t() as Text) As Text
-		  if t.Ubound > 0 then
+		  if t.Ubound > -1 then
 		    dim result as text = t(0)
-		    for q as UInteger = 1 to t.Ubound
-		      result = result +", "+t(q)
-		    next
+		    if t.Ubound > 0 then
+		      for q as UInteger = 1 to t.Ubound
+		        result = result +", "+t(q)
+		      next
+		    end if
 		    return result
 		  end if
 		End Function

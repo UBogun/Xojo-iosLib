@@ -1,5 +1,6 @@
 #tag Class
 Protected Class iOSLibObject
+Implements iOSLibGeneralObject
 	#tag Method, Flags = &h1
 		Protected Shared Function Alloc(aClass as Ptr) As ptr
 		  declare function alloc lib uikit selector "alloc" (id as ptr) as ptr
@@ -52,13 +53,21 @@ Protected Class iOSLibObject
 	#tag Method, Flags = &h21
 		Private Sub Destructor()
 		  
-		  if mHasOwnership then 
+		  if mHasOwnership then
 		    system.DebugLog "Releasing "+DebugDescription
 		    Release
 		  else
 		    // system.DebugLog "Losing Handle on "+DebugDescription
 		  end if
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function GeneralID() As Ptr
+		  // Part of the iOSLibGeneralObject interface.
+		  
+		  return mid
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
@@ -80,6 +89,12 @@ Protected Class iOSLibObject
 		Protected Function MakeCopy() As Ptr
 		  Declare function Copy lib UIKit selector "copy" (id as ptr) as ptr
 		  return copy (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As iosLibObject
+		  return if (aptr <> NIL, new iOSLibObject (aptr), NIL)
 		End Function
 	#tag EndMethod
 

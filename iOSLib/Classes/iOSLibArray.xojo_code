@@ -1,6 +1,57 @@
 #tag Class
 Protected Class iOSLibArray
 Inherits iOSLibObject
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As ioslibarray
+		  return if (aptr <> NIL, new iOSLibArray (aptr), NIL)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ObjectAtIndex(Index as Uinteger) As iOSLibObject
+		  dim myptr as ptr = PtrAtIndex (index)
+		  return if (myptr <> NIL, new iOSLibObject (myptr), NIL)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function PtrAtIndex(Index as Uinteger) As Ptr
+		  declare function objectAtIndex lib UIKit selector "objectAtIndex:" (id as ptr, index as uinteger) as Ptr
+		  return objectAtIndex (id, index)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function TextAtIndex(Index as Uinteger) As cfstringref
+		  declare function objectAtIndex lib UIKit selector "objectAtIndex:" (id as ptr, index as uinteger) as CFStringRef
+		  return objectAtIndex (id, index)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function toPtrArray() As Ptr()
+		  dim result() as Ptr
+		  for q as uinteger = 0 to count -1
+		    result.Append PtrAtIndex (q)
+		  next
+		  return result
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function toTextArray() As text()
+		  dim result() as text
+		  for q as uinteger = 0 to count -1
+		    result.Append Textatindex (q)
+		  next
+		  return result
+		End Function
+	#tag EndMethod
+
+
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
@@ -11,11 +62,16 @@ Inherits iOSLibObject
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h1
+	#tag ComputedProperty, Flags = &h0
 		#tag Note
 			return getCount
 		#tag EndNote
-		Protected Count As UInteger
+		#tag Getter
+			Get
+			  return getCount
+			End Get
+		#tag EndGetter
+		Count As UInteger
 	#tag EndComputedProperty
 
 

@@ -1,38 +1,6 @@
 #tag Module
 Protected Module iOSFoundation
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetBundleWithIdentifier Lib Foundation (BundleID as CFStringRef) As Ptr
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetDataPointerForName Lib Foundation (Bundle as Ptr, symbolName as CFStringRef) As Ptr
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetDevelopmentRegion Lib Foundation (Bundle as Ptr) As cfstringref
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetIdentifier Lib Foundation (Bundle as Ptr) As cfstringref
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetInfoDictionary Lib Foundation (Bundle as Ptr) As Ptr
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetMainBundle Lib Foundation () As Ptr
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleIsExecutableLoaded Lib Foundation (Bundle as Ptr) As Boolean
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleLoadExecutable Lib Foundation (Bundle as Ptr) As Boolean
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function CFCopyDescription Lib Foundation (id as ptr) As cfstringref
 	#tag EndExternalMethod
 
@@ -80,25 +48,6 @@ Protected Module iOSFoundation
 		Protected Declare Function CFStringGetFastestEncoding Lib Foundation (aString as cfstringref) As Ptr
 	#tag EndExternalMethod
 
-	#tag Method, Flags = &h1
-		Protected Function DataPointerforName(name as CFStringRef, frameworkID as CFStringRef) As Ptr
-		  // Implementation courtesy of Jim McKay
-		  
-		  dim frameworkRef As ptr=CFBundleGetBundleWithIdentifier(frameworkID)
-		  if frameworkRef=nil then Return nil
-		  
-		  if not CFBundleIsExecutableLoaded(frameworkRef) then //bundle is not loaded
-		    if not CFBundleLoadExecutable(frameworkRef) then  //try to load it
-		      //fail
-		      Return nil
-		    end if
-		  end if
-		  
-		  Return CFBundleGetDataPointerForName(frameworkRef,name) //lookup the constant
-		  #pragma unused name
-		End Function
-	#tag EndMethod
-
 	#tag ExternalMethod, Flags = &h0
 		Declare Function NSClassFromString Lib Foundation (aClassName as CFStringRef) As Ptr
 	#tag EndExternalMethod
@@ -123,13 +72,6 @@ Protected Module iOSFoundation
 		Function StandardTextEncoding() As xojo.Core.TextEncoding
 		  static enc as xojo.Core.TextEncoding = xojo.core.TextEncoding.utf8
 		  return enc
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function SystemConstantName(name as CFStringRef, frameworkID as CFStringRef) As CFStringRef
-		  Return DataPointerforName (name, frameworkID).cfstringref(0)
-		  
 		End Function
 	#tag EndMethod
 
