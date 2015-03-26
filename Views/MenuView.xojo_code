@@ -107,10 +107,12 @@ End
 		  me.AddRow 1, "Transform properties"
 		  me.AddSection "iOSLibNotificationCenter"
 		  me.AddRow 2, "Shared Notifications"
-		  me.AddSection "iOSHTMLViewer Extension"
+		  me.AddSection "iOSLibHTMLViewer Extension"
 		  me.AddRow 3, "UIWebView features"
-		  me.AddSection "iOSCFBundle"
+		  me.AddSection "iOLibSCFBundle"
 		  me.AddRow 4, "Open Bundles/Frameworks"
+		  me.AddSection "Test Section"
+		  me.AddRow 5, "Test"
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -133,6 +135,9 @@ End
 		  case "Open Bundles/Frameworks"
 		    dim v3 as new FrameWorkView
 		    self.PushToDissolve v3
+		  case "Test"
+		    dim v3 as new View2
+		    self.PushToSlide v3
 		  End Select
 		End Sub
 	#tag EndEvent

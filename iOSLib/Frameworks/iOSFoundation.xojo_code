@@ -9,19 +9,7 @@ Protected Module iOSFoundation
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFNumberGetByteSize Lib Foundation (Number as Ptr) As Integer
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFNumberGetType Lib Foundation (Number as Ptr) As CFNumberTypes
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function CFNumberGetValue Lib Foundation (Number as Ptr, Numbertype as CFNumberTypes, byref ValuePtr as Ptr) As Boolean
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFNumberIsFloatType Lib Foundation (Number as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
@@ -50,10 +38,6 @@ Protected Module iOSFoundation
 
 	#tag ExternalMethod, Flags = &h0
 		Declare Function NSClassFromString Lib Foundation (aClassName as CFStringRef) As Ptr
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h0
-		Declare Function NSMakeSize Lib Foundation (w as single, h as Single) As ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h0

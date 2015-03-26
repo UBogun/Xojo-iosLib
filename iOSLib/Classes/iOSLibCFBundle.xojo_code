@@ -62,6 +62,14 @@ Inherits iOSLibCFObject
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1000
+		Sub constructor(identifier as CFStringRef)
+		  // Calling the overridden superclass constructor.
+		  Super.Constructor (CFBundleGetBundleWithIdentifier (identifier))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
 		Sub constructor(aptr as ptr)
 		  // Calling the overridden superclass constructor.
 		  Super.Constructor (aptr)
@@ -69,22 +77,9 @@ Inherits iOSLibCFObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Shared Function DataPointerforName(name as CFStringRef, frameworkID as CFStringRef) As Ptr
-		  // Implementation courtesy of Jim McKay
-		  
-		  dim frameworkRef As ptr=CFBundleGetBundleWithIdentifier(frameworkID)
-		  if frameworkRef=nil then Return nil
-		  
-		  if not CFBundleIsExecutableLoaded(frameworkRef) then //bundle is not loaded
-		    if not CFBundleLoadExecutable(frameworkRef) then  //try to load it
-		      //fail
-		      Return nil
-		    end if
-		  end if
-		  
-		  Return CFBundleGetDataPointerForName(frameworkRef,name) //lookup the constant
-		  #pragma unused name
+	#tag Method, Flags = &h0
+		Function DataPtrForName(Name as CFStringRef) As Ptr
+		  return CFBundleGetDataPointerForName (mcfTypeRef, name)
 		End Function
 	#tag EndMethod
 
@@ -101,13 +96,6 @@ Inherits iOSLibCFObject
 	#tag Method, Flags = &h0
 		Function Load() As Boolean
 		  return CFBundleLoadExecutable (mcftypeRef)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		 Shared Function SystemConstantName(name as CFStringRef, frameworkID as CFStringRef) As CFStringRef
-		  Return DataPointerforName (name, frameworkID).cfstringref(0)
-		  
 		End Function
 	#tag EndMethod
 

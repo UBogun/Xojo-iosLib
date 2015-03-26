@@ -119,7 +119,7 @@ Inherits iosLibObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static FMFwd As Text = ioslibcfbundle.SystemConstantName ("kCAFillModeBackwards", QuartzCorePath)
+			  static FMFwd As Text = SystemConstantName ("kCAFillModeBackwards", QuartzCorePath)
 			  return FMFwd
 			End Get
 		#tag EndGetter
@@ -129,7 +129,7 @@ Inherits iosLibObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static FMBoth As Text = iOSLibCFBundle.SystemConstantName ("kCAFillModeBoth", QuartzCorePath)
+			  static FMBoth As Text = SystemConstantName ("kCAFillModeBoth", QuartzCorePath)
 			  return FMBoth
 			End Get
 		#tag EndGetter
@@ -139,7 +139,7 @@ Inherits iosLibObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static FMFwd As Text = iOSLibCFBundle.SystemConstantName ("kCAFillModeForwards", QuartzCorePath)
+			  static FMFwd As Text = SystemConstantName ("kCAFillModeForwards", QuartzCorePath)
 			  return FMFwd
 			End Get
 		#tag EndGetter
@@ -149,7 +149,7 @@ Inherits iosLibObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static FMRemove As Text = iOSLibCFBundle.SystemConstantName ("kCAFillModeRemoved", QuartzCorePath)
+			  static FMRemove As Text = SystemConstantName ("kCAFillModeRemoved", QuartzCorePath)
 			  return FMRemove
 			End Get
 		#tag EndGetter

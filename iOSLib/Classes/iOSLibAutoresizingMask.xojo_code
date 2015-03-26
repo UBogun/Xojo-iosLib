@@ -28,6 +28,15 @@ Protected Class iOSLibAutoresizingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  return new iOSLibAutoresizingMask (18)
+			End Get
+		#tag EndGetter
+		Shared FullResize As iOSLibAutoresizingMask
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  return id.hasbit (4)
 			End Get
 		#tag EndGetter

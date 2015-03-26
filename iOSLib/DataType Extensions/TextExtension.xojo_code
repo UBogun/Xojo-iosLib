@@ -9,6 +9,7 @@ Protected Module TextExtension
 	#tag Method, Flags = &h0
 		Function fromCString(extends t as text, c as cstring) As cfstringref
 		  return text.FromCString (c, StandardTextEncoding)
+		  #pragma unused t
 		End Function
 	#tag EndMethod
 
