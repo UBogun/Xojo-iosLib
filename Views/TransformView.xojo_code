@@ -10,10 +10,10 @@ Begin iosView TransformView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 170, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 170, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       ContentMode     =   "1"
       Height          =   170.0
       Image           =   "588568575"
@@ -27,10 +27,10 @@ Begin iosView TransformView
    Begin iOSSlider Slider1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider1, 9, <Parent>, 9, False, +1.00, 1, 1, 2, 
-      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Slider1, 3, <Parent>, 3, False, +1.00, 1, 1, 224, 
       AutoLayout      =   Slider1, 7, , 0, False, +1.00, 1, 1, 283, 
+      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider1, 9, <Parent>, 9, False, +1.00, 1, 1, 2, 
+      AutoLayout      =   Slider1, 3, <Parent>, 3, False, +1.00, 1, 1, 224, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -46,10 +46,10 @@ Begin iosView TransformView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 3, , 0, False, +1.00, 1, 1, 450, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 129, 
       AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 450, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 129, 
       Caption         =   "Return to menu"
       Enabled         =   True
       Height          =   30.0
@@ -64,30 +64,35 @@ Begin iosView TransformView
       Width           =   129.0
    End
    Begin iOSSegmentedControl TransformSelector
-      AutoLayout      =   TransformSelector, 7, , 0, False, +1.00, 1, 1, 200, 300
-      AutoLayout      =   TransformSelector, 3, <Parent>, 3, False, +1.00, 1, 1, 267, 
-      AutoLayout      =   TransformSelector, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   TransformSelector, 8, , 0, True, +1.00, 1, 1, 29, 
+      AutoLayout      =   TransformSelector, 3, <Parent>, 3, False, +1.00, 1, 1, 267, 
+      AutoLayout      =   TransformSelector, 7, , 0, False, +1.00, 1, 1, 200, 300
+      AutoLayout      =   TransformSelector, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
+      Caption         =   ""
       Enabled         =   True
       Height          =   29.0
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       Segments        =   "Rotate\n\nTrue\rScale\n\nFalse\rTranslate\n\nFalse"
-      Top             =   267.0
+      Top             =   267
       Value           =   0
       Visible         =   True
       Width           =   200.0
    End
    Begin iOSTextField XField
-      AutoLayout      =   XField, 7, , 0, False, +1.00, 1, 1, 76, 
-      AutoLayout      =   XField, 3, , 0, False, +1.00, 1, 1, 323, 
-      AutoLayout      =   XField, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   XField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   XField, 3, <Parent>, 3, False, +1.00, 1, 1, 323, 
+      AutoLayout      =   XField, 7, , 0, False, +1.00, 1, 1, 76, 
+      AutoLayout      =   XField, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   "X"
@@ -97,19 +102,21 @@ Begin iosView TransformView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   323.0
+      Top             =   323
       Visible         =   True
       Width           =   76.0
    End
    Begin iOSTextField YField
-      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   YField, 7, , 0, False, +1.00, 1, 1, 76, 
-      AutoLayout      =   YField, 1, <Parent>, 1, False, +1.00, 1, 1, 104, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   YField, 3, <Parent>, 3, False, +1.00, 1, 1, 323, 
+      AutoLayout      =   YField, 7, , 0, False, +1.00, 1, 1, 76, 
+      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   YField, 1, <Parent>, 1, False, +1.00, 1, 1, 104, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
-      Left            =   104.0
+      Left            =   104
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   "Y"
@@ -119,19 +126,21 @@ Begin iosView TransformView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   323.0
+      Top             =   323
       Visible         =   True
       Width           =   76.0
    End
    Begin iOSTextField ZField
-      AutoLayout      =   ZField, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ZField, 7, , 0, False, +1.00, 1, 1, 76, 
-      AutoLayout      =   ZField, 1, <Parent>, 1, False, +1.00, 1, 1, 188, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   ZField, 3, <Parent>, 3, False, +1.00, 1, 1, 323, 
+      AutoLayout      =   ZField, 7, , 0, False, +1.00, 1, 1, 76, 
+      AutoLayout      =   ZField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   ZField, 1, <Parent>, 1, False, +1.00, 1, 1, 188, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
-      Left            =   188.0
+      Left            =   188
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   "Z"
@@ -141,69 +150,77 @@ Begin iosView TransformView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   323.0
+      Top             =   323
       Visible         =   True
       Width           =   76.0
    End
    Begin iOSButton Button2
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button2, 3, , 0, False, +1.00, 1, 1, 388, 
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Button2, 1, XField, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
       Caption         =   "Invert"
       Enabled         =   True
       Height          =   30.0
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   388.0
+      Top             =   388
       Visible         =   True
       Width           =   100.0
    End
    Begin iOSButton Button3
-      AutoLayout      =   Button3, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
-      AutoLayout      =   Button3, 1, <Parent>, 1, False, +1.00, 1, 1, 145, 
-      AutoLayout      =   Button3, 7, , 0, False, +1.00, 1, 1, 100, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button3, 1, <Parent>, 1, False, +1.00, 1, 1, 145, 
+      AutoLayout      =   Button3, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
+      AutoLayout      =   Button3, 7, , 0, False, +1.00, 1, 1, 100, 
       Caption         =   "Reset"
       Enabled         =   True
       Height          =   30.0
-      Left            =   145.0
+      Left            =   145
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   388.0
+      Top             =   388
       Visible         =   True
       Width           =   100.0
    End
    Begin iOSSwitch Switch1
-      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch1, 3, TransformSelector, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Switch1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch1, 3, TransformSelector, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   249.0
+      Left            =   249
       LockedInPosition=   False
       Scope           =   0
-      Top             =   267.0
+      Top             =   267
       Value           =   True
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSLabel Label1
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 3, , 0, False, +1.00, 1, 1, 239, 
-      AutoLayout      =   Label1, 2, Switch1, 2, False, +1.00, 1, 1, 0, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Label1, 1, TransformSelector, 2, False, +1.00, 1, 1, 29, 
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 239, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 2, Switch1, 2, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   249.0
+      Left            =   249
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Make"
@@ -211,7 +228,7 @@ Begin iosView TransformView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   12
-      Top             =   239.0
+      Top             =   239
       Visible         =   True
       Width           =   51.0
    End
@@ -244,27 +261,27 @@ End
 		  select case TransformSelector.Value
 		  case 0
 		    if switch1.Value then
-		      imageview1.BackgroundLayer.Transform = CATransform3DMakeRotation _
+		      imageview1.CoreAnimationLayer.Transform = CATransform3DMakeRotation _
 		      (myvalue.DegreeToRadian, double.FromText (XField.Text), double.FromText (YField.text), double.FromText (ZField.text))
 		    else
-		      imageview1.BackgroundLayer.Transform = CATransform3DRotate _
-		      (imageview1.BackgroundLayer.Transform, myvalue.DegreeToRadian, double.FromText (XField.Text), double.FromText (YField.text), double.FromText (ZField.text))
+		      imageview1.CoreAnimationLayer.Transform = CATransform3DRotate _
+		      (imageview1.CoreAnimationLayer.Transform, myvalue.DegreeToRadian, double.FromText (XField.Text), double.FromText (YField.text), double.FromText (ZField.text))
 		    end if
 		  case 1
 		    if switch1.Value then
-		      imageview1.BackgroundLayer.Transform = CATransform3DmakeScale _
+		      imageview1.CoreAnimationLayer.Transform = CATransform3DmakeScale _
 		      (myvalue * double.FromText (XField.Text), myvalue * double.FromText (YField.text), myvalue*double.FromText (ZField.text))
 		    else
-		      imageview1.BackgroundLayer.Transform = CATransform3DScale _
-		      (imageview1.BackgroundLayer.Transform, myvalue * double.FromText (XField.Text), myvalue * double.FromText (YField.text), myvalue*double.FromText (ZField.text))
+		      imageview1.CoreAnimationLayer.Transform = CATransform3DScale _
+		      (imageview1.CoreAnimationLayer.Transform, myvalue * double.FromText (XField.Text), myvalue * double.FromText (YField.text), myvalue*double.FromText (ZField.text))
 		    end if
 		  case 2
 		    if switch1.Value then
-		      imageview1.BackgroundLayer.Transform = CATransform3DMakeTranslation _
+		      imageview1.CoreAnimationLayer.Transform = CATransform3DMakeTranslation _
 		      ( myvalue * double.FromText (XField.Text), myvalue * double.FromText (YField.text), myvalue*double.FromText (ZField.text))
 		    else
-		      imageview1.BackgroundLayer.Transform = CATransform3DTranslate _
-		      (imageview1.BackgroundLayer.Transform, myvalue * double.FromText (XField.Text), myvalue * double.FromText (YField.text), myvalue*double.FromText (ZField.text))
+		      imageview1.CoreAnimationLayer.Transform = CATransform3DTranslate _
+		      (imageview1.CoreAnimationLayer.Transform, myvalue * double.FromText (XField.Text), myvalue * double.FromText (YField.text), myvalue*double.FromText (ZField.text))
 		    end if
 		  end select
 		End Sub
@@ -301,14 +318,14 @@ End
 #tag Events Button2
 	#tag Event
 		Sub Action()
-		  ImageView1.BackgroundLayer.Transform = CATransform3DInvert (ImageView1.BackgroundLayer.Transform)
+		  ImageView1.CoreAnimationLayer.Transform = CATransform3DInvert (ImageView1.CoreAnimationLayer.Transform)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events Button3
 	#tag Event
 		Sub Action()
-		  ImageView1.BackgroundLayer.Transform = CATransform3DIdentity
+		  ImageView1.CoreAnimationLayer.Transform = CATransform3DIdentity
 		End Sub
 	#tag EndEvent
 #tag EndEvents

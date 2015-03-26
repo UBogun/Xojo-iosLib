@@ -44,6 +44,8 @@ Begin iosView FrameWorkDetailView
       Width           =   320.0
    End
    Begin iOSTextArea TextArea1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 161, 
       AutoLayout      =   TextArea1, 4, Button1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
@@ -51,7 +53,7 @@ Begin iosView FrameWorkDetailView
       Editable        =   True
       Height          =   161.0
       KeyboardType    =   "0"
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Untitled"
@@ -59,7 +61,7 @@ Begin iosView FrameWorkDetailView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   277.0
+      Top             =   277
       Visible         =   True
       Width           =   280.0
    End

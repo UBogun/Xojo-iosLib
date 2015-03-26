@@ -381,6 +381,11 @@ Inherits iOSLibresponder
 			  return if (myptr <> NIL, new iOSLibView (myptr), NIL)
 			End Get
 		#tag EndGetter
+		#tag Setter
+			Set
+			  setDelegate value.id
+			End Set
+		#tag EndSetter
 		DelegateiosLibView As iosLibView
 	#tag EndComputedProperty
 
@@ -662,6 +667,22 @@ Inherits iOSLibresponder
 			End Set
 		#tag EndSetter
 		RasterizationScale As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function needsDisplayOnBoundsChange lib UIKit selector "needsDisplayOnBoundsChange" (id as ptr) as Boolean
+			  return needsDisplayOnBoundsChange (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setNeedsDisplayOnBoundsChange lib UIKit selector "setNeedsDisplayOnBoundsChange:" (id as ptr, value as Boolean)
+			  setneedsDisplayOnBoundsChange id, value
+			End Set
+		#tag EndSetter
+		RedrawOnResize As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

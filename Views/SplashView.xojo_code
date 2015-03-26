@@ -88,13 +88,6 @@ End
 #tag EndIOSView
 
 #tag WindowCode
-	#tag Event
-		Sub Open()
-		  
-		End Sub
-	#tag EndEvent
-
-
 	#tag Method, Flags = &h0
 		Sub buttonmove()
 		  dim newrect as NSRect = Button1.iOSLibView.Frame

@@ -149,7 +149,7 @@ End
 	#tag Event
 		Sub Action()
 		  for q as uinteger = 1 to 10000000
-		    dim cs as new iOSLibCGColorSpace
+		    dim cs as  iOSLibCFBundle = iOSLibCFBundle.MainBundle
 		  next
 		End Sub
 	#tag EndEvent

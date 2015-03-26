@@ -78,6 +78,14 @@ Implements iOSLibGeneralObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
+		Protected Function getTitle() As Text
+		  Declare Function title lib UIKit selector "title" (id as ptr) as CFStringRef
+		  Return title (id)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
 		Protected Shared Function Init(anId as ptr) As Ptr
 		  declare function init lib UIKit selector "init" (id as ptr) as ptr
 		  return init (anId)
@@ -109,6 +117,14 @@ Implements iOSLibGeneralObject
 		Protected Sub Retain()
 		  declare function retain lib UIKit selector "retain" (id as ptr) as ptr
 		  call retain (mid)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setTitle(Title as cfstringref)
+		  Declare Sub setTitle lib UIKit selector "setTitle:" (id as ptr, value as CFStringRef)
+		  settitle (id, title)
+		  
 		End Sub
 	#tag EndMethod
 

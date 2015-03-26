@@ -56,6 +56,22 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  Declare Function modalPresentationStyle lib UIKit selector "modalPresentationStyle" (id as ptr) as UIViewModalPresentationStyle
+			  Return modalPresentationStyle (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setModalPresentationStyle lib UIKit selector "setModalPresentationStyle:" (id as ptr, value as UIViewModalPresentationStyle)
+			  setModalPresentationStyle id, value
+			End Set
+		#tag EndSetter
+		ModalPresentationStyle As UIViewModalPresentationStyle
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare Function modalTransitionStyle lib UIKit selector "modalTransitionStyle" (id as ptr) as UIModalTransitionStyle
 			  Return modalTransitionStyle (id)
 			End Get
@@ -75,6 +91,18 @@ Inherits iOSLibResponder
 		  FlipHorizontal
 		  CrossDissolve
 		PartialCurl
+	#tag EndEnum
+
+	#tag Enum, Name = UIViewModalPresentationStyle, Type = Integer, Flags = &h0
+		FullScreen = 0
+		  PageSheet
+		  FormSheet
+		  CurrentContext
+		  Custom
+		  OverFullScreen
+		  OverCurrentContext
+		  PopOver
+		None = -1
 	#tag EndEnum
 
 
@@ -107,6 +135,11 @@ Inherits iOSLibResponder
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ModalTransitonStyle"
+			Group="Behavior"
+			Type="UIModalTransitionStyle"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

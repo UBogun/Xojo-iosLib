@@ -1,5 +1,5 @@
 #tag Class
-Protected Class iosLibCGColor
+Protected Class iOSLibCGColor
 Inherits ioslibcfobject
 	#tag Method, Flags = &h21
 		Private Function CGColorCreateCopyWithAlpha(acolor as ptr, alpha as double) As Ptr
@@ -469,6 +469,12 @@ Inherits ioslibcfobject
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="toColor"
+			Group="Behavior"
+			InitialValue="&c000000"
+			Type="Color"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

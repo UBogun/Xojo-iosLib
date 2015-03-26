@@ -2,7 +2,7 @@
 Protected Module iOSViewExtension
 	#tag Method, Flags = &h0
 		Sub Dismiss(extends v as iOSView, animated as boolean = false)
-		  v.iosLibViewController.Dismiss  true
+		  v.iosLibViewController.Dismiss  animated
 		End Sub
 	#tag EndMethod
 

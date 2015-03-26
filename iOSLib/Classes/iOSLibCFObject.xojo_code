@@ -129,6 +129,15 @@ Implements iOSLibGeneralObject
 		HasOwnerShip As Boolean
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return (mcftyperef = nil)
+			End Get
+		#tag EndGetter
+		isNIL As Boolean
+	#tag EndComputedProperty
+
 	#tag Property, Flags = &h1
 		Attributes( hidden ) Protected mCFTypeRef As Ptr
 	#tag EndProperty
