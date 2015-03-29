@@ -1,6 +1,20 @@
 #tag Class
 Protected Class iOSLibNotification
 Inherits iOSLibObject
+	#tag Method, Flags = &h1021
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1021
+		Private Sub Constructor(Name As CFStringRef, SourceObject as iOSLibObject, Userinfo As iosLibDictionary = Nil)
+		  declare function initWithName lib UIKit selector "initWithName:object:userInfo:" (id as ptr, name as CFStringRef, Sourceobject as Ptr, userinfo as Ptr) As Ptr
+		  super.Constructor (initWithName(alloc(ClassPtr), name, SourceObject.Id, if (Userinfo <> NIL, Userinfo.id, NIL)))
+		End Sub
+	#tag EndMethod
+
+
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
@@ -29,6 +43,16 @@ Inherits iOSLibObject
 			End Get
 		#tag EndGetter
 		Sender As iOSLibObject
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function userinfo lib uikit selector "userinfo" (id as ptr) as ptr
+			  return iOSLibDictionary.MakeFromPtr (userinfo(id))
+			End Get
+		#tag EndGetter
+		UserInfo As iOSLibDictionary
 	#tag EndComputedProperty
 
 

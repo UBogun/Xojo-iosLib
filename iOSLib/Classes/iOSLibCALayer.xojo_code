@@ -52,6 +52,26 @@ Inherits iOSLibresponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub LayoutIfNeeded()
+		  PerformLayoutIfNeeded
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub LayoutSubLayers()
+		  declare sub layoutSublayers lib UIKit selector "layoutSublayers" (id as ptr)
+		  layoutSublayers id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function NeedsDisplayForKey(aKey As CFStringRef) As Boolean
+		  Declare Function needsDisplayForKey lib UIKit selector "needsDisplayForKey:" (id as ptr, key as CFStringRef) as Boolean
+		  return needsDisplayForKey (ClassPtr, aKey)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub RemoveFromSuperlayer()
 		  declare sub removeFromSuperlayer lib UIKit selector "removeFromSuperlayer" (id as ptr)
 		  removeFromSuperlayer id
@@ -295,6 +315,100 @@ Inherits iOSLibresponder
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
+		#tag Note
+			This property is hidden to avoid wrong string values. Use contentPosition instead.
+		#tag EndNote
+		#tag Getter
+			Get
+			  declare function contentsGravity lib UIKit selector "contentsGravity" (id as ptr) as cfstringref
+			  return contentsGravity (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare sub setContentsGravity lib UIKit selector "setContentsGravity:" (id as ptr, value as cfstringref)
+			  setContentsGravity id, value
+			End Set
+		#tag EndSetter
+		Attributes( hidden ) ContentsGravity As CFStringRef
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  dim gravity as text = ContentsGravity
+			  dim result as auto = GravityDict.keyForValue(gravity)
+			  if result <> NIL then
+			    dim compare as text = result
+			    select case compare
+			    case kCAGravityBottom
+			      return calayerContentPosition.Bottom
+			    case kCAGravityBottomLeft
+			      return calayerContentPosition.BottomLeft
+			    case kCAGravityBottomRight
+			      return calayerContentPosition.BottomRight
+			    case kCAGravityCenter
+			      return calayerContentPosition.Center
+			    case kCAGravityLeft
+			      return calayerContentPosition.Left
+			    case kCAGravityResize
+			      return calayerContentPosition.Resize
+			    case kCAGravityResizeAspect
+			      return calayerContentPosition.ResizeProportionally
+			    case kCAGravityResizeAspectFill
+			      return calayerContentPosition.FillProportionally
+			    case kCAGravityRight
+			      return calayerContentPosition.Right
+			    case kCAGravityTop
+			      return calayerContentPosition.Top
+			    case kCAGravityTopLeft
+			      return calayerContentPosition.TopLeft
+			    case kCAGravityTopRight
+			      return calayerContentPosition.TopRight
+			    end select
+			  end if
+			  
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  dim ConstantValue as text
+			  Select case value
+			  case calayerContentPosition.Bottom
+			    ConstantValue = kCAGravityBottom
+			  case calayerContentPosition.BottomLeft
+			    ConstantValue =kCAGravityBottomLeft
+			  case calayerContentPosition.BottomRight
+			    ConstantValue = kCAGravityBottomRight
+			  case calayerContentPosition.Center
+			    ConstantValue = kCAGravityCenter
+			  case calayerContentPosition.Left
+			    ConstantValue = kCAGravityLeft
+			  case calayerContentPosition.Resize
+			    ConstantValue = kCAGravityResize
+			  case calayerContentPosition.ResizeProportionally
+			    ConstantValue =kCAGravityResizeAspect
+			  case calayerContentPosition.FillProportionally
+			    ConstantValue = kCAGravityResizeAspectFill
+			  case calayerContentPosition.Right
+			    ConstantValue =kCAGravityRight
+			  case calayerContentPosition.Top
+			    ConstantValue = kCAGravityTop
+			  case calayerContentPosition.TopLeft
+			    ConstantValue =kCAGravityTopLeft
+			  case calayerContentPosition.TopRight
+			    ConstantValue =kCAGravityTopRight
+			  end select
+			  ContentsGravity =GravityDict.Value(ConstantValue).toText
+			  
+			End Set
+		#tag EndSetter
+		ContentsPositioning As caLayerContentPosition
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
 			  #if target32bit
@@ -492,6 +606,30 @@ Inherits iOSLibresponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  if mGravityDict = nil then
+			    mGravityDict = new xojo.Core.Dictionary
+			    mGravityDict.Value (kCAGravityBottom) = SystemConstantName (kCAGravityBottom, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityBottomRight) = SystemConstantName (kCAGravityBottomRight, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityBottomLeft) = SystemConstantName (kCAGravityBottomLeft, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityCenter) = SystemConstantName (kCAGravityCenter, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityLeft) = SystemConstantName (kCAGravityLeft, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityResize) = SystemConstantName (kCAGravityResize, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityResizeAspect) = SystemConstantName (kCAGravityResizeAspect, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityResizeAspectFill) = SystemConstantName (kCAGravityResizeAspectFill, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityRight) = SystemConstantName (kCAGravityRight, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityTop) = SystemConstantName (kCAGravityTop, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityTopLeft) = SystemConstantName (kCAGravityTopLeft, QuartzCorePath)
+			    mGravityDict.Value (kCAGravityTopRight) = SystemConstantName (kCAGravityTopRight, QuartzCorePath)
+			  end if
+			  return mGravityDict
+			End Get
+		#tag EndGetter
+		Shared GravityDict As xojo.Core.Dictionary
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  DEclare Function allowsGroupOpacity lib UIKit selector "allowsGroupOpacity" (id as ptr) as Boolean
 			  return allowsGroupOpacity (id)
 			  
@@ -560,6 +698,10 @@ Inherits iOSLibresponder
 		#tag EndSetter
 		MasksToBounds As Boolean
 	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private Shared mGravityDict As xojo.Core.Dictionary
+	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
@@ -879,6 +1021,37 @@ Inherits iOSLibresponder
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
+		#tag Note
+			
+			End Set
+		#tag EndNote
+		Untitled As Integer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Note
+			if mGravityDict = nil then
+			mGravityDict = new xojo.Core.Dictionary
+			mGravityDict.Value (kCAGravityBottom) = MacOSFoundation.MacOSConstantName (kCAGravityBottom, QuartzCorePath)
+			mGravityDict.Value (kCAGravityBottomRight) = MacOSFoundation.MacOSConstantName (kCAGravityBottomRight, QuartzCorePath)
+			mGravityDict.Value (kCAGravityBottomLeft) = MacOSFoundation.MacOSConstantName (kCAGravityBottomLeft, QuartzCorePath)
+			mGravityDict.Value (kCAGravityCenter) = MacOSFoundation.MacOSConstantName (kCAGravityCenter, QuartzCorePath)
+			mGravityDict.Value (kCAGravityLeft) = MacOSFoundation.MacOSConstantName (kCAGravityLeft, QuartzCorePath)
+			mGravityDict.Value (kCAGravityResize) = MacOSFoundation.MacOSConstantName (kCAGravityResize, QuartzCorePath)
+			mGravityDict.Value (kCAGravityResizeAspect) = MacOSFoundation.MacOSConstantName (kCAGravityResizeAspect, QuartzCorePath)
+			mGravityDict.Value (kCAGravityResizeAspectFill) = MacOSFoundation.MacOSConstantName (kCAGravityResizeAspectFill, QuartzCorePath)
+			mGravityDict.Value (kCAGravityRight) = MacOSFoundation.MacOSConstantName (kCAGravityRight, QuartzCorePath)
+			mGravityDict.Value (kCAGravityTop) = MacOSFoundation.MacOSConstantName (kCAGravityTop, QuartzCorePath)
+			mGravityDict.Value (kCAGravityTopLeft) = MacOSFoundation.MacOSConstantName (kCAGravityTopLeft, QuartzCorePath)
+			mGravityDict.Value (kCAGravityTopRight) = MacOSFoundation.MacOSConstantName (kCAGravityTopRight, QuartzCorePath)
+			end if
+			return mGravityDict
+			End Get
+		#tag EndNote
+		Untitled As Integer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
 			  #if target32bit
@@ -905,6 +1078,67 @@ Inherits iOSLibresponder
 	#tag EndComputedProperty
 
 
+	#tag Constant, Name = kCAFilterLinear, Type = Text, Dynamic = False, Default = \"kCAFilterLinear", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAFilterNearest, Type = Text, Dynamic = False, Default = \"kCAFilterNearest", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAFilterTrilinear, Type = Text, Dynamic = False, Default = \"kCAFilterTrilinear", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityBottom, Type = Text, Dynamic = False, Default = \"kCAGravityBottom", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityBottomLeft, Type = Text, Dynamic = False, Default = \"kCAGravityBottomLeft", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityBottomRight, Type = Text, Dynamic = False, Default = \"kCAGravityBottomRight", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityCenter, Type = Text, Dynamic = False, Default = \"kCAGravityCenter", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityLeft, Type = Text, Dynamic = False, Default = \"kCAGravityLeft", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityResize, Type = Text, Dynamic = False, Default = \"kCAGravityResize", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityResizeAspect, Type = Text, Dynamic = False, Default = \"kCAGravityResizeAspect", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityResizeAspectFill, Type = Text, Dynamic = False, Default = \"kCAGravityResizeAspectFill", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityRight, Type = Text, Dynamic = False, Default = \"kCAGravityRight", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityTop, Type = Text, Dynamic = False, Default = \"kCAGravityTop", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityTopLeft, Type = Text, Dynamic = False, Default = \"kCAGravityTopLeft", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAGravityTopRight, Type = Text, Dynamic = False, Default = \"kCAGravityTopRight", Scope = Protected
+	#tag EndConstant
+
+
+	#tag Enum, Name = CaLayerContentPosition, Type = Integer, Flags = &h0
+		Center
+		  Top
+		  Bottom
+		  Left
+		  Right
+		  TopLeft
+		  TopRight
+		  BottomLeft
+		  BottomRight
+		  Resize
+		  ResizeProportionally
+		FillProportionally
+	#tag EndEnum
+
 	#tag Enum, Name = LayerOrderingMode, Type = Integer, Flags = &h0
 		Above = 1
 		  Below = -1
@@ -927,6 +1161,26 @@ Inherits iOSLibresponder
 			Name="ContentsFlipped"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentsPositioning"
+			Group="Behavior"
+			Type="caLayerContentPosition"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Center"
+				"1 - Top"
+				"2 - Bottom"
+				"3 - Left"
+				"4 - Right"
+				"5 - TopLeft"
+				"6 - TopRight"
+				"7 - BottomLeft"
+				"8 - BottomRight"
+				"9 - Resize"
+				"10 - ResizeProportionally"
+				"11 - FillProportionally"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentsScale"
@@ -1024,6 +1278,11 @@ Inherits iOSLibresponder
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="RedrawOnResize"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ShadowOpacity"
 			Group="Behavior"
 			Type="Single"
@@ -1049,6 +1308,11 @@ Inherits iOSLibresponder
 			Visible=true
 			Group="Position"
 			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Untitled"
+			Group="Behavior"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty

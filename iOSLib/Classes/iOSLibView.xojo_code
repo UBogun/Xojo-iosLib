@@ -181,8 +181,7 @@ Inherits iOSLibResponder
 
 	#tag Method, Flags = &h0
 		Sub LayoutIfNeeded()
-		  Declare sub layoutIfNeeded lib UIKit selector "layoutIfNeeded" (id as ptr)
-		  layoutIfNeeded (id)
+		  performLayoutIfNeeded
 		End Sub
 	#tag EndMethod
 
