@@ -37,7 +37,7 @@ Protected Module TextExtension
 		  dim green as integer = integer.FromHex (aColorString.mid (4,2))
 		  dim blue as integer = integer.FromHex (aColorString.mid (6,2))
 		  dim alpha as integer = if (aColorString.Length >= 10, integer.FromHex (aColorString.mid (8,2)), 0)
-		  return color.rgba (red, green, blue, alpha) 
+		  return color.rgba (red, green, blue, alpha)
 		End Function
 	#tag EndMethod
 

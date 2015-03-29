@@ -10,10 +10,10 @@ Begin iosView MenuView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 51, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 65, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 51, 
+      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 65, 
       ContentMode     =   "1"
       Height          =   51.0
       Image           =   "547002367"
@@ -27,10 +27,10 @@ Begin iosView MenuView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   348.0
       Left            =   0
@@ -81,21 +81,21 @@ End
 		  dim v3 as  iOSView
 		  Select case rowtext
 		  case "Block animations"
-		     v3 = new BlockAnimateView
+		    v3 = new BlockAnimateView
 		  case "Layer properties"
-		     v3= new CALayerView
+		    v3= new CALayerView
 		  case "Transform properties"
-		     v3  = new TransformView
+		    v3  = new TransformView
 		  case "iOSLibCAGradientLayer"
-		     v3 = new CAGradientLayerView
+		    v3 = new CAGradientLayerView
 		  case "Shared Notifications", "UIWebView features"
-		     v3 = new NotificationView
+		    v3 = new NotificationView
 		  case "Open Bundles/Frameworks"
-		     v3 = new FrameWorkView
+		    v3 = new FrameWorkView
 		  case "iOSLibIntrospection"
-		     v3 = new IntrospectionView
+		    v3 = new IntrospectionView
 		  case "Test"
-		     v3 = new View2
+		    v3 = new View2
 		  End Select
 		  self.PushTo v3
 		End Sub
