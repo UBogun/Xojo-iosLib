@@ -47,6 +47,13 @@ Protected Module RectExtension
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function toText(extends n as NSRect, format as text ="###") As text
+		  dim mylocale as locale = locale.current
+		  return n.Origin.x.totext (mylocale, format)+", "+n.Origin.y.totext  (mylocale, format)+", "+n.size_.width.totext (mylocale, format)+", "+n.size_.height.totext  (mylocale, format)
+		End Function
+	#tag EndMethod
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

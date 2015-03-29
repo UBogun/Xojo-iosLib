@@ -28,6 +28,20 @@ Protected Module TextExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function toColor(extends aColorString as Text) As Color
+		  if aColorString.Length < 8 then return color.clear
+		  dim value as text = aColorString.Left(2)
+		  if value <> "&c" then return color.clear
+		  value = aColorString.Mid (2,2)
+		  dim red as integer = Integer.FromHex (value)
+		  dim green as integer = integer.FromHex (aColorString.mid (4,2))
+		  dim blue as integer = integer.FromHex (aColorString.mid (6,2))
+		  dim alpha as integer = if (aColorString.Length >= 10, integer.FromHex (aColorString.mid (8,2)), 0)
+		  return color.rgba (red, green, blue, alpha) 
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function toCommaList(extends t() as Text) As Text
 		  if t.Ubound > -1 then
 		    dim result as text = t(0)

@@ -2,12 +2,12 @@
 Protected Module iOSViewExtension
 	#tag Method, Flags = &h0
 		Sub Dismiss(extends v as iOSView, animated as boolean = false)
-		  v.iosLibViewController.Dismiss  animated
+		  v.iosLibViewCTRL.Dismiss  animated
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function iosLibViewController(extends v as iOSView) As iOSLibViewController
+		Function iosLibViewCTRL(extends v as iOSView) As iOSLibViewController
 		  return new iOSLibViewController (v.handle)
 		End Function
 	#tag EndMethod
@@ -16,7 +16,7 @@ Protected Module iOSViewExtension
 		Sub PushToCover(extends v as iOSView, newview as iosview)
 		  dim newController as new iOSLibViewController (newview.Handle)
 		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.CoverVertical
-		  v.iosLibViewController.Present newController, true
+		  v.iosLibViewCTRL.Present newController, true
 		End Sub
 	#tag EndMethod
 
@@ -24,7 +24,7 @@ Protected Module iOSViewExtension
 		Sub PushToCurl(extends v as iOSView, newview as iosview)
 		  dim newController as new iOSLibViewController (newview.Handle)
 		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.PartialCurl
-		  v.iosLibViewController.Present newController, true
+		  v.iosLibViewCTRL.Present newController, true
 		End Sub
 	#tag EndMethod
 
@@ -32,7 +32,7 @@ Protected Module iOSViewExtension
 		Sub PushToDissolve(extends v as iOSView, newview as iosview)
 		  dim newController as new iOSLibViewController (newview.Handle)
 		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.CrossDissolve
-		  v.iosLibViewController.Present newController, true
+		  v.iosLibViewCTRL.Present newController, true
 		End Sub
 	#tag EndMethod
 
@@ -40,7 +40,7 @@ Protected Module iOSViewExtension
 		Sub PushToSlide(extends v as iOSView, newview as iosview)
 		  dim newController as new iOSLibViewController (newview.Handle)
 		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.FlipHorizontal
-		  v.iosLibViewController.Present newController, true
+		  v.iosLibViewCTRL.Present newController, true
 		End Sub
 	#tag EndMethod
 

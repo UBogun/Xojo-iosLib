@@ -2,6 +2,12 @@
 Protected Class iOSLibMutableArray
 Inherits iOSLibArray
 	#tag Method, Flags = &h0
+		Sub Addobject(anObject as iOSLibObject)
+		  Addobject anObject.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Addobject(anObject as Ptr)
 		  Declare Sub addObject lib UIKit selector "addObject:" (id as ptr, value as ptr)
 		  addObject (id, anObject)

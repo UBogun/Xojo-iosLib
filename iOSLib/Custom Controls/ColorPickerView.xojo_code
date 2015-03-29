@@ -44,11 +44,11 @@ Begin iosView ColorPickerView
    Begin iOSLabel RedLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   RedLabel, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   RedLabel, 7, RedSlider, 7, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   RedLabel, 4, RedSlider, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   RedLabel, 1, RedSlider, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   RedLabel, 2, RedSlider, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   RedLabel, 1, RedSlider, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   RedLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   RedLabel, 4, RedSlider, 3, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20

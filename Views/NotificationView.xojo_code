@@ -10,10 +10,10 @@ Begin iosView NotificationView Implements NotificationReceiver
    Begin iOSTextField TextField1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextField1, 3, <Parent>, 3, False, +1.00, 1, 1, 43, 
-      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, 28, 
       AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 175, 
+      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   TextField1, 3, <Parent>, 3, False, +1.00, 1, 1, 43, 
+      AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, 28, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -34,10 +34,10 @@ Begin iosView NotificationView Implements NotificationReceiver
    Begin iOSHTMLViewer HTMLViewer1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 190, 
-      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -29, 
-      AutoLayout      =   HTMLViewer1, 7, , 0, False, +1.00, 1, 1, 320, 
       AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -29, 
+      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 190, 
+      AutoLayout      =   HTMLViewer1, 7, , 0, False, +1.00, 1, 1, 320, 
       Height          =   190.0
       Left            =   0
       LockedInPosition=   False
@@ -49,10 +49,10 @@ Begin iosView NotificationView Implements NotificationReceiver
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 1, TextField1, 2, False, +1.00, 1, 1, 43, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 65, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 1, TextField1, 2, False, +1.00, 1, 1, 43, 
       Caption         =   "Goto"
       Enabled         =   True
       Height          =   30.0
@@ -69,10 +69,10 @@ Begin iosView NotificationView Implements NotificationReceiver
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 101, 
-      AutoLayout      =   Label1, 4, HTMLViewer1, 3, False, +1.00, 1, 1, -87, 
-      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Label1, 4, HTMLViewer1, 3, False, +1.00, 1, 1, -87, 
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 101, 
+      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   73.0
       Left            =   20
@@ -90,10 +90,10 @@ Begin iosView NotificationView Implements NotificationReceiver
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 1, HTMLViewer1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 98, 
-      AutoLayout      =   Button2, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 98, 
+      AutoLayout      =   Button2, 1, HTMLViewer1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       Caption         =   "Return"
       Enabled         =   True
       Height          =   30.0
@@ -108,100 +108,112 @@ Begin iosView NotificationView Implements NotificationReceiver
       Width           =   98.0
    End
    Begin iOSButton BackButton
-      AutoLayout      =   BackButton, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   BackButton, 3, , 0, False, +1.00, 1, 1, 73, 
-      AutoLayout      =   BackButton, 7, , 0, False, +1.00, 1, 1, 70, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   BackButton, 1, Label1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   BackButton, 3, <Parent>, 3, False, +1.00, 1, 1, 73, 
+      AutoLayout      =   BackButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   BackButton, 7, , 0, False, +1.00, 1, 1, 70, 
       Caption         =   "Back"
       Enabled         =   False
       Height          =   30.0
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   73.0
+      Top             =   73
       Visible         =   False
       Width           =   70.0
    End
    Begin iOSButton ForwardButton
-      AutoLayout      =   ForwardButton, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   ForwardButton, 7, , 0, False, +1.00, 1, 1, 70, 
-      AutoLayout      =   ForwardButton, 1, <Parent>, 1, False, +1.00, 1, 1, 98, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   ForwardButton, 3, <Parent>, 3, False, +1.00, 1, 1, 73, 
+      AutoLayout      =   ForwardButton, 7, , 0, False, +1.00, 1, 1, 70, 
+      AutoLayout      =   ForwardButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   ForwardButton, 1, <Parent>, 1, False, +1.00, 1, 1, 98, 
       Caption         =   "Forward"
       Enabled         =   False
       Height          =   30.0
-      Left            =   98.0
+      Left            =   98
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   73.0
+      Top             =   73
       Visible         =   False
       Width           =   70.0
    End
    Begin iOSButton ForwardButton1
-      AutoLayout      =   ForwardButton1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   ForwardButton1, 3, <Parent>, 3, False, +1.00, 1, 1, 73, 
-      AutoLayout      =   ForwardButton1, 7, , 0, False, +1.00, 1, 1, 70, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   ForwardButton1, 1, <Parent>, 1, False, +1.00, 1, 1, 168, 
+      AutoLayout      =   ForwardButton1, 3, <Parent>, 3, False, +1.00, 1, 1, 73, 
+      AutoLayout      =   ForwardButton1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   ForwardButton1, 7, , 0, False, +1.00, 1, 1, 70, 
       Caption         =   "Reload"
       Enabled         =   True
       Height          =   30.0
-      Left            =   168.0
+      Left            =   168
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   73.0
+      Top             =   73
       Visible         =   True
       Width           =   70.0
    End
    Begin iOSButton ForwardButton2
-      AutoLayout      =   ForwardButton2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   ForwardButton2, 7, , 0, False, +1.00, 1, 1, 70, 
-      AutoLayout      =   ForwardButton2, 1, <Parent>, 1, False, +1.00, 1, 1, 241, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   ForwardButton2, 3, <Parent>, 3, False, +1.00, 1, 1, 73, 
+      AutoLayout      =   ForwardButton2, 7, , 0, False, +1.00, 1, 1, 70, 
+      AutoLayout      =   ForwardButton2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   ForwardButton2, 1, <Parent>, 1, False, +1.00, 1, 1, 241, 
       Caption         =   "Stop"
       Enabled         =   True
       Height          =   30.0
-      Left            =   241.0
+      Left            =   241
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   73.0
+      Top             =   73
       Visible         =   True
       Width           =   70.0
    End
    Begin iOSSwitch Switch1
-      AutoLayout      =   Switch1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Switch1, 3, <Parent>, 3, False, +1.00, 1, 1, 214, 
+      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Switch1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
-      Top             =   214.0
+      Top             =   214
       Value           =   False
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSLabel Label2
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label2, 3, <Parent>, 3, False, +1.00, 1, 1, 182, 
-      AutoLayout      =   Label2, 2, Switch1, 2, False, +1.00, 1, 1, 0, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Label2, 3, <Parent>, 3, False, +1.00, 1, 1, 182, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label2, 2, Switch1, 2, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       Text            =   "AirPlay"
@@ -209,33 +221,37 @@ Begin iosView NotificationView Implements NotificationReceiver
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   12
-      Top             =   182.0
+      Top             =   182
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSSwitch Switch2
-      AutoLayout      =   Switch2, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch2, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   Switch2, 1, <Parent>, 1, False, +1.00, 1, 1, 79, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Switch2, 3, <Parent>, 3, False, +1.00, 1, 1, 214, 
+      AutoLayout      =   Switch2, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Switch2, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch2, 1, <Parent>, 1, False, +1.00, 1, 1, 79, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   79.0
+      Left            =   79
       LockedInPosition=   False
       Scope           =   0
-      Top             =   214.0
+      Top             =   214
       Value           =   False
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSLabel Label3
-      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label3, 3, <Parent>, 3, False, +1.00, 1, 1, 182, 
-      AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 51, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Label3, 1, <Parent>, 1, False, +1.00, 1, 1, 79, 
+      AutoLayout      =   Label3, 3, <Parent>, 3, False, +1.00, 1, 1, 182, 
+      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   79.0
+      Left            =   79
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Inline"
@@ -243,33 +259,37 @@ Begin iosView NotificationView Implements NotificationReceiver
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   12
-      Top             =   182.0
+      Top             =   182
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSSwitch Switch3
-      AutoLayout      =   Switch3, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch3, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   Switch3, 1, <Parent>, 1, False, +1.00, 1, 1, 138, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Switch3, 3, <Parent>, 3, False, +1.00, 1, 1, 214, 
+      AutoLayout      =   Switch3, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Switch3, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch3, 1, <Parent>, 1, False, +1.00, 1, 1, 138, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   138.0
+      Left            =   138
       LockedInPosition=   False
       Scope           =   0
-      Top             =   214.0
+      Top             =   214
       Value           =   False
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSLabel Label4
-      AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label4, 7, , 0, False, +1.00, 1, 1, 51, 
-      AutoLayout      =   Label4, 1, <Parent>, 1, False, +1.00, 1, 1, 138, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Label4, 3, <Parent>, 3, False, +1.00, 1, 1, 182, 
+      AutoLayout      =   Label4, 7, , 0, False, +1.00, 1, 1, 51, 
+      AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label4, 1, <Parent>, 1, False, +1.00, 1, 1, 138, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   138.0
+      Left            =   138
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Autoplay"
@@ -277,18 +297,20 @@ Begin iosView NotificationView Implements NotificationReceiver
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   12
-      Top             =   182.0
+      Top             =   182
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSLabel Render
-      AutoLayout      =   Render, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Render, 7, , 0, False, +1.00, 1, 1, 51, 
-      AutoLayout      =   Render, 1, <Parent>, 1, False, +1.00, 1, 1, 197, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Render, 3, <Parent>, 3, False, +1.00, 1, 1, 182, 
+      AutoLayout      =   Render, 7, , 0, False, +1.00, 1, 1, 51, 
+      AutoLayout      =   Render, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Render, 1, <Parent>, 1, False, +1.00, 1, 1, 197, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   197.0
+      Left            =   197
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Render"
@@ -296,33 +318,37 @@ Begin iosView NotificationView Implements NotificationReceiver
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   12
-      Top             =   182.0
+      Top             =   182
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSSwitch Switch4
-      AutoLayout      =   Switch4, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch4, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   Switch4, 1, <Parent>, 1, False, +1.00, 1, 1, 197, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Switch4, 3, <Parent>, 3, False, +1.00, 1, 1, 214, 
+      AutoLayout      =   Switch4, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Switch4, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch4, 1, <Parent>, 1, False, +1.00, 1, 1, 197, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   197.0
+      Left            =   197
       LockedInPosition=   False
       Scope           =   0
-      Top             =   214.0
+      Top             =   214
       Value           =   False
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSLabel Render1
-      AutoLayout      =   Render1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Render1, 3, <Parent>, 3, False, +1.00, 1, 1, 182, 
-      AutoLayout      =   Render1, 7, , 0, False, +1.00, 1, 1, 51, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Render1, 2, ForwardButton2, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Render1, 3, <Parent>, 3, False, +1.00, 1, 1, 182, 
+      AutoLayout      =   Render1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Render1, 7, , 0, False, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   260.0
+      Left            =   260
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Scale"
@@ -330,21 +356,23 @@ Begin iosView NotificationView Implements NotificationReceiver
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   12
-      Top             =   182.0
+      Top             =   182
       Visible         =   True
       Width           =   51.0
    End
    Begin iOSSwitch Switch5
-      AutoLayout      =   Switch5, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch5, 3, <Parent>, 3, False, +1.00, 1, 1, 214, 
-      AutoLayout      =   Switch5, 7, , 0, True, +1.00, 1, 1, 51, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Switch5, 2, ForwardButton2, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch5, 3, <Parent>, 3, False, +1.00, 1, 1, 214, 
+      AutoLayout      =   Switch5, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch5, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
-      Left            =   260.0
+      Left            =   260
       LockedInPosition=   False
       Scope           =   0
-      Top             =   214.0
+      Top             =   214
       Value           =   False
       Visible         =   True
       Width           =   51.0
@@ -355,8 +383,10 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  dim NotificationCenter as new iOSLibNotificationCenterWithInterface ("WebProgressEstimateChangedNotification", NIL)
+		  dim NotificationCenter as new iOSLibNotificationCenterWithInterface (NIL, NIL)
 		  NotificationCenter.RegisterObserver self
+		  // dim NotificationCenter as new iOSLibNotificationCenterWithInterface ("WebProgressEstimateChangedNotification", NIL)
+		  
 		End Sub
 	#tag EndEvent
 
@@ -370,6 +400,7 @@ End
 		  
 		  ForwardButton.Enabled = HTMLViewer1.iosLibWebView.CanGoForward
 		  ForwardButton.Visible = HTMLViewer1.iosLibWebView.CanGoForward
+		  
 		End Sub
 	#tag EndMethod
 

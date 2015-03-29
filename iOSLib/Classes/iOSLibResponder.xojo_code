@@ -8,8 +8,8 @@ Inherits iOSLibObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Shared Function DoInitWithFrame(aClass as Ptr, aFRame as NSRect) As Ptr
+	#tag Method, Flags = &h0
+		 Shared Function DoInitWithFrame(aClass as Ptr, aFRame as NSRect) As Ptr
 		  #if target32bit
 		    declare function initWithFrame lib UIKit selector "initWithFrame:" (id as ptr, aFrame as NSRect32Bit) as ptr
 		    return initWithFrame (aClass, Aframe.toNSRect32 )
@@ -66,6 +66,13 @@ Inherits iOSLibObject
 		  Declare Function userInteractionEnabled lib UIKit selector "isUserInteractionEnabled" (id as ptr) as Boolean
 		  return userInteractionEnabled (id)
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub PerformLayoutIfNeeded()
+		  Declare sub layoutIfNeeded lib UIKit selector "layoutIfNeeded" (id as ptr)
+		  layoutIfNeeded (id)
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1

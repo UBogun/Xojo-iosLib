@@ -1,0 +1,61 @@
+#tag Class
+Protected Class iOSIntrospection
+	#tag Method, Flags = &h0
+		 Shared Function RegisteredClasses() As text()
+		  dim count as uinteger
+		  dim ArrayPtr as ptr = ObjectiveCRuntime.objc_copyClassList (count)
+		  dim classPtrs as xojo.Core.MemoryBlock = MemoryBlockExtension.fromPtrArray (ArrayPtr, count)
+		  dim result() as text
+		  for q as uinteger = 0 to count -1
+		    result.Append text.FromCString (ObjectiveCRuntime.class_getName (classPtrs.PtrValue(q*IntegerSize)), StandardTextEncoding)
+		  next
+		  iOSLibSystem.free ArrayPtr // need to clear the memory - see Objective C Runtime Reference
+		  // MacOSLibSystem.Free classptrs
+		  // DeAlloc ArrayPtr // need to clear the memory - see Objective C Runtime Reference
+		  Return result
+		End Function
+	#tag EndMethod
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RegisteredClasses"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass

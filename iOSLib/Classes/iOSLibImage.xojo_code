@@ -1,56 +1,23 @@
 #tag Class
-Protected Class iOSLibDictionary
-Inherits ioslibobject
-	#tag Method, Flags = &h0
-		 Shared Function MakeFromPtr(aPtr as Ptr) As iOSLibDictionary
-		  return if (aptr <> NIL, new iOSLibDictionary (aptr), NIL)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function ObjectForKey(akey as cfstringref) As Ptr
-		  declare Function objectForKey lib UIKit selector "objectForKey:" (id as ptr, key as cfstringref) as ptr
-		  return objectForKey (id, akey)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function ValueForKey(Key as CFstringRef) As Ptr
-		  declare function valueForKey lib UIKit selector "valueForKey:" (id as ptr, key as CFStringRef) as ptr
-		  return valueForKey (id, key)
+Protected Class iOSLibImage
+Inherits iOSLibObject
+	#tag Method, Flags = &h1021
+		Private Sub Constructor()
 		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As iosLibimage
+		  return if (aptr <> NIL, new iOSLibimage (aptr), NIL)
 		End Function
 	#tag EndMethod
 
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  declare function allKeys lib UIKit Selector "allKeys"(id as ptr) as ptr
-			  dim myptr as ptr = allKeys (id)
-			  return if (myptr <> NIL, new iOSLibArray (myptr), NIL)
-			  
-			End Get
-		#tag EndGetter
-		Allkeys As iosLibarray
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  declare function allValues lib UIKit Selector "allValues"(id as ptr) as ptr
-			  dim myptr as ptr = allValues (id)
-			  return if (myptr <> NIL, new iOSLibArray (myptr), NIL)
-			  
-			End Get
-		#tag EndGetter
-		AllValues As iosLibarray
-	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSDictionary")
+			  static mClassPtr as Ptr = NSClassFromString ("UIImage")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -60,10 +27,35 @@ Inherits ioslibobject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return getCount
+			  #if Target64Bit
+			    Declare function size lib UIKit selector "size" (id as ptr) as NSSize
+			    return size (id)
+			  #elseif Target32Bit
+			    Declare function size lib UIKit selector "size" (id as ptr) as NSSize32Bit
+			    return size(id).toNSSize
+			  #endif
 			End Get
 		#tag EndGetter
-		Count As UInteger
+		Size As NSSize
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function CGImage lib UIKit selector "CGImage" (id as ptr) as ptr
+			  return CGImage (id)
+			End Get
+		#tag EndGetter
+		toCGImage As ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return  iOSImage.FromHandle (id)
+			End Get
+		#tag EndGetter
+		toiOSImage As iOSImage
 	#tag EndComputedProperty
 
 

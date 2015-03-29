@@ -1,5 +1,45 @@
 #tag Module
 Protected Module ObjectiveCRuntime
+	#tag Method, Flags = &h0
+		Function BuildTargetClass(superClassName as Text, newClassName as Text, methods() as TargetClassMethodHelper) As ptr
+		  dim result as Ptr
+		  dim superClassptr as ptr = NSClassFromString (superClassName)
+		  dim metaclassptr as ptr = ObjectiveCRuntime.objc_getMetaClass (ObjectiveCRuntime.class_getName(superClassptr))
+		  dim metaclass as CString = ObjectiveCRuntime.class_getName (metaclassptr)
+		  
+		  result = objc_allocateClassPair(superClassptr, newClassName.ToCString(Xojo.Core.TextEncoding.UTF8), 0)
+		  
+		  for i as Integer = 0 to methods.Ubound
+		    dim method as TargetClassMethodHelper = methods(i)
+		    dim SEL as Ptr = NSSelectorFromString (method.selName)
+		    if method.ReplaceMethod then
+		      dim OriginalMethod as ptr = if (method.ClassMethod, ObjectiveCRuntime.class_getClassMethod (result, SEL), ObjectiveCRuntime.class_getInstanceMethod(result, SEL))
+		      if OriginalMethod <> NIL then
+		        dim oldImplementation as Ptr = ObjectiveCRuntime.method_setImplementation (OriginalMethod, method.impl)
+		        if oldImplementation = NIL then
+		          dim err as new ErrorException
+		          err.Reason = "no old implementation for method while replacing "+Methods(i).selName
+		          raise err
+		        end if
+		      else
+		        if not class_addMethod(result,NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) then
+		          // couldn't add, try to replace
+		          if  class_replaceMethod(result,NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) = NIL then
+		            dim err as new ErrorException
+		            err.Reason = "unable to add or replace custom class method: "+Methods(i).selName
+		            raise err
+		          end if
+		        end if
+		      end if
+		    end if
+		  next
+		  
+		  objc_registerClassPair(result)
+		  
+		  Return result
+		End Function
+	#tag EndMethod
+
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function class_addIvar Lib obj_C (aClass as Ptr, name as CString, size as UInteger, Alignment as UInt8, Types as CString) As Boolean
 	#tag EndExternalMethod
@@ -25,11 +65,19 @@ Protected Module ObjectiveCRuntime
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function class_getClassMethod Lib obj_C (aClass as Ptr, SEL as Ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function class_getClassVariable Lib obj_C (aClass as Ptr, aVariable as CString) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function class_getImageName Lib obj_C (aClass as Ptr) As CString
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function class_getInstanceMethod Lib obj_C (aClass as Ptr, SEL as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1

@@ -1,8 +1,8 @@
 #tag Class
 Protected Class iOSLibObject
 Implements iOSLibGeneralObject
-	#tag Method, Flags = &h1
-		Protected Shared Function Alloc(aClass as Ptr) As ptr
+	#tag Method, Flags = &h0
+		 Shared Function Alloc(aClass as Ptr) As ptr
 		  declare function alloc lib uikit selector "alloc" (id as ptr) as ptr
 		  return alloc (aclass)
 		  

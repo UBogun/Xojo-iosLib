@@ -1,28 +1,10 @@
 #tag Module
-Protected Module ColorExtension
+Protected Module CoreDictExtension
 	#tag Method, Flags = &h0
-		Function toCommaList(extends c() as Color) As Text
-		  if c.Ubound > -1 then
-		    dim result as text = c(0).totext
-		    if c.Ubound > 0 then
-		      for q as UInteger = 1 to c.Ubound
-		        result = result +", "+c(q).totext
-		      next
-		    end if
-		    return result
-		  end if
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function toiOSLibColor(extends c as color) As iOSLibColor
-		  return iOSLibColor.FromColor (c)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function toText(extends c as Color) As Text
-		  Return "&c"+c.Red.ToHex(2)+c.Green.ToHex(2)+c.Blue.ToHex(2)+c.Alpha.ToHex(2)
+		Function KeyForValue(extends d as xojo.core.dictionary, value as Auto) As Auto
+		  for Each de as xojo.Core.DictionaryEntry in d
+		    if de.Value = value then return de.Key
+		  next
 		End Function
 	#tag EndMethod
 

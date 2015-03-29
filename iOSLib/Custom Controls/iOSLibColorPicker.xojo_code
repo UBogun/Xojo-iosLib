@@ -11,8 +11,8 @@ Protected Class iOSLibColorPicker
 	#tag Method, Flags = &h0
 		Function GetColor(currentView as iosview, byref Cancelled as Boolean) As Color
 		  dim cp as new ColorPickerView (self, if (SendColor <> &c00000000, SendColor, LastColor))
-		  cp.iosLibViewController.ModalPresentationStyle = iOSLibViewController.UIViewModalPresentationStyle.FormSheet
-		  currentview.iosLibViewController.Present cp.iosLibViewController, true
+		  cp.iosLibViewCTRL.ModalPresentationStyle = iOSLibViewController.UIViewModalPresentationStyle.FormSheet
+		  currentview.iosLibViewCTRL.Present cp.iosLibViewCTRL, true
 		  while not Returned
 		    Thread.CurrentThread.Sleep (500)
 		  wend
@@ -63,6 +63,11 @@ Protected Class iOSLibColorPicker
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Returned"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
