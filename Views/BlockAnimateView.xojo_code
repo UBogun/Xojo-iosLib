@@ -3,17 +3,17 @@ Begin iosView BlockAnimateView
    BackButtonTitle =   ""
    Compatibility   =   ""
    Left            =   0
-   NavigationBarVisible=   False
+   NavigationBarVisible=   True
    TabTitle        =   ""
-   Title           =   ""
+   Title           =   "UIView Block animations"
    Top             =   0
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
-      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 160, 
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
+      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 160, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "547002367"
@@ -27,30 +27,30 @@ Begin iosView BlockAnimateView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, *kStdGapCtlToViewV, 
-      AutoLayout      =   Button1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Button1, 2, ImageView1, 2, False, +1.00, 1, 1, -9, 
+      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, -9, 
       Caption         =   "Klick to animate"
       Enabled         =   True
       Height          =   30.0
-      Left            =   20
+      Left            =   -9
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   20
+      Top             =   207
       Visible         =   True
-      Width           =   160.0
+      Width           =   180.0
    End
    Begin iostable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 7, , 0, False, +1.00, 1, 1, 320, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 258, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
+      AutoLayout      =   Table1, 7, , 0, False, +1.00, 1, 1, 320, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   258.0
       Left            =   0
@@ -65,10 +65,10 @@ Begin iosView BlockAnimateView
    Begin iOSImageView ImageView2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView2, 8, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 199, 
-      AutoLayout      =   ImageView2, 7, , 0, False, +1.00, 1, 1, 160, 
       AutoLayout      =   ImageView2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 199, 
+      AutoLayout      =   ImageView2, 8, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView2, 7, , 0, False, +1.00, 1, 1, 160, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "588568575"
@@ -82,10 +82,10 @@ Begin iosView BlockAnimateView
    Begin iOSImageView ImageView3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView3, 8, , 0, False, +1.00, 1, 1, 107, 
-      AutoLayout      =   ImageView3, 3, <Parent>, 3, False, +1.00, 1, 1, -16, 
-      AutoLayout      =   ImageView3, 7, , 0, False, +1.00, 1, 1, 117, 
       AutoLayout      =   ImageView3, 1, <Parent>, 1, False, +1.00, 1, 1, 222, 
+      AutoLayout      =   ImageView3, 3, <Parent>, 3, False, +1.00, 1, 1, -16, 
+      AutoLayout      =   ImageView3, 8, , 0, False, +1.00, 1, 1, 107, 
+      AutoLayout      =   ImageView3, 7, , 0, False, +1.00, 1, 1, 117, 
       ContentMode     =   "1"
       Height          =   107.0
       Image           =   "588568575"
@@ -95,26 +95,6 @@ Begin iosView BlockAnimateView
       Top             =   -16
       Visible         =   True
       Width           =   117.0
-   End
-   Begin iOSButton Button2
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 139, 
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 98, 
-      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      Caption         =   "Return"
-      Enabled         =   True
-      Height          =   30.0
-      Left            =   202.0
-      LockedInPosition=   False
-      Scope           =   0
-      TextColor       =   &c007AFF00
-      TextFont        =   ""
-      TextSize        =   0
-      Top             =   139.0
-      Visible         =   True
-      Width           =   98.0
    End
 End
 #tag EndIOSView
@@ -202,7 +182,7 @@ End
 		Sub Open()
 		  me.AddSection "Yes, that's a rotating table!"
 		  me.AddRow 0, "You can acces UIView features"
-		  me.AddRow 0, " from every Xojo control!" 
+		  me.AddRow 0, " from every Xojo control!"
 		  
 		End Sub
 	#tag EndEvent
@@ -217,18 +197,6 @@ End
 #tag Events ImageView3
 	#tag Event
 		Sub Open()
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events Button2
-	#tag Event
-		Sub Action()
-		  self.Dismiss true
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Close()
 		  
 		End Sub
 	#tag EndEvent

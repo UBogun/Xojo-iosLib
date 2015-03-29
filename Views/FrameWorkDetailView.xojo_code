@@ -10,9 +10,9 @@ Begin iosView FrameWorkDetailView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 129, 
       AutoLayout      =   Button1, 4, <Parent>, 4, False, +1.00, 1, 1, -4, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Return"
       Enabled         =   True
       Height          =   30.0
@@ -29,10 +29,10 @@ Begin iosView FrameWorkDetailView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 221, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 2, 1, 36, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 2, 1, 36, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 221, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   221.0
       Left            =   0
@@ -46,10 +46,10 @@ Begin iosView FrameWorkDetailView
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 161, 
-      AutoLayout      =   TextArea1, 4, Button1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
-      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TextArea1, 4, Button1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
+      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 161, 
+      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       Editable        =   True
       Height          =   161.0
       KeyboardType    =   "0"

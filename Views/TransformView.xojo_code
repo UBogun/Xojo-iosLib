@@ -10,10 +10,10 @@ Begin iosView TransformView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 170, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 170, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   170.0
       Image           =   "588568575"
@@ -27,10 +27,10 @@ Begin iosView TransformView
    Begin iOSSlider Slider1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider1, 7, , 0, False, +1.00, 1, 1, 283, 
-      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Slider1, 9, <Parent>, 9, False, +1.00, 1, 1, 2, 
       AutoLayout      =   Slider1, 3, <Parent>, 3, False, +1.00, 1, 1, 224, 
+      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider1, 7, , 0, False, +1.00, 1, 1, 283, 
+      AutoLayout      =   Slider1, 9, <Parent>, 9, False, +1.00, 1, 1, 2, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -46,10 +46,10 @@ Begin iosView TransformView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 450, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 129, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 450, 
+      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Return to menu"
       Enabled         =   True
       Height          =   30.0
@@ -66,10 +66,10 @@ Begin iosView TransformView
    Begin iOSSegmentedControl TransformSelector
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TransformSelector, 8, , 0, True, +1.00, 1, 1, 29, 
-      AutoLayout      =   TransformSelector, 3, <Parent>, 3, False, +1.00, 1, 1, 267, 
-      AutoLayout      =   TransformSelector, 7, , 0, False, +1.00, 1, 1, 200, 300
       AutoLayout      =   TransformSelector, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TransformSelector, 3, <Parent>, 3, False, +1.00, 1, 1, 267, 
+      AutoLayout      =   TransformSelector, 8, , 0, True, +1.00, 1, 1, 29, 
+      AutoLayout      =   TransformSelector, 7, , 0, False, +1.00, 1, 1, 200, 300
       Caption         =   ""
       Enabled         =   True
       Height          =   29.0
@@ -85,10 +85,10 @@ Begin iosView TransformView
    Begin iOSTextField XField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   XField, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   XField, 3, <Parent>, 3, False, +1.00, 1, 1, 323, 
-      AutoLayout      =   XField, 7, , 0, False, +1.00, 1, 1, 76, 
       AutoLayout      =   XField, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   XField, 3, <Parent>, 3, False, +1.00, 1, 1, 323, 
+      AutoLayout      =   XField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   XField, 7, , 0, False, +1.00, 1, 1, 76, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -109,10 +109,10 @@ Begin iosView TransformView
    Begin iOSTextField YField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   YField, 3, <Parent>, 3, False, +1.00, 1, 1, 323, 
-      AutoLayout      =   YField, 7, , 0, False, +1.00, 1, 1, 76, 
-      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   YField, 1, <Parent>, 1, False, +1.00, 1, 1, 104, 
+      AutoLayout      =   YField, 7, , 0, False, +1.00, 1, 1, 76, 
+      AutoLayout      =   YField, 3, <Parent>, 3, False, +1.00, 1, 1, 323, 
+      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -133,10 +133,10 @@ Begin iosView TransformView
    Begin iOSTextField ZField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ZField, 3, <Parent>, 3, False, +1.00, 1, 1, 323, 
-      AutoLayout      =   ZField, 7, , 0, False, +1.00, 1, 1, 76, 
-      AutoLayout      =   ZField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   ZField, 1, <Parent>, 1, False, +1.00, 1, 1, 188, 
+      AutoLayout      =   ZField, 7, , 0, False, +1.00, 1, 1, 76, 
+      AutoLayout      =   ZField, 3, <Parent>, 3, False, +1.00, 1, 1, 323, 
+      AutoLayout      =   ZField, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -157,10 +157,10 @@ Begin iosView TransformView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 1, XField, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
+      AutoLayout      =   Button2, 1, XField, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Invert"
       Enabled         =   True
       Height          =   30.0
@@ -177,10 +177,10 @@ Begin iosView TransformView
    Begin iOSButton Button3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button3, 1, <Parent>, 1, False, +1.00, 1, 1, 145, 
-      AutoLayout      =   Button3, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
       AutoLayout      =   Button3, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button3, 1, <Parent>, 1, False, +1.00, 1, 1, 145, 
+      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button3, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
       Caption         =   "Reset"
       Enabled         =   True
       Height          =   30.0
@@ -197,10 +197,10 @@ Begin iosView TransformView
    Begin iOSSwitch Switch1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Switch1, 3, TransformSelector, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Switch1, 3, TransformSelector, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       Left            =   249
@@ -214,10 +214,10 @@ Begin iosView TransformView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, TransformSelector, 2, False, +1.00, 1, 1, 29, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 239, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label1, 2, Switch1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 239, 
+      AutoLayout      =   Label1, 1, TransformSelector, 2, False, +1.00, 1, 1, 29, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   249
@@ -290,7 +290,7 @@ End
 #tag Events Button1
 	#tag Event
 		Sub Action()
-		  self.Dismiss (true)
+		  self.close
 		End Sub
 	#tag EndEvent
 	#tag Event
