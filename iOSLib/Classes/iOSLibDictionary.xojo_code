@@ -1,6 +1,6 @@
 #tag Class
 Protected Class iOSLibDictionary
-Inherits ioslibobject
+Inherits iOSLibMutableObjectInterface
 	#tag Method, Flags = &h0
 		 Shared Function MakeFromPtr(aPtr as Ptr) As iOSLibDictionary
 		  return if (aptr <> NIL, new iOSLibDictionary (aptr), NIL)
@@ -96,6 +96,11 @@ Inherits ioslibobject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

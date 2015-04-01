@@ -186,6 +186,12 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As iosLibView
+		  return if (aptr <> NIL, new iOSLibView (aptr), NIL)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub RemoveFromSuperview()
 		  declare sub removeFromSuperview lib UIKit selector "removeFromSuperview" (id as ptr)
 		  removeFromSuperview id
@@ -657,7 +663,7 @@ Inherits iOSLibResponder
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAnimationsEnabled lib UIKit selector "setAnimationsEnabled" (id as ptr, value as Boolean)
+			  Declare Sub setAnimationsEnabled lib UIKit selector "setAnimationsEnabled:" (id as ptr, value as Boolean)
 			  setAnimationsEnabled (classptr, value)
 			End Set
 		#tag EndSetter
@@ -822,11 +828,11 @@ Inherits iOSLibResponder
 		#tag Getter
 			Get
 			  #if Target32Bit
-			    Declare function sizethatfits lib UIKit selector "sizeThatFits" (id as ptr) as NSSize32Bit
-			    return sizethatfits(id).toNSSize
+			    Declare function sizethatfits lib UIKit selector "sizeThatFits:" (id as ptr, asize as NSSize32Bit) as NSSize32Bit
+			    return sizethatfits(id,Frame.Size_.toNSSize32).toNSSize
 			  #elseif Target64Bit
-			    Declare function sizethatfits lib UIKit selector "sizeThatFits" (id as ptr) as NSSize
-			    return sizethatfits (id)
+			    Declare function sizethatfits lib UIKit selector "sizeThatFits" (id as ptr, asize as nssize) as NSSize
+			    return sizethatfits (id, frame.size_)
 			  #endif
 			End Get
 		#tag EndGetter
@@ -1110,6 +1116,11 @@ Inherits iOSLibResponder
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MultipleTouchEnabled"

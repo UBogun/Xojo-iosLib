@@ -41,6 +41,13 @@ Inherits iOSLibObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function getDelegate(id as ptr) As Ptr
+		  Declare Function getDelegate lib uikit selector "delegate" (id as ptr) as Ptr
+		  return getDelegate (id)
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Function getFrame() As NSRect
 		  #if target32bit
@@ -92,6 +99,13 @@ Inherits iOSLibObject
 		Protected Sub setDelegate(value as Ptr)
 		  Declare Sub setDelegate lib uikit selector "setDelegate:" (id as ptr, value as Ptr)
 		  setDelegate (id, value)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Sub setDelegate(anid as ptr, value as Ptr)
+		  Declare Sub setDelegate lib uikit selector "setDelegate:" (id as ptr, value as Ptr)
+		  setDelegate (anid, value)
 		End Sub
 	#tag EndMethod
 

@@ -1,43 +1,38 @@
 #tag Class
-Protected Class iOSLibImage
-Inherits iOSLibObject
-	#tag Method, Flags = &h1021
-		Private Sub Constructor()
-		  
-		End Sub
-	#tag EndMethod
-
+Protected Class iOSLibStringDrawingContext
+Inherits iosLibObject
 	#tag Method, Flags = &h1000
-		Sub Constructor(animage as iOSImage)
+		Sub Constructor()
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
-		  Super.Constructor (animage.Handle)
-		  mhasownership = true
+		  Super.Constructor (Init(alloc(ClassPtr)))
+		  mHasOwnership = true
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		 Shared Function MakeFromPtr(aPtr as Ptr) As iosLibimage
-		  return if (aptr <> NIL, new iOSLibimage (aptr), NIL)
-		End Function
-	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Function Resize(Scalefactor as double) As ioslibimage
-		  declare function initWithCGImageScale lib UIKit selector "initWithCGImage:scale:orientation:" (id as ptr, aciimage as ptr, Scalefactor as double, orientation as integer) as ptr
-		  return new iOSLibImage ( initWithCGImageScale  (alloc(ClassPtr),me.toCGImage, Scalefactor, 1))
-		End Function
-	#tag EndMethod
-
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if Target64Bit
+			    declare function actualScaleFactor lib UIKit selector "actualScaleFactor" (id as ptr) as double
+			  #elseif Target32Bit
+			    declare function actualScaleFactor lib UIKit selector "actualScaleFactor" (id as ptr) as single
+			  #endif
+			  return actualScaleFactor (id)
+			End Get
+		#tag EndGetter
+		ActualScaleFactor As Double
+	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIImage")
+			  static mClassPtr as Ptr = NSClassFromString ("NSStringDrawingContext")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -47,47 +42,41 @@ Inherits iOSLibObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Size.height
+			  #if Target64Bit
+			    declare function MinimumScaleFactor lib UIKit selector "minimumScaleFactor" (id as ptr) as double
+			  #elseif Target32Bit
+			    declare function MinimumScaleFactor lib UIKit selector "minimumScaleFactor" (id as ptr) as single
+			  #endif
+			  return MinimumScaleFactor (id)
 			End Get
 		#tag EndGetter
-		Height As Double
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    declare Sub setMinimumScaleFactor lib UIKit selector "setMinimumScaleFactor:" (id as ptr, value as double)
+			  #elseif Target32Bit
+			    declare Sub setMinimumScaleFactor lib UIKit selector "setMinimumScaleFactor:" (id as ptr, value as single)
+			  #endif
+			  setMinimumScaleFactor (id, value)
+			End Set
+		#tag EndSetter
+		MinimumScaleFactor As Double
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return getSize
+			  #if Target64Bit
+			    declare function totalBounds lib UIKit selector "totalBounds" (id as ptr) as nsrect
+			    return totalBounds (id)
+			  #elseif Target32Bit
+			    declare function totalBounds lib UIKit selector "totalBounds" (id as ptr) as NSRect32Bit
+			    return totalBounds(id).tonsrect
+			  #endif
+			  
 			End Get
 		#tag EndGetter
-		Size As NSSize
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function CGImage lib UIKit selector "CGImage" (id as ptr) as ptr
-			  return CGImage (id)
-			End Get
-		#tag EndGetter
-		toCGImage As ptr
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return  iOSImage.FromHandle (id)
-			End Get
-		#tag EndGetter
-		toiOSImage As iOSImage
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return Size.width
-			End Get
-		#tag EndGetter
-		Width As Double
+		TotalBounds As NSRect
 	#tag EndComputedProperty
 
 

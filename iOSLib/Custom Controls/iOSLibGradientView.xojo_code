@@ -42,7 +42,7 @@ Inherits iOSUserControl
 			  static customClassPtr as Ptr
 			  if customClassPtr = nil then
 			    dim methods() as TargetClassMethodHelper
-			    methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
+			    // methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
 			    methods.Append new TargetClassMethodHelper("layerClass", AddressOf impl_layerClass, "#@:", true, true)
 			    
 			    customClassPtr = BuildTargetClass("UIView","iOSLibImageView",methods)

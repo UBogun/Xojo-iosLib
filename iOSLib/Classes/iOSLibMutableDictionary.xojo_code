@@ -1,93 +1,42 @@
 #tag Class
-Protected Class iOSLibImage
-Inherits iOSLibObject
-	#tag Method, Flags = &h1021
-		Private Sub Constructor()
-		  
-		End Sub
-	#tag EndMethod
-
+Protected Class iOSLibMutableDictionary
+Inherits iOSLibDictionary
 	#tag Method, Flags = &h1000
-		Sub Constructor(animage as iOSImage)
+		Sub Constructor(Capacity as uinteger)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
-		  Super.Constructor (animage.Handle)
+		  Super.Constructor (DoInitWithCapacity (alloc(classptr), Capacity))
 		  mhasownership = true
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MakeFromPtr(aPtr as Ptr) As iosLibimage
-		  return if (aptr <> NIL, new iOSLibimage (aptr), NIL)
-		End Function
+		Sub SetObjectForKey(Key as CFstringRef, anObject as iOSLibObject)
+		  Declare sub setObjectForKey lib UIKit selector "setObject:forKey:" (id as ptr, value  as ptr, key as CFStringRef)
+		  setObjectForKey id, anObject.id, key
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Resize(Scalefactor as double) As ioslibimage
-		  declare function initWithCGImageScale lib UIKit selector "initWithCGImage:scale:orientation:" (id as ptr, aciimage as ptr, Scalefactor as double, orientation as integer) as ptr
-		  return new iOSLibImage ( initWithCGImageScale  (alloc(ClassPtr),me.toCGImage, Scalefactor, 1))
-		End Function
+		Sub SetValueForKey(Key as CFstringRef, value as cfstringref)
+		  Declare sub setValueForKey lib UIKit selector "setValue:forKey:" (id as ptr, value as CFStringRef, key as CFStringRef)
+		  setValueForKey id, value, key
+		End Sub
 	#tag EndMethod
 
 
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIImage")
+			  static mClassPtr as Ptr = NSClassFromString ("NSMutableDictionary")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return Size.height
-			End Get
-		#tag EndGetter
-		Height As Double
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return getSize
-			End Get
-		#tag EndGetter
-		Size As NSSize
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function CGImage lib UIKit selector "CGImage" (id as ptr) as ptr
-			  return CGImage (id)
-			End Get
-		#tag EndGetter
-		toCGImage As ptr
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return  iOSImage.FromHandle (id)
-			End Get
-		#tag EndGetter
-		toiOSImage As iOSImage
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return Size.width
-			End Get
-		#tag EndGetter
-		Width As Double
 	#tag EndComputedProperty
 
 

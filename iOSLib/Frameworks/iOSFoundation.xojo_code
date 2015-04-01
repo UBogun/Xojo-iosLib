@@ -83,6 +83,9 @@ Protected Module iOSFoundation
 	#tag Constant, Name = UIKit, Type = Text, Dynamic = False, Default = \"UIKit.framework", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = UIKitPath, Type = Text, Dynamic = False, Default = \"com.apple.UIKit", Scope = Public
+	#tag EndConstant
+
 
 	#tag Structure, Name = NSPoint, Flags = &h0
 		x as double

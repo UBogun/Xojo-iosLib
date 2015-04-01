@@ -2,6 +2,14 @@
 Protected Class iOSLibCALayer
 Inherits iOSLibresponder
 	#tag Method, Flags = &h0
+		Sub AddAnimation(animation as ioslibcaanimation, key as CFStringRef = "")
+		  declare sub addAnimation lib uikit selector "addAnimation:forKey:" (id as ptr, animation as ptr, key as CFStringref)
+		  addAnimation id, animation.Id, key
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub AddSubLayer(ALAyer as iOSLibCALayer)
 		  declare sub addSublayer lib UIKit selector "addSublayer:" (id as ptr, aLayer as ptr)
 		  addSublayer id, ALAyer.id
@@ -1253,6 +1261,11 @@ Inherits iOSLibresponder
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MasksToBounds"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
