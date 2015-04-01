@@ -10,6 +10,14 @@ Implements iOSLibGeneralObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Function AutoRelease(id as ptr) As Ptr
+		  declare function autorelease lib UIKit selector "autorelease" (id as ptr) as ptr
+		  return autorelease (id)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor()
 		  mid = CreateInstance (ClassPtr)
 		  mHasOwnership = true
@@ -50,6 +58,14 @@ Implements iOSLibGeneralObject
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Sub DeAlloc(id as ptr)
+		  declare sub dealloc lib UIKit selector "dealloc" (id as ptr)
+		  dealloc (id)
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Sub Destructor()
 		  
@@ -57,7 +73,7 @@ Implements iOSLibGeneralObject
 		    system.DebugLog "Releasing "+DebugDescription
 		    Release
 		  else
-		    // system.DebugLog "Losing Handle on "+DebugDescription
+		    system.DebugLog "Losing Handle on "+DebugDescription
 		  end if
 		End Sub
 	#tag EndMethod
@@ -74,6 +90,18 @@ Implements iOSLibGeneralObject
 		Protected Function getCount() As UInteger
 		  Declare Function count lib UIKit selector "count" (id as ptr) as UInteger
 		  Return count (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getSize() As NSSize
+		  #if Target64Bit
+		    Declare function size lib UIKit selector "size" (id as ptr) as NSSize
+		    return size (id)
+		  #elseif Target32Bit
+		    Declare function size lib UIKit selector "size" (id as ptr) as NSSize32Bit
+		    return size(id).toNSSize
+		  #endif
 		End Function
 	#tag EndMethod
 
@@ -197,8 +225,8 @@ Implements iOSLibGeneralObject
 		IsNIL As Boolean
 	#tag EndComputedProperty
 
-	#tag Property, Flags = &h1
-		Attributes( hidden ) Protected mHasOwnership As Boolean
+	#tag Property, Flags = &h0
+		Attributes( hidden ) mHasOwnership As Boolean
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -246,6 +274,11 @@ Implements iOSLibGeneralObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

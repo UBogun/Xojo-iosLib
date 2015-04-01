@@ -28,14 +28,13 @@ Inherits iOSLibArray
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Capacity as uinteger)
-		  Declare Function initWithCapacity lib UIKit selector "initWithCapacity:" (id as ptr, capacity as UINteger) as Ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
-		  Super.Constructor (initWithCapacity(Alloc(ClassPtr), Capacity))
-		  
+		  Super.Constructor (doinitwithcapacity(Alloc(ClassPtr), Capacity))
+		  mhasownership = true
 		End Sub
 	#tag EndMethod
 
@@ -80,6 +79,11 @@ Inherits iOSLibArray
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

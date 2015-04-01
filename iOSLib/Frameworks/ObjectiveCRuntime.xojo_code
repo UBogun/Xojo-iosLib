@@ -21,14 +21,15 @@ Protected Module ObjectiveCRuntime
 		          err.Reason = "no old implementation for method while replacing "+Methods(i).selName
 		          raise err
 		        end if
-		      else
-		        if not class_addMethod(result,NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) then
-		          // couldn't add, try to replace
-		          if  class_replaceMethod(result,NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) = NIL then
-		            dim err as new ErrorException
-		            err.Reason = "unable to add or replace custom class method: "+Methods(i).selName
-		            raise err
-		          end if
+		      end if
+		      
+		    else
+		      if not class_addMethod(result,NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) then
+		        // couldn't add, try to replace
+		        if  class_replaceMethod(result,NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) = NIL then
+		          dim err as new ErrorException
+		          err.Reason = "unable to add or replace custom class method: "+Methods(i).selName
+		          raise err
 		        end if
 		      end if
 		    end if

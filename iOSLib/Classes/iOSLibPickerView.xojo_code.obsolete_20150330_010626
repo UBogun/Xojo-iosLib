@@ -1,0 +1,264 @@
+#tag Class
+Protected Class iOSLibPickerView
+Inherits iOSLibView
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As iOSLibPickerView
+		  return if (aptr <> NIL, new iOSLibPickerView (aptr), NIL)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function NumberOfRowsInComponent(Component as integer) As Integer
+		  Declare Function numberOfRowsInComponent lib UIKit selector "numberOfRowsInComponent:" (id as ptr, component as integer) as Integer
+		  Return numberOfRowsInComponent (id, Component)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ReloadAllComponents()
+		  Declare Sub reloadAllComponents lib UIKit selector "reloadAllComponents:" (id as ptr)
+		  reloadAllComponents id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ReloadComponent(Component as integer)
+		  Declare Sub reloadComponent lib UIKit selector "reloadComponent:" (id as ptr, component as integer)
+		  reloadComponent (id, Component)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function RowSizeForComponent(Component as integer) As NSSize
+		  #if Target64Bit
+		    Declare Function rowSizeForComponent lib UIKit selector "rowSizeForComponent:" (id as ptr, component as integer) as nssize
+		    Return rowSizeForComponent (id, Component)
+		  #elseif Target32Bit
+		    Declare Function rowSizeForComponent lib UIKit selector "rowSizeForComponent:" (id as ptr, component as integer) as NSSize32Bit
+		    Return rowSizeForComponent(id, Component).toNSSize
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function SelectedRow(Component as integer) As Integer
+		  Declare Function selectedRow lib UIKit selector "selectedRowInComponent:" (id as ptr, component as integer) as integer
+		  return selectedRow (id, Component)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SelectRow(Row as Integer, Component as integer, animated as boolean = false)
+		  Declare Sub selectRow lib UIKit selector "selectRow:inComponent:animated:" (id as ptr, row as integer, component as integer, animaed as boolean)
+		  selectRow (id, Row, Component, animated)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ViewForRow(Row as Integer, Component as integer) As iOSLibView
+		  Declare Function viewForRow lib UIKit selector "viewForRow:forComponent:" (id as ptr, row as integer, component as integer) as Ptr
+		  return ioslibview.MakeFromPtr (viewForRow (id, Row, Component))
+		End Function
+	#tag EndMethod
+
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static mClassPtr as Ptr = NSClassFromString ("UIPickerView")
+			  return mClassPtr
+			End Get
+		#tag EndGetter
+		Protected Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function dataSource lib UIKit selector "dataSource" (id as ptr) as ptr
+			  Return ioslibpickerviewdatasource.MakeFromPtr (dataSource (id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setDataSource lib UIKit selector "setDataSource:" (id as ptr, value as ptr)
+			  setDataSource id, value.id
+			End Set
+		#tag EndSetter
+		DataSource As iOSLibPickerViewDataSource
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return iOSLibPickerViewDataSource.MakeFromPtr (getDelegate)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setDelegate value.id
+			End Set
+		#tag EndSetter
+		Delegate_ As iOSLibPickerViewDataSource
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function numberOfComponents lib UIKit selector "numberOfComponents" (id as ptr) as Integer
+			  Return numberOfComponents (id)
+			End Get
+		#tag EndGetter
+		NumberOfComponents As Integer
+	#tag EndComputedProperty
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AutoresizesSubviews"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ClearsContextBeforeDrawing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ClipsToBounds"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentMode"
+			Group="Behavior"
+			Type="UIViewContentMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - ScaleToFill"
+				"1 - ScaleAspectFit"
+				"2 - ScaleAspectFill"
+				"3 - Redraw"
+				"4 - Center"
+				"5 - Top"
+				"6 - Bottom"
+				"7 - Left"
+				"8 - Right"
+				"9 - TopLeft"
+				"10 - TopRight"
+				"11 - BottomLeft"
+				"12 - BottomRight"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExclusiveTouch"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasAmbiguousLayout"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hidden"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MultipleTouchEnabled"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="NumberOfComponents"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Opaque"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Tag"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TintAdjustmentMode"
+			Group="Behavior"
+			Type="UIViewTintAdjustmentMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Automatic"
+				"1 - Normal"
+				"2 - Dimmed"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TranslatesAutoresizingMaskIntoConstraints"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UserInteractionEnabled"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass

@@ -17,6 +17,42 @@ Inherits iOSLibCALayer
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h1000
+		Sub Constructor(ColorArray() As Color, LocationsArray() As Double)
+		  
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From iOSLibCALayer
+		  // Constructor(aLayer As iOSLibCALayer) -- From iOSLibCALayer
+		  // Constructor() -- From iOSLibResponder
+		  // Constructor() -- From iOSLibObject
+		  // Constructor(AnId as Ptr) -- From iOSLibObject
+		  Super.Constructor (Init(Alloc(ClassPtr)))
+		  SetColors (ColorArray)
+		  SetLocations LocationsArray
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(ColorArray() As Color, LocationsArray() As Double, Start_point as Point, End_point as Point)
+		  
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From iOSLibCALayer
+		  // Constructor(aLayer As iOSLibCALayer) -- From iOSLibCALayer
+		  // Constructor() -- From iOSLibResponder
+		  // Constructor() -- From iOSLibObject
+		  // Constructor(AnId as Ptr) -- From iOSLibObject
+		  Super.Constructor (Init(Alloc(ClassPtr)))
+		  SetColors (ColorArray)
+		  SetLocations LocationsArray
+		  startpoint = start_point.toNSPoint
+		  EndPoint = End_point.toNSPoint
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub DistributeLocationsEvenly()
 		  Locations = nil

@@ -1,6 +1,6 @@
 #tag Class
 Protected Class iOSLibArray
-Inherits iOSLibObject
+Inherits iOSLibMutableObjectInterface
 	#tag Method, Flags = &h0
 		 Shared Function MakeFromPtr(aPtr as Ptr) As ioslibarray
 		  return if (aptr <> NIL, new iOSLibArray (aptr), NIL)
@@ -104,6 +104,11 @@ Inherits iOSLibObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

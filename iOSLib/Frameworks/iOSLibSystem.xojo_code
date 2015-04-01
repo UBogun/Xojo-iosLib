@@ -1,7 +1,7 @@
 #tag Module
 Protected Module iOSLibSystem
 	#tag Method, Flags = &h1
-		Protected Function DataPointerforName(name as CFStringRef, frameworkID as CFStringRef,suppressException as boolean = false) As Ptr
+		Protected Function DataPointerforName(name as CFStringRef, frameworkID as CFStringRef, suppressException as boolean = false) As Ptr
 		  // Implementation courtesy of Jim McKay, with additions from Jason King
 		  
 		  dim framework As new iOSLibCFBundle (frameworkID)
@@ -70,7 +70,7 @@ Protected Module iOSLibSystem
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SystemConstantName(name as CFStringRef, frameworkPath as CFStringRef) As CFStringRef
+		Function SystemConstantName(name as CFStringRef, frameworkPath as CFStringRef) As text
 		  Return DataPointerforName (name, frameworkPath).cfstringref(0)
 		  
 		End Function
