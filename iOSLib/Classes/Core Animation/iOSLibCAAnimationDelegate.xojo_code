@@ -1,6 +1,6 @@
 #tag Class
-Protected Class iOSLibArray
-Inherits iOSLibMutableObjectInterface
+Protected Class iOSLibCAAnimationDelegate
+Inherits iOSLibObject
 	#tag Method, Flags = &h1000
 		Sub Constructor()
 		  // Calling the overridden superclass constructor.
@@ -8,83 +8,57 @@ Inherits iOSLibMutableObjectInterface
 		  // Possible constructor calls:
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
-		  Super.Constructor (init(alloc(classptr)))
-		  MHasOwnership = true
-		  
+		  super.Constructor  (Init(Alloc(classptr)))
+		  mhasownership = true
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		 Shared Function MakeFromPtr(aPtr as Ptr) As ioslibarray
-		  return if (aptr <> NIL, new iOSLibArray (aptr), NIL)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function ObjectAtIndex(Index as Uinteger) As iOSLibObject
-		  return iOSLibObject.MakeFromPtr (PtrAtIndex (index))
+	#tag Method, Flags = &h21
+		Private Shared Function impl_animationdidstart(pid as ptr, sel as ptr, animation as ptr) As ptr
+		  dim myAni as new iOSLibCAAnimation (animation)
+		  if not myAni.IsNIL  then myani.informonstart
 		  
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Function PtrAtIndex(Index as Uinteger) As Ptr
-		  declare function objectAtIndex lib UIKit selector "objectAtIndex:" (id as ptr, index as uinteger) as Ptr
-		  return objectAtIndex (id, index)
+	#tag Method, Flags = &h21
+		Private Shared Function impl_animationdidstopFinished(pid as ptr, sel as ptr, animation as ptr, Finished as boolean) As ptr
+		  dim myAni as new iOSLibCAAnimation (animation)
+		  if not myAni.IsNIL  then myani.informonstop (Finished)
 		  
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Function TextAtIndex(Index as Uinteger) As cfstringref
-		  declare function objectAtIndex lib UIKit selector "objectAtIndex:" (id as ptr, index as uinteger) as CFStringRef
-		  return objectAtIndex (id, index)
-		  
-		End Function
-	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Function toPtrArray() As Ptr()
-		  dim result() as Ptr
-		  for q as uinteger = 0 to count -1
-		    result.Append PtrAtIndex (q)
-		  next
-		  return result
-		End Function
-	#tag EndMethod
+	#tag Hook, Flags = &h0
+		Event AnimationDidStart()
+	#tag EndHook
 
-	#tag Method, Flags = &h0
-		Function toTextArray() As text()
-		  dim result() as text
-		  for q as uinteger = 0 to count -1
-		    result.Append Textatindex (q)
-		  next
-		  return result
-		End Function
-	#tag EndMethod
+	#tag Hook, Flags = &h0
+		Event AnimationDidStop(Finished as Boolean)
+	#tag EndHook
 
 
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSArray")
-			  return mClassPtr
+			  static targetID as ptr
+			  if targetID = Nil then
+			    dim methods() as TargetClassMethodHelper
+			    //delegate methods
+			    methods.Append new TargetClassMethodHelper("animationDidStart:", AddressOf impl_animationdidstart, "v@:@")
+			    methods.Append new TargetClassMethodHelper("animationDidStop:finished:", AddressOf impl_animationdidstopFinished, "v@:@c")
+			    targetID = BuildTargetClass ("NSObject", "iOSLibCAAnimationDelegate",methods)
+			  end if
+			  Return targetID
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
-		#tag Note
-			return getCount
-		#tag EndNote
-		#tag Getter
-			Get
-			  return getCount
-			End Get
-		#tag EndGetter
-		Count As UInteger
-	#tag EndComputedProperty
+	#tag Property, Flags = &h21
+		Private Shared RetainDict As Dictionary
+	#tag EndProperty
 
 
 	#tag ViewBehavior

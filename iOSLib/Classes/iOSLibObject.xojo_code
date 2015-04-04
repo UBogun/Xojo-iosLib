@@ -70,10 +70,10 @@ Implements iOSLibGeneralObject
 		Private Sub Destructor()
 		  
 		  if mHasOwnership then
-		    system.DebugLog "Releasing "+DebugDescription
+		    // system.DebugLog "Releasing "+DebugDescription
 		    Release
 		  else
-		    system.DebugLog "Losing Handle on "+DebugDescription
+		    // system.DebugLog "Losing Handle on "+DebugDescription
 		  end if
 		End Sub
 	#tag EndMethod
@@ -90,6 +90,20 @@ Implements iOSLibGeneralObject
 		Protected Function getCount() As UInteger
 		  Declare Function count lib UIKit selector "count" (id as ptr) as UInteger
 		  Return count (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getDelegate() As Ptr
+		  Declare Function getDelegate lib uikit selector "delegate" (id as ptr) as Ptr
+		  return getDelegate (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getName() As Text
+		  Declare function name lib UIKit selector "name" (id as ptr) as CFStringRef
+		  return name (id)
 		End Function
 	#tag EndMethod
 
@@ -145,6 +159,21 @@ Implements iOSLibGeneralObject
 		Protected Sub Retain()
 		  declare function retain lib UIKit selector "retain" (id as ptr) as ptr
 		  call retain (mid)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setDelegate(value as Ptr)
+		  Declare Sub setDelegate lib uikit selector "setDelegate:" (id as ptr, value as Ptr)
+		  setDelegate (id, value)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setName(Name as cfstringref)
+		  Declare Sub setName lib UIKit selector "setName:" (id as ptr, value as CFStringRef)
+		  setName (id, Name)
+		  
 		End Sub
 	#tag EndMethod
 

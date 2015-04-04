@@ -40,8 +40,9 @@ Implements iOSLibGeneralObject
 	#tag Method, Flags = &h0
 		Sub Constructor(aTypeRef as Ptr)
 		  mCFTypeRef = aTypeRef
-		  Retain
-		  mHasOwnerShip = true
+		  if not isNIL then
+		    Retain
+		  end if
 		End Sub
 	#tag EndMethod
 
@@ -51,14 +52,14 @@ Implements iOSLibGeneralObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Function Equals(anotherCFTypeObject as iOSLibCFObject) As boolean
+	#tag Method, Flags = &h0
+		Function Equals(anotherCFTypeObject as iOSLibCFObject) As boolean
 		  return CFEqual (mCFTypeRef, anotherCFTypeObject.CFTypeRef)
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Function GeneralID() As Ptr
+	#tag Method, Flags = &h1
+		Protected Function GeneralID() As Ptr
 		  // Part of the iOSLibGeneralObject interface.
 		  
 		  return mCFTypeRef
@@ -71,14 +72,14 @@ Implements iOSLibGeneralObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub Release()
+	#tag Method, Flags = &h1
+		Protected Sub Release()
 		  CFRelease (mCFTypeRef)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub Retain()
+	#tag Method, Flags = &h1
+		Protected Sub Retain()
 		  mCFTypeRef = CFRetain (mCFTypeRef)
 		End Sub
 	#tag EndMethod
@@ -187,6 +188,11 @@ Implements iOSLibGeneralObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isNIL"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"

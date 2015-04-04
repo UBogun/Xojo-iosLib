@@ -278,16 +278,14 @@ End
 	#tag Method, Flags = &h0
 		Sub showvalues()
 		  dim mycolors() as color
-		  dim mygradient as new iOSLibCAGradientLayer (ImageView1.iOSLibView.Layer.id)
-		  dim myuicolors as iOSLibArray = mygradient.Colors
-		  for q as integer = 1 to myuicolors.Count
-		    dim mycolor as new iOSLibCGColor (myuicolors.PtrAtIndex (q-1))
+		  for q as integer = 1 to ImageView1.Layer.Colors.Count
+		    dim mycolor as new iOSLibCGColor (ImageView1.Layer.Colors.PtrAtIndex (q-1))
 		    mycolors.Append mycolor.toColor
 		  next
 		  ColorField.text = mycolors.toCommaList
-		  
+		  //
 		  dim mylocations() as double
-		  dim mylocationarray as iOSLibArray = mygradient.Locations
+		  dim mylocationarray as iOSLibArray = imageview1.layer.Locations
 		  if mylocationarray <> NIL then
 		    for q as integer = 1 to mylocationarray.Count
 		      dim mylocation as new iOSLibNumber (mylocationarray.PtrAtIndex (q-1))
@@ -330,8 +328,7 @@ End
 		    dim newcolor as  color =  myvalues(q).Trim.tocolor
 		    colorarray.Append newcolor
 		  next
-		  dim mygradient as new iOSLibCAGradientLayer (ImageView1.iOSLibView.Layer.id)
-		  mygradient.SetColors colorarray
+		  ImageView1.Layer.SetColors colorarray
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -344,16 +341,14 @@ End
 		    dim newdouble as  double =  double.Parse (myvalues(q).Trim)
 		    locationarray.Append newdouble
 		  next
-		  dim mygradient as new iOSLibCAGradientLayer (ImageView1.iOSLibView.Layer.id)
-		  mygradient.SetLocations locationarray
+		  ImageView1.Layer.SetLocations locationarray
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events Button4
 	#tag Event
 		Sub Action()
-		  dim mygradient as new iOSLibCAGradientLayer (ImageView1.iOSLibView.Layer.id)
-		  mygradient.DistributeLocationsEvenly
+		  ImageView1.Layer.DistributeLocationsEvenly
 		  showvalues
 		End Sub
 	#tag EndEvent

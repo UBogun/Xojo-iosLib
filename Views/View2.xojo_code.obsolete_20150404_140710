@@ -1,0 +1,289 @@
+#tag IOSView
+Begin iosView View2
+   BackButtonTitle =   ""
+   Compatibility   =   ""
+   Left            =   0
+   NavigationBarVisible=   True
+   TabTitle        =   ""
+   Title           =   "Test Section"
+   Top             =   0
+   Begin ioslibpicker HTMLViewer1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   HTMLViewer1, 4, Button1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 7, , 0, False, +1.00, 1, 1, 320, 
+      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 162, 
+      Height          =   162.0
+      Left            =   0
+      LockedInPosition=   False
+      NumberOfComponents=   0
+      Scope           =   0
+      SelectedColumn  =   0
+      SelectionText   =   ""
+      Top             =   272
+      Visible         =   True
+      Width           =   320.0
+   End
+   Begin ioslibgradientview Canvas1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   Canvas1, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
+      AutoLayout      =   Canvas1, 7, <Parent>, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 2, 1, 0, 
+      Height          =   191.0
+      InitialParent   =   ""
+      Left            =   0
+      LockedInPosition=   False
+      Scope           =   0
+      TabPanelIndex   =   "0"
+      Top             =   73
+      Visible         =   True
+      Width           =   320.0
+   End
+   Begin iOSButton Button1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   Button1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, 12, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      Caption         =   "Start"
+      Enabled         =   True
+      Height          =   30.0
+      Left            =   12
+      LockedInPosition=   False
+      Scope           =   0
+      TextColor       =   &c007AFF00
+      TextFont        =   ""
+      TextSize        =   0
+      Top             =   442
+      Visible         =   True
+      Width           =   100.0
+   End
+   Begin iosimageview animationcanvas
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   animationcanvas, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   animationcanvas, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   animationcanvas, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   animationcanvas, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      ContentMode     =   "4"
+      Height          =   191.0
+      Image           =   "777732095"
+      InitialParent   =   ""
+      Left            =   0
+      LockedInPosition=   False
+      Scope           =   0
+      TabPanelIndex   =   "0"
+      Top             =   73
+      Visible         =   True
+      Width           =   320.0
+   End
+   Begin iOSButton Button2
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 3, Button1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      Caption         =   "Instantiate"
+      Enabled         =   True
+      Height          =   30.0
+      Left            =   200
+      LockedInPosition=   False
+      Scope           =   0
+      TextColor       =   &c007AFF00
+      TextFont        =   ""
+      TextSize        =   0
+      Top             =   442
+      Visible         =   True
+      Width           =   100.0
+   End
+End
+#tag EndIOSView
+
+#tag WindowCode
+	#tag Event
+		Sub Open()
+		  // #pragma DisableBoundsChecking
+		  // #pragma NilObjectChecking false
+		  // #pragma StackOverflowChecking false
+		  // #pragma DisableBackgroundTasks
+		  
+		  // dim t1 as date = date.Now
+		  // dim mdict as  Dictionary = iOSLibCALayer.GravityDict
+		  //
+		  // dim t2 as date = date.now
+		  // dim diff as DateInterval = t2-t1
+		  // dim value as double = diff.NanoSeconds
+		  //
+		  // dim t3 as date = date.Now
+		  // dim mydict as  iOSLibDictionary =  iOSLibCALayer.GravityDict1
+		  // dim t4 as date = date.now
+		  // dim diff1 as DateInterval = t4-t3
+		  // dim value2 as double = diff1.NanoSeconds
+		  // Break
+		  
+		End Sub
+	#tag EndEvent
+
+
+#tag EndWindowCode
+
+#tag Events HTMLViewer1
+	#tag Event
+		Sub Open()
+		  me.addcolumn (Array("Apple","Banana", "Pear", "Orange", "Pineapple", "Grapefruit", "Cherry", "Strawberry"))
+		  me.AddColumn(Array("Punch","Soda"))
+		  me.SelectedRow(0) = 1
+		  me.SelectedRow(1) = 1
+		  dim mysize as nssize = me.iOSLibView.SizeThatFits
+		  me.dataSource.setRowHeight (0,26)
+		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub SelectionChanged(row as integer, column as integer)
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Canvas1
+	#tag Event
+		Sub Open()
+		  dim colorarray as new iOSLibMutableArray (2)
+		  colorarray.Addobject new iOSLibCGColor(&c11205400)
+		  colorarray.Addobject new iOSLibCGColor( &c0D112700)
+		  me.Layer.Colors = colorarray
+		  me.Layer.ContentsPositioning = iOSLibCALayer.CaLayerContentPosition.BottomRight
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Button1
+	#tag Event
+		Sub Action()
+		  // dim mylayer as new iOSLibCAGradientLayer ()
+		  // mylayer.Bounds = canvas1.CoreAnimationLayer.Frame
+		  // canvas1.CoreAnimationLayer.AddSubLayer mylayer
+		  
+		  animationcanvas.CoreAnimationLayer.ContentsScale = 4
+		  
+		  me.CoreAnimationLayer.BackgroundColor = new iOSLibcgColor (&c394D7E00)
+		  me.CoreAnimationLayer.CornerRadius = 8
+		  dim myvalues as new iOSLibMutableArray (5)
+		  dim mypos as Double
+		  mypos= 10
+		  myvalues.Addobject new iOSLibNumber(mypos)
+		  mypos = -10
+		  myvalues.Addobject new iOSLibNumber(mypos)
+		  mypos=5
+		  myvalues.Addobject new iOSLibNumber(mypos)
+		  mypos = -5
+		  myvalues.Addobject new iOSLibNumber(mypos)
+		  mypos = 0
+		  myvalues.Addobject new iOSLibNumber(mypos)
+		  
+		  dim myanimation as new iOSLibCAKeyframeAnimation (iOSLIbCABasicAnimation.Properties.height, myvalues)
+		  myanimation.Duration = 0.5
+		  myanimation.Additive = true
+		  me.CoreAnimationLayer.AddAnimation myanimation
+		  //
+		  
+		  
+		  dim myanimation1 as new iOSLibCAKeyframeAnimation (iOSLibCAAnimation.Properties.Position)
+		  dim newrect as new rect (25,25, Canvas1.height-25,Canvas1.Height-25)
+		  myanimation1.Path = new iOSLibCGPathEllipse (newrect.tonsrect)
+		  myanimation1.Duration = 4
+		  myanimation.Additive = true
+		  myanimation1.RepeatCount = 2
+		  myanimation1.RotationMode = iOSLibCAKeyframeAnimation.RotationModes.RotateAuto
+		  myanimation1.CalculationMode = iOSLibCAKeyframeAnimation.ValueCalculationModes.Paced
+		  animationcanvas.CoreAnimationLayer.AddAnimation myanimation1
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events animationcanvas
+	#tag Event
+		Sub Open()
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Button2
+	#tag Event
+		Sub Action()
+		  for q as integer = 0 to 10000
+		    dim mycolor as new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.BackgroundColor,  canvas1.CoreAnimationLayer.BackgroundColor, new iOSLibCGColor (&c11223344))
+		    dim newframe as new rect (10,10,80,80)
+		    dim myanimation as new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Bounds,  canvas1.CoreAnimationLayer.Bounds, newframe.tonsrect)
+		    
+		    dim mygroup as new iOSLibCAAnimationGroup
+		    dim myarray as new iOSLibMutableArray(2)
+		    myarray.Addobject mycolor
+		    myarray.Addobject myanimation
+		    mygroup.Animations = myarray
+		    
+		    me.CoreAnimationLayer.AddAnimation mygroup
+		  next
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag ViewBehavior
+	#tag ViewProperty
+		Name="BackButtonTitle"
+		Group="Behavior"
+		Type="Text"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index"
+		Visible=true
+		Group="ID"
+		InitialValue="-2147483648"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Left"
+		Visible=true
+		Group="Position"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="NavigationBarVisible"
+		Group="Behavior"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Super"
+		Visible=true
+		Group="ID"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabTitle"
+		Group="Behavior"
+		Type="Text"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Title"
+		Group="Behavior"
+		Type="Text"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Top"
+		Visible=true
+		Group="Position"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+#tag EndViewBehavior
