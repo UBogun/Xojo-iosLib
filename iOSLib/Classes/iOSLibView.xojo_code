@@ -125,6 +125,54 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function ConvertPointFromView(aPoint as NSPoint, aView as iosLibView) As NSPoint
+		  #if Target64Bit
+		    declare Function convertPointfromView lib UIKit selector "convertPoint:fromView:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    return convertPointfromView (id, apoint, aview.id)
+		  #elseif Target32Bit
+		    declare Function convertPointfromView lib UIKit selector "convertPoint:fromView:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
+		    return convertPointfromView (id, apoint.toNSPoint32, aview.id).tonspoint
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ConvertPointToView(aPoint as NSPoint, aView as iosLibView) As NSPoint
+		  #if Target64Bit
+		    declare Function convertPointtoView lib UIKit selector "convertPoint:toView:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    return convertPointtoView (id, apoint, aview.id)
+		  #elseif Target32Bit
+		    declare Function convertPointtoView lib UIKit selector "convertPoint:toView:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
+		    return convertPointtoView (id, apoint.toNSPoint32, aview.id).tonspoint
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ConvertRectFromView(aRect as NSRect, aView as iosLibView) As NSRect
+		  #if Target64Bit
+		    declare Function ConvertRectFromView lib UIKit selector "convertRect:fromView:" (id as ptr, aRect as NSRect, aview as ptr) as nsrect
+		    return ConvertRectFromView (id, arect, aview.id)
+		  #elseif Target32Bit
+		    declare Function ConvertRectFromView lib UIKit selector "convertRect:fromView:" (id as ptr, aRect as NSRect32Bit, aview as ptr) as NSRect32Bit
+		    return ConvertRectFromView (id, arect.toNSRect32, aview.id).tonsrect
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ConvertRectToView(aRect as NSRect, aView as iosLibView) As NSRect
+		  #if Target64Bit
+		    declare Function ConvertRectToView lib UIKit selector "convertRect:toView:" (id as ptr, aRect as NSRect, aview as ptr) as nsrect
+		    return ConvertRectToView (id, arect, aview.id)
+		  #elseif Target32Bit
+		    declare Function ConvertRectToView lib UIKit selector "convertRect:toView:" (id as ptr, aRect as NSRect32Bit, aview as ptr) as NSRect32Bit
+		    return ConvertRectToView (id, arect.toNSRect32, aview.id).tonsrect
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Copy() As iOSLibView
 		  return new iOSLibview (ObjectiveCRuntime.object_copy (id, 0))
 		End Function
@@ -643,20 +691,6 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if ObjectiveCRuntime.class_respondsToSelector (Class_, NSSelectorFromString("delegate")) then return if (getDelegate <> NIL, new iOSLibObject (getDelegate), NIL)
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  setDelegate value.Id
-			End Set
-		#tag EndSetter
-		Delegate_ As iOSLibObject
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
 			  Declare Function areAnimationsEnabled lib UIKit selector "areAnimationsEnabled" (id as ptr) as Boolean
 			  Return areAnimationsEnabled (classptr)
 			End Get
@@ -764,6 +798,32 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  #if Target64Bit
+			    Declare function layoutMargins lib UIKit selector "layoutMargins" (id as ptr) as UIEdgeInsets
+			    return layoutMargins (id)
+			  #elseif Target32Bit
+			    Declare function layoutMargins lib UIKit selector "layoutMargins" (id as ptr) as UIEdgeInsets32Bit
+			    return layoutMargins(id).toUIEdgeInset
+			  #endif
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    Declare Sub setLayoutMargins lib UIKit selector "setLayoutMargins:" (id as ptr, value as UIEdgeInsets)
+			     setLayoutMargins (id, value)
+			  #elseif Target32Bit
+			    Declare Sub setLayoutMargins lib UIKit selector "setLayoutMargins:" (id as ptr, value as UIEdgeInsets32Bit)
+			    setLayoutMargins (id, value.toUIEdgeInset32)
+			  #endif
+			End Set
+		#tag EndSetter
+		LayoutMargins As UIEdgeInsets
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  const SEL as text = "maskView"
 			  if ObjectiveCRuntime.class_respondsToSelector (class_, NSSelectorFromString (SEL)) then
 			    Declare function maskView lib UIKit selector "maskView" (id as ptr) as ptr
@@ -812,6 +872,22 @@ Inherits iOSLibResponder
 			End Set
 		#tag EndSetter
 		Opaque As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function preservesSuperviewLayoutMargins lib UIKit selector "preservesSuperviewLayoutMargins" (id as ptr) as Boolean
+			  return preservesSuperviewLayoutMargins (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare sub setPreservesSuperviewLayoutMargins lib UIKit selector "setPreservesSuperviewLayoutMargins:" (id as ptr, value as Boolean)
+			  setPreservesSuperviewLayoutMargins id, value
+			End Set
+		#tag EndSetter
+		PreservesSuperviewLayoutMargins As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

@@ -47,12 +47,10 @@ Inherits iOSLibCFObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1000
-		Sub Constructor(aColorSpace as Ptr)
-		  mCFTypeRef = aColorSpace
-		  Retain
-		  mHasOwnerShip = true
-		End Sub
+	#tag Method, Flags = &h0
+		Function MakeFromPtr(aPTr as Ptr) As iOSLibCGColorSpace
+		  return if (aptr <> NIL, new iOSLibCGColorSpace (aptr), NIL)
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -146,9 +144,19 @@ Inherits iOSLibCFObject
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="ColorSpaceModel"
+			Group="Behavior"
+			Type="CGColorSpaceModel"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Description"
 			Group="Behavior"
 			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnerShip"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -156,6 +164,11 @@ Inherits iOSLibCFObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isNIL"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -187,11 +200,6 @@ Inherits iOSLibCFObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="WasRetained"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

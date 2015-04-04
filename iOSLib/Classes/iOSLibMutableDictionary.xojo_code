@@ -1,8 +1,15 @@
 #tag Class
 Protected Class iOSLibMutableDictionary
 Inherits iOSLibDictionary
+	#tag Method, Flags = &h0
+		Sub AddDictionary(aDictionary as iOSLibDictionary)
+		  declare sub addEntriesFromDictionary lib uikit selector "addEntriesFromDictionary:" (id as ptr, aDictionary as ptr)
+		  addEntriesFromDictionary id, aDictionary.id
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1000
-		Sub Constructor(Capacity as uinteger)
+		Sub Constructor(Capacity as uinteger = 1)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -15,14 +22,27 @@ Inherits iOSLibDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetObjectForKey(Key as CFstringRef, anObject as iOSLibObject)
-		  Declare sub setObjectForKey lib UIKit selector "setObject:forKey:" (id as ptr, value  as ptr, key as CFStringRef)
-		  setObjectForKey id, anObject.id, key
+		Sub RemoveObject()
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetValueForKey(Key as CFstringRef, value as cfstringref)
+		Sub SetDictionary(aDictionary as iOSLibDictionary)
+		  declare sub SetDictionary lib uikit selector "setDictionary:" (id as ptr, aDictionary as ptr)
+		  SetDictionary id, aDictionary.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SetObjectForKey(Key as iOSLibGeneralObject, anObject as iOSLibGeneralObject)
+		  Declare sub setObjectForKey lib UIKit selector "setObject:forKey:" (id as ptr, value  as ptr, key as ptr)
+		  setObjectForKey id, anObject.GeneralID, key.GeneralID
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ValueForKey(Key as CFstringRef, assigns value as cfstringref)
 		  Declare sub setValueForKey lib UIKit selector "setValue:forKey:" (id as ptr, value as CFStringRef, key as CFStringRef)
 		  setValueForKey id, value, key
 		End Sub
@@ -80,6 +100,11 @@ Inherits iOSLibDictionary
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="StringsFileFormat"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

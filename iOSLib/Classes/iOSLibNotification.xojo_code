@@ -28,8 +28,7 @@ Inherits iOSLibObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function name lib UIKit selector "name" (id as ptr) as CFStringRef
-			  return name (id)
+			  return getname
 			End Get
 		#tag EndGetter
 		Name As CFStringRef
@@ -85,6 +84,11 @@ Inherits iOSLibObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

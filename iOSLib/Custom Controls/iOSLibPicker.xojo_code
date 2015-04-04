@@ -35,6 +35,12 @@ Inherits iOSUserControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Caption(acolumn as integer) As text
+		  return dataSource.TextInRowAndColumn (SelectedRow(acolumn), acolumn)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Destructor()
 		  system.debuglog "Released  PickerView: "+integer(id).totext
 		  

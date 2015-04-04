@@ -2,8 +2,8 @@
 Protected Class iOSLibMutableArray
 Inherits iOSLibArray
 	#tag Method, Flags = &h0
-		Sub Addobject(anObject as iOSLibObject)
-		  Addobject anObject.id
+		Sub Addobject(anObject as iOSLibGeneralObject)
+		  Addobject anObject.GeneralID
 		End Sub
 	#tag EndMethod
 
@@ -22,6 +22,7 @@ Inherits iOSLibArray
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
 		  Super.Constructor (Init(Alloc(ClassPtr)))
+		  mHasOwnership = true
 		  
 		End Sub
 	#tag EndMethod

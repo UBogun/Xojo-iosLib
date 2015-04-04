@@ -122,6 +122,20 @@ Protected Module iOSFoundation
 		height as single
 	#tag EndStructure
 
+	#tag Structure, Name = UIEdgeInsets, Flags = &h0
+		Top as Double
+		  Left As Double
+		  Bottom As Double
+		Right As Double
+	#tag EndStructure
+
+	#tag Structure, Name = UIEdgeInsets32Bit, Flags = &h0
+		Top as Single
+		  Left As Single
+		  Bottom As Single
+		Right As Single
+	#tag EndStructure
+
 
 	#tag Enum, Name = CFNumberTypes, Flags = &h0
 		Int8 = 1

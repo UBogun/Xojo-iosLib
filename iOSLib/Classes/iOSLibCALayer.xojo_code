@@ -17,6 +17,13 @@ Inherits iOSLibresponder
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function Animation(key as CFStringRef) As iOSLibCAAnimation
+		  declare Function animationForKey lib uikit selector "animationForKey:" (id as ptr, key as CFStringref) as Ptr
+		  return iOSLibCAAnimation.MakeFromPtr (animationForKey (id, key))
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1000
 		Sub Constructor()
 		  Super.Constructor (Init(Alloc(ClassPtr)))
@@ -76,6 +83,20 @@ Inherits iOSLibresponder
 		 Shared Function NeedsDisplayForKey(aKey As CFStringRef) As Boolean
 		  Declare Function needsDisplayForKey lib UIKit selector "needsDisplayForKey:" (id as ptr, key as CFStringRef) as Boolean
 		  return needsDisplayForKey (ClassPtr, aKey)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub RemoveAllAnimations()
+		  declare Sub RemoveAllAnimations lib uikit selector "removeAllAnimations" (id as ptr)
+		  RemoveAllAnimations id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function RemoveAnimation(key as CFStringRef) As iOSLibCAAnimation
+		  declare Sub RemoveAnimationForKey lib uikit selector "removeAnimationForKey:" (id as ptr, key as CFStringref)
+		  RemoveAnimationForKey id, key
 		End Function
 	#tag EndMethod
 
@@ -172,8 +193,7 @@ Inherits iOSLibresponder
 		#tag Getter
 			Get
 			  declare function animationKeys lib UIKit selector "animationKeys" (id as Ptr) as ptr
-			  dim myptr as ptr = animationKeys (id)
-			  return if (myptr <> NIL,  new iOSLibArray (myptr), NIL)
+			  return iOSLibArray.MakeFromPtr (animationKeys (id))
 			  
 			End Get
 		#tag EndGetter
@@ -268,19 +288,18 @@ Inherits iOSLibresponder
 		#tag Getter
 			Get
 			  declare function contents lib uikit selector "contents" (id as Ptr) as ptr
-			  dim myptr as ptr = contents(id)
-			  return if (myptr <> NIL, new iOSLibObject (myptr), NIL)
+			  return iOSLibObject.MakeFromPtr (contents(id))
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  declare Sub setcontents lib uikit selector "setContents:" (id as Ptr, value as ptr)
-			  setcontents (id, value.Id)
+			  setcontents (id, value.GeneralID)
 			  
 			End Set
 		#tag EndSetter
-		Contents As iOSLibObject
+		Contents As iOSLibGeneralObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -345,11 +364,9 @@ Inherits iOSLibresponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  dim gravity as text = ContentsGravity
-			  dim result as auto = GravityDict.keyForValue(gravity)
-			  if result <> NIL then
-			    dim compare as text = result
-			    select case compare
+			  dim result as text = GravityDict.TextkeyForObject(new iOSLibCFString(ContentsGravity))
+			  if not result.Empty then
+			    select case result
 			    case kCAGravityBottom
 			      return calayerContentPosition.Bottom
 			    case kCAGravityBottomLeft
@@ -409,8 +426,7 @@ Inherits iOSLibresponder
 			  case calayerContentPosition.TopRight
 			    ConstantValue =kCAGravityTopRight
 			  end select
-			  ContentsGravity =GravityDict.Value(ConstantValue).toText
-			  
+			  ContentsGravity =GravityDict.TextForKey(ConstantValue)
 			End Set
 		#tag EndSetter
 		ContentsPositioning As caLayerContentPosition
@@ -611,28 +627,29 @@ Inherits iOSLibresponder
 		GeometryFlipped As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h21
 		#tag Getter
 			Get
-			  if mGravityDict = nil then
-			    mGravityDict = new xojo.Core.Dictionary
-			    mGravityDict.Value (kCAGravityBottom) = SystemConstantName (kCAGravityBottom, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityBottomRight) = SystemConstantName (kCAGravityBottomRight, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityBottomLeft) = SystemConstantName (kCAGravityBottomLeft, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityCenter) = SystemConstantName (kCAGravityCenter, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityLeft) = SystemConstantName (kCAGravityLeft, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityResize) = SystemConstantName (kCAGravityResize, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityResizeAspect) = SystemConstantName (kCAGravityResizeAspect, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityResizeAspectFill) = SystemConstantName (kCAGravityResizeAspectFill, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityRight) = SystemConstantName (kCAGravityRight, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityTop) = SystemConstantName (kCAGravityTop, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityTopLeft) = SystemConstantName (kCAGravityTopLeft, QuartzCorePath)
-			    mGravityDict.Value (kCAGravityTopRight) = SystemConstantName (kCAGravityTopRight, QuartzCorePath)
+			  static mGravLib as iOSLibmutableDictionary
+			  if mGravLib = nil then
+			    mGravLib = new iOSLibmutableDictionary (12)
+			    mGravLib.ValueForKey (kCAGravityBottom) = SystemConstantName (kCAGravityBottom, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityBottomRight) = SystemConstantName (kCAGravityBottomRight, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityBottomLeft) = SystemConstantName (kCAGravityBottomLeft, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityCenter) = SystemConstantName (kCAGravityCenter, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityLeft) = SystemConstantName (kCAGravityLeft, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityResize) = SystemConstantName (kCAGravityResize, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityResizeAspect) = SystemConstantName (kCAGravityResizeAspect, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityResizeAspectFill) = SystemConstantName (kCAGravityResizeAspectFill, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityRight) = SystemConstantName (kCAGravityRight, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityTop) = SystemConstantName (kCAGravityTop, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityTopLeft) = SystemConstantName (kCAGravityTopLeft, QuartzCorePath)
+			    mGravLib.ValueForKey (kCAGravityTopRight) = SystemConstantName (kCAGravityTopRight, QuartzCorePath)
 			  end if
-			  return mGravityDict
+			  return mGravLib
 			End Get
 		#tag EndGetter
-		Shared GravityDict As xojo.Core.Dictionary
+		Private Shared GravityDict As iOSLibDictionary
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -656,6 +673,20 @@ Inherits iOSLibresponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  return bounds.Size_.Height
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Bounds.Size_.Height = value
+			End Set
+		#tag EndSetter
+		Height As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  DEclare Function hidden lib UIKit selector "isHidden" (id as ptr) as Boolean
 			  return hidden (id)
 			  
@@ -669,6 +700,20 @@ Inherits iOSLibresponder
 			End Set
 		#tag EndSetter
 		Hidden As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return Position.x
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  position.x = value
+			End Set
+		#tag EndSetter
+		Left As Double
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -707,10 +752,6 @@ Inherits iOSLibresponder
 		MasksToBounds As Boolean
 	#tag EndComputedProperty
 
-	#tag Property, Flags = &h21
-		Private Shared mGravityDict As xojo.Core.Dictionary
-	#tag EndProperty
-
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
@@ -721,6 +762,36 @@ Inherits iOSLibresponder
 			End Get
 		#tag EndGetter
 		ModelLayer As iOSLibCALayer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getname
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setname value
+			End Set
+		#tag EndSetter
+		Name As CFStringRef
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function needsDisplayOnBoundsChange lib UIKit selector "needsDisplayOnBoundsChange" (id as ptr) as Boolean
+			  return needsDisplayOnBoundsChange (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setNeedsDisplayOnBoundsChange lib UIKit selector "setNeedsDisplayOnBoundsChange:" (id as ptr, value as Boolean)
+			  setneedsDisplayOnBoundsChange id, value
+			End Set
+		#tag EndSetter
+		NeedsDisplayOnBoundsChange As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -785,6 +856,22 @@ Inherits iOSLibresponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  #if target32bit
+			    DEclare Function preferredFrameSize lib UIKit selector "preferredFrameSize" (id as ptr) as NSSize32Bit
+			    return preferredFrameSize(id).toNSSize
+			  #elseif Target64Bit
+			    DEclare Function preferredFrameSize lib UIKit selector "preferredFrameSize" (id as ptr) as NSSize
+			    return preferredFrameSize (id)
+			  #endif
+			  
+			End Get
+		#tag EndGetter
+		PreferredFrameSize As NSSize
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  DEclare Function presentationLayer lib UIKit selector "presentationLayer" (id as ptr) as ptr
 			  return new iOSLibCALayer (presentationLayer (id))
 			  
@@ -817,22 +904,6 @@ Inherits iOSLibresponder
 			End Set
 		#tag EndSetter
 		RasterizationScale As Double
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function needsDisplayOnBoundsChange lib UIKit selector "needsDisplayOnBoundsChange" (id as ptr) as Boolean
-			  return needsDisplayOnBoundsChange (id)
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare Sub setNeedsDisplayOnBoundsChange lib UIKit selector "setNeedsDisplayOnBoundsChange:" (id as ptr, value as Boolean)
-			  setneedsDisplayOnBoundsChange id, value
-			End Set
-		#tag EndSetter
-		RedrawOnResize As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -943,9 +1014,25 @@ Inherits iOSLibresponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  declare function style lib UIKit selector "style" (id as Ptr) as ptr
+			  return iOSLibDictionary.MakeFromPtr (style (id))
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setStyle lib UIKit selector "setStyle:" (id as Ptr, value as ptr)
+			  setStyle id, value.id
+			End Set
+		#tag EndSetter
+		Style As iOSLibDictionary
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  DEclare Function sublayers lib UIKit selector "sublayers" (id as ptr) as ptr
-			  dim myptr as ptr = sublayers (id)
-			  return if (myptr <> NIL, new iOSLibArray (myptr), NIL)
+			  return  iOSLibArray.MakeFromPtr (sublayers (id))
 			  
 			  
 			End Get
@@ -1003,6 +1090,20 @@ Inherits iOSLibresponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  return Position.y
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  position.y = value
+			End Set
+		#tag EndSetter
+		Top As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  #if target32bit
 			    DEclare Function transform lib UIKit selector "transform" (id as ptr) as CATransform3D32Bit
 			    return transform(id).toCATransform3D
@@ -1029,34 +1130,17 @@ Inherits iOSLibresponder
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Note
-			
-			End Set
-		#tag EndNote
-		Untitled As Integer
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Note
-			if mGravityDict = nil then
-			mGravityDict = new xojo.Core.Dictionary
-			mGravityDict.Value (kCAGravityBottom) = MacOSFoundation.MacOSConstantName (kCAGravityBottom, QuartzCorePath)
-			mGravityDict.Value (kCAGravityBottomRight) = MacOSFoundation.MacOSConstantName (kCAGravityBottomRight, QuartzCorePath)
-			mGravityDict.Value (kCAGravityBottomLeft) = MacOSFoundation.MacOSConstantName (kCAGravityBottomLeft, QuartzCorePath)
-			mGravityDict.Value (kCAGravityCenter) = MacOSFoundation.MacOSConstantName (kCAGravityCenter, QuartzCorePath)
-			mGravityDict.Value (kCAGravityLeft) = MacOSFoundation.MacOSConstantName (kCAGravityLeft, QuartzCorePath)
-			mGravityDict.Value (kCAGravityResize) = MacOSFoundation.MacOSConstantName (kCAGravityResize, QuartzCorePath)
-			mGravityDict.Value (kCAGravityResizeAspect) = MacOSFoundation.MacOSConstantName (kCAGravityResizeAspect, QuartzCorePath)
-			mGravityDict.Value (kCAGravityResizeAspectFill) = MacOSFoundation.MacOSConstantName (kCAGravityResizeAspectFill, QuartzCorePath)
-			mGravityDict.Value (kCAGravityRight) = MacOSFoundation.MacOSConstantName (kCAGravityRight, QuartzCorePath)
-			mGravityDict.Value (kCAGravityTop) = MacOSFoundation.MacOSConstantName (kCAGravityTop, QuartzCorePath)
-			mGravityDict.Value (kCAGravityTopLeft) = MacOSFoundation.MacOSConstantName (kCAGravityTopLeft, QuartzCorePath)
-			mGravityDict.Value (kCAGravityTopRight) = MacOSFoundation.MacOSConstantName (kCAGravityTopRight, QuartzCorePath)
-			end if
-			return mGravityDict
+		#tag Getter
+			Get
+			  return bounds.Size_.Width
 			End Get
-		#tag EndNote
-		Untitled As Integer
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Bounds.Size_.Width = value
+			End Set
+		#tag EndSetter
+		Width As Double
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1236,6 +1320,11 @@ Inherits iOSLibresponder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Hidden"
 			Group="Behavior"
 			Type="Boolean"
@@ -1276,6 +1365,11 @@ Inherits iOSLibresponder
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="NeedsDisplayOnBoundsChange"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Opacity"
 			Group="Behavior"
 			Type="Single"
@@ -1289,11 +1383,6 @@ Inherits iOSLibresponder
 			Name="RasterizationScale"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="RedrawOnResize"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ShadowOpacity"
@@ -1327,6 +1416,11 @@ Inherits iOSLibresponder
 			Name="Untitled"
 			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ZPosition"

@@ -127,6 +127,16 @@ Protected Module CoreGraphicsLib
 	#tag EndMethod
 
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return CGAffineTransformIdentity
+			End Get
+		#tag EndGetter
+		ioslibCGAffineTransformIdentity As CGAffineTransform
+	#tag EndComputedProperty
+
+
 	#tag Constant, Name = CoreGraphics, Type = Text, Dynamic = False, Default = \"CoreGraphics.framework", Scope = Public
 	#tag EndConstant
 

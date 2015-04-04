@@ -106,47 +106,36 @@ Inherits ioslibcfobject
 		  dim b as double = aColor.Blue/255
 		  dim a as double = (255 - aColor.Alpha) / 255
 		  
-		  mCFTypeRef  =  CGColorCreateGenericRGB (r, g, b, a)
-		  Retain
-		  
+		  super.Constructor ( CGColorCreateGenericRGB (r, g, b, a))
+		  mhasownership = true
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(gray as Double, alpha as double)
-		  mCFTypeRef = CGColorCreateGenericGray (gray, alpha)
-		  Retain
-		  
+		  super.Constructor ( CGColorCreateGenericGray (gray, alpha))
+		  mhasownership = true
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(red as Double, green as Double, blue as double, alpha as double)
-		  mCFTypeRef = CGColorCreateGenericRGB (red, green, Blue, alpha)
-		  Retain
-		  mhasOwnership = true
+		  super.Constructor( CGColorCreateGenericRGB (red, green, Blue, alpha))
+		  mhasownership = true
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(cyan as Double, magenta as Double, yellow as double, black as double, alpha as double)
-		  mCFTypeRef = CGColorCreateGenericCMYK (cyan, magenta, yellow, black, alpha)
-		  Retain
-		  
+		  super.Constructor( CGColorCreateGenericCMYK (cyan, magenta, yellow, black, alpha))
+		  mhasownership = true
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(aColor as iosLibCGColor, alpha as double)
-		  mCFTypeRef = CGColorCreateCopyWithAlpha (acolor.mCFTypeRef, alpha)
-		  Retain
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub Constructor(AnId as Ptr)
-		  mCFTypeRef = AnId
+		  super.Constructor ( CGColorCreateCopyWithAlpha (acolor.mCFTypeRef, alpha))
+		  mhasownership = true
 		End Sub
 	#tag EndMethod
 
@@ -168,16 +157,16 @@ Inherits ioslibcfobject
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub Release()
+	#tag Method, Flags = &h1
+		Protected Sub Release()
 		  CGColorRelease (mCFTypeRef)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub Retain()
+	#tag Method, Flags = &h1
+		Protected Sub Retain()
 		  mCFTypeRef = CGColorRetain (mCFTypeRef)
-		  mhasOwnership = true
+		  
 		End Sub
 	#tag EndMethod
 
@@ -215,6 +204,16 @@ Inherits ioslibcfobject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  static mBlackColor as ioslibcgcolor = new iOSLibcgColor (CGColorGetConstantColor (SystemConstantName(kCGColorBlack, CoreGraphicsPath)))
+			  return mBlackColor
+			End Get
+		#tag EndGetter
+		Shared BlackColor As iOSLibCGColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  if NumberOfComponents = 4 then // only when we have a RGB(+a) color
 			    #if target32bit
 			      return Components.SingleValue(8)
@@ -234,6 +233,16 @@ Inherits ioslibcfobject
 			End Get
 		#tag EndGetter
 		CFTypeDescription As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static mClearColor as ioslibcgcolor = new iOSLibcgColor (CGColorGetConstantColor (SystemConstantName(kCGColorClear, CoreGraphicsPath)))
+			  return mClearColor
+			End Get
+		#tag EndGetter
+		Shared ClearColor As iOSLibCGColor
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -370,6 +379,16 @@ Inherits ioslibcfobject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  static mWhiteColor as ioslibcgcolor = new iOSLibcgColor (CGColorGetConstantColor (SystemConstantName(kCGColorWhite, CoreGraphicsPath)))
+			  return mWhiteColor
+			End Get
+		#tag EndGetter
+		Shared WhiteColor As iOSLibCGColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  if NumberOfComponents = 5 then // only when we have a cmyk(+a) color
 			    #if target32bit
 			      return Components.SingleValue(8)
@@ -381,6 +400,16 @@ Inherits ioslibcfobject
 		#tag EndGetter
 		Yellow As Double
 	#tag EndComputedProperty
+
+
+	#tag Constant, Name = kCGColorBlack, Type = Text, Dynamic = False, Default = \"kCGColorBlack", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kCGColorClear, Type = Text, Dynamic = False, Default = \"kCGColorClear", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kCGColorWhite, Type = Text, Dynamic = False, Default = \"kCGColorWhite", Scope = Private
+	#tag EndConstant
 
 
 	#tag ViewBehavior
@@ -435,6 +464,11 @@ Inherits ioslibcfobject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isNIL"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
