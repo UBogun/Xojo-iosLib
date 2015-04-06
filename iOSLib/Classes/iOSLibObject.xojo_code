@@ -96,7 +96,12 @@ Implements iOSLibGeneralObject
 	#tag Method, Flags = &h1
 		Protected Function getDelegate() As Ptr
 		  Declare Function getDelegate lib uikit selector "delegate" (id as ptr) as Ptr
-		  return getDelegate (id)
+		  dim result as new iOSLibObject (  getDelegate (id))
+		  if not result.IsNIL then
+		    result.Retain
+		    call AutoRelease result.id
+		  end if
+		  return result.id
 		End Function
 	#tag EndMethod
 

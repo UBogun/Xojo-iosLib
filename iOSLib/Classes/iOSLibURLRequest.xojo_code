@@ -1,56 +1,25 @@
 #tag Class
-Protected Class iOSLibCAAnimationDelegate
+Protected Class iOSLibURLRequest
 Inherits iOSLibObject
 	#tag Method, Flags = &h1000
-		Sub Constructor()
+		Sub Constructor(aURL as iOSLibURL)
+		  Declare function initWithURL lib UIKit selector "initWithURL:" (id as ptr, aURL as Ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
-		  super.Constructor  (Init(Alloc(classptr)))
+		  Super.Constructor (initWithURL(alloc(ClassPtr), aURL.id))
 		  mhasownership = true
 		End Sub
 	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Function impl_animationdidstart(pid as ptr, sel as ptr, animation as ptr) As ptr
-		  dim myAni as new iOSLibCAAnimation (animation)
-		  if not myAni.IsNIL  then myani.informonstart
-		  
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Function impl_animationdidstopFinished(pid as ptr, sel as ptr, animation as ptr, Finished as boolean) As ptr
-		  dim myAni as new iOSLibCAAnimation (animation)
-		  if not myAni.IsNIL  then myani.informonstop (Finished)
-		  
-		End Function
-	#tag EndMethod
-
-
-	#tag Hook, Flags = &h0
-		Event AnimationDidStart()
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event AnimationDidStop(Finished as Boolean)
-	#tag EndHook
 
 
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static targetID as ptr
-			  if targetID = Nil then
-			    dim methods() as TargetClassMethodHelper
-			    //delegate methods
-			    methods.Append new TargetClassMethodHelper("animationDidStart:", AddressOf impl_animationdidstart, "v@:@")
-			    methods.Append new TargetClassMethodHelper("animationDidStop:finished:", AddressOf impl_animationdidstopFinished, "v@:@c")
-			    targetID = BuildTargetClass ("NSObject", "iOSLibCAAnimationDelegate",methods)
-			  end if
-			  Return targetID
+			  static mClassPtr as Ptr = NSClassFromString ("NSURLRequest")
+			  return mClassPtr
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
