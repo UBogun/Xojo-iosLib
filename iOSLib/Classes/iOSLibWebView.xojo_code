@@ -9,7 +9,9 @@ Inherits iOSLibView
 
 	#tag Method, Flags = &h21
 		Private Sub Destructor()
-		  // if not WebViewDelegate.IsNIL then WebViewDelegate = nil
+		  // if mhasownership then
+		  // if not Delegate_.IsNIL then Delegate_ = nil
+		  // end if
 		End Sub
 	#tag EndMethod
 
@@ -28,6 +30,19 @@ Inherits iOSLibView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub LoadRequest(aRequest as iOSLibURLRequest)
+		  Declare Sub loadrequest lib UIKit selector "loadRequest:" (id as ptr, request as ptr)
+		  loadrequest id, aRequest.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As iosLibWebview
+		  return ioslibwebview(super.MakeFromPtr (aptr))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Reload()
 		  Declare Sub reload lib UIKit selector "reload" (id as ptr)
 		  reload (id)
@@ -37,7 +52,7 @@ Inherits iOSLibView
 	#tag Method, Flags = &h0
 		Function RunJavaScript(aScript as CFStringRef) As Text
 		  declare function stringByEvaluatingJavaScriptFromString lib UIKit selector "stringByEvaluatingJavaScriptFromString:" _
-		   (id as ptr, value as CFStringRef) as CFStringRef
+		  (id as ptr, value as CFStringRef) as CFStringRef
 		  return stringByEvaluatingJavaScriptFromString (id, aScript)
 		End Function
 	#tag EndMethod
@@ -110,6 +125,21 @@ Inherits iOSLibView
 			End Set
 		#tag EndSetter
 		DataDetectors As iOSLibDataDetectorType
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  dim mydelegate as iOSLibWebViewDelegate = iOSLibWebViewDelegate.MakeFromPtr (getDelegate(id))
+			  return if (mydelegate = NIL, nil, mydelegate)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setDelegate id, value.id
+			End Set
+		#tag EndSetter
+		Delegate_ As iOSLibWebViewDelegate
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -193,6 +223,10 @@ Inherits iOSLibView
 		#tag EndSetter
 		MediaPlaybackRequiresUserAction As Boolean
 	#tag EndComputedProperty
+
+	#tag Property, Flags = &h0
+		myiOSLibHTMLViewer As WeakRef
+	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
@@ -306,8 +340,22 @@ Inherits iOSLibView
 		RightToLeft
 	#tag EndEnum
 
+	#tag Enum, Name = UIWebViewNavigationType, Type = UInteger, Flags = &h0
+		LinkClicked
+		  FormSubmitted
+		  BackForward
+		  Reload
+		  FormResubmitted
+		Other
+	#tag EndEnum
+
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="AllowsInlineMediaPlayback"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Alpha"
 			Group="Behavior"
@@ -315,6 +363,16 @@ Inherits iOSLibView
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutoresizesSubviews"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CanGoBack"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CanGoForward"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -360,6 +418,11 @@ Inherits iOSLibView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="GapBetweenPages"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasAmbiguousLayout"
 			Group="Behavior"
 			Type="Boolean"
@@ -382,7 +445,17 @@ Inherits iOSLibView
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsLoading"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="KeyboardDisplayRequiresUserAction"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -392,6 +465,21 @@ Inherits iOSLibView
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MediaPlaybackAllowsAirPlay"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MediaPlaybackRequiresUserAction"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MultipleTouchEnabled"
@@ -410,10 +498,53 @@ Inherits iOSLibView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="PageLength"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="PaginationBreakingMode"
+			Group="Behavior"
+			Type="UIWebPaginationBreakingMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Page"
+				"1 - Column"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="PaginationMode"
+			Group="Behavior"
+			Type="UIWebPaginationMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Unpaginated"
+				"1 - LeftToRight"
+				"2 - TopToBottom"
+				"3 - BottomToTop"
+				"4 - RightToLeft"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="PreservesSuperviewLayoutMargins"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ScalesPageToFit"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SuppressesIncrementalRendering"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Tag"
