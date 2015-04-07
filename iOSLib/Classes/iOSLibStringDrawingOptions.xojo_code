@@ -16,15 +16,15 @@ Protected Class iOSLibStringDrawingOptions
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return mid.hasbit (5)
+			  return hasbit (mid, 5)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  if value then 
-			    mid.setbit (5)
+			  if value then
+			    mid = setbit (mid, 5)
 			  else
-			    mid.clearbit(5)
+			    mid = clearbit(mid, 5)
 			  end if
 			End Set
 		#tag EndSetter
@@ -34,15 +34,15 @@ Protected Class iOSLibStringDrawingOptions
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return mid.hasbit (3)
+			  return hasbit (mid, 3)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  if value then 
-			    mid.setbit (3)
+			  if value then
+			    mid = setbit (mid, 3)
 			  else
-			    mid.clearbit(3)
+			    mid = clearbit(mid, 3)
 			  end if
 			End Set
 		#tag EndSetter
@@ -52,15 +52,15 @@ Protected Class iOSLibStringDrawingOptions
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return mid.hasbit (1)
+			  return hasbit (mid, 1)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  if value then 
-			    mid.setbit (1)
+			  if value then
+			    mid = setbit (mid, 1)
 			  else
-			    mid.clearbit(1)
+			    mid = clearbit(mid, 1)
 			  end if
 			End Set
 		#tag EndSetter
@@ -70,15 +70,15 @@ Protected Class iOSLibStringDrawingOptions
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return mid.hasbit (0)
+			  return hasbit (mid, 0)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  if value then 
-			    mid.setbit (0)
+			  if value then
+			    mid = setbit (mid, 0)
 			  else
-			    mid.clearbit(0)
+			    mid = clearbit(mid, 0)
 			  end if
 			End Set
 		#tag EndSetter
@@ -87,6 +87,11 @@ Protected Class iOSLibStringDrawingOptions
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Id"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true
@@ -99,11 +104,6 @@ Protected Class iOSLibStringDrawingOptions
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mId"
-			Group="Behavior"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -124,6 +124,26 @@ Protected Class iOSLibStringDrawingOptions
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TruncatesLastVisibleLine"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UsesDeviceMetrics"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UsesFontLeading"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UsesLineFragmentOrigin"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

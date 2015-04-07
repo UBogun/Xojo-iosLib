@@ -28,6 +28,10 @@ Inherits iOSLibObject
 		      RetainDict.Remove (id)
 		      system.DebugLog "Removed WebViewDelegate from Dict"
 		    end if
+		    if HTMLViewDict.HasKey(id) then
+		      HTMLViewDict.Remove (id)
+		      system.DebugLog "Removed HTMLViewReference from Dict"
+		    end if
 		  end if
 		End Sub
 	#tag EndMethod

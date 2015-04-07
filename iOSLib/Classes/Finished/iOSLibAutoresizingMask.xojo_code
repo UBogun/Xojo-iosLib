@@ -10,15 +10,15 @@ Protected Class iOSLibAutoresizingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (3)
+			  return hasbit (id, 3)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(3)
+			    mid = setbit(mid, 3)
 			  else
-			    mid.clearbit(3)
+			    mid = clearbit(mid, 3)
 			  end if
 			End Set
 		#tag EndSetter
@@ -37,15 +37,15 @@ Protected Class iOSLibAutoresizingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (4)
+			  return hasbit (mid, 4)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(4)
+			    mid = setbit(mid, 4)
 			  else
-			    mid.clearbit(4)
+			    mid = clearbit(mid, 4)
 			  end if
 			End Set
 		#tag EndSetter
@@ -64,15 +64,15 @@ Protected Class iOSLibAutoresizingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (0)
+			  return hasbit (id, 0)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(0)
+			    mid = setbit(mid, 0)
 			  else
-			    mid.clearbit(0)
+			    mid = clearbit(mid, 0)
 			  end if
 			End Set
 		#tag EndSetter
@@ -86,15 +86,15 @@ Protected Class iOSLibAutoresizingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (2)
+			  return hasbit (id, 2)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(2)
+			    mid = setbit(mid, 2)
 			  else
-			    mid.clearbit(2)
+			    mid = clearbit(mid, 2)
 			  end if
 			End Set
 		#tag EndSetter
@@ -104,15 +104,15 @@ Protected Class iOSLibAutoresizingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (5)
+			  return hasbit (id, 5)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(5)
+			    mid = setbit(mid, 5)
 			  else
-			    mid.clearbit(5)
+			    mid = clearbit(mid, 5)
 			  end if
 			End Set
 		#tag EndSetter
@@ -122,15 +122,15 @@ Protected Class iOSLibAutoresizingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (1)
+			  return hasbit (id, 1)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(1)
+			    mid = setbit(mid, 1)
 			  else
-			    mid.clearbit(1)
+			    mid = clearbit(mid, 1)
 			  end if
 			End Set
 		#tag EndSetter

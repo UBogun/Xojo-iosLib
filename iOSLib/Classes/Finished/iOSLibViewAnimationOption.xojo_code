@@ -3,15 +3,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Option.hasbit (7)
+			  return hasbit (option, 7)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (7)
+			    moption = SetBit (moption, 7)
 			  else
-			    mOption.clearbit(7)
+			    mOption = clearbit(moption, 7)
 			  end if
 			End Set
 		#tag EndSetter
@@ -21,15 +21,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Option.hasbit (1)
+			  return hasbit (moption, 1)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (1)
+			    moption = SetBit (moption, 1)
 			  else
-			    mOption.clearbit(1)
+			    mOption = clearbit(moption, 1)
 			  end if
 			End Set
 		#tag EndSetter
@@ -39,15 +39,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Option.hasbit (4)
+			  return hasbit (moption, 4)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (4)
+			    moption = SetBit (moption, 4)
 			  else
-			    mOption.clearbit(4)
+			    mOption = clearbit(moption, 4)
 			  end if
 			End Set
 		#tag EndSetter
@@ -57,15 +57,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Option.hasbit (2)
+			  return hasbit (moption, 2)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (2)
+			    moption = SetBit (moption, 2)
 			  else
-			    mOption.clearbit(2)
+			    mOption = clearbit(moption, 2)
 			  end if
 			End Set
 		#tag EndSetter
@@ -75,15 +75,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return mOption.hasbit (0)
+			  return hasbit (moption, 0)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (0)
+			    moption = SetBit (moption, 0)
 			  else
-			    mOption.clearbit(0)
+			    mOption = clearbit(moption, 0)
 			  end if
 			End Set
 		#tag EndSetter
@@ -155,15 +155,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Option.hasbit (6)
+			  return hasbit (moption, 6)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (6)
+			    moption = SetBit (moption, 6)
 			  else
-			    mOption.clearbit(6)
+			    mOption = clearbit(moption, 6)
 			  end if
 			End Set
 		#tag EndSetter
@@ -173,15 +173,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Option.hasbit (5)
+			  return hasbit (moption, 5)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (5)
+			    moption = SetBit (moption, 5)
 			  else
-			    mOption.clearbit(5)
+			    mOption = clearbit(moption, 5)
 			  end if
 			End Set
 		#tag EndSetter
@@ -191,15 +191,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Option.hasbit (9)
+			  return hasbit (moption, 9)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (9)
+			    moption = SetBit (moption, 9)
 			  else
-			    mOption.clearbit(9)
+			    mOption = clearbit(moption, 9)
 			  end if
 			End Set
 		#tag EndSetter
@@ -209,15 +209,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Option.hasbit (3)
+			  return hasbit (moption, 3)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (3)
+			    moption = SetBit (moption, 3)
 			  else
-			    mOption.clearbit(3)
+			    mOption = clearbit(moption, 3)
 			  end if
 			End Set
 		#tag EndSetter
@@ -227,15 +227,15 @@ Protected Class iOSLibViewAnimationOption
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return Option.hasbit (8)
+			  return hasbit (moption, 8)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    moption.SetBit (8)
+			    moption = SetBit (moption, 8)
 			  else
-			    mOption.clearbit(8)
+			    mOption = clearbit(moption, 8)
 			  end if
 			End Set
 		#tag EndSetter

@@ -811,7 +811,7 @@ Inherits iOSLibResponder
 			Set
 			  #if Target64Bit
 			    Declare Sub setLayoutMargins lib UIKit selector "setLayoutMargins:" (id as ptr, value as UIEdgeInsets)
-			     setLayoutMargins (id, value)
+			    setLayoutMargins (id, value)
 			  #elseif Target32Bit
 			    Declare Sub setLayoutMargins lib UIKit selector "setLayoutMargins:" (id as ptr, value as UIEdgeInsets32Bit)
 			    setLayoutMargins (id, value.toUIEdgeInset32)
@@ -1211,6 +1211,11 @@ Inherits iOSLibResponder
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Opaque"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="PreservesSuperviewLayoutMargins"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty

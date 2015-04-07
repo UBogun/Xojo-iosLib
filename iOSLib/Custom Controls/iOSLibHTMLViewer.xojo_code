@@ -19,6 +19,7 @@ Inherits iOSUserControl
 	#tag Method, Flags = &h21
 		Private Sub Destructor()
 		  Viewer.Delegate_ = nil
+		  system.debuglog "NULled Delegate"
 		End Sub
 	#tag EndMethod
 

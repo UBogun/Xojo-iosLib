@@ -10,15 +10,15 @@ Protected Class iOSLibDataDetectorType
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.HasBit (2)
+			  return HasBit (mid, 2)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.SetBit (2)
+			    mid = SetBit (mid, 2)
 			  else
-			    mid.ClearBit(2)
+			    mid = ClearBit(mid, 2)
 			  end if
 			End Set
 		#tag EndSetter
@@ -37,15 +37,15 @@ Protected Class iOSLibDataDetectorType
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.HasBit (3)
+			  return HasBit (mid, 3)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.SetBit (3)
+			    mid = SetBit (mid, 3)
 			  else
-			    mid.ClearBit(3)
+			    mid = ClearBit(mid, 3)
 			  end if
 			End Set
 		#tag EndSetter
@@ -64,15 +64,15 @@ Protected Class iOSLibDataDetectorType
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.HasBit (1)
+			  return HasBit (mid, 1)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.SetBit (1)
+			    mid = SetBit (mid, 1)
 			  else
-			    mid.ClearBit(1)
+			    mid = ClearBit(mid, 1)
 			  end if
 			End Set
 		#tag EndSetter
@@ -86,15 +86,15 @@ Protected Class iOSLibDataDetectorType
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.HasBit (0)
+			  return HasBit (mid, 0)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.SetBit (0)
+			    mid = SetBit (mid, 0)
 			  else
-			    mid.ClearBit(0)
+			    mid = ClearBit(mid, 0)
 			  end if
 			End Set
 		#tag EndSetter

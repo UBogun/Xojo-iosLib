@@ -108,7 +108,7 @@ End
 		  case "Rect"
 		    myanimation1.Path = new iOSLibCGPathRect (newrect.tonsrect)
 		  case "Rounded Rect"
-		    myanimation1.Path = new iOSLibCGPathRoundedRect (newrect.tonsrect, 50, 50)
+		    myanimation1.Path = new iOSLibCGPathRoundedRect (newrect.tonsrect, newrect.Width/3, newrect.height/3)
 		  end select
 		  
 		  myanimation1.Duration = 3

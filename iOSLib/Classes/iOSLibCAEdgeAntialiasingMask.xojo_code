@@ -10,15 +10,15 @@ Protected Class iOSLibCAEdgeAntialiasingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (2)
+			  return hasbit (mid, 2)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(2)
+			    mid = setbit(mid, 2)
 			  else
-			    mid.clearbit(2)
+			    mid = clearbit(mid, 2)
 			  end if
 			End Set
 		#tag EndSetter
@@ -37,15 +37,15 @@ Protected Class iOSLibCAEdgeAntialiasingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (0)
+			  return hasbit (mid, 0)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(0)
+			    mid = setbit(mid, 0)
 			  else
-			    mid.clearbit(0)
+			    mid = clearbit(mid, 0)
 			  end if
 			End Set
 		#tag EndSetter
@@ -59,15 +59,15 @@ Protected Class iOSLibCAEdgeAntialiasingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (1)
+			  return hasbit (id, 1)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(1)
+			    mid = setbit(mid, 1)
 			  else
-			    mid.clearbit(1)
+			    mid = clearbit(mid, 1)
 			  end if
 			End Set
 		#tag EndSetter
@@ -77,15 +77,15 @@ Protected Class iOSLibCAEdgeAntialiasingMask
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return id.hasbit (3)
+			  return hasbit (mid, 3)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  if value then
-			    mid.setbit(3)
+			    mid = setbit(mid, 3)
 			  else
-			    mid.clearbit(3)
+			    mid = clearbit(mid, 3)
 			  end if
 			End Set
 		#tag EndSetter
