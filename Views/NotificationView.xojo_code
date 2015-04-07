@@ -49,11 +49,11 @@ Begin iosView NotificationView Implements NotificationReceiver
    Begin iOSButton GoButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   GoButton, 7, , 0, False, +1.00, 1, 1, 53, 
       AutoLayout      =   GoButton, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   GoButton, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   GoButton, 2, StopButton, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   GoButton, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GoButton, 2, StopButton, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
+      AutoLayout      =   GoButton, 7, , 0, False, +1.00, 1, 1, 53, 
+      AutoLayout      =   GoButton, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       Caption         =   "Goto"
       Enabled         =   True
       Height          =   30.0

@@ -112,7 +112,7 @@ Inherits iOSLibCAPropertyAnimation
 			  setCalculationMode id, value
 			End Set
 		#tag EndSetter
-		Private mCalculationMode As CFStringRef
+		Private mCalculationMode As Text
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h21
@@ -125,10 +125,15 @@ Inherits iOSLibCAPropertyAnimation
 		#tag Setter
 			Set
 			  declare sub setRotationMode lib UIKit selector "setRotationMode:" (id as ptr, value as CFStringRef)
-			  setRotationMode id, value
+			  Declare sub setRotationModePtr lib UIKit selector "setRotationMode:" (id as ptr, value as ptr)
+			  if value.Empty then
+			    setRotationModePtr id, nil
+			  else
+			    setRotationMode id, value
+			  end if
 			End Set
 		#tag EndSetter
-		Private mRotationMode As CFStringRef
+		Private mRotationMode As Text
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -187,7 +192,7 @@ Inherits iOSLibCAPropertyAnimation
 			Set
 			  select case value
 			  case RotationModes.None
-			    mRotationMode =NIL
+			    mRotationMode =""
 			  case RotationModes.RotateAuto
 			    mRotationMode = RotateAuto
 			  case RotationModes.RotateAutoReverse

@@ -439,8 +439,8 @@ Inherits iOSLibresponder
 			    DEclare Function contentsRect lib uikit selector "contentsRect" (id as ptr) as NSRect32Bit
 			    return contentsRect(id).toNSRect
 			  #elseif Target64Bit
-			    DEclare Function contentsRect uikit selector "contentsRect" (id as ptr) as NSRect
-			    return contentsRect (id)
+			    DEclare Function contentsRect lib uikit selector "contentsRect" (id as ptr) as NSRect
+			    return contentsRect(id)
 			  #endif
 			  
 			End Get
@@ -1410,11 +1410,6 @@ Inherits iOSLibresponder
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Untitled"
-			Group="Behavior"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
