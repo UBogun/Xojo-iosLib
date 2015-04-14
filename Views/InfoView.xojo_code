@@ -10,9 +10,9 @@ Begin iosView InfoView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 76, 
       AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 59, 
       AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 76, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   59.0
@@ -27,40 +27,42 @@ Begin iosView InfoView
    Begin iostextarea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   TextArea1, 3, ImageView1, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       AutoLayout      =   TextArea1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   TextArea1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
       Editable        =   False
       Height          =   385.0
-      KeyboardType    =   ""
-      Left            =   20.0
+      KeyboardType    =   "0"
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       Text            =   ""
-      TextAlignment   =   ""
+      TextAlignment   =   "0"
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   95.0
+      Top             =   95
       Visible         =   True
       Width           =   280.0
    End
    Begin iOSButton Button1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 79, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 4, TextArea1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 79, 
       AutoLayout      =   Button1, 1, TextArea1, 1, False, +1.00, 1, 1, 0, 
       Caption         =   "<  Return"
       Enabled         =   True
       Height          =   30.0
-      Left            =   20.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   57.0
+      Top             =   57
       Visible         =   True
       Width           =   79.0
    End

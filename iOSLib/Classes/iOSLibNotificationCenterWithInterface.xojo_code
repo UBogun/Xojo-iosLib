@@ -39,7 +39,7 @@ Implements NotificationSender
 	#tag Method, Flags = &h0
 		Sub RemoveObserver(observer As NotificationReceiver)
 		  // Part of the NotificationSender interface.
-		  dim found as integer =  NotificationReceivers.IndexOf (observer) 
+		  dim found as integer =  NotificationReceivers.IndexOf (observer)
 		  if found > -1 then NotificationReceivers.Remove (found)
 		  
 		End Sub
@@ -82,15 +82,15 @@ Implements NotificationSender
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="NotificationReceivers()"
-			Group="Behavior"
-			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

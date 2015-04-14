@@ -1,6 +1,15 @@
 #tag Module
 Protected Module SizeExtension
 	#tag Method, Flags = &h0
+		Function NSSize(height as Double, width as double) As NSSize
+		  dim NS as NSSize
+		  ns.height = height
+		  ns.width = width
+		  return ns
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function toCoreSize(extends aSize64 as NSSize) As Xojo.Core.Size
 		  return new xojo.core.size ( aSize64.width, aSize64.height)
 		End Function

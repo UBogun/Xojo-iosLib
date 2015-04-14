@@ -10,10 +10,10 @@ Begin iosView CAKEyframeView
    Begin ioslibpicker HTMLViewer1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 162, 
-      AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   HTMLViewer1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 162, 
+      AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Height          =   162.0
       Left            =   0
       LockedInPosition=   False
@@ -28,10 +28,10 @@ Begin iosView CAKEyframeView
    Begin ioslibgradientview Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       AutoLayout      =   Canvas1, 7, <Parent>, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Canvas1, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       Height          =   237.0
       InitialParent   =   ""
       Left            =   0
@@ -45,10 +45,10 @@ Begin iosView CAKEyframeView
    Begin iosimageview animationcanvas
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   animationcanvas, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   animationcanvas, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   animationcanvas, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   animationcanvas, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   animationcanvas, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   animationcanvas, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       ContentMode     =   "4"
       Height          =   237.0
       Image           =   "777732095"
@@ -74,6 +74,10 @@ End
 		  Toolbar.Add(button)
 		  button = iOSToolButton.NewBordered("Stop")
 		  Toolbar.Add(button)
+		  button = iOSToolButton.NewBordered("Pause")
+		  Toolbar.Add(button)
+		  button = iOSToolButton.NewBordered("Resume")
+		  Toolbar.Add(button)
 		  button = iOSToolButton.NewBordered("Help")
 		  Toolbar.Add(button)
 		  
@@ -82,17 +86,21 @@ End
 
 	#tag Event
 		Sub ToolbarPressed(button As iOSToolButton)
-		  
-		  if button.Caption = "Start" then
+		  select case button.Caption
+		  case "Start"
 		    Animate
-		  elseif button.Caption = "Stop"  then
+		  case "Stop"
 		    animationcanvas.CoreAnimationLayer.RemoveAllAnimations
+		  case "Pause"
+		    animationcanvas.CoreAnimationLayer.PauseAnimation
+		  case "Resume"
+		    animationcanvas.CoreAnimationLayer.ResumeAnimation
 		  else
 		    dim help as new InfoView ("A CAKeyframeAnimation lets you animate a CALayer property the same way you can with a CABasicAnimation but this time along a path. While the CGPathRef implementation still lacks a lot of methods, I supply you with three often used forms first: "+ _
 		    "Circle, Rect and Rounded Rect. You are not bound to position changes, the path is taken as a value function over animation time to calculate the animation value – in other words, you can animate colors, borders etc. too."+endofline+ _
 		    "The RotationMode property lets you choose between 3 kinds of auto-rotation while the object is animated – towards the center, away from it or none. There are still a few properties missing to influence the cubic computation mode but I hope it's enough for a first start.")
 		    self.PushToCurl help
-		  end if
+		  end Select
 		End Sub
 	#tag EndEvent
 
@@ -112,8 +120,7 @@ End
 		  end select
 		  
 		  myanimation1.Duration = 3
-		  myanimation1.RepeatCount = 3
-		  myanimation1.RotationMode = iOSLibCAKeyframeAnimation.RotationModes.RotateAuto
+		  myanimation1.RepeatCount = 33
 		  calcmode   = HTMLViewer1.Caption (0)
 		  select case calcmode
 		  case "Paced"
@@ -170,7 +177,7 @@ End
 		  dim colorarray as new iOSLibMutableArray (2)
 		  colorarray.Addobject new iOSLibCGColor(&c11205400)
 		  colorarray.Addobject new iOSLibCGColor( &c0D112700)
-		  me.Layer.Colors = colorarray
+		  me.GradientLayer.colors = colorarray
 		  
 		End Sub
 	#tag EndEvent

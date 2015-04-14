@@ -1,0 +1,195 @@
+#tag IOSView
+Begin iosView TextView
+   BackButtonTitle =   ""
+   Compatibility   =   ""
+   Left            =   0
+   NavigationBarVisible=   True
+   TabTitle        =   ""
+   Title           =   ""
+   Top             =   0
+   Begin ioslibemitterview testview
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      Height          =   415.0
+      Left            =   0.0
+      LockedInPosition=   False
+      Scope           =   0
+      Top             =   65.0
+      Visible         =   True
+      Width           =   320.0
+   End
+End
+#tag EndIOSView
+
+#tag WindowCode
+	#tag Event
+		Sub Close()
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Open()
+		  Dim button As iOSToolButton
+		  
+		  button = iOSToolButton.NewBordered("Help")
+		  Toolbar.Add(button)
+		  
+		  button = iOSToolButton.NewBordered("Animate")
+		  Toolbar.Add(button)
+		  
+		  button = iOSToolButton.NewBordered("Stop")
+		  Toolbar.Add(button)
+		  
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub ToolbarPressed(button As iOSToolButton)
+		  if button.Caption = "Help" then
+		    dim help as new InfoView ("iOSLibCAGradientLayer is a subclass of iOSLibCALayer. It displays a linear gradient between as many colors as you like. "+EndOfline + _
+		    "You can instantiate one with the Constructor, passing an array of Colors, and attach it the the iOSLibCALayer of your control as a sublayer with Layer.AddSublayer." + endofline + _
+		    "Or you can use the custom iOSLibGradientView control which assures correct autoresizing for you." + EndOfline+EndOfline + _
+		    "Additional optional properties are an array of Doubles containing the locations of the colors (between 0.0 and 1.0) and start- and endpoints as NSPoints." + EndOfline + _
+		    "A DistributeEvenly method resets the locations to equal distances." + EndOfline + _
+		    "And of course you can assign each iOSLibCALayer property to it, like borderwidth and cornerradius." + EndOfline + _
+		    "All the properties are animatable. When you click on »Animate«, a 5 seconds iOSLibCABasicanimationGroup changing Colors and positions of the colors is started.")
+		    self.PushToCurl help
+		  elseif button.Caption = "Animate" then
+		    MakeEmitter
+		    // iOSLibTextView1.Layer.MasksToBounds = true
+		  else
+		    // dim myvalue as iOSLibNumber = iOSLibNumber.MakeFromPtr (testview.iOSLibView.ValueForKeyPath ("layer.self"))
+		    // testview.iOSLibView.setValueForKeyPath ("layer.sublayers.%@.emitterCells.%@.enabled", new iOSLibNumber (fALSE))
+		    // testview.iOSLibView.setValueForKeyPath ("layer.Emitterlayer.zPosition", new iOSLibNumber (-2))
+		    testview.Layer.DisableEmitters
+		    
+		  end if
+		End Sub
+	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub MakeEmitter()
+		  // dim  mylayer as new iOSLibCAEmitterLayer
+		  // mylayer.bounds = testview.iOSLibView.Bounds
+		  // myLayer.Frame = myLayer.bounds
+		  // myLayer.MasksToBounds = true
+		  // myLayer.name = "EmitterLayer"
+		  // mylayer.ZPosition = 1
+		  // mylayer.TileSize = NSSize (100,100)
+		  
+		  // mylayer.ContentsPositioning = iOSLibCALayer.CaLayerContentPosition.Center
+		  // mylayer.LevelsOfDetail = 1
+		  // testview.iOSLibView.Layer.AddSubLayer mylayer
+		  // mylayer.Seed = 1394639
+		  dim mypic as iOSImage = iosLibLogo
+		  dim myimage as new iOSLibImage (mypic.Handle)
+		  // testview.iOSLibView.layer.Contents =new ioslibobject ( myimage.toCGImage)
+		  
+		  
+		  dim  myEmitterCell as new iOSLibCAEmitterCell
+		  dim mylib as new iOSLibMutableArray
+		  mylib.Addobject myEmitterCell
+		  testview.layer.EmitterCells = mylib
+		  
+		  myEmitterCell.Contents =new ioslibobject ( myimage.toCGImage)
+		  myEmitterCell.Name = "iOSLibLogoCell"
+		  
+		  myEmitterCell.LifeTime = 100
+		  myEmitterCell.LifeTimeRange = 95
+		  myEmitterCell.RedRange = 1
+		  myEmitterCell.BlueRange = 1
+		  myEmitterCell.GreenRange = 1
+		  myEmitterCell.AlphaRange = 0.8
+		  myEmitterCell.RedSpeed = 0.0002
+		  myEmitterCell.GreenSpeed = 0.003
+		  myEmitterCell.BlueSpeed = 0.1
+		  myEmitterCell.BirthRate = 2
+		  myEmitterCell.Scale = 0.02
+		  myEmitterCell.ScaleRange = 0.1
+		  myEmitterCell.Velocity = 100
+		  myEmitterCell.ScaleSpeed = 0.01
+		  myEmitterCell.VelocityRange = 15
+		  myEmitterCell.XAcceleration = 5
+		  myEmitterCell.YAcceleration = 18
+		  myEmitterCell.Spin = 0.3
+		  myEmitterCell.SpinRange = 10
+		  myEmitterCell.EmissionRange = 2
+		  myEmitterCell.Enabled = true
+		  testview.Layer.BirthRate = 1
+		End Sub
+	#tag EndMethod
+
+
+#tag EndWindowCode
+
+#tag Events testview
+	#tag Event
+		Sub Open()
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag ViewBehavior
+	#tag ViewProperty
+		Name="BackButtonTitle"
+		Group="Behavior"
+		Type="Text"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Index"
+		Visible=true
+		Group="ID"
+		InitialValue="-2147483648"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Left"
+		Visible=true
+		Group="Position"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="NavigationBarVisible"
+		Group="Behavior"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Super"
+		Visible=true
+		Group="ID"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabTitle"
+		Group="Behavior"
+		Type="Text"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Title"
+		Group="Behavior"
+		Type="Text"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Top"
+		Visible=true
+		Group="Position"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+#tag EndViewBehavior

@@ -30,15 +30,6 @@ Inherits iOSLibObject
 	#tag EndMethod
 
 
-	#tag Hook, Flags = &h0
-		Event AnimationDidStart()
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event AnimationDidStop(Finished as Boolean)
-	#tag EndHook
-
-
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get

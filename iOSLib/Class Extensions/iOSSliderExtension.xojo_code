@@ -16,11 +16,6 @@ Protected Module iOSSliderExtension
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="iosLibSlider"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"

@@ -48,7 +48,10 @@ Implements iOSLibGeneralObject
 
 	#tag Method, Flags = &h21
 		Private Sub Destructor()
-		  if mHasOwnerShip then release
+		  if not isNIL then
+		    system.DebugLog "Releasing CFObject "+CFTypeDescription+", "+Description
+		     release
+		  end if
 		End Sub
 	#tag EndMethod
 

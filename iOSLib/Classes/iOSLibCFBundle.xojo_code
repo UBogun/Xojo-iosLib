@@ -101,7 +101,7 @@ Inherits iOSLibCFObject
 
 	#tag Method, Flags = &h0
 		Sub Unload()
-		   CFBundleunLoadExecutable (mcftypeRef)
+		  CFBundleunLoadExecutable (mcftypeRef)
 		End Sub
 	#tag EndMethod
 
@@ -236,9 +236,24 @@ Inherits iOSLibCFObject
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="DevelopmentRegion"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExecutableIsLoaded"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnerShip"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Identifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -246,6 +261,11 @@ Inherits iOSLibCFObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isNIL"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"

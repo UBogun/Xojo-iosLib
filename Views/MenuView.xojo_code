@@ -10,10 +10,10 @@ Begin iosView MenuView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 51, 
       AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 65, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       ContentMode     =   "1"
       Height          =   51.0
       Image           =   "547002367"
@@ -27,10 +27,10 @@ Begin iosView MenuView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       AutoLayout      =   Table1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       Format          =   "0"
       Height          =   348.0
       Left            =   0
@@ -63,6 +63,7 @@ End
 		  me.AddRow 1, "CAPropertyAnimations"
 		  me.AddRow 1, "CAKeyframeAnimations"
 		  me.addrow 1, "iOSLibCAGradientLayer"
+		  me.addrow 1, "iOSLibCAEmitterLayer"
 		  me.AddSection "iOSLibHTMLViewer Extension"
 		  me.AddRow 2, "HTMLView with Shared Notifications"
 		  me.AddSection "iOSLibHTMLViewer class"
@@ -94,11 +95,13 @@ End
 		    v3 = new WebViewerView
 		  case "Open Bundles/Frameworks"
 		    v3 = new FrameWorkView
+		  case "iOSLibCAEmitterLayer"
+		    v3 = new CAEmitterLayerView
 		  case "iOSLibIntrospection"
 		    v3 = new IntrospectionView
-		    // case "Test"
+		  case "Test"
 		    // for q as uinteger = 0 to 1000
-		    // v3 = new View2
+		    // v3 = new TextView
 		    // self.PushTo v3
 		    // v3.Close
 		    // next

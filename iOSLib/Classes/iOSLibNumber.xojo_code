@@ -84,6 +84,12 @@ Inherits iOSLibValue
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function MakefromPtr(aPtr as Ptr) As iOSLibNumber
+		  return if (aPtr <> NIL, new iOSLibNumber(aptr), Nil)
+		End Function
+	#tag EndMethod
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter

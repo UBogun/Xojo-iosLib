@@ -103,6 +103,11 @@ Inherits iOSLibObject
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -144,6 +149,11 @@ Inherits iOSLibObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

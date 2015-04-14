@@ -2,6 +2,22 @@
 Protected Class iOSLibCAGradientLayer
 Inherits iOSLibCALayer
 	#tag Method, Flags = &h1000
+		Sub Constructor()
+		  
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From iOSLibCALayer
+		  // Constructor(aLayer As iOSLibCALayer) -- From iOSLibCALayer
+		  // Constructor() -- From iOSLibResponder
+		  // Constructor() -- From iOSLibObject
+		  // Constructor(AnId as Ptr) -- From iOSLibObject
+		  Super.Constructor (Init(Alloc(ClassPtr)))
+		  mhasownership = true
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
 		Sub Constructor(ColorArray() As Color)
 		  
 		  // Calling the overridden superclass constructor.
@@ -13,7 +29,8 @@ Inherits iOSLibCALayer
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
 		  Super.Constructor (Init(Alloc(ClassPtr)))
-		  SetColors (ColorArray)
+		  SetColors  (colorarray)
+		  mhasownership = true
 		End Sub
 	#tag EndMethod
 
@@ -29,7 +46,8 @@ Inherits iOSLibCALayer
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
 		  Super.Constructor (Init(Alloc(ClassPtr)))
-		  SetColors (ColorArray)
+		  mhasownership = true
+		  SetColors colorarray
 		  SetLocations LocationsArray
 		End Sub
 	#tag EndMethod
@@ -46,7 +64,9 @@ Inherits iOSLibCALayer
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
 		  Super.Constructor (Init(Alloc(ClassPtr)))
-		  SetColors (ColorArray)
+		  mhasownership = true
+		  
+		  SetColors (colorarray)
 		  SetLocations LocationsArray
 		  startpoint = start_point.toNSPoint
 		  EndPoint = End_point.toNSPoint
@@ -59,41 +79,16 @@ Inherits iOSLibCALayer
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Function MakeColorArray(colorArray() as Color) As iOSLibMutableArray
-		  dim count as uinteger = colorArray.Ubound
-		  dim myarray as new ioslibmutablearray (count + 1)
-		  for q as uinteger = 0 to count
-		    myarray.Addobject iOSLibCGColor.fromColor(ColorArray(q)).CFTypeRef
-		  next
-		  return myarray
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Function MakeLocationArray(LocationArray() as Double) As iOSLibMutableArray
-		  dim count as uinteger = LocationArray.Ubound
-		  dim myarray as new ioslibmutablearray (count + 1)
-		  for q as uinteger = 0 to count
-		    dim mynumber as new iOSLibNumber (LocationArray(q))
-		    myarray.Addobject mynumber
-		  next
-		  return myarray
-		End Function
-	#tag EndMethod
-
 	#tag Method, Flags = &h1000
 		Sub SetColors(ColorArray() As Color)
-		  dim myarray as  ioslibmutablearray = MakeColorArray (ColorArray)
-		  Colors = myarray
+		  Colors = iOSLibMutableArray.CGColorArray (colorarray)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
 		Sub SetLocations(LocationArray() As Double)
-		  dim myarray as  ioslibmutablearray = MakeLocationArray (LocationArray)
-		  Locations = myarray
+		  Locations = iOSLibMutableArray.NumberArray (locationarray)
 		  
 		End Sub
 	#tag EndMethod
@@ -205,6 +200,16 @@ Inherits iOSLibCALayer
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Autoreverses"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BeginTime"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="BorderWidth"
 			Group="Behavior"
 			Type="Double"
@@ -260,9 +265,26 @@ Inherits iOSLibCALayer
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Duration"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="EdgeAntialiasing"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="FillMode"
+			Group="Behavior"
+			Type="FillModes"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Remove"
+				"1 - Remain"
+				"2 - Reset"
+				"3 - Both"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="GeometryFlipped"
@@ -278,6 +300,11 @@ Inherits iOSLibCALayer
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Hidden"
@@ -304,15 +331,42 @@ Inherits iOSLibCALayer
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="MagnificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="MasksToBounds"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilterBias"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="NeedsDisplayOnBoundsChange"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Opacity"
@@ -330,9 +384,14 @@ Inherits iOSLibCALayer
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="RedrawOnResize"
+			Name="RepeatCount"
 			Group="Behavior"
-			Type="Boolean"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RepeatDuration"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ShadowOpacity"
@@ -350,10 +409,20 @@ Inherits iOSLibCALayer
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Speed"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TimeOffset"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -363,9 +432,9 @@ Inherits iOSLibCALayer
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Untitled"
+			Name="Width"
 			Group="Behavior"
-			Type="Integer"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ZPosition"

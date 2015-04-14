@@ -125,11 +125,11 @@ Inherits iOSLibControl
 			Get
 			  #if target64bit
 			    declare Function thumbRectForBounds lib UIKit selector "thumbRectForBounds:trackRect:value:" _
-			     (id as ptr, mybounds as nsrect, trackrect as nsrect, value as single) as nsrect
+			    (id as ptr, mybounds as nsrect, trackrect as nsrect, value as single) as nsrect
 			    return thumbRectForBounds (id, me.Bounds, me.TrackRect, me.AnimateValue)
 			  #elseif Target32Bit
 			    declare Function thumbRectForBounds lib UIKit selector "thumbRectForBounds:trackRect:value:" _
-			     (id as ptr, mybounds as NSRect32Bit, trackrect as NSRect32Bit, value as single) as NSRect32Bit
+			    (id as ptr, mybounds as NSRect32Bit, trackrect as NSRect32Bit, value as single) as NSRect32Bit
 			    return thumbRectForBounds(id, me.Bounds.toNSRect32, me.TrackRect.toNSRect32, me.AnimateValue).toNSRect
 			  #endif
 			End Get
@@ -190,6 +190,11 @@ Inherits iOSLibControl
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="AnimateValue"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="AutoresizesSubviews"
 			Group="Behavior"
 			Type="Boolean"
@@ -224,6 +229,11 @@ Inherits iOSLibControl
 				"11 - BottomLeft"
 				"12 - BottomRight"
 			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Continuous"
+			Group="Behavior"
+			Type="boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"
@@ -291,6 +301,11 @@ Inherits iOSLibControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="PreservesSuperviewLayoutMargins"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
@@ -328,6 +343,11 @@ Inherits iOSLibControl
 			Name="UserInteractionEnabled"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Value"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
