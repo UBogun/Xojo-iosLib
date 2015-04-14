@@ -115,6 +115,11 @@ Inherits iOSLibView
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="MultipleTouchEnabled"
 			Group="Behavior"
 			Type="Boolean"
@@ -127,6 +132,16 @@ Inherits iOSLibView
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Opaque"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="PreservesSuperviewLayoutMargins"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ScrollEnabled"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty

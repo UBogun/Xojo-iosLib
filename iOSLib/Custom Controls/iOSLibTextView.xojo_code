@@ -2,11 +2,19 @@
 Protected Class iOSLibTextView
 Inherits iOSUserControl
 	#tag Event
+		Sub Close()
+		  // call me.iOSLibView.AutoRelease me.Handle
+		  call Layer.AutoRelease Layer.Id
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Function CreateView() As UInteger
 		  dim frame as new Rect (0,0,100,100)
 		  
-		  mid = iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect)
-		  
+		  mid =  iOSLibObject.AutoRelease (iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect))
+		  me.iOSLibView.mhasownership = true
 		  Return UInteger(mid)
 		End Function
 	#tag EndEvent
@@ -14,7 +22,7 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_layerClass(id as ptr, sel as ptr) As Ptr
-		  return NSClassFromString ("CATextLayer")
+		  return NSClassFromString ("CATiledLayer")
 		End Function
 	#tag EndMethod
 
@@ -42,31 +50,15 @@ Inherits iOSUserControl
 			  static customClassPtr as Ptr
 			  if customClassPtr = nil then
 			    dim methods() as TargetClassMethodHelper
-			    methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
+			    // methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
 			    methods.Append new TargetClassMethodHelper("layerClass", AddressOf impl_layerClass, "#@:", true, true)
 			    
-			    customClassPtr = BuildTargetClass("UIView","iOSLibTextView",methods)
+			    customClassPtr = BuildTargetClass("UIImageView","iOSLibTextViewer",methods)
 			  end if
 			  return customClassPtr
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function string_ lib uikit selector "string" (id as ptr) as CFStringRef
-			  return string_ (layer.id)
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare Sub setString lib UIKit selector "setString:" (id as ptr, value as CFStringRef)
-			  setString (layer.id, value)
-			End Set
-		#tag EndSetter
-		Content As CFStringRef
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -82,7 +74,7 @@ Inherits iOSUserControl
 		#tag Getter
 			Get
 			  Declare Function layer lib UIKit selector "layer" (id as ptr) as Ptr
-			  Return new ioslibCAGradientLayer (layer (id))
+			  Return new ioslibCALayer (layer (id))
 			End Get
 		#tag EndGetter
 		Layer As iOSLibCALayer

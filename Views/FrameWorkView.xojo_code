@@ -3,57 +3,38 @@ Begin iosView FrameWorkView
    BackButtonTitle =   ""
    Compatibility   =   ""
    Left            =   0
-   NavigationBarVisible=   False
+   NavigationBarVisible=   True
    TabTitle        =   ""
-   Title           =   ""
+   Title           =   "Loaded Bundles"
    Top             =   0
-   Begin iOSButton Button1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 117, 
-      AutoLayout      =   Button1, 4, <Parent>, 4, False, +1.00, 1, 1, -4, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      Caption         =   "Return to menu"
-      Enabled         =   True
-      Height          =   30.0
-      Left            =   0
-      LockedInPosition=   False
-      Scope           =   0
-      TextColor       =   &c007AFF00
-      TextFont        =   ""
-      TextSize        =   0
-      Top             =   446
-      Visible         =   True
-      Width           =   117.0
-   End
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 35, 
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 308, 
+      AutoLayout      =   Table1, 3, Searchfield, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 4, Label2, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Format          =   "0"
-      Height          =   308.0
+      Height          =   252.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   0
       SectionCount    =   0
-      Top             =   35
+      Top             =   112
       Visible         =   True
       Width           =   320.0
    End
    Begin iOSTextField TextField1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, 6, 
-      AutoLayout      =   TextField1, 3, <Parent>, 3, False, +1.00, 1, 1, 377, 
-      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   TextField1, 2, <Parent>, 2, False, +1.00, 1, 1, -113, 
+      AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   TextField1, 4, Label1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
-      Left            =   6
+      Left            =   20
       LockedInPosition=   False
       Password        =   False
       PlaceHolder     =   ""
@@ -63,20 +44,20 @@ Begin iosView FrameWorkView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   377
+      Top             =   410
       Visible         =   True
-      Width           =   201.0
+      Width           =   187.0
    End
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Label1, 3, <Parent>, 3, False, +1.00, 1, 1, 431, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 49, 
-      AutoLayout      =   Label1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 23, 
+      AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Enabled         =   True
-      Height          =   49.0
-      Left            =   215
+      Height          =   23.0
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Untitled"
@@ -84,20 +65,20 @@ Begin iosView FrameWorkView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   12
-      Top             =   431
+      Top             =   449
       Visible         =   False
-      Width           =   100.0
+      Width           =   280.0
    End
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 6, 
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label2, 4, <Parent>, 4, False, +1.00, 1, 1, -111, 
       AutoLayout      =   Label2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label2, 4, TextField1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   30.0
-      Left            =   6
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Enter a framework name (without path)"
@@ -105,17 +86,16 @@ Begin iosView FrameWorkView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   339
+      Top             =   372
       Visible         =   True
-      Width           =   314.0
+      Width           =   300.0
    End
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 222, 
-      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 378, 
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Load"
       Enabled         =   True
       Height          =   30.0
@@ -125,9 +105,33 @@ Begin iosView FrameWorkView
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   378
+      Top             =   410
       Visible         =   True
       Width           =   78.0
+   End
+   Begin iOSTextField Searchfield
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   Searchfield, 7, , 0, False, +1.00, 1, 1, 187, 
+      AutoLayout      =   Searchfield, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
+      AutoLayout      =   Searchfield, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Searchfield, 8, , 0, True, +1.00, 1, 1, 31, 
+      Enabled         =   True
+      Height          =   31.0
+      KeyboardType    =   "0"
+      Left            =   113
+      LockedInPosition=   False
+      Password        =   False
+      PlaceHolder     =   "Search"
+      Scope           =   0
+      Text            =   ""
+      TextAlignment   =   "0"
+      TextColor       =   &c00000000
+      TextFont        =   ""
+      TextSize        =   0
+      Top             =   73
+      Visible         =   True
+      Width           =   187.0
    End
 End
 #tag EndIOSView
@@ -135,6 +139,12 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
+		  Dim button As iOSToolButton
+		  
+		  button = iOSToolButton.NewBordered("Help")
+		  Toolbar.Add(button)
+		  button = iOSToolButton.NewBordered("Load")
+		  Toolbar.Add(button)
 		  
 		End Sub
 	#tag EndEvent
@@ -146,9 +156,13 @@ End
 		  dim mybundles as iOSLibArray = iOSLibCFBundle.MainBundle.AllBundles
 		  Table1.AddSection mybundles.Count.totext+ " open bundles"
 		  
+		  dim t as text
 		  for q as uinteger = 0 to mybundles.Count -1
 		    dim mybundle as new ioslibcfbundle(mybundles.PtrAtIndex (q))
-		    Table1.AddRow 0, mybundle.Identifier
+		    dim identifier as text = mybundle.Identifier
+		    if Searchfield.text.Empty or not (Searchfield.text.Empty) and (identifier.IndexOf (Searchfield.Text) > -1) then
+		      Table1.AddRow 0, mybundle.Identifier
+		    end if
 		  next
 		End Sub
 	#tag EndMethod
@@ -156,18 +170,6 @@ End
 
 #tag EndWindowCode
 
-#tag Events Button1
-	#tag Event
-		Sub Action()
-		  self.close
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Open()
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events Table1
 	#tag Event
 		Sub Open()
@@ -198,6 +200,13 @@ End
 	#tag Event
 		Sub Open()
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Searchfield
+	#tag Event
+		Sub TextChange()
+		  showFrameworks
 		End Sub
 	#tag EndEvent
 #tag EndEvents

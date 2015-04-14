@@ -147,6 +147,16 @@ Inherits iOSLibCFObject
 			Name="ColorSpaceModel"
 			Group="Behavior"
 			Type="CGColorSpaceModel"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Monochrome"
+				"1 - RGB"
+				"2 - CMYK"
+				"3 - Lab"
+				"4 - DeviceN"
+				"5 - Indexed"
+				"6 - Pattern"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Description"

@@ -1,6 +1,6 @@
 #tag Class
 Protected Class iOSLibCALayer
-Inherits iOSLibresponder
+Inherits iOSLibcamediatimingobject
 	#tag Method, Flags = &h0
 		Sub AddAnimation(animation as ioslibcaanimation, key as CFStringRef = "")
 		  declare sub addAnimation lib uikit selector "addAnimation:forKey:" (id as ptr, animation as ptr, key as CFStringref)
@@ -39,6 +39,70 @@ Inherits iOSLibresponder
 		  mHasOwnership = true
 		  
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ConvertPointFromLayer(aPoint as NSPoint, aLayer as iOSLibCALayer) As NSPoint
+		  #if Target64Bit
+		    declare Function convertPointfromLayer lib UIKit selector "convertPoint:fromLayer:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    return convertPointfromLayer (id, apoint, alayer.id)
+		  #elseif Target32Bit
+		    declare Function convertPointfromLayer lib UIKit selector "convertPoint:fromLayer:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
+		    return convertPointfromLayer (id, apoint.toNSPoint32, alayer.id).tonspoint
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ConvertPointToLayer(aPoint as NSPoint, aLayer as iOSLibCALayer) As NSPoint
+		  #if Target64Bit
+		    declare Function convertPointtoLayer lib UIKit selector "convertPoint:toLayer:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    return convertPointtoLayer (id, apoint, alayer.id)
+		  #elseif Target32Bit
+		    declare Function convertPointtoLayer lib UIKit selector "convertPoint:toLayer:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
+		    return convertPointtoLayer (id, apoint.toNSPoint32, alayer.id).tonspoint
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ConvertRectFromLayer(aRect as NSRect, aLayer as iOSLibCALayer) As NSRect
+		  #if Target64Bit
+		    declare Function ConvertRectFromLayer lib UIKit selector "convertRect:fromLayer:" (id as ptr, aRect as NSRect, aview as ptr) as nsrect
+		    return ConvertRectFromLayer (id, arect, alayer.id)
+		  #elseif Target32Bit
+		    declare Function ConvertRectFromLayer lib UIKit selector "convertRect:fromLayer:" (id as ptr, aRect as NSRect32Bit, aview as ptr) as NSRect32Bit
+		    return ConvertRectFromLayer (id, arect.toNSRect32, alayer.id).tonsrect
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ConvertRectToLayer(aRect as NSRect, aLayer as iOSLibCALayer) As NSRect
+		  #if Target64Bit
+		    declare Function ConvertRectToLayer lib UIKit selector "convertRect:toLayer:" (id as ptr, aRect as NSRect, aview as ptr) as nsrect
+		    return ConvertRectToLayer (id, arect, alayer.id)
+		  #elseif Target32Bit
+		    declare Function ConvertRectToLayer lib UIKit selector "convertRect:toLayer:" (id as ptr, aRect as NSRect32Bit, aview as ptr) as NSRect32Bit
+		    return ConvertRectToLayer (id, arect.toNSRect32, alayer.id).tonsrect
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ConvertTimeFromLayer(aTime as Double, aLayer as iOSLibCALayer) As Double
+		  declare Function ConvertTimeFromLayer lib UIKit selector "convertTime:fromLayer:" (id as ptr, aTime as double, aLayer as ptr) as Double
+		  return ConvertTimeFromLayer (id, atime, if(aLayer = NIL, NIL, alayer.id))
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ConvertTimeToLayer(aTime as Double, aLayer as iOSLibCALayer) As Double
+		  declare Function ConvertTimeToLayer lib UIKit selector "convertTime:toLayer:" (id as ptr, aTime as double, aLayer as ptr) as Double
+		  return ConvertTimeToLayer (id, atime, if (alayer = nil, NIL, alayer.id))
+		  
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -87,6 +151,14 @@ Inherits iOSLibresponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub PauseAnimation()
+		  dim offset as double = ConvertTimeFromLayer (CACurrentMediaTime, NIL)
+		  Speed = 0
+		  TimeOffset = offset
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub RemoveAllAnimations()
 		  declare Sub RemoveAllAnimations lib uikit selector "removeAllAnimations" (id as ptr)
 		  RemoveAllAnimations id
@@ -105,6 +177,17 @@ Inherits iOSLibresponder
 		  declare sub removeFromSuperlayer lib UIKit selector "removeFromSuperlayer" (id as ptr)
 		  removeFromSuperlayer id
 		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ResumeAnimation()
+		  dim PausedTime as Double = TimeOffset
+		  Speed = 1
+		  TimeOffset = 0
+		  BeginTime = 0
+		  dim timesincepause as double =  ConvertTimeFromLayer (CACurrentMediaTime, nil) - PausedTime
+		  BeginTime = timesincepause
 		End Sub
 	#tag EndMethod
 
@@ -287,15 +370,13 @@ Inherits iOSLibresponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function contents lib uikit selector "contents" (id as Ptr) as ptr
-			  return iOSLibObject.MakeFromPtr (contents(id))
+			  return iOSLibObject.MakeFromPtr (getContents)
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare Sub setcontents lib uikit selector "setContents:" (id as Ptr, value as ptr)
-			  setcontents (id, value.GeneralID)
+			  setcontents (value.GeneralID)
 			  
 			End Set
 		#tag EndSetter
@@ -430,34 +511,6 @@ Inherits iOSLibresponder
 			End Set
 		#tag EndSetter
 		ContentsPositioning As caLayerContentPosition
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  #if target32bit
-			    DEclare Function contentsRect lib uikit selector "contentsRect" (id as ptr) as NSRect32Bit
-			    return contentsRect(id).toNSRect
-			  #elseif Target64Bit
-			    DEclare Function contentsRect lib uikit selector "contentsRect" (id as ptr) as NSRect
-			    return contentsRect(id)
-			  #endif
-			  
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  #if target32bit
-			    DEclare Sub setContentsRect lib uikit selector "setContentsRect:" (id as ptr, value as NSRect32Bit)
-			    setContentsRect id, value.toNSRect32
-			  #elseif Target64Bit
-			    DEclare Sub setContentsRect lib uikit selector "setContentsRect:" (id as ptr, value as NSRect)
-			    setContentsRect id, value
-			  #endif
-			  
-			End Set
-		#tag EndSetter
-		ContentsRect As NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -971,6 +1024,24 @@ Inherits iOSLibresponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  DEclare Function shadowPath lib  UIKit selector "shadowPath" (id as ptr) as Ptr
+			  return new iOSLibCGPath (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  DEclare Sub setShadowPath lib UIKit selector "setShadowPath:" (id as ptr, value as Ptr)
+			  setShadowPath id, value.CFTypeRef
+			  
+			End Set
+		#tag EndSetter
+		ShadowPath As iOSLibCGPath
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  #if target32bit
 			    DEclare Function shadowRadius lib UIKit selector "shadowRadius" (id as ptr) as single
 			  #elseif Target64Bit
@@ -1009,23 +1080,6 @@ Inherits iOSLibresponder
 			End Set
 		#tag EndSetter
 		ShouldRasterize As Boolean
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  declare function style lib UIKit selector "style" (id as Ptr) as ptr
-			  return iOSLibDictionary.MakeFromPtr (style (id))
-			  
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  declare Sub setStyle lib UIKit selector "setStyle:" (id as Ptr, value as ptr)
-			  setStyle id, value.id
-			End Set
-		#tag EndSetter
-		Style As iOSLibDictionary
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1170,15 +1224,6 @@ Inherits iOSLibresponder
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = kCAFilterLinear, Type = Text, Dynamic = False, Default = \"kCAFilterLinear", Scope = Protected
-	#tag EndConstant
-
-	#tag Constant, Name = kCAFilterNearest, Type = Text, Dynamic = False, Default = \"kCAFilterNearest", Scope = Protected
-	#tag EndConstant
-
-	#tag Constant, Name = kCAFilterTrilinear, Type = Text, Dynamic = False, Default = \"kCAFilterTrilinear", Scope = Protected
-	#tag EndConstant
-
 	#tag Constant, Name = kCAGravityBottom, Type = Text, Dynamic = False, Default = \"kCAGravityBottom", Scope = Protected
 	#tag EndConstant
 
@@ -1245,6 +1290,16 @@ Inherits iOSLibresponder
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Autoreverses"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BeginTime"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="BorderWidth"
 			Group="Behavior"
 			Type="Double"
@@ -1300,9 +1355,26 @@ Inherits iOSLibresponder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Duration"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="EdgeAntialiasing"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="FillMode"
+			Group="Behavior"
+			Type="FillModes"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Remove"
+				"1 - Remain"
+				"2 - Reset"
+				"3 - Both"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="GeometryFlipped"
@@ -1349,6 +1421,12 @@ Inherits iOSLibresponder
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="MagnificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="MasksToBounds"
 			Group="Behavior"
 			Type="Boolean"
@@ -1357,6 +1435,17 @@ Inherits iOSLibresponder
 			Name="mHasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilterBias"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -1385,6 +1474,16 @@ Inherits iOSLibresponder
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="RepeatCount"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RepeatDuration"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ShadowOpacity"
 			Group="Behavior"
 			Type="Single"
@@ -1400,10 +1499,20 @@ Inherits iOSLibresponder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Speed"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TimeOffset"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

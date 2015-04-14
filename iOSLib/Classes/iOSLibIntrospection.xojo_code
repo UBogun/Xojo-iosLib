@@ -310,11 +310,21 @@ Protected Class iOSLibIntrospection
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="ClassName"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isMetaClass"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -324,9 +334,9 @@ Protected Class iOSLibIntrospection
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="mId"
+			Name="MetaclassName"
 			Group="Behavior"
-			Type="Integer"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -335,10 +345,20 @@ Protected Class iOSLibIntrospection
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="OriginatedFromFramework"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SuperclassName"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

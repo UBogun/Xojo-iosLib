@@ -4,8 +4,14 @@ Inherits iOSUserControl
 	#tag Event
 		Function CreateView() As UInteger
 		  dim frame as new Rect (0,0,100,100)
-		  
-		  mid = iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect)
+		  mid = iOSLibObject.AutoRelease (iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect))
+		  dim myGRadientLayer as new iOSLibCAGradientLayer
+		  myGRadientLayer.bounds = frame.tonsrect
+		  myGRadientLayer.MasksToBounds = true
+		  myGRadientLayer.Name = "iOSLibCAGradientLayer"
+		  dim ego as new iOSLibView (mid)
+		  dim mylayer as iOSLibCALayer = ego.Layer
+		  mylayer.AddSubLayer myGRadientLayer
 		  
 		  Return UInteger(mid)
 		End Function
@@ -13,17 +19,18 @@ Inherits iOSUserControl
 
 
 	#tag Method, Flags = &h21
-		Private Shared Function impl_layerClass(id as ptr, sel as ptr) As Ptr
-		  return NSClassFromString ("CAGradientLayer")
+		Private Shared Function impl_layerClassGradient(id as ptr, sel as ptr) As Ptr
+		  static mmyclass as ptr = NSClassFromString ("CAGradientLayer")
+		  return mmyclass
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_layoutSubviews(id as ptr, sel as ptr)
-		  dim Ego as new iOSLibView (id)
-		  if not ego.IsNIL then
+		  dim Ego as iOSLibView = iOSLibView.MakeFromPtr (id)
+		  if  ego <> nil then
 		    dim sublayers as iOSLibArray = ego.Layer.SubLayers
-		    if not sublayers.IsNIL then
+		    if  sublayers <> nil then
 		      if sublayers.count > 0 then
 		        for q as uinteger = 0 to sublayers.Count -1
 		          dim sublayer as  new  iOSLibCALayer (sublayers.PtrAtIndex(q))
@@ -39,18 +46,28 @@ Inherits iOSUserControl
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static customClassPtr as Ptr
-			  if customClassPtr = nil then
+			  if mClassPtr = nil then
 			    dim methods() as TargetClassMethodHelper
-			    // methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
-			    methods.Append new TargetClassMethodHelper("layerClass", AddressOf impl_layerClass, "#@:", true, true)
+			    methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
+			    // methods.Append new TargetClassMethodHelper("layerClass", AddressOf impl_layerClassGradient, "#@:",true, true)
 			    
-			    customClassPtr = BuildTargetClass("UIView","iOSLibImageView",methods)
+			    mClassPtr = BuildTargetClass("UIImageView","iOSLibGradientView",methods)
 			  end if
-			  return customClassPtr
+			  return mClassPtr
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  dim ego as new iOSLibView (mid)
+			  dim layer as iOSLibCALayer = ego.Layer
+			  return  new iOSLibCAGradientLayer(layer.SubLayers.PtrAtIndex(0))
+			End Get
+		#tag EndGetter
+		GradientLayer As iOSLibCAGradientLayer
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -62,15 +79,9 @@ Inherits iOSUserControl
 		id As Ptr
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare Function layer lib UIKit selector "layer" (id as ptr) as Ptr
-			  Return new ioslibCAGradientLayer (layer (id))
-			End Get
-		#tag EndGetter
-		Layer As iOSLibCAGradientLayer
-	#tag EndComputedProperty
+	#tag Property, Flags = &h21
+		Private Shared mClassPtr As Ptr
+	#tag EndProperty
 
 	#tag Property, Flags = &h21
 		Private mid As Ptr

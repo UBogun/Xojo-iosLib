@@ -109,6 +109,11 @@ Inherits iOSLibView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="PreservesSuperviewLayoutMargins"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"

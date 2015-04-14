@@ -70,10 +70,10 @@ Implements iOSLibGeneralObject
 		Private Sub Destructor()
 		  
 		  if mHasOwnership then
-		    // system.DebugLog "Releasing "+DebugDescription
+		    system.DebugLog "Releasing "+DebugDescription+" AR: "+RetainCount.totext
 		    Release
 		  else
-		    // system.DebugLog "Losing Handle on "+DebugDescription
+		    // system.DebugLog "Losing Handle on "+DebugDescription+" AR: "+RetainCount.totext
 		  end if
 		End Sub
 	#tag EndMethod
@@ -190,6 +190,20 @@ Implements iOSLibGeneralObject
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub setValueForKeyPath(KeyPath as CFStringRef, value as iOSLibGeneralObject)
+		  Declare sub setValueForKeyPath lib UIKit selector "setValue:forKeyPath:" (id as ptr, value as ptr, KeyPath as CFStringRef)
+		  setValueForKeyPath (id, value.GeneralID, KeyPath)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ValueForKeyPath(KeyPath as CFStringRef) As Ptr
+		  Declare Function ValueForKeyPath lib UIKit selector "valueForKeyPath:" (id as ptr, KeyPath as CFStringRef) as ptr
+		  return ValueForKeyPath (id, KeyPath)
+		End Function
+	#tag EndMethod
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
@@ -276,6 +290,26 @@ Implements iOSLibGeneralObject
 			End Get
 		#tag EndGetter
 		RetainCount As UInteger
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return ObjectiveCRuntime.class_getSuperclass (class_)
+			  
+			End Get
+		#tag EndGetter
+		SuperClass As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return ObjectiveCRuntime.class_getName (SuperClass)
+			  
+			End Get
+		#tag EndGetter
+		SuperClassName As CString
 	#tag EndComputedProperty
 
 

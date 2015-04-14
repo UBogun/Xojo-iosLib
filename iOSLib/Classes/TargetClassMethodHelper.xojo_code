@@ -39,6 +39,11 @@ Protected Class TargetClassMethodHelper
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="ClassMethod"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -57,6 +62,11 @@ Protected Class TargetClassMethodHelper
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ReplaceMethod"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="selName"

@@ -34,6 +34,14 @@ Inherits iOSLibObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h1
+		Protected Function getContents() As Ptr
+		  declare function contents lib uikit selector "contents" (id as Ptr) as ptr
+		  return contents(id)
+		  
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function getDelegate(id as ptr) As Ptr
 		  Declare Function getDelegate lib uikit selector "delegate" (id as ptr) as Ptr
@@ -84,6 +92,14 @@ Inherits iOSLibObject
 		    declare sub setBounds lib UIKit selector "setBounds:" (id as ptr, value as NSRect32Bit)
 		    setBounds id, value.toNSRect32
 		  #endif
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub setContents(value as ptr)
+		  declare Sub setcontents lib uikit selector "setContents:" (id as Ptr, value as ptr)
+		  setcontents (id, value)
 		  
 		End Sub
 	#tag EndMethod

@@ -1,6 +1,6 @@
 #tag Class
 Protected Class iOSLibCAMediaTimingObject
-Inherits iosLibObject
+Inherits iosLibResponder
 	#tag Method, Flags = &h0
 		 Shared Function DefaultValueForKey(Key As CFStringRef) As ioslibobject
 		  declare function defaultValueForKey lib UIKit selector "defaultValueForKey:" (id as ptr, key as CFStringRef) as Ptr
@@ -61,6 +61,64 @@ Inherits iosLibObject
 			End Set
 		#tag EndSetter
 		BeginTime As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static mresult as text =  SystemConstantName (kCAFilterLinear, QuartzCorePath)
+			  
+			End Get
+		#tag EndGetter
+		Protected Shared CFilterLinear As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static mresult as text =  SystemConstantName (kCAFilterNearest, QuartzCorePath)
+			  
+			End Get
+		#tag EndGetter
+		Protected Shared CFilterNearest As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static mresult as text =  SystemConstantName (kCAFilterTrilinear, QuartzCorePath)
+			  
+			End Get
+		#tag EndGetter
+		Protected Shared CFilterTrilinear As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if target32bit
+			    DEclare Function contentsRect lib uikit selector "contentsRect" (id as ptr) as NSRect32Bit
+			    return contentsRect(id).toNSRect
+			  #elseif Target64Bit
+			    DEclare Function contentsRect lib uikit selector "contentsRect" (id as ptr) as NSRect
+			    return contentsRect(id)
+			  #endif
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if target32bit
+			    DEclare Sub setContentsRect lib uikit selector "setContentsRect:" (id as ptr, value as NSRect32Bit)
+			    setContentsRect id, value.toNSRect32
+			  #elseif Target64Bit
+			    DEclare Sub setContentsRect lib uikit selector "setContentsRect:" (id as ptr, value as NSRect)
+			    setContentsRect id, value
+			  #endif
+			  
+			End Set
+		#tag EndSetter
+		ContentsRect As NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -159,6 +217,116 @@ Inherits iosLibObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  select case mMagnificationFilter
+			  case CFilterTrilinear
+			    return ScalingFilters.Trilinear
+			  case CFilterNearest
+			    return ScalingFilters.Nearest
+			  case CFilterTrilinear
+			    return ScalingFilters.Trilinear
+			  end select
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  dim result as text
+			  select case value
+			  case ScalingFilters.Linear
+			    result = CFilterLinear
+			  case ScalingFilters.Nearest
+			    result = CFilterNearest
+			  case ScalingFilters.Trilinear
+			    result = CFilterTrilinear
+			  end select
+			  mMagnificationFilter = result
+			End Set
+		#tag EndSetter
+		MagnificationFilter As ScalingFilters
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  select case mMinificationFilter
+			  case CFilterTrilinear
+			    return ScalingFilters.Trilinear
+			  case CFilterNearest
+			    return ScalingFilters.Nearest
+			  case CFilterTrilinear
+			    return ScalingFilters.Trilinear
+			  end select
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  dim result as text
+			  select case value
+			  case ScalingFilters.Linear
+			    result = CFilterLinear
+			  case ScalingFilters.Nearest
+			    result = CFilterNearest
+			  case ScalingFilters.Trilinear
+			    result = CFilterTrilinear
+			  end select
+			  mMinificationFilter = result
+			End Set
+		#tag EndSetter
+		MinificationFilter As ScalingFilters
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  declare function minificationFilterBias lib UIKit selector "minificationFilterBias" (id as ptr) as Single
+			  return minificationFilterBias (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setMinificationFilterBias lib UIKit selector "setMinificationFilterBias:" (id as ptr, value as Single)
+			  setMinificationFilterBias (id, value)
+			  
+			End Set
+		#tag EndSetter
+		MinificationFilterBias As Single
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  declare function magnificationFilter lib UIKit selector "magnificationFilter" (id as ptr) as CFStringRef
+			  return magnificationFilter (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setMagnificationFilter lib UIKit selector "setMagnificationFilter:" (id as ptr, value as CFStringRef)
+			  setMagnificationFilter (id, value)
+			End Set
+		#tag EndSetter
+		Protected mMagnificationFilter As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  declare function minificationFilter lib UIKit selector "minificationFilter" (id as ptr) as CFStringRef
+			  return minificationFilter (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setMinificationFilter lib UIKit selector "setMinificationFilter:" (id as ptr, value as CFStringRef)
+			  setMinificationFilter (id, value)
+			End Set
+		#tag EndSetter
+		Protected mMinificationFilter As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  declare function repeatCount lib UIKit selector "repeatCount" (id as ptr) as Single
 			  return repeatCount (id)
 			  
@@ -213,6 +381,23 @@ Inherits iosLibObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  declare function style lib UIKit selector "style" (id as Ptr) as ptr
+			  return iOSLibDictionary.MakeFromPtr (style (id))
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  declare Sub setStyle lib UIKit selector "setStyle:" (id as Ptr, value as ptr)
+			  setStyle id, value.id
+			End Set
+		#tag EndSetter
+		Style As iOSLibDictionary
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  declare function timeOffset lib UIKit selector "timeOffset" (id as ptr) as Double
 			  return timeOffset (id)
 			  
@@ -227,6 +412,16 @@ Inherits iosLibObject
 		#tag EndSetter
 		TimeOffset As Double
 	#tag EndComputedProperty
+
+
+	#tag Constant, Name = kCAFilterLinear, Type = Text, Dynamic = False, Default = \"kCAFilterLinear", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAFilterNearest, Type = Text, Dynamic = False, Default = \"kCAFilterNearest", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = kCAFilterTrilinear, Type = Text, Dynamic = False, Default = \"kCAFilterTrilinear", Scope = Protected
+	#tag EndConstant
 
 
 	#tag Enum, Name = FillModes, Flags = &h0
@@ -256,6 +451,12 @@ Inherits iosLibObject
 		Transform
 	#tag EndEnum
 
+	#tag Enum, Name = ScalingFilters, Type = Integer, Flags = &h0
+		Linear
+		  Nearest
+		Trilinear
+	#tag EndEnum
+
 
 	#tag ViewBehavior
 		#tag ViewProperty
@@ -267,6 +468,11 @@ Inherits iosLibObject
 			Name="BeginTime"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Duration"
@@ -286,6 +492,11 @@ Inherits iosLibObject
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -293,11 +504,48 @@ Inherits iosLibObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MagnificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilterBias"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

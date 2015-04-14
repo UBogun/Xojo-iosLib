@@ -70,7 +70,7 @@ Inherits ioslibcamediatimingobject
 		  case Properties.Bounds
 		    return Bounds
 		  case Properties.ContentsRect
-		    return ContentsRect
+		    return CContentsRect
 		  case properties.CornerRadius
 		    return CornerRadius
 		  case properties.Filters
@@ -91,6 +91,28 @@ Inherits ioslibcamediatimingobject
 		    return ShadowRadius
 		  case Properties.Transform
 		    return Transform
+		  case Properties.Contents
+		    return Contents
+		  case Properties.doublesided
+		    return DoubleSided
+		  case Properties.Mask
+		    Return Mask
+		  case properties.ShadowPath
+		    return ShadowPath
+		  case properties.sublayers
+		    return SubLayers
+		  case properties.sublayerTransform
+		    return SubLayerTransform
+		  case properties.zPosition
+		    return ZPosition
+		  Case Properties.GradientColors
+		    Return GradientColors
+		  Case Properties.GradientLocations
+		    Return GradientLocations
+		  Case Properties.GradientStartPoint
+		    Return GradientStartPoint
+		  Case Properties.GradientEndpoint
+		    Return GradientEndPoint
 		  end select
 		End Function
 	#tag EndMethod
@@ -186,19 +208,40 @@ Inherits ioslibcamediatimingobject
 	#tag Constant, Name = Bounds, Type = Text, Dynamic = False, Default = \"bounds", Scope = Protected
 	#tag EndConstant
 
-	#tag Constant, Name = ContentsRect, Type = Text, Dynamic = False, Default = \"contentsRect", Scope = Protected
+	#tag Constant, Name = CContentsRect, Type = Text, Dynamic = False, Default = \"contentsRect", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = Contents, Type = Text, Dynamic = False, Default = \"contents", Scope = Protected
 	#tag EndConstant
 
 	#tag Constant, Name = CornerRadius, Type = Text, Dynamic = False, Default = \"cornerRadius", Scope = Protected
 	#tag EndConstant
 
+	#tag Constant, Name = DoubleSided, Type = Text, Dynamic = False, Default = \"doubleSided", Scope = Protected
+	#tag EndConstant
+
 	#tag Constant, Name = Filters, Type = Text, Dynamic = False, Default = \"filters", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = GradientColors, Type = Text, Dynamic = False, Default = \"colors", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = GradientEndPoint, Type = Text, Dynamic = False, Default = \"endPoint", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = GradientLocations, Type = Text, Dynamic = False, Default = \"locations", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = GradientStartPoint, Type = Text, Dynamic = False, Default = \"startPoint", Scope = Protected
 	#tag EndConstant
 
 	#tag Constant, Name = Height, Type = Text, Dynamic = False, Default = \"bounds.size.height", Scope = Protected
 	#tag EndConstant
 
 	#tag Constant, Name = Hidden, Type = Text, Dynamic = False, Default = \"hidden", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = Mask, Type = Text, Dynamic = False, Default = \"mask", Scope = Protected
 	#tag EndConstant
 
 	#tag Constant, Name = MasksToBounds, Type = Text, Dynamic = False, Default = \"masksToBounds", Scope = Protected
@@ -225,13 +268,25 @@ Inherits ioslibcamediatimingobject
 	#tag Constant, Name = ShadowOpacity, Type = Text, Dynamic = False, Default = \"shadowOpacity", Scope = Protected
 	#tag EndConstant
 
+	#tag Constant, Name = ShadowPath, Type = Text, Dynamic = False, Default = \"shadowPath", Scope = Protected
+	#tag EndConstant
+
 	#tag Constant, Name = ShadowRadius, Type = Text, Dynamic = False, Default = \"shadowRadius", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = SubLayers, Type = Text, Dynamic = False, Default = \"sublayers", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = SubLayerTransform, Type = Text, Dynamic = False, Default = \"sublayerTransform", Scope = Protected
 	#tag EndConstant
 
 	#tag Constant, Name = Transform, Type = Text, Dynamic = False, Default = \"transform", Scope = Protected
 	#tag EndConstant
 
 	#tag Constant, Name = Width, Type = Text, Dynamic = False, Default = \"bounds.size.width", Scope = Protected
+	#tag EndConstant
+
+	#tag Constant, Name = ZPosition, Type = Text, Dynamic = False, Default = \"zPosition", Scope = Protected
 	#tag EndConstant
 
 
@@ -256,7 +311,18 @@ Inherits ioslibcamediatimingobject
 		  Left
 		  Top
 		  Width
-		Height
+		  Height
+		  Contents
+		  DoubleSided
+		  Mask
+		  ShadowPath
+		  SubLayers
+		  SubLayerTransform
+		  ZPosition
+		  GradientColors
+		  GradientLocations
+		  GradientStartPoint
+		GradientEndPoint
 	#tag EndEnum
 
 

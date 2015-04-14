@@ -1,6 +1,17 @@
 #tag Module
 Protected Module RectExtension
 	#tag Method, Flags = &h0
+		Function NSRect(x as double, y as double, w as double, h as double) As NSrect
+		  dim NP as NSRect
+		  NP.Origin.x = x
+		  np.Origin.y = y
+		  NP.Size_.width = w
+		  np.Size_.height = h
+		  return np
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function toCoreRect(extends aRect64 as NSRect) As Xojo.Core.Rect
 		  return new xojo.core.rect (aRect64.Origin.x, aRect64.Origin.y, aRect64.Size_.width,aRect64.Size_.height)
 		  
@@ -48,7 +59,7 @@ Protected Module RectExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toText(extends n as NSRect, format as text ="###") As text
+		Function toText(extends n as NSRect, format as text = "###") As text
 		  dim mylocale as locale = locale.current
 		  return n.Origin.x.totext (mylocale, format)+", "+n.Origin.y.totext  (mylocale, format)+", "+n.size_.width.totext (mylocale, format)+", "+n.size_.height.totext  (mylocale, format)
 		End Function

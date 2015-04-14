@@ -122,6 +122,16 @@ Inherits iosLibViewController
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Message"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ModalPresentationStyle"
 			Group="Behavior"
 			Type="UIViewModalPresentationStyle"
@@ -157,10 +167,25 @@ Inherits iosLibViewController
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="PreferredStyle"
+			Group="Behavior"
+			Type="UIAlertControllerStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - ActionSheet"
+				"1 - Alert"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Title"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

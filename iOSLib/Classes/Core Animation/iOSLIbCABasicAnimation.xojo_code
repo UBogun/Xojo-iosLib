@@ -9,13 +9,10 @@ Inherits iOSLibCAPropertyAnimation
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Key as Properties, fromBool as boolean, tobool as Boolean)
-		  dim myprop as text = NameForProperty (key)
-		  Super.Constructor (AnimationWithKeyPath (ClassPtr, myprop))
+		  MakeAnimation (key)
 		  fromvalue = new ioslibnumber (fromBool)
 		  ToValue = new ioslibnumber (tobool)
 		  
-		  dim mydelegate as new iOSLibCAAnimationDelegate
-		  setDelegate mydelegate.id
 		  
 		  
 		End Sub
@@ -23,96 +20,91 @@ Inherits iOSLibCAPropertyAnimation
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Key as Properties, fromTransform as CATransform3D, toTransform as CATransform3D)
-		  dim myprop as text = NameForProperty (key)
-		  Super.Constructor (AnimationWithKeyPath (ClassPtr, myprop))
+		  MakeAnimation (key)
 		  
 		  fromvalue = new iOSLibValue (fromTransform)
 		  ToValue = new iOSLibValue (toTransform)
-		  
-		  dim mydelegate as new iOSLibCAAnimationDelegate
-		  setDelegate mydelegate.id
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Key as Properties, fromdouble as double, todouble as double)
-		  dim myprop as text = NameForProperty (key)
-		  Super.Constructor (AnimationWithKeyPath (ClassPtr, myprop))
+		  MakeAnimation (key)
 		  
 		  fromvalue = new ioslibnumber (fromdouble)
 		  ToValue = new ioslibnumber (todouble)
 		  
-		  
-		  dim mydelegate as new iOSLibCAAnimationDelegate
-		  setDelegate mydelegate.id
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h1000
-		Sub Constructor(Key as Properties, FromFilters as ioslibarray, ToFilters as ioslibarray)
-		  dim myprop as text = NameForProperty (key)
-		  Super.Constructor (AnimationWithKeyPath (ClassPtr, myprop))
-		  fromvalue = FromFilters
-		  ToValue = ToFilters
-		  
-		  
-		  dim mydelegate as new iOSLibCAAnimationDelegate
-		  setDelegate mydelegate.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Key as Properties, fromColor as ioslibcgcolor, toColor as iOSLibCGColor)
-		  dim myprop as text = NameForProperty (key)
-		  Super.Constructor (AnimationWithKeyPath (ClassPtr, myprop))
+		  MakeAnimation (key)
 		  fromvalue = fromColor
 		  ToValue = toColor
 		  
-		  dim mydelegate as new iOSLibCAAnimationDelegate
-		  setDelegate mydelegate.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(Key as Properties, fromPath as ioslibcgpath, toPath as ioslibcgpath)
+		  MakeAnimation (key)
+		  fromvalue = fromPath
+		  ToValue = toPath
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(Key as Properties, fromObject as ioslibobject, toObject as ioslibObject)
+		  MakeAnimation (key)
+		  fromvalue = fromObject
+		  ToValue = toObject
+		  
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Key as Properties, fromPoint as NSPoint, toPoint as NSPoint)
-		  dim myprop as text = NameForProperty (key)
-		  Super.Constructor (AnimationWithKeyPath (ClassPtr, myprop))
+		  MakeAnimation (key)
 		  
 		  fromvalue = new ioslibvalue (fromPoint)
 		  ToValue = new ioslibvalue (topoint)
 		  
 		  
-		  dim mydelegate as new iOSLibCAAnimationDelegate
-		  setDelegate mydelegate.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Key as Properties, fromrect as nsrect, torect as nsrect)
-		  dim myprop as text = NameForProperty (key)
-		  Super.Constructor (AnimationWithKeyPath (ClassPtr, myprop))
+		  MakeAnimation (key)
 		  
 		  fromvalue = new iOSLibValue (fromrect)
 		  ToValue = new iOSLibValue (torect)
 		  
 		  
-		  dim mydelegate as new iOSLibCAAnimationDelegate
-		  setDelegate mydelegate.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Key as Properties, fromsize as nssize, tosize as nssize)
-		  dim myprop as text = NameForProperty (key)
-		  Super.Constructor (AnimationWithKeyPath (ClassPtr, myprop))
+		  MakeAnimation (key)
 		  fromvalue = new iOSLibValue (fromsize)
 		  ToValue = new iOSLibValue (tosize)
 		  
-		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub MakeAnimation(Key as Properties)
+		  dim myprop as text = NameForProperty (key)
+		  Super.Constructor (AnimationWithKeyPath (ClassPtr, myprop))
 		  dim mydelegate as new iOSLibCAAnimationDelegate
 		  setDelegate mydelegate.id
+		  
 		End Sub
 	#tag EndMethod
 

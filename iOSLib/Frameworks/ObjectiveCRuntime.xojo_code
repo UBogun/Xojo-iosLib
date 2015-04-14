@@ -6,20 +6,24 @@ Protected Module ObjectiveCRuntime
 		  dim superClassptr as ptr = NSClassFromString (superClassName)
 		  dim metaclassptr as ptr = ObjectiveCRuntime.objc_getMetaClass (ObjectiveCRuntime.class_getName(superClassptr))
 		  dim metaclass as CString = ObjectiveCRuntime.class_getName (metaclassptr)
-		  
-		  result = objc_allocateClassPair(superClassptr, newClassName.ToCString(Xojo.Core.TextEncoding.UTF8), 0)
+		  dim classmethods() as TargetClassMethodHelper
+		  result = objc_allocateClassPair(superClassptr, newClassName.ToCString(StandardTextEncoding), 0)
 		  
 		  for i as Integer = 0 to methods.Ubound
 		    dim method as TargetClassMethodHelper = methods(i)
 		    dim SEL as Ptr = NSSelectorFromString (method.selName)
 		    if method.ReplaceMethod then
-		      dim OriginalMethod as ptr = if (method.ClassMethod, ObjectiveCRuntime.class_getClassMethod (result, SEL), ObjectiveCRuntime.class_getInstanceMethod(result, SEL))
-		      if OriginalMethod <> NIL then
-		        dim oldImplementation as Ptr = ObjectiveCRuntime.method_setImplementation (OriginalMethod, method.impl)
-		        if oldImplementation = NIL then
-		          dim err as new ErrorException
-		          err.Reason = "no old implementation for method while replacing "+Methods(i).selName
-		          raise err
+		      if method.ClassMethod then
+		        classmethods.Append method
+		      else
+		        dim OriginalMethod as ptr = if (method.ClassMethod, ObjectiveCRuntime.class_getClassMethod (result, SEL), ObjectiveCRuntime.class_getInstanceMethod(result, SEL))
+		        if OriginalMethod <> NIL then
+		          dim oldImplementation as Ptr = ObjectiveCRuntime.method_setImplementation (OriginalMethod, method.impl)
+		          if oldImplementation = NIL then
+		            dim err as new ErrorException
+		            err.Reason = "no old implementation for method while replacing "+Methods(i).selName
+		            raise err
+		          end if
 		        end if
 		      end if
 		      
@@ -34,8 +38,31 @@ Protected Module ObjectiveCRuntime
 		      end if
 		    end if
 		  next
-		  
 		  objc_registerClassPair(result)
+		  
+		  dim mymetaclassptr as ptr = ObjectiveCRuntime.objc_getMetaClass (ObjectiveCRuntime.class_getName(result))
+		  dim mymetaclass as CString = ObjectiveCRuntime.class_getName (mymetaclassptr)
+		  
+		  //Now lets check the classmethods
+		  if classmethods.Ubound > -1 then
+		    for q as uinteger = 0 to classmethods.Ubound
+		      dim method as TargetClassMethodHelper = classmethods (q)
+		      dim SEL as Ptr = NSSelectorFromString (method.selName)
+		      dim success as boolean =ObjectiveCRuntime.class_addMethod (mymetaclassptr, SEL, method.impl, method.charCode.ToCString (StandardTextEncoding))
+		      // dim OriginalMethod as ptr =  ObjectiveCRuntime.class_getInstanceMethod (mymetaclassptr, SEL)
+		      // dim myclassmethod as ptr = ObjectiveCRuntime.class_getMethodImplementation (metaclassptr, sel)
+		      
+		      // if OriginalMethod <> NIL then
+		      // dim oldImplementation as Ptr = ObjectiveCRuntime.method_setImplementation (OriginalMethod, method.impl)
+		      // if oldImplementation = NIL then
+		      // dim err as new ErrorException
+		      // err.Reason = "no old implementation for method while replacing "+classmethods(q).selName
+		      // raise err
+		      // end if
+		      //
+		      // end if
+		    next
+		  end if
 		  
 		  Return result
 		End Function
@@ -87,6 +114,10 @@ Protected Module ObjectiveCRuntime
 
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function class_getInstanceVariable Lib obj_C (aClass as Ptr, aVariable as CString) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function class_getMethodImplementation Lib obj_C (aClass as Ptr, Selector as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1

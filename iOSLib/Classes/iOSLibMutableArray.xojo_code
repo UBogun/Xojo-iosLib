@@ -14,6 +14,17 @@ Inherits iOSLibArray
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function CGColorArray(colorarray() as Color) As ioslibmutablearray
+		  dim count as uinteger = colorArray.Ubound
+		  dim myarray as new ioslibmutablearray (count + 1)
+		  for q as uinteger = 0 to count
+		    myarray.Addobject iOSLibCGColor.fromColor(ColorArray(q)).CFTypeRef
+		  next
+		  return myarray
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1000
 		Sub Constructor()
 		  // Calling the overridden superclass constructor.
@@ -37,6 +48,18 @@ Inherits iOSLibArray
 		  Super.Constructor (doinitwithcapacity(Alloc(ClassPtr), Capacity))
 		  mhasownership = true
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function NumberArray(NumberArray() as Double) As ioslibmutablearray
+		  dim count as uinteger = NumberArray.Ubound
+		  dim myarray as new ioslibmutablearray (count + 1)
+		  for q as uinteger = 0 to count
+		    dim mynumber as new iOSLibNumber (NumberArray(q))
+		    myarray.Addobject mynumber
+		  next
+		  return myarray
+		End Function
 	#tag EndMethod
 
 

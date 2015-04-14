@@ -1,5 +1,11 @@
 #tag Module
 Protected Module TransformExtension
+	#tag Method, Flags = &h1
+		Protected Function CGAffineTransformIdentity() As CGAffineTransform
+		  return CGAffineTransformIdentity
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Function RotateDegree(extends t as CGAffineTransform, angle as double) As CGAffineTransform
 		  return CGAffineTransformRotate (T, angle.DegreeToRadian)
