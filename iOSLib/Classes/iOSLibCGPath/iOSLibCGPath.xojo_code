@@ -26,13 +26,13 @@ Inherits iOSLibCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AddCurvetoPoint(cp1x as double, cp1y as double,  cp2x as double, cp2y as double, x as double, y as double)
+		Sub AddCurvetoPoint(cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double)
 		  AddCurvetoPoint cp1x, cp1y, cp2x, cp2y, x, y, TransformExtension.CGAffineTransformIdentity
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AddCurvetoPoint(cp1x as double, cp1y as double,  cp2x as double, cp2y as double, x as double, y as double, aTransform as CGAffineTransform)
+		Sub AddCurvetoPoint(cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double, aTransform as CGAffineTransform)
 		  CGPathAddCurveToPoint mCFTypeRef, aTransform, cp1x, cp1y, cp2x, cp2y, x, y
 		End Sub
 	#tag EndMethod
@@ -74,13 +74,13 @@ Inherits iOSLibCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AddQuadCurvetoPoint(cpx as double, cpy as double,  x as double, y as double)
+		Sub AddQuadCurvetoPoint(cpx as double, cpy as double, x as double, y as double)
 		  AddQuadCurveToPoint  cpx, cpy,  x, y, TransformExtension.CGAffineTransformIdentity
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AddQuadCurvetoPoint(cpx as double, cpy as double,  x as double, y as double, aTransform as CGAffineTransform)
+		Sub AddQuadCurvetoPoint(cpx as double, cpy as double, x as double, y as double, aTransform as CGAffineTransform)
 		  CGPathAddQuadCurveToPoint mCFTypeRef, aTransform, cpx, cpy,  x, y
 		End Sub
 	#tag EndMethod
@@ -110,13 +110,13 @@ Inherits iOSLibCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AddRoundedRect(aRect as NSRect,CornerWidth as Double, CornerHeight as Double)
+		Sub AddRoundedRect(aRect as NSRect, CornerWidth as Double, CornerHeight as Double)
 		  AddRoundedRect arect, CornerWidth, CornerHeight, TransformExtension.CGAffineTransformIdentity
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AddRoundedRect(aRect as NSRect,CornerWidth as Double, CornerHeight as Double,  aTransform as CGAffineTransform)
+		Sub AddRoundedRect(aRect as NSRect, CornerWidth as Double, CornerHeight as Double, aTransform as CGAffineTransform)
 		  CGPathAddRoundedRect mCFTypeRef, aTransform, arect, CornerWidth, CornerHeight
 		End Sub
 	#tag EndMethod
@@ -125,23 +125,23 @@ Inherits iOSLibCFObject
 		Protected Sub CGPathAddArc(APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean)
 		  #if Target64Bit
 		    Declare Sub CGPathAddArc lib CoreGraphics _
-		     (id as ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean)
-		     CGPathAddArc (APathRef, aTransform, x, y, radius, startAngle, EndAngle, ClockWise)
+		    (id as ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean)
+		    CGPathAddArc (APathRef, aTransform, x, y, radius, startAngle, EndAngle, ClockWise)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddArc lib CoreGraphics _
 		    (id as ptr, aTransform as CGAffineTransform32Bit, x as single, y as single, radius as single, startAngle as single, EndAngle As single, ClockWise As Boolean)
-		     CGPathAddArc (APathRef, aTransform.toCGAffineTransform32Bit, x, y, radius, startAngle, EndAngle, ClockWise)
+		    CGPathAddArc (APathRef, aTransform.toCGAffineTransform32Bit, x, y, radius, startAngle, EndAngle, ClockWise)
 		  #endif
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub CGPathAddArcToPoint(APathRef as Ptr, aTransform as CGAffineTransform, x1 as double, y1 as double,  x2 as double, y2 as double, radius as double)
+		Protected Sub CGPathAddArcToPoint(APathRef as Ptr, aTransform as CGAffineTransform, x1 as double, y1 as double, x2 as double, y2 as double, radius as double)
 		  #if Target64Bit
 		    Declare Sub CGPathAddArcToPoint lib CoreGraphics _
-		     (Id as Ptr, aTransform as CGAffineTransform, x1 as double, y1 as double,  x2 as double, y2 as double, radius as double)
-		     CGPathAddArcToPoint (APathRef, aTransform, x1, y1, x2, y2, radius)
+		    (Id as Ptr, aTransform as CGAffineTransform, x1 as double, y1 as double,  x2 as double, y2 as double, radius as double)
+		    CGPathAddArcToPoint (APathRef, aTransform, x1, y1, x2, y2, radius)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddArcToPoint lib CoreGraphics _
 		    (Id as Ptr, aTransform as CGAffineTransform32Bit, x1 as single, y1 as single,  x2 as single, y2 as single, radius as single)
@@ -152,11 +152,11 @@ Inherits iOSLibCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub CGPathAddCurveToPoint(APathRef as Ptr, aTransform as CGAffineTransform, cp1x as double, cp1y as double,  cp2x as double, cp2y as double, x as double, y as double)
+		Protected Sub CGPathAddCurveToPoint(APathRef as Ptr, aTransform as CGAffineTransform, cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double)
 		  #if Target64Bit
 		    Declare Sub CGPathAddCurveToPoint lib CoreGraphics _
-		     (Id as Ptr, aTransform as CGAffineTransform,cp1x as double, cp1y as double,  cp2x as double, cp2y as double, x as double, y as double)
-		     CGPathAddCurveToPoint (APathRef, aTransform,cp1x, cp1y, cp2x, cp2y, x, y)
+		    (Id as Ptr, aTransform as CGAffineTransform,cp1x as double, cp1y as double,  cp2x as double, cp2y as double, x as double, y as double)
+		    CGPathAddCurveToPoint (APathRef, aTransform,cp1x, cp1y, cp2x, cp2y, x, y)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddCurveToPoint lib CoreGraphics _
 		    (Id as Ptr, aTransform as CGAffineTransform32Bit,cp1x as single, cp1y as single,  cp2x as single, cp2y as single, x as single, y as single)
@@ -170,7 +170,7 @@ Inherits iOSLibCFObject
 		Protected Sub CGPathAddEllipseInRect(APathRef as Ptr, aTransform as CGAffineTransform, aRect as NSRect)
 		  #if Target64Bit
 		    Declare Sub CGPathAddEllipseInRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform, aRect as nsrect)
-		     CGPathAddEllipseInRect (APathRef, aTransform, aRect)
+		    CGPathAddEllipseInRect (APathRef, aTransform, aRect)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddEllipseInRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform32Bit, aRect as NSRect32Bit)
 		    CGPathAddEllipseInRect (APathRef, aTransform.toCGAffineTransform32Bit, aRect.toNSRect32)
@@ -183,7 +183,7 @@ Inherits iOSLibCFObject
 		Protected Sub CGPathAddLineToPoint(APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double)
 		  #if Target64Bit
 		    Declare Sub CGPathAddLineToPoint lib CoreGraphics (id as ptr, aTransform as CGAffineTransform, x as double, y as double)
-		     CGPathAddLineToPoint (APathRef, aTransform, x, y)
+		    CGPathAddLineToPoint (APathRef, aTransform, x, y)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddLineToPoint lib CoreGraphics (id as ptr, aTransform as CGAffineTransform32Bit, x as single, y as single)
 		    CGPathAddLineToPoint (APathRef, aTransform.toCGAffineTransform32Bit, x, y)
@@ -196,7 +196,7 @@ Inherits iOSLibCFObject
 		Protected Sub CGPathAddPath(APathRef as Ptr, aTransform as CGAffineTransform, anotherPathRef as Ptr)
 		  #if Target64Bit
 		    Declare Sub CGPathAddPath lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform, anotherPathRef as Ptr)
-		     CGPathAddPath (APathRef, aTransform, anotherPathRef)
+		    CGPathAddPath (APathRef, aTransform, anotherPathRef)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddPath lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform32Bit, anotherPathRef as Ptr)
 		    CGPathAddPath (APathRef, aTransform.toCGAffineTransform32Bit, anotherPathRef)
@@ -206,10 +206,10 @@ Inherits iOSLibCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub CGPathAddQuadCurveToPoint(APathRef as Ptr, aTransform as CGAffineTransform, cpx as double, cpy as double,  x as double, y as double)
+		Protected Sub CGPathAddQuadCurveToPoint(APathRef as Ptr, aTransform as CGAffineTransform, cpx as double, cpy as double, x as double, y as double)
 		  #if Target64Bit
 		    Declare Sub CGPathAddQuadCurveToPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform, cpx as double, cpy as double,  x as double, y as double)
-		     CGPathAddQuadCurveToPoint (APathRef, aTransform,cpx, cpy, x, y)
+		    CGPathAddQuadCurveToPoint (APathRef, aTransform,cpx, cpy, x, y)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddQuadCurveToPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform32Bit, cpx as single, cpy as single,  x as single, y as single)
 		    CGPathAddQuadCurveToPoint (APathRef, aTransform.toCGAffineTransform32Bit, cpx, cpy, x, y)
@@ -222,7 +222,7 @@ Inherits iOSLibCFObject
 		Protected Sub CGPathAddRect(APathRef as Ptr, aTransform as CGAffineTransform, aRect as NSRect)
 		  #if Target64Bit
 		    Declare Sub CGPathAddRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform, aRect as nsrect)
-		     CGPathAddRect (APathRef, aTransform, aRect)
+		    CGPathAddRect (APathRef, aTransform, aRect)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform32Bit, aRect as NSRect32Bit)
 		    CGPathAddRect (APathRef, aTransform.toCGAffineTransform32Bit, aRect.toNSRect32)
@@ -235,12 +235,12 @@ Inherits iOSLibCFObject
 		Protected Sub CGPathAddRelativeArc(APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, delta as Double)
 		  #if Target64Bit
 		    Declare Sub CGPathAddRelativeArc lib CoreGraphics _
-		     (id as ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, delta as double)
-		     CGPathAddRelativeArc (APathRef, aTransform, x, y, radius, startAngle, delta)
+		    (id as ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, delta as double)
+		    CGPathAddRelativeArc (APathRef, aTransform, x, y, radius, startAngle, delta)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddRelativeArc lib CoreGraphics _
 		    (id as ptr, aTransform as CGAffineTransform32Bit, x as single, y as single, radius as single, startAngle as single, delta as single)
-		     CGPathAddRelativeArc (APathRef, aTransform.toCGAffineTransform32Bit, x, y, radius, startAngle, delta)
+		    CGPathAddRelativeArc (APathRef, aTransform.toCGAffineTransform32Bit, x, y, radius, startAngle, delta)
 		  #endif
 		  
 		End Sub
@@ -250,7 +250,7 @@ Inherits iOSLibCFObject
 		Protected Sub CGPathAddRoundedRect(APathRef as Ptr, aTransform as CGAffineTransform, aRect as NSRect, cornerWidth as Double, CornerHeight as Double)
 		  #if Target64Bit
 		    Declare Sub CGPathAddRoundedRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform, aRect as NSRect, cornerWidth as Double, CornerHeight as Double)
-		     CGPathAddRoundedRect (APathRef, aTransform, aRect, cornerWidth, CornerHeight)
+		    CGPathAddRoundedRect (APathRef, aTransform, aRect, cornerWidth, CornerHeight)
 		  #elseif Target32Bit
 		    Declare Sub CGPathAddRoundedRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform32Bit, aRect as NSRect32Bit, cornerWidth as Single, CornerHeight as Single)
 		    CGPathAddRoundedRect (APathRef, aTransform.toCGAffineTransform32Bit, aRect.toNSRect32, cornerWidth, CornerHeight)
@@ -264,10 +264,10 @@ Inherits iOSLibCFObject
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
-		Protected Function CGPathContainsPoint(APathRef as Ptr, aTransform as CGAffineTransform,  aPoint as NSPoint, EvenOddFill as Boolean) As Boolean
+		Protected Function CGPathContainsPoint(APathRef as Ptr, aTransform as CGAffineTransform, aPoint as NSPoint, EvenOddFill as Boolean) As Boolean
 		  #if Target64Bit
 		    Declare Function CGPathContainsPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform,  aPoint as NSPoint, EvenOddFill as Boolean) as boolean
-		     return CGPathContainsPoint (APathRef, aTransform, aPoint, EvenOddFill)
+		    return CGPathContainsPoint (APathRef, aTransform, aPoint, EvenOddFill)
 		  #elseif Target32Bit
 		    Declare Function CGPathContainsPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform32Bit,  aPoint as NSPoint32Bit, EvenOddFill as Boolean) as boolean
 		    return CGPathContainsPoint (APathRef, aTransform.toCGAffineTransform32Bit, aPoint.toNSPoint32, EvenOddFill)
@@ -322,7 +322,7 @@ Inherits iOSLibCFObject
 		Protected Function CGPathIsRect(APathRef as Ptr, byref aRect as NSRect) As boolean
 		  #if Target64Bit
 		    Declare function CGPathIsRect lib CoreGraphics  (id as ptr, aRect as nsrect) as boolean
-		     return CGPathIsRect (APathRef, aRect)
+		    return CGPathIsRect (APathRef, aRect)
 		  #elseif Target32Bit
 		    Declare function CGPathIsRect lib CoreGraphics  (id as ptr, aRect as NSRect32Bit) as boolean
 		    dim myrect as NSRect32Bit = aRect.toNSRect32
@@ -335,10 +335,10 @@ Inherits iOSLibCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub CGPathMoveToPoint(APathRef as Ptr, aTransform as CGAffineTransform,  x as double, y as double)
+		Protected Sub CGPathMoveToPoint(APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double)
 		  #if Target64Bit
 		    Declare Sub CGPathMoveToPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform,  x as double, y as double)
-		     CGPathMoveToPoint (APathRef, aTransform, x, y)
+		    CGPathMoveToPoint (APathRef, aTransform, x, y)
 		  #elseif Target32Bit
 		    Declare Sub CGPathMoveToPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform32Bit,  x as single, y as single)
 		    CGPathMoveToPoint (APathRef, aTransform.toCGAffineTransform32Bit, x, y)
@@ -364,7 +364,7 @@ Inherits iOSLibCFObject
 	#tag Method, Flags = &h1000
 		Sub Constructor()
 		  // Calling the overridden superclass constructor.
-		  Super.Constructor (CGPathCreateMutable)
+		  Super.Constructor (CGPathCreateMutable, true)
 		  
 		End Sub
 	#tag EndMethod
@@ -383,7 +383,7 @@ Inherits iOSLibCFObject
 
 	#tag Method, Flags = &h0
 		Function Copy() As iOSLibCGPath
-		  return new iOSLibCGPath (CGPathCreateCopy (mCFTypeRef))
+		  return new iOSLibCGPath (CGPathCreateCopy (mCFTypeRef), true)
 		End Function
 	#tag EndMethod
 
@@ -413,13 +413,13 @@ Inherits iOSLibCFObject
 
 	#tag Method, Flags = &h0
 		Function MutableCopy() As iOSLibCGPath
-		  return new iOSLibCGPath (CGPathCreateMutableCopy (mCFTypeRef))
+		  return new iOSLibCGPath (CGPathCreateMutableCopy (mCFTypeRef), true)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function MutableTransformedCopy(aTransform as CGAffineTransform) As iOSLibCGPath
-		  return new iOSLibCGPath (CGPathCreateMutableCopyByTransformingPath (mCFTypeRef, aTransform))
+		  return new iOSLibCGPath (CGPathCreateMutableCopyByTransformingPath (mCFTypeRef, aTransform), true)
 		End Function
 	#tag EndMethod
 
@@ -437,7 +437,7 @@ Inherits iOSLibCFObject
 
 	#tag Method, Flags = &h0
 		Function TransformedCopy(aTransform as CGAffineTransform) As iOSLibCGPath
-		  return new iOSLibCGPath (CGPathCreateCopyByTransformingPath (mCFTypeRef, aTransform))
+		  return new iOSLibCGPath (CGPathCreateCopyByTransformingPath (mCFTypeRef, aTransform), true)
 		End Function
 	#tag EndMethod
 
@@ -524,11 +524,6 @@ Inherits iOSLibCFObject
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="HasOwnerShip"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -536,7 +531,17 @@ Inherits iOSLibCFObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="isEmpty"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="isNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isRect"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty

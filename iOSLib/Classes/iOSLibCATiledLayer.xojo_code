@@ -91,6 +91,11 @@ Inherits iOSLibCALayer
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="AnchorPointZ"
 			Group="Behavior"
 			Type="Double"
@@ -109,11 +114,6 @@ Inherits iOSLibCALayer
 			Name="BorderWidth"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Content"
-			Group="Behavior"
-			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentsFlipped"
@@ -232,6 +232,12 @@ Inherits iOSLibCALayer
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="MagnificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="MasksToBounds"
 			Group="Behavior"
 			Type="Boolean"
@@ -240,6 +246,17 @@ Inherits iOSLibCALayer
 			Name="mHasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilterBias"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -319,11 +336,6 @@ Inherits iOSLibCALayer
 			Name="Width"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Wrapped"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ZPosition"

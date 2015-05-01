@@ -4,7 +4,7 @@ Inherits iOSUserControl
 	#tag Event
 		Function CreateView() As UInteger
 		  dim frame as new Rect (0,0,100,100)
-		  mid = iOSLibObject.AutoRelease (iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect))
+		  mid =  (iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect))
 		  dim myGRadientLayer as new iOSLibCAGradientLayer
 		  myGRadientLayer.bounds = frame.tonsrect
 		  myGRadientLayer.MasksToBounds = true
@@ -12,8 +12,11 @@ Inherits iOSUserControl
 		  dim ego as new iOSLibView (mid)
 		  dim mylayer as iOSLibCALayer = ego.Layer
 		  mylayer.AddSubLayer myGRadientLayer
-		  
+		  mGradientLayer = myGRadientLayer
 		  Return UInteger(mid)
+		  
+		  
+		  
 		End Function
 	#tag EndEvent
 
@@ -62,9 +65,10 @@ Inherits iOSUserControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  dim ego as new iOSLibView (mid)
-			  dim layer as iOSLibCALayer = ego.Layer
-			  return  new iOSLibCAGradientLayer(layer.SubLayers.PtrAtIndex(0))
+			  // dim ego as new iOSLibView (mid)
+			  // dim layer as iOSLibCALayer = ego.Layer
+			  // return  new iOSLibCAGradientLayer(layer.SubLayers.PtrAtIndex(0))
+			  return mGradientLayer
 			End Get
 		#tag EndGetter
 		GradientLayer As iOSLibCAGradientLayer
@@ -81,6 +85,10 @@ Inherits iOSUserControl
 
 	#tag Property, Flags = &h21
 		Private Shared mClassPtr As Ptr
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mGradientLayer As iOSLibCAGradientLayer
 	#tag EndProperty
 
 	#tag Property, Flags = &h21

@@ -8,6 +8,19 @@ Inherits iOSLibObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
+		Sub Constructor(imagename as cfstringref)
+		  Declare function imageNamed lib UIKit selector "imageNamed:" (id as ptr, imagename as cfstringref) as ptr
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From iOSLibObject
+		  // Constructor(AnId as Ptr) -- From iOSLibObject
+		  Super.Constructor (imagenamed (classptr, imagename))
+		  RetainClassObject
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
 		Sub Constructor(animage as iOSImage)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -20,6 +33,19 @@ Inherits iOSLibObject
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h1000
+		Sub Constructor(animage as ioslibciimage)
+		  Declare function imageWithCIImage lib UIKit selector "imageWithCIImage:" (id as ptr, animage as ptr) as ptr
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From iOSLibObject
+		  // Constructor(AnId as Ptr) -- From iOSLibObject
+		  Super.Constructor (imageWithCIImage (classptr, animage.id))
+		  RetainClassObject
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function MakeFromPtr(aPtr as Ptr) As iosLibimage
 		  return if (aptr <> NIL, new iOSLibimage (aptr), NIL)
@@ -27,9 +53,15 @@ Inherits iOSLibObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Operator_Convert(animage as iOSImage) As ioslibimage
+		  return  new ioslibimage (animage)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Resize(Scalefactor as double) As ioslibimage
 		  declare function initWithCGImageScale lib UIKit selector "initWithCGImage:scale:orientation:" (id as ptr, aciimage as ptr, Scalefactor as double, orientation as integer) as ptr
-		  return new iOSLibImage ( initWithCGImageScale  (alloc(ClassPtr),me.toCGImage, Scalefactor, 1))
+		  return new iOSLibImage ( initWithCGImageScale  (alloc(ClassPtr),me.toCGImage.CFTypeRef, Scalefactor, 1))
 		End Function
 	#tag EndMethod
 
@@ -66,10 +98,10 @@ Inherits iOSLibObject
 		#tag Getter
 			Get
 			  Declare function CGImage lib UIKit selector "CGImage" (id as ptr) as ptr
-			  return CGImage (id)
+			  return new iOSLibCGImage ( CGImage (id))
 			End Get
 		#tag EndGetter
-		toCGImage As ptr
+		toCGImage As iOSLibCGImage
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

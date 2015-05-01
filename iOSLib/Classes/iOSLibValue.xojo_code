@@ -66,6 +66,7 @@ Inherits iosLibObject
 		    declare function valueWithCATransform3D lib UIKit selector "valueWithCATransform3D:" (id as ptr, value as CATransform3D) as ptr
 		    super.Constructor (valueWithCATransform3D (ClassPtr, T))
 		  #endif
+		  me.RetainClassObject
 		  
 		End Sub
 	#tag EndMethod
@@ -103,7 +104,7 @@ Inherits iosLibObject
 		    declare function valueWithPoint lib UIKit selector "valueWithPoint:" (id as ptr, value as NSPoint) as ptr
 		    super.Constructor (valueWithPoint (ClassPtr, apoint))
 		  #endif
-		  
+		  RetainClassObject
 		End Sub
 	#tag EndMethod
 
@@ -116,7 +117,7 @@ Inherits iosLibObject
 		    declare function valueWithRect lib UIKit selector "valueWithRect:" (id as ptr, value as NSRect) as ptr
 		    super.Constructor (valueWithRect (ClassPtr, aRect))
 		  #endif
-		  
+		  RetainClassObject
 		End Sub
 	#tag EndMethod
 
@@ -129,7 +130,7 @@ Inherits iosLibObject
 		    declare function valueWithSize lib UIKit selector "valueWithSize:" (id as ptr, value as NSSize) as ptr
 		    super.Constructor (valueWithSize (ClassPtr, aSize))
 		  #endif
-		  
+		  RetainClassObject
 		End Sub
 	#tag EndMethod
 
@@ -141,7 +142,7 @@ Inherits iosLibObject
 		  else
 		    super.constructor ( anid )
 		  end if
-		  
+		  RetainClassObject
 		End Sub
 	#tag EndMethod
 
@@ -153,10 +154,16 @@ Inherits iosLibObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function MakefromPtr(aPtr as Ptr) As iOSLibValue
+		  return if (aptr = nil, nil, new iOSLibValue(aptr))
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1021
 		Private Function ValueWithBytes(value as ptr, type as CString) As Ptr
 		  declare function valueWithBytes lib UIKit selector "valueWithBytes:objCType:" (id as ptr, value as ptr, type as CString) as ptr
-		  return valueWithBytes (ClassPtr, value, type)
+		  return  valueWithBytes (ClassPtr, value, type)
 		  
 		End Function
 	#tag EndMethod

@@ -140,6 +140,32 @@ Inherits iOSLibObject
 	#tag EndMethod
 
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if Target64bit
+			    declare function alphaValue lib UIKit selector "alpha" (id as ptr) as Double
+			  #elseif target32bit
+			    declare function alphaValue lib UIKit selector "alpha" (id as ptr) as Single
+			  #endif
+			  return alphaValue (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64bit
+			    declare sub setAlphaValue lib UIKit selector "setAlpha:" (id as ptr, value as double)
+			  #elseif target32bit
+			    declare sub setAlphaValue lib UIKit selector "setAlpha:" (id as ptr, value as Single)
+			  #endif
+			  setAlphaValue id, value
+			  
+			End Set
+		#tag EndSetter
+		Alpha As Double
+	#tag EndComputedProperty
+
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
@@ -150,8 +176,29 @@ Inherits iOSLibObject
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function hidden lib UIKit selector "isHidden" (id as ptr) as Boolean
+			  return hidden (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare sub setHidden lib UIKit selector "setHidden:" (id as ptr, value as Boolean)
+			  setHidden id, value
+			End Set
+		#tag EndSetter
+		Hidden As Boolean
+	#tag EndComputedProperty
+
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"
 			Group="Behavior"
@@ -159,6 +206,11 @@ Inherits iOSLibObject
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hidden"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty

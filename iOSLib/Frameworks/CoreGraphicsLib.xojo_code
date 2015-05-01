@@ -143,6 +143,9 @@ Protected Module CoreGraphicsLib
 	#tag Constant, Name = CoreGraphicsPath, Type = Text, Dynamic = False, Default = \"com.apple.CoreGraphics", Scope = Public
 	#tag EndConstant
 
+	#tag Constant, Name = CoreImage, Type = Text, Dynamic = False, Default = \"CoreImage.framework", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = CoreImagePath, Type = Text, Dynamic = False, Default = \"com.apple.CoreImage", Scope = Public
 	#tag EndConstant
 
@@ -164,6 +167,19 @@ Protected Module CoreGraphicsLib
 		  tx as Single
 		ty as Single
 	#tag EndStructure
+
+
+	#tag Enum, Name = CGLineCap, Type = UInt32, Flags = &h0
+		Butt
+		  Round
+		Square
+	#tag EndEnum
+
+	#tag Enum, Name = CGLineJoin, Type = UInt32, Flags = &h0
+		Miter
+		  Round
+		Bevel
+	#tag EndEnum
 
 
 	#tag ViewBehavior

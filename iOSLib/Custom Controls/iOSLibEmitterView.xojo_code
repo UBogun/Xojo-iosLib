@@ -12,6 +12,7 @@ Inherits iOSUserControl
 		  dim ego as new iOSLibView (mid)
 		  dim mylayer as iOSLibCALayer = ego.Layer
 		  mylayer.AddSubLayer myemitterlayer
+		  mEmitterLayer = myemitterlayer
 		  
 		  Return UInteger(mid)
 		End Function
@@ -45,6 +46,7 @@ Inherits iOSUserControl
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
+			  static mClassPtr as ptr
 			  if mClassPtr = nil then
 			    dim methods() as TargetClassMethodHelper
 			    methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
@@ -61,9 +63,10 @@ Inherits iOSUserControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  dim ego as new iOSLibView (mid)
-			  dim layer as iOSLibCALayer = ego.Layer
-			  return  new iOSLibCAEmitterLayer(layer.SubLayers.PtrAtIndex(0))
+			  // dim ego as new iOSLibView (mid)
+			  // dim layer as iOSLibCALayer = ego.Layer
+			  // return  new iOSLibCAEmitterLayer(layer.SubLayers.PtrAtIndex(0))
+			  return mEmitterLayer
 			End Get
 		#tag EndGetter
 		EmitterLayer As iOSLibCAEmitterLayer
@@ -79,7 +82,7 @@ Inherits iOSUserControl
 	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
-		Private Shared mClassPtr As Ptr
+		Private mEmitterLayer As iOSLibCAEmitterLayer
 	#tag EndProperty
 
 	#tag Property, Flags = &h21

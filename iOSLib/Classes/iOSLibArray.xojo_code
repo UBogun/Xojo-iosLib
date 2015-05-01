@@ -15,6 +15,20 @@ Inherits iOSLibMutableObjectInterface
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function ContainsObject(anObject as iOSLibGeneralObject) As Boolean
+		  Declare function containsObject lib Foundation selector "containsObject:" (id as ptr, anObject as ptr) as Boolean
+		  return containsObject (id, anObject.GeneralID)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ContainsText(SearchText as CFStringRef) As Boolean
+		  Declare function containsText lib Foundation selector "containsObject:" (id as ptr, anObject as cfstringref) as Boolean
+		  return containsText (id, SearchText)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		 Shared Function MakeFromPtr(aPtr as Ptr) As ioslibarray
 		  return if (aptr <> NIL, new iOSLibArray (aptr), NIL)
 		End Function

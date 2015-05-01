@@ -44,8 +44,9 @@ Inherits iosLibObject
 		#tag Getter
 			Get
 			  Declare function currentQueue lib Foundation selector "currentQueue" (id as ptr) as ptr
-			  static mcurrentQueue as new iOSLibOperationsQueue (currentQueue (ClassPtr))
-			  return mcurrentQueue
+			  dim result as new iOSLibOperationsQueue (currentQueue(classptr))
+			  result.RetainClassObject
+			  return result
 			End Get
 		#tag EndGetter
 		Shared CurrentQueue As iOSLibOperationsQueue
@@ -54,8 +55,13 @@ Inherits iosLibObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function mainQueue lib Foundation selector "mainQueue" (id as ptr) as ptr
-			  static mMainQueue as new iOSLibOperationsQueue (mainQueue (ClassPtr))
+			  static mMainQueue as new iOSLibOperationsQueue
+			  if mMainQueue = nil then
+			    Declare function mainQueue lib Foundation selector "mainQueue" (id as ptr) as ptr
+			    dim result as new iOSLibOperationsQueue  (mainQueue (ClassPtr))
+			    result.RetainClassObject
+			    mMainQueue = result
+			  end if
 			  return mMainQueue
 			End Get
 		#tag EndGetter
@@ -179,6 +185,11 @@ Inherits iosLibObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="MaxConcurrentOperationCount"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="mHasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -194,6 +205,11 @@ Inherits iosLibObject
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Suspended"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

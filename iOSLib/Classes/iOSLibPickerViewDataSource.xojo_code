@@ -5,7 +5,7 @@ Inherits iOSLibObject
 		Sub AddColumn(values() as text)
 		  Columns.Append values
 		  RowHeights.Append StandardRowHeight
-		  ReloadColumn(Columns.Ubound)
+		  Reload
 		End Sub
 	#tag EndMethod
 
@@ -96,7 +96,7 @@ Inherits iOSLibObject
 
 	#tag Method, Flags = &h21
 		Private Sub Reload()
-		  Declare Sub reloadAllComponents lib UIKit selector "reloadAllComponents:" (obj_ref As Ptr)
+		  Declare Sub reloadAllComponents lib UIKit selector "reloadAllComponents" (obj_ref As Ptr)
 		  
 		  reloadAllComponents(myPicker.id)
 		End Sub

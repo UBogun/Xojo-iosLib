@@ -15,6 +15,13 @@ Inherits iOSLibArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub AddText(aText as CFStringREf)
+		  Declare Sub addObject lib UIKit selector "addObject:" (id as ptr, value as cfstringref)
+		  addObject (id, atext)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		 Shared Function CGColorArray(colorarray() as Color) As ioslibmutablearray
 		  dim count as uinteger = colorArray.Ubound
 		  dim myarray as new ioslibmutablearray (count + 1)
@@ -48,6 +55,28 @@ Inherits iOSLibArray
 		  Super.Constructor (doinitwithcapacity(Alloc(ClassPtr), Capacity))
 		  mhasownership = true
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function fromosLibObjects(paramarray objects() as ioslibobject) As ioslibmutablearray
+		  dim count as uinteger = objects.Ubound
+		  dim myarray as new ioslibmutablearray (count + 1)
+		  for q as uinteger = 0 to count
+		    myarray.Addobject objects(q).id
+		  next
+		  return myarray
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function NSPointArray(Pointarray() as NSPOint) As iOSLibMutableArray
+		  dim count as uinteger = pointarray.Ubound + 1
+		  dim myarray as new iOSLibMutableArray (count)
+		  for q as uinteger = 1 to count
+		    myarray.Addobject new iOSLibValue (pointarray(q -1))
+		  next
+		  return myarray
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0

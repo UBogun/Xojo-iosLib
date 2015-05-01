@@ -56,6 +56,24 @@ Inherits iosLibObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As iosLibColor
+		  return if (aptr <> NIL, new iOSLibColor (aptr), NIL)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Operator_Convert() As Color
+		  return self.toColor
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Operator_Convert(aColor as color) As ioslibcolor
+		  return  self.FromColor(aColor)
+		End Function
+	#tag EndMethod
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter

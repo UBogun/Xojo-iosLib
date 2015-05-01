@@ -36,8 +36,7 @@ Inherits iOSLibCAAnimation
 	#tag Method, Flags = &h21
 		Private Sub MakeInstance()
 		  Super.Constructor (alloc(ClassPtr))
-		  mhasownership = true
-		  
+		  RetainClassObject
 		  dim mydelegate as new iOSLibCAAnimationDelegate
 		  setDelegate mydelegate.id
 		End Sub
@@ -74,6 +73,11 @@ Inherits iOSLibCAAnimation
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Autoreverses"
 			Group="Behavior"
@@ -112,6 +116,11 @@ Inherits iOSLibCAAnimation
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hidden"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -131,9 +140,36 @@ Inherits iOSLibCAAnimation
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="MagnificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="mHasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilterBias"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

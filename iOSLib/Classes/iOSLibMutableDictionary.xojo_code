@@ -16,8 +16,20 @@ Inherits iOSLibDictionary
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
 		  Super.Constructor (DoInitWithCapacity (alloc(classptr), Capacity))
-		  mhasownership = true
-		  
+		  RetainClassObject
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As iOSLibMutableDictionary
+		  return if (aPtr = NIL, NIL, new iOSLibMutableDictionary (aptr))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ObjectForKey(Key as cfstringref, assigns anObject as ioslibgeneralobject)
+		  Declare sub setObjectForKeyString lib UIKit selector "setObject:forKey:" (id as ptr, value  as ptr, key as cfstringref)
+		  setObjectForKeyString id, anObject.GeneralID, key
 		End Sub
 	#tag EndMethod
 
@@ -36,8 +48,20 @@ Inherits iOSLibDictionary
 
 	#tag Method, Flags = &h0
 		Sub SetObjectForKey(Key as iOSLibGeneralObject, anObject as iOSLibGeneralObject)
+		  setObjectForKey  key.GeneralID, anObject.GeneralID
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SetObjectForKey(Key as Ptr, anObject as Ptr)
 		  Declare sub setObjectForKey lib UIKit selector "setObject:forKey:" (id as ptr, value  as ptr, key as ptr)
-		  setObjectForKey id, anObject.GeneralID, key.GeneralID
+		  setObjectForKey id, anObject, key
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SetObjectForKey(Key as Ptr, anObject as Weakref)
+		  setObjectForKey  key, anObject
 		End Sub
 	#tag EndMethod
 

@@ -10,9 +10,9 @@ Begin iosView CAEmitterLayerView
    Begin ioslibemitterview testview
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
       AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
       AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       Height          =   415.0
       Left            =   0
@@ -85,8 +85,6 @@ End
 		  // mylayer.LevelsOfDetail = 1
 		  // testview.iOSLibView.Layer.AddSubLayer mylayer
 		  // mylayer.Seed = 1394639
-		  dim mypic as iOSImage = iosLibLogo
-		  dim myimage as new iOSLibImage (mypic.Handle)
 		  // testview.iOSLibView.layer.Contents =new ioslibobject ( myimage.toCGImage)
 		  
 		  
@@ -94,8 +92,9 @@ End
 		  dim mylib as new iOSLibMutableArray
 		  mylib.Addobject myEmitterCell
 		  testview.EmitterLayer.EmitterCells = mylib
+		  dim myimage as new iOSLibImage (iosliblogo)
 		  
-		  myEmitterCell.Contents =new ioslibobject ( myimage.toCGImage)
+		  myEmitterCell.Contents =new ioslibobject ( myimage.toCGImage.CFTypeRef)
 		  myEmitterCell.Name = "iOSLibLogoCell"
 		  
 		  myEmitterCell.LifeTime = 100
@@ -103,23 +102,24 @@ End
 		  myEmitterCell.RedRange = 1
 		  myEmitterCell.BlueRange = 1
 		  myEmitterCell.GreenRange = 1
-		  myEmitterCell.AlphaRange = 0.8
-		  myEmitterCell.RedSpeed = 0.0002
-		  myEmitterCell.GreenSpeed = 0.003
+		  myEmitterCell.AlphaRange = 0.9
+		  myEmitterCell.RedSpeed = 0.001
+		  myEmitterCell.GreenSpeed = 0.01
 		  myEmitterCell.BlueSpeed = 0.1
 		  myEmitterCell.BirthRate = 2
 		  myEmitterCell.Scale = 0.02
 		  myEmitterCell.ScaleRange = 0.1
 		  myEmitterCell.Velocity = 100
 		  myEmitterCell.ScaleSpeed = 0.01
-		  myEmitterCell.VelocityRange = 15
+		  myEmitterCell.VelocityRange = 30
 		  myEmitterCell.XAcceleration = 5
 		  myEmitterCell.YAcceleration = 18
-		  myEmitterCell.Spin = 0.3
+		  myEmitterCell.Spin = 0
 		  myEmitterCell.SpinRange = 10
-		  myEmitterCell.EmissionRange = 2
+		  myEmitterCell.EmissionRange = 1
 		  myEmitterCell.Enabled = true
 		  testview.EmitterLayer.BirthRate = 1
+		  
 		End Sub
 	#tag EndMethod
 

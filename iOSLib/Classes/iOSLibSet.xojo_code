@@ -55,6 +55,12 @@ Inherits iOSLibObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function MakefromPtr(aPtr as Ptr) As iOSLibset
+		  return if (aptr = nil, nil, new iOSLibSet (aptr))
+		End Function
+	#tag EndMethod
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter

@@ -231,6 +231,11 @@ Inherits iOSLibControl
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="ContentScaleFactor"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Continuous"
 			Group="Behavior"
 			Type="boolean"

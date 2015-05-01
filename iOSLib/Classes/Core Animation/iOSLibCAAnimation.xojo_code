@@ -10,8 +10,7 @@ Inherits ioslibcamediatimingobject
 		  // Constructor() -- From MacOSObject
 		  // Constructor(id as Ptr) -- From MacOSObject
 		  Super.Constructor (animation (ClassPtr))
-		  MHasOwnership = true
-		  
+		  RetainClassObject
 		  dim mydelegate as new iOSLibCAAnimationDelegate
 		  setDelegate mydelegate.id
 		  
@@ -76,7 +75,7 @@ Inherits ioslibcamediatimingobject
 		  case properties.Filters
 		    return Filters
 		  case Properties.Hidden
-		    return Hidden
+		    return CHidden
 		  case Properties.MasksToBounds
 		    return MasksToBounds
 		  case Properties.Opacity
@@ -211,6 +210,9 @@ Inherits ioslibcamediatimingobject
 	#tag Constant, Name = CContentsRect, Type = Text, Dynamic = False, Default = \"contentsRect", Scope = Protected
 	#tag EndConstant
 
+	#tag Constant, Name = CHidden, Type = Text, Dynamic = False, Default = \"hidden", Scope = Protected
+	#tag EndConstant
+
 	#tag Constant, Name = Contents, Type = Text, Dynamic = False, Default = \"contents", Scope = Protected
 	#tag EndConstant
 
@@ -236,9 +238,6 @@ Inherits ioslibcamediatimingobject
 	#tag EndConstant
 
 	#tag Constant, Name = Height, Type = Text, Dynamic = False, Default = \"bounds.size.height", Scope = Protected
-	#tag EndConstant
-
-	#tag Constant, Name = Hidden, Type = Text, Dynamic = False, Default = \"hidden", Scope = Protected
 	#tag EndConstant
 
 	#tag Constant, Name = Mask, Type = Text, Dynamic = False, Default = \"mask", Scope = Protected
@@ -328,6 +327,11 @@ Inherits ioslibcamediatimingobject
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Autoreverses"
 			Group="Behavior"
 			Type="Boolean"
@@ -365,6 +369,11 @@ Inherits ioslibcamediatimingobject
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hidden"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -384,9 +393,36 @@ Inherits ioslibcamediatimingobject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="MagnificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="mHasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilterBias"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

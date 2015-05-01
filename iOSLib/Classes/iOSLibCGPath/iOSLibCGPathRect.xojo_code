@@ -21,7 +21,7 @@ Inherits iOSLibCGPath
 		  // Possible constructor calls:
 		  // Constructor() -- From iOSLibCGPath
 		  // Constructor(aTypeRef as Ptr) -- From iOSLibCFObject
-		  Super.Constructor (CGPathCreateWithRect(ARect))
+		  Super.Constructor (CGPathCreateWithRect(ARect), true)
 		  
 		End Sub
 	#tag EndMethod
@@ -39,11 +39,6 @@ Inherits iOSLibCGPath
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="HasOwnerShip"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -51,7 +46,17 @@ Inherits iOSLibCGPath
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="isEmpty"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="isNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isRect"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty

@@ -10,9 +10,9 @@ Begin iosView IntrospectionView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 3, TextField1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Format          =   "0"
       Height          =   368.0
@@ -27,9 +27,9 @@ Begin iosView IntrospectionView
    Begin iOSTextField TextField1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TextField1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 169, 
-      AutoLayout      =   TextField1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextField1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0

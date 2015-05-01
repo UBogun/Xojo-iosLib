@@ -10,10 +10,10 @@ Begin iosView SplashView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       ContentMode     =   "1"
       Height          =   240.0
       Image           =   "547002367"
@@ -27,10 +27,10 @@ Begin iosView SplashView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -48,10 +48,10 @@ Begin iosView SplashView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, -37, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       Caption         =   "Info"
       Enabled         =   True
       Height          =   30.0
@@ -68,9 +68,9 @@ Begin iosView SplashView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button2, 9, <Parent>, 9, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
       Caption         =   "Menu"
       Enabled         =   True
       Height          =   30.0
@@ -95,7 +95,6 @@ End
 		  dim options as new iOSLibViewAnimationOption
 		  options.AllowUserInteraction = true
 		  button1.iOSLibView.SpringAnimateFrame (newrect , options, 0.3, 10, 5)
-		  dim cs as new iOSLayoutConstraint (self, iOSLayoutConstraint.AttributeTypes.Bottom,  iOSLayoutConstraint.RelationTypes.Equal ,BottomLayoutGuide, iOSLayoutConstraint.AttributeTypes.Top, 1, 60)
 		  Button2.iOSLibView.TransitionWithAlpha 1, iOSLibView.UIVIewAnimationTransition.FlipFromLeft, iOSLibViewAnimationOption.OptionNone, 2
 		End Sub
 	#tag EndMethod

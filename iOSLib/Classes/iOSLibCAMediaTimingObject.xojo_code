@@ -67,7 +67,7 @@ Inherits iosLibResponder
 		#tag Getter
 			Get
 			  static mresult as text =  SystemConstantName (kCAFilterLinear, QuartzCorePath)
-			  
+			  return mresult
 			End Get
 		#tag EndGetter
 		Protected Shared CFilterLinear As Text
@@ -77,7 +77,7 @@ Inherits iosLibResponder
 		#tag Getter
 			Get
 			  static mresult as text =  SystemConstantName (kCAFilterNearest, QuartzCorePath)
-			  
+			  return mresult
 			End Get
 		#tag EndGetter
 		Protected Shared CFilterNearest As Text
@@ -87,7 +87,7 @@ Inherits iosLibResponder
 		#tag Getter
 			Get
 			  static mresult as text =  SystemConstantName (kCAFilterTrilinear, QuartzCorePath)
-			  
+			  return mresult
 			End Get
 		#tag EndGetter
 		Protected Shared CFilterTrilinear As Text
@@ -460,6 +460,11 @@ Inherits iosLibResponder
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Autoreverses"
 			Group="Behavior"
 			Type="Boolean"
@@ -493,6 +498,11 @@ Inherits iosLibResponder
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hidden"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty

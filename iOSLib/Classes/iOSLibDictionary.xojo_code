@@ -28,7 +28,13 @@ Inherits iOSLibMutableObjectInterface
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ObjectForKey(akey as cfstringref) As Ptr
+		Function ObjectForKey(akey as cfstringref) As ioslibobject
+		  return ioslibobject.MakeFromPtr (PtrForKey (akey))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function PtrForKey(akey as cfstringref) As Ptr
 		  declare Function objectForKey lib UIKit selector "objectForKey:" (id as ptr, key as cfstringref) as ptr
 		  return objectForKey (id, akey)
 		End Function
