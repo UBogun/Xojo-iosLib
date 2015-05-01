@@ -2,24 +2,49 @@
 Protected Class iOSLibHTMLViewer
 Inherits iOSUserControl
 	#tag Event
+		Sub Close()
+		  if not Viewer.IsNIL then
+		    Viewer.Delegate_ = nil
+		    system.debuglog "Nulled HTMLVIewDelegate"
+		  end if
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Function CreateView() As UInteger
 		  dim frame as new Rect (0,0,100,100)
 		  
 		  mid = iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect)
 		  Viewer.myiOSLibHTMLViewer = WeakRef.create (self)
+		  viewer.mhasownership = true
 		  
 		  dim mydelegate as new iOSLibWebViewDelegate (self)
 		  Viewer.Delegate_ = mydelegate
 		  
 		  Return UInteger(mid)
+		  
+		  
+		  
+		  
 		End Function
 	#tag EndEvent
 
 
+	#tag Method, Flags = &h1000
+		Sub Constructor(Aptr as Ptr)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From iOSUserControl
+		  // Constructor() -- From iOSControl
+		  // Constructor(deserializer As xojo.Core._Deserializer) -- From iOSControl
+		  mid = aptr
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Sub Destructor()
-		  Viewer.Delegate_ = nil
-		  system.debuglog "NULled Delegate"
+		  break
 		End Sub
 	#tag EndMethod
 
@@ -45,10 +70,10 @@ Inherits iOSUserControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub InformOnShouldStart(Request as Ptr, NavigationType as iOSLibWebView.UIWebViewNavigationType)
-		  RaiseEvent ShouldStart (Request, navigationtype)
+		Attributes( hidden )  Function InformOnShouldStart(Request as Ptr, NavigationType as iOSLibWebView.UIWebViewNavigationType) As boolean
+		  return RaiseEvent ShouldStart (Request, navigationtype)
 		  
-		End Sub
+		End Function
 	#tag EndMethod
 
 
@@ -65,7 +90,7 @@ Inherits iOSUserControl
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event ShouldStart(Request as ptr, navigationtype as iOSLibWebView.UIWebViewNavigationType)
+		Event ShouldStart(Request as ptr, navigationtype as iOSLibWebView.UIWebViewNavigationType) As boolean
 	#tag EndHook
 
 

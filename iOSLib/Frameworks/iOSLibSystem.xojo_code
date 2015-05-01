@@ -91,6 +91,9 @@ Protected Module iOSLibSystem
 	#tag Constant, Name = LibSystem, Type = Text, Dynamic = False, Default = \"/usr/lib/libSystem.B.dylib", Scope = Private
 	#tag EndConstant
 
+	#tag Constant, Name = SpriteKit, Type = Text, Dynamic = False, Default = \"SpriteKit.Framework", Scope = Public
+	#tag EndConstant
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

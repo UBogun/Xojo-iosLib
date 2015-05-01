@@ -193,6 +193,210 @@ Inherits iOSLibResponder
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonDidAddSubview  (view)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidMoveToSuperview(pid as ptr, sel as ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonDidMoveToSuperview
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidMoveToWindow(pid as ptr, sel as ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonDidMoveToWindow
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as NSRect32Bit)
+		  dim ego as new ioslibview (pid)
+		  ego.informonDrawRect (rect.toNSRect)
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as NSRect)
+		  dim ego as new ioslibview (pid)
+		  ego.informonDrawRect (rect)
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_LayoutSubviews(pid as ptr, sel as ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonlayoutSubviews
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as iOSLibEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonMotionBeganwithEvent  (type, anEvent)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesBeganWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonTouchesBeganwithEvent  (Touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesCancelledWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonTouchesCancelledwithEvent  (Touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesEndedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonTouchesEndedwithEvent  (Touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesMovedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonTouchesMovedwithEvent  (Touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willMoveToSuperview(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonwillMoveToSuperview  (view)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willMoveToWindow(pid as ptr, sel as ptr, window as Ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonwillMoveToWindow (window)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willRemoveSubview(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new ioslibview (pid)
+		  ego.informonwillRemoveSubview  (view)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidAddSubview(view as ptr)
+		  RaiseEvent DidAddSubview ( ioslibview.makefromptr( view))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidMoveToSuperView()
+		  RaiseEvent DidMoveToSuperview
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidMoveToWindow()
+		  RaiseEvent DidMoveToWindow
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDrawRect(Rect as NSRect)
+		  RaiseEvent DrawRect (rect)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonlayoutSubviews()
+		  RaiseEvent layoutSubviews
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonMotionBeganwithEvent(type as iOSLibEvent.UIEventSubtype, anEvent as ptr)
+		  RaiseEvent MotionBeganwithEvent ( type, ioslibevent.makefromptr (anevent))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonTouchesBeganwithEvent(Touchset as ptr, anEvent as ptr)
+		  RaiseEvent TouchesBeganwithEvent ( ioslibset.makefromptr( touchset), ioslibevent.makefromptr (anevent))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonTouchesCancelledwithEvent(Touchset as ptr, anEvent as ptr)
+		  RaiseEvent TouchesCancelledwithEvent ( ioslibset.makefromptr( touchset), ioslibevent.makefromptr (anevent))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonTouchesEndedwithEvent(Touchset as ptr, anEvent as ptr)
+		  RaiseEvent TouchesBeganwithEvent ( ioslibset.makefromptr( touchset), ioslibevent.makefromptr (anevent))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonTouchesMovedwithEvent(Touchset as ptr, anEvent as ptr)
+		  RaiseEvent TouchesMovedwithEvent ( ioslibset.makefromptr( touchset), ioslibevent.makefromptr (anevent))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonwillMoveToSuperView(view as ptr)
+		  RaiseEvent WillMoveToSuperview ( ioslibview.makefromptr( view))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonwillMoveToWindow(window as Ptr)
+		  RaiseEvent WillMoveToWindow ( window)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonWillRemoveSubview(view as ptr)
+		  RaiseEvent WillRemoveSubview ( ioslibview.makefromptr( view))
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub InsertSubviewAbove(aView as iOSLibView, aboveView as iOSLibView)
 		  declare sub insertSubview lib UIKit selector "insertSubview:aboveSubview:" (id as ptr, aview as ptr, aboveView as ptr)
@@ -515,32 +719,58 @@ Inherits iOSLibResponder
 		Event AnimationFinished(animationCompleted as boolean)
 	#tag EndHook
 
+	#tag Hook, Flags = &h0
+		Event DidAddSubview(view as iOSLibView)
+	#tag EndHook
 
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  #if Target64bit
-			    declare function alphaValue lib UIKit selector "alpha" (id as ptr) as Double
-			  #elseif target32bit
-			    declare function alphaValue lib UIKit selector "alpha" (id as ptr) as Single
-			  #endif
-			  return alphaValue (id)
-			  
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  #if Target64bit
-			    declare sub setAlphaValue lib UIKit selector "setAlpha:" (id as ptr, value as double)
-			  #elseif target32bit
-			    declare sub setAlphaValue lib UIKit selector "setAlpha:" (id as ptr, value as Single)
-			  #endif
-			  setAlphaValue id, value
-			  
-			End Set
-		#tag EndSetter
-		Alpha As Double
-	#tag EndComputedProperty
+	#tag Hook, Flags = &h0
+		Event DidMoveToSuperview()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DidMoveToWindow()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DrawRect(Rect as NSRect)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event LayoutSubviews()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event MotionBeganwithEvent(type as iOSLibEvent.UIEventSubtype, anEvent as ioslibevent)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event TouchesBeganwithEvent(Touchset as iOSLibSet, anEvent as ioslibevent)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event TouchesCancelledwithEvent(Touchset as iOSLibSet, anEvent as ioslibevent)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event TouchesEndedwithEvent(Touchset as iOSLibSet, anEvent as ioslibevent)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event TouchesMovedwithEvent(Touchset as iOSLibSet, anEvent as ioslibevent)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event WillMoveToSuperview(view as iOSLibView)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event WillMoveToWindow(window as ptr)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event WillRemoveSubview(view as iOSLibView)
+	#tag EndHook
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
@@ -633,8 +863,35 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIView")
-			  return mClassPtr
+			  static targetID as ptr
+			  if targetID = Nil then
+			    dim methods() as TargetClassMethodHelper
+			    //override UIView methods
+			    methods.Append new TargetClassMethodHelper("willMoveToWindow:", AddressOf impl_willMoveToWindow, "v@:@")
+			    methods.Append new TargetClassMethodHelper("didMoveToWindow", AddressOf impl_DidMoveToWindow, "v@:")
+			    methods.Append new TargetClassMethodHelper("willMoveToSuperview:", AddressOf impl_willMoveToSuperview, "v@:@")
+			    methods.Append new TargetClassMethodHelper("didMoveToSuperview", AddressOf impl_DidMoveToSuperview, "v@:")
+			    methods.Append new TargetClassMethodHelper("willRemoveSubview:", AddressOf impl_willRemoveSubview, "v@:@")
+			    methods.Append new TargetClassMethodHelper("didAddSubview:", AddressOf impl_DidAddSubview, "v@:@")
+			    methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
+			    
+			    methods.Append new TargetClassMethodHelper("touchesBegan:withEvent:", AddressOf impl_TouchesBeganWithEvent, "v@:@@")
+			    methods.Append new TargetClassMethodHelper("touchesEnded:withEvent:", AddressOf impl_TouchesEndedWithEvent, "v@:@@")
+			    methods.Append new TargetClassMethodHelper("touchesMoved:withEvent:", AddressOf impl_TouchesMovedWithEvent, "v@:@@")
+			    methods.Append new TargetClassMethodHelper("touchesCancelled:withEvent:", AddressOf impl_TouchesCancelledWithEvent, "v@:@@")
+			    
+			    methods.Append new TargetClassMethodHelper("motionBegan:withEvent:", AddressOf impl_MotionBeganWithEvent, "v@:i@")
+			    
+			    
+			    #if Target64Bit
+			      methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")
+			    #elseif Target32Bit
+			      methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect32, "v@:{CGRect}")
+			    #endif
+			    
+			    targetID = BuildTargetClass ("UIView", "iOSLibUIView",methods)
+			  end if
+			  Return targetID
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
@@ -691,6 +948,32 @@ Inherits iOSLibResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  #if Target64Bit
+			    declare function contentScaleFactor lib UIKit selector "contentScaleFactor" (id as ptr) as double
+			  #elseif Target32Bit
+			    declare function contentScaleFactor lib UIKit selector "contentScaleFactor" (id as ptr) as Single
+			  #endif
+			  return ContentScaleFactor (id)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    declare sub setContentScaleFactor lib UIKit selector "setContentScaleFactor:" (id as ptr, value as double)
+			  #elseif Target32Bit
+			    declare sub setContentScaleFactor lib UIKit selector "setContentScaleFactor:" (id as ptr, value as single)
+			  #endif
+			  setContentScaleFactor (id, value)
+			  
+			End Set
+		#tag EndSetter
+		ContentScaleFactor As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare Function areAnimationsEnabled lib UIKit selector "areAnimationsEnabled" (id as ptr) as Boolean
 			  Return areAnimationsEnabled (classptr)
 			End Get
@@ -742,22 +1025,6 @@ Inherits iOSLibResponder
 			End Get
 		#tag EndGetter
 		HasAmbiguousLayout As Boolean
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare Function hidden lib UIKit selector "isHidden" (id as ptr) as Boolean
-			  return hidden (id)
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare sub setHidden lib UIKit selector "setHidden:" (id as ptr, value as Boolean)
-			  setHidden id, value
-			End Set
-		#tag EndSetter
-		Hidden As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1058,6 +1325,46 @@ Inherits iOSLibResponder
 	#tag EndComputedProperty
 
 
+	#tag Constant, Name = DidAddSubview, Type = Text, Dynamic = False, Default = \"DidAddSubview", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = DidMoveToSuperview, Type = Text, Dynamic = False, Default = \"DidMoveToSuperview", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = DidMoveToWindow, Type = Text, Dynamic = False, Default = \"DidMoveToWindow", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = DrawRect, Type = Text, Dynamic = False, Default = \"DrawRect", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = LayoutSubviews, Type = Text, Dynamic = False, Default = \"LayoutSubviews", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = MotionBegan, Type = Text, Dynamic = False, Default = \"MotionBegan", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = TouchesBegan, Type = Text, Dynamic = False, Default = \"TouchesBegan", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = TouchesCancelled, Type = Text, Dynamic = False, Default = \"TouchesCancelled", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = TouchesEnded, Type = Text, Dynamic = False, Default = \"TouchesEnded", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = TouchesMoved, Type = Text, Dynamic = False, Default = \"TouchesMoved", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = WillMoveToSuperview, Type = Text, Dynamic = False, Default = \"WillMoveToSuperview", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = WillMoveToWindow, Type = Text, Dynamic = False, Default = \"WillMoveToWindow", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = WillRemoveSubview, Type = Text, Dynamic = False, Default = \"WillRemoveSubview", Scope = Public
+	#tag EndConstant
+
+
 	#tag Enum, Name = UIVIewAnimationCurve, Type = Integer, Flags = &h0
 		EaseInEaseOut
 		  EaseIn
@@ -1148,6 +1455,11 @@ Inherits iOSLibResponder
 				"11 - BottomLeft"
 				"12 - BottomRight"
 			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentScaleFactor"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"

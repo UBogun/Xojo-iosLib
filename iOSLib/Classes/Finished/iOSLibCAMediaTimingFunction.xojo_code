@@ -33,7 +33,7 @@ Inherits iOSLibObject
 		    name = TimingLinear
 		  end select
 		  super.Constructor (functionWithName (ClassPtr, name))
-		  
+		  RetainClassObject
 		End Sub
 	#tag EndMethod
 

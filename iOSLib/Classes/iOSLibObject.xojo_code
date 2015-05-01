@@ -10,6 +10,12 @@ Implements iOSLibGeneralObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub AutoRelease()
+		  mid = AutoRelease(mid)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		 Shared Function AutoRelease(id as ptr) As Ptr
 		  declare function autorelease lib UIKit selector "autorelease" (id as ptr) as ptr
 		  return autorelease (id)
@@ -20,7 +26,7 @@ Implements iOSLibGeneralObject
 	#tag Method, Flags = &h0
 		Sub Constructor()
 		  mid = CreateInstance (ClassPtr)
-		  mHasOwnership = true
+		  RetainClassObject
 		End Sub
 	#tag EndMethod
 
@@ -71,7 +77,7 @@ Implements iOSLibGeneralObject
 		  
 		  if mHasOwnership then
 		    system.DebugLog "Releasing "+DebugDescription+" AR: "+RetainCount.totext
-		    Release
+		    autoRelease
 		  else
 		    // system.DebugLog "Losing Handle on "+DebugDescription+" AR: "+RetainCount.totext
 		  end if
@@ -160,10 +166,17 @@ Implements iOSLibGeneralObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Sub Retain()
+	#tag Method, Flags = &h0
+		Sub Retain()
 		  declare function retain lib UIKit selector "retain" (id as ptr) as ptr
 		  call retain (mid)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub RetainClassObject()
+		  Retain
+		  mhasownership = true
 		End Sub
 	#tag EndMethod
 
@@ -183,6 +196,18 @@ Implements iOSLibGeneralObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
+		Protected Sub setSize(value as nssize)
+		  #if Target64Bit
+		    Declare sub setSize lib UIKit selector "setSize:" (id as ptr, value as NSSize)
+		    setSize id, value
+		  #elseif Target32Bit
+		    Declare sub setSize lib UIKit selector "setSize:" (id as ptr, value as NSSize32Bit)
+		    setSize id, value.toNSSize32
+		  #endif
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
 		Protected Sub setTitle(Title as cfstringref)
 		  Declare Sub setTitle lib UIKit selector "setTitle:" (id as ptr, value as CFStringRef)
 		  settitle (id, title)
@@ -191,10 +216,24 @@ Implements iOSLibGeneralObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub setValueForKey(Key as CFStringRef, value as iOSLibGeneralObject)
+		  Declare sub setValueForKey lib Foundation selector "setValue:forKey:" (id as ptr, value as ptr, Key as CFStringRef)
+		  setValueForKey (id, value.GeneralID, Key)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub setValueForKeyPath(KeyPath as CFStringRef, value as iOSLibGeneralObject)
 		  Declare sub setValueForKeyPath lib UIKit selector "setValue:forKeyPath:" (id as ptr, value as ptr, KeyPath as CFStringRef)
 		  setValueForKeyPath (id, value.GeneralID, KeyPath)
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ValueForKey(Key as CFStringRef) As ptr
+		  Declare Function ValueForKey lib UIKit selector "valueForKey:" (id as ptr, KeyPath as CFStringRef) as ptr
+		  return ValueForKey (id, Key)
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0

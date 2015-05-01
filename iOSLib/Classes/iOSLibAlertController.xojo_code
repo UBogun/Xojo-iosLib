@@ -18,7 +18,7 @@ Inherits iosLibViewController
 		  // Constructor() -- From iOSLibObject
 		  // Constructor(AnId as Ptr) -- From iOSLibObject
 		  if isAvailable then Super.Constructor (alertControllerWithTitle (classptr, Title, Message, preferredStyle))
-		  
+		  RetainClassObject
 		End Sub
 	#tag EndMethod
 
@@ -93,12 +93,22 @@ Inherits iosLibViewController
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="DebugDescription"
 			Group="Behavior"
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hidden"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty

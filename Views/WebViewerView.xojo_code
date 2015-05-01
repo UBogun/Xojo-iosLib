@@ -1,5 +1,5 @@
 #tag IOSView
-Begin iosView WebViewerView Implements NotificationReceiver
+Begin iosView WebViewerView Implements iOSLibEventReceiver
    BackButtonTitle =   ""
    Compatibility   =   ""
    Left            =   0
@@ -10,10 +10,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSTextField TextField1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextField1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   TextField1, 2, GoButton, 1, False, +1.00, 1, 1, -*kStdControlGapH, 
+      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, 28, 
+      AutoLayout      =   TextField1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -31,13 +31,13 @@ Begin iosView WebViewerView Implements NotificationReceiver
       Visible         =   True
       Width           =   157.0
    End
-   Begin iOSLibHTMLViewer HTMLViewer1
+   Begin iOSLibHTMLViewerWithInterface HTMLViewer1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   HTMLViewer1, 3, AirSwitch, 4, False, +1.00, 2, 1, 20, 
-      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   HTMLViewer1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 3, AirSwitch, 4, False, +1.00, 2, 1, 20, 
       Height          =   241.0
       Left            =   0
       LockedInPosition=   False
@@ -51,9 +51,9 @@ Begin iosView WebViewerView Implements NotificationReceiver
       AccessibilityLabel=   ""
       AutoLayout      =   GoButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   GoButton, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   GoButton, 2, StopButton, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   GoButton, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   GoButton, 7, , 0, False, +1.00, 1, 1, 53, 
+      AutoLayout      =   GoButton, 2, StopButton, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       Caption         =   "Goto"
       Enabled         =   True
       Height          =   30.0
@@ -70,10 +70,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSButton BackButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   BackButton, 7, , 0, False, +1.00, 1, 1, 70, 
-      AutoLayout      =   BackButton, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   BackButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   BackButton, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   BackButton, 3, TextField1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   BackButton, 7, , 0, False, +1.00, 1, 1, 70, 
       Caption         =   "Back"
       Enabled         =   True
       Height          =   30.0
@@ -90,10 +90,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSButton ForwardButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ForwardButton, 7, , 0, False, +1.00, 1, 1, 70, 
-      AutoLayout      =   ForwardButton, 1, BackButton, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ForwardButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   ForwardButton, 1, BackButton, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   ForwardButton, 3, BackButton, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ForwardButton, 7, , 0, False, +1.00, 1, 1, 70, 
       Caption         =   "Forward"
       Enabled         =   True
       Height          =   30.0
@@ -110,10 +110,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSButton ForwardButton1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ForwardButton1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   ForwardButton1, 7, , 0, False, +1.00, 1, 1, 70, 
       AutoLayout      =   ForwardButton1, 1, GoButton, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ForwardButton1, 7, , 0, False, +1.00, 1, 1, 70, 
       AutoLayout      =   ForwardButton1, 3, BackButton, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ForwardButton1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Reload"
       Enabled         =   True
       Height          =   30.0
@@ -130,10 +130,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSButton StopButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   StopButton, 7, , 0, False, +1.00, 1, 1, 46, 
-      AutoLayout      =   StopButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   StopButton, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   StopButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   StopButton, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   StopButton, 7, , 0, False, +1.00, 1, 1, 46, 
       Caption         =   "Stop"
       Enabled         =   True
       Height          =   30.0
@@ -150,10 +150,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSSwitch AirSwitch
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   AirSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   AirSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   AirSwitch, 3, Label2, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AirSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   AirSwitch, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   AirSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   20
@@ -167,10 +167,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, -1, 
       AutoLayout      =   Label2, 3, BackButton, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, -1, 
       AutoLayout      =   Label2, 2, AirSwitch, 2, False, +1.00, 1, 1, -1, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   -1
@@ -188,10 +188,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSSwitch InlineSwitch
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   InlineSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   InlineSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   InlineSwitch, 3, AirSwitch, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   InlineSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   InlineSwitch, 1, HTMLViewer1, 2, False, +0.25, 1, 1, 0, 
+      AutoLayout      =   InlineSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   80
@@ -205,10 +205,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSLabel Label3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 51, 
       AutoLayout      =   Label3, 1, HTMLViewer1, 2, False, +0.25, 1, 1, 0, 
+      AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 51, 
       AutoLayout      =   Label3, 3, Label2, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   80
@@ -226,10 +226,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSSwitch AutoPlaySwicth
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   AutoPlaySwicth, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   AutoPlaySwicth, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   AutoPlaySwicth, 3, InlineSwitch, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AutoPlaySwicth, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   AutoPlaySwicth, 1, HTMLViewer1, 2, False, +0.50, 1, 1, -20, 
+      AutoLayout      =   AutoPlaySwicth, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   140
@@ -243,10 +243,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSLabel Label4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label4, 7, , 0, False, +1.00, 1, 1, 51, 
-      AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label4, 3, Label2, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label4, 1, HTMLViewer1, 2, False, +0.50, 1, 1, -20, 
+      AutoLayout      =   Label4, 7, , 0, False, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   30.0
       Left            =   140
@@ -264,10 +264,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSLabel Render
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Render, 7, , 0, False, +1.00, 1, 1, 51, 
-      AutoLayout      =   Render, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Render, 3, Label3, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Render, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Render, 1, HTMLViewer1, 2, False, +0.60, 1, 1, 0, 
+      AutoLayout      =   Render, 7, , 0, False, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   30.0
       Left            =   192
@@ -285,10 +285,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSSwitch RenderSwitch
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   RenderSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   RenderSwitch, 9, HTMLViewer1, 2, False, +0.70, 2, 1, 0, 
       AutoLayout      =   RenderSwitch, 3, AutoPlaySwicth, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   RenderSwitch, 9, HTMLViewer1, 2, False, +0.70, 2, 1, 0, 
       AutoLayout      =   RenderSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   RenderSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   198
@@ -302,10 +302,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSLabel Render1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Render1, 7, , 0, False, +1.00, 1, 1, 51, 
-      AutoLayout      =   Render1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Render1, 3, Label2, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Render1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Render1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Render1, 7, , 0, False, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   30.0
       Left            =   249
@@ -323,10 +323,10 @@ Begin iosView WebViewerView Implements NotificationReceiver
    Begin iOSSwitch ScaleSwitch
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ScaleSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   ScaleSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   ScaleSwitch, 3, AirSwitch, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ScaleSwitch, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   ScaleSwitch, 2, StopButton, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ScaleSwitch, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   249
@@ -349,6 +349,7 @@ End
 		  button = iOSToolButton.NewBordered("Help")
 		  Toolbar.Add(button)
 		  
+		  HTMLViewer1.RegisterObserver (self)
 		End Sub
 	#tag EndEvent
 
@@ -365,8 +366,9 @@ End
 
 
 	#tag Method, Flags = &h0
-		Sub ReveicedNotification()
+		Sub ReceivedEvent(Details as iOSLibArray)
 		  // Part of the NotificationReceiver interface.
+		  // You could analyze the event here, but returning on shouldload could be a bit difficult. I would therefore advise to subclass iosLibWebView itself according to your needs.
 		  
 		  BackButton.iOSLibView.Hidden = not (HTMLViewer1.viewer.CanGoBack)
 		  
@@ -380,14 +382,9 @@ End
 
 #tag Events HTMLViewer1
 	#tag Event
-		Sub DidFinishLoad()
-		  ReveicedNotification
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub DidFailLoad(Error as Ptr)
-		  ReveicedNotification
-		End Sub
+		Function ShouldStart(Request as ptr, navigationtype as iOSLibWebView.UIWebViewNavigationType) As boolean
+		  return true
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag Events GoButton
@@ -402,7 +399,7 @@ End
 #tag Events BackButton
 	#tag Event
 		Sub Action()
-		  HTMLViewer1.Viewer.GoBack
+		  HTMLViewer1.viewer.GoBack
 		End Sub
 	#tag EndEvent
 #tag EndEvents

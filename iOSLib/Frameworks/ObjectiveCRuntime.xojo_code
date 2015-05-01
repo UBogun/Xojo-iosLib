@@ -4,8 +4,6 @@ Protected Module ObjectiveCRuntime
 		Function BuildTargetClass(superClassName as Text, newClassName as Text, methods() as TargetClassMethodHelper) As ptr
 		  dim result as Ptr
 		  dim superClassptr as ptr = NSClassFromString (superClassName)
-		  dim metaclassptr as ptr = ObjectiveCRuntime.objc_getMetaClass (ObjectiveCRuntime.class_getName(superClassptr))
-		  dim metaclass as CString = ObjectiveCRuntime.class_getName (metaclassptr)
 		  dim classmethods() as TargetClassMethodHelper
 		  result = objc_allocateClassPair(superClassptr, newClassName.ToCString(StandardTextEncoding), 0)
 		  
@@ -41,14 +39,13 @@ Protected Module ObjectiveCRuntime
 		  objc_registerClassPair(result)
 		  
 		  dim mymetaclassptr as ptr = ObjectiveCRuntime.objc_getMetaClass (ObjectiveCRuntime.class_getName(result))
-		  dim mymetaclass as CString = ObjectiveCRuntime.class_getName (mymetaclassptr)
 		  
 		  //Now lets check the classmethods
 		  if classmethods.Ubound > -1 then
 		    for q as uinteger = 0 to classmethods.Ubound
 		      dim method as TargetClassMethodHelper = classmethods (q)
 		      dim SEL as Ptr = NSSelectorFromString (method.selName)
-		      dim success as boolean =ObjectiveCRuntime.class_addMethod (mymetaclassptr, SEL, method.impl, method.charCode.ToCString (StandardTextEncoding))
+		      call ObjectiveCRuntime.class_addMethod (mymetaclassptr, SEL, method.impl, method.charCode.ToCString (StandardTextEncoding))
 		      // dim OriginalMethod as ptr =  ObjectiveCRuntime.class_getInstanceMethod (mymetaclassptr, SEL)
 		      // dim myclassmethod as ptr = ObjectiveCRuntime.class_getMethodImplementation (metaclassptr, sel)
 		      

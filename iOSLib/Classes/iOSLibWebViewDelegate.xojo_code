@@ -16,7 +16,7 @@ Inherits iOSLibObject
 		  
 		  if HTMLViewDict = nil then HTMLViewDict = new Dictionary
 		  HTMLViewDict.Value (id) = WeakRef.Create (aiosLibHTMLViewer)
-		  system.debuglog "created new WebViewDelegate: "+integer(id).totext
+		  // system.debuglog "created new WebViewDelegate: "+integer(id).totext
 		  
 		End Sub
 	#tag EndMethod
@@ -28,18 +28,18 @@ Inherits iOSLibObject
 		      RetainDict.Remove (id)
 		      system.DebugLog "Removed WebViewDelegate from Dict"
 		    end if
-		    if HTMLViewDict.HasKey(id) then
-		      HTMLViewDict.Remove (id)
-		      system.DebugLog "Removed HTMLViewReference from Dict"
-		    end if
+		    // if HTMLViewDict.HasKey(id) then
+		    // HTMLViewDict.Remove (id)
+		    // system.DebugLog "Removed HTMLViewReference from Dict"
+		    // end if
 		  end if
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_webViewDidFailLoad(pid as ptr, sel as ptr, Webview as ptr, Error as Ptr)
-		  // dim myView as new ioslibwebview  (Webview)
-		  // if  myview <> NIL  then myview.informonLoad
+		  // dim myView as new iOSLibHTMLViewer (webview)
+		  // if myView.id <> nil then  myView.informonerror (Error)
 		  
 		  if HTMLViewDict.Value (pid) <> nil then
 		    dim myRef as WeakRef = HTMLViewDict.Value(pid)
@@ -47,14 +47,23 @@ Inherits iOSLibObject
 		    myViewer.informonerror (Error)
 		  end if
 		  
+		  #Pragma Unused SEL
+		  #Pragma unused webview
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_webViewDidFinishLoad(pid as ptr, sel as ptr, Webview as ptr)
-		  //  dim myView as new ioslibwebview  (Webview)
-		  // if  myview <> NIL  then myview.informonLoad
+		Private Shared Sub impl_webViewDidFinishLoad(pid as ptr, sel as ptr, Webview as Ptr)
+		  // dim WR as WeakRef = weakref.Create
+		  // dim myView as new iOSLibHTMLViewer (webview)
+		  // if myView.id <> nil then  myView.informonfinish
 		  
+		  #Pragma Unused SEL
+		  #Pragma unused webview
+		  
+		  
+		  //
 		  if HTMLViewDict.Value (pid) <> nil then
 		    dim myRef as WeakRef = HTMLViewDict.Value(pid)
 		    dim myViewer as iOSLibHTMLViewer= iOSLibHTMLViewer (myRef.Value)
@@ -66,8 +75,10 @@ Inherits iOSLibObject
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_webViewDidStartLoad(pid as ptr, sel as ptr, Webview as ptr)
-		  // dim myView as new ioslibwebview  (Webview)
-		  // if  myview <> NIL  then myview.informonLoad
+		  // dim myView as new iOSLibHTMLViewer (webview)
+		  // if myView.id <> nil then  myView.informonload
+		  #Pragma Unused SEL
+		  #Pragma unused webview
 		  
 		  if HTMLViewDict.Value (pid) <> nil then
 		    dim myRef as WeakRef = HTMLViewDict.Value(pid)
@@ -80,15 +91,18 @@ Inherits iOSLibObject
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_webViewShouldStartLoad(pid as ptr, sel as ptr, Webview as ptr, Request as Ptr, NavigationType as ioslibwebview.UIWebViewNavigationType) As Boolean
-		  // dim myView as new ioslibwebview  (Webview)
-		  // if  myview <> NIL  then myview.informonLoad
+		  // dim myView as new iOSLibHTMLViewer (webview)
+		  // if myView.id <> nil then  myView.informonShouldStart (Request, NavigationType)
+		  // Return true // Return False if you don't want to load instead
+		  
+		  #Pragma Unused SEL
+		  #Pragma unused webview
 		  
 		  if HTMLViewDict.Value (pid) <> nil then
 		    dim myRef as WeakRef = HTMLViewDict.Value(pid)
 		    dim myViewer as iOSLibHTMLViewer= iOSLibHTMLViewer (myRef.Value)
-		    myViewer.informonShouldStart (Request, NavigationType)
+		    return myViewer.informonShouldStart (Request, NavigationType)
 		  end if
-		  Return true // Return False if you don't want to load instead
 		  
 		End Function
 	#tag EndMethod
@@ -119,13 +133,26 @@ Inherits iOSLibObject
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
-		Shared HTMLViewDict As Dictionary
+	#tag Property, Flags = &h21
+		Private Shared HTMLViewDict As Dictionary
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
 		Private Shared RetainDict As Dictionary
 	#tag EndProperty
+
+
+	#tag Constant, Name = DidFailLoad, Type = Text, Dynamic = False, Default = \"DidFailLoad", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = DidFinishLoad, Type = Text, Dynamic = False, Default = \"DidFinishLoad", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = DidStartLoad, Type = Text, Dynamic = False, Default = \"DidStartLoad", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = ShouldStartLoad, Type = Text, Dynamic = False, Default = \"ShouldStartLoad", Scope = Public
+	#tag EndConstant
 
 
 	#tag ViewBehavior

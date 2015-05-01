@@ -87,6 +87,16 @@ Protected Module iOSFoundation
 	#tag EndConstant
 
 
+	#tag Structure, Name = CGVector, Flags = &h0
+		dx as double
+		dy as double
+	#tag EndStructure
+
+	#tag Structure, Name = CGVector32Bit, Flags = &h0
+		dx as single
+		dy as single
+	#tag EndStructure
+
 	#tag Structure, Name = NSPoint, Flags = &h0
 		x as double
 		y as double

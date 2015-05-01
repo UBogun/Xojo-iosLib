@@ -16,7 +16,6 @@ Protected Module TextExtension
 	#tag Method, Flags = &h0
 		Function fromPtr(aPtr as Ptr) As cfstringref
 		  if aptr <> NIL then
-		    dim cfstr as CFStringRef = aptr.CFStringRef(0)
 		    dim mb as new xojo.Core.MemoryBlock(aptr)
 		    if mb.Size > 0 then
 		      dim result as CString =  mb.CStringValue(0)

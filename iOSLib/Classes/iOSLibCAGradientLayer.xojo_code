@@ -97,7 +97,7 @@ Inherits iOSLibCALayer
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString (iOSClassName)
+			  static mClassPtr as Ptr = NSClassFromString ("CAGradientLayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -189,11 +189,12 @@ Inherits iOSLibCALayer
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = iOSClassName, Type = Text, Dynamic = False, Default = \"CAGradientLayer", Scope = Public
-	#tag EndConstant
-
-
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AnchorPointZ"
 			Group="Behavior"

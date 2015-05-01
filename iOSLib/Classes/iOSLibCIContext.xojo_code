@@ -16,6 +16,7 @@ Inherits iOSLibObject
 		  mynumber = new iOSLibNumber (lowPriority)
 		  myDict.SetObjectForKey (ContextOptions.Value (LowGPUPriority), mynumber)
 		  super.Constructor (contextWithOptions (ClassPtr, myDict.id))
+		  RetainClassObject
 		End Sub
 	#tag EndMethod
 

@@ -513,6 +513,11 @@ Inherits iOSLibCALayer
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="AnchorPointZ"
 			Group="Behavior"
 			Type="Double"
@@ -526,6 +531,11 @@ Inherits iOSLibCALayer
 			Name="BeginTime"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BirthRate"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BorderWidth"
@@ -593,6 +603,42 @@ Inherits iOSLibCALayer
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="EmitterDepth"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="EmitterMode"
+			Group="Behavior"
+			Type="EmitterModes"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Points"
+				"1 - Outline"
+				"2 - Surface"
+				"3 - Volume"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="EmitterShape"
+			Group="Behavior"
+			Type="EmitterShapes"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Point"
+				"1 - Line"
+				"2 - Rectangle"
+				"3 - Cuboid"
+				"4 - Circle"
+				"5 - Sphere"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="EmitterZPosition"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="FillMode"
 			Group="Behavior"
 			Type="FillModes"
@@ -649,6 +695,17 @@ Inherits iOSLibCALayer
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="LifeTime"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MagnificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="MasksToBounds"
 			Group="Behavior"
 			Type="Boolean"
@@ -657,6 +714,17 @@ Inherits iOSLibCALayer
 			Name="mHasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilter"
+			Group="Behavior"
+			Type="ScalingFilters"
+			EditorType="Enum"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinificationFilterBias"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -680,9 +748,27 @@ Inherits iOSLibCALayer
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="PreservesDepth"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="RasterizationScale"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RenderMode"
+			Group="Behavior"
+			Type="RenderModes"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Unordered"
+				"1 - OldestFirst"
+				"2 - OldestLast"
+				"3 - BackTFront"
+				"4 - Additive"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RepeatCount"
@@ -693,6 +779,11 @@ Inherits iOSLibCALayer
 			Name="RepeatDuration"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Scale"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ShadowOpacity"
@@ -715,6 +806,11 @@ Inherits iOSLibCALayer
 			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Spin"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
@@ -731,6 +827,11 @@ Inherits iOSLibCALayer
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Velocity"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"
