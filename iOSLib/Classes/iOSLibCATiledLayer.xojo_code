@@ -91,11 +91,6 @@ Inherits iOSLibCALayer
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="Alpha"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="AnchorPointZ"
 			Group="Behavior"
 			Type="Double"
@@ -236,6 +231,11 @@ Inherits iOSLibCALayer
 			Group="Behavior"
 			Type="ScalingFilters"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MasksToBounds"
@@ -252,6 +252,11 @@ Inherits iOSLibCALayer
 			Group="Behavior"
 			Type="ScalingFilters"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MinificationFilterBias"

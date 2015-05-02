@@ -96,11 +96,6 @@ Inherits iOSLIbCAAnimation
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Alpha"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Autoreverses"
 			Group="Behavior"
 			Type="Boolean"

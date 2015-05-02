@@ -53,12 +53,6 @@ Inherits iOSLibObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Operator_Convert(animage as iOSImage) As ioslibimage
-		  return  new ioslibimage (animage)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Function Resize(Scalefactor as double) As ioslibimage
 		  declare function initWithCGImageScale lib UIKit selector "initWithCGImage:scale:orientation:" (id as ptr, aciimage as ptr, Scalefactor as double, orientation as integer) as ptr
 		  return new iOSLibImage ( initWithCGImageScale  (alloc(ClassPtr),me.toCGImage.CFTypeRef, Scalefactor, 1))

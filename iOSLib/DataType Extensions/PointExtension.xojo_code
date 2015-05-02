@@ -47,6 +47,12 @@ Protected Module PointExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Operator_Multiply(extends NP as nspoint, NP2 as NSPoint) As double
+		  return (NP.x * NP2.x) +  (NP.y * NP2.y)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function toCorePoint(extends p as NSPoint) As xojo.core.point
 		  return new xojo.core.point (p.x, p.y)
 		End Function
@@ -92,14 +98,8 @@ Protected Module PointExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function VectorSubtract(extends NP as nspoint, NP2 as NSPoint) As NSPoint
+		Function Vector_Subtract(extends NP as nspoint, NP2 as NSPoint) As NSPoint
 		  return NSPoint (NP.x - NP2.x, NP.y - NP2.y)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function Vector_Multiply(extends NP as nspoint, NP2 as NSPoint) As double
-		  return (NP.x * NP2.x) +  (NP.y * NP2.y)
 		End Function
 	#tag EndMethod
 
