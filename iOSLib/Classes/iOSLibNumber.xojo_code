@@ -368,6 +368,26 @@ Inherits iOSLibValue
 			Name="NumberType"
 			Group="Behavior"
 			Type="CFNumberTypes"
+			EditorType="Enum"
+			#tag EnumValues
+				"1 - Int8"
+				"2 - Int16"
+				"3 - Int32"
+				"4 - Int64"
+				"5 - Float32"
+				"6 - Float64"
+				"7 - Char"
+				"8 - Short"
+				"9 - Int"
+				"10 - Long"
+				"11 - LongLong"
+				"12 - Float"
+				"13 - Double"
+				"14 - CFIndex"
+				"15 - NSInteger"
+				"16 - CGFloat"
+				"16 - Max"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SingleValue"
