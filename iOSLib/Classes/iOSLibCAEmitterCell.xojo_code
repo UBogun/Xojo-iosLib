@@ -556,11 +556,6 @@ Inherits iOSLibCAMediaTimingObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="Alpha"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="AlphaRange"
 			Group="Behavior"
 			Type="Single"

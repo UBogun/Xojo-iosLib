@@ -1285,11 +1285,6 @@ Inherits iOSLibcamediatimingobject
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="Alpha"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="AnchorPointZ"
 			Group="Behavior"
 			Type="Double"
@@ -1430,6 +1425,11 @@ Inherits iOSLibcamediatimingobject
 			Group="Behavior"
 			Type="ScalingFilters"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MasksToBounds"
@@ -1446,6 +1446,11 @@ Inherits iOSLibcamediatimingobject
 			Group="Behavior"
 			Type="ScalingFilters"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - Linear"
+				"1 - Nearest"
+				"2 - Trilinear"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MinificationFilterBias"

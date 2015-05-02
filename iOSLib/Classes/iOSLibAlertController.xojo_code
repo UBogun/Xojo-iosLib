@@ -93,11 +93,6 @@ Inherits iosLibViewController
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="Alpha"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="DebugDescription"
 			Group="Behavior"
 			Type="Text"
