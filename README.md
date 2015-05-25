@@ -16,5 +16,5 @@ You will find descriptions and hints on the https://github.com/UBogun/Xojo-iosLi
 SpriteKit lib is included now. You can remove the folder if you don't need it. SpriteKit documentation is available here: https://github.com/UBogun/Xojo-iOSLibWithSpriteKit
 
 Feel free to use, change or add more objects. Check forum.xojo.com for a lot more Xojo iOS extensions.
-Other great ressources are https://github.com/Mitchboo/XojoiOSWrapper/tree/master for legacy and conversion methods (and a lot more) and https://github.com/sbeardsl/xojoGestures for an implementation of UIGestureRecognizers and of course Jason King's iOSKit library which adds a lot of new controls: https://github.com/kingj5/iOSKit. 
+Other great ressources are https://github.com/Mitchboo/XojoiOSWrapper/tree/master for legacy and conversion methods (and a lot more) and https://github.com/sbeardsl/xojoGestures for an implementation of UIGestureRecognizers (but please note iOSLib carries an own implementation of GestureRecognizers too, though not yet documented) and of course Jason King's iOSKit library which adds a lot of new controls: https://github.com/kingj5/iOSKit. 
 A forum thread with announcements of new declares is here: https://forum.xojo.com/20157-ios-declares
