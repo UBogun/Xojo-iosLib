@@ -10,10 +10,10 @@ Begin iosView FontView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Format          =   "0"
       Height          =   407.0
       Left            =   0
@@ -40,7 +40,7 @@ End
 		  dim myfonts() as text = iOSFontExtension.FontFamilies
 		  myfonts.Sort
 		  dim count as uinteger = myfonts.Ubound +1
-		  self.Title = count.totext +" Available fonts"
+		  self.Title = count.totext +" Available Font Families"
 		  table1.AddSection( "Font Families")
 		  for q as uinteger = 0 to count -1
 		    dim myname as text =myfonts (q)
