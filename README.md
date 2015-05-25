@@ -8,7 +8,7 @@ If you want to dig deeper into iOS, you can always address the API features on a
 You are very welcome to send additions, declares or more convenience methods that create a native Xojo-like feeling for the declare routines.
 
 ##Important – previous code will be broken!
-**This is a new and (I very much hope so) final modification to the structure. As you can see, the project's name is now iOSLib Unified. I have renamed (most of all will do all) classes from iOSLib… to Apple… The reason I did so is I am working on a MacOS X library ti be released after Xojo2015r3 which shares a lot of the code and which will enable you to transfer many projects without a lot of manual modifications needed.**
+**This is a new and (I very much hope so) final modification to the structure. As you can see, the project's name is now iOSLib Unified. I have renamed (most of all will do all) classes from iOSLib… to Apple… The reason I did so is I am working on a MacOS X library to be released after Xojo2015r3 which shares a lot of the code and which will enable you to transfer many projects without a lot of manual modifications needed.**
 
 You will find descriptions and hints on the https://github.com/UBogun/Xojo-iosLib/wiki/Home/
 **Please keep in mind classes have been renamed, so look for Apple… instead of iOSLib… names.**
