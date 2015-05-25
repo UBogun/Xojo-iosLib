@@ -2,191 +2,191 @@
 Protected Module iOSControlExtension
 	#tag Method, Flags = &h0
 		Function Alpha(extends c as iOSControl) As Double
-		  Return c.iOSLibView.Alpha
+		  Return c.AppleView.Alpha
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Alpha(extends c as iOSControl, assigns value as double)
-		  c.iOSLibView.Alpha = value
+		  c.AppleView.Alpha = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateBackgroundColor(extends c as ioscontrol, newcolor as color, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut)
-		  c.iOSLibView.AnimateColor newcolor.toiOSLibColor, iOSLibViewAnimationOption.OptionNone, Seconds, curve
+		Sub AnimateBackgroundColor(extends c as ioscontrol, newcolor as color, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		  c.AppleView.AnimateColor newcolor.toAppleColor, AppleViewAnimationOption.OptionNone, Seconds, curve
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateSize(extends c as ioscontrol, width as Double, height as Double, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut)
+		Sub AnimateSize(extends c as ioscontrol, width as Double, height as Double, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
 		  dim newFrame as new rect (0,0,Width, Height)
-		  c.iOSLibView.AnimateBounds (newFrame.toNSRect, iOSLibViewAnimationOption.OptionNone, Seconds, curve)
+		  c.AppleView.AnimateBounds (newFrame.toNSRect, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateTransform(extends c as ioscontrol, aTransform as CGAffineTransform, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut)
-		  c.iOSLibView.AnimateTransform (aTransform, iOSLibViewAnimationOption.OptionNone, Seconds, curve)
+		Sub AnimateTransform(extends c as ioscontrol, aTransform as CGAffineTransform, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		  c.AppleView.AnimateTransform (aTransform, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function AppleView(extends c as iOSControl) As AppleView
+		  return new AppleView (c.Handle)
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function BackgroundColor(extends c as iOSControl) As Color
-		  Return c.iOSLibView.BackgroundColor.toColor
+		  Return c.AppleView.BackgroundColor.toColor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub BackgroundColor(extends c as iOSControl, assigns value as color)
-		  c.iOSLibView.BackgroundColor = iOSLibColor.FromColor (value)
+		  c.AppleView.BackgroundColor = AppleColor.FromColor (value)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ClipsToBounds(extends c as iOSControl) As Boolean
-		  Return c.iOSLibView.ClipsToBounds
+		  Return c.AppleView.ClipsToBounds
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ClipsToBounds(extends c as iOSControl, assigns value as boolean)
-		  c.iOSLibView.ClipsToBounds = value
+		  c.AppleView.ClipsToBounds = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function CoreAnimationLayer(extends c as ioscontrol) As iOSLibCALayer
-		  return c.iOSLibView.Layer
+		Function CoreAnimationLayer(extends c as ioscontrol) As AppleCALayer
+		  return c.AppleView.Layer
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub FadeIn(extends c as ioscontrol, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut)
-		  c.iOSLibView.AnimateAlpha (1, iOSLibViewAnimationOption.OptionNone, Seconds, curve)
+		Sub FadeIn(extends c as ioscontrol, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		  c.AppleView.AnimateAlpha (1, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub FadeOut(extends c as ioscontrol, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut)
-		  c.iOSLibView.AnimateAlpha (0, iOSLibViewAnimationOption.OptionNone, Seconds, curve)
+		Sub FadeOut(extends c as ioscontrol, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		  c.AppleView.AnimateAlpha (0, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function FittingSize(extends c as iOSControl) As Size
-		  return c.iOSLibView.SizeThatFits.toCoreSize
+		  return c.AppleView.SizeThatFits.toCoreSize
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub InvertTransformation(extends c as ioscontrol)
-		  c.iOSLibView.InvertTransform
+		  c.AppleView.InvertTransform
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function iOSLibView(extends c as iOSControl) As iOSLibView
-		  return new iOSLibView (c.Handle)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub MoveTo(extends c as ioscontrol, x as Double, y as Double, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut)
+		Sub MoveTo(extends c as ioscontrol, x as Double, y as Double, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
 		  dim newFrame as new rect (x, y ,c.Width, c.Height)
-		  c.iOSLibView.AnimateFrame (newFrame.toNSRect, iOSLibViewAnimationOption.OptionNone, Seconds, curve)
+		  c.AppleView.AnimateFrame (newFrame.toNSRect, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Redraw(extends c as iOSControl)
-		  c.iOSLibView.LayoutIfNeeded
+		  c.AppleView.LayoutIfNeeded
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ResetTransformation(extends c as ioscontrol)
-		  c.iOSLibView.ResetTransform
+		  c.AppleView.ResetTransform
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Rotate(extends c as ioscontrol, Angle as double)
-		  c.iOSLibView.Rotate Angle.DegreeToRadian
+		  c.AppleView.Rotate Angle.DegreeToRadian
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Scale(extends c as ioscontrol, xfactor as double, yfactor as double = 0)
-		  c.iOSLibView.Scale xfactor, yfactor
+		  c.AppleView.Scale xfactor, yfactor
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetRotation(extends c as ioscontrol, Angle as double)
-		  c.iOSLibView.SetRotation Angle.DegreeToRadian
+		  c.AppleView.SetRotation Angle.DegreeToRadian
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetScale(extends c as ioscontrol, xfactor as double, yfactor as double = 0)
-		  c.iOSLibView.SetScale xfactor, yfactor
+		  c.AppleView.SetScale xfactor, yfactor
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetTranslation(extends c as ioscontrol, DeltaX as double, DeltaY as double)
-		  c.iOSLibView.SetTranslation deltaX, deltaY
+		  c.AppleView.SetTranslation deltaX, deltaY
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SizeToFit(extends c as ioscontrol)
-		  c.iOSLibView.SizeToFit
+		  c.AppleView.SizeToFit
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateBackgroundColor(extends c as ioscontrol, newcolor as color, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
-		  c.iOSLibView.springAnimateColor newcolor.toiOSLibColor, iOSLibViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve
+		Sub SpringAnimateBackgroundColor(extends c as ioscontrol, newcolor as color, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		  c.AppleView.springAnimateColor newcolor.toAppleColor, AppleViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateSize(extends c as ioscontrol, width as Double, height as Double, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		Sub SpringAnimateSize(extends c as ioscontrol, width as Double, height as Double, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
 		  dim newFrame as new rect (0,0,Width, Height)
-		  c.iOSLibView.SpringAnimateBounds (newFrame.toNSRect, iOSLibViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
+		  c.AppleView.SpringAnimateBounds (newFrame.toNSRect, AppleViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateTransform(extends c as ioscontrol, aTransform as CGAffineTransform, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
-		  c.iOSLibView.SpringAnimateTransform (aTransform, iOSLibViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
+		Sub SpringAnimateTransform(extends c as ioscontrol, aTransform as CGAffineTransform, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		  c.AppleView.SpringAnimateTransform (aTransform, AppleViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringMoveTo(extends c as ioscontrol, x as Double, y as Double, Seconds as double = 0.2, curve as ioslibview.UIVIewAnimationCurve = ioslibview.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		Sub SpringMoveTo(extends c as ioscontrol, x as Double, y as Double, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
 		  dim newFrame as new rect (x, y ,c.Width, c.Height)
-		  c.iOSLibView.SpringAnimateFrame (newFrame.toNSRect, iOSLibViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
+		  c.AppleView.SpringAnimateFrame (newFrame.toNSRect, AppleViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function TintColor(extends c as iOSControl) As Color
-		  Return c.iOSLibView.TintColor.toColor
+		  Return c.AppleView.TintColor.toColor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub TintColor(extends c as iOSControl, assigns value as color)
-		  c.iOSLibView.TintColor = iOSLibColor.FromColor (value)
+		  c.AppleView.TintColor = AppleColor.FromColor (value)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Translate(extends c as ioscontrol, DeltaX as double, DeltaY as double)
-		  c.iOSLibView.Translate deltaX, deltaY
+		  c.AppleView.Translate deltaX, deltaY
 		End Sub
 	#tag EndMethod
 

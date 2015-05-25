@@ -10,10 +10,10 @@ Begin iosView CAKEyframeView
    Begin ioslibpicker HTMLViewer1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 162, 
       AutoLayout      =   HTMLViewer1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 162, 
+      AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Height          =   162.0
       Left            =   0
       LockedInPosition=   False
@@ -28,10 +28,10 @@ Begin iosView CAKEyframeView
    Begin ioslibgradientview Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       AutoLayout      =   Canvas1, 7, <Parent>, 7, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Canvas1, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Canvas1, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       Height          =   237.0
       InitialParent   =   ""
       Left            =   0
@@ -45,13 +45,13 @@ Begin iosView CAKEyframeView
    Begin iosimageview animationcanvas
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   animationcanvas, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   animationcanvas, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   animationcanvas, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   animationcanvas, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   animationcanvas, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   animationcanvas, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       ContentMode     =   "4"
       Height          =   237.0
-      Image           =   "777732095"
+      Image           =   "1965512703"
       InitialParent   =   ""
       Left            =   0
       LockedInPosition=   False
@@ -108,16 +108,16 @@ End
 
 	#tag Method, Flags = &h0
 		Sub Animate()
-		  dim myanimation1 as new iOSLibCAKeyframeAnimation (iOSLibCAAnimation.Properties.Position)
+		  dim myanimation1 as new AppleCAKeyframeAnimation (AppleCAAnimation.Properties.Position)
 		  dim newrect as new rect (25,25, Canvas1.width-50,Canvas1.Height-25)
 		  dim calcmode as text = HTMLViewer1.Caption (2)
 		  select case calcmode
 		  case "Circle"
-		    myanimation1.Path = new iOSLibCGPathEllipse (newrect.tonsrect)
+		    myanimation1.Path = new AppleCGPathEllipse (newrect.tonsrect)
 		  case "Rect"
-		    myanimation1.Path = new iOSLibCGPathRect (newrect.tonsrect)
+		    myanimation1.Path = new AppleCGPathRect (newrect.tonsrect)
 		  case "Rounded Rect"
-		    myanimation1.Path = new iOSLibCGPathRoundedRect (newrect.tonsrect, newrect.Width/3, newrect.height/3)
+		    myanimation1.Path = new AppleCGPathRoundedRect (newrect.tonsrect, newrect.Width/3, newrect.height/3)
 		  end select
 		  
 		  myanimation1.Duration = 3
@@ -125,24 +125,24 @@ End
 		  calcmode   = HTMLViewer1.Caption (0)
 		  select case calcmode
 		  case "Paced"
-		    myanimation1.CalculationMode = iOSLibCAKeyframeAnimation.ValueCalculationModes.Paced
+		    myanimation1.CalculationMode = AppleCAKeyframeAnimation.ValueCalculationModes.Paced
 		  case "Linear"
-		    myanimation1.CalculationMode = iOSLibCAKeyframeAnimation.ValueCalculationModes.Linear
+		    myanimation1.CalculationMode = AppleCAKeyframeAnimation.ValueCalculationModes.Linear
 		  case "Cubic"
-		    myanimation1.CalculationMode = iOSLibCAKeyframeAnimation.ValueCalculationModes.Cubic
+		    myanimation1.CalculationMode = AppleCAKeyframeAnimation.ValueCalculationModes.Cubic
 		  case "Cubic Paced"
-		    myanimation1.CalculationMode = iOSLibCAKeyframeAnimation.ValueCalculationModes.CubicPaced
+		    myanimation1.CalculationMode = AppleCAKeyframeAnimation.ValueCalculationModes.CubicPaced
 		  case "Discrete"
-		    myanimation1.CalculationMode = iOSLibCAKeyframeAnimation.ValueCalculationModes.Discrete
+		    myanimation1.CalculationMode = AppleCAKeyframeAnimation.ValueCalculationModes.Discrete
 		  end select
 		  calcmode = HTMLViewer1.Caption(1)
 		  select case calcmode
 		  case "Auto"
-		    myanimation1.RotationMode = iOSLibCAKeyframeAnimation.RotationModes.RotateAuto
+		    myanimation1.RotationMode = AppleCAKeyframeAnimation.RotationModes.RotateAuto
 		  case "Reverse"
-		    myanimation1.RotationMode = iOSLibCAKeyframeAnimation.RotationModes.RotateAutoReverse
+		    myanimation1.RotationMode = AppleCAKeyframeAnimation.RotationModes.RotateAutoReverse
 		  case "None"
-		    myanimation1.RotationMode = iOSLibCAKeyframeAnimation.RotationModes.None
+		    myanimation1.RotationMode = AppleCAKeyframeAnimation.RotationModes.None
 		  end select
 		  animationcanvas.CoreAnimationLayer.AddAnimation myanimation1
 		  animationcanvas.CoreAnimationLayer.ContentsScale = 2.5
@@ -174,9 +174,9 @@ End
 #tag Events Canvas1
 	#tag Event
 		Sub Open()
-		  dim colorarray as new iOSLibMutableArray (2)
-		  colorarray.Addobject new iOSLibCGColor(&c11205400)
-		  colorarray.Addobject new iOSLibCGColor( &c0D112700)
+		  dim colorarray as new AppleMutableArray (2)
+		  colorarray.Addobject new AppleCGColor(&c11205400)
+		  colorarray.Addobject new AppleCGColor( &c0D112700)
 		  me.GradientLayer.colors = colorarray
 		  
 		End Sub

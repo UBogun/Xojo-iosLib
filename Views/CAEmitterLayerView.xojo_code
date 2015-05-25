@@ -5,15 +5,15 @@ Begin iosView CAEmitterLayerView
    Left            =   0
    NavigationBarVisible=   True
    TabTitle        =   ""
-   Title           =   "iOSLibCAEmitterLayer"
+   Title           =   "AppleCAEmitterLayer"
    Top             =   0
    Begin ioslibemitterview testview
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
       AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Height          =   415.0
       Left            =   0
       LockedInPosition=   False
@@ -52,7 +52,7 @@ End
 	#tag Event
 		Sub ToolbarPressed(button As iOSToolButton)
 		  if button.Caption = "Help" then
-		    dim help as new InfoView ("iOSLibCAEmitterLayer is another subclass of CALayers. Again, you can add one as a sublayer or use the custom control that takes care of autoresizing the layer's bounds."+endofline + _
+		    dim help as new InfoView ("AppleCAEmitterLayer is another subclass of CALayers. Again, you can add one as a sublayer or use the custom control that takes care of autoresizing the layer's bounds."+endofline + _
 		    "CAEmitterLayer is not complete without at least one CAEmitterCell (you can attach as many as you like, the property is an array)."+ endofline + _
 		    "In this case, I have only created a simple demo with no parameters to influence. But I would encourage you to experiment with it and would be glad if you could add another playground demo view to the project." + endofline + _
 		    "Many properties of the EmitterLayer and the Cell are animatable too, they will follow.")
@@ -61,9 +61,9 @@ End
 		    MakeEmitter
 		    // iOSLibTextView1.Layer.MasksToBounds = true
 		  else
-		    // dim myvalue as iOSLibNumber = iOSLibNumber.MakeFromPtr (testview.iOSLibView.ValueForKeyPath ("layer.self"))
-		    // testview.iOSLibView.setValueForKeyPath ("layer.sublayers.%@.emitterCells.%@.enabled", new iOSLibNumber (fALSE))
-		    // testview.iOSLibView.setValueForKeyPath ("layer.Emitterlayer.zPosition", new iOSLibNumber (-2))
+		    // dim myvalue as AppleNumber = AppleNumber.MakeFromPtr (testview.AppleView.ValueForKeyPath ("layer.self"))
+		    // testview.AppleView.setValueForKeyPath ("layer.sublayers.%@.emitterCells.%@.enabled", new AppleNumber (fALSE))
+		    // testview.AppleView.setValueForKeyPath ("layer.Emitterlayer.zPosition", new AppleNumber (-2))
 		    testview.EmitterLayer.DisableEmitters
 		    
 		  end if
@@ -73,28 +73,28 @@ End
 
 	#tag Method, Flags = &h0
 		Sub MakeEmitter()
-		  // dim  mylayer as new iOSLibCAEmitterLayer
-		  // mylayer.bounds = testview.iOSLibView.Bounds
+		  // dim  mylayer as new AppleCAEmitterLayer
+		  // mylayer.bounds = testview.AppleView.Bounds
 		  // myLayer.Frame = myLayer.bounds
 		  // myLayer.MasksToBounds = true
 		  // myLayer.name = "EmitterLayer"
 		  // mylayer.ZPosition = 1
 		  // mylayer.TileSize = NSSize (100,100)
 		  
-		  // mylayer.ContentsPositioning = iOSLibCALayer.CaLayerContentPosition.Center
+		  // mylayer.ContentsPositioning = AppleCALayer.CaLayerContentPosition.Center
 		  // mylayer.LevelsOfDetail = 1
-		  // testview.iOSLibView.Layer.AddSubLayer mylayer
+		  // testview.AppleView.Layer.AddSubLayer mylayer
 		  // mylayer.Seed = 1394639
-		  // testview.iOSLibView.layer.Contents =new ioslibobject ( myimage.toCGImage)
+		  // testview.AppleView.layer.Contents =new AppleObject ( myimage.toCGImage)
 		  
 		  
-		  dim  myEmitterCell as new iOSLibCAEmitterCell
-		  dim mylib as new iOSLibMutableArray
+		  dim  myEmitterCell as new AppleCAEmitterCell
+		  dim mylib as new AppleMutableArray
 		  mylib.Addobject myEmitterCell
 		  testview.EmitterLayer.EmitterCells = mylib
-		  dim myimage as new iOSLibImage (iosliblogo)
+		  dim myimage as new AppleImage (iosliblogo)
 		  
-		  myEmitterCell.Contents =new ioslibobject ( myimage.toCGImage.CFTypeRef)
+		  myEmitterCell.Contents =new AppleObject ( myimage.toCGImage.CFTypeRef)
 		  myEmitterCell.Name = "iOSLibLogoCell"
 		  
 		  myEmitterCell.LifeTime = 100

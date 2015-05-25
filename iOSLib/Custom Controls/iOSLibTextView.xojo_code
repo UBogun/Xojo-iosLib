@@ -3,7 +3,7 @@ Protected Class iOSLibTextView
 Inherits iOSUserControl
 	#tag Event
 		Sub Close()
-		  // call me.iOSLibView.AutoRelease me.Handle
+		  // call me.AppleView.AutoRelease me.Handle
 		  call Layer.AutoRelease Layer.Id
 		  
 		End Sub
@@ -13,8 +13,8 @@ Inherits iOSUserControl
 		Function CreateView() As UInteger
 		  dim frame as new Rect (0,0,100,100)
 		  
-		  mid =  iOSLibObject.AutoRelease (iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect))
-		  me.iOSLibView.mhasownership = true
+		  mid =  AppleObject.AutoRelease (AppleResponder.DoInitWithFrame (AppleObject.alloc(ClassPtr), frame.tonsrect))
+		  me.AppleView.mhasownership = true
 		  Return UInteger(mid)
 		End Function
 	#tag EndEvent
@@ -28,13 +28,13 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_layoutSubviews(id as ptr, sel as ptr)
-		  dim Ego as new iOSLibView (id)
+		  dim Ego as new AppleView (id)
 		  if not ego.IsNIL then
-		    dim sublayers as iOSLibArray = ego.Layer.SubLayers
+		    dim sublayers as AppleArray = ego.Layer.SubLayers
 		    if not sublayers.IsNIL then
 		      if sublayers.count > 0 then
 		        for q as uinteger = 0 to sublayers.Count -1
-		          dim sublayer as  new  iOSLibCALayer (sublayers.PtrAtIndex(q))
+		          dim sublayer as  new  AppleCALayer (sublayers.PtrAtIndex(q))
 		          sublayer.Frame = ego.Bounds
 		        next
 		      end if
@@ -74,10 +74,10 @@ Inherits iOSUserControl
 		#tag Getter
 			Get
 			  Declare Function layer lib UIKit selector "layer" (id as ptr) as Ptr
-			  Return new ioslibCALayer (layer (id))
+			  Return new AppleCALayer (layer (id))
 			End Get
 		#tag EndGetter
-		Layer As iOSLibCALayer
+		Layer As AppleCALayer
 	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21

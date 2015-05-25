@@ -10,13 +10,13 @@ Begin iosView SplashView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       ContentMode     =   "1"
       Height          =   240.0
-      Image           =   "547002367"
+      Image           =   "1702440959"
       Left            =   20
       LockedInPosition=   False
       Scope           =   0
@@ -27,13 +27,14 @@ Begin iosView SplashView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "2015 by Ulrich Bogun, xojoblog.me"
@@ -48,10 +49,10 @@ Begin iosView SplashView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, -37, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       Caption         =   "Info"
       Enabled         =   True
       Height          =   30.0
@@ -60,7 +61,7 @@ Begin iosView SplashView
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
-      TextSize        =   0
+      TextSize        =   24
       Top             =   -37
       Visible         =   True
       Width           =   100.0
@@ -68,19 +69,20 @@ Begin iosView SplashView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 3, <Parent>, 3, False, +1.00, 1, 1, 388, 
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button2, 9, <Parent>, 9, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Button2, 4, <Parent>, 4, False, +0.80, 2, 1, 0, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 2, 1, 32, 
       Caption         =   "Menu"
       Enabled         =   True
-      Height          =   30.0
+      Height          =   32.0
       Left            =   110
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &c007AFF00
       TextFont        =   ""
-      TextSize        =   0
-      Top             =   388
+      TextSize        =   24
+      Top             =   352
       Visible         =   True
       Width           =   100.0
    End
@@ -90,12 +92,12 @@ End
 #tag WindowCode
 	#tag Method, Flags = &h0
 		Sub buttonmove()
-		  dim newrect as NSRect = Button1.iOSLibView.Frame
-		  newrect.Origin.y = ImageView1.iOSLibView.Frame.Size_.height + 60
-		  dim options as new iOSLibViewAnimationOption
+		  dim newrect as NSRect = Button1.AppleView.Frame
+		  newrect.Origin.y = ImageView1.AppleView.Frame.Size_.height +  ImageView1.AppleView.Frame.Size_.height /3
+		  dim options as new AppleViewAnimationOption
 		  options.AllowUserInteraction = true
-		  button1.iOSLibView.SpringAnimateFrame (newrect , options, 0.3, 10, 5)
-		  Button2.iOSLibView.TransitionWithAlpha 1, iOSLibView.UIVIewAnimationTransition.FlipFromLeft, iOSLibViewAnimationOption.OptionNone, 2
+		  button1.AppleView.SpringAnimateFrame (newrect , options, 0.3, 10, 5)
+		  Button2.AppleView.TransitionWithAlpha 1, AppleView.UIVIewAnimationTransition.FlipFromLeft, AppleViewAnimationOption.OptionNone, 2
 		End Sub
 	#tag EndMethod
 
@@ -105,8 +107,9 @@ End
 #tag Events ImageView1
 	#tag Event
 		Sub Open()
-		  me.iOSLibView.SetScale 80
+		  me.AppleView.SetScale 80
 		  me.AnimateSize 0.5, 0.5, 2
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -114,7 +117,7 @@ End
 	#tag Event
 		Sub Open()
 		  me.Alpha = 0
-		  me.iOSLibView.AnimateAlpha 1, iOSLibViewAnimationOption.OptionNone, 1, iOSLibView.UIVIewAnimationCurve.EaseInEaseOut, 2
+		  me.AppleView.AnimateAlpha 1, AppleViewAnimationOption.OptionNone, 1, AppleView.UIVIewAnimationCurve.EaseInEaseOut, 2
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -136,7 +139,7 @@ End
 		  "You can find the most recent version and a documentation in form of the GitHub Wiki on https://github.com/UBogun/Xojo-iosLib." + EndOfline + _
 		  "But make sure to examine the demo views too as they will often give you an idea on how to use iOSLib's features.")
 		  
-		  v2.iosLibViewCTRL.ModalPresentationStyle = iOSLibViewController.UIViewModalPresentationStyle.PopOver
+		  v2.AppleViewCTRL.ModalPresentationStyle = AppleViewController.UIViewModalPresentationStyle.PopOver
 		  self.PushToCover v2
 		  
 		End Sub

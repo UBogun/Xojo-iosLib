@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="765831167">
+ <ObjName>AutoExtension</ObjName>
+ <ObjContainerID>1412438015</ObjContainerID>
+ <IsClass>0</IsClass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>IsType</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function IsType(extends a as auto, aType as cfstringref) As boolean</SourceLine>
+   <SourceLine>dim mytype as text = a.Type</SourceLine>
+   <SourceLine>dim compare as text = atype</SourceLine>
+   <SourceLine>return mytype = compare</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends a as auto, aType as cfstringref</ItemParams>
+  <ItemResult>boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toText</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toText(extends a as Auto) As CFStringRef</SourceLine>
+   <SourceLine>select case a.type</SourceLine>
+   <SourceLine>Case "Int8"</SourceLine>
+   <SourceLine>dim i as Int8 = a</SourceLine>
+   <SourceLine>return i.ToText</SourceLine>
+   <SourceLine>case "Double"</SourceLine>
+   <SourceLine>dim d as double= a</SourceLine>
+   <SourceLine>return d.ToText</SourceLine>
+   <SourceLine>case "Single"</SourceLine>
+   <SourceLine>dim s as single = a</SourceLine>
+   <SourceLine>Return s.ToText</SourceLine>
+   <SourceLine>case "CString"</SourceLine>
+   <SourceLine>dim cs as cstring = a</SourceLine>
+   <SourceLine>return text.FromCString (cs, StandardTextEncoding)</SourceLine>
+   <SourceLine>case "Text", "String", "CFStringRef"</SourceLine>
+   <SourceLine>dim t as text = a</SourceLine>
+   <SourceLine>return t</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>case "Array"</SourceLine>
+   <SourceLine>return "Array"</SourceLine>
+   <SourceLine>case "Ptr()"</SourceLine>
+   <SourceLine>return "Array of Ptr"</SourceLine>
+   <SourceLine>case "Ptr"</SourceLine>
+   <SourceLine>dim p as ptr = a</SourceLine>
+   <SourceLine>dim mem as integer = Integer(p)</SourceLine>
+   <SourceLine>return "Ptr: "+mem.ToText</SourceLine>
+   <SourceLine>Case "Dictionary"</SourceLine>
+   <SourceLine>return "Dictionary"</SourceLine>
+   <SourceLine>// case "MacOSURL", "NSURL"</SourceLine>
+   <SourceLine>// dim m as MacOSURL = a</SourceLine>
+   <SourceLine>// return m.AbsolutePath</SourceLine>
+   <SourceLine>// case "MacOSVector"</SourceLine>
+   <SourceLine>// dim m as MacOSVector = a</SourceLine>
+   <SourceLine>// return m.StringValue</SourceLine>
+   <SourceLine>else</SourceLine>
+   <SourceLine>system.debuglog "Auto.ToText found unknown Type: "+a.type</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends a as Auto</ItemParams>
+  <ItemResult>CFStringRef</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Type</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Type(extends a as auto) As text</SourceLine>
+   <SourceLine>dim info as xojo.Introspection.typeinfo = xojo.Introspection.GetType (a)</SourceLine>
+   <SourceLine>return info.name</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends a as auto</ItemParams>
+  <ItemResult>text</ItemResult>
+ </Method>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

@@ -10,10 +10,10 @@ Begin iosView IntrospectionDetailView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 4, TextArea1, 3, False, +1.00, 2, 1, -20, 
       AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 4, TextArea1, 3, False, +1.00, 2, 1, -20, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   319.0
       Left            =   0
@@ -27,10 +27,10 @@ Begin iosView IntrospectionDetailView
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextArea1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 2, 1, -11, 
-      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 2, 1, 60, 
+      AutoLayout      =   TextArea1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, 11, 
+      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 2, 1, 60, 
       Editable        =   True
       Height          =   60.0
       KeyboardType    =   "0"
@@ -62,8 +62,8 @@ End
 		  // Calling the overridden superclass constructor.
 		  try
 		    IntroSpectionInstance = NSClassFromString (classname)
-		    Introspection = new iOSLibIntrospection (IntroSpectionInstance)
-		    dim methods() as iOSLibMethod = Introspection.Methods
+		    Introspection = new AppleIntrospection (IntroSpectionInstance)
+		    dim methods() as AppleMethod = Introspection.Methods
 		  catch err
 		    
 		  end try
@@ -82,7 +82,7 @@ End
 		    table1.AddSection ("Version: "+Introspection.ClassVersion.ToText)
 		    table1.AddSection ("Instance size: "+Introspection.InstanceSize.totext+" Bytes")
 		    dim cell as new iOSTableCellData
-		    dim mymethods() as iOSLibMethod = Introspection.Methods
+		    dim mymethods() as AppleMethod = Introspection.Methods
 		    dim count as uinteger = mymethods.Ubound + 1
 		    cell = new iOSTableCellData (count.totext+" Methods", "", NIL, if (count > 0, iostablecelldata.accessorytypes.detail,iOSTableCellData.AccessoryTypes.None))
 		    table1.addrow( 3, cell)
@@ -104,7 +104,7 @@ End
 
 
 	#tag Property, Flags = &h0
-		Introspection As iOSLibIntrospection
+		Introspection As AppleIntrospection
 	#tag EndProperty
 
 	#tag Property, Flags = &h21

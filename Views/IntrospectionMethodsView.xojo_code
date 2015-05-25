@@ -10,10 +10,10 @@ Begin iosView IntrospectionMethodsView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   407.0
       Left            =   0
@@ -40,8 +40,8 @@ End
 		  // Calling the overridden superclass constructor.
 		  try
 		    IntroSpectionInstance = NSClassFromString (classname)
-		    Introspection = new iOSLibIntrospection (IntroSpectionInstance)
-		    dim methods() as iOSLibMethod = Introspection.Methods
+		    Introspection = new AppleIntrospection (IntroSpectionInstance)
+		    dim methods() as AppleMethod = Introspection.Methods
 		  catch err
 		    
 		  end try
@@ -55,7 +55,7 @@ End
 		  Table1.RemoveAll
 		  if IntroSpectionInstance <> NIL then
 		    dim cell as  iOSTableCellData
-		    dim mymethods() as iOSLibMethod = Introspection.Methods
+		    dim mymethods() as AppleMethod = Introspection.Methods
 		    dim count as uinteger = mymethods.Ubound + 1
 		    Table1.AddSection (count.totext+" Methods")
 		    for q as uinteger = 0 to count -1
@@ -70,7 +70,7 @@ End
 
 
 	#tag Property, Flags = &h0
-		Introspection As iOSLibIntrospection
+		Introspection As AppleIntrospection
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -99,7 +99,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub AccessoryAction(section As Integer, row As Integer)
-		  dim mymethod as iOSLibMethod = me.RowData(section,row).Tag
+		  dim mymethod as AppleMethod = me.RowData(section,row).Tag
 		  dim nv as new IntrospectionMethodView (mymethod)
 		  self.pushto nv
 		End Sub

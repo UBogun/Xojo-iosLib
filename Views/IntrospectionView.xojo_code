@@ -10,10 +10,10 @@ Begin iosView IntrospectionView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 3, TextField1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       Format          =   "0"
       Height          =   368.0
       Left            =   0
@@ -27,10 +27,10 @@ Begin iosView IntrospectionView
    Begin iOSTextField TextField1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextField1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 169, 
+      AutoLayout      =   TextField1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextField1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 169, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -56,7 +56,7 @@ End
 		Private Sub showClasses(filter as text = "")
 		  Table1.RemoveAll
 		  if mClasses.Ubound = -1 then
-		    mClasses = iOSLibIntrospection.RegisteredClasses
+		    mClasses = AppleIntrospection.RegisteredClasses
 		    mclasses.sort
 		  end if
 		  dim count as uinteger = mClasses.Ubound +1
@@ -80,7 +80,7 @@ End
 
 
 	#tag Property, Flags = &h0
-		Introspection As iOSLibIntrospection
+		Introspection As AppleIntrospection
 	#tag EndProperty
 
 	#tag Property, Flags = &h21

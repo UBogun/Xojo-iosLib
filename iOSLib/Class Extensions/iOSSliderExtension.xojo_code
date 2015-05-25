@@ -1,8 +1,8 @@
 #tag Module
 Protected Module iOSSliderExtension
 	#tag Method, Flags = &h0
-		Function iOSLibSlider(extends s as iOSSlider) As iOSLibSlider
-		  return new iOSLibSlider (s.handle)
+		Function AppleSlider(extends s as iOSSlider) As AppleSlider
+		  return new AppleSlider (s.handle)
 		End Function
 	#tag EndMethod
 

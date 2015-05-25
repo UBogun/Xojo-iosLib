@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="1087449087">
+ <ObjName>PointExtension</ObjName>
+ <ObjContainerID>1412438015</ObjContainerID>
+ <IsClass>0</IsClass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>AngleRadians</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function AngleRadians(extends NP as NSPoint) As Double</SourceLine>
+   <SourceLine>return atan2 (np.y, np.x)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends NP as NSPoint</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Magnitude</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Magnitude(extends NP as NSPoint) As Double</SourceLine>
+   <SourceLine>return SQrt (NP.x^2 + NP.y^2)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends NP as NSPoint</ItemParams>
+  <ItemResult>Double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Normalized</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Normalized(extends NP as NSPoint) As NSPoint</SourceLine>
+   <SourceLine>return np.Vector_Divide ( np.Magnitude )</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends NP as NSPoint</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>NSPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function NSPoint(x as double, y as double) As NSPoint</SourceLine>
+   <SourceLine>#pragma DisableBackgroundTasks</SourceLine>
+   <SourceLine>#pragma DisableBoundsChecking</SourceLine>
+   <SourceLine>#Pragma NilObjectChecking false</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>dim NP as NSPoint</SourceLine>
+   <SourceLine>NP.x = x</SourceLine>
+   <SourceLine>NP.y = y</SourceLine>
+   <SourceLine>return np</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>x as double, y as double</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Vector_Add</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Vector_Add(extends NP as nspoint, NP2 as NSPoint) As NSPoint</SourceLine>
+   <SourceLine>return NSPoint (NP.x + NP2.x, NP.y + NP2.y)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends NP as nspoint, NP2 as NSPoint</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Vector_Divide</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Vector_Divide(extends NP as nspoint, Value as double) As NSPoint</SourceLine>
+   <SourceLine>return NSPoint (NP.x /value, NP.y / value)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends NP as nspoint, Value as double</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Operator_Multiply</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Operator_Multiply(extends NP as nspoint, value as double) As NSPoint</SourceLine>
+   <SourceLine>return NSPoint (np.x * value, np.y * value)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends NP as nspoint, value as double</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Operator_Multiply</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Operator_Multiply(extends NP as nspoint, NP2 as NSPoint) As double</SourceLine>
+   <SourceLine>return (NP.x * NP2.x) +  (NP.y * NP2.y)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends NP as nspoint, NP2 as NSPoint</ItemParams>
+  <ItemResult>double</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toCorePoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toCorePoint(extends p as NSPoint) As xojo.core.point</SourceLine>
+   <SourceLine>return new xojo.core.point (p.x, p.y)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends p as NSPoint</ItemParams>
+  <ItemResult>xojo.core.point</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toCorePoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toCorePoint(extends p as NSPoint32Bit) As xojo.core.point</SourceLine>
+   <SourceLine>return p.toNSPoint.toCorePoint</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends p as NSPoint32Bit</ItemParams>
+  <ItemResult>xojo.core.point</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSPoint(extends p as NSPoint32Bit) As NSPoint</SourceLine>
+   <SourceLine>dim result as NSPoint</SourceLine>
+   <SourceLine>result.x = p.x</SourceLine>
+   <SourceLine>result.y = p.y</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends p as NSPoint32Bit</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSPoint(extends p as xojo.core.point) As NSPoint</SourceLine>
+   <SourceLine>#pragma DisableBackgroundTasks</SourceLine>
+   <SourceLine>#pragma DisableBoundsChecking</SourceLine>
+   <SourceLine>#Pragma NilObjectChecking false</SourceLine>
+   <SourceLine>dim result as NSPoint</SourceLine>
+   <SourceLine>result.x = p.X</SourceLine>
+   <SourceLine>result.y = p.y</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends p as xojo.core.point</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSPoint32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSPoint32(extends p as NSPoint) As NSPoint32Bit</SourceLine>
+   <SourceLine>#pragma DisableBackgroundTasks</SourceLine>
+   <SourceLine>#pragma DisableBoundsChecking</SourceLine>
+   <SourceLine>#Pragma NilObjectChecking false</SourceLine>
+   <SourceLine>dim result as NSPoint32Bit</SourceLine>
+   <SourceLine>result.x = p.x</SourceLine>
+   <SourceLine>result.y = p.y</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends p as NSPoint</ItemParams>
+  <ItemResult>NSPoint32Bit</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSPoint32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSPoint32(extends p as xojo.core.point) As NSPoint32Bit</SourceLine>
+   <SourceLine>return p.toNSPoint.toNSPoint32</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends p as xojo.core.point</ItemParams>
+  <ItemResult>NSPoint32Bit</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Vector_Subtract</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Vector_Subtract(extends NP as nspoint, NP2 as NSPoint) As NSPoint</SourceLine>
+   <SourceLine>return NSPoint (NP.x - NP2.x, NP.y - NP2.y)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends NP as nspoint, NP2 as NSPoint</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toMemoryBlock</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toMemoryBlock(extends aPoint as NSPoint) As xojo.Core.MutableMemoryBlock</SourceLine>
+   <SourceLine>return MemoryBlockExtension.fromNSPoint (aPoint)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aPoint as NSPoint</ItemParams>
+  <ItemResult>xojo.Core.MutableMemoryBlock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>fromMemoryBlock</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromMemoryBlock(MB as xojo.Core.MemoryBlock) As NSPoint</SourceLine>
+   <SourceLine>return mb.toNSPoint</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>MB as xojo.Core.MemoryBlock</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Vector_Square</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Vector_Square(extends aPoint as NSPoint) As NSPoint</SourceLine>
+   <SourceLine>return nspoint (aPoint.x^2 , aPoint.y^2)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aPoint as NSPoint</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

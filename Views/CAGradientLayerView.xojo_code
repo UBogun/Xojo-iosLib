@@ -5,15 +5,15 @@ Begin iosView CAGradientLayerView
    Left            =   0
    NavigationBarVisible=   True
    TabTitle        =   ""
-   Title           =   "iOSLibCAGradientLayer"
+   Title           =   "AppleCAGradientLayer"
    Top             =   0
    Begin iOSLibGradientView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 4, ColorField, 3, False, +1.00, 2, 1, -20, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 4, ColorField, 3, False, +1.00, 2, 1, -20, 
       Height          =   248.0
       Left            =   20
       LockedInPosition=   False
@@ -25,10 +25,10 @@ Begin iosView CAGradientLayerView
    Begin iOSTextField ColorField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ColorField, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ColorField, 2, ImageView1, 2, False, +1.00, 1, 1, -58, 
-      AutoLayout      =   ColorField, 4, LocationsField, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   ColorField, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ColorField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   ColorField, 4, LocationsField, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -50,8 +50,8 @@ Begin iosView CAGradientLayerView
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
       AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Button2, 3, ColorField, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       Caption         =   "Set"
       Enabled         =   True
       Height          =   30.0
@@ -68,10 +68,10 @@ Begin iosView CAGradientLayerView
    Begin iOSTextField LocationsField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   LocationsField, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   LocationsField, 2, Button4, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
-      AutoLayout      =   LocationsField, 4, Slider1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   LocationsField, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   LocationsField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   LocationsField, 4, Slider1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -92,10 +92,10 @@ Begin iosView CAGradientLayerView
    Begin iOSButton Button3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button3, 3, LocationsField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button3, 7, , 0, False, +1.00, 1, 1, 41, 
-      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button3, 3, LocationsField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button3, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Set"
       Enabled         =   True
       Height          =   30.0
@@ -112,10 +112,10 @@ Begin iosView CAGradientLayerView
    Begin iOSButton Button4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button4, 3, LocationsField, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Button4, 7, , 0, False, +1.00, 1, 1, 41, 
-      AutoLayout      =   Button4, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button4, 3, LocationsField, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Button4, 2, Button3, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
+      AutoLayout      =   Button4, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Distr."
       Enabled         =   True
       Height          =   30.0
@@ -132,10 +132,10 @@ Begin iosView CAGradientLayerView
    Begin iOSSlider Slider1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider1, 1, LocationsField, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider1, 7, ImageView1, 7, False, +0.25, 1, 1, 0, 
-      AutoLayout      =   Slider1, 4, Label1, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider1, 1, LocationsField, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider1, 4, Label1, 3, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -151,10 +151,10 @@ Begin iosView CAGradientLayerView
    Begin iOSSlider Slider2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider2, 1, Slider1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider2, 7, Slider1, 7, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Slider2, 4, Label1, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider2, 1, Slider1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider2, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider2, 4, Label1, 3, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   90
@@ -170,10 +170,10 @@ Begin iosView CAGradientLayerView
    Begin iOSSlider Slider5
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider5, 1, Slider2, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider5, 7, Slider1, 7, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Slider5, 4, Label2, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider5, 1, Slider2, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider5, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider5, 4, Label2, 3, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   160
@@ -189,10 +189,10 @@ Begin iosView CAGradientLayerView
    Begin iOSSlider Slider6
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider6, 1, Slider5, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider6, 7, Slider5, 7, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Slider6, 4, Label2, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider6, 1, Slider5, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider6, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider6, 4, Label2, 3, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   230
@@ -208,13 +208,14 @@ Begin iosView CAGradientLayerView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 2, Slider2, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Label1, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Start Point"
@@ -229,13 +230,14 @@ Begin iosView CAGradientLayerView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 1, Slider5, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label2, 2, Slider6, 2, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Label2, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Label2, 1, Slider5, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label2, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "End Point"
@@ -268,23 +270,23 @@ End
 	#tag Event
 		Sub ToolbarPressed(button As iOSToolButton)
 		  if button.Caption = "Help" then
-		    dim help as new InfoView ("iOSLibCAGradientLayer is a subclass of iOSLibCALayer. It displays a linear gradient between as many colors as you like. "+EndOfline + _
-		    "You can instantiate one with the Constructor, passing an array of Colors, and attach it the the iOSLibCALayer of your control as a sublayer with Layer.AddSublayer." + endofline + _
+		    dim help as new InfoView ("AppleCAGradientLayer is a subclass of AppleCALayer. It displays a linear gradient between as many colors as you like. "+EndOfline + _
+		    "You can instantiate one with the Constructor, passing an array of Colors, and attach it the the AppleCALayer of your control as a sublayer with Layer.AddSublayer." + endofline + _
 		    "Or you can use the custom iOSLibGradientView control does the same which assures correct autoresizing for you." + EndOfline+EndOfline + _
 		    "Additional optional properties are an array of Doubles containing the locations of the colors (between 0.0 and 1.0) and start- and endpoints as NSPoints." + EndOfline + _
 		    "A DistributeEvenly method resets the locations to equal distances." + EndOfline + _
-		    "And of course you can assign each iOSLibCALayer property to it, like borderwidth and cornerradius." + EndOfline + _
-		    "All the properties are animatable. When you click on »Animate«, a 5 seconds iOSLibCABasicanimationGroup changing Colors and positions of the colors is started."+endofline+ _
+		    "And of course you can assign each AppleCALayer property to it, like borderwidth and cornerradius." + EndOfline + _
+		    "All the properties are animatable. When you click on »Animate«, a 5 seconds AppleCABasicAnimationGroup changing Colors and positions of the colors is started."+endofline+ _
 		    "Technically the GradientLayer is the first sublayer of a normal CALayer. This is not as nice as intended, but I was not able to change a UIViews' subclass layerClass property without changing this value for ever view."+endofline + _
 		    "Help on this issue is highly welcomed. Because of this limitation, you will find a Layer and a GradientLayer property in the control. I will add convenience methods to the view so you don't have to worry about that." + endofline + _
 		    "To illustrate the existence of 2 layers, I have added a border to the CALayer and rounded rects to the GradientLayer.")
 		    self.PushToCurl help
 		  else // Animate
 		    dim myarray() as color = array (&c14982200, &cDA770033, &cBB224433, &c1012FF22)
-		    dim mycolarray as ioslibmutablearray =  ioslibmutablearray.CGColorArray (myarray)
-		    dim myColoranimation as new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.gradientcolors, ImageView1.GradientLayer.colors, mycolarray)
-		    dim myLocationAnimation as new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.gradientLocations, ImageView1.GradientLayer.locations, iOSLibMutableArray.NumberArray (Array(0, 0.1, 0.3, 0.7, 0.95)))
-		    dim myANimationGroup as new iOSLibCAAnimationGroup (myColoranimation, myLocationAnimation)
+		    dim mycolarray as AppleMutableArray =  AppleMutableArray.CGColorArray (myarray)
+		    dim myColoranimation as new AppleCABasicAnimation (AppleCABasicAnimation.Properties.gradientcolors, ImageView1.GradientLayer.colors, mycolarray)
+		    dim myLocationAnimation as new AppleCABasicAnimation (AppleCABasicAnimation.Properties.gradientLocations, ImageView1.GradientLayer.locations, AppleMutableArray.NumberArray (Array(0, 0.1, 0.3, 0.7, 0.95)))
+		    dim myANimationGroup as new AppleCAAnimationGroup (myColoranimation, myLocationAnimation)
 		    myANimationGroup.Duration = 5
 		    myANimationGroup.Autoreverses = true
 		    ImageView1.GradientLayer.AddAnimation (myANimationGroup)
@@ -297,16 +299,16 @@ End
 		Sub showvalues()
 		  dim mycolors() as color
 		  for q as integer = 1 to ImageView1.GradientLayer.Colors.Count
-		    dim mycolor as new iOSLibCGColor (ImageView1.GradientLayer.Colors.PtrAtIndex (q-1))
+		    dim mycolor as new AppleCGColor (ImageView1.GradientLayer.Colors.PtrAtIndex (q-1))
 		    mycolors.Append mycolor.toColor
 		  next
 		  ColorField.text = mycolors.toCommaList
 		  //
 		  dim mylocations() as double
-		  dim mylocationarray as iOSLibArray = imageview1.GradientLayer.Locations
+		  dim mylocationarray as AppleArray = imageview1.GradientLayer.Locations
 		  if mylocationarray <> NIL then
 		    for q as integer = 1 to mylocationarray.Count
-		      dim mylocation as new iOSLibNumber (mylocationarray.PtrAtIndex (q-1))
+		      dim mylocation as new AppleNumber (mylocationarray.PtrAtIndex (q-1))
 		      mylocations.Append mylocation.DoubleValue
 		    next
 		    LocationsField.text = mylocations.toCommaList
@@ -324,14 +326,14 @@ End
 	#tag Event
 		Sub Open()
 		  me.Alpha = 0
-		  me.FadeIn (3, iOSLibView.UIVIewAnimationCurve.EaseOut)
-		  me.iOSLibView.ContentMode = iOSLibView.UIViewContentMode.Center
+		  me.FadeIn (3, AppleView.UIVIewAnimationCurve.EaseOut)
+		  me.AppleView.ContentMode = AppleView.UIViewContentMode.Center
 		  dim mypic as iOSImage = Birnebuntklein
-		  dim myimage as new iOSLibImage (mypic.Handle)
-		  me.CoreAnimationLayer.Contents =new ioslibobject ( myimage.toCGImage.CFTypeRef)
+		  dim myimage as new AppleImage (mypic.Handle)
+		  me.CoreAnimationLayer.Contents =new AppleObject ( myimage.toCGImage.CFTypeRef)
 		  dim myarray() as color = array (&c394D7E00, &cDA770033, &c44996522, &c38782244 )
-		  dim myioaslibarray as iOSLibMutableArray = iOSLibMutableArray.CGColorArray (myarray)
-		  me.iOSLibView.setValueForKeyPath ("layer.borderWidth", new iOSLibNumber(2))
+		  dim myioaslibarray as AppleMutableArray = AppleMutableArray.CGColorArray (myarray)
+		  me.AppleView.setValueForKeyPath ("layer.borderWidth", new AppleNumber(2))
 		  me.GradientLayer.CornerRadius = 20
 		  me.GradientLayer.SetColors (myarray)
 		  me.GradientLayer.SetLocations (array(0, 0.3, 0.6, 0.9))

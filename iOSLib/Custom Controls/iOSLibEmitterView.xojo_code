@@ -4,13 +4,13 @@ Inherits iOSUserControl
 	#tag Event
 		Function CreateView() As UInteger
 		  dim frame as new Rect (0,0,100,100)
-		  mid = iOSLibObject.AutoRelease (iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect))
-		  dim myemitterlayer as new iOSLibCAEmitterLayer
+		  mid = AppleObject.AutoRelease (AppleResponder.DoInitWithFrame (AppleObject.alloc(ClassPtr), frame.tonsrect))
+		  dim myemitterlayer as new AppleCAEmitterLayer
 		  myemitterlayer.bounds = frame.tonsrect
 		  myemitterlayer.MasksToBounds = true
-		  myemitterlayer.Name = "iOSLibCAEmitterLayer"
-		  dim ego as new iOSLibView (mid)
-		  dim mylayer as iOSLibCALayer = ego.Layer
+		  myemitterlayer.Name = "AppleCAEmitterLayer"
+		  dim ego as new AppleView (mid)
+		  dim mylayer as AppleCALayer = ego.Layer
 		  mylayer.AddSubLayer myemitterlayer
 		  mEmitterLayer = myemitterlayer
 		  
@@ -27,13 +27,13 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_layoutSubviews(id as ptr, sel as ptr)
-		  dim Ego as iOSLibView = iOSLibView.MakeFromPtr (id)
+		  dim Ego as AppleView = AppleView.MakeFromPtr (id)
 		  if  ego <> nil then
-		    dim sublayers as iOSLibArray = ego.Layer.SubLayers
+		    dim sublayers as AppleArray = ego.Layer.SubLayers
 		    if  sublayers <> nil then
 		      if sublayers.count > 0 then
 		        for q as uinteger = 0 to sublayers.Count -1
-		          dim sublayer as  new  iOSLibCALayer (sublayers.PtrAtIndex(q))
+		          dim sublayer as  new  AppleCALayer (sublayers.PtrAtIndex(q))
 		          sublayer.Frame = ego.Bounds
 		        next
 		      end if
@@ -63,13 +63,13 @@ Inherits iOSUserControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  // dim ego as new iOSLibView (mid)
-			  // dim layer as iOSLibCALayer = ego.Layer
-			  // return  new iOSLibCAEmitterLayer(layer.SubLayers.PtrAtIndex(0))
+			  // dim ego as new AppleView (mid)
+			  // dim layer as AppleCALayer = ego.Layer
+			  // return  new AppleCAEmitterLayer(layer.SubLayers.PtrAtIndex(0))
 			  return mEmitterLayer
 			End Get
 		#tag EndGetter
-		EmitterLayer As iOSLibCAEmitterLayer
+		EmitterLayer As AppleCAEmitterLayer
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -82,7 +82,7 @@ Inherits iOSUserControl
 	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
-		Private mEmitterLayer As iOSLibCAEmitterLayer
+		Private mEmitterLayer As AppleCAEmitterLayer
 	#tag EndProperty
 
 	#tag Property, Flags = &h21

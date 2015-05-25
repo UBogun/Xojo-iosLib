@@ -1,8 +1,8 @@
 #tag Module
 Protected Module iOSTextAreaExtension
 	#tag Method, Flags = &h0
-		Function iOSLibScrollView(extends v as iOSTextArea) As iOSLibScrollView
-		  return new iOSLibScrollView (v.Handle)
+		Function iOSLibScrollView(extends v as iOSTextArea) As AppleScrollView
+		  return new AppleScrollView (v.Handle)
 		End Function
 	#tag EndMethod
 
