@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20070100">
+<block type="Module" ID="66650111">
+ <ObjName>AppleCAGradientLayer</ObjName>
+ <ObjContainerID>803434495</ObjContainerID>
+ <IsClass>1</IsClass>
+ <Superclass>AppleCALayer</Superclass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor()</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
+   <SourceLine>// Note that this may need modifications if there are multiple constructor choices.</SourceLine>
+   <SourceLine>// Possible constructor calls:</SourceLine>
+   <SourceLine>// Constructor() -- From AppleCALayer</SourceLine>
+   <SourceLine>// Constructor(aLayer As AppleCALayer) -- From iAppleCALayer// Constructor() -- From AppleResponder</SourceLine>
+   <SourceLine>// Constructor() -- From AppleObject</SourceLine>
+   <SourceLine>// Constructor(AnId as Ptr) -- From AppleObject</SourceLine>
+   <SourceLine>Super.Constructor (Init(Alloc(ClassPtr)))</SourceLine>
+   <SourceLine>mhasownership = true</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(ColorArray() As Color)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
+   <SourceLine>// Note that this may need modifications if there are multiple constructor choices.</SourceLine>
+   <SourceLine>// Possible constructor calls:</SourceLine>
+   <SourceLine>// Constructor() -- From AppleCALayer</SourceLine>
+   <SourceLine>// Constructor(aLayer As AppleCALayer) -- From iAppleCALayer// Constructor() -- From AppleResponder</SourceLine>
+   <SourceLine>// Constructor() -- From AppleObject</SourceLine>
+   <SourceLine>// Constructor(AnId as Ptr) -- From AppleObject</SourceLine>
+   <SourceLine>Super.Constructor (Init(Alloc(ClassPtr)))</SourceLine>
+   <SourceLine>SetColors  (colorarray)</SourceLine>
+   <SourceLine>mhasownership = true</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>ColorArray() As Color</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(ColorArray() As Color, LocationsArray() As Double)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
+   <SourceLine>// Note that this may need modifications if there are multiple constructor choices.</SourceLine>
+   <SourceLine>// Possible constructor calls:</SourceLine>
+   <SourceLine>// Constructor() -- From AppleCALayer</SourceLine>
+   <SourceLine>// Constructor(aLayer As AppleCALayer) -- From iAppleCALayer// Constructor() -- From AppleResponder</SourceLine>
+   <SourceLine>// Constructor() -- From AppleObject</SourceLine>
+   <SourceLine>// Constructor(AnId as Ptr) -- From AppleObject</SourceLine>
+   <SourceLine>Super.Constructor (Init(Alloc(ClassPtr)))</SourceLine>
+   <SourceLine>mhasownership = true</SourceLine>
+   <SourceLine>SetColors colorarray</SourceLine>
+   <SourceLine>SetLocations LocationsArray</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>ColorArray() As Color, LocationsArray() As Double</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(ColorArray() As Color, LocationsArray() As Double, Start_point as xojo.core.Point, End_point as xojo.core.Point)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
+   <SourceLine>// Note that this may need modifications if there are multiple constructor choices.</SourceLine>
+   <SourceLine>// Possible constructor calls:</SourceLine>
+   <SourceLine>// Constructor() -- From AppleCALayer</SourceLine>
+   <SourceLine>// Constructor(aLayer As AppleCALayer) -- From iAppleCALayer// Constructor() -- From AppleResponder</SourceLine>
+   <SourceLine>// Constructor() -- From AppleObject</SourceLine>
+   <SourceLine>// Constructor(AnId as Ptr) -- From AppleObject</SourceLine>
+   <SourceLine>Super.Constructor (Init(Alloc(ClassPtr)))</SourceLine>
+   <SourceLine>mhasownership = true</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>SetColors (colorarray)</SourceLine>
+   <SourceLine>SetLocations LocationsArray</SourceLine>
+   <SourceLine>startpoint = start_point.toNSPoint</SourceLine>
+   <SourceLine>EndPoint = End_point.toNSPoint</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>ColorArray() As Color, LocationsArray() As Double, Start_point as xojo.core.Point, End_point as xojo.core.Point</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>DistributeLocationsEvenly</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub DistributeLocationsEvenly()</SourceLine>
+   <SourceLine>Locations = nil</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>SetColors</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub SetColors(ColorArray() As Color)</SourceLine>
+   <SourceLine>Colors = AppleMutableArray.CGColorArray (colorarray)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>ColorArray() As Color</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>SetLocations</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub SetLocations(LocationArray() As Double)</SourceLine>
+   <SourceLine>Locations = AppleMutableArray.NumberArray (locationarray)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>LocationArray() As Double</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>SetColors</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub SetColors(paramarray ColorArray() As Color)</SourceLine>
+   <SourceLine>Colors = AppleMutableArray.CGColorArray (colorarray)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>paramarray ColorArray() As Color</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Property>
+  <ItemName>ClassPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared ClassPtr As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ClassPtr As Ptr</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mClassPtr as Ptr = NSClassFromString ("CAGradientLayer")</SourceLine>
+   <SourceLine>return mClassPtr</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Colors</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Colors As AppleArray</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Colors As AppleArray</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setColors lib QuartzCore selector "setColors:" (id as ptr, value as ptr)</SourceLine>
+   <SourceLine>setColors (id, value.Id)</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function colors lib QuartzCore selector "colors" (id as ptr) as Ptr</SourceLine>
+   <SourceLine>Return AppleArray.MakeFromPtr (colors (id))</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>EndPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>EndPoint As NSPoint</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>EndPoint As NSPoint</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if target64bit</SourceLine>
+   <SourceLine>declare Sub setEndPoint lib QuartzCore selector "setEndPoint:" (id as ptr, value as NSPoint)</SourceLine>
+   <SourceLine>setEndPoint (id, value)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>declare Sub setEndPoint lib QuartzCore selector "setEndPoint:" (id as ptr, value as NSPoint32Bit)</SourceLine>
+   <SourceLine>setEndPoint (id, value.toNSPoint32)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target64bit</SourceLine>
+   <SourceLine>declare function endPoint lib QuartzCore selector "endPoint" (id as ptr) as NSPoint</SourceLine>
+   <SourceLine>return endPoint (id)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>declare function endPoint lib QuartzCore selector "endPoint" (id as ptr) as NSPoint32Bit</SourceLine>
+   <SourceLine>return endPoint(id).toNSPoint</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Locations</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Locations As AppleArray</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Locations As AppleArray</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setLocations lib QuartzCore selector "setLocations:" (id as ptr, value as ptr)</SourceLine>
+   <SourceLine>setLocations (id, if (value &lt;&gt; NIL, value.Id, NIL))</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function locations lib QuartzCore selector "locations" (id as ptr) as Ptr</SourceLine>
+   <SourceLine>Return AppleArray.MakeFromPtr (locations (id))</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>StartPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>StartPoint As NSPoint</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>StartPoint As NSPoint</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if target64bit</SourceLine>
+   <SourceLine>declare Sub setStartPoint lib QuartzCore selector "setStartPoint:" (id as ptr, value as NSPoint)</SourceLine>
+   <SourceLine>setStartPoint (id, value)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>declare Sub setStartPoint lib QuartzCore selector "setStartPoint:" (id as ptr, value as NSPoint32Bit)</SourceLine>
+   <SourceLine>setStartPoint (id, value.toNSPoint32)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target64bit</SourceLine>
+   <SourceLine>declare function startPoint lib QuartzCore selector "startPoint" (id as ptr) as NSPoint</SourceLine>
+   <SourceLine>return startPoint (id)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>declare function startPoint lib QuartzCore selector "startPoint" (id as ptr) as NSPoint32Bit</SourceLine>
+   <SourceLine>return startPoint(id).toNSPoint</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>DebugDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>IsNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Autoreverses</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>BeginTime</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Duration</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>FillMode</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>FillModes</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Remove</ItemDef>
+    <ItemDef>1 - Remain</ItemDef>
+    <ItemDef>2 - Reset</ItemDef>
+    <ItemDef>3 - Both</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MagnificationFilter</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>ScalingFilters</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Linear</ItemDef>
+    <ItemDef>1 - Nearest</ItemDef>
+    <ItemDef>2 - Trilinear</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MinificationFilter</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>ScalingFilters</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Linear</ItemDef>
+    <ItemDef>1 - Nearest</ItemDef>
+    <ItemDef>2 - Trilinear</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MinificationFilterBias</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RepeatCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RepeatDuration</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Speed</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>TimeOffset</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>AnchorPointZ</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>BorderWidth</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ContentsFlipped</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ContentsPositioning</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>caLayerContentPosition</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Center</ItemDef>
+    <ItemDef>1 - Top</ItemDef>
+    <ItemDef>2 - Bottom</ItemDef>
+    <ItemDef>3 - Left</ItemDef>
+    <ItemDef>4 - Right</ItemDef>
+    <ItemDef>5 - TopLeft</ItemDef>
+    <ItemDef>6 - TopRight</ItemDef>
+    <ItemDef>7 - BottomLeft</ItemDef>
+    <ItemDef>8 - BottomRight</ItemDef>
+    <ItemDef>9 - Resize</ItemDef>
+    <ItemDef>10 - ResizeProportionally</ItemDef>
+    <ItemDef>11 - FillProportionally</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ContentsScale</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>CornerRadius</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>DoubleSided</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>DrawsAsynchronously</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>EdgeAntialiasing</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>GeometryFlipped</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>GroupOpacity</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Height</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Hidden</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MasksToBounds</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>NeedsDisplayOnBoundsChange</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Opacity</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Opaque</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RasterizationScale</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ShadowOpacity</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ShadowRadius</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ShouldRasterize</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Width</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ZPosition</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

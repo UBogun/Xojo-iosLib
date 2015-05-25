@@ -14,11 +14,11 @@ Inherits iOSUserControl
 		Function CreateView() As UInteger
 		  dim frame as new Rect (0,0,100,100)
 		  
-		  mid = iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect)
+		  mid = AppleResponder.DoInitWithFrame (AppleObject.alloc(ClassPtr), frame.tonsrect)
 		  Viewer.myiOSLibHTMLViewer = WeakRef.create (self)
 		  viewer.mhasownership = true
 		  
-		  dim mydelegate as new iOSLibWebViewDelegate (self)
+		  dim mydelegate as new AppleWebViewDelegate (self)
 		  Viewer.Delegate_ = mydelegate
 		  
 		  Return UInteger(mid)
@@ -70,7 +70,7 @@ Inherits iOSUserControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Function InformOnShouldStart(Request as Ptr, NavigationType as iOSLibWebView.UIWebViewNavigationType) As boolean
+		Attributes( hidden )  Function InformOnShouldStart(Request as Ptr, NavigationType as AppleWebView.UIWebViewNavigationType) As boolean
 		  return RaiseEvent ShouldStart (Request, navigationtype)
 		  
 		End Function
@@ -90,7 +90,7 @@ Inherits iOSUserControl
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event ShouldStart(Request as ptr, navigationtype as iOSLibWebView.UIWebViewNavigationType) As boolean
+		Event ShouldStart(Request as ptr, navigationtype as AppleWebView.UIWebViewNavigationType) As boolean
 	#tag EndHook
 
 
@@ -127,10 +127,10 @@ Inherits iOSUserControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return new iOSLibWebView (mid)
+			  return new AppleWebView (mid)
 			End Get
 		#tag EndGetter
-		Viewer As iOSLibWebView
+		Viewer As AppleWebView
 	#tag EndComputedProperty
 
 

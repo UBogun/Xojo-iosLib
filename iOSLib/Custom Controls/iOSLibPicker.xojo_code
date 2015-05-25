@@ -5,7 +5,7 @@ Inherits iOSUserControl
 		Sub Close()
 		  removehandler dataSource.SelectionChanged, AddressOf HandleSelectionChange
 		  dataSource.RemoveFromDict
-		  iOSLibResponder.setDelegate (id, nil)
+		  AppleResponder.setDelegate (id, nil)
 		  mdataSource = nil
 		  
 		End Sub
@@ -15,9 +15,9 @@ Inherits iOSUserControl
 		Function CreateView() As UInteger
 		  dim frame as new Rect (0,0,100,100)
 		  
-		  mid = iOSLibObject.AutoRelease (iOSLibResponder.DoInitWithFrame (ioslibobject.alloc(ClassPtr), frame.tonsrect))
-		  dim ds as new iOSLibPickerViewDataSource (self)
-		  iOSLibResponder.setDelegate (id, ds.id)
+		  mid = AppleObject.AutoRelease (AppleResponder.DoInitWithFrame (AppleObject.alloc(ClassPtr), frame.tonsrect))
+		  dim ds as new ApplePickerViewDataSource (self)
+		  AppleResponder.setDelegate (id, ds.id)
 		  mDataSource = ds
 		  AddHandler dataSource.SelectionChanged, AddressOf HandleSelectionChange
 		  system.debuglog "created new PickerView: "+integer(id).totext
@@ -48,7 +48,7 @@ Inherits iOSUserControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub HandleSelectionChange(sender as ioslibpickerviewdatasource, row as integer, column as integer)
+		Protected Sub HandleSelectionChange(sender as ApplePickerViewDataSource, row as integer, column as integer)
 		  mSelectedColumn = column
 		  RaiseEvent SelectionChanged(row,column)
 		End Sub
@@ -62,13 +62,13 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_layoutSubviews(id as ptr, sel as ptr)
-		  dim Ego as new iOSLibView (id)
+		  dim Ego as new AppleView (id)
 		  if not ego.IsNIL then
-		    dim sublayers as iOSLibArray = ego.Layer.SubLayers
+		    dim sublayers as AppleArray = ego.Layer.SubLayers
 		    if not sublayers.IsNIL then
 		      if sublayers.count > 0 then
 		        for q as uinteger = 0 to sublayers.Count -1
-		          dim sublayer as  new  iOSLibCALayer (sublayers.PtrAtIndex(q))
+		          dim sublayer as  new  AppleCALayer (sublayers.PtrAtIndex(q))
 		          sublayer.Frame = ego.Bounds
 		        next
 		      end if
@@ -129,9 +129,9 @@ Inherits iOSUserControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ViewForRow(Row as Integer, Component as integer) As iOSLibView
+		Function ViewForRow(Row as Integer, Component as integer) As AppleView
 		  Declare Function viewForRow lib UIKit selector "viewForRow:forComponent:" (id as ptr, row as integer, component as integer) as Ptr
-		  return ioslibview.MakeFromPtr (viewForRow (id, Row, Component))
+		  return AppleView.MakeFromPtr (viewForRow (id, Row, Component))
 		End Function
 	#tag EndMethod
 
@@ -157,7 +157,7 @@ Inherits iOSUserControl
 			  return mdataSource
 			End Get
 		#tag EndGetter
-		dataSource As iOSLibPickerViewDataSource
+		dataSource As ApplePickerViewDataSource
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -170,7 +170,7 @@ Inherits iOSUserControl
 	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
-		Private mdataSource As iOSLibPickerViewDataSource
+		Private mdataSource As ApplePickerViewDataSource
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -215,10 +215,10 @@ Inherits iOSUserControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return iOSLibView.MakeFromPtr (id)
+			  return AppleView.MakeFromPtr (id)
 			End Get
 		#tag EndGetter
-		View As iOSLibView
+		View As AppleView
 	#tag EndComputedProperty
 
 

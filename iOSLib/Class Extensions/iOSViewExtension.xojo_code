@@ -1,52 +1,64 @@
 #tag Module
 Protected Module iOSViewExtension
 	#tag Method, Flags = &h0
-		Sub Dismiss(extends v as iOSView, animated as boolean = false)
-		  v.iosLibViewCTRL.Dismiss  animated
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function iosLibViewCTRL(extends v as iOSView) As iOSLibViewController
-		  return new iOSLibViewController (v.handle)
+		Function AppleViewCTRL(extends v as iOSView) As AppleViewController
+		  return new AppleViewController (v.handle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Dismiss(extends v as iOSView, animated as boolean = false)
+		  v.AppleViewCTRL.Dismiss  animated
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function PresentationStyle(extends v as iOSView) As AppleViewController.UIViewModalPresentationStyle
+		  return v.AppleViewCTRL.ModalPresentationStyle
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub PresentationStyle(extends v as iOSView, assigns value as AppleViewController.UIViewModalPresentationStyle)
+		  v.AppleViewCTRL.ModalPresentationStyle =value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub PushToCover(extends v as iOSView, newview as iosview)
-		  dim newController as new iOSLibViewController (newview.Handle)
-		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.CoverVertical
-		  v.iosLibViewCTRL.Present newController, true
+		  dim newController as new AppleViewController (newview.Handle)
+		  newController.ModalTransitonStyle = AppleViewController.UIModalTransitionStyle.CoverVertical
+		  v.AppleViewCTRL.Present newController, true
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub PushToCurl(extends v as iOSView, newview as iosview)
-		  dim newController as new iOSLibViewController (newview.Handle)
-		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.PartialCurl
-		  v.iosLibViewCTRL.Present newController, true
+		  dim newController as new AppleViewController (newview.Handle)
+		  newController.ModalTransitonStyle = AppleViewController.UIModalTransitionStyle.PartialCurl
+		  v.AppleViewCTRL.Present newController, true
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub PushToDissolve(extends v as iOSView, newview as iosview)
-		  dim newController as new iOSLibViewController (newview.Handle)
-		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.CrossDissolve
-		  v.iosLibViewCTRL.Present newController, true
+		  dim newController as new AppleViewController (newview.Handle)
+		  newController.ModalTransitonStyle = AppleViewController.UIModalTransitionStyle.CrossDissolve
+		  v.AppleViewCTRL.Present newController, true
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub PushToSlide(extends v as iOSView, newview as iosview)
-		  dim newController as new iOSLibViewController (newview.Handle)
-		  newController.ModalTransitonStyle = iOSLibViewController.UIModalTransitionStyle.FlipHorizontal
-		  v.iosLibViewCTRL.Present newController, true
+		  dim newController as new AppleViewController (newview.Handle)
+		  newController.ModalTransitonStyle = AppleViewController.UIModalTransitionStyle.FlipHorizontal
+		  v.AppleViewCTRL.Present newController, true
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function View(extends c as iOSView) As iOSLibView
-		  return new iOSLibView (c.ViewHandle)
+		Function View(extends c as iOSView) As AppleView
+		  return new AppleView (c.ViewHandle)
 		End Function
 	#tag EndMethod
 

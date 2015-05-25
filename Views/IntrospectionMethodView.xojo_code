@@ -10,10 +10,10 @@ Begin iosView IntrospectionMethodView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       Format          =   "0"
       Height          =   407.0
       Left            =   0
@@ -36,7 +36,7 @@ End
 
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(method as iOSLibMethod)
+		Sub Constructor(method as AppleMethod)
 		  // Calling the overridden superclass constructor.
 		  try
 		    Introspection = method
@@ -61,7 +61,7 @@ End
 
 
 	#tag Property, Flags = &h0
-		Introspection As iOSLibMethod
+		Introspection As AppleMethod
 	#tag EndProperty
 
 	#tag Property, Flags = &h21

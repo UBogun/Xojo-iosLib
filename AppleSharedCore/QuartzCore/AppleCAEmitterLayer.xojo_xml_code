@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20070100">
+<block type="Module" ID="1878913023">
+ <ObjName>AppleCAEmitterLayer</ObjName>
+ <ObjContainerID>803434495</ObjContainerID>
+ <IsClass>1</IsClass>
+ <Superclass>AppleCALayer</Superclass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor()</SourceLine>
+   <SourceLine>Super.Constructor (Init(Alloc(ClassPtr)))</SourceLine>
+   <SourceLine>mHasOwnership = true</SourceLine>
+   <SourceLine>Seed = xojo.math.randomint (0, &amp;hffffffff)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>DisableEmitters</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub DisableEmitters()</SourceLine>
+   <SourceLine>BirthRate = 0</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>EnableEmitters</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub EnableEmitters()</SourceLine>
+   <SourceLine>BirthRate = 1</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Property>
+  <ItemName>BirthRate</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>BirthRate As Single</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>BirthRate As Single</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setBirthRate lib QuartzCore selector "setBirthRate:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>setBirthRate id, value</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function birthRate lib QuartzCore selector "birthRate" (id as ptr) as single</SourceLine>
+   <SourceLine>Return birthRate (id)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>ClassPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared ClassPtr As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ClassPtr As Ptr</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mClassPtr as Ptr = NSClassFromString ("CAEmitterLayer")</SourceLine>
+   <SourceLine>return mClassPtr</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>ConstantDict</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared ConstantDict As AppleDictionary</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ConstantDict As AppleDictionary</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mConstantLib as AppleMutableDictionary</SourceLine>
+   <SourceLine>if mConstantLib = nil then</SourceLine>
+   <SourceLine>mConstantLib = new AppleMutableDictionary (15)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerCircle) = SystemConstantName (kCAEmitterLayerCircle, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerCuboid) = SystemConstantName (kCAEmitterLayerCuboid, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerLine) = SystemConstantName (kCAEmitterLayerLine, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerPoint) = SystemConstantName (kCAEmitterLayerPoint, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerRectangle) = SystemConstantName (kCAEmitterLayerRectangle, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerSphere) = SystemConstantName (kCAEmitterLayerSphere, QuartzCorePath)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerPoints) = SystemConstantName (kCAEmitterLayerPoints, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerOutline) = SystemConstantName (kCAEmitterLayerOutline, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerSurface) = SystemConstantName (kCAEmitterLayerSurface, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerVolume) = SystemConstantName (kCAEmitterLayerVolume, QuartzCorePath)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerUnordered) = SystemConstantName (kCAEmitterLayerUnordered, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerOldestFirst) = SystemConstantName (kCAEmitterLayerOldestFirst, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerOldestLast) = SystemConstantName (kCAEmitterLayerOldestLast, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerBackToFront) = SystemConstantName (kCAEmitterLayerBackToFront, QuartzCorePath)</SourceLine>
+   <SourceLine>mConstantLib.ValueForKey (kCAEmitterLayerAdditive) = SystemConstantName (kCAEmitterLayerAdditive, QuartzCorePath)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>return mConstantLib</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>EmitterCells</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>EmitterCells As AppleArray</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>EmitterCells As AppleArray</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setEmitterCells lib QuartzCore selector "setEmitterCells:" (id as ptr, value as ptr)</SourceLine>
+   <SourceLine>setEmitterCells id, value.id</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function emitterCells lib QuartzCore selector "emitterCells" (id as ptr) as ptr</SourceLine>
+   <SourceLine>Return AppleArray.MakeFromPtr ( emitterCells (id))</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>EmitterDepth</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>EmitterDepth As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>EmitterDepth As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if Target64bit</SourceLine>
+   <SourceLine>Declare Sub setEmitterDepth lib QuartzCore selector "setEmitterDepth:" (id as ptr, value as double)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare Sub setEmitterDepth lib QuartzCore selector "setEmitterDepth:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>setEmitterDepth (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if Target64bit</SourceLine>
+   <SourceLine>Declare Function emitterDepth lib QuartzCore selector "emitterDepth" (id as ptr) as double</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare Function emitterDepth lib QuartzCore selector "emitterDepth" (id as ptr) as single</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>Return emitterDepth (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>EmitterMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>EmitterMode As EmitterModes</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>EmitterMode As EmitterModes</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>dim result as text</SourceLine>
+   <SourceLine>select case value</SourceLine>
+   <SourceLine>case EmitterModes.Outline</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerOutline)</SourceLine>
+   <SourceLine>case EmitterModes.Points</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerPoints)</SourceLine>
+   <SourceLine>case EmitterModes.Surface</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerSurface)</SourceLine>
+   <SourceLine>case EmitterModes.Volume</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerVolume)</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>mEmitterMode = result</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>select case mEmitterMode</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerPoints)</SourceLine>
+   <SourceLine>return EmitterModes.Points</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerOutline)</SourceLine>
+   <SourceLine>return EmitterModes.Outline</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerSurface)</SourceLine>
+   <SourceLine>return EmitterModes.Surface</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerVolume)</SourceLine>
+   <SourceLine>return EmitterModes.Volume</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>EmitterShape</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>EmitterShape As EmitterShapes</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>EmitterShape As EmitterShapes</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>dim result as text</SourceLine>
+   <SourceLine>select case value</SourceLine>
+   <SourceLine>case EmitterShapes.Circle</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerCircle)</SourceLine>
+   <SourceLine>case EmitterShapes.Cuboid</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerCuboid)</SourceLine>
+   <SourceLine>case EmitterShapes.Line</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerLine)</SourceLine>
+   <SourceLine>case EmitterShapes.Point</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerPoint)</SourceLine>
+   <SourceLine>case EmitterShapes.Rectangle</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerRectangle)</SourceLine>
+   <SourceLine>case EmitterShapes.Sphere</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerSphere)</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>mEmitterShape = result</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>select case mEmitterShape</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerPoint)</SourceLine>
+   <SourceLine>return EmitterShapes.Point</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerLine)</SourceLine>
+   <SourceLine>return EmitterShapes.Line</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerRectangle)</SourceLine>
+   <SourceLine>return EmitterShapes.Rectangle</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerCircle)</SourceLine>
+   <SourceLine>return EmitterShapes.Circle</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerCuboid)</SourceLine>
+   <SourceLine>return EmitterShapes.Cuboid</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>EmitterSize</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>EmitterSize As NSSize</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>EmitterSize As NSSize</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if Target64bit</SourceLine>
+   <SourceLine>Declare Sub setEmitterSize lib QuartzCore selector "setEmitterSize:" (id as ptr, value as nssize)</SourceLine>
+   <SourceLine>setEmitterSize id, value</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare Sub setEmitterSize lib QuartzCore selector "setEmitterSize:" (id as ptr, value as NSSize32Bit)</SourceLine>
+   <SourceLine>setEmitterSize id, value.toNSSize32</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if Target64bit</SourceLine>
+   <SourceLine>Declare Function emitterSize lib QuartzCore selector "emitterSize" (id as ptr) as NSSize</SourceLine>
+   <SourceLine>return emitterSize (id)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare Function emitterSize lib QuartzCore selector "emitterSize" (id as ptr) as NSSize32Bit</SourceLine>
+   <SourceLine>return emitterSize (id).toNSSize</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>EmitterZPosition</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>EmitterZPosition As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>EmitterZPosition As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if Target64bit</SourceLine>
+   <SourceLine>Declare Sub setEmitterZPosition lib QuartzCore selector "setEmitterZPosition:" (id as ptr, value as double)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare Sub setEmitterZPosition lib QuartzCore selector "setEmitterZPosition:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>setEmitterZPosition (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if Target64bit</SourceLine>
+   <SourceLine>Declare Function emitterZPosition lib QuartzCore selector "emitterZPosition" (id as ptr) as double</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare Function emitterZPosition lib QuartzCore selector "emitterZPosition" (id as ptr) as single</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>Return emitterZPosition (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>LifeTime</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>LifeTime As Single</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>LifeTime As Single</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setLifetime lib QuartzCore selector "setLifetime:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>setLifetime id, value</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function lifetime lib QuartzCore selector "lifetime" (id as ptr) as single</SourceLine>
+   <SourceLine>Return lifetime (id)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mEmitterMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mEmitterMode As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mEmitterMode As Text</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setEmitterMode lib QuartzCore selector "setEmitterMode:" (id as ptr, value as CFStringRef)</SourceLine>
+   <SourceLine>setEmitterMode (id, value)</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function emitterMode lib QuartzCore selector "emitterMode" (id as ptr) as CFStringRef</SourceLine>
+   <SourceLine>return emitterMode (id)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mEmitterShape</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mEmitterShape As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mEmitterShape As Text</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setEmitterShape lib QuartzCore selector "setEmitterShape:" (id as ptr, value as CFStringRef)</SourceLine>
+   <SourceLine>setemitterShape (id, value)</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function emitterShape lib QuartzCore selector "emitterShape" (id as ptr) as CFStringRef</SourceLine>
+   <SourceLine>return emitterShape (id)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mRenderMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mRenderMode As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mRenderMode As Text</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setRenderMode lib QuartzCore selector "setRenderMode:" (id as ptr, value as CFStringRef)</SourceLine>
+   <SourceLine>setRenderMode (id, value)</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function renderMode lib QuartzCore selector "renderMode" (id as ptr) as CFStringRef</SourceLine>
+   <SourceLine>return renderMode (id)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>PreservesDepth</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>PreservesDepth As Boolean</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>PreservesDepth As Boolean</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setPreservesDepth lib QuartzCore selector "setPreservesDepth:" (id as ptr, value as Boolean)</SourceLine>
+   <SourceLine>setPreservesDepth id, value</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function preservesDepth lib QuartzCore selector "preservesDepth" (id as ptr) as Boolean</SourceLine>
+   <SourceLine>Return preservesDepth (id)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>RenderMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>RenderMode As RenderModes</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>RenderMode As RenderModes</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>dim result as text</SourceLine>
+   <SourceLine>select case value</SourceLine>
+   <SourceLine>case RenderModes.Additive</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerAdditive)</SourceLine>
+   <SourceLine>case RenderModes.BackTFront</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerBackToFront)</SourceLine>
+   <SourceLine>case RenderModes.OldestFirst</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerOldestFirst)</SourceLine>
+   <SourceLine>case RenderModes.OldestLast</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerOldestLast)</SourceLine>
+   <SourceLine>case RenderModes.Unordered</SourceLine>
+   <SourceLine>result = ConstantDict.TextForKey (kCAEmitterLayerUnordered)</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>mRenderMode = result</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>select case mRenderMode</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerUnordered)</SourceLine>
+   <SourceLine>return RenderModes.Unordered</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerOldestFirst)</SourceLine>
+   <SourceLine>return RenderModes.OldestFirst</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerOldestLast)</SourceLine>
+   <SourceLine>return RenderModes.OldestLast</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerBackToFront)</SourceLine>
+   <SourceLine>return RenderModes.BackTFront</SourceLine>
+   <SourceLine>case ConstantDict.TextForKey (kCAEmitterLayerAdditive)</SourceLine>
+   <SourceLine>return RenderModes.Additive</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Scale</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Scale As Single</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Scale As Single</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setScale lib QuartzCore selector "setScale:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>setscale (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function scale lib QuartzCore selector "scale" (id as ptr) as single</SourceLine>
+   <SourceLine>Return scale (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Seed</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Seed As UInt32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Seed As UInt32</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setSeed lib QuartzCore selector "setSeed:" (id as ptr, value as uint32)</SourceLine>
+   <SourceLine>setSeed id, value</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function seed lib QuartzCore selector "seed" (id as ptr) as uint32</SourceLine>
+   <SourceLine>Return  seed (id)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Spin</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Spin As Single</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Spin As Single</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setSpin lib QuartzCore selector "setSpin:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>setSpin (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function spin lib QuartzCore selector "spin" (id as ptr) as single</SourceLine>
+   <SourceLine>Return spin (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Velocity</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Velocity As Single</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Velocity As Single</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>Declare Sub setVelocity lib QuartzCore selector "setVelocity:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>setVelocity (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>Declare Function velocity lib QuartzCore selector "velocity" (id as ptr) as single</SourceLine>
+   <SourceLine>Return velocity (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>DebugDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>IsNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Autoreverses</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>BeginTime</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Duration</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>FillMode</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>FillModes</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Remove</ItemDef>
+    <ItemDef>1 - Remain</ItemDef>
+    <ItemDef>2 - Reset</ItemDef>
+    <ItemDef>3 - Both</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MagnificationFilter</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>ScalingFilters</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Linear</ItemDef>
+    <ItemDef>1 - Nearest</ItemDef>
+    <ItemDef>2 - Trilinear</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MinificationFilter</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>ScalingFilters</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Linear</ItemDef>
+    <ItemDef>1 - Nearest</ItemDef>
+    <ItemDef>2 - Trilinear</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MinificationFilterBias</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RepeatCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RepeatDuration</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Speed</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>TimeOffset</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>AnchorPointZ</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>BorderWidth</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ContentsFlipped</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ContentsPositioning</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>caLayerContentPosition</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Center</ItemDef>
+    <ItemDef>1 - Top</ItemDef>
+    <ItemDef>2 - Bottom</ItemDef>
+    <ItemDef>3 - Left</ItemDef>
+    <ItemDef>4 - Right</ItemDef>
+    <ItemDef>5 - TopLeft</ItemDef>
+    <ItemDef>6 - TopRight</ItemDef>
+    <ItemDef>7 - BottomLeft</ItemDef>
+    <ItemDef>8 - BottomRight</ItemDef>
+    <ItemDef>9 - Resize</ItemDef>
+    <ItemDef>10 - ResizeProportionally</ItemDef>
+    <ItemDef>11 - FillProportionally</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ContentsScale</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>CornerRadius</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>DoubleSided</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>DrawsAsynchronously</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>EdgeAntialiasing</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>GeometryFlipped</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>GroupOpacity</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Height</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Hidden</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MasksToBounds</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>NeedsDisplayOnBoundsChange</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Opacity</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Opaque</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RasterizationScale</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ShadowOpacity</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ShadowRadius</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ShouldRasterize</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Width</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ZPosition</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>BirthRate</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>EmitterDepth</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>EmitterMode</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>EmitterModes</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Points</ItemDef>
+    <ItemDef>1 - Outline</ItemDef>
+    <ItemDef>2 - Surface</ItemDef>
+    <ItemDef>3 - Volume</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>EmitterShape</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>EmitterShapes</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Point</ItemDef>
+    <ItemDef>1 - Line</ItemDef>
+    <ItemDef>2 - Rectangle</ItemDef>
+    <ItemDef>3 - Cuboid</ItemDef>
+    <ItemDef>4 - Circle</ItemDef>
+    <ItemDef>5 - Sphere</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>EmitterZPosition</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>LifeTime</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>PreservesDepth</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RenderMode</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>RenderModes</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Unordered</ItemDef>
+    <ItemDef>1 - OldestFirst</ItemDef>
+    <ItemDef>2 - OldestLast</ItemDef>
+    <ItemDef>3 - BackTFront</ItemDef>
+    <ItemDef>4 - Additive</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Scale</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Spin</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Velocity</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+ <Constant>
+  <ItemName>kCAEmitterLayerAdditive</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerAdditive</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerBackToFront</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerBackToFront</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerCircle</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerCircle</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerCuboid</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerCuboid</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerLine</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerLine</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerOldestFirst</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerOldestFirst</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerOldestLast</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerOldestLast</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerOutline</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerOutline</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerPoint</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerPoints</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerPoints</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerRectangle</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerRectangle</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerSphere</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerSphere</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerSurface</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerSurface</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerUnordered</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerUnordered</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAEmitterLayerVolume</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAEmitterLayerVolume</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>EmitterModes</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>Integer</ItemType>
+  <ItemName>EmitterModes</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Points</SourceLine>
+   <SourceLine>Outline</SourceLine>
+   <SourceLine>Surface</SourceLine>
+   <SourceLine>Volume</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>EmitterShapes</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>Integer</ItemType>
+  <ItemName>EmitterShapes</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Point</SourceLine>
+   <SourceLine>Line</SourceLine>
+   <SourceLine>Rectangle</SourceLine>
+   <SourceLine>Cuboid</SourceLine>
+   <SourceLine>Circle</SourceLine>
+   <SourceLine>Sphere</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>RenderModes</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>Integer</ItemType>
+  <ItemName>RenderModes</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Unordered</SourceLine>
+   <SourceLine>OldestFirst</SourceLine>
+   <SourceLine>OldestLast</SourceLine>
+   <SourceLine>BackTFront</SourceLine>
+   <SourceLine>Additive</SourceLine>
+  </ItemSource>
+ </Enumeration>
+</block>
+</RBProject>

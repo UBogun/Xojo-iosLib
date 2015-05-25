@@ -2,115 +2,115 @@
 Protected Module iOSHTMLViewerExtension
 	#tag Method, Flags = &h0
 		Function AllowAirplay(extends c as ioshtmlviewer) As Boolean
-		  return c.iosLibWebView.MediaPlaybackAllowsAirPlay
+		  return c.AppleWebView.MediaPlaybackAllowsAirPlay
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub AllowAirplay(extends c as ioshtmlviewer, assigns value as Boolean)
-		  c.iosLibWebView.MediaPlaybackAllowsAirPlay = value
+		  c.AppleWebView.MediaPlaybackAllowsAirPlay = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AllowInlineMediaPlayback(extends c as ioshtmlviewer) As Boolean
-		  return c.iosLibWebView.AllowsInlineMediaPlayback
+		  return c.AppleWebView.AllowsInlineMediaPlayback
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub AllowInlineMediaPlayback(extends c as ioshtmlviewer, assigns value as Boolean)
-		  c.iosLibWebView.AllowsInlineMediaPlayback = value
+		  c.AppleWebView.AllowsInlineMediaPlayback = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function AppleWebView(extends c as ioshtmlviewer) As AppleWebView
+		  return new AppleWebView (c.Handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function CanGoBack(extends c as ioshtmlviewer) As Boolean
-		  return c.iosLibWebView.CanGoBack
+		  return c.AppleWebView.CanGoBack
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function CanGoForward(extends c as ioshtmlviewer) As Boolean
-		  return c.iosLibWebView.CanGoForward
+		  return c.AppleWebView.CanGoForward
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub goBack(extends c as ioshtmlviewer)
-		  c.iosLibWebView.GoBack
+		  c.AppleWebView.GoBack
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub goForward(extends c as ioshtmlviewer)
-		  c.iosLibWebView.GoForward
+		  c.AppleWebView.GoForward
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function iosLibWebView(extends c as ioshtmlviewer) As iOSLibWebView
-		  return new iOSLibWebView (c.Handle)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Function IsLoading(extends c as ioshtmlviewer) As Boolean
-		  return c.iosLibWebView.IsLoading
+		  return c.AppleWebView.IsLoading
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function PlayMediaAutomatically(extends c as ioshtmlviewer) As Boolean
-		  return not ( c.iosLibWebView.MediaPlaybackRequiresUserAction)
+		  return not ( c.AppleWebView.MediaPlaybackRequiresUserAction)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub PlayMediaAutomatically(extends c as ioshtmlviewer, assigns value as Boolean)
-		  c.iosLibWebView.MediaPlaybackRequiresUserAction = not (value)
+		  c.AppleWebView.MediaPlaybackRequiresUserAction = not (value)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Reload(extends c as ioshtmlviewer)
-		  c.iosLibWebView.Reload
+		  c.AppleWebView.Reload
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function RunJavaScript(extends c as ioshtmlviewer, aScript As Text) As Text
-		  return c.iosLibWebView.RunJavaScript (aScript)
+		  return c.AppleWebView.RunJavaScript (aScript)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ScalesPageToFit(extends c as ioshtmlviewer) As Boolean
-		  return c.iosLibWebView.ScalesPageToFit
+		  return c.AppleWebView.ScalesPageToFit
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ScalesPageToFit(extends c as ioshtmlviewer, assigns value as Boolean)
-		  c.iosLibWebView.ScalesPageToFit = value
+		  c.AppleWebView.ScalesPageToFit = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub StopLoading(extends c as ioshtmlviewer)
-		  c.iosLibWebView.StopLoading
+		  c.AppleWebView.StopLoading
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function SuppressRenderWhileLoad(extends c as ioshtmlviewer) As Boolean
-		  return c.iosLibWebView.SuppressesIncrementalRendering
+		  return c.AppleWebView.SuppressesIncrementalRendering
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SuppressRenderWhileLoad(extends c as ioshtmlviewer, assigns value as Boolean)
-		  c.iosLibWebView.SuppressesIncrementalRendering = value
+		  c.AppleWebView.SuppressesIncrementalRendering = value
 		End Sub
 	#tag EndMethod
 

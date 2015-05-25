@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="2119170047">
+ <ObjName>RectExtension</ObjName>
+ <ObjContainerID>1412438015</ObjContainerID>
+ <IsClass>0</IsClass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>NSRect</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function NSRect(x as double, y as double, w as double, h as double) As NSrect</SourceLine>
+   <SourceLine>dim NP as NSRect</SourceLine>
+   <SourceLine>NP.Origin.x = x</SourceLine>
+   <SourceLine>np.Origin.y = y</SourceLine>
+   <SourceLine>NP.Size_.width = w</SourceLine>
+   <SourceLine>np.Size_.height = h</SourceLine>
+   <SourceLine>return np</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>x as double, y as double, w as double, h as double</ItemParams>
+  <ItemResult>NSrect</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toCoreRect</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toCoreRect(extends aRect64 as NSRect) As Xojo.Core.Rect</SourceLine>
+   <SourceLine>return new xojo.core.rect (aRect64.Origin.x, aRect64.Origin.y, aRect64.Size_.width,aRect64.Size_.height)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aRect64 as NSRect</ItemParams>
+  <ItemResult>Xojo.Core.Rect</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toCoreRect</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toCoreRect(extends aRect32 as NSRect32Bit) As Xojo.Core.Rect</SourceLine>
+   <SourceLine>return aRect32.toNSRect.toCoreRect</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aRect32 as NSRect32Bit</ItemParams>
+  <ItemResult>Xojo.Core.Rect</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSRect</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSRect(extends aRect32 as NSRect32Bit) As NSRect</SourceLine>
+   <SourceLine>dim result as NSRect</SourceLine>
+   <SourceLine>result.Size_ = aRect32.Size_.tonssize</SourceLine>
+   <SourceLine>result.Origin = aRect32.Origin.tonspoint</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aRect32 as NSRect32Bit</ItemParams>
+  <ItemResult>NSRect</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSRect</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSRect(extends r as xojo.core.rect) As NSRect</SourceLine>
+   <SourceLine>dim result as NSRect</SourceLine>
+   <SourceLine>result.Origin = r.Origin.toNSPoint</SourceLine>
+   <SourceLine>result.Size_ = r.Size.toNSSize</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends r as xojo.core.rect</ItemParams>
+  <ItemResult>NSRect</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSRect32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSRect32(extends aRect64 as NSrect) As NSRect32bit</SourceLine>
+   <SourceLine>dim result as NSRect32Bit</SourceLine>
+   <SourceLine>result.Size_ = aRect64.Size_.tonssize32</SourceLine>
+   <SourceLine>result.Origin = aRect64.Origin.tonspoint32</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aRect64 as NSrect</ItemParams>
+  <ItemResult>NSRect32bit</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSRect32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSRect32(extends aRect as Xojo.core.Rect) As NSRect32bit</SourceLine>
+   <SourceLine>Return aRect.toNSRect.toNSRect32</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aRect as Xojo.core.Rect</ItemParams>
+  <ItemResult>NSRect32bit</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toText</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toText(extends n as NSRect, format as text = "###") As text</SourceLine>
+   <SourceLine>// dim mylocale as xojo.core.locale = locale.current</SourceLine>
+   <SourceLine>// return n.Origin.x.totext (mylocale, format)+", "+n.Origin.y.totext  (mylocale, format)+", "+n.size_.width.totext (mylocale, format)+", "+n.size_.height.totext  (mylocale, format)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends n as NSRect, format as text = "###"</ItemParams>
+  <ItemResult>text</ItemResult>
+ </Method>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

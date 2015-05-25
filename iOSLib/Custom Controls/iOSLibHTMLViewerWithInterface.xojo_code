@@ -1,49 +1,49 @@
 #tag Class
 Protected Class iOSLibHTMLViewerWithInterface
 Inherits iOSLibHTMLViewer
-Implements iOSLibEventForwarder
+Implements AppleEventForwarder
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub InformOnError(Error as Ptr)
-		  dim myarray as new iOSLibMutableArray(2)
-		  myarray.AddText  iOSLibWebViewDelegate.DidFailLoad
-		  myarray.Addobject new iOSLibObject (error) // needs to be changed when NSError exists
+		  dim myarray as new AppleMutableArray(2)
+		  myarray.AddText  AppleWebViewDelegate.DidFailLoad
+		  myarray.Addobject new AppleObject (error) // needs to be changed when NSError exists
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub InformOnFinish()
-		  dim myarray as new iOSLibMutableArray(1)
-		  myarray.AddText  iOSLibWebViewDelegate.DidFinishLoad
+		  dim myarray as new AppleMutableArray(1)
+		  myarray.AddText  AppleWebViewDelegate.DidFinishLoad
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub InformOnLoad()
-		  dim myarray as new iOSLibMutableArray(1)
-		  myarray.AddText  iOSLibWebViewDelegate.DidStartLoad
+		  dim myarray as new AppleMutableArray(1)
+		  myarray.AddText  AppleWebViewDelegate.DidStartLoad
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Function InformOnShouldStart(Request as Ptr, NavigationType as iOSLibWebView.UIWebViewNavigationType) As boolean
-		  dim myarray as new iOSLibMutableArray(2)
-		  myarray.AddText  iOSLibWebViewDelegate.ShouldStartLoad
-		  myarray.Addobject new ioslibnumber (integer(navigationtype))
+		Attributes( hidden )  Function InformOnShouldStart(Request as Ptr, NavigationType as AppleWebView.UIWebViewNavigationType) As boolean
+		  dim myarray as new AppleMutableArray(2)
+		  myarray.AddText  AppleWebViewDelegate.ShouldStartLoad
+		  myarray.Addobject new AppleNumber (integer(navigationtype))
 		  NotifyObservers (myarray)
 		  return true // needs to be changed to forwarding mechanism
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub NotifyObservers(EventProperties As iOSLibArray)
-		  // Part of the iOSLibEventForwarder interface.
+		Sub NotifyObservers(EventProperties As AppleArray)
+		  // Part of the AppleEventForwarder interface.
 		  
 		  if Receivers.HasKey(id) then
 		    dim wR as WeakRef = Receivers.value(id)
-		    dim observer as iOSLibEventReceiver = iOSLibEventReceiver( wr.Value)
+		    dim observer as AppleEventReceiver = AppleEventReceiver( wr.Value)
 		    if observer <> nil then
 		      observer.ReceivedEvent (EventProperties)
 		    end if
@@ -52,8 +52,8 @@ Implements iOSLibEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RegisterObserver(observer As iosLibEventReceiver)
-		  // Part of the iOSLibEventForwarder interface.
+		Sub RegisterObserver(observer As AppleEventReceiver)
+		  // Part of the AppleEventForwarder interface.
 		  
 		  if Receivers = nil then Receivers = new dictionary
 		  
@@ -62,8 +62,8 @@ Implements iOSLibEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RemoveObserver(observer As iOSLibEventReceiver)
-		  // Part of the iOSLibEventForwarder interface.
+		Sub RemoveObserver()
+		  // Part of the AppleEventForwarder interface.
 		  
 		  if Receivers.HasKey (id) then Receivers.Remove (id)
 		  

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20070100">
+<block type="Module" ID="2139207341">
+ <ObjName>AppleProtocol</ObjName>
+ <ObjContainerID>308434943</ObjContainerID>
+ <IsClass>1</IsClass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>ClassMethods</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ClassMethods() As AppleMethodDescription()</SourceLine>
+   <SourceLine>return getMethods (false, false)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>AppleMethodDescription()</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ConformsToProtocols</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ConformsToProtocols() As AppleProtocol()</SourceLine>
+   <SourceLine>dim allProtocols() as AppleProtocol = AppleIntrospection.Protocols</SourceLine>
+   <SourceLine>dim result() as AppleProtocol</SourceLine>
+   <SourceLine>for q as uinteger = 0 to allProtocols.Ubound</SourceLine>
+   <SourceLine>dim testprotocol as AppleProtocol = allProtocols(q)</SourceLine>
+   <SourceLine>if ObjectiveCRuntime.protocol_conformsToProtocol (id, testprotocol.id) and not isEqual (testprotocol) then result.Append testprotocol</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>AppleProtocol()</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(aProtocol as ptr)</SourceLine>
+   <SourceLine>mid = aProtocol</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aProtocol as ptr</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>getMethods</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function getMethods(isRequired as Boolean, isInstanceMethod as boolean) As AppleMethodDescription()</SourceLine>
+   <SourceLine>dim minstancemethods() as AppleMethodDescription</SourceLine>
+   <SourceLine>dim arrayPtr as ptr</SourceLine>
+   <SourceLine>dim count as uinteger</SourceLine>
+   <SourceLine>arrayPtr = ObjectiveCRuntime.protocol_copyMethodDescriptionList (id, isRequired, isInstanceMethod, count)</SourceLine>
+   <SourceLine>if arrayPtr &lt;&gt; NIL then</SourceLine>
+   <SourceLine>For i As uInteger = 0 To count - 1</SourceLine>
+   <SourceLine>Dim desc As new AppleMethodDescription( arrayPtr.objc_method_description (i * objc_method_description.Size))</SourceLine>
+   <SourceLine>minstancemethods.Append(desc)</SourceLine>
+   <SourceLine>Next</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>AppleLibSystem.free arrayptr</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>return minstancemethods</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>isRequired as Boolean, isInstanceMethod as boolean</ItemParams>
+  <ItemResult>AppleMethodDescription()</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>InstanceMethods</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function InstanceMethods() As AppleMethodDescription()</SourceLine>
+   <SourceLine>return getMethods (false, true)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>AppleMethodDescription()</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>isEqual</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function isEqual(anotherProtocol as AppleProtocol) As Boolean</SourceLine>
+   <SourceLine>Return ObjectiveCRuntime.protocol_isEqual (id, anotherProtocol.id)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>anotherProtocol as AppleProtocol</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Properties</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Properties() As AppleProperty()</SourceLine>
+   <SourceLine>dim mproperties() as AppleProperty</SourceLine>
+   <SourceLine>dim arrayPtr as ptr</SourceLine>
+   <SourceLine>dim count as uinteger</SourceLine>
+   <SourceLine>arrayPtr = ObjectiveCRuntime.protocol_copyPropertyList (id, count)</SourceLine>
+   <SourceLine>if arrayPtr &lt;&gt; NIL then</SourceLine>
+   <SourceLine>For i As uInteger = 0 To count - 1</SourceLine>
+   <SourceLine>Dim myprop As new AppleProperty ( arrayPtr.Ptr(i * IntegerSize))</SourceLine>
+   <SourceLine>mproperties.Append(myprop)</SourceLine>
+   <SourceLine>Next</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>AppleLibSystem.free arrayptr</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>return mproperties</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>AppleProperty()</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>RequiredClassMethods</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function RequiredClassMethods() As AppleMethodDescription()</SourceLine>
+   <SourceLine>return getMethods (true, false)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>AppleMethodDescription()</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>RequiredInstanceMethods</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function RequiredInstanceMethods() As AppleMethodDescription()</SourceLine>
+   <SourceLine>return getMethods (true, true)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>AppleMethodDescription()</ItemResult>
+ </Method>
+ <Property>
+  <ItemName>Id</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Id As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Id As Ptr</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return mId</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mId</ItemName>
+  <Compatibility></Compatibility>
+  <Attributes>hidden</Attributes>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mId As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mId As Ptr</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>Name</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Name As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Name As Text</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return text.FromCString (ObjectiveCRuntime.protocol_getName (id), xojo.core.TextEncoding.UTF8)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

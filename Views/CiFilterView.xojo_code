@@ -10,13 +10,13 @@ Begin iosView CiFilterView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 4, iOSLibPicker1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 4, iOSLibPicker1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   155.0
-      Image           =   "588568575"
+      Image           =   "537004031"
       InitialParent   =   ""
       Left            =   20
       LockedInPosition=   False
@@ -29,13 +29,14 @@ Begin iosView CiFilterView
    Begin iOSLabel Label3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label3, 3, Slider3, 3, False, +1.00, 1, 1, -18, 
       AutoLayout      =   Label3, 7, Slider3, 7, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label3, 1, <Parent>, 1, False, +1.00, 1, 1, 17, 
+      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label3, 3, Slider3, 3, False, +1.00, 1, 1, -18, 
       Enabled         =   True
       Height          =   30.0
       Left            =   17
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset X"
@@ -50,10 +51,10 @@ Begin iosView CiFilterView
    Begin iOSSlider Slider3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider3, 8, , 0, True, +1.00, 1, 1, 23, 
       AutoLayout      =   Slider3, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   Slider3, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   Slider3, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
+      AutoLayout      =   Slider3, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Slider3, 8, , 0, True, +1.00, 1, 1, 23, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -69,10 +70,10 @@ Begin iosView CiFilterView
    Begin iOSSlider Slider4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider4, 3, Slider3, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider4, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
-      AutoLayout      =   Slider4, 8, , 0, True, +1.00, 1, 1, 23, 
       AutoLayout      =   Slider4, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Slider4, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider4, 3, Slider3, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   160
@@ -88,13 +89,14 @@ Begin iosView CiFilterView
    Begin iOSLabel Label4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label4, 3, Label3, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 7, Slider4, 7, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label4, 1, Slider4, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label4, 3, Label3, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset Y"
@@ -109,10 +111,10 @@ Begin iosView CiFilterView
    Begin iOSLibPicker iOSLibPicker1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   iOSLibPicker1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   iOSLibPicker1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   iOSLibPicker1, 4, Label1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   iOSLibPicker1, 8, , 0, False, +1.00, 1, 1, 146, 
+      AutoLayout      =   iOSLibPicker1, 4, Label1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   iOSLibPicker1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Height          =   146.0
       Left            =   0
       LockedInPosition=   False
@@ -127,13 +129,14 @@ Begin iosView CiFilterView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 3, Slider1, 3, False, +1.00, 1, 1, -18, 
       AutoLayout      =   Label1, 7, Slider1, 7, False, +1.00, 3, 1, 0, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label1, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 3, Slider1, 3, False, +1.00, 1, 1, -18, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset X"
@@ -148,10 +151,10 @@ Begin iosView CiFilterView
    Begin iOSSlider Slider1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   Slider1, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
-      AutoLayout      =   Slider1, 4, Label3, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider1, 4, Label3, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -167,10 +170,10 @@ Begin iosView CiFilterView
    Begin iOSSlider Slider2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider2, 3, Slider1, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider2, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
-      AutoLayout      =   Slider2, 8, , 0, True, +1.00, 1, 1, 23, 
       AutoLayout      =   Slider2, 1, Slider1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Slider2, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider2, 3, Slider1, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   160
@@ -186,13 +189,14 @@ Begin iosView CiFilterView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 1, Slider2, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label2, 3, Label1, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label2, 7, Slider2, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label2, 1, Slider2, 1, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset Y"
@@ -207,10 +211,10 @@ Begin iosView CiFilterView
    Begin iOSTextField XField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   XField, 3, Label3, 3, False, +1.00, 1, 1, 10, 
       AutoLayout      =   XField, 7, , 0, False, +1.00, 1, 1, 82, 
-      AutoLayout      =   XField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   XField, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   XField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   XField, 3, Label3, 3, False, +1.00, 1, 1, 10, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -231,11 +235,11 @@ Begin iosView CiFilterView
    Begin iOSTextField YField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   YField, 3, XField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   YField, 7, , 0, False, +1.00, 1, 1, 82, 
+      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   YField, 1, <Parent>, 1, False, +1.00, 1, 1, 119, 
       AutoLayout      =   YField, 9, ImageView1, 9, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   YField, 3, XField, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -256,11 +260,11 @@ Begin iosView CiFilterView
    Begin iOSTextField ZField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ZField, 3, XField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ZField, 7, , 0, False, +1.00, 1, 1, 82, 
+      AutoLayout      =   ZField, 1, <Parent>, 1, False, +1.00, 1, 1, 218, 
       AutoLayout      =   ZField, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ZField, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ZField, 1, <Parent>, 1, False, +1.00, 1, 1, 218, 
+      AutoLayout      =   ZField, 3, XField, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -281,10 +285,10 @@ Begin iosView CiFilterView
    Begin iOSSwitch Switch1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch1, 4, Label4, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
-      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   Switch1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch1, 4, Label4, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
       Left            =   134
@@ -298,13 +302,14 @@ Begin iosView CiFilterView
    Begin iOSLabel SwitchLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   SwitchLabel, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   SwitchLabel, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   SwitchLabel, 2, Switch1, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   SwitchLabel, 10, Label1, 10, False, +1.00, 1, 1, , 
+      AutoLayout      =   SwitchLabel, 2, Switch1, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
+      AutoLayout      =   SwitchLabel, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Untitled"
@@ -322,8 +327,8 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  myFilter = new iOSLibCIBlurFilter
-		  OriginalInputImage = new iOSLibciImage (new iOSLibImage(iosliblogo))
+		  myFilter = new appleCIBlurFilter
+		  OriginalInputImage = new AppleCIImage (new AppleImage(iosliblogo))
 		  OriginalImage = OriginalInputImage
 		  myFilter.InputciImage = OriginalInputImage
 		  // ImageView1.Image = myFilter.OutputImage.toiOSImage
@@ -376,74 +381,74 @@ End
 	#tag Method, Flags = &h21
 		Private Sub AnimateValues()
 		  Dim Selection as text =  iOSLibPicker1.SelectionText
-		  dim myanimation as iOSLIbCABasicAnimation
+		  dim myanimation as AppleCABasicAnimation
 		  Select case selection
 		  case "Backgroundcolor"
-		    dim acolor as new iOSLibCGColor (Slider1.Value, slider2.value, slider3.value, Slider4.Value)
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.BackgroundColor,  ImageView1.CoreAnimationLayer.BackgroundColor, acolor)
+		    dim acolor as new AppleCGColor (Slider1.Value, slider2.value, slider3.value, Slider4.Value)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.BackgroundColor,  ImageView1.CoreAnimationLayer.BackgroundColor, acolor)
 		  case "BorderColor"
-		    dim acolor as new iOSLibCGColor (Slider1.Value, slider2.value, slider3.value, Slider4.Value)
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.BorderColor,  ImageView1.CoreAnimationLayer.BorderColor, acolor)
+		    dim acolor as new AppleCGColor (Slider1.Value, slider2.value, slider3.value, Slider4.Value)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.BorderColor,  ImageView1.CoreAnimationLayer.BorderColor, acolor)
 		  case "ShadowColor"
-		    dim acolor as new iOSLibCGColor (Slider1.Value, slider2.value, slider3.value, Slider4.Value)
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.ShadowColor,  ImageView1.CoreAnimationLayer.ShadowColor, acolor)
+		    dim acolor as new AppleCGColor (Slider1.Value, slider2.value, slider3.value, Slider4.Value)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.ShadowColor,  ImageView1.CoreAnimationLayer.ShadowColor, acolor)
 		  case "BorderWidth"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.BorderWidth,  ImageView1.CoreAnimationLayer.BorderWidth, slider1.value)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.BorderWidth,  ImageView1.CoreAnimationLayer.BorderWidth, slider1.value)
 		  case "CornerRadius"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.CornerRadius,  ImageView1.CoreAnimationLayer.CornerRadius, slider1.value)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.CornerRadius,  ImageView1.CoreAnimationLayer.CornerRadius, slider1.value)
 		  case "Opacity"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Opacity, ImageView1.CoreAnimationLayer.Opacity, Slider1.value)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Opacity, ImageView1.CoreAnimationLayer.Opacity, Slider1.value)
 		  case "ShadowOpacity"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.ShadowOpacity, ImageView1.CoreAnimationLayer.ShadowRadius, Slider1.value)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.ShadowOpacity, ImageView1.CoreAnimationLayer.ShadowRadius, Slider1.value)
 		  case "ShadowRadius"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.ShadowRadius,  ImageView1.CoreAnimationLayer.ShadowRadius, slider1.value)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.ShadowRadius,  ImageView1.CoreAnimationLayer.ShadowRadius, slider1.value)
 		  case "ShadowOffset"
 		    dim newsize as new size (Slider1.value, slider2.value)
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.ShadowOffset,  ImageView1.CoreAnimationLayer.ShadowOffset, newsize.tonssize)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.ShadowOffset,  ImageView1.CoreAnimationLayer.ShadowOffset, newsize.tonssize)
 		  case "Position"
 		    dim newsize as new point (Slider1.value, slider2.value)
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Position,  ImageView1.CoreAnimationLayer.Position, newsize.tonspoint)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Position,  ImageView1.CoreAnimationLayer.Position, newsize.tonspoint)
 		  case "Bounds"
 		    dim newframe as new rect (slider1.value, slider2.value, slider3.value, slider4.value)
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Bounds,  ImageView1.CoreAnimationLayer.Bounds, newframe.tonsrect)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Bounds,  ImageView1.CoreAnimationLayer.Bounds, newframe.tonsrect)
 		  case "Anchorpoint"
 		    dim newsize as new point (Slider1.value, slider2.value)
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Anchorpoint,  ImageView1.CoreAnimationLayer.AnchorPoint, newsize.tonspoint)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Anchorpoint,  ImageView1.CoreAnimationLayer.AnchorPoint, newsize.tonspoint)
 		  case "MakeRotation"
 		    dim newtransform as CATransform3D = CATransform3DMakeRotation (Slider1.Value.DegreeToRadian, double.Parse (XField.text), double.Parse (YField.text), Double.Parse (ZField.text))
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "Rotate"
-		    dim newtransform as CATransform3D = CATransform3DRotate (ImageView1.iOSLibView.layer.Transform, Slider1.Value.DegreeToRadian, double.Parse (XField.text), double.Parse (YField.text), Double.Parse (ZField.text))
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
+		    dim newtransform as CATransform3D = CATransform3DRotate (ImageView1.AppleView.layer.Transform, Slider1.Value.DegreeToRadian, double.Parse (XField.text), double.Parse (YField.text), Double.Parse (ZField.text))
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "MakeScale"
 		    dim newtransform as CATransform3D = CATransform3DMakeScale (Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "Scale"
-		    dim newtransform as CATransform3D = CATransform3DScale (ImageView1.iOSLibView.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
+		    dim newtransform as CATransform3D = CATransform3DScale (ImageView1.AppleView.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "MakeTranslation"
 		    dim newtransform as CATransform3D = CATransform3DMakeTranslation(Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "Translate"
-		    dim newtransform as CATransform3D = CATransform3DTranslate (ImageView1.iOSLibView.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
+		    dim newtransform as CATransform3D = CATransform3DTranslate (ImageView1.AppleView.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "Identity"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, CATransform3DIdentity)
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, CATransform3DIdentity)
 		  case "Invert"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, CATransform3DInvert (ImageView1.CoreAnimationLayer.Transform) )
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, CATransform3DInvert (ImageView1.CoreAnimationLayer.Transform) )
 		    
 		  case "MasksToBounds"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.MasksToBounds,  ImageView1.CoreAnimationLayer.MasksToBounds, not ( ImageView1.CoreAnimationLayer.MasksToBounds))
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.MasksToBounds,  ImageView1.CoreAnimationLayer.MasksToBounds, not ( ImageView1.CoreAnimationLayer.MasksToBounds))
 		  case "DoubleSided"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.doublesided,  ImageView1.CoreAnimationLayer.DoubleSided, not ( ImageView1.CoreAnimationLayer.DoubleSided))
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.doublesided,  ImageView1.CoreAnimationLayer.DoubleSided, not ( ImageView1.CoreAnimationLayer.DoubleSided))
 		  case "Hidden"
-		    myanimation = new iOSLIbCABasicAnimation (iOSLIbCABasicAnimation.Properties.hidden,  ImageView1.CoreAnimationLayer.hidden, not ( ImageView1.CoreAnimationLayer.hidden))
+		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.hidden,  ImageView1.CoreAnimationLayer.hidden, not ( ImageView1.CoreAnimationLayer.hidden))
 		  End Select
 		  if myanimation <> NIL then
 		    myanimation.Duration = AnimationDuration
 		    myanimation.RepeatCount = AnimationRepeats
 		    myanimation.Autoreverses = AnimationAutoReverse
-		    ImageView1.ioslibview.layer.addanimation (myanimation)
+		    ImageView1.AppleView.layer.addanimation (myanimation)
 		  end if
 		  
 		End Sub
@@ -460,88 +465,88 @@ End
 		  
 		  select case selection
 		  case "Blur"
-		    showfilters (iOSLibCIFilter.BlurFilterNames)
+		    showfilters (AppleCIFilter.BlurFilterNames)
 		  case "ColorAdjustment"
-		    Showfilters (iOSLibCIFilter.ColorAdjustmentFilterNames)
+		    Showfilters (AppleCIFilter.ColorAdjustmentFilterNames)
 		  case "ColorEffect"
-		    Showfilters (iOSLibCIFilter.ColorEffectFilterNames)
+		    Showfilters (AppleCIFilter.ColorEffectFilterNames)
 		  case "Composite Operation"
-		    Showfilters (iOSLibCIFilter.CompositeOperationFilterNames)
+		    Showfilters (AppleCIFilter.CompositeOperationFilterNames)
 		  case "Distortion"
-		    Showfilters (iOSLibCIFilter.DistortionFilterNames)
+		    Showfilters (AppleCIFilter.DistortionFilterNames)
 		  case "Generator"
-		    Showfilters (iOSLibCIFilter.GeneratorFilterNames)
+		    Showfilters (AppleCIFilter.GeneratorFilterNames)
 		  case "Geometry Adjustment"
-		    Showfilters (iOSLibCIFilter.GeometryAdjustmentFilterNames)
+		    Showfilters (AppleCIFilter.GeometryAdjustmentFilterNames)
 		  case "Gradient"
-		    Showfilters (iOSLibCIFilter.GradientFilterNames)
+		    Showfilters (AppleCIFilter.GradientFilterNames)
 		  case "Halftone"
-		    Showfilters (iOSLibCIFilter.HalfToneFilterNames)
+		    Showfilters (AppleCIFilter.HalfToneFilterNames)
 		  case "HDR"
-		    Showfilters (iOSLibCIFilter.HDRFilterNames)
+		    Showfilters (AppleCIFilter.HDRFilterNames)
 		  case "Interlaced"
-		    Showfilters (iOSLibCIFilter.InterlacedFilterNames)
+		    Showfilters (AppleCIFilter.InterlacedFilterNames)
 		  case "Non-Square Pixels"
-		    Showfilters (iOSLibCIFilter.NonSquarePixelsFilterNames)
+		    Showfilters (AppleCIFilter.NonSquarePixelsFilterNames)
 		  case "Reduction"
-		    Showfilters (iOSLibCIFilter.ReductionFilterNames)
+		    Showfilters (AppleCIFilter.ReductionFilterNames)
 		  case "Sharpen"
-		    Showfilters (iOSLibCIFilter.SharpenFilterNames)
+		    Showfilters (AppleCIFilter.SharpenFilterNames)
 		  case "Still Image"
-		    Showfilters (iOSLibCIFilter.StillImageFilterNames)
+		    Showfilters (AppleCIFilter.StillImageFilterNames)
 		  case "Stylize"
-		    Showfilters (iOSLibCIFilter.StylizeFilterNames)
+		    Showfilters (AppleCIFilter.StylizeFilterNames)
 		  case "Transition"
-		    Showfilters (iOSLibCIFilter.TransitionFilterNames)
+		    Showfilters (AppleCIFilter.TransitionFilterNames)
 		  case "Tile"
-		    Showfilters (iOSLibCIFilter.TileEffectFilterNames)
+		    Showfilters (AppleCIFilter.TileEffectFilterNames)
 		  case "Video"
-		    Showfilters (iOSLibCIFilter.VideoFilterNames)
+		    Showfilters (AppleCIFilter.VideoFilterNames)
 		  case "Built-In"
-		    Showfilters (iOSLibCIFilter.BuiltInFilterNames)
+		    Showfilters (AppleCIFilter.BuiltInFilterNames)
 		  end select
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub HideSliders()
-		  slider1.iOSLibView.Hidden = true
-		  slider2.iOSLibView.Hidden = true
-		  slider3.iOSLibView.Hidden = true
-		  slider4.iOSLibView.Hidden = true
-		  slider1.iOSLibView.Frame.Size_.width = ImageView1.Width/2
+		  slider1.AppleView.Hidden = true
+		  slider2.AppleView.Hidden = true
+		  slider3.AppleView.Hidden = true
+		  slider4.AppleView.Hidden = true
+		  slider1.AppleView.Frame.Size_.width = ImageView1.Width/2
 		  
-		  label1.iOSLibView.Hidden = true
-		  label2.iOSLibView.Hidden = true
-		  label3.iOSLibView.Hidden = true
-		  label4.iOSLibView.Hidden = true
+		  label1.AppleView.Hidden = true
+		  label2.AppleView.Hidden = true
+		  label3.AppleView.Hidden = true
+		  label4.AppleView.Hidden = true
 		  
-		  XField.iOSLibView.Hidden = True
-		  YField.iOSLibView.Hidden = True
-		  ZField.iOSLibView.Hidden = True
+		  XField.AppleView.Hidden = True
+		  YField.AppleView.Hidden = True
+		  ZField.AppleView.Hidden = True
 		  
-		  SwitchLabel.iOSLibView.Hidden = true
-		  Switch1.iOSLibView.hidden = true
+		  SwitchLabel.AppleView.Hidden = true
+		  Switch1.AppleView.hidden = true
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetMultipleSliderSize()
-		  dim mybounds as  nsrect = slider1.iOSLibView.Frame
+		  dim mybounds as  nsrect = slider1.AppleView.Frame
 		  mybounds.Size_.width = ImageView1.Width/2
-		  dim options as iOSLibViewAnimationOption = iOSLibViewAnimationOption.OptionNone
-		  slider1.iOSLibView.AnimateFrame mybounds, options
-		  label1.iOSLibView.Frame.Size_.width = mybounds.Size_.width
+		  dim options as AppleViewAnimationOption = AppleViewAnimationOption.OptionNone
+		  slider1.AppleView.AnimateFrame mybounds, options
+		  label1.AppleView.Frame.Size_.width = mybounds.Size_.width
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub setNumberValue(Dict as iOSLibDictionary, currValue as double)
-		  dim minvalue as double =  ioslibnumber.MakefromPtr(dict.PtrForKey("CIAttributeSliderMin")).DoubleValue
-		  dim MaxValue as double = ioslibnumber.makefromptr(dict.PtrForKey("CIAttributeSliderMax")).DoubleValue
-		  dim DefaultValue  as double = ioslibnumber.MakefromPtr(dict.PtrForKey("CIAttributeDefault")).DoubleValue
+		Sub setNumberValue(Dict as AppleDictionary, currValue as double)
+		  dim minvalue as double =  AppleNumber.MakefromPtr(dict.PtrForKey("CIAttributeSliderMin")).DoubleValue
+		  dim MaxValue as double = AppleNumber.makefromptr(dict.PtrForKey("CIAttributeSliderMax")).DoubleValue
+		  dim DefaultValue  as double = AppleNumber.MakefromPtr(dict.PtrForKey("CIAttributeDefault")).DoubleValue
 		  
 		  slider1.MinValue = minvalue
 		  slider1.MaxValue = MaxValue
@@ -551,11 +556,11 @@ End
 
 	#tag Method, Flags = &h0
 		Sub SetSingleSliderSize()
-		  dim mybounds as  nsrect = slider1.iOSLibView.Frame
+		  dim mybounds as  nsrect = slider1.AppleView.Frame
 		  mybounds.Size_.width = ImageView1.Width
-		  dim options as iOSLibViewAnimationOption = iOSLibViewAnimationOption.OptionNone
-		  slider1.iOSLibView.AnimateFrame mybounds, options, 0.2, iOSLibview.UIVIewAnimationCurve.EaseInEaseOut, 0
-		  label1.iOSLibView.Frame.Size_.width = mybounds.Size_.width
+		  dim options as AppleViewAnimationOption = AppleViewAnimationOption.OptionNone
+		  slider1.AppleView.AnimateFrame mybounds, options, 0.2, AppleView.UIVIewAnimationCurve.EaseInEaseOut, 0
+		  label1.AppleView.Frame.Size_.width = mybounds.Size_.width
 		  
 		  
 		End Sub
@@ -566,25 +571,25 @@ End
 		  dim myprop as text = CurrentProperty
 		  if myFilter <> nil then
 		    if myFilter.FilterAttributes.ValueForKey (myprop) <> nil then
-		      dim mydict as iOSLibDictionary = iOSLibDictionary.MakeFromPtr (myFilter.FilterAttributes.PtrForKey (myprop))
+		      dim mydict as AppleDictionary = AppleDictionary.MakeFromPtr (myFilter.FilterAttributes.PtrForKey (myprop))
 		      
 		      select case mydict.TextForKey ("CIAttributeClass")
 		      case "NSNumber"
-		        myFilter.setValueForKey (myprop, new iOSLibNumber (Slider1.Value))
+		        myFilter.setValueForKey (myprop, new AppleNumber (Slider1.Value))
 		      case "CIVector"
-		        dim myvector as iOSLibCIVector
-		        if not  label4.iOSLibView.Hidden then
-		          myvector = new iOSLibCIVector (Slider1.Value, slider2.value, slider3.value, slider4.value)
-		        elseif not label3.ioslibview.hidden then
-		          myvector = new iOSLibCIVector (Slider1.Value, slider2.value, slider3.value)
-		        elseif not label2.ioslibview.hidden then
-		          myvector = new iOSLibCIVector (Slider1.Value, slider2.value)
+		        dim myvector as AppleCIVector
+		        if not  label4.AppleView.Hidden then
+		          myvector = new AppleCIVector (Slider1.Value, slider2.value, slider3.value, slider4.value)
+		        elseif not label3.AppleView.hidden then
+		          myvector = new AppleCIVector (Slider1.Value, slider2.value, slider3.value)
+		        elseif not label2.AppleView.hidden then
+		          myvector = new AppleCIVector (Slider1.Value, slider2.value)
 		        else
-		          myvector = new iOSLibCIVector (Slider1.Value)
+		          myvector = new AppleCIVector (Slider1.Value)
 		        end if
 		        myFilter.setValueForKey (myprop, myvector)
 		      case "CIColor"
-		        myFilter.setValueForKey (myprop, new iOSLibCIColor (Slider1.value, slider2.value, slider3.value, slider4.value))
+		        myFilter.setValueForKey (myprop, new AppleCIColor (Slider1.value, slider2.value, slider3.value, slider4.value))
 		      else
 		        break
 		      end select
@@ -596,8 +601,8 @@ End
 
 	#tag Method, Flags = &h0
 		Sub ShowBoolean(Value as Boolean, Caption as text)
-		  SwitchLabel.iOSLibView.Hidden = false
-		  Switch1.iOSLibView.hidden = false
+		  SwitchLabel.AppleView.Hidden = false
+		  Switch1.AppleView.hidden = false
 		  switch1.value = value
 		  
 		  SwitchLabel.Text = Caption
@@ -606,7 +611,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ShowColor(Acolor as iOSLibCIColor)
+		Sub ShowColor(Acolor as AppleCIColor)
 		  SetMultipleSliderSize
 		  
 		  ShowSliders (4)
@@ -632,7 +637,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub Showfilters(Names as iOSLibArray)
+		Private Sub Showfilters(Names as AppleArray)
 		  iOSLibPicker1.AddColumn names.toTextArray
 		  ShowValues (iOSLibPicker1.Caption (1))
 		End Sub
@@ -715,20 +720,20 @@ End
 	#tag Method, Flags = &h0
 		Sub ShowSliders(Number as integer)
 		  if number > 0 then
-		    slider1.iOSLibView.Hidden = false
-		    label1.iOSLibView.Hidden = false
+		    slider1.AppleView.Hidden = false
+		    label1.AppleView.Hidden = false
 		  end if
 		  if number > 1 then
-		    slider2.iOSLibView.Hidden = false
-		    label2.iOSLibView.Hidden = false
+		    slider2.AppleView.Hidden = false
+		    label2.AppleView.Hidden = false
 		  end if
 		  if number > 2 then
-		    slider3.iOSLibView.Hidden = false
-		    label3.iOSLibView.Hidden = false
+		    slider3.AppleView.Hidden = false
+		    label3.AppleView.Hidden = false
 		  end if
 		  if number > 3 then
-		    slider4.iOSLibView.Hidden = false
-		    label4.iOSLibView.Hidden = false
+		    slider4.AppleView.Hidden = false
+		    label4.AppleView.Hidden = false
 		  end if
 		  if number = 1 then
 		    SetSingleSliderSize
@@ -748,9 +753,9 @@ End
 		  
 		  slider1.Value = value
 		  
-		  XField.iOSLibView.Hidden = false
-		  YField.iOSLibView.Hidden = false
-		  ZField.iOSLibView.Hidden = false
+		  XField.AppleView.Hidden = false
+		  YField.AppleView.Hidden = false
+		  ZField.AppleView.Hidden = false
 		  
 		  
 		  label1.Text = Caption
@@ -763,14 +768,14 @@ End
 		Private Sub ShowValue(Key as text)
 		  label1.text =Key
 		  CurrentProperty = key
-		  dim mydict as iOSLibDictionary = iOSLibDictionary.MakeFromPtr (myFilter.FilterAttributes.PtrForKey(key))
+		  dim mydict as AppleDictionary = AppleDictionary.MakeFromPtr (myFilter.FilterAttributes.PtrForKey(key))
 		  dim compare as text = mydict.TextForKey ("CIAttributeClass")
 		  dim atttype as text = mydict.TextForKey ( "CIAttributeType")
 		  select case compare
 		    
 		  case "NSNumber"
 		    ShowSliders(1)
-		    setNumbervalue(mydict, ioslibnumber.MakefromPtr (myFilter.ValueForKey(key)).doublevalue)
+		    setNumbervalue(mydict, AppleNumber.MakefromPtr (myFilter.ValueForKey(key)).doublevalue)
 		  case "CIImage"
 		    if key ="inputBackgroundImage" then
 		      if BackgroundImage <> nil then
@@ -780,9 +785,9 @@ End
 		    end if
 		    // add a background image method later
 		  case "CIVector"
-		    ShowVectors (iOSLibCIVector.MakefromPtr(myFilter.ValueForKey(key)), (atttype = "CiAttributeTypePosition") )
+		    ShowVectors (AppleCIVector.MakefromPtr(myFilter.ValueForKey(key)), (atttype = "CiAttributeTypePosition") )
 		  case "CIColor"
-		    ShowColor (iOSLibCIColor.MakefromPtr(myFilter.ValueForKey(key)))
+		    ShowColor (AppleCIColor.MakefromPtr(myFilter.ValueForKey(key)))
 		  case "NSData"
 		    dim msg as new iOSMessageBox
 		    msg.Title = "complex Structure"
@@ -801,7 +806,7 @@ End
 		    iOSLibPicker1.RemoveColumn (2)
 		  end if
 		  if not selection.Empty then
-		    myFilter  =  iOSLibCIFilter.MakeFilter (selection)
+		    myFilter  =  AppleCIFilter.MakeFilter (selection)
 		    myFilter.InputciImage = OriginalInputImage
 		    if myFilter.OutputCIImage <> nil then ImageView1.Image = myFilter.OutputImage.toiOSImage
 		    dim secondcolumn() as text
@@ -817,7 +822,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ShowVectors(Vector as iOSLibCIVector, isPosition as boolean = false)
+		Sub ShowVectors(Vector as AppleCIVector, isPosition as boolean = false)
 		  ShowSliders(vector.Count)
 		  label2.text = "Y"
 		  label3.text = "Z"
@@ -862,7 +867,7 @@ End
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private BackgroundImage As ioslibciimage
+		Private BackgroundImage As AppleCIImage
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -870,15 +875,15 @@ End
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private myFilter As iOSLibCIFilter
+		Private myFilter As AppleCIFilter
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private OriginalImage As ioslibciimage
+		Private OriginalImage As AppleCIImage
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private OriginalInputImage As ioslibciimage
+		Private OriginalInputImage As AppleCIImage
 	#tag EndProperty
 
 
@@ -888,8 +893,8 @@ End
 	#tag Event
 		Sub Open()
 		  me.Alpha = 0
-		  me.FadeIn (3, iOSLibView.UIVIewAnimationCurve.EaseOut)
-		  me.CoreAnimationLayer.ShadowPath = new iOSLibCGPathRoundedRect (NSRect (0,0,200,100), 50,50)
+		  me.FadeIn (3, AppleView.UIVIewAnimationCurve.EaseOut)
+		  me.CoreAnimationLayer.ShadowPath = new AppleCGPathRoundedRect (NSRect (0,0,200,100), 50,50)
 		  
 		End Sub
 	#tag EndEvent
@@ -902,7 +907,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  dim myslider as iOSLibSlider = me.iOSLibSlider
+		  dim myslider as AppleSlider = me.AppleSlider
 		  
 		  #if DebugBuild then myslider.Continuous = false
 		  
@@ -917,7 +922,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  dim myslider as iOSLibSlider = me.iOSLibSlider
+		  dim myslider as AppleSlider = me.AppleSlider
 		  
 		  #if DebugBuild then myslider.Continuous = false
 		  
@@ -956,14 +961,14 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  dim myslider as iOSLibSlider = me.iOSLibSlider
+		  dim myslider as AppleSlider = me.AppleSlider
 		  dim mybounds as NSRect = myslider.ThumbRect
 		  dim newcolor as color = &cB3FFD500
-		  myslider.MinimumTrackTintColor = iOSLibColor.FromColor (newcolor)
+		  myslider.MinimumTrackTintColor = AppleColor.FromColor (newcolor)
 		  newcolor = &cFF211C00
-		  myslider.MaximumTrackTintColor = iOSLibColor.FromColor (newcolor)
+		  myslider.MaximumTrackTintColor = AppleColor.FromColor (newcolor)
 		  newcolor = &cFF6D1C00
-		  myslider.ThumbTintColor = iOSLibColor.FromColor (newcolor)
+		  myslider.ThumbTintColor = AppleColor.FromColor (newcolor)
 		  #if DebugBuild then myslider.Continuous = false
 		  
 		End Sub
@@ -977,7 +982,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  dim myslider as iOSLibSlider = me.iOSLibSlider
+		  dim myslider as AppleSlider = me.AppleSlider
 		  
 		  #if DebugBuild then myslider.Continuous = false
 		  
