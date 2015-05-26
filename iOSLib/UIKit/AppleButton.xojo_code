@@ -403,6 +403,16 @@ Inherits AppleControl
 			Name="ButtonType"
 			Group="Behavior"
 			Type="UIButtonType"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Custom"
+				"1 - System"
+				"2 - Disclosure"
+				"3 - InfoLight"
+				"4 - InfoDark"
+				"5 - ContactAdd"
+				"6 - RoundedRect"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsContextBeforeDrawing"

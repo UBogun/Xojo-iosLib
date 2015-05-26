@@ -33,6 +33,168 @@ Implements AppleEventForwarder
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonDidAddSubview  (view)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidMoveToSuperview(pid as ptr, sel as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonDidMoveToSuperview
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidMoveToWindow(pid as ptr, sel as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonDidMoveToWindow
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as NSRect32Bit)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer (wr.Value)
+		  ego.informonDrawRect (rect.toNSRect)
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as NSRect)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonDrawRect (rect)
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_LayoutSubviews(pid as ptr, sel as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonLayoutSubviews
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, type as integer, anEvent as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonMotionBeganWithEvent (type, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, type as integer, anEvent as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonMotionCancelledWithEvent (type, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, type as integer, anEvent as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonMotionEndedWithEvent (type, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesBeganWithEvent(pid as ptr, sel as ptr, Touchset as Ptr, anEvent as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonTouchesBeganWithEvent (touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesCancelledWithEvent(pid as ptr, sel as ptr, Touchset as Ptr, anEvent as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonTouchesCancelledWithEvent (touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesEndedWithEvent(pid as ptr, sel as ptr, Touchset as Ptr, anEvent as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonTouchesEndedWithEvent (touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesMovedWithEvent(pid as ptr, sel as ptr, Touchset as Ptr, anEvent as ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonTouchesMovedWithEvent (touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willMoveToSuperview(pid as ptr, sel as ptr, view as Ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonwillMoveToSuperview  (view)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willMoveToWindow(pid as ptr, sel as ptr, window as Ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonwillMoveToWindow (window)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willRemoveSubview(pid as ptr, sel as ptr, view as Ptr)
+		  dim wr as WeakRef = RetainDict.value (pid)
+		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
+		  ego.informonwillRemoveSubview  (view)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidAddSubview(view as ptr)
 		  dim myarray as new AppleMutableArray(2)
@@ -79,6 +241,26 @@ Implements AppleEventForwarder
 		Attributes( hidden )  Sub informonMotionBeganWithEvent(type as integer, anEvent as ptr)
 		  dim myarray as new AppleMutableArray(3)
 		  myarray.AddText  motionBegan
+		  myarray.Addobject new AppleNumber (type)
+		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
+		  NotifyObservers (myarray)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonMotionCancelledWithEvent(type as integer, anEvent as ptr)
+		  dim myarray as new AppleMutableArray(3)
+		  myarray.AddText  MotionCancelled
+		  myarray.Addobject new AppleNumber (type)
+		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
+		  NotifyObservers (myarray)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonMotionEndedWithEvent(type as integer, anEvent as ptr)
+		  dim myarray as new AppleMutableArray(3)
+		  myarray.AddText  MotionEnded
 		  myarray.Addobject new AppleNumber (type)
 		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
 		  NotifyObservers (myarray)
@@ -216,6 +398,8 @@ Implements AppleEventForwarder
 			      methods.Append new TargetClassMethodHelper("touchesCancelled:withEvent:", AddressOf impl_TouchesCancelledWithEvent, "v@:@@")
 			      
 			      methods.Append new TargetClassMethodHelper("motionBegan:withEvent:", AddressOf impl_MotionBeganWithEvent, "v@:i@")
+			      methods.Append new TargetClassMethodHelper("motionEnded:withEvent:", AddressOf impl_MotionEndedWithEvent, "v@:i@")
+			      methods.Append new TargetClassMethodHelper("motionCancelled:withEvent:", AddressOf impl_MotionCancelledWithEvent, "v@:i@")
 			      
 			      // #if Target64Bit
 			      // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")

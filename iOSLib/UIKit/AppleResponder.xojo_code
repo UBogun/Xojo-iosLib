@@ -150,22 +150,6 @@ Inherits AppleObject
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare Function hidden lib UIKit selector "isHidden" (id as ptr) as Boolean
-			  return hidden (id)
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare sub setHidden lib UIKit selector "setHidden:" (id as ptr, value as Boolean)
-			  setHidden id, value
-			End Set
-		#tag EndSetter
-		Hidden As Boolean
-	#tag EndComputedProperty
-
 
 	#tag ViewBehavior
 		#tag ViewProperty
