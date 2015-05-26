@@ -170,7 +170,7 @@
    <SourceLine>Sub Destructor()</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>if mHasOwnership then</SourceLine>
-   <SourceLine>system.DebugLog "Releasing "+DebugDescription+" AR: "+RetainCount.totext</SourceLine>
+   <SourceLine>if LibDebug then system.DebugLog "Releasing "+DebugDescription+" AR: "+RetainCount.totext</SourceLine>
    <SourceLine>autoRelease</SourceLine>
    <SourceLine>else</SourceLine>
    <SourceLine>// system.DebugLog "Losing Handle on "+DebugDescription+" AR: "+RetainCount.totext</SourceLine>

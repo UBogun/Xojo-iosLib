@@ -92,8 +92,7 @@ Inherits AppleObject
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
 		  Super.Constructor (animage.Handle)
-		  mhasownership = true
-		  
+		  RetainClassObject
 		End Sub
 	#tag EndMethod
 
@@ -153,7 +152,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  Declare function CGImage lib UIKit selector "CGImage" (id as ptr) as ptr
-			  return  AppleCGImage.MakeFromCFTypeRef ( CGImage (id))
+			  return  AppleCGImage.MakeFromCFTypeRef ( CGImage (id), false)
 			End Get
 		#tag EndGetter
 		toCGImage As AppleCGImage
