@@ -10,6 +10,10 @@ Protected Module iOSCoreModule
 		EndOfline As Text
 	#tag EndComputedProperty
 
+	#tag Property, Flags = &h0
+		LibDebug As Boolean = false
+	#tag EndProperty
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

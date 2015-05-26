@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="882843647">
  <ObjName>AppleCFObject</ObjName>
  <ObjContainerID>1365471231</ObjContainerID>
@@ -179,6 +179,7 @@
    <SourceLine>Retain</SourceLine>
    <SourceLine>mhasownership = true</SourceLine>
    <SourceLine>end if</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -197,7 +198,7 @@
    <SourceLine>Sub Destructor()</SourceLine>
    <SourceLine>if not isNIL then</SourceLine>
    <SourceLine>if mhasownership then</SourceLine>
-   <SourceLine>system.DebugLog "Releasing CFObject "+CFTypeDescription+", "+Description+", ARC: "+RetainCount.ToText</SourceLine>
+   <SourceLine>if libdebug then system.DebugLog "Releasing CFObject "+CFTypeDescription+", "+Description+", ARC: "+RetainCount.ToText</SourceLine>
    <SourceLine>release</SourceLine>
    <SourceLine>end if</SourceLine>
    <SourceLine>end if</SourceLine>

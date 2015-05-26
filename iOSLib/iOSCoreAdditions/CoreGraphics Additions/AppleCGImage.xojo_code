@@ -18,8 +18,8 @@ Inherits AppleCFObject
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MakeFromCFTypeRef(aCFTypeRef as ptr) As AppleCGImage
-		  return if (aCFTypeRef = nil , NIL,  new AppleCGImage (aCFTypeRef))
+		 Shared Function MakeFromCFTypeRef(aCFTypeRef as ptr, dontRetain as boolean = False) As AppleCGImage
+		  return if (aCFTypeRef = nil , NIL,  new AppleCGImage (aCFTypeRef, dontRetain))
 		End Function
 	#tag EndMethod
 
