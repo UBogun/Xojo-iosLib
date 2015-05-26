@@ -10,10 +10,10 @@ Begin iosView CAEmitterLayerView
    Begin ioslibemitterview testview
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
       AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
       Height          =   415.0
       Left            =   0
       LockedInPosition=   False
@@ -92,9 +92,9 @@ End
 		  dim mylib as new AppleMutableArray
 		  mylib.Addobject myEmitterCell
 		  testview.EmitterLayer.EmitterCells = mylib
-		  dim myimage as new AppleImage (iosliblogo)
+		  dim myimage as new AppleImage (Birnebuntklein)
 		  
-		  myEmitterCell.Contents =new AppleObject ( myimage.toCGImage.CFTypeRef)
+		  myEmitterCell.Contents =myimage.toCGImage
 		  myEmitterCell.Name = "iOSLibLogoCell"
 		  
 		  myEmitterCell.LifeTime = 100
@@ -107,18 +107,18 @@ End
 		  myEmitterCell.GreenSpeed = 0.01
 		  myEmitterCell.BlueSpeed = 0.1
 		  myEmitterCell.BirthRate = 2
-		  myEmitterCell.Scale = 0.02
-		  myEmitterCell.ScaleRange = 0.1
+		  myEmitterCell.Scale = 0.5
+		  myEmitterCell.ScaleRange = 1
 		  myEmitterCell.Velocity = 100
 		  myEmitterCell.ScaleSpeed = 0.01
 		  myEmitterCell.VelocityRange = 30
-		  myEmitterCell.XAcceleration = 5
+		  myEmitterCell.XAcceleration = 3
 		  myEmitterCell.YAcceleration = 18
 		  myEmitterCell.Spin = 0
 		  myEmitterCell.SpinRange = 10
 		  myEmitterCell.EmissionRange = 1
 		  myEmitterCell.Enabled = true
-		  testview.EmitterLayer.BirthRate = 1
+		  testview.EmitterLayer.BirthRate = 5
 		  
 		End Sub
 	#tag EndMethod

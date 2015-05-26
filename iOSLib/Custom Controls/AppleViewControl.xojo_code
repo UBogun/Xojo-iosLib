@@ -52,6 +52,15 @@ Implements AppleEventReceiver
 		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
 		        dim myType as AppleEvent.UIEventSubtype = AppleEvent.UIEventSubtype (mynumber.IntegerValue)
 		        RaiseEvent MotionBegan (mytype, AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		      case AppleView.MotionEnded
+		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
+		        dim myType as AppleEvent.UIEventSubtype = AppleEvent.UIEventSubtype (mynumber.IntegerValue)
+		        RaiseEvent MotionEnded (mytype, AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		      case AppleView.MotionCancelled
+		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
+		        dim myType as AppleEvent.UIEventSubtype = AppleEvent.UIEventSubtype (mynumber.IntegerValue)
+		        RaiseEvent MotionCancelled (mytype, AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        
 		      case AppleView.LayoutSubviews
 		        raiseevent LayoutSubviews
 		      End Select
@@ -88,6 +97,14 @@ Implements AppleEventReceiver
 
 	#tag Hook, Flags = &h0
 		Event MotionBegan(type as AppleEvent.UIEventSubtype, anEvent as AppleEvent)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event MotionCancelled(type as AppleEvent.UIEventSubtype, anEvent as AppleEvent)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event MotionEnded(type as AppleEvent.UIEventSubtype, anEvent as AppleEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0

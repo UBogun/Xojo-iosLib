@@ -85,18 +85,9 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionCancelledwithEvent(pid as ptr, sel as ptr, type as appleEvent.UIEventSubtype, anevent as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informOnMotionCancelledwithEvent  (type, anevent)
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
 		Private Shared Sub impl_MotionEndedwithEvent(pid as ptr, sel as ptr, type as appleEvent.UIEventSubtype, anevent as ptr)
 		  dim ego as new AppleSKView (pid)
-		  ego.informOnMotionEndedwithEvent  (type, anevent)
+		  ego.informOnMotionBeganwithEvent  (type, anevent)
 		  
 		  
 		End Sub

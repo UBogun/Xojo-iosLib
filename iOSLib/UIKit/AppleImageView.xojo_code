@@ -19,6 +19,126 @@ Inherits AppleView
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonDidAddSubview  (view)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidMoveToSuperview(pid as ptr, sel as ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonDidMoveToSuperview
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidMoveToWindow(pid as ptr, sel as ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonDidMoveToWindow
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_LayoutSubviews(pid as ptr, sel as ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonlayoutSubviews
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonMotionBeganwithEvent  (type, anEvent)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonMotionCancelledwithEvent  (type, anEvent)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonMotionEndedwithEvent  (type, anEvent)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesBeganWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonTouchesBeganwithEvent  (Touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesCancelledWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonTouchesCancelledwithEvent  (Touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesEndedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonTouchesEndedwithEvent  (Touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesMovedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonTouchesMovedwithEvent  (Touchset, anEvent)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willMoveToSuperview(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonwillMoveToSuperview  (view)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willMoveToWindow(pid as ptr, sel as ptr, window as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonwillMoveToWindow (window)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willRemoveSubview(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new AppleImageView (pid)
+		  ego.informonwillRemoveSubview  (view)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function MakeFromPtr(aPtr as Ptr) As AppleImageView
 		  return if (aptr <> NIL, new AppleImageView (aptr), NIL)
@@ -48,6 +168,8 @@ Inherits AppleView
 			    methods.Append new TargetClassMethodHelper("touchesCancelled:withEvent:", AddressOf impl_TouchesCancelledWithEvent, "v@:@@")
 			    
 			    methods.Append new TargetClassMethodHelper("motionBegan:withEvent:", AddressOf impl_MotionBeganWithEvent, "v@:i@")
+			    methods.Append new TargetClassMethodHelper("motionEnded:withEvent:", AddressOf impl_MotionEndedWithEvent, "v@:i@")
+			    methods.Append new TargetClassMethodHelper("motionCancelled:withEvent:", AddressOf impl_MotionCancelledWithEvent, "v@:i@")
 			    
 			    
 			    targetID = BuildTargetClass ("UIImageView", "iOSLibUIImageView",methods)

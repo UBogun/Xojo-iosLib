@@ -4,7 +4,7 @@ Inherits iOSUserControl
 	#tag Event
 		Function CreateView() As UInteger
 		  dim frame as new Rect (0,0,100,100)
-		  mid = AppleResponder.DoInitWithFrame (AppleObject.alloc(ClassPtr), frame.tonsrect)
+		  mid = AppleObject.AutoRelease (AppleResponder.DoInitWithFrame (AppleObject.alloc(ClassPtr), frame.tonsrect))
 		  dim myemitterlayer as new AppleCAEmitterLayer
 		  myemitterlayer.bounds = frame.tonsrect
 		  myemitterlayer.MasksToBounds = true
@@ -15,7 +15,6 @@ Inherits iOSUserControl
 		  mEmitterLayer = myemitterlayer
 		  
 		  Return UInteger(mid)
-		  
 		End Function
 	#tag EndEvent
 

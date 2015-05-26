@@ -128,7 +128,7 @@ Inherits AppleView
 		#tag EndGetter
 		#tag Setter
 			Set
-			  setDelegate id, if (value = nil, nil, value.id)
+			  setDelegate id, value.id
 			End Set
 		#tag EndSetter
 		Delegate_ As AppleWebViewDelegate
