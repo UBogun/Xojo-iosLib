@@ -158,6 +158,40 @@
   <ItemParams>aPtr as Ptr</ItemParams>
   <ItemResult>AppleCIVector</ItemResult>
  </Method>
+ <Method>
+  <ItemName>toNSPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSPoint() As NSPoint</SourceLine>
+   <SourceLine>if count &gt;=2 then return NSPoint (x, y)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSRect</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSRect() As NSRect</SourceLine>
+   <SourceLine>if count &gt;=4 then return NSRect (x, y, z, w)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>NSRect</ItemResult>
+ </Method>
  <Property>
   <ItemName>ClassPtr</ItemName>
   <Compatibility></Compatibility>
@@ -383,6 +417,16 @@
   </GetAccessor>
  </Property>
  <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
   <ViewProperty>
    <ObjName>Count</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>

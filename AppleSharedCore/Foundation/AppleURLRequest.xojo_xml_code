@@ -32,6 +32,23 @@
   <ItemParams>aURL as AppleURL</ItemParams>
   <ItemResult></ItemResult>
  </Method>
+ <Method>
+  <ItemName>MakefromPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine> Shared Function MakefromPtr(aPtr as Ptr) As AppleURLRequest</SourceLine>
+   <SourceLine>return if (aptr= nil, nil, new AppleURLRequest(aptr))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <ItemParams>aPtr as Ptr</ItemParams>
+  <ItemResult>AppleURLRequest</ItemResult>
+ </Method>
  <Property>
   <ItemName>ClassPtr</ItemName>
   <Compatibility></Compatibility>
@@ -60,6 +77,16 @@
   </GetAccessor>
  </Property>
  <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
   <ViewProperty>
    <ObjName>DebugDescription</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
@@ -114,5 +141,40 @@
    <ItemType>Integer</ItemType>
   </ViewProperty>
  </ViewBehavior>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>NSURLRequestNetworkServiceType</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>UInteger</ItemType>
+  <ItemName>NSURLRequestNetworkServiceType</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Default</SourceLine>
+   <SourceLine>VoIP</SourceLine>
+   <SourceLine>Video</SourceLine>
+   <SourceLine>Background</SourceLine>
+   <SourceLine>Voice</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>NSURLRequestCachePolicy</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>UInteger</ItemType>
+  <ItemName>NSURLRequestCachePolicy</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>UseProtocolCachePolicy</SourceLine>
+   <SourceLine>ReloadIgnoringLocalCacheData</SourceLine>
+   <SourceLine>ReloadIgnoringLocalAndRemoteCacheData</SourceLine>
+   <SourceLine>ReturnCacheDataElseLoad</SourceLine>
+   <SourceLine>ReturnCacheDataDontLoad</SourceLine>
+   <SourceLine>ReloadRevalidatingCacheData</SourceLine>
+  </ItemSource>
+ </Enumeration>
 </block>
 </RBProject>

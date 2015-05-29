@@ -4,9 +4,12 @@ Inherits iosusercontrol
 	#tag Event
 		Function CreateView() As UInteger
 		  dim ab as new AppleButton (AppleButton.UIButtonType.ContactAdd)
-		  ab.ImageView.Layer.BorderWidth = 2
-		  ab.setTitleForState ("§Test", AppleControl.UIControlState.Normal)
-		  break
+		  // ab.ImageView.Layer.BorderWidth = 2
+		  // ab.setTitleForState ("§Test", AppleControl.UIControlState.Normal)
+		  // break
+		  dim mb as new iOSMessageBox
+		  mb.Message = (ab.SizeThatFits.width.totext +", "+ab.SizeThatFits.height.totext)
+		  call mb.Show
 		  return UInteger (ab.id)
 		End Function
 	#tag EndEvent
@@ -32,6 +35,7 @@ Inherits iosusercontrol
 			Name="Height"
 			Visible=true
 			Group="Position"
+			InitialValue="22"
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -75,6 +79,7 @@ Inherits iosusercontrol
 			Name="Width"
 			Visible=true
 			Group="Position"
+			InitialValue="22"
 			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior

@@ -23,6 +23,9 @@ Inherits iOSUserControl
 	#tag Method, Flags = &h21
 		Private Shared Function impl_layerClass(id as ptr, sel as ptr) As Ptr
 		  return NSClassFromString ("CATiledLayer")
+		  
+		  #Pragma Unused id
+		  #Pragma Unused  sel
 		End Function
 	#tag EndMethod
 
@@ -40,6 +43,9 @@ Inherits iOSUserControl
 		      end if
 		    end if
 		  end if
+		  
+		  #Pragma Unused id
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 

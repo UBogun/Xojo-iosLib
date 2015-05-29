@@ -6,7 +6,7 @@ Implements AppleEventForwarder
 		Attributes( hidden )  Sub InformOnError(Error as Ptr)
 		  dim myarray as new AppleMutableArray(2)
 		  myarray.AddText  AppleWebViewDelegate.DidFailLoad
-		  myarray.Addobject new AppleObject (error) // needs to be changed when NSError exists
+		  myarray.Addobject new AppleError (error)
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
@@ -29,11 +29,14 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Function InformOnShouldStart(Request as Ptr, NavigationType as AppleWebView.UIWebViewNavigationType) As boolean
-		  dim myarray as new AppleMutableArray(2)
+		  dim myarray as new AppleMutableArray(3)
 		  myarray.AddText  AppleWebViewDelegate.ShouldStartLoad
+		  myarray.Addobject new AppleURLRequest (request)
 		  myarray.Addobject new AppleNumber (integer(navigationtype))
 		  NotifyObservers (myarray)
 		  return true // needs to be changed to forwarding mechanism
+		  
+		  
 		End Function
 	#tag EndMethod
 

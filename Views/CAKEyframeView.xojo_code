@@ -10,10 +10,10 @@ Begin iosView CAKEyframeView
    Begin ioslibpicker HTMLViewer1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   HTMLViewer1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 162, 
+      AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Height          =   162.0
       Left            =   0
       LockedInPosition=   False
@@ -28,10 +28,10 @@ Begin iosView CAKEyframeView
    Begin ioslibgradientview Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
-      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Canvas1, 7, <Parent>, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Canvas1, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       Height          =   237.0
       InitialParent   =   ""
       Left            =   0
@@ -45,10 +45,10 @@ Begin iosView CAKEyframeView
    Begin iosimageview animationcanvas
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   animationcanvas, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   animationcanvas, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   animationcanvas, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   animationcanvas, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   animationcanvas, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   animationcanvas, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       ContentMode     =   "4"
       Height          =   237.0
       Image           =   "1965512703"

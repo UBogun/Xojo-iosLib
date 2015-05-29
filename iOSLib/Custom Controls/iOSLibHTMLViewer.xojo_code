@@ -50,7 +50,7 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub InformOnError(Error as Ptr)
-		  RaiseEvent DidFailLoad (error)
+		  RaiseEvent DidFailLoad (new AppleError (error))
 		  
 		End Sub
 	#tag EndMethod
@@ -71,14 +71,14 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Function InformOnShouldStart(Request as Ptr, NavigationType as AppleWebView.UIWebViewNavigationType) As boolean
-		  return RaiseEvent ShouldStart (Request, navigationtype)
+		  return RaiseEvent ShouldStart (new AppleURLRequest (Request), navigationtype)
 		  
 		End Function
 	#tag EndMethod
 
 
 	#tag Hook, Flags = &h0
-		Event DidFailLoad(Error as Ptr)
+		Event DidFailLoad(Error as AppleError)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -90,7 +90,7 @@ Inherits iOSUserControl
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event ShouldStart(Request as ptr, navigationtype as AppleWebView.UIWebViewNavigationType) As boolean
+		Event ShouldStart(Request as appleurlrequest, navigationtype as AppleWebView.UIWebViewNavigationType) As boolean
 	#tag EndHook
 
 

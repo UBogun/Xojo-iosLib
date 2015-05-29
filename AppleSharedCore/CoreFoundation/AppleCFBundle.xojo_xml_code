@@ -271,8 +271,7 @@
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub constructor(identifier as CFStringRef)</SourceLine>
    <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
-   <SourceLine>Super.Constructor (CFBundleGetBundleWithIdentifier (identifier), true)</SourceLine>
-   <SourceLine>mHasOwnership = true</SourceLine>
+   <SourceLine>Super.Constructor (CFBundleGetBundleWithIdentifier (identifier))</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
@@ -378,11 +377,11 @@
   <Visible>1</Visible>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>AllBundles As AppleArray</SourceLine>
+   <SourceLine>Property AllBundles As AppleCFArray</SourceLine>
    <SourceLine></SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
-  <ItemDeclaration>AllBundles As AppleArray</ItemDeclaration>
+  <ItemDeclaration>AllBundles As AppleCFArray</ItemDeclaration>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <SetAccessor>
@@ -394,7 +393,8 @@
   <GetAccessor>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Get</SourceLine>
-   <SourceLine>return AppleArray.MakeFromPtr (CFBundleGetAllBundles (mcfTypeRef))</SourceLine>
+   <SourceLine>return new AppleCFArray (CFBundleGetAllBundles (mcfTypeRef))</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Get</SourceLine>
   </GetAccessor>
  </Property>
@@ -693,6 +693,36 @@
   </GetAccessor>
  </Property>
  <ViewBehavior>
+  <ViewProperty>
+   <ObjName>CFTypeDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RetainCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
   <ViewProperty>
    <ObjName>DevelopmentRegion</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
