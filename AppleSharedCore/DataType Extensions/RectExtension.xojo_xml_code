@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="2119170047">
  <ObjName>RectExtension</ObjName>
  <ObjContainerID>1412438015</ObjContainerID>
@@ -161,6 +161,23 @@
   <IsShared>0</IsShared>
   <ItemParams>extends n as NSRect, format as text = "###"</ItemParams>
   <ItemResult>text</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toCIVector</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toCIVector(extends r as NSRect) As AppleCIVector</SourceLine>
+   <SourceLine>return new AppleCIVector (r.Origin.x, r.Origin.y, r.Size_.width, r.size_.height)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends r as NSRect</ItemParams>
+  <ItemResult>AppleCIVector</ItemResult>
  </Method>
  <ViewBehavior>
   <ViewProperty>

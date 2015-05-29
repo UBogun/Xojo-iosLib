@@ -265,7 +265,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonDidAddSubview  (view)
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -274,7 +274,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonDidMoveToSuperview
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -283,7 +283,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonDidMoveToWindow
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -294,6 +294,8 @@ Implements AppleEventForwarder
 		  
 		  
 		  
+		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -303,7 +305,7 @@ Implements AppleEventForwarder
 		  ego.informonDrawRect (rect)
 		  
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -312,7 +314,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonlayoutSubviews
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -320,6 +322,8 @@ Implements AppleEventForwarder
 		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
 		  dim ego as new AppleView (pid)
 		  ego.informonMotionBeganwithEvent  (type, anEvent)
+		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -327,6 +331,8 @@ Implements AppleEventForwarder
 		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
 		  dim ego as new AppleView (pid)
 		  ego.informonMotionCancelledwithEvent  (type, anEvent)
+		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -334,6 +340,8 @@ Implements AppleEventForwarder
 		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
 		  dim ego as new AppleView (pid)
 		  ego.informonMotionEndedwithEvent  (type, anEvent)
+		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -342,7 +350,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonTouchesBeganwithEvent  (Touchset, anEvent)
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -351,7 +359,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonTouchesCancelledwithEvent  (Touchset, anEvent)
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -360,7 +368,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonTouchesEndedwithEvent  (Touchset, anEvent)
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -369,7 +377,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonTouchesMovedwithEvent  (Touchset, anEvent)
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -378,7 +386,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonwillMoveToSuperview  (view)
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -387,7 +395,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonwillMoveToWindow (window)
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -396,7 +404,7 @@ Implements AppleEventForwarder
 		  dim ego as new AppleView (pid)
 		  ego.informonwillRemoveSubview  (view)
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
@@ -1863,6 +1871,11 @@ Implements AppleEventForwarder
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="IsNIL"
 			Group="Behavior"
 			Type="Boolean"
@@ -1915,6 +1928,11 @@ Implements AppleEventForwarder
 			Name="Tag"
 			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TintAdjustmentMode"

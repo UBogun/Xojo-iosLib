@@ -160,6 +160,43 @@
   <ItemParams>extends mb as xojo.Core.MemoryBlock</ItemParams>
   <ItemResult>NSPoint</ItemResult>
  </Method>
+ <Method>
+  <ItemName>fromNSPoint32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromNSPoint32(aPoint as NSPoint) As xojo.Core.MutableMemoryblock</SourceLine>
+   <SourceLine>dim result as new xojo.Core.MutableMemoryBlock (8)</SourceLine>
+   <SourceLine>result.SingleValue(0) = aPoint.x</SourceLine>
+   <SourceLine>result.SingleValue(4) =aPoint.y</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aPoint as NSPoint</ItemParams>
+  <ItemResult>xojo.Core.MutableMemoryblock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSPoint32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSPoint32(extends mb as xojo.Core.MemoryBlock) As NSPoint</SourceLine>
+   <SourceLine>return NSPoint (mb.SingleValue(0), mb.SingleValue(4))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends mb as xojo.Core.MemoryBlock</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
  <ViewBehavior>
   <ViewProperty>
    <ObjName>Index</ObjName>

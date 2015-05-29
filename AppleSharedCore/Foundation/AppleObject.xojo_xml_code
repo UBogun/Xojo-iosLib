@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="1171767295">
  <ObjName>AppleObject</ObjName>
  <ObjContainerID>308434943</ObjContainerID>
@@ -1297,6 +1297,54 @@
   <ItemFlags>1</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>value as boolean</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>CGAffineTransformForKey</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CGAffineTransformForKey(Key as CFStringRef) As CGAffineTransform</SourceLine>
+   <SourceLine>#if Target64Bit</SourceLine>
+   <SourceLine>Declare Function ValueForKey lib Foundation selector "valueForKey:" (id as ptr, KeyPath as CFStringRef) as CGAffineTransform</SourceLine>
+   <SourceLine>return ValueForKey (id, Key)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare Function ValueForKey lib Foundation selector "valueForKey:" (id as ptr, KeyPath as CFStringRef) as CGAffineTransform32Bit</SourceLine>
+   <SourceLine>return ValueForKey(id, Key).toCGAffineTransform</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Key as CFStringRef</ItemParams>
+  <ItemResult>CGAffineTransform</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>setCGAffineTransformForKey</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub setCGAffineTransformForKey(Key as CFStringRef, value as CGAffineTransform)</SourceLine>
+   <SourceLine>#if Target64Bit</SourceLine>
+   <SourceLine>Declare Sub setValueForKey lib Foundation selector "setValue:forKey:" (id as ptr, KeyPath as CFStringRef, value as CGAffineTransform)</SourceLine>
+   <SourceLine>setValueForKey (id, Key, value)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare Sub setValueForKey lib Foundation selector "setValue:forKey:" (id as ptr, KeyPath as CFStringRef, value as CGAffineTransform32Bit)</SourceLine>
+   <SourceLine>setValueForKey(id, Key, value.toCGAffineTransform32Bit)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Key as CFStringRef, value as CGAffineTransform</ItemParams>
   <ItemResult></ItemResult>
  </Method>
  <Property>

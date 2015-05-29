@@ -50,6 +50,23 @@
   <ItemParams>aURL as folderitem</ItemParams>
   <ItemResult></ItemResult>
  </Method>
+ <Method>
+  <ItemName>MakefromPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine> Shared Function MakefromPtr(aPtr as Ptr) As AppleURL</SourceLine>
+   <SourceLine>return if (aptr = nil, nil, new appleurl(aptr))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <ItemParams>aPtr as Ptr</ItemParams>
+  <ItemResult>AppleURL</ItemResult>
+ </Method>
  <Property>
   <ItemName>ClassPtr</ItemName>
   <Compatibility></Compatibility>
@@ -78,6 +95,16 @@
   </GetAccessor>
  </Property>
  <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
   <ViewProperty>
    <ObjName>DebugDescription</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>

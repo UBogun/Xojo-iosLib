@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="627195903">
  <ObjName>AppleCIBlurFilter</ObjName>
  <ObjContainerID>1624207359</ObjContainerID>
@@ -22,8 +22,7 @@
    <SourceLine>// Constructor(FilterName as CFStringRef) -- From AppleCIFilter</SourceLine>
    <SourceLine>// Constructor() -- From AppleObject</SourceLine>
    <SourceLine>// Constructor(AnId as Ptr) -- From AppleObject</SourceLine>
-   <SourceLine>Super.Constructor ("CIGaussianBlur")</SourceLine>
-   <SourceLine></SourceLine>
+   <SourceLine>Constructor BlurFilter.GaussianBlur</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
@@ -62,7 +61,88 @@
   <ItemParams>anImage as iOSImage</ItemParams>
   <ItemResult></ItemResult>
  </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(Type as BlurFilter)</SourceLine>
+   <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
+   <SourceLine>// Note that this may need modifications if there are multiple constructor choices.</SourceLine>
+   <SourceLine>// Possible constructor calls:</SourceLine>
+   <SourceLine>// Constructor() -- From AppleCIFilter</SourceLine>
+   <SourceLine>// Constructor(FilterName as CFStringRef) -- From AppleCIFilter</SourceLine>
+   <SourceLine>// Constructor() -- From AppleObject</SourceLine>
+   <SourceLine>// Constructor(AnId as Ptr) -- From AppleObject</SourceLine>
+   <SourceLine>dim myType as text</SourceLine>
+   <SourceLine>Select case type</SourceLine>
+   <SourceLine>case BlurFilter.GaussianBlur</SourceLine>
+   <SourceLine>myType = "CIGaussianBlur"</SourceLine>
+   <SourceLine>case BlurFilter.MotionBlur</SourceLine>
+   <SourceLine>myType = "CIMotionBlur"</SourceLine>
+   <SourceLine>case BlurFilter.NoiseReduction</SourceLine>
+   <SourceLine>myType = "CINoiseReduction"</SourceLine>
+   <SourceLine>end Select</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>#if TargetMacOS then</SourceLine>
+   <SourceLine>Select case type</SourceLine>
+   <SourceLine>case BlurFilter.BoxBlur</SourceLine>
+   <SourceLine>myType = "CIBoxBlur"</SourceLine>
+   <SourceLine>case BlurFilter.DiscBlur</SourceLine>
+   <SourceLine>myType = "CIDiscBlur"</SourceLine>
+   <SourceLine>case BlurFilter.MaskedVariableBlur</SourceLine>
+   <SourceLine>myType = "CIMaskedVariableBlur"</SourceLine>
+   <SourceLine>case BlurFilter.MedianFilter</SourceLine>
+   <SourceLine>myType = "CIMedianFilter"</SourceLine>
+   <SourceLine>case BlurFilter.ZoomBlur</SourceLine>
+   <SourceLine>myType = "CIZoomBlur"</SourceLine>
+   <SourceLine>End Select</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>if not myType.Empty then Super.Constructor (myType)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Type as BlurFilter</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
  <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>DebugDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>IsNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
   <ViewProperty>
    <ObjName>Index</ObjName>
    <Visible>1</Visible>
@@ -97,5 +177,25 @@
    <ItemType>Integer</ItemType>
   </ViewProperty>
  </ViewBehavior>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>BlurFilter</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>Integer</ItemType>
+  <ItemName>BlurFilter</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>GaussianBlur</SourceLine>
+   <SourceLine>BoxBlur</SourceLine>
+   <SourceLine>DiscBlur</SourceLine>
+   <SourceLine>MaskedVariableBlur</SourceLine>
+   <SourceLine>MedianFilter</SourceLine>
+   <SourceLine>MotionBlur</SourceLine>
+   <SourceLine>NoiseReduction</SourceLine>
+   <SourceLine>ZoomBlur</SourceLine>
+  </ItemSource>
+ </Enumeration>
 </block>
 </RBProject>

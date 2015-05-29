@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="518178815">
  <ObjName>AppleCIDistortionFilter</ObjName>
  <ObjContainerID>1624207359</ObjContainerID>
@@ -44,7 +44,24 @@
    <SourceLine>myType = "CIVortexDistortion"</SourceLine>
    <SourceLine>End Select</SourceLine>
    <SourceLine></SourceLine>
-   <SourceLine>Super.Constructor (myType)</SourceLine>
+   <SourceLine>#if Targetmacos then</SourceLine>
+   <SourceLine>Select case type</SourceLine>
+   <SourceLine>case DistortionFilter.CircularWrap</SourceLine>
+   <SourceLine>myType = "CICircularWrap"</SourceLine>
+   <SourceLine>case DistortionFilter.Droste</SourceLine>
+   <SourceLine>myType = "CIDroste"</SourceLine>
+   <SourceLine>case DistortionFilter.Displacement</SourceLine>
+   <SourceLine>myType = "CIDisplacementDistortion"</SourceLine>
+   <SourceLine>case DistortionFilter.GlassLozenge</SourceLine>
+   <SourceLine>myType = "CIGlassLozenge"</SourceLine>
+   <SourceLine>case DistortionFilter.StretchCrop</SourceLine>
+   <SourceLine>myType = "CIStretchCrop"</SourceLine>
+   <SourceLine>case DistortionFilter.TorusLens</SourceLine>
+   <SourceLine>myType = "CITorusLensDistortion</SourceLine>
+   <SourceLine>End Select</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>if not myType.Empty then Super.Constructor (myType)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
@@ -103,6 +120,36 @@
  </Method>
  <ViewBehavior>
   <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>DebugDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>IsNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
    <ObjName>Index</ObjName>
    <Visible>1</Visible>
    <PropertyGroup>ID</PropertyGroup>
@@ -155,6 +202,12 @@
    <SourceLine>Pinch</SourceLine>
    <SourceLine>Twirl</SourceLine>
    <SourceLine>Vortex</SourceLine>
+   <SourceLine>CircularWrap</SourceLine>
+   <SourceLine>Droste</SourceLine>
+   <SourceLine>Displacement</SourceLine>
+   <SourceLine>GlassLozenge</SourceLine>
+   <SourceLine>StretchCrop</SourceLine>
+   <SourceLine>TorusLens</SourceLine>
   </ItemSource>
  </Enumeration>
 </block>

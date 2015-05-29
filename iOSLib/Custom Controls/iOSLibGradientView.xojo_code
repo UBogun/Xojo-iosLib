@@ -25,6 +25,9 @@ Inherits iOSUserControl
 		Private Shared Function impl_layerClassGradient(id as ptr, sel as ptr) As Ptr
 		  static mmyclass as ptr = NSClassFromString ("CAGradientLayer")
 		  return mmyclass
+		  
+		  #Pragma Unused id
+		  #Pragma Unused  sel
 		End Function
 	#tag EndMethod
 
@@ -42,6 +45,9 @@ Inherits iOSUserControl
 		      end if
 		    end if
 		  end if
+		  
+		  #Pragma Unused id
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 

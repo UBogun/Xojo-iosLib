@@ -13,6 +13,10 @@ Protected Module AccelerateFramework
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h0
+		Declare Sub vDSP_vsq Lib Accelerate (vDSP_input as Ptr, vDSP_strideInput as Int32, vDSP_Result as Ptr, vDSP_StrideResult As Int32, vDSP_Size as Uint32)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h0
 		Declare Sub vDSP_vsqD Lib Accelerate (vDSP_input as Ptr, vDSP_strideInput as Int32, vDSP_Result as Ptr, vDSP_StrideResult As Int32, vDSP_Size as Uint32)
 	#tag EndExternalMethod
 
@@ -24,6 +28,20 @@ Protected Module AccelerateFramework
 		  Dim Output as new xojo.Core.MutableMemoryBlock (16)
 		  dim OutPutPtr as Ptr = OutPut.Data
 		  vDSP_vsqD (aPoint.toMemoryBlock.Data, 1, OutPutPtr, 1, 2)
+		  return Output.toNSPoint
+		  
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Vector_SquareSingle(aPoint as NSPoint) As NSPoint
+		  #pragma DisableBackgroundTasks
+		  #pragma DisableBoundsChecking
+		  #Pragma NilObjectChecking false
+		  Dim Output as new xojo.Core.MutableMemoryBlock (8)
+		  dim OutPutPtr as Ptr = OutPut.Data
+		  vDSP_vsq (aPoint.toMemoryBlock32.Data, 1, OutPutPtr, 1, 2)
 		  return Output.toNSPoint
 		  
 		  

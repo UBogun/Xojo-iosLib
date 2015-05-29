@@ -10,10 +10,10 @@ Begin iosView CiFilterView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   ImageView1, 4, iOSLibPicker1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   155.0
       Image           =   "537004031"
@@ -29,13 +29,14 @@ Begin iosView CiFilterView
    Begin iOSLabel Label3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label3, 3, Slider3, 3, False, +1.00, 1, 1, -18, 
-      AutoLayout      =   Label3, 1, <Parent>, 1, False, +1.00, 1, 1, 17, 
       AutoLayout      =   Label3, 7, Slider3, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label3, 1, <Parent>, 1, False, +1.00, 1, 1, 17, 
       AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label3, 3, Slider3, 3, False, +1.00, 1, 1, -18, 
       Enabled         =   True
       Height          =   30.0
       Left            =   17
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset X"
@@ -50,10 +51,10 @@ Begin iosView CiFilterView
    Begin iOSSlider Slider3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider3, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Slider3, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       AutoLayout      =   Slider3, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Slider3, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       AutoLayout      =   Slider3, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Slider3, 8, , 0, True, +1.00, 1, 1, 23, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -69,10 +70,10 @@ Begin iosView CiFilterView
    Begin iOSSlider Slider4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider4, 3, Slider3, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Slider4, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Slider4, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
+      AutoLayout      =   Slider4, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Slider4, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider4, 3, Slider3, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   160
@@ -88,13 +89,14 @@ Begin iosView CiFilterView
    Begin iOSLabel Label4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label4, 3, Label3, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label4, 1, Slider4, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 7, Slider4, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label4, 1, Slider4, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label4, 3, Label3, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset Y"
@@ -109,10 +111,10 @@ Begin iosView CiFilterView
    Begin iOSLibPicker iOSLibPicker1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   iOSLibPicker1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   iOSLibPicker1, 8, , 0, False, +1.00, 1, 1, 146, 
       AutoLayout      =   iOSLibPicker1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   iOSLibPicker1, 8, , 0, False, +1.00, 1, 1, 146, 
       AutoLayout      =   iOSLibPicker1, 4, Label1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   iOSLibPicker1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Height          =   146.0
       Left            =   0
       LockedInPosition=   False
@@ -127,13 +129,14 @@ Begin iosView CiFilterView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 3, Slider1, 3, False, +1.00, 1, 1, -18, 
-      AutoLayout      =   Label1, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 7, Slider1, 7, False, +1.00, 3, 1, 0, 
+      AutoLayout      =   Label1, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 3, Slider1, 3, False, +1.00, 1, 1, -18, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset X"
@@ -148,10 +151,10 @@ Begin iosView CiFilterView
    Begin iOSSlider Slider1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
       AutoLayout      =   Slider1, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
+      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
       AutoLayout      =   Slider1, 4, Label3, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -167,10 +170,10 @@ Begin iosView CiFilterView
    Begin iOSSlider Slider2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider2, 3, Slider1, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Slider2, 1, Slider1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider2, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
+      AutoLayout      =   Slider2, 1, Slider1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider2, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider2, 3, Slider1, 3, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   160
@@ -186,13 +189,14 @@ Begin iosView CiFilterView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 1, Slider2, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label2, 7, Slider2, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label2, 3, Label1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label2, 7, Slider2, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label2, 1, Slider2, 1, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset Y"
@@ -207,10 +211,10 @@ Begin iosView CiFilterView
    Begin iOSTextField XField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   XField, 3, Label3, 3, False, +1.00, 1, 1, 10, 
-      AutoLayout      =   XField, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   XField, 7, , 0, False, +1.00, 1, 1, 82, 
+      AutoLayout      =   XField, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   XField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   XField, 3, Label3, 3, False, +1.00, 1, 1, 10, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -281,10 +285,10 @@ Begin iosView CiFilterView
    Begin iOSSwitch Switch1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch1, 4, Label4, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
-      AutoLayout      =   Switch1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   Switch1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch1, 4, Label4, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
       Left            =   134
@@ -298,13 +302,14 @@ Begin iosView CiFilterView
    Begin iOSLabel SwitchLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   SwitchLabel, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   SwitchLabel, 10, Label1, 10, False, +1.00, 1, 1, , 
       AutoLayout      =   SwitchLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   SwitchLabel, 10, Label1, 10, False, +1.00, 1, 1, , 
       AutoLayout      =   SwitchLabel, 2, Switch1, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
+      AutoLayout      =   SwitchLabel, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Untitled"
@@ -588,7 +593,7 @@ End
 		      else
 		        break
 		      end select
-		      ImageView1.Image = myFilter.OutputImage.toiOSImage
+		      if myFilter.OutputCIImage <> nil then ImageView1.Image = myFilter.OutputImage.toiOSImage
 		    end if
 		  end if
 		End Sub

@@ -324,38 +324,6 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function inputAccessoryView lib UIKit selector "inputAccessoryView" (id as ptr) as ptr
-			  return AppleView.MakeFromPtr (inputAccessoryView(id))
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare Sub setInputAccessoryView lib UIKit selector "setInputAccessoryView:" (id as ptr, value as ptr)
-			  setInputAccessoryView id, if (value = nil, nil, value.id)
-			End Set
-		#tag EndSetter
-		InputAccessoryView As AppleView
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare Function inputView lib UIKit selector "inputView" (id as ptr) as ptr
-			  return AppleView.MakeFromPtr (inputView(id))
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare Sub setInputView lib UIKit selector "setInputView:" (id as ptr, value as ptr)
-			  setInputView id, if (value = nil, nil, value.id)
-			End Set
-		#tag EndSetter
-		InputView As AppleView
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
 			  Declare Function isEditing lib UIKit selector "isEditing" (id as ptr) as boolean
 			  return isEditing (id)
 			End Get

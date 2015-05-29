@@ -336,6 +336,40 @@
   <ItemParams>extends aPoint as NSPoint</ItemParams>
   <ItemResult>NSPoint</ItemResult>
  </Method>
+ <Method>
+  <ItemName>toMemoryBlock32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toMemoryBlock32(extends aPoint as NSPoint) As xojo.Core.MutableMemoryBlock</SourceLine>
+   <SourceLine>return MemoryBlockExtension.fromNSPoint32 (aPoint)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aPoint as NSPoint</ItemParams>
+  <ItemResult>xojo.Core.MutableMemoryBlock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toCIVector</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toCIVector(extends p as NSPoint) As AppleCIVector</SourceLine>
+   <SourceLine>return new AppleCIVector (p.x, p.y)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends p as NSPoint</ItemParams>
+  <ItemResult>AppleCIVector</ItemResult>
+ </Method>
  <ViewBehavior>
   <ViewProperty>
    <ObjName>Index</ObjName>

@@ -174,7 +174,7 @@
   <Visible>1</Visible>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub MakeException(ErrorText as Text)</SourceLine>
+   <SourceLine>Sub MakeException(ErrorText as CFStringRef)</SourceLine>
    <SourceLine>dim err as new xojo.Core.ErrorException</SourceLine>
    <SourceLine>err.Reason = ErrorText</SourceLine>
    <SourceLine>raise Err</SourceLine>
@@ -185,7 +185,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>ErrorText as Text</ItemParams>
+  <ItemParams>ErrorText as CFStringRef</ItemParams>
   <ItemResult></ItemResult>
  </Method>
  <ExternalMethod>

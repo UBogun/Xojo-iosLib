@@ -14,14 +14,20 @@ Inherits AppleObject
 		  dim b as Double = aColor.Blue/255
 		  dim a as Double = (255 - aColor.Alpha) / 255
 		  
+		  Constructor (r, g, b, a)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(red as Double, green as double, blue as double, alpha as double)
 		  #if Target32Bit
 		    declare function colorFromRGBA lib UIKit selector "initWithRed:green:blue:alpha:" (id as Ptr, red as Single, green as Single, blue as Single, alpha as Single) as Ptr
 		  #elseif Target64Bit
 		    declare function colorFromRGBA lib UIKit selector "initWithRed:green:blue:alpha:" (id as Ptr, red as Double, green as Double, blue as Double, alpha as Double) as Ptr
 		  #endif
 		  
-		  
-		  super.Constructor ( colorFromRGBA(alloc(ClassPtr), r, g, b, a))
+		  super.Constructor ( colorFromRGBA(alloc(ClassPtr), red, green, blue, alpha))
 		  mhasOwnership = true
 		  
 		  
