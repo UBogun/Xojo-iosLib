@@ -312,6 +312,11 @@ Inherits AppleControl
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="IsNIL"
 			Group="Behavior"
 			Type="Boolean"
@@ -383,6 +388,11 @@ Inherits AppleControl
 			Name="Tag"
 			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TintAdjustmentMode"

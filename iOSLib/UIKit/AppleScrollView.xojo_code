@@ -1,6 +1,13 @@
 #tag Class
 Protected Class AppleScrollView
 Inherits AppleView
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As AppleScrollView
+		  return if (aptr = nil, nil, new AppleScrollView(aptr))
+		End Function
+	#tag EndMethod
+
+
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
@@ -113,6 +120,11 @@ Inherits AppleView
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="IsNIL"
 			Group="Behavior"
 			Type="Boolean"
@@ -170,6 +182,11 @@ Inherits AppleView
 			Name="Tag"
 			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TintAdjustmentMode"

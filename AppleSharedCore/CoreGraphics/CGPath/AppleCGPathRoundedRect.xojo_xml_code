@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20070100">
 <block type="Module" ID="1995331583">
  <ObjName>AppleCGPathRoundedRect</ObjName>
  <ObjContainerID>166381567</ObjContainerID>
@@ -56,6 +56,16 @@
   <ItemResult></ItemResult>
  </Method>
  <ViewBehavior>
+  <ViewProperty>
+   <ObjName>isEmpty</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isRect</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
   <ViewProperty>
    <ObjName>Index</ObjName>
    <Visible>1</Visible>

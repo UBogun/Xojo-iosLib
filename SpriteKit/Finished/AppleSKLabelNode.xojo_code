@@ -274,11 +274,6 @@ Inherits AppleSKNode
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Hidden"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="HorizontalAlignment"
 			Group="Behavior"
 			Type="SKLabelHorizontalAlignmentMode"
@@ -295,6 +290,11 @@ Inherits AppleSKNode
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IsNIL"
@@ -339,6 +339,11 @@ Inherits AppleSKNode
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

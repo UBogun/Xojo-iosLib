@@ -12,10 +12,10 @@ Begin iosView SpriteKitView
       AccessibilityLabel=   ""
       AllowsTransparency=   False
       Asynchronous    =   False
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       FrameInterval   =   0
       Height          =   407.0
       IgnoresSiblingOrder=   False
@@ -861,31 +861,31 @@ End
 	#tag EndProperty
 
 
-	#tag Constant, Name = BackgroundCategory, Type = Number, Dynamic = False, Default = \"32", Scope = Private
+	#tag Constant, Name = BackgroundCategory, Type = Double, Dynamic = False, Default = \"32", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = BorderCategory, Type = Number, Dynamic = False, Default = \"4", Scope = Private
+	#tag Constant, Name = BorderCategory, Type = Double, Dynamic = False, Default = \"4", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = BulletCategory, Type = Number, Dynamic = False, Default = \"2", Scope = Private
+	#tag Constant, Name = BulletCategory, Type = Double, Dynamic = False, Default = \"2", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = Enemy1Name, Type = Text, Dynamic = False, Default = \"Enemy1", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = EnemyBulletCategory, Type = Number, Dynamic = False, Default = \"128", Scope = Private
+	#tag Constant, Name = EnemyBulletCategory, Type = Double, Dynamic = False, Default = \"128", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = EnemyCategory, Type = Number, Dynamic = False, Default = \"16", Scope = Private
+	#tag Constant, Name = EnemyCategory, Type = Double, Dynamic = False, Default = \"16", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = FighterCategory, Type = Number, Dynamic = False, Default = \"8", Scope = Private
+	#tag Constant, Name = FighterCategory, Type = Double, Dynamic = False, Default = \"8", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = ObjectCategory, Type = Number, Dynamic = False, Default = \"1", Scope = Private
+	#tag Constant, Name = ObjectCategory, Type = Double, Dynamic = False, Default = \"1", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = SmallObjectCategory, Type = Number, Dynamic = False, Default = \"64", Scope = Private
+	#tag Constant, Name = SmallObjectCategory, Type = Double, Dynamic = False, Default = \"64", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = SpaceLayerName, Type = Text, Dynamic = False, Default = \"SpaceLayer", Scope = Private

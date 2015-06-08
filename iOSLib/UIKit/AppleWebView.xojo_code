@@ -22,6 +22,20 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub LoadData(Data as AppleData, MIMEType as CFStringRef, textEncoding As CFStringRef, baseURL as AppleURL)
+		  Declare Sub loadData lib UIKit selector "loadData:MIMEType:textEncodingName:baseURL:" (id as ptr, data as ptr, MIMEType as CFStringRef, textEncoding as CFStringRef, baseURL as Ptr)
+		  loadData id, data.id, MIMEType, textEncoding, baseURL.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub LoadHTML(HTMLString as cfstringref, baseurl as AppleURL)
+		   Declare Sub loadHTMLString lib UIKit selector "loadHTMLString:baseURL:" (id as ptr, HTMLString as CFStringRef, baseurl as ptr)
+		  loadHTMLString id, HTMLString, baseurl.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub LoadRequest(aRequest as AppleURLRequest)
 		  Declare Sub loadrequest lib UIKit selector "loadRequest:" (id as ptr, request as ptr)
 		  loadrequest id, aRequest.id
@@ -289,6 +303,16 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  Declare function request lib UIKit selector "request" (id as ptr) as ptr
+			  return AppleURLRequest.MakefromPtr (request(id))
+			End Get
+		#tag EndGetter
+		Request As AppleURLRequest
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare Function scalesPageToFit lib UIKit selector "scalesPageToFit" (id as ptr) as Boolean
 			  Return scalesPageToFit (id)
 			End Get
@@ -300,6 +324,16 @@ Inherits AppleView
 			End Set
 		#tag EndSetter
 		ScalesPageToFit As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function scrollView lib UIKit selector "scrollView" (id as ptr) as ptr
+			  return AppleScrollView.MakefromPtr (scrollView(id))
+			End Get
+		#tag EndGetter
+		ScrollView As AppleScrollView
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -447,6 +481,11 @@ Inherits AppleView
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="IsLoading"
 			Group="Behavior"
 			Type="Boolean"
@@ -557,6 +596,11 @@ Inherits AppleView
 			Name="Tag"
 			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TintAdjustmentMode"

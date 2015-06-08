@@ -120,36 +120,6 @@
  </Method>
  <ViewBehavior>
   <ViewProperty>
-   <ObjName>Description</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Text</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>isProxy</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>DebugDescription</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Text</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>HasOwnership</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>IsNIL</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>mHasOwnership</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
    <ObjName>Index</ObjName>
    <Visible>1</Visible>
    <PropertyGroup>ID</PropertyGroup>

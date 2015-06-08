@@ -415,6 +415,11 @@ Inherits AppleView
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="IsNIL"
 			Group="Behavior"
 			Type="Boolean"
@@ -509,6 +514,11 @@ Inherits AppleView
 				"3 - Justified"
 				"4 - Natural"
 			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
