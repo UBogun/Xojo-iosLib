@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="1666729983">
+ <ObjName>AppleCIColor</ObjName>
+ <ObjContainerID>359770111</ObjContainerID>
+ <IsClass>1</IsClass>
+ <Superclass>AppleObject</Superclass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor()</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4129</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(Red As Double, Green As Double, Blue as Double)</SourceLine>
+   <SourceLine>#if Target64Bit</SourceLine>
+   <SourceLine>Declare function colorWithRedGreenBlue lib CoreImage selector "colorWithRed:green:blue:" (id as ptr, Red As Double, Green As Double, Blue as Double) as ptr</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare function colorWithRedGreenBlue lib CoreImage selector "colorWithRed:green:blue:" (id as ptr, Red As single, Green As single, Blue as single) as ptr</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>super.Constructor (colorWithRedGreenBlue(ClassPtr, red, green, blue))</SourceLine>
+   <SourceLine>RetainClassObject</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Red As Double, Green As Double, Blue as Double</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(Red As Double, Green As Double, Blue as Double, Alpha as double)</SourceLine>
+   <SourceLine>#if Target64Bit</SourceLine>
+   <SourceLine>Declare function colorWithRedGreenBlueAlpha lib CoreImage selector "colorWithRed:green:blue:alpha:" (id as ptr, Red As Double, Green As Double, Blue as Double, Alpha as Double) as ptr</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>Declare function colorWithRedGreenBlueAlpha lib CoreImage selector "colorWithRed:green:blue:alpha:" (id as ptr, Red As single, Green As single, Blue as single, Alpha as Single) as ptr</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>super.Constructor (colorWithRedGreenBlueAlpha(ClassPtr, red, green, blue, alpha))</SourceLine>
+   <SourceLine>RetainClassObject</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Red As Double, Green As Double, Blue as Double, Alpha as double</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(aColor as AppleCGColor)</SourceLine>
+   <SourceLine>Declare function initWithCGColor lib CoreImage selector "initWithColor:" (id as ptr, acolor as ptr) as ptr</SourceLine>
+   <SourceLine>super.Constructor (initWithCGColor(alloc(ClassPtr), aColor.CFTypeRef))</SourceLine>
+   <SourceLine>mHasownership = true</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aColor as AppleCGColor</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(aColor as AppleColor)</SourceLine>
+   <SourceLine>Declare function initWithColor lib CoreImage selector "initWithColor:" (id as ptr, acolor as ptr) as ptr</SourceLine>
+   <SourceLine>super.Constructor (initWithColor(alloc(ClassPtr), aColor.id))</SourceLine>
+   <SourceLine>mHasownership = true</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aColor as AppleColor</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>MakefromPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine> Shared Function MakefromPtr(aPtr as Ptr) As AppleCIColor</SourceLine>
+   <SourceLine>return if (aptr = nil, nil, new AppleCIColor (aptr))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <ItemParams>aPtr as Ptr</ItemParams>
+  <ItemResult>AppleCIColor</ItemResult>
+ </Method>
+ <Property>
+  <ItemName>Alpha</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Alpha As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Alpha As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare sub setAlpha lib CoreImage selector "setAlpha:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare sub setAlpha lib CoreImage selector "setAlpha:" (id as ptr, value as double)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>setalpha id, value</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function alpha lib CoreImage selector "alpha" (id as ptr) as single</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function alpha lib CoreImage selector "alpha" (id as ptr) as double</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>return alpha (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Blue</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Blue As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Blue As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare sub setBlue lib CoreImage selector "setBlue:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare sub setBlue lib CoreImage selector "setBlue:" (id as ptr, value as double)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>setBlue id, value</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function blue lib CoreImage selector "blue" (id as ptr) as single</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function blue lib CoreImage selector "blue" (id as ptr) as double</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>return blue (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>ClassPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared ClassPtr As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ClassPtr As Ptr</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mClassPtr as Ptr = NSClassFromString ("CIColor")</SourceLine>
+   <SourceLine>return mClassPtr</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Green</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Green As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Green As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare sub setGreen lib CoreImage selector "setGreen:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare sub setGreen lib CoreImage selector "setGreen:" (id as ptr, value as double)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>setGreen id, value</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function green lib CoreImage selector "green" (id as ptr) as single</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function green lib CoreImage selector "green" (id as ptr) as double</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>return green (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Red</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Red As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Red As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare sub setRed lib CoreImage selector "setRed:" (id as ptr, value as single)</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare sub setRed lib CoreImage selector "setRed:" (id as ptr, value as double)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>setRed id, value</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function red lib CoreImage selector "red" (id as ptr) as single</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function red lib CoreImage selector "red" (id as ptr) as double</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>return red (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>toAppleColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>toAppleColor As AppleColor</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>toAppleColor As AppleColor</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return new AppleColor (red, green, blue, Alpha)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>DebugDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>IsNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Alpha</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Blue</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Green</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Red</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

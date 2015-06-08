@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="581441535">
+ <ObjName>TargetClassMethodHelper</ObjName>
+ <ObjContainerID>902258687</ObjContainerID>
+ <IsClass>1</IsClass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(selName as Text, impl as ptr, charCode as Text, ReplaceMethod as Boolean = false, classmethod as boolean = false)</SourceLine>
+   <SourceLine>self.selName = selName</SourceLine>
+   <SourceLine>self.impl = impl</SourceLine>
+   <SourceLine>self.charCode = charCode</SourceLine>
+   <SourceLine>self.ReplaceMethod = ReplaceMethod</SourceLine>
+   <SourceLine>self.ClassMethod = classmethod</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>selName as Text, impl as ptr, charCode as Text, ReplaceMethod as Boolean = false, classmethod as boolean = false</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Property>
+  <ItemName>charCode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>charCode As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>charCode As Text</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>ClassMethod</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>ClassMethod As Boolean</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ClassMethod As Boolean</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>impl</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>impl As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>impl As Ptr</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>ReplaceMethod</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>ReplaceMethod As Boolean</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ReplaceMethod As Boolean</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>selName</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>selName As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>selName As Text</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>charCode</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ClassMethod</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ReplaceMethod</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>selName</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+   <EditorType>MultiLineEditor</EditorType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

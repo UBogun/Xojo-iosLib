@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="498165759">
+ <ObjName>TextExtension</ObjName>
+ <ObjContainerID>1412438015</ObjContainerID>
+ <IsClass>0</IsClass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>fromCString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromCString(c as cstring) As cfstringref</SourceLine>
+   <SourceLine>return text.FromCString (c, StandardTextEncoding)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>c as cstring</ItemParams>
+  <ItemResult>cfstringref</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>fromCString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromCString(extends t as text, c as cstring) As cfstringref</SourceLine>
+   <SourceLine>return text.FromCString (c, StandardTextEncoding)</SourceLine>
+   <SourceLine>#pragma unused t</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends t as text, c as cstring</ItemParams>
+  <ItemResult>cfstringref</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>fromPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromPtr(aPtr as Ptr) As cfstringref</SourceLine>
+   <SourceLine>if aptr &lt;&gt; NIL then</SourceLine>
+   <SourceLine>dim mb as new xojo.Core.MemoryBlock(aptr)</SourceLine>
+   <SourceLine>if mb.Size &gt; 0 then</SourceLine>
+   <SourceLine>dim result as CString =  mb.CStringValue(0)</SourceLine>
+   <SourceLine>return TextExtension.FromCString (result)</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aPtr as Ptr</ItemParams>
+  <ItemResult>cfstringref</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toColor(extends aColorString as Text) As Color</SourceLine>
+   <SourceLine>if aColorString.Length &lt; 8 then return color.clear</SourceLine>
+   <SourceLine>dim value as text = aColorString.Left(2)</SourceLine>
+   <SourceLine>if value &lt;&gt; "&amp;c" then return color.clear</SourceLine>
+   <SourceLine>value = aColorString.Mid (2,2)</SourceLine>
+   <SourceLine>dim red as integer = Integer.FromHex (value)</SourceLine>
+   <SourceLine>dim green as integer = integer.FromHex (aColorString.mid (4,2))</SourceLine>
+   <SourceLine>dim blue as integer = integer.FromHex (aColorString.mid (6,2))</SourceLine>
+   <SourceLine>dim alpha as integer = if (aColorString.Length &gt;= 10, integer.FromHex (aColorString.mid (8,2)), 0)</SourceLine>
+   <SourceLine>return color.rgba (red, green, blue, alpha)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aColorString as Text</ItemParams>
+  <ItemResult>Color</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toCommaList</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toCommaList(extends t() as Text) As Text</SourceLine>
+   <SourceLine>if t.Ubound &gt; -1 then</SourceLine>
+   <SourceLine>dim result as text = t(0)</SourceLine>
+   <SourceLine>if t.Ubound &gt; 0 then</SourceLine>
+   <SourceLine>for q as UInteger = 1 to t.Ubound</SourceLine>
+   <SourceLine>result = result +", "+t(q)</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends t() as Text</ItemParams>
+  <ItemResult>Text</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toCString</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toCString(extends t as text) As cstring</SourceLine>
+   <SourceLine>return t.ToCString (StandardTextEncoding)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends t as text</ItemParams>
+  <ItemResult>cstring</ItemResult>
+ </Method>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

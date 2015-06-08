@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="1473488895">
+ <ObjName>AVFoundationFramework</ObjName>
+ <ObjContainerID>958676991</ObjContainerID>
+ <IsClass>0</IsClass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+ <Constant>
+  <ItemName>AVFoundation</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>AVFoundation.framework</ItemDef>
+  <ItemFlags>0</ItemFlags>
+ </Constant>
+</block>
+</RBProject>

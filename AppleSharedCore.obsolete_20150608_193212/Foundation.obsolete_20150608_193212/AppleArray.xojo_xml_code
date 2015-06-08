@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="1404772351">
+ <ObjName>AppleArray</ObjName>
+ <ObjContainerID>308434943</ObjContainerID>
+ <IsClass>1</IsClass>
+ <Superclass>AppleMutableObjectInterface</Superclass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor()</SourceLine>
+   <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
+   <SourceLine>// Note that this may need modifications if there are multiple constructor choices.</SourceLine>
+   <SourceLine>// Possible constructor calls:</SourceLine>
+   <SourceLine>// Constructor() -- From AppleObject</SourceLine>
+   <SourceLine>// Constructor(AnId as Ptr) -- From AppleObject</SourceLine>
+   <SourceLine>Super.Constructor (init(alloc(classptr)))</SourceLine>
+   <SourceLine>MHasOwnership = true</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(anArray as AppleArray)</SourceLine>
+   <SourceLine>Declare function arrayWithArray lib Foundation selector "arrayWithArray:" (id as ptr, anarray as ptr) as ptr</SourceLine>
+   <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
+   <SourceLine>// Note that this may need modifications if there are multiple constructor choices.</SourceLine>
+   <SourceLine>// Possible constructor calls:</SourceLine>
+   <SourceLine>// Constructor() -- From AppleObject</SourceLine>
+   <SourceLine>// Constructor(AnId as Ptr) -- From AppleObject</SourceLine>
+   <SourceLine>Super.Constructor (arrayWithArray(classptr, anArray.id))</SourceLine>
+   <SourceLine>RetainClassObject</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>anArray as AppleArray</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ContainsObject</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ContainsObject(anObject as AppleGeneralObject) As Boolean</SourceLine>
+   <SourceLine>Declare function containsObject lib Foundation selector "containsObject:" (id as ptr, anObject as ptr) as Boolean</SourceLine>
+   <SourceLine>return containsObject (id, anObject.GeneralID)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>anObject as AppleGeneralObject</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ContainsText</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ContainsText(SearchText as CFStringRef) As Boolean</SourceLine>
+   <SourceLine>Declare function containsText lib Foundation selector "containsObject:" (id as ptr, anObject as cfstringref) as Boolean</SourceLine>
+   <SourceLine>return containsText (id, SearchText)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>SearchText as CFStringRef</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>MakeFromPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine> Shared Function MakeFromPtr(aPtr as Ptr) As AppleArray</SourceLine>
+   <SourceLine>return if (aptr &lt;&gt; NIL, new AppleArray (aptr), NIL)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <ItemParams>aPtr as Ptr</ItemParams>
+  <ItemResult>AppleArray</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ObjectAtIndex</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ObjectAtIndex(Index as Uinteger) As AppleObject</SourceLine>
+   <SourceLine>return AppleObject.MakeFromPtr (PtrAtIndex (index))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Index as Uinteger</ItemParams>
+  <ItemResult>AppleObject</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>PtrAtIndex</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function PtrAtIndex(Index as Uinteger) As Ptr</SourceLine>
+   <SourceLine>declare function objectAtIndex lib foundation selector "objectAtIndex:" (id as ptr, index as uinteger) as Ptr</SourceLine>
+   <SourceLine>return objectAtIndex (id, index)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Index as Uinteger</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>TextAtIndex</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function TextAtIndex(Index as Uinteger) As cfstringref</SourceLine>
+   <SourceLine>declare function objectAtIndex lib foundation selector "objectAtIndex:" (id as ptr, index as uinteger) as CFStringRef</SourceLine>
+   <SourceLine>return objectAtIndex (id, index)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Index as Uinteger</ItemParams>
+  <ItemResult>cfstringref</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toPtrArray</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toPtrArray() As Ptr()</SourceLine>
+   <SourceLine>dim result() as Ptr</SourceLine>
+   <SourceLine>for q as uinteger = 0 to count -1</SourceLine>
+   <SourceLine>result.Append PtrAtIndex (q)</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>Ptr()</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toTextArray</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toTextArray() As text()</SourceLine>
+   <SourceLine>dim result() as text</SourceLine>
+   <SourceLine>for q as uinteger = 0 to count -1</SourceLine>
+   <SourceLine>result.Append Textatindex (q)</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>text()</ItemResult>
+ </Method>
+ <Property>
+  <ItemName>ClassPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared ClassPtr As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ClassPtr As Ptr</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mClassPtr as Ptr = NSClassFromString ("NSArray")</SourceLine>
+   <SourceLine>return mClassPtr</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Count</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Count As UInteger</SourceLine>
+   <SourceLine>return getCount</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Count As UInteger</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return getCount</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

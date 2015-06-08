@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="1315690495">
+ <ObjName>AppleCIContext</ObjName>
+ <ObjContainerID>359770111</ObjContainerID>
+ <IsClass>1</IsClass>
+ <Superclass>AppleObject</Superclass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(useSoftwareRenderer As Boolean = False, lowPriority as boolean = false)</SourceLine>
+   <SourceLine>declare function contextWithOptions lib QuartzCore selector "contextWithOptions:" (id as ptr, options as ptr) as ptr</SourceLine>
+   <SourceLine>dim mynumber as new AppleNumber (useSoftwareRenderer)</SourceLine>
+   <SourceLine>dim myDict as new AppleMutableDictionary (2)</SourceLine>
+   <SourceLine>myDict.SetObjectForKey (ContextOptions.Value (useSoftwareRenderer), mynumber)</SourceLine>
+   <SourceLine>mynumber = new AppleNumber (lowPriority)</SourceLine>
+   <SourceLine>myDict.SetObjectForKey (ContextOptions.Value (LowGPUPriority), mynumber)</SourceLine>
+   <SourceLine>super.Constructor (contextWithOptions (ClassPtr, myDict.id))</SourceLine>
+   <SourceLine>RetainClassObject</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>useSoftwareRenderer As Boolean = False, lowPriority as boolean = false</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>CGImage</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CGImage(ciimage as AppleCIImage, aRect as NSRect) As AppleCGImage</SourceLine>
+   <SourceLine>#if Target64Bit</SourceLine>
+   <SourceLine>declare function createCGImage lib QuartzCore selector "createCGImage:fromRect:" (id as ptr, ciimage as ptr, aRect as NSRect) as ptr</SourceLine>
+   <SourceLine>return new AppleCGImage (createCGImage (id, ciimage.Id, aRect))</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>declare function createCGImage lib QuartzCore selector "createCGImage:fromRect:" (id as ptr, ciimage as ptr, aRect as NSRect32Bit) as ptr</SourceLine>
+   <SourceLine>return new AppleCGImage (createCGImage (id, ciimage.Id, aRect.toNSRect32))</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>ciimage as AppleCIImage, aRect as NSRect</ItemParams>
+  <ItemResult>AppleCGImage</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>CGImage</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CGImage(ciimage as AppleCIImage) As AppleCGImage</SourceLine>
+   <SourceLine>return CGImage (ciimage, ciimage.Extent)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>ciimage as AppleCIImage</ItemParams>
+  <ItemResult>AppleCGImage</ItemResult>
+ </Method>
+ <Property>
+  <ItemName>ClassPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared ClassPtr As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ClassPtr As Ptr</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mClassPtr as Ptr = NSClassFromString ("CIContext")</SourceLine>
+   <SourceLine>return mClassPtr</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>ContextOptions</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared ContextOptions As Dictionary</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ContextOptions As Dictionary</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mContextOptions as Dictionary</SourceLine>
+   <SourceLine>if mContextOptions = nil then</SourceLine>
+   <SourceLine>mContextOptions = new Dictionary</SourceLine>
+   <SourceLine>mContextOptions.Value (LowGPUPriority) = SystemConstantName ("kCIContextPriorityRequestLow", CoreImagePath)</SourceLine>
+   <SourceLine>mContextOptions.value (OutputColorSpace) = SystemConstantName ("kCIContextOutputColorSpace", CoreImagePath)</SourceLine>
+   <SourceLine>mContextOptions.value (UseSoftwareRenderer) = SystemConstantName ("kCIContextUseSoftwareRenderer", CoreImagePath)</SourceLine>
+   <SourceLine>mContextOptions.value (WorkingColorSpace) = SystemConstantName ("kCIContextWorkingColorSpace", CoreImagePath)</SourceLine>
+   <SourceLine>mContextOptions.value (WorkingFormat) = SystemConstantName ("kCIContextWorkingFormat", CoreImagePath)</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>return mContextOptions</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>DebugDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>IsNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+ <Constant>
+  <ItemName>LowGPUPriority</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>LowGPUPriority</ItemDef>
+  <ItemFlags>0</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>OutputColorSpace</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>OutputColorSpace</ItemDef>
+  <ItemFlags>0</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>UseSoftwareRenderer</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>UseSoftwareRenderer</ItemDef>
+  <ItemFlags>0</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>WorkingColorSpace</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>WorkingColorSpace</ItemDef>
+  <ItemFlags>0</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>WorkingFormat</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>WorkingFormat</ItemDef>
+  <ItemFlags>0</ItemFlags>
+ </Constant>
+</block>
+</RBProject>

@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="1918799871">
+ <ObjName>AppleValue</ObjName>
+ <ObjContainerID>308434943</ObjContainerID>
+ <IsClass>1</IsClass>
+ <Superclass>AppleObject</Superclass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>CheckClass</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CheckClass(TestPointer as Ptr, aClass as Ptr) As Auto</SourceLine>
+   <SourceLine>// dim ClassName as CString = ObjectiveCRuntime.class_getName (aclass)</SourceLine>
+   <SourceLine>// select case ClassName</SourceLine>
+   <SourceLine>// case "NSString"</SourceLine>
+   <SourceLine>// Return TestPointer.tocstring</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// case "NSMutableArray"</SourceLine>
+   <SourceLine>// dim myarray as new MacOSMutableArray (TestPointer)</SourceLine>
+   <SourceLine>// return myarray.toptrarray</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// Case "NSArray"</SourceLine>
+   <SourceLine>// dim myarray as new AppleArray (TestPointer)</SourceLine>
+   <SourceLine>// return myarray.toptrarray</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// Case "NSDictionary"</SourceLine>
+   <SourceLine>// dim mydict as new MacOSDictionary (testPointer)</SourceLine>
+   <SourceLine>// return mydict.toPtrDict</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// case "__NSCFNumber", "CFNumber", "NSNumber"</SourceLine>
+   <SourceLine>// dim mynumber as new MacOSNumber (TestPointer)</SourceLine>
+   <SourceLine>// select case mynumber.NumberType</SourceLine>
+   <SourceLine>// case CFNumberTypes.Int32</SourceLine>
+   <SourceLine>// return mynumber.Int32Value</SourceLine>
+   <SourceLine>// case CFNumberTypes.Int64</SourceLine>
+   <SourceLine>// return mynumber.Int64Value</SourceLine>
+   <SourceLine>// case CFNumberTypes.Int, CFNumberTypes.cfindex</SourceLine>
+   <SourceLine>// return mynumber.IntegerValue</SourceLine>
+   <SourceLine>// case CFNumberTypes.Char, CFNumberTypes.Int8</SourceLine>
+   <SourceLine>// return mynumber.Int8Value</SourceLine>
+   <SourceLine>// case CFNumberTypes.Float, CFNumberTypes.Float32</SourceLine>
+   <SourceLine>// return mynumber.SingleValue</SourceLine>
+   <SourceLine>// case CFNumberTypes.Double, CFNumberTypes.Float64</SourceLine>
+   <SourceLine>// return mynumber.DoubleValue</SourceLine>
+   <SourceLine>// else</SourceLine>
+   <SourceLine>// system.debuglog "Checkclass found unhandled Number type: "+str(mynumber.NumberType)</SourceLine>
+   <SourceLine>// break</SourceLine>
+   <SourceLine>// end select</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// case "NSURL"</SourceLine>
+   <SourceLine>// return new MacOSURL (TestPointer)</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// case "CIVector"</SourceLine>
+   <SourceLine>// return new MacOSVector (testpointer)</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// else</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// // need to check for CFTypes too!</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// return NIL // No matching class found</SourceLine>
+   <SourceLine>// end select</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>TestPointer as Ptr, aClass as Ptr</ItemParams>
+  <ItemResult>Auto</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(T as CATransform3D)</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function valueWithCATransform3D lib foundation selector "valueWithCATransform3D:" (id as ptr, value as CATransform3D32Bit) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithCATransform3D (ClassPtr, T.toCATransform3D32Bit))</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function valueWithCATransform3D lib foundation selector "valueWithCATransform3D:" (id as ptr, value as CATransform3D) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithCATransform3D (ClassPtr, T))</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>me.RetainClassObject</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>T as CATransform3D</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(value as double)</SourceLine>
+   <SourceLine>dim mb as new xojo.Core.MutableMemoryBlock (8)</SourceLine>
+   <SourceLine>mb.DoubleValue(0) = value</SourceLine>
+   <SourceLine>dim mytype as auto =  ObjectiveCRuntime.objcTypeDictInversed.Value("Double")</SourceLine>
+   <SourceLine>dim myint as int32 = mytype</SourceLine>
+   <SourceLine>dim mytypetext as text = "{"+text.FromUnicodeCodepoint (myint)+"}"</SourceLine>
+   <SourceLine>super.Constructor (ValueWithBytes (mb.Data, mytypetext.toCString))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>value as double</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(anObject as AppleObject, dontRetain as Boolean = false)</SourceLine>
+   <SourceLine>if dontRetain then</SourceLine>
+   <SourceLine>declare function valueWithNonretainedObject lib foundation selector "valueWithNonretainedObject:" (id as ptr, value as ptr) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithNonretainedObject (ClassPtr, anObject.id))</SourceLine>
+   <SourceLine>else</SourceLine>
+   <SourceLine>constructor ( anObject.id, true )</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>anObject as AppleObject, dontRetain as Boolean = false</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(APoint As NSPoint)</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function valueWithPoint lib foundation selector "valueWithPoint:" (id as ptr, value as NSPoint32Bit) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithPoint (ClassPtr, apoint.toNSPoint32))</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function valueWithPoint lib foundation selector "valueWithPoint:" (id as ptr, value as NSPoint) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithPoint (ClassPtr, apoint))</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>RetainClassObject</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>APoint As NSPoint</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(ARect As NSRect)</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function valueWithRect lib foundation selector "valueWithRect:" (id as ptr, value as NSRect32Bit) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithRect (ClassPtr, aRect.toNSRect32))</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function valueWithRect lib foundation selector "valueWithRect:" (id as ptr, value as NSRect) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithRect (ClassPtr, aRect))</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>RetainClassObject</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>ARect As NSRect</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(ASize As NSSize)</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function valueWithSize lib foundation selector "valueWithSize:" (id as ptr, value as NSSize32Bit) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithSize (ClassPtr, aSize.toNSSize32))</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function valueWithSize lib foundation selector "valueWithSize:" (id as ptr, value as NSSize) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithSize (ClassPtr, aSize))</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>RetainClassObject</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>ASize As NSSize</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(anid as ptr, CreateValue As Boolean = False)</SourceLine>
+   <SourceLine>if CreateValue then</SourceLine>
+   <SourceLine>declare function valueWithPointer lib foundation selector "valueWithPointer:" (id as ptr, value as ptr) as ptr</SourceLine>
+   <SourceLine>super.Constructor (valueWithPointer (ClassPtr, anid))</SourceLine>
+   <SourceLine>else</SourceLine>
+   <SourceLine>super.constructor ( anid )</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>RetainClassObject</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>anid as ptr, CreateValue As Boolean = False</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Equals</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Equals(anotherValue as AppleValue) As Boolean</SourceLine>
+   <SourceLine>declare function isEqualToValue lib Foundation selector "isEqualToValue:" (id as ptr, value as Ptr) as Boolean</SourceLine>
+   <SourceLine>return isEqualToValue (id, anotherValue.id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>anotherValue as AppleValue</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>MakefromPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine> Shared Function MakefromPtr(aPtr as Ptr) As AppleValue</SourceLine>
+   <SourceLine>return if (aptr = nil, nil, new AppleValue(aptr))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <ItemParams>aPtr as Ptr</ItemParams>
+  <ItemResult>AppleValue</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ValueWithBytes</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ValueWithBytes(value as ptr, type as CString) As Ptr</SourceLine>
+   <SourceLine>declare function valueWithBytes lib foundation selector "valueWithBytes:objCType:" (id as ptr, value as ptr, type as CString) as ptr</SourceLine>
+   <SourceLine>return  valueWithBytes (ClassPtr, value, type)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>value as ptr, type as CString</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+ </Method>
+ <Property>
+  <ItemName>AutoValue</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>AutoValue As Auto</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>AutoValue As Auto</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>// dim myclass as ptr = ObjectiveCRuntime.object_getClass (id)</SourceLine>
+   <SourceLine>// if myclass &lt;&gt; NIL then // we have a known Class here</SourceLine>
+   <SourceLine>// dim myclassname as CString = ObjectiveCRuntime.class_getName (myclass)</SourceLine>
+   <SourceLine>// do</SourceLine>
+   <SourceLine>// dim result as auto = CheckClass (id, myclass)</SourceLine>
+   <SourceLine>// if result &lt;&gt;NIL then return result</SourceLine>
+   <SourceLine>// dim mysuperclass as ptr= ObjectiveCRuntime.class_getSuperclass (myclass)</SourceLine>
+   <SourceLine>// if mysuperclass = NIL then</SourceLine>
+   <SourceLine>// System.debuglog "Ptr-Auto-Conversion found unknown Class "+myclassname</SourceLine>
+   <SourceLine>// return id</SourceLine>
+   <SourceLine>// end if</SourceLine>
+   <SourceLine>// myclass = mysuperclass</SourceLine>
+   <SourceLine>// loop until myclass = NIL // should never get here</SourceLine>
+   <SourceLine>// Break</SourceLine>
+   <SourceLine>//</SourceLine>
+   <SourceLine>// else // no Class, give back the ptr</SourceLine>
+   <SourceLine>// return id</SourceLine>
+   <SourceLine>// end if</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>CATransform3DValue</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>CATransform3DValue As CATransform3D</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>CATransform3DValue As CATransform3D</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function CATransform3DValue lib Foundation selector "CATransform3DValue" (id as ptr) as CATransform3D32Bit</SourceLine>
+   <SourceLine>return CATransform3DValue(id).toCATransform3D</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function CATransform3DValue lib Foundation selector "pointValue" (id as ptr) as CATransform3D</SourceLine>
+   <SourceLine>return CATransform3DValue (id)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>ClassPtr</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared ClassPtr As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ClassPtr As Ptr</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mClassPtr as Ptr = NSClassFromString ("NSValue")</SourceLine>
+   <SourceLine>return mClassPtr</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>NonRetainedObjectValue</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>NonRetainedObjectValue As AppleObject</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>NonRetainedObjectValue As AppleObject</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function nonretainedObjectValue lib Foundation selector "nonretainedObjectValue" (id as ptr) as ptr</SourceLine>
+   <SourceLine>return  AppleObject.MakeFromPtr (nonretainedObjectValue (id))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>NSPointValue</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>NSPointValue As NSPoint</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>NSPointValue As NSPoint</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function pointValue lib Foundation selector "pointValue" (id as ptr) as NSPoint32Bit</SourceLine>
+   <SourceLine>return pointValue (id).toNSPoint</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function pointValue lib Foundation selector "pointValue" (id as ptr) as NSPoint</SourceLine>
+   <SourceLine>return pointValue (id)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>NSRectValue</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>NSRectValue As NSRect</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>NSRectValue As NSRect</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function rectValue lib Foundation selector "rectValue" (id as ptr) as NSRect32Bit</SourceLine>
+   <SourceLine>return rectValue (id).tonsrect</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function rectValue lib Foundation selector "rectValue" (id as ptr) as NSRect</SourceLine>
+   <SourceLine>return rectValue (id)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>NSSizeValue</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>NSSizeValue As NSSize</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>NSSizeValue As NSSize</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function sizeValue lib Foundation selector "sizeValue" (id as ptr) as NSSize32Bit</SourceLine>
+   <SourceLine>return sizeValue (id).tonssize</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function sizeValue lib Foundation selector "sizeValue" (id as ptr) as nssize</SourceLine>
+   <SourceLine>return sizeValue (id)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>PointerValue</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>PointerValue As Ptr</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>PointerValue As Ptr</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function pointerValue lib Foundation selector "pointerValue" (id as ptr) as ptr</SourceLine>
+   <SourceLine>return pointerValue (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>

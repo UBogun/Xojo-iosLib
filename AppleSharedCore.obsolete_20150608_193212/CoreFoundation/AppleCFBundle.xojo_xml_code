@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="809578495">
+ <ObjName>AppleCFBundle</ObjName>
+ <ObjContainerID>1365471231</ObjContainerID>
+ <IsClass>1</IsClass>
+ <Superclass>AppleCFObject</Superclass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <ExternalMethod>
+  <ItemName>CFBundleGetAllBundles</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetAllBundles Lib Foundation (Bundle as ptr) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as ptr</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetBundleWithIdentifier</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetBundleWithIdentifier Lib Foundation (BundleID as CFStringRef) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>BundleID as CFStringRef</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetDataPointerForName</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetDataPointerForName Lib Foundation (Bundle as Ptr, symbolName as CFStringRef) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr, symbolName as CFStringRef</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetDevelopmentRegion</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetDevelopmentRegion Lib Foundation (Bundle as Ptr) As cfstringref</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr</ItemParams>
+  <ItemResult>cfstringref</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetIdentifier</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetIdentifier Lib Foundation (Bundle as Ptr) As cfstringref</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr</ItemParams>
+  <ItemResult>cfstringref</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetInfoDictionary</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetInfoDictionary Lib Foundation (Bundle as Ptr) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetLocalInfoDictionary</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetLocalInfoDictionary Lib Foundation (Bundle as Ptr) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetMainBundle</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetMainBundle Lib Foundation () As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetPackageInfo</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Sub CFBundleGetPackageInfo Lib Foundation (Bundle as Ptr, type as ptr, Creator as ptr)</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr, type as ptr, Creator as ptr</ItemParams>
+  <ItemResult></ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetTypeID</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetTypeID Lib Foundation (Bundle as Ptr) As uinteger</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr</ItemParams>
+  <ItemResult>uinteger</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetValueForInfoDictionaryKey</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetValueForInfoDictionaryKey Lib Foundation (Bundle as Ptr, key as CFStringRef) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr, key as CFStringRef</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleGetVersionNumber</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleGetVersionNumber Lib Foundation (Bundle as Ptr) As UINt32</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr</ItemParams>
+  <ItemResult>UINt32</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleIsExecutableLoaded</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleIsExecutableLoaded Lib Foundation (Bundle as Ptr) As Boolean</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleLoadExecutable</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CFBundleLoadExecutable Lib Foundation (Bundle as Ptr) As Boolean</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CFBundleUnloadExecutable</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Sub CFBundleUnloadExecutable Lib Foundation (Bundle as Ptr)</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Bundle as Ptr</ItemParams>
+  <ItemResult></ItemResult>
+  <LibraryName>#Foundation</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <Method>
+  <ItemName>constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub constructor(identifier as CFStringRef)</SourceLine>
+   <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
+   <SourceLine>Super.Constructor (CFBundleGetBundleWithIdentifier (identifier))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>4096</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>identifier as CFStringRef</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>DataPtrForName</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function DataPtrForName(Name as CFStringRef) As Ptr</SourceLine>
+   <SourceLine>return CFBundleGetDataPointerForName (mcfTypeRef, name)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Name as CFStringRef</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>getPackageInfo</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub getPackageInfo()</SourceLine>
+   <SourceLine>dim Type as new MutableMemoryBlock (5)</SourceLine>
+   <SourceLine>dim Creator as New MutableMemoryBlock (5)</SourceLine>
+   <SourceLine>CFBundleGetPackageInfo mcftyperef, type.Data, creator.Data</SourceLine>
+   <SourceLine>mPackageType = type.CStringValue(0)</SourceLine>
+   <SourceLine>mpackageCreator = Creator.CStringValue(0)</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Load</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Load() As Boolean</SourceLine>
+   <SourceLine>return CFBundleLoadExecutable (mcftypeRef)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>Boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Unload</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Unload()</SourceLine>
+   <SourceLine>CFBundleunLoadExecutable (mcftypeRef)</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>ValueForInfoDictionaryKey</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ValueForInfoDictionaryKey(aKey as CFStringRef) As AppleObject</SourceLine>
+   <SourceLine>return AppleObject.MakeFromPtr (CFBundleGetValueForInfoDictionaryKey (mCFTypeRef, aKey))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aKey as CFStringRef</ItemParams>
+  <ItemResult>AppleObject</ItemResult>
+ </Method>
+ <Property>
+  <ItemName>AllBundles</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Property AllBundles As AppleCFArray</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>AllBundles As AppleCFArray</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return new AppleCFArray (CFBundleGetAllBundles (mcfTypeRef))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>DevelopmentRegion</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>DevelopmentRegion As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>DevelopmentRegion As Text</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return CFBundleGetDevelopmentRegion (CFTypeRef)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>ExecutableIsLoaded</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>ExecutableIsLoaded As Boolean</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ExecutableIsLoaded As Boolean</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return CFBundleIsExecutableLoaded (mcfTypeRef)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Identifier</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Identifier As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Identifier As Text</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return CFBundleGetIdentifier (CFTypeRef)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>InfoDictionary</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>InfoDictionary As AppleDictionary</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>InfoDictionary As AppleDictionary</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>dim myptr as ptr = CFBundleGetInfoDictionary (mcfTypeRef)</SourceLine>
+   <SourceLine>return if (myptr &lt;&gt; NIL, new AppleDictionary (myptr), NIL)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>LocalInfoDictionary</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>LocalInfoDictionary As AppleDictionary</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>LocalInfoDictionary As AppleDictionary</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>dim myptr as ptr = CFBundleGetLocalInfoDictionary (mcfTypeRef)</SourceLine>
+   <SourceLine>return if (myptr &lt;&gt; NIL, new AppleDictionary (myptr), NIL)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>MainBundle</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared MainBundle As AppleCFBundle</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>MainBundle As AppleCFBundle</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return new AppleCFBundle (CFBundleGetMainBundle)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mpackageCreator</ItemName>
+  <Compatibility></Compatibility>
+  <Attributes>hidden</Attributes>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mpackageCreator As CString</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mpackageCreator As CString</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>mPackageType</ItemName>
+  <Compatibility></Compatibility>
+  <Attributes>hidden</Attributes>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mPackageType As CSTring</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mPackageType As CSTring</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>packageCreator</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>packageCreator As CString</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>packageCreator As CString</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>getPackageInfo</SourceLine>
+   <SourceLine>return mpackageCreator</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>PackageType</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>PackageType As cstring</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>PackageType As cstring</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>getPackageInfo</SourceLine>
+   <SourceLine>return mPackageType</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>TypeID</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>TypeID As UInteger</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>TypeID As UInteger</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return CFBundleGetTypeID (mCFTypeRef)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>VersionNumber</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>VersionNumber As UINt32</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>VersionNumber As UINt32</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return CFBundleGetVersionNumber (CFTypeRef)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>CFTypeDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RetainCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>DevelopmentRegion</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ExecutableIsLoaded</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Identifier</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+ <Using>
+  <ItemName>xojo.core</ItemName>
+ </Using>
+</block>
+</RBProject>
