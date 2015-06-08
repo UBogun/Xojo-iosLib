@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="643327999">
  <ObjName>AppleCAEmitterCell</ObjName>
  <ObjContainerID>803434495</ObjContainerID>
@@ -900,115 +900,6 @@
   </GetAccessor>
  </Property>
  <ViewBehavior>
-  <ViewProperty>
-   <ObjName>Description</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Text</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>isProxy</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>DebugDescription</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Text</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>HasOwnership</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Hidden</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>IsNIL</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>mHasOwnership</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Autoreverses</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>BeginTime</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Double</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Duration</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Double</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>FillMode</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>FillModes</ItemType>
-   <EditorType>Enum</EditorType>
-   <Enumeration>
-    <ItemDef>0 - Remove</ItemDef>
-    <ItemDef>1 - Remain</ItemDef>
-    <ItemDef>2 - Reset</ItemDef>
-    <ItemDef>3 - Both</ItemDef>
-   </Enumeration>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>MagnificationFilter</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>ScalingFilters</ItemType>
-   <EditorType>Enum</EditorType>
-   <Enumeration>
-    <ItemDef>0 - Linear</ItemDef>
-    <ItemDef>1 - Nearest</ItemDef>
-    <ItemDef>2 - Trilinear</ItemDef>
-   </Enumeration>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>MinificationFilter</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>ScalingFilters</ItemType>
-   <EditorType>Enum</EditorType>
-   <Enumeration>
-    <ItemDef>0 - Linear</ItemDef>
-    <ItemDef>1 - Nearest</ItemDef>
-    <ItemDef>2 - Trilinear</ItemDef>
-   </Enumeration>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>MinificationFilterBias</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Single</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>RepeatCount</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Single</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>RepeatDuration</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Double</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Speed</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Single</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>TimeOffset</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Double</ItemType>
-  </ViewProperty>
   <ViewProperty>
    <ObjName>AlphaRange</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>

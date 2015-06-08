@@ -30,11 +30,6 @@ Protected Class AppleAudioQueue
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="mId"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"

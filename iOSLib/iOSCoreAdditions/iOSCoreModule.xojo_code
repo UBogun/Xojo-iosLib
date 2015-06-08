@@ -36,6 +36,12 @@ Protected Module iOSCoreModule
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="LibDebug"
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"

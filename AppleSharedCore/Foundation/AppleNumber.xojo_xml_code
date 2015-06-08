@@ -788,16 +788,6 @@
  </Property>
  <ViewBehavior>
   <ViewProperty>
-   <ObjName>Description</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Text</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>isProxy</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Boolean</ItemType>
-  </ViewProperty>
-  <ViewProperty>
    <ObjName>DebugDescription</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>Text</ItemType>
@@ -816,6 +806,26 @@
    <ObjName>mHasOwnership</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RetainCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Hash</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
   </ViewProperty>
   <ViewProperty>
    <ObjName>BoolValue</ObjName>
@@ -881,29 +891,54 @@
    <ItemType>Integer</ItemType>
   </ViewProperty>
   <ViewProperty>
+   <ObjName>Int16Value</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Int16</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Int32Value</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Int32</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Int64Value</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Int64</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Int8Value</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Int8</ItemType>
+  </ViewProperty>
+  <ViewProperty>
    <ObjName>NumberType</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>CFNumberTypes</ItemType>
-   <EditorType>Enum</EditorType>
-   <Enumeration>
-    <ItemDef>1 - Int8</ItemDef>
-    <ItemDef>2 - Int16</ItemDef>
-    <ItemDef>3 - Int32</ItemDef>
-    <ItemDef>4 - Int64</ItemDef>
-    <ItemDef>5 - Float32</ItemDef>
-    <ItemDef>6 - Float64</ItemDef>
-    <ItemDef>7 - Char</ItemDef>
-    <ItemDef>8 - Short</ItemDef>
-    <ItemDef>9 - Int</ItemDef>
-    <ItemDef>10 - Long</ItemDef>
-    <ItemDef>11 - LongLong</ItemDef>
-    <ItemDef>12 - Float</ItemDef>
-    <ItemDef>13 - Double</ItemDef>
-    <ItemDef>14 - CFIndex</ItemDef>
-    <ItemDef>15 - NSInteger</ItemDef>
-    <ItemDef>16 - CGFloat</ItemDef>
-    <ItemDef>16 - Max</ItemDef>
-   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>UInt16Value</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInt16</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>UInt32Value</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInt32</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>UInt64Value</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInt64</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>UInt8Value</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInt8</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>UIntegerValue</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
   </ViewProperty>
  </ViewBehavior>
 </block>
