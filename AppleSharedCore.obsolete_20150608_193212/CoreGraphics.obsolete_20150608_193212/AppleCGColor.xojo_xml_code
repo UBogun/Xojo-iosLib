@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="1508642815">
+ <ObjName>AppleCGColor</ObjName>
+ <ObjContainerID>1528518655</ObjContainerID>
+ <IsClass>1</IsClass>
+ <Superclass>AppleCFObject</Superclass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>CGColorCreateCopyWithAlpha</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CGColorCreateCopyWithAlpha(acolor as ptr, alpha as double) As Ptr</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function CGColorCreateCopyWithAlpha lib CoreGraphics  (acolor as ptr, alpha as single) as Ptr</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function CGColorCreateCopyWithAlpha lib CoreGraphics  (acolor as ptr, alpha as double) as Ptr</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>return CGColorCreateCopyWithAlpha (acolor, alpha)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>acolor as ptr, alpha as double</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>CGColorCreateGenericCMYK</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CGColorCreateGenericCMYK(cyan as double, magenta as double, yellow as double, black as double, alpha as double) As Ptr</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function CGColorCreateGenericCMYK lib CoreGraphics  (cyan as single, magenta as single, yellow as Single, black as single, alpha as single) as Ptr</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function CGColorCreateGenericCMYK lib CoreGraphics  (cyan as double, magenta as double, yellow as double, black as double, alpha as double) as Ptr</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>return CGColorCreateGenericCMYK (cyan, magenta, yellow, black, alpha)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>cyan as double, magenta as double, yellow as double, black as double, alpha as double</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>CGColorCreateGenericGray</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CGColorCreateGenericGray(gray as double, alpha as double) As Ptr</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function CGColorCreateGenericGray lib CoreGraphics  (gray as Single, alpha as single) as Ptr</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function CGColorCreateGenericGray lib CoreGraphics  (gray as double, alpha as double) as Ptr</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>return CGColorCreateGenericGray (gray, alpha)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>gray as double, alpha as double</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>CGColorCreateGenericRGB</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CGColorCreateGenericRGB(red as double, green as double, blue as double, alpha as double) As Ptr</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function CGColorCreateGenericRGB lib CoreGraphics  (red as single, green as single, blue as Single, alpha as single) as Ptr</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function CGColorCreateGenericRGB lib CoreGraphics  (red as double, green as double, blue as double, alpha as double) as Ptr</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>return CGColorCreateGenericRGB (red, green, blue, alpha)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>red as double, green as double, blue as double, alpha as double</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+ </Method>
+ <ExternalMethod>
+  <ItemName>CGColorEqualToColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CGColorEqualToColor Lib coreGraphics (id as ptr, anotherid as ptr) As boolean</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr, anotherid as ptr</ItemParams>
+  <ItemResult>boolean</ItemResult>
+  <LibraryName>#coreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CGColorGetColorSpace</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CGColorGetColorSpace Lib coreGraphics (id as ptr) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#coreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CGColorGetComponents</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CGColorGetComponents Lib coreGraphics (id as ptr) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#coreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CGColorGetConstantColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CGColorGetConstantColor Lib coreGraphics (colorname as CFStringRef) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>colorname as CFStringRef</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#coreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CGColorGetNumberOfComponents</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CGColorGetNumberOfComponents Lib coreGraphics (id as ptr) As UInteger</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr</ItemParams>
+  <ItemResult>UInteger</ItemResult>
+  <LibraryName>#coreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CGColorGetTypeID</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CGColorGetTypeID Lib coreGraphics (id as ptr) As UInteger</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr</ItemParams>
+  <ItemResult>UInteger</ItemResult>
+  <LibraryName>#coreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CGColorRelease</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Sub CGColorRelease Lib coreGraphics (id as ptr)</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr</ItemParams>
+  <ItemResult></ItemResult>
+  <LibraryName>#coreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CGColorRetain</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CGColorRetain Lib coreGraphics (id as ptr) As ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr</ItemParams>
+  <ItemResult>ptr</ItemResult>
+  <LibraryName>#coreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+ </ExternalMethod>
+ <Method>
+  <ItemName>ChangeAlpha</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function ChangeAlpha(Alpha as Double) As AppleCGColor</SourceLine>
+   <SourceLine>return new AppleCGColor (CGColorCreateCopyWithAlpha (mCFTypeRef, Alpha))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Alpha as Double</ItemParams>
+  <ItemResult>AppleCGColor</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(aColor as Color)</SourceLine>
+   <SourceLine>dim r as double = aColor.red/255</SourceLine>
+   <SourceLine>dim g as double = aColor.Green/255</SourceLine>
+   <SourceLine>dim b as double = aColor.Blue/255</SourceLine>
+   <SourceLine>dim a as double = (255 - aColor.Alpha) / 255</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>super.Constructor ( CGColorCreateGenericRGB (r, g, b, a), true)</SourceLine>
+   <SourceLine>mHasownership = true</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aColor as Color</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(gray as Double, alpha as double)</SourceLine>
+   <SourceLine>super.Constructor ( CGColorCreateGenericGray (gray, alpha), true)</SourceLine>
+   <SourceLine>mhasownership = true</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>gray as Double, alpha as double</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(red as Double, green as Double, blue as double, alpha as double)</SourceLine>
+   <SourceLine>super.Constructor( CGColorCreateGenericRGB (red, green, Blue, alpha), true)</SourceLine>
+   <SourceLine>mHasOwnership = true</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>red as Double, green as Double, blue as double, alpha as double</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(cyan as Double, magenta as Double, yellow as double, black as double, alpha as double)</SourceLine>
+   <SourceLine>super.Constructor( CGColorCreateGenericCMYK (cyan, magenta, yellow, black, alpha), true)</SourceLine>
+   <SourceLine>mhasownership = true</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>cyan as Double, magenta as Double, yellow as double, black as double, alpha as double</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Constructor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Constructor(aColor as AppleCGColor, alpha as double)</SourceLine>
+   <SourceLine>super.Constructor ( CGColorCreateCopyWithAlpha (acolor.mCFTypeRef, alpha), true)</SourceLine>
+   <SourceLine>mHasOwnership = true</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aColor as AppleCGColor, alpha as double</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Equals</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Equals(anothercolor as AppleCGColor) As boolean</SourceLine>
+   <SourceLine>Return CGColorEqualToColor (mCFTypeRef, anothercolor.mCFTypeRef)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>anothercolor as AppleCGColor</ItemParams>
+  <ItemResult>boolean</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>fromColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine> Shared Function fromColor(aColor as Color) As AppleCGColor</SourceLine>
+   <SourceLine>return new AppleCGColor (acolor)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <ItemParams>aColor as Color</ItemParams>
+  <ItemResult>AppleCGColor</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Release</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Release()</SourceLine>
+   <SourceLine>CGColorRelease (mCFTypeRef)</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Retain</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Retain()</SourceLine>
+   <SourceLine>mCFTypeRef = CGColorRetain (mCFTypeRef)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Property>
+  <ItemName>Alpha</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Alpha As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Alpha As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>declare function CGColorGetAlpha lib CoreGraphics  (id as ptr) as single</SourceLine>
+   <SourceLine>#elseif target64bit</SourceLine>
+   <SourceLine>declare function CGColorGetAlpha lib CoreGraphics  (id as ptr) as double</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>return CGColorGetAlpha (mCFTypeRef)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Black</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Black As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Black As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>if NumberOfComponents = 5 then // only when we have a cmyk+a) color</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>return Components.SingleValue(12)</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>return Components.DoubleValue(24)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>BlackColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared BlackColor As AppleCGColor</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>BlackColor As AppleCGColor</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mBlackColor as AppleCGColor = new AppleCGColor(CGColorGetConstantColor (SystemConstantName(kCGColorBlack, CoreGraphicsPath)))</SourceLine>
+   <SourceLine>return mBlackColor</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Blue</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Blue As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Blue As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>if NumberOfComponents = 4 then // only when we have a RGB(+a) color</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>return Components.SingleValue(8)</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>return Components.DoubleValue(16)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>CFTypeDescription</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>CFTypeDescription As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>CFTypeDescription As Text</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return AppleCFObject.CFCopyTypeIDDescription (TypeID)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>ClearColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared ClearColor As AppleCGColor</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ClearColor As AppleCGColor</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mClearColor as AppleCGColor = new AppleCGColor(CGColorGetConstantColor (SystemConstantName(kCGColorClear, CoreGraphicsPath)))</SourceLine>
+   <SourceLine>return mClearColor</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>ColorSpace</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>ColorSpace As AppleCGColorSpace</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ColorSpace As AppleCGColorSpace</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return new AppleCGColorSpace (CGColorGetColorSpace (mcfTypeRef))</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Components</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Components As Xojo.core.memoryblock</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Components As Xojo.core.memoryblock</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>if mComponents = nil then</SourceLine>
+   <SourceLine>dim mb as new xojo.Core.MemoryBlock (CGColorGetComponents (mCFTypeRef), NumberOfComponents * IntegerSize)</SourceLine>
+   <SourceLine>mComponents = mb</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>Return mComponents</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Cyan</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Cyan As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Cyan As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>if NumberOfComponents = 5 then // only when we have a CMYK (+a) color</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>return Components.SingleValue(0)</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>return Components.DoubleValue(0)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Gray</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Gray As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Gray As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>if NumberOfComponents = 2 then // only when we have a gray CGColor</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>return Components.SingleValue(0)</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>return Components.DoubleValue(0)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Green</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Green As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Green As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>if NumberOfComponents = 4 then // only when we have a RGB(+a) color</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>return Components.SingleValue(4)</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>return Components.DoubleValue(8)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Magenta</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Magenta As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Magenta As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>if NumberOfComponents = 5 then // only when we have a cmyk(+a) color</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>return Components.SingleValue(4)</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>return Components.DoubleValue(8)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mComponents</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mComponents As Xojo.core.memoryblock</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mComponents As Xojo.core.memoryblock</ItemDeclaration>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+ </Property>
+ <Property>
+  <ItemName>NumberOfComponents</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>NumberOfComponents As UInteger</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>NumberOfComponents As UInteger</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return CGColorGetNumberOfComponents (mCFTypeRef)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Red</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Red As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Red As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>if NumberOfComponents = 4 then // only when we have a RGB(+a) color</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>return Components.SingleValue(0)</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>return Components.DoubleValue(0)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>toColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>toColor As Color</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>toColor As Color</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return color.rgba (red * 255, green * 255, blue * 255, 255 - alpha * 255)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>TypeID</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>TypeID As UInteger</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>TypeID As UInteger</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>return CGColorGetTypeID (mCFTypeRef)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>WhiteColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared WhiteColor As AppleCGColor</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>WhiteColor As AppleCGColor</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mWhiteColor as AppleCGColor = new AppleCGColor(CGColorGetConstantColor (SystemConstantName(kCGColorWhite, CoreGraphicsPath)))</SourceLine>
+   <SourceLine>return mWhiteColor</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Yellow</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Yellow As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Yellow As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>if NumberOfComponents = 5 then // only when we have a cmyk(+a) color</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>return Components.SingleValue(8)</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>return Components.DoubleValue(16)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Alpha</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Black</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Blue</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>CFTypeDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Cyan</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Gray</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Green</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Magenta</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Red</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>toColor</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <PropertyValue>&amp;c000000</PropertyValue>
+   <ItemType>Color</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Yellow</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+ <Constant>
+  <ItemName>kCGColorBlack</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCGColorBlack</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCGColorClear</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCGColorClear</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCGColorWhite</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCGColorWhite</ItemDef>
+  <ItemFlags>33</ItemFlags>
+ </Constant>
+</block>
+</RBProject>

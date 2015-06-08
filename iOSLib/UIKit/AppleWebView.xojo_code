@@ -30,7 +30,7 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0
 		Sub LoadHTML(HTMLString as cfstringref, baseurl as AppleURL)
-		   Declare Sub loadHTMLString lib UIKit selector "loadHTMLString:baseURL:" (id as ptr, HTMLString as CFStringRef, baseurl as ptr)
+		  Declare Sub loadHTMLString lib UIKit selector "loadHTMLString:baseURL:" (id as ptr, HTMLString as CFStringRef, baseurl as ptr)
 		  loadHTMLString id, HTMLString, baseurl.id
 		End Sub
 	#tag EndMethod

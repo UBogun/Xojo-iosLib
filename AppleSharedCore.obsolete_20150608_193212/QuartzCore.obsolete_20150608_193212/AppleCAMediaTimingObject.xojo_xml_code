@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20070100">
+<block type="Module" ID="1591003135">
+ <ObjName>AppleCAMediaTimingObject</ObjName>
+ <ObjContainerID>803434495</ObjContainerID>
+ <IsClass>1</IsClass>
+ <Superclass>AppleResponder</Superclass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>DefaultValueForKey</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine> Shared Function DefaultValueForKey(Key As CFStringRef) As AppleObject</SourceLine>
+   <SourceLine>declare function defaultValueForKey lib QuartzCore selector "defaultValueForKey:" (id as ptr, key as CFStringRef) as Ptr</SourceLine>
+   <SourceLine>dim myptr as ptr = defaultValueForKey (classptr, key)</SourceLine>
+   <SourceLine>return if (myptr &lt;&gt; NIL, new AppleObject (myptr), NIL)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <ItemParams>Key As CFStringRef</ItemParams>
+  <ItemResult>AppleObject</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>getFillMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function getFillMode(id as ptr) As CFStringRef</SourceLine>
+   <SourceLine>declare function fillMode lib QuartzCore selector "fillMode" (id as ptr) as CFStringRef</SourceLine>
+   <SourceLine>return fillMode (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr</ItemParams>
+  <ItemResult>CFStringRef</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>setFillMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub setFillMode(id as ptr, mode as CFstringRef)</SourceLine>
+   <SourceLine>declare sub setFillMode lib QuartzCore selector "setFillMode:" (id as ptr, value as CFStringRef)</SourceLine>
+   <SourceLine>setfillMode (id, mode)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr, mode as CFstringRef</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Property>
+  <ItemName>Autoreverses</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Autoreverses As Boolean</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Autoreverses As Boolean</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setAutoreverses lib QuartzCore selector "setAutoreverses:" (id as ptr, value as Boolean)</SourceLine>
+   <SourceLine>setAutoreverses (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function autoreverses lib QuartzCore selector "autoreverses" (id as ptr) as Boolean</SourceLine>
+   <SourceLine>return autoreverses (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>BeginTime</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>BeginTime As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>BeginTime As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setBeginTime lib QuartzCore selector "setBeginTime:" (id as ptr, value as Double)</SourceLine>
+   <SourceLine>setBeginTime (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function beginTime lib QuartzCore selector "beginTime" (id as ptr) as Double</SourceLine>
+   <SourceLine>return beginTime (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>CFilterLinear</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared CFilterLinear As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>CFilterLinear As Text</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mresult as text =  SystemConstantName (kCAFilterLinear, QuartzCorePath)</SourceLine>
+   <SourceLine>return mresult</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>CFilterNearest</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared CFilterNearest As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>CFilterNearest As Text</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mresult as text =  SystemConstantName (kCAFilterNearest, QuartzCorePath)</SourceLine>
+   <SourceLine>return mresult</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>CFilterTrilinear</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared CFilterTrilinear As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>CFilterTrilinear As Text</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static mresult as text =  SystemConstantName (kCAFilterTrilinear, QuartzCorePath)</SourceLine>
+   <SourceLine>return mresult</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>ContentsRect</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>ContentsRect As NSRect</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>ContentsRect As NSRect</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>DEclare Sub setContentsRect lib QuartzCore selector "setContentsRect:" (id as ptr, value as NSRect32Bit)</SourceLine>
+   <SourceLine>setContentsRect id, value.toNSRect32</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>DEclare Sub setContentsRect lib QuartzCore selector "setContentsRect:" (id as ptr, value as NSRect)</SourceLine>
+   <SourceLine>setContentsRect id, value</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>#if target32bit</SourceLine>
+   <SourceLine>DEclare Function contentsRect lib QuartzCore selector "contentsRect" (id as ptr) as NSRect32Bit</SourceLine>
+   <SourceLine>return contentsRect(id).toNSRect</SourceLine>
+   <SourceLine>#elseif Target64Bit</SourceLine>
+   <SourceLine>DEclare Function contentsRect lib QuartzCore selector "contentsRect" (id as ptr) as NSRect</SourceLine>
+   <SourceLine>return contentsRect(id)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Duration</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Duration As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Duration As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setDuration lib QuartzCore selector "setDuration:" (id as ptr, value as Double)</SourceLine>
+   <SourceLine>setDuration (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function duration lib QuartzCore selector "duration" (id as ptr) as Double</SourceLine>
+   <SourceLine>return duration (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>FillMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>FillMode As FillModes</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>FillMode As FillModes</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>dim mymode as text</SourceLine>
+   <SourceLine>Select case value</SourceLine>
+   <SourceLine>case FillModes.Both</SourceLine>
+   <SourceLine>mymode = FillmodeBoth</SourceLine>
+   <SourceLine>case FillModes.Remain</SourceLine>
+   <SourceLine>mymode = FillmodeForward</SourceLine>
+   <SourceLine>case FillModes.Remove</SourceLine>
+   <SourceLine>mymode = FillmodeRemove</SourceLine>
+   <SourceLine>case FillModes.Reset</SourceLine>
+   <SourceLine>mymode = FillmodeBackward</SourceLine>
+   <SourceLine>End Select</SourceLine>
+   <SourceLine>setFillMode (id, mymode)</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>dim mymode as text = getFillMode (id)</SourceLine>
+   <SourceLine>select case mymode</SourceLine>
+   <SourceLine>case FillmodeBackward</SourceLine>
+   <SourceLine>return FillModes.Reset</SourceLine>
+   <SourceLine>case FillmodeBoth</SourceLine>
+   <SourceLine>return fillmodes.Both</SourceLine>
+   <SourceLine>case FillmodeForward</SourceLine>
+   <SourceLine>return FillModes.Remain</SourceLine>
+   <SourceLine>case FillmodeRemove</SourceLine>
+   <SourceLine>return FillModes.Remove</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>FillmodeBackward</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared FillmodeBackward As CFStringRef</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>FillmodeBackward As CFStringRef</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static FMFwd As Text = SystemConstantName ("kCAFillModeBackwards", QuartzCorePath)</SourceLine>
+   <SourceLine>return FMFwd</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>FillmodeBoth</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared FillmodeBoth As CFStringRef</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>FillmodeBoth As CFStringRef</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static FMBoth As Text = SystemConstantName ("kCAFillModeBoth", QuartzCorePath)</SourceLine>
+   <SourceLine>return FMBoth</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>FillmodeForward</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared FillmodeForward As CFStringRef</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>FillmodeForward As CFStringRef</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static FMFwd As Text = SystemConstantName ("kCAFillModeForwards", QuartzCorePath)</SourceLine>
+   <SourceLine>return FMFwd</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>FillmodeRemove</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Shared FillmodeRemove As CFStringRef</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>FillmodeRemove As CFStringRef</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>1</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>static FMRemove As Text = SystemConstantName ("kCAFillModeRemoved", QuartzCorePath)</SourceLine>
+   <SourceLine>return FMRemove</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>MagnificationFilter</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>MagnificationFilter As ScalingFilters</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>MagnificationFilter As ScalingFilters</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>dim result as text</SourceLine>
+   <SourceLine>select case value</SourceLine>
+   <SourceLine>case ScalingFilters.Linear</SourceLine>
+   <SourceLine>result = CFilterLinear</SourceLine>
+   <SourceLine>case ScalingFilters.Nearest</SourceLine>
+   <SourceLine>result = CFilterNearest</SourceLine>
+   <SourceLine>case ScalingFilters.Trilinear</SourceLine>
+   <SourceLine>result = CFilterTrilinear</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>mMagnificationFilter = result</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>select case mMagnificationFilter</SourceLine>
+   <SourceLine>case CFilterTrilinear</SourceLine>
+   <SourceLine>return ScalingFilters.Trilinear</SourceLine>
+   <SourceLine>case CFilterNearest</SourceLine>
+   <SourceLine>return ScalingFilters.Nearest</SourceLine>
+   <SourceLine>case CFilterTrilinear</SourceLine>
+   <SourceLine>return ScalingFilters.Trilinear</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>MinificationFilter</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>MinificationFilter As ScalingFilters</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>MinificationFilter As ScalingFilters</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>dim result as text</SourceLine>
+   <SourceLine>select case value</SourceLine>
+   <SourceLine>case ScalingFilters.Linear</SourceLine>
+   <SourceLine>result = CFilterLinear</SourceLine>
+   <SourceLine>case ScalingFilters.Nearest</SourceLine>
+   <SourceLine>result = CFilterNearest</SourceLine>
+   <SourceLine>case ScalingFilters.Trilinear</SourceLine>
+   <SourceLine>result = CFilterTrilinear</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>mMinificationFilter = result</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>select case mMinificationFilter</SourceLine>
+   <SourceLine>case CFilterTrilinear</SourceLine>
+   <SourceLine>return ScalingFilters.Trilinear</SourceLine>
+   <SourceLine>case CFilterNearest</SourceLine>
+   <SourceLine>return ScalingFilters.Nearest</SourceLine>
+   <SourceLine>case CFilterTrilinear</SourceLine>
+   <SourceLine>return ScalingFilters.Trilinear</SourceLine>
+   <SourceLine>end select</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>MinificationFilterBias</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>MinificationFilterBias As Single</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>MinificationFilterBias As Single</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setMinificationFilterBias lib QuartzCore selector "setMinificationFilterBias:" (id as ptr, value as Single)</SourceLine>
+   <SourceLine>setMinificationFilterBias (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function minificationFilterBias lib QuartzCore selector "minificationFilterBias" (id as ptr) as Single</SourceLine>
+   <SourceLine>return minificationFilterBias (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mMagnificationFilter</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mMagnificationFilter As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mMagnificationFilter As Text</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setMagnificationFilter lib QuartzCore selector "setMagnificationFilter:" (id as ptr, value as CFStringRef)</SourceLine>
+   <SourceLine>setMagnificationFilter (id, value)</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function magnificationFilter lib QuartzCore selector "magnificationFilter" (id as ptr) as CFStringRef</SourceLine>
+   <SourceLine>return magnificationFilter (id)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>mMinificationFilter</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>mMinificationFilter As Text</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>mMinificationFilter As Text</ItemDeclaration>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setMinificationFilter lib QuartzCore selector "setMinificationFilter:" (id as ptr, value as CFStringRef)</SourceLine>
+   <SourceLine>setMinificationFilter (id, value)</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function minificationFilter lib QuartzCore selector "minificationFilter" (id as ptr) as CFStringRef</SourceLine>
+   <SourceLine>return minificationFilter (id)</SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>RepeatCount</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>RepeatCount As Single</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>RepeatCount As Single</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setRepeatCount lib QuartzCore selector "setRepeatCount:" (id as ptr, value as Single)</SourceLine>
+   <SourceLine>setRepeatCount (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function repeatCount lib QuartzCore selector "repeatCount" (id as ptr) as Single</SourceLine>
+   <SourceLine>return repeatCount (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>RepeatDuration</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>RepeatDuration As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>RepeatDuration As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setRepeatDuration lib QuartzCore selector "setRepeatDuration:" (id as ptr, value as Double)</SourceLine>
+   <SourceLine>setRepeatDuration (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function repeatDuration lib QuartzCore selector "repeatDuration" (id as ptr) as Double</SourceLine>
+   <SourceLine>return repeatDuration (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Speed</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Speed As Single</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Speed As Single</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setSpeed lib QuartzCore selector "setSpeed:" (id as ptr, value as Single)</SourceLine>
+   <SourceLine>setSpeed (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function speed lib QuartzCore selector "speed" (id as ptr) as Single</SourceLine>
+   <SourceLine>return speed (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>Style</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Style As AppleDictionary</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>Style As AppleDictionary</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setStyle lib QuartzCore selector "setStyle:" (id as Ptr, value as ptr)</SourceLine>
+   <SourceLine>setStyle id, value.id</SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function style lib QuartzCore selector "style" (id as Ptr) as ptr</SourceLine>
+   <SourceLine>return AppleDictionary.MakeFromPtr (style (id))</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <Property>
+  <ItemName>TimeOffset</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>TimeOffset As Double</SourceLine>
+   <SourceLine></SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemDeclaration>TimeOffset As Double</ItemDeclaration>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <SetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Set</SourceLine>
+   <SourceLine>declare Sub setTimeOffset lib QuartzCore selector "setTimeOffset:" (id as ptr, value as Double)</SourceLine>
+   <SourceLine>setTimeOffset (id, value)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Set</SourceLine>
+  </SetAccessor>
+  <GetAccessor>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Get</SourceLine>
+   <SourceLine>declare function timeOffset lib QuartzCore selector "timeOffset" (id as ptr) as Double</SourceLine>
+   <SourceLine>return timeOffset (id)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Get</SourceLine>
+  </GetAccessor>
+ </Property>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Autoreverses</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>BeginTime</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Duration</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>FillMode</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>FillModes</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Remove</ItemDef>
+    <ItemDef>1 - Remain</ItemDef>
+    <ItemDef>2 - Reset</ItemDef>
+    <ItemDef>3 - Both</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MagnificationFilter</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>ScalingFilters</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Linear</ItemDef>
+    <ItemDef>1 - Nearest</ItemDef>
+    <ItemDef>2 - Trilinear</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MinificationFilter</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>ScalingFilters</ItemType>
+   <EditorType>Enum</EditorType>
+   <Enumeration>
+    <ItemDef>0 - Linear</ItemDef>
+    <ItemDef>1 - Nearest</ItemDef>
+    <ItemDef>2 - Trilinear</ItemDef>
+   </Enumeration>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MinificationFilterBias</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RepeatCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RepeatDuration</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Speed</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Single</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>TimeOffset</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+ <Constant>
+  <ItemName>kCAFilterLinear</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAFilterLinear</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAFilterNearest</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAFilterNearest</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
+ <Constant>
+  <ItemName>kCAFilterTrilinear</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemType>6</ItemType>
+  <ItemDef>kCAFilterTrilinear</ItemDef>
+  <ItemFlags>1</ItemFlags>
+ </Constant>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>FillModes</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemName>FillModes</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Remove</SourceLine>
+   <SourceLine>Remain</SourceLine>
+   <SourceLine>Reset</SourceLine>
+   <SourceLine>Both</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>Properties</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>Integer</ItemType>
+  <ItemName>Properties</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Position</SourceLine>
+   <SourceLine>Anchorpoint</SourceLine>
+   <SourceLine>BorderColor</SourceLine>
+   <SourceLine>BackgroundColor</SourceLine>
+   <SourceLine>ShadowColor</SourceLine>
+   <SourceLine>Bounds</SourceLine>
+   <SourceLine>BorderWidth</SourceLine>
+   <SourceLine>CornerRadius</SourceLine>
+   <SourceLine>Hidden</SourceLine>
+   <SourceLine>MasksToBounds</SourceLine>
+   <SourceLine>ShadowRadius</SourceLine>
+   <SourceLine>ShadowOffset</SourceLine>
+   <SourceLine>ContentsRect</SourceLine>
+   <SourceLine>Filters</SourceLine>
+   <SourceLine>Opacity</SourceLine>
+   <SourceLine>ShadowOpacity</SourceLine>
+   <SourceLine>Transform</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>ScalingFilters</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>Integer</ItemType>
+  <ItemName>ScalingFilters</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Linear</SourceLine>
+   <SourceLine>Nearest</SourceLine>
+   <SourceLine>Trilinear</SourceLine>
+  </ItemSource>
+ </Enumeration>
+</block>
+</RBProject>

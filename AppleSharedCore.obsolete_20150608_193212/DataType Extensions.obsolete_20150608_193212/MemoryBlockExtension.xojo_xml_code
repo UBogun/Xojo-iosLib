@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<block type="Module" ID="417978367">
+ <ObjName>MemoryBlockExtension</ObjName>
+ <ObjContainerID>1412438015</ObjContainerID>
+ <IsClass>0</IsClass>
+ <ItemFlags>1</ItemFlags>
+ <IsInterface>0</IsInterface>
+ <Compatibility></Compatibility>
+ <Method>
+  <ItemName>CStringArrayMBToTextArray</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function CStringArrayMBToTextArray(extends CStringArrayMB as xojo.Core.MemoryBlock) As text()</SourceLine>
+   <SourceLine>dim count as uinteger = CStringArrayMB.Size/IntegerSize</SourceLine>
+   <SourceLine>dim result() as text</SourceLine>
+   <SourceLine>for q as uinteger = 0 to count -1</SourceLine>
+   <SourceLine>dim stringPtr as Ptr = CStringArrayMB.PtrValue(q * IntegerSize)</SourceLine>
+   <SourceLine>dim stringMB as new xojo.Core.MemoryBlock (stringptr)</SourceLine>
+   <SourceLine>result.Append text.FromCString (stringMB.CStringValue(0), StandardTextEncoding)</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>Return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends CStringArrayMB as xojo.Core.MemoryBlock</ItemParams>
+  <ItemResult>text()</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>fromCStringsToText</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromCStringsToText(extends mb as xojo.core.MemoryBlock) As text()</SourceLine>
+   <SourceLine>if mb &lt;&gt; NIL then</SourceLine>
+   <SourceLine>dim result() as text</SourceLine>
+   <SourceLine>for q as uinteger = 0 to mb.Size/ IntegerSize</SourceLine>
+   <SourceLine>result.Append text.FromCString (mb.CStringValue(q), StandardTextEncoding)</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends mb as xojo.core.MemoryBlock</ItemParams>
+  <ItemResult>text()</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>fromPtrArray</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromPtrArray(CArray as Ptr) As xojo.Core.MemoryBlock</SourceLine>
+   <SourceLine>if CArray &lt;&gt; NIL then Return new xojo.Core.MemoryBlock (CArray)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>CArray as Ptr</ItemParams>
+  <ItemResult>xojo.Core.MemoryBlock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>fromPtrArray</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromPtrArray(CArray as Ptr, count as uinteger) As xojo.Core.MemoryBlock</SourceLine>
+   <SourceLine>if CArray &lt;&gt; NIL then Return new xojo.Core.MemoryBlock (CArray, count*IntegerSize)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>CArray as Ptr, count as uinteger</ItemParams>
+  <ItemResult>xojo.Core.MemoryBlock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>NumberOfPointers</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function NumberOfPointers(extends m as xojo.core.memoryblock) As uinteger</SourceLine>
+   <SourceLine>return m.size/IntegerSize</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends m as xojo.core.memoryblock</ItemParams>
+  <ItemResult>uinteger</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Pointer</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Pointer(extends m as xojo.core.memoryblock, index as uinteger) As Ptr</SourceLine>
+   <SourceLine>return m.PtrValue (index * IntegerSize)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends m as xojo.core.memoryblock, index as uinteger</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>fromNSPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromNSPoint(aPoint as NSPoint) As xojo.Core.MutableMemoryblock</SourceLine>
+   <SourceLine>dim result as new xojo.Core.MutableMemoryBlock (16)</SourceLine>
+   <SourceLine>result.DoubleValue(0) = aPoint.x</SourceLine>
+   <SourceLine>result.DoubleValue(8) =aPoint.y</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aPoint as NSPoint</ItemParams>
+  <ItemResult>xojo.Core.MutableMemoryblock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSPoint(extends mb as xojo.Core.MemoryBlock) As NSPoint</SourceLine>
+   <SourceLine>return NSPoint (mb.DoubleValue(0), mb.DoubleValue(8))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends mb as xojo.Core.MemoryBlock</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>fromNSPoint32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function fromNSPoint32(aPoint as NSPoint) As xojo.Core.MutableMemoryblock</SourceLine>
+   <SourceLine>dim result as new xojo.Core.MutableMemoryBlock (8)</SourceLine>
+   <SourceLine>result.SingleValue(0) = aPoint.x</SourceLine>
+   <SourceLine>result.SingleValue(4) =aPoint.y</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>aPoint as NSPoint</ItemParams>
+  <ItemResult>xojo.Core.MutableMemoryblock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSPoint32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSPoint32(extends mb as xojo.Core.MemoryBlock) As NSPoint</SourceLine>
+   <SourceLine>return NSPoint (mb.SingleValue(0), mb.SingleValue(4))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends mb as xojo.Core.MemoryBlock</ItemParams>
+  <ItemResult>NSPoint</ItemResult>
+ </Method>
+ <ViewBehavior>
+  <ViewProperty>
+   <ObjName>Index</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <PropertyValue>-2147483648</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Left</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Name</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Super</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>ID</PropertyGroup>
+   <ItemType>String</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Top</ObjName>
+   <Visible>1</Visible>
+   <PropertyGroup>Position</PropertyGroup>
+   <PropertyValue>0</PropertyValue>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+ </ViewBehavior>
+</block>
+</RBProject>
