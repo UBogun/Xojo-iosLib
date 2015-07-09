@@ -17,6 +17,7 @@ Inherits AppleObject
 		Private Shared Function impl_animationdidstart(pid as ptr, sel as ptr, animation as ptr) As ptr
 		  dim myAni as new AppleCAAnimation (animation)
 		  if not myAni.IsNIL  then myani.informonstart
+		  #Pragma Unused Pid
 		  
 		End Function
 	#tag EndMethod
@@ -25,6 +26,7 @@ Inherits AppleObject
 		Private Shared Function impl_animationdidstopFinished(pid as ptr, sel as ptr, animation as ptr, Finished as boolean) As ptr
 		  dim myAni as new AppleCAAnimation (animation)
 		  if not myAni.IsNIL  then myani.informonstop (Finished)
+		  #Pragma Unused Pid
 		  
 		End Function
 	#tag EndMethod
@@ -58,6 +60,11 @@ Inherits AppleObject
 			Name="Description"
 			Group="Behavior"
 			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HasOwnership"
@@ -98,6 +105,11 @@ Inherits AppleObject
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

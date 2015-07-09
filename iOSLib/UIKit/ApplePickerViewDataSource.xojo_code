@@ -38,20 +38,29 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Function impl_attributedTitleForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as Integer) As ptr
-		  
+		Attributes( "Not yet implemented" ) Private Shared Function impl_attributedTitleForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as Integer) As ptr
+		  #Pragma Unused pid
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  #Pragma Unused row
+		  #Pragma Unused component
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didSelectRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as integer)
 		  ApplePickerViewDataSource(RetainDict.Value(pid)).SelectRowAndComponent(row,component)
+		  #pragma unused sel
+		  #pragma unused picker
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_numberOfComponents(pid as ptr, sel as ptr, picker as ptr) As Integer
 		  return ApplePickerViewDataSource(retaindict.Value(pid)).Columns.Ubound+1
+		  #pragma unused sel
+		  #pragma unused picker
 		End Function
 	#tag EndMethod
 
@@ -59,31 +68,41 @@ Inherits AppleObject
 		Private Shared Function impl_numberOfRowsInComponent(pid as ptr, sel as ptr, picker as ptr, component as integer) As Integer
 		  dim rows() as text = ApplePickerViewDataSource(RetainDict.Value(pid)).Columns(component)
 		  Return rows.Ubound+1
+		  #pragma unused sel
+		  #pragma unused picker
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_rowHeightForComponent(pid as ptr, sel as ptr, picker as ptr, component as integer) As Double
 		  return ApplePickerViewDataSource(RetainDict.Value(pid)).GetRowHeight(component)
-		  
+		  #pragma unused sel
+		  #pragma unused picker
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_titleForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as Integer, component as integer) As CFStringRef
 		  return ApplePickerViewDataSource(RetainDict.Value(pid)).TextInRowAndColumn(row,component)
+		  #pragma unused sel
+		  #pragma unused picker
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_viewForRowAndComponent(pid as ptr, sel as ptr, picker as ptr, row as integer, component as integer, view as ptr) As ptr
 		  return ApplePickerViewDataSource(RetainDict.Value(pid)).ViewForRow(row,component, view)
+		  #pragma unused sel
+		  #pragma unused picker
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Function impl_widthForComponent(pid as ptr, sel as ptr, picker as ptr, compentent as integer) As Double
-		  
+		Attributes( "not yet implemented" ) Private Shared Function impl_widthForComponent(pid as ptr, sel as ptr, picker as ptr, component as integer) As Double
+		  #Pragma Unused pid
+		  #Pragma Unused sel
+		  #Pragma Unused picker
+		  #Pragma Unused component
 		End Function
 	#tag EndMethod
 
@@ -238,6 +257,11 @@ Inherits AppleObject
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -276,6 +300,11 @@ Inherits AppleObject
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="StandardRowHeight"

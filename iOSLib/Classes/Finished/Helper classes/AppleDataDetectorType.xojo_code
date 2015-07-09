@@ -114,6 +114,11 @@ Protected Class AppleDataDetectorType
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Id"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

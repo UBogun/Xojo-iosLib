@@ -50,20 +50,12 @@ End
 #tag EndIOSView
 
 #tag WindowCode
-	#tag Event
-		Sub ToolbarPressed(button As iOSToolButton)
-		  
-		End Sub
-	#tag EndEvent
-
-
 	#tag Method, Flags = &h1000
 		Sub Constructor(classname as Text)
 		  // Calling the overridden superclass constructor.
 		  try
 		    IntroSpectionInstance = NSClassFromString (classname)
 		    Introspection = new AppleIntrospection (IntroSpectionInstance)
-		    dim methods() as AppleMethod = Introspection.Methods
 		  catch err
 		    
 		  end try
@@ -91,6 +83,7 @@ End
 		    count = Introspection.Properties.Ubound + 1
 		    table1.addrow( 3, count.totext + " Properties")
 		    
+		    #pragma Unused filter
 		    
 		    // dim cell as iOSTableCellData
 		    // for q as uinteger = 0 to count -1
@@ -125,16 +118,11 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Action(section As Integer, row As Integer)
-		  // dim Classname as text = me.RowData(section, row).Text
-		  
-		  // break
-		End Sub
-	#tag EndEvent
-	#tag Event
 		Sub AccessoryAction(section As Integer, row As Integer)
 		  dim mv as new IntrospectionMethodsView (Introspection.ClassName)
 		  self.pushto mv
+		  #Pragma Unused section
+		  #Pragma Unused Row
 		End Sub
 	#tag EndEvent
 #tag EndEvents

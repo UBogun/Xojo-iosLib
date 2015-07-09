@@ -103,24 +103,48 @@ Inherits AppleObject
 	#tag Method, Flags = &h21
 		Private Shared Sub RunBlockPointRectTemplate(Body as ptr, byref stop as Boolean)
 		  dim PhysicsBody as AppleSKPhysicsBody = AppleSKPhysicsBody.MakeFromPtr (body)
+		  
 		  // do whatever you want to perform on the Body
 		  // if you want to stop further body processing, set stop = True
+		  
+		  // and of course disable the following pragmas. They're just here to avoid the compiler's warnings
+		  
+		  #pragma unused stop
+		  #pragma unused PhysicsBody
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub RunBlockRayTemplate32Bit(Body as ptr, ContactPoint as NSPoint32Bit, Normal as CGVector32Bit, byref stop as Boolean)
 		  dim PhysicsBody as AppleSKPhysicsBody = AppleSKPhysicsBody.MakeFromPtr (body)
+		  
 		  // here you can evalue the point in screen coordinates where the ray hit and the distance from its startpoint to contactpoint
 		  // if you want to stop further body processing, set stop = True
+		  
+		  
+		  // and of course disable the following pragmas. They're just here to avoid the compiler's warnings
+		  
+		  #pragma unused stop
+		  #pragma unused PhysicsBody
+		  #pragma unused ContactPoint
+		  #pragma unused Normal
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub RunBlockRayTemplate64Bit(Body as ptr, ContactPoint as NSPoint, Normal as CGVector, byref stop as Boolean)
 		  dim PhysicsBody as AppleSKPhysicsBody = AppleSKPhysicsBody.MakeFromPtr (body)
+		  
 		  // here you can evalue the point in screen coordinates where the ray hit and the distance from its startpoint to contactpoint
 		  // if you want to stop further body processing, set stop = True
+		  
+		  
+		  // and of course disable the following pragmas. They're just here to avoid the compiler's warnings
+		  
+		  #pragma unused stop
+		  #pragma unused PhysicsBody
+		  #pragma unused ContactPoint
+		  #pragma unused Normal
 		End Sub
 	#tag EndMethod
 
@@ -241,6 +265,11 @@ Inherits AppleObject
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -279,6 +308,11 @@ Inherits AppleObject
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Speed"

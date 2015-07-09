@@ -23,6 +23,7 @@ Inherits AppleView
 		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
 		  dim ego as new AppleImageView (pid)
 		  ego.informonDidAddSubview  (view)
+		  #Pragma Unused Sel
 		  
 		  
 		End Sub
@@ -33,6 +34,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonDidMoveToSuperview
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -42,6 +44,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonDidMoveToWindow
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -51,6 +54,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonlayoutSubviews
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -59,6 +63,8 @@ Inherits AppleView
 		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
 		  dim ego as new AppleImageView (pid)
 		  ego.informonMotionBeganwithEvent  (type, anEvent)
+		  #Pragma Unused Sel
+		  
 		End Sub
 	#tag EndMethod
 
@@ -66,6 +72,8 @@ Inherits AppleView
 		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
 		  dim ego as new AppleImageView (pid)
 		  ego.informonMotionCancelledwithEvent  (type, anEvent)
+		  #Pragma Unused Sel
+		  
 		End Sub
 	#tag EndMethod
 
@@ -73,6 +81,8 @@ Inherits AppleView
 		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
 		  dim ego as new AppleImageView (pid)
 		  ego.informonMotionEndedwithEvent  (type, anEvent)
+		  #Pragma Unused Sel
+		  
 		End Sub
 	#tag EndMethod
 
@@ -81,6 +91,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonTouchesBeganwithEvent  (Touchset, anEvent)
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -90,6 +101,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonTouchesCancelledwithEvent  (Touchset, anEvent)
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -99,6 +111,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonTouchesEndedwithEvent  (Touchset, anEvent)
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -108,6 +121,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonTouchesMovedwithEvent  (Touchset, anEvent)
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -117,6 +131,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonwillMoveToSuperview  (view)
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -126,6 +141,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonwillMoveToWindow (window)
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -135,6 +151,7 @@ Inherits AppleView
 		  dim ego as new AppleImageView (pid)
 		  ego.informonwillRemoveSubview  (view)
 		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -253,6 +270,11 @@ Inherits AppleView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -316,6 +338,11 @@ Inherits AppleView
 			Name="PreservesSuperviewLayoutMargins"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

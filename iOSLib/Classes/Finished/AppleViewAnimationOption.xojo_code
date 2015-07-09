@@ -290,6 +290,11 @@ Protected Class AppleViewAnimationOption
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Option"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="OverrideInheritedCurve"
 			Group="Behavior"
 			Type="Boolean"

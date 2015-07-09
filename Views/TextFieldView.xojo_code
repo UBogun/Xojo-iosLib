@@ -173,7 +173,7 @@ Begin iosView TextFieldView
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
       AutoLayout      =   Label4, 2, TextField1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label4, 3, <Parent>, 3, False, +1.00, 1, 1, 273, 
+      AutoLayout      =   Label4, 3, <Parent>, 3, False, +1.00, 1, 1, 274, 
       AutoLayout      =   Label4, 1, LeftView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 187, 
       Enabled         =   True
@@ -186,7 +186,7 @@ Begin iosView TextFieldView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   273
+      Top             =   274
       Visible         =   True
       Width           =   280.0
    End
@@ -201,7 +201,9 @@ End
 		Sub Open()
 		  me.BackgroundColor = &cD5FFF200
 		  me.AdjustTextSize = true
-		  me.BorderStyle = AppleTextfield.UITextFieldBorderStyle.Bezel
+		  me.BorderStyle = AppleTextfield.UITextFieldBorderStyle.None
+		  me.AppleTextField.Layer.CornerRadius = 8.
+		  me.AppleTextField.Layer.BorderWidth = 1
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -17,7 +17,7 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h1021
 		Private Sub Constructor(asize as NSSize)
-		  
+		  #pragma unused asize
 		End Sub
 	#tag EndMethod
 
@@ -92,6 +92,9 @@ Implements AppleEventForwarder
 		  if GetView(pid) <> nil then
 		    if RetainDict.HasKey (pid) then getview(pid).informonDidApplyConstraints
 		  end if
+		  #pragma unused sel
+		  #Pragma Unused Scene
+		  
 		End Sub
 	#tag EndMethod
 
@@ -100,6 +103,8 @@ Implements AppleEventForwarder
 		  if GetView(pid) <> nil then
 		    if RetainDict.HasKey (pid) then getview(pid).informonDidBeginContact  (Contact)
 		  end if
+		  #pragma unused sel
+		  
 		End Sub
 	#tag EndMethod
 
@@ -108,6 +113,8 @@ Implements AppleEventForwarder
 		  if GetView(pid) <> nil then
 		    if RetainDict.HasKey (pid) then  getview(pid).informondidChangesize (size.tonssize)
 		  end if
+		  #pragma unused sel
+		  
 		End Sub
 	#tag EndMethod
 
@@ -117,6 +124,7 @@ Implements AppleEventForwarder
 		    if RetainDict.HasKey (pid) then getview(pid).informondidChangesize (size)
 		  end if
 		  
+		  #pragma unused sel
 		  
 		End Sub
 	#tag EndMethod
@@ -128,6 +136,8 @@ Implements AppleEventForwarder
 		      getview(pid).informonDidEndContact (Contact)
 		    end if
 		  end if
+		  #pragma unused sel
+		  
 		End Sub
 	#tag EndMethod
 
@@ -136,6 +146,8 @@ Implements AppleEventForwarder
 		  if GetView(pid) <> nil then
 		    if RetainDict.HasKey (pid) then  getview(pid).informonDidEvaluteActions
 		  end if
+		  #pragma unused sel
+		  #Pragma Unused Scene
 		  
 		End Sub
 	#tag EndMethod
@@ -145,6 +157,9 @@ Implements AppleEventForwarder
 		  if GetView(pid) <> nil then
 		    if RetainDict.HasKey (pid) then getview(pid).informonDidFinishUpdate
 		  end if
+		  #pragma unused sel
+		  #Pragma Unused Scene
+		  
 		End Sub
 	#tag EndMethod
 
@@ -155,6 +170,8 @@ Implements AppleEventForwarder
 		      getview(pid).informondidMoveToView (view)
 		    end if
 		  end if
+		  #pragma unused sel
+		  
 		End Sub
 	#tag EndMethod
 
@@ -164,6 +181,10 @@ Implements AppleEventForwarder
 		    if RetainDict.HasKey (pid) then getview(pid).informonDidSimulatePhysics
 		  end if
 		  
+		  #pragma unused sel
+		  #Pragma Unused Scene
+		  
+		  
 		End Sub
 	#tag EndMethod
 
@@ -172,6 +193,9 @@ Implements AppleEventForwarder
 		  if GetView(pid) <> nil then
 		    if RetainDict.HasKey (pid) then getview(pid).informonSceneUpdate (CurrentTime)
 		  end if
+		  #pragma unused sel
+		  #Pragma Unused Scene
+		  
 		  
 		End Sub
 	#tag EndMethod
@@ -181,6 +205,7 @@ Implements AppleEventForwarder
 		  if GetView(pid) <> nil then
 		    if RetainDict.HasKey (pid) then getview(pid).informonwillMoveFromView (view)
 		  end if
+		  #pragma unused sel
 		End Sub
 	#tag EndMethod
 
@@ -355,6 +380,11 @@ Implements AppleEventForwarder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -413,6 +443,11 @@ Implements AppleEventForwarder
 			Name="Rasterize"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ScaleMode"

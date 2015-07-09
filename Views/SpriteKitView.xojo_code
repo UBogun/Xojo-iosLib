@@ -445,7 +445,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub ProcessSpaceShooterTouch(touchset as AppleSet, asnevent as AppleEvent)
+		Private Sub ProcessSpaceShooterTouch(touchset as AppleSet, nsevent as AppleEvent)
 		  if CanSteer then
 		    dim touch as AppleSKTouch = AppleSKTouch.MakeFromPtr (touchset.AllObjects.PtrAtIndex(0)) // get the first touch item of the array
 		    dim location as NSPoint = touch.LocationInNode (SpaceShooterScene) // and convert its point to view points
@@ -465,6 +465,8 @@ End
 		    
 		    if touch.TapCount > 1 then FighterShoot
 		  end if
+		  
+		  #Pragma Unused nsevent
 		End Sub
 	#tag EndMethod
 
@@ -932,6 +934,7 @@ End
 	#tag Event
 		Sub UpdateForScene(time as Double)
 		  if me.Scene.name = "SpaceShooter" then CreateStar
+		  #Pragma Unused time
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -983,6 +986,11 @@ End
 		Name="NavigationBarVisible"
 		Group="Behavior"
 		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Score"
+		Group="Behavior"
+		Type="UInteger"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"

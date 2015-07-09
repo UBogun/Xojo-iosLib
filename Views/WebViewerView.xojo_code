@@ -49,11 +49,11 @@ Begin iosView WebViewerView Implements AppleEventReceiver
    Begin iOSButton GoButton
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   GoButton, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   GoButton, 7, , 0, False, +1.00, 1, 1, 53, 
-      AutoLayout      =   GoButton, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   GoButton, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   GoButton, 2, StopButton, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
+      AutoLayout      =   GoButton, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   GoButton, 1, TextField1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
+      AutoLayout      =   GoButton, 3, TextField1, 3, False, +1.00, 1, 1, 0, 
       Caption         =   "Goto"
       Enabled         =   True
       Height          =   30.0
@@ -174,6 +174,7 @@ Begin iosView WebViewerView Implements AppleEventReceiver
       Enabled         =   True
       Height          =   30.0
       Left            =   -1
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "AirPlay"
@@ -212,6 +213,7 @@ Begin iosView WebViewerView Implements AppleEventReceiver
       Enabled         =   True
       Height          =   30.0
       Left            =   80
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Inline"
@@ -250,6 +252,7 @@ Begin iosView WebViewerView Implements AppleEventReceiver
       Enabled         =   True
       Height          =   30.0
       Left            =   140
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Autoplay"
@@ -271,6 +274,7 @@ Begin iosView WebViewerView Implements AppleEventReceiver
       Enabled         =   True
       Height          =   30.0
       Left            =   192
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Render"
@@ -309,6 +313,7 @@ Begin iosView WebViewerView Implements AppleEventReceiver
       Enabled         =   True
       Height          =   30.0
       Left            =   249
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Scale"
@@ -360,6 +365,8 @@ End
 		  "Did Start"+endofline +"Did Finish"+EndOfline+"Failed"+endofline +"Shouldstart carries the request too and Failed a NSError object."+EndOfline+EndOfline+ _
 		  "Handling the custom control is a bit more complicated as usual because I reused the AppleWebView class which is used for the HTMLViewExtension too, so you have to address the control via its Viewer property which is the representation of its instance.")
 		  self.PushToCurl help
+		  #pragma unused button
+		  
 		  
 		End Sub
 	#tag EndEvent
@@ -373,7 +380,7 @@ End
 		  BackButton.AppleView.Hidden = not (HTMLViewer1.viewer.CanGoBack)
 		  
 		  ForwardButton.AppleView.Hidden = not (HTMLViewer1.viewer.CanGoForward)
-		  
+		  #Pragma Unused Details
 		End Sub
 	#tag EndMethod
 
@@ -384,6 +391,9 @@ End
 	#tag Event
 		Function ShouldStart(Request as appleurlrequest, navigationtype as AppleWebView.UIWebViewNavigationType) As boolean
 		  return true
+		  #Pragma Unused Request
+		  #Pragma Unused navigationtype
+		  
 		End Function
 	#tag EndEvent
 #tag EndEvents

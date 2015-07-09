@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r2.1" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="259459071">
  <ObjName>ColorExtension</ObjName>
  <ObjContainerID>1412438015</ObjContainerID>
@@ -82,6 +82,44 @@
   <IsShared>0</IsShared>
   <ItemParams>extends c as color</ItemParams>
   <ItemResult>AppleCGColor</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toAppleCGColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toAppleCGColor(extends c() as color) As AppleArray</SourceLine>
+   <SourceLine>dim myArray as new AppleMutableArray(c.Ubound+1)</SourceLine>
+   <SourceLine>for q as uinteger = 0 to c.Ubound</SourceLine>
+   <SourceLine>myArray.Addobject new AppleCGColor(c(q))</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return myArray</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends c() as color</ItemParams>
+  <ItemResult>AppleArray</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>RandomColor</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function RandomColor(minval as integer, maxval as integer) As Color</SourceLine>
+   <SourceLine>return color.rgb (math.RandomInt(minval, maxval), math.RandomInt(minval, maxval), math.RandomInt(minval, maxval))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>minval as integer, maxval as integer</ItemParams>
+  <ItemResult>Color</ItemResult>
  </Method>
  <ViewBehavior>
   <ViewProperty>

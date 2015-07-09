@@ -128,6 +128,7 @@
   <ItemResult>boolean</ItemResult>
   <LibraryName>#coreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorGetColorSpace</ItemName>
@@ -145,6 +146,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#coreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorGetComponents</ItemName>
@@ -162,6 +164,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#coreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorGetConstantColor</ItemName>
@@ -179,6 +182,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#coreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorGetNumberOfComponents</ItemName>
@@ -196,6 +200,7 @@
   <ItemResult>UInteger</ItemResult>
   <LibraryName>#coreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorGetTypeID</ItemName>
@@ -213,6 +218,7 @@
   <ItemResult>UInteger</ItemResult>
   <LibraryName>#coreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorRelease</ItemName>
@@ -230,6 +236,7 @@
   <ItemResult></ItemResult>
   <LibraryName>#coreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorRetain</ItemName>
@@ -247,6 +254,7 @@
   <ItemResult>ptr</ItemResult>
   <LibraryName>#coreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <Method>
   <ItemName>ChangeAlpha</ItemName>
@@ -255,7 +263,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function ChangeAlpha(Alpha as Double) As AppleCGColor</SourceLine>
-   <SourceLine>return new AppleCGColor (CGColorCreateCopyWithAlpha (mCFTypeRef, Alpha))</SourceLine>
+   <SourceLine>dim result as  new AppleCGColor (CGColorCreateCopyWithAlpha (mCFTypeRef, Alpha), true)</SourceLine>
+   <SourceLine>result.mhasownership = true</SourceLine>
+   <SourceLine>return result</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -429,6 +439,43 @@
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
   <ItemResult></ItemResult>
+ </Method>
+ <ExternalMethod>
+  <ItemName>CGColorCreateCopy</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CGColorCreateCopy Lib coreGraphics (id as ptr) As Ptr</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>id as ptr</ItemParams>
+  <ItemResult>Ptr</ItemResult>
+  <LibraryName>#coreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
+ </ExternalMethod>
+ <Method>
+  <ItemName>Copy</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function Copy() As AppleCGColor</SourceLine>
+   <SourceLine>dim mResult as new AppleCGColor (CGColorCreateCopy(mcftypeRef), true)</SourceLine>
+   <SourceLine>mresult.mHasOwnership = true</SourceLine>
+   <SourceLine>return mResult</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>AppleCGColor</ItemResult>
  </Method>
  <Property>
   <ItemName>Alpha</ItemName>
@@ -978,6 +1025,41 @@
  </Property>
  <ViewBehavior>
   <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RetainCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Hash</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>TypeID</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
    <ObjName>Alpha</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>Double</ItemType>
@@ -1065,6 +1147,11 @@
    <ObjName>Yellow</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>Double</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>NumberOfComponents</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
   </ViewProperty>
  </ViewBehavior>
  <Constant>

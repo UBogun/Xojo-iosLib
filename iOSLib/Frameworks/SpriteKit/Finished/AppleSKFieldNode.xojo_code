@@ -81,6 +81,12 @@ Inherits AppleSKNode
 		  // This is a template for the CustomField constructor.
 		  // Use it to calculate your field's force from the values the block gets and return it as a single value.
 		  
+		  // and remove the pragmas!!
+		  #Pragma Unused Position
+		  #Pragma Unused velocity
+		  #Pragma Unused Mass
+		  #Pragma Unused Charge
+		  #Pragma Unused Time
 		End Function
 	#tag EndMethod
 
@@ -357,6 +363,11 @@ Inherits AppleSKNode
 			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="CategoryBitMask"
+			Group="Behavior"
+			Type="UInt32"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="DebugDescription"
 			Group="Behavior"
 			Type="Text"
@@ -385,6 +396,11 @@ Inherits AppleSKNode
 			Name="Falloff"
 			Group="Behavior"
 			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HasOwnership"
@@ -445,6 +461,11 @@ Inherits AppleSKNode
 			Name="Paused"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Smoothness"

@@ -321,8 +321,13 @@ Inherits AppleResponder
 		  dim currentnode as new AppleSKNode(child)
 		  
 		  // perform anything you want on currentnode now
-		  
 		  // if you want to stop the RundBlockonChildren method before the remaining children have been processed, set stop to true.
+		  
+		  
+		  // and of course disable the following pragmas. They're just here to avoid the compiler's warnings
+		  
+		  #pragma unused stop
+		  #pragma unused currentnode
 		End Sub
 	#tag EndMethod
 
@@ -805,6 +810,11 @@ Inherits AppleResponder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -858,6 +868,11 @@ Inherits AppleResponder
 			Name="Paused"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Speed"

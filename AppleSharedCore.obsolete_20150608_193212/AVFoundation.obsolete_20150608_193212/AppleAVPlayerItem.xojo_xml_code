@@ -57,8 +57,7 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Constructor(URLName as CFStringRef)</SourceLine>
-   <SourceLine>dim myURL as new AppleURL (URLName)</SourceLine>
-   <SourceLine>Constructor (myurl)</SourceLine>
+   <SourceLine>Constructor (new AppleURL (URLName))</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
@@ -114,6 +113,16 @@
   </GetAccessor>
  </Property>
  <ViewBehavior>
+  <ViewProperty>
+   <ObjName>RetainCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Hash</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
   <ViewProperty>
    <ObjName>Description</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>

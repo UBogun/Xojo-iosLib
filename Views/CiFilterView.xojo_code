@@ -36,6 +36,7 @@ Begin iosView CiFilterView
       Enabled         =   True
       Height          =   30.0
       Left            =   17
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset X"
@@ -95,6 +96,7 @@ Begin iosView CiFilterView
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset Y"
@@ -134,6 +136,7 @@ Begin iosView CiFilterView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset X"
@@ -193,6 +196,7 @@ Begin iosView CiFilterView
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset Y"
@@ -231,11 +235,11 @@ Begin iosView CiFilterView
    Begin iOSTextField YField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   YField, 3, XField, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   YField, 9, ImageView1, 9, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   YField, 7, , 0, False, +1.00, 1, 1, 82, 
       AutoLayout      =   YField, 1, <Parent>, 1, False, +1.00, 1, 1, 119, 
+      AutoLayout      =   YField, 7, , 0, False, +1.00, 1, 1, 82, 
+      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   YField, 9, ImageView1, 9, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -256,11 +260,11 @@ Begin iosView CiFilterView
    Begin iOSTextField ZField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ZField, 1, <Parent>, 1, False, +1.00, 1, 1, 218, 
       AutoLayout      =   ZField, 3, XField, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ZField, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ZField, 7, , 0, False, +1.00, 1, 1, 82, 
       AutoLayout      =   ZField, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ZField, 7, , 0, False, +1.00, 1, 1, 82, 
+      AutoLayout      =   ZField, 1, <Parent>, 1, False, +1.00, 1, 1, 218, 
+      AutoLayout      =   ZField, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -305,6 +309,7 @@ Begin iosView CiFilterView
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Untitled"
@@ -541,7 +546,6 @@ End
 		Sub setNumberValue(Dict as AppleDictionary, currValue as double)
 		  dim minvalue as double =  AppleNumber.MakefromPtr(dict.PtrForKey("CIAttributeSliderMin")).DoubleValue
 		  dim MaxValue as double = AppleNumber.makefromptr(dict.PtrForKey("CIAttributeSliderMax")).DoubleValue
-		  dim DefaultValue  as double = AppleNumber.MakefromPtr(dict.PtrForKey("CIAttributeDefault")).DoubleValue
 		  
 		  slider1.MinValue = minvalue
 		  slider1.MaxValue = MaxValue
@@ -945,6 +949,7 @@ End
 		  case 2
 		    showvalue (me.SelectionText)
 		  end select
+		  #Pragma Unused row
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -957,7 +962,6 @@ End
 	#tag Event
 		Sub Open()
 		  dim myslider as AppleSlider = me.AppleSlider
-		  dim mybounds as NSRect = myslider.ThumbRect
 		  dim newcolor as color = &cB3FFD500
 		  myslider.MinimumTrackTintColor = AppleColor.FromColor (newcolor)
 		  newcolor = &cFF211C00

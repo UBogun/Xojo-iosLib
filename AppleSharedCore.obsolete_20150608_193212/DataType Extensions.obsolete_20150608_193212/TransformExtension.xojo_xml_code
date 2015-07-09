@@ -8,23 +8,6 @@
  <IsInterface>0</IsInterface>
  <Compatibility></Compatibility>
  <Method>
-  <ItemName>CGAffineTransformIdentity</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function CGAffineTransformIdentity() As CGAffineTransform</SourceLine>
-   <SourceLine>return CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Function</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams></ItemParams>
-  <ItemResult>CGAffineTransform</ItemResult>
- </Method>
- <Method>
   <ItemName>RotateDegree</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
