@@ -39,7 +39,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonDidAddSubview  (view)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -49,7 +49,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonDidMoveToSuperview
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -59,7 +59,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonDidMoveToWindow
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -69,7 +69,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer (wr.Value)
 		  ego.informonDrawRect (rect.toNSRect)
 		  
-		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -80,7 +80,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonDrawRect (rect)
 		  
-		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -91,7 +91,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonLayoutSubviews
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -101,7 +101,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonMotionBeganWithEvent (type, anEvent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -111,7 +111,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonMotionCancelledWithEvent (type, anEvent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -121,7 +121,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonMotionEndedWithEvent (type, anEvent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -131,7 +131,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonTouchesBeganWithEvent (touchset, anEvent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -141,7 +141,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonTouchesCancelledWithEvent (touchset, anEvent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -151,7 +151,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonTouchesEndedWithEvent (touchset, anEvent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -161,7 +161,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonTouchesMovedWithEvent (touchset, anEvent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -171,7 +171,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonwillMoveToSuperview  (view)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -181,7 +181,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonwillMoveToWindow (window)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -191,7 +191,7 @@ Implements AppleEventForwarder
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonwillRemoveSubview  (view)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -362,7 +362,7 @@ Implements AppleEventForwarder
 		  // Part of the AppleEventForwarder interface.
 		  
 		  if Receivers.HasKey (id) then Receivers.Remove (id)
-		  
+		  #Pragma Unused observer
 		End Sub
 	#tag EndMethod
 
@@ -508,6 +508,11 @@ Implements AppleEventForwarder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -581,6 +586,11 @@ Implements AppleEventForwarder
 			Name="PreservesSuperviewLayoutMargins"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ShouldCullNonVisibleNodes"

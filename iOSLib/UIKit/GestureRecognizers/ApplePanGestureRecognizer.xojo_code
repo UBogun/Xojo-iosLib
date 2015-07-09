@@ -149,6 +149,11 @@ Inherits AppleGestureRecognizer
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -178,15 +183,35 @@ Inherits AppleGestureRecognizer
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="MaximumNumberOfTouches"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="mHasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MinimumNumberOfTouches"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="NumberOfTouches"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="State"

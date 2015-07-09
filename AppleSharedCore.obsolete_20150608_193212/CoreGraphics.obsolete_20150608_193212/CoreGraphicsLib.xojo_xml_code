@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="635095039">
  <ObjName>CoreGraphicsFramework</ObjName>
  <ObjContainerID>1528518655</ObjContainerID>
@@ -39,7 +39,8 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function CGAffineTransformIdentity() As CGAffineTransform</SourceLine>
-   <SourceLine>return CGAffineTransformMake (1, 0, 0, 1, 0, 0)</SourceLine>
+   <SourceLine>static mResult as CGAffineTransform = CGAffineTransformMake (1, 0, 0, 1, 0, 0)</SourceLine>
+   <SourceLine>return mResult</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -402,6 +403,115 @@
    <SourceLine>Miter</SourceLine>
    <SourceLine>Round</SourceLine>
    <SourceLine>Bevel</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>CGInterpolationQuality</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemName>CGInterpolationQuality</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Default = 0</SourceLine>
+   <SourceLine>None = 1</SourceLine>
+   <SourceLine>Low = 2</SourceLine>
+   <SourceLine>Medium = 4</SourceLine>
+   <SourceLine>High = 3</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>CGBlendMode</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>UInt32</ItemType>
+  <ItemName>CGBlendMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Normal</SourceLine>
+   <SourceLine>Multiply</SourceLine>
+   <SourceLine>Screen</SourceLine>
+   <SourceLine>Overlay</SourceLine>
+   <SourceLine>Darken</SourceLine>
+   <SourceLine>Lighten</SourceLine>
+   <SourceLine>ColorDodge</SourceLine>
+   <SourceLine>ColorBurn</SourceLine>
+   <SourceLine>SoftLight</SourceLine>
+   <SourceLine>HardLight</SourceLine>
+   <SourceLine>Difference</SourceLine>
+   <SourceLine>Exclusion</SourceLine>
+   <SourceLine>Hue</SourceLine>
+   <SourceLine>Saturation</SourceLine>
+   <SourceLine>Color</SourceLine>
+   <SourceLine>Luminosity</SourceLine>
+   <SourceLine>Clear</SourceLine>
+   <SourceLine>Copy</SourceLine>
+   <SourceLine>SourceIn</SourceLine>
+   <SourceLine>SourceOut</SourceLine>
+   <SourceLine>SourceAtop</SourceLine>
+   <SourceLine>DestinationOver</SourceLine>
+   <SourceLine>DestinationIn</SourceLine>
+   <SourceLine>DestinationOut</SourceLine>
+   <SourceLine>DestinationAtop</SourceLine>
+   <SourceLine>ModeXOR</SourceLine>
+   <SourceLine>PlusDarker</SourceLine>
+   <SourceLine>PlusLighter</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>CGTextDrawingMode</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>UInt32</ItemType>
+  <ItemName>CGTextDrawingMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Fill</SourceLine>
+   <SourceLine>Stroke</SourceLine>
+   <SourceLine>FillStroke</SourceLine>
+   <SourceLine>Invisible</SourceLine>
+   <SourceLine>FillClip</SourceLine>
+   <SourceLine>StrokeClip</SourceLine>
+   <SourceLine>FillStrokeClip</SourceLine>
+   <SourceLine>Clip</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>CGColorRenderingIntent</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>UInt32</ItemType>
+  <ItemName>CGColorRenderingIntent</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Default</SourceLine>
+   <SourceLine>AbsoluteColorimetric</SourceLine>
+   <SourceLine>RelativeColorimetric</SourceLine>
+   <SourceLine>Perceptual</SourceLine>
+   <SourceLine>Saturation</SourceLine>
+  </ItemSource>
+ </Enumeration>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>CGPathDrawingMode</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemName>CGPathDrawingMode</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Fill</SourceLine>
+   <SourceLine>EvenOddFill</SourceLine>
+   <SourceLine>Stroke</SourceLine>
+   <SourceLine>FillStroke</SourceLine>
+   <SourceLine>EvenOddFillStroke</SourceLine>
   </ItemSource>
  </Enumeration>
 </block>

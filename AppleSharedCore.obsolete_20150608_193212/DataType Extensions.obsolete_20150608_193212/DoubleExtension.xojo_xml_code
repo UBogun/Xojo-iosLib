@@ -32,6 +32,62 @@
   <ItemParams>extends t() as double</ItemParams>
   <ItemResult>Text</ItemResult>
  </Method>
+ <Method>
+  <ItemName>toAppleArray</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toAppleArray(extends t() as double) As AppleArray</SourceLine>
+   <SourceLine>dim count as uinteger = t.Ubound</SourceLine>
+   <SourceLine>if count &gt; -1 then</SourceLine>
+   <SourceLine>dim AA as new AppleMutableArray(count + 1)</SourceLine>
+   <SourceLine>for q as uinteger= 0 to count</SourceLine>
+   <SourceLine>aa.Addobject (new AppleNumber(t(q)))</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return AA</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends t() as double</ItemParams>
+  <ItemResult>AppleArray</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toCGFloatMB</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toCGFloatMB(extends t() as double) As xojo.core.memoryblock</SourceLine>
+   <SourceLine>dim count as uinteger = t.Ubound </SourceLine>
+   <SourceLine>if count &gt; -1 then</SourceLine>
+   <SourceLine>dim mb as new xojo.Core.MutableMemoryBlock ((count+1)*IntegerSize)</SourceLine>
+   <SourceLine>for q as uinteger= 0 to count</SourceLine>
+   <SourceLine>#if Target64Bit</SourceLine>
+   <SourceLine>mb.DoubleValue (integersize*q)= t(q)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>mb.SingleValue (integersize*q)= t(q)</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return mb</SourceLine>
+   <SourceLine>end if</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends t() as double</ItemParams>
+  <ItemResult>xojo.core.memoryblock</ItemResult>
+ </Method>
  <ViewBehavior>
   <ViewProperty>
    <ObjName>Index</ObjName>

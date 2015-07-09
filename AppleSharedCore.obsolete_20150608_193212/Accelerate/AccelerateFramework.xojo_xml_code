@@ -2,7 +2,7 @@
 <RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="1103892479">
  <ObjName>AccelerateFramework</ObjName>
- <ObjContainerID>301314047</ObjContainerID>
+ <ObjContainerID>1906847743</ObjContainerID>
  <IsClass>0</IsClass>
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
@@ -23,6 +23,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#Accelerate</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>vDSP_ctoz</ItemName>
@@ -40,6 +41,7 @@
   <ItemResult></ItemResult>
   <LibraryName>#Accelerate</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>vDSP_fft_zrip</ItemName>
@@ -57,6 +59,7 @@
   <ItemResult></ItemResult>
   <LibraryName>#Accelerate</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>vDSP_vsqD</ItemName>
@@ -74,6 +77,7 @@
   <ItemResult></ItemResult>
   <LibraryName>#Accelerate</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <Method>
   <ItemName>Vector_Square</ItemName>
@@ -141,6 +145,7 @@
   <ItemResult></ItemResult>
   <LibraryName>#Accelerate</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>vDSP_destroy_fftsetup</ItemName>
@@ -158,6 +163,7 @@
   <ItemResult></ItemResult>
   <LibraryName>#Accelerate</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ViewBehavior>
   <ViewProperty>

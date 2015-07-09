@@ -24,6 +24,7 @@
   <ItemResult>CFStringRef</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorSpaceCreateDeviceRGB</ItemName>
@@ -41,6 +42,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorSpaceCreateWithName</ItemName>
@@ -58,6 +60,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorSpaceGetBaseColorSpace</ItemName>
@@ -75,6 +78,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorSpaceGetColorTableCount</ItemName>
@@ -92,6 +96,7 @@
   <ItemResult>UInteger</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorSpaceGetModel</ItemName>
@@ -109,6 +114,7 @@
   <ItemResult>CGColorSpaceModel</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorSpaceGetNumberOfComponents</ItemName>
@@ -126,6 +132,7 @@
   <ItemResult>UInteger</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorSpaceGetTypeID</ItemName>
@@ -143,6 +150,7 @@
   <ItemResult>UInteger</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorSpaceRelease</ItemName>
@@ -160,6 +168,7 @@
   <ItemResult></ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGColorSpaceRetain</ItemName>
@@ -177,6 +186,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <Method>
   <ItemName>Constructor</ItemName>
@@ -185,7 +195,8 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Constructor()</SourceLine>
-   <SourceLine>Constructor (CGColorSpaceCreateDeviceRGB)</SourceLine>
+   <SourceLine>Constructor (CGColorSpaceCreateDeviceRGB, true)</SourceLine>
+   <SourceLine>MHasOwnership = true</SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -224,7 +235,7 @@
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
   <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
+  <ItemFlags>1</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
   <ItemResult></ItemResult>
@@ -241,7 +252,7 @@
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
   <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
+  <ItemFlags>1</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
   <ItemResult></ItemResult>
@@ -405,6 +416,16 @@
  </Property>
  <ViewBehavior>
   <ViewProperty>
+   <ObjName>Hash</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>TypeID</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
    <ObjName>CFTypeDescription</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>Text</ItemType>
@@ -481,6 +502,16 @@
    <PropertyGroup>Position</PropertyGroup>
    <PropertyValue>0</PropertyValue>
    <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>ColorTableCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>NumberOfComponents</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
   </ViewProperty>
  </ViewBehavior>
  <Constant>

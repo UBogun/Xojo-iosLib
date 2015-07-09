@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20070100">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="1030977535">
  <ObjName>AppleCGPath</ObjName>
  <ObjContainerID>166381567</ObjContainerID>
@@ -8,611 +8,6 @@
  <ItemFlags>1</ItemFlags>
  <IsInterface>0</IsInterface>
  <Compatibility></Compatibility>
- <Method>
-  <ItemName>AddArc</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddArc(x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean)</SourceLine>
-   <SourceLine>AddArc  x, y, radius, startAngle, EndAngle, ClockWise, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddArc</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddArc(x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean, aTransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddArc mCFTypeRef, aTransform, x, y, radius, startAngle, EndAngle, ClockWise</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean, aTransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddArcToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddArcToPoint(x1 as double, y1 as double, x2 as double, y2 as double, radius as double)</SourceLine>
-   <SourceLine>AddArcToPoint x1, y1, x2, y2, radius, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x1 as double, y1 as double, x2 as double, y2 as double, radius as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddArcToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddArcToPoint(x1 as double, y1 as double, x2 as double, y2 as double, radius as double, aTransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddArcToPoint mCFTypeRef, aTransform, x1, y1, x2, y2, radius</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x1 as double, y1 as double, x2 as double, y2 as double, radius as double, aTransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddCurvetoPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddCurvetoPoint(cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double)</SourceLine>
-   <SourceLine>AddCurvetoPoint cp1x, cp1y, cp2x, cp2y, x, y, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddCurvetoPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddCurvetoPoint(cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double, aTransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddCurveToPoint mCFTypeRef, aTransform, cp1x, cp1y, cp2x, cp2y, x, y</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double, aTransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddEllipseInRect</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddEllipseInRect(aRect as NSRect)</SourceLine>
-   <SourceLine>AddEllipseInRect arect, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>aRect as NSRect</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddEllipseInRect</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddEllipseInRect(aRect as NSRect, aTransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddEllipseInRect mCFTypeRef, aTransform, arect</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>aRect as NSRect, aTransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddLineToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddLineToPoint(x as double, y as double)</SourceLine>
-   <SourceLine>AddLineToPoint  x, y, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x as double, y as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddLineToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddLineToPoint(x as double, y as double, atransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddLineToPoint mCFTypeRef, atransform, x, y</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x as double, y as double, atransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddPath</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddPath(aPath as AppleCGPath)</SourceLine>
-   <SourceLine>AddPath apath, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>aPath as AppleCGPath</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddPath</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddPath(aPath as AppleCGPath, atransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddPath mcftYpeRef, atransform, aPath.mCFTypeRef</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>aPath as AppleCGPath, atransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddQuadCurvetoPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddQuadCurvetoPoint(cpx as double, cpy as double, x as double, y as double)</SourceLine>
-   <SourceLine>AddQuadCurveToPoint  cpx, cpy,  x, y, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>cpx as double, cpy as double, x as double, y as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddQuadCurvetoPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddQuadCurvetoPoint(cpx as double, cpy as double, x as double, y as double, aTransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddQuadCurveToPoint mCFTypeRef, aTransform, cpx, cpy,  x, y</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>cpx as double, cpy as double, x as double, y as double, aTransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddRect</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddRect(aRect as NSRect)</SourceLine>
-   <SourceLine>addrect arect, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>aRect as NSRect</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddRect</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddRect(aRect as NSRect, aTransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddRect mCFTypeRef, aTransform, arect</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>aRect as NSRect, aTransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddRelativeArc</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddRelativeArc(x as double, y as double, radius as double, startAngle as Double, Delta as Double)</SourceLine>
-   <SourceLine>AddRelativeArc  x, y, radius, startAngle, delta,  TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x as double, y as double, radius as double, startAngle as Double, Delta as Double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddRelativeArc</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddRelativeArc(x as double, y as double, radius as double, startAngle as Double, Delta as Double, atransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddRelativeArc mCFTypeRef, atransform, x, y, radius, startAngle, Delta</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x as double, y as double, radius as double, startAngle as Double, Delta as Double, atransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddRoundedRect</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddRoundedRect(aRect as NSRect, CornerWidth as Double, CornerHeight as Double)</SourceLine>
-   <SourceLine>AddRoundedRect arect, CornerWidth, CornerHeight, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>aRect as NSRect, CornerWidth as Double, CornerHeight as Double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>AddRoundedRect</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub AddRoundedRect(aRect as NSRect, CornerWidth as Double, CornerHeight as Double, aTransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathAddRoundedRect mCFTypeRef, aTransform, arect, CornerWidth, CornerHeight</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>aRect as NSRect, CornerWidth as Double, CornerHeight as Double, aTransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddArc</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddArc(APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddArc lib CoreGraphics _</SourceLine>
-   <SourceLine>(id as ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean)</SourceLine>
-   <SourceLine>CGPathAddArc (APathRef, aTransform, x, y, radius, startAngle, EndAngle, ClockWise)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddArc lib CoreGraphics _</SourceLine>
-   <SourceLine>(id as ptr, aTransform as CGAffineTransform32Bit, x as single, y as single, radius as single, startAngle as single, EndAngle As single, ClockWise As Boolean)</SourceLine>
-   <SourceLine>CGPathAddArc (APathRef, aTransform.toCGAffineTransform32Bit, x, y, radius, startAngle, EndAngle, ClockWise)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Boolean</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddArcToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddArcToPoint(APathRef as Ptr, aTransform as CGAffineTransform, x1 as double, y1 as double, x2 as double, y2 as double, radius as double)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddArcToPoint lib CoreGraphics _</SourceLine>
-   <SourceLine>(Id as Ptr, aTransform as CGAffineTransform, x1 as double, y1 as double,  x2 as double, y2 as double, radius as double)</SourceLine>
-   <SourceLine>CGPathAddArcToPoint (APathRef, aTransform, x1, y1, x2, y2, radius)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddArcToPoint lib CoreGraphics _</SourceLine>
-   <SourceLine>(Id as Ptr, aTransform as CGAffineTransform32Bit, x1 as single, y1 as single,  x2 as single, y2 as single, radius as single)</SourceLine>
-   <SourceLine>CGPathAddArcToPoint (APathRef, aTransform.toCGAffineTransform32Bit, x1, y1, x2, y2, radius)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, x1 as double, y1 as double, x2 as double, y2 as double, radius as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddCurveToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddCurveToPoint(APathRef as Ptr, aTransform as CGAffineTransform, cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddCurveToPoint lib CoreGraphics _</SourceLine>
-   <SourceLine>(Id as Ptr, aTransform as CGAffineTransform,cp1x as double, cp1y as double,  cp2x as double, cp2y as double, x as double, y as double)</SourceLine>
-   <SourceLine>CGPathAddCurveToPoint (APathRef, aTransform,cp1x, cp1y, cp2x, cp2y, x, y)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddCurveToPoint lib CoreGraphics _</SourceLine>
-   <SourceLine>(Id as Ptr, aTransform as CGAffineTransform32Bit,cp1x as single, cp1y as single,  cp2x as single, cp2y as single, x as single, y as single)</SourceLine>
-   <SourceLine>CGPathAddCurveToPoint (APathRef, aTransform.toCGAffineTransform32Bit,cp1x, cp1y, cp2x, cp2y, x, y)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddEllipseInRect</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddEllipseInRect(APathRef as Ptr, aTransform as CGAffineTransform, aRect as NSRect)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddEllipseInRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform, aRect as nsrect)</SourceLine>
-   <SourceLine>CGPathAddEllipseInRect (APathRef, aTransform, aRect)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddEllipseInRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform32Bit, aRect as NSRect32Bit)</SourceLine>
-   <SourceLine>CGPathAddEllipseInRect (APathRef, aTransform.toCGAffineTransform32Bit, aRect.toNSRect32)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, aRect as NSRect</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddLineToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddLineToPoint(APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddLineToPoint lib CoreGraphics (id as ptr, aTransform as CGAffineTransform, x as double, y as double)</SourceLine>
-   <SourceLine>CGPathAddLineToPoint (APathRef, aTransform, x, y)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddLineToPoint lib CoreGraphics (id as ptr, aTransform as CGAffineTransform32Bit, x as single, y as single)</SourceLine>
-   <SourceLine>CGPathAddLineToPoint (APathRef, aTransform.toCGAffineTransform32Bit, x, y)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddPath</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddPath(APathRef as Ptr, aTransform as CGAffineTransform, anotherPathRef as Ptr)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddPath lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform, anotherPathRef as Ptr)</SourceLine>
-   <SourceLine>CGPathAddPath (APathRef, aTransform, anotherPathRef)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddPath lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform32Bit, anotherPathRef as Ptr)</SourceLine>
-   <SourceLine>CGPathAddPath (APathRef, aTransform.toCGAffineTransform32Bit, anotherPathRef)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, anotherPathRef as Ptr</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddQuadCurveToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddQuadCurveToPoint(APathRef as Ptr, aTransform as CGAffineTransform, cpx as double, cpy as double, x as double, y as double)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddQuadCurveToPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform, cpx as double, cpy as double,  x as double, y as double)</SourceLine>
-   <SourceLine>CGPathAddQuadCurveToPoint (APathRef, aTransform,cpx, cpy, x, y)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddQuadCurveToPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform32Bit, cpx as single, cpy as single,  x as single, y as single)</SourceLine>
-   <SourceLine>CGPathAddQuadCurveToPoint (APathRef, aTransform.toCGAffineTransform32Bit, cpx, cpy, x, y)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, cpx as double, cpy as double, x as double, y as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddRect</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddRect(APathRef as Ptr, aTransform as CGAffineTransform, aRect as NSRect)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform, aRect as nsrect)</SourceLine>
-   <SourceLine>CGPathAddRect (APathRef, aTransform, aRect)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform32Bit, aRect as NSRect32Bit)</SourceLine>
-   <SourceLine>CGPathAddRect (APathRef, aTransform.toCGAffineTransform32Bit, aRect.toNSRect32)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, aRect as NSRect</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddRelativeArc</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddRelativeArc(APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, delta as Double)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddRelativeArc lib CoreGraphics _</SourceLine>
-   <SourceLine>(id as ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, delta as double)</SourceLine>
-   <SourceLine>CGPathAddRelativeArc (APathRef, aTransform, x, y, radius, startAngle, delta)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddRelativeArc lib CoreGraphics _</SourceLine>
-   <SourceLine>(id as ptr, aTransform as CGAffineTransform32Bit, x as single, y as single, radius as single, startAngle as single, delta as single)</SourceLine>
-   <SourceLine>CGPathAddRelativeArc (APathRef, aTransform.toCGAffineTransform32Bit, x, y, radius, startAngle, delta)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double, radius as double, startAngle as Double, delta as Double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>CGPathAddRoundedRect</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathAddRoundedRect(APathRef as Ptr, aTransform as CGAffineTransform, aRect as NSRect, cornerWidth as Double, CornerHeight as Double)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddRoundedRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform, aRect as NSRect, cornerWidth as Double, CornerHeight as Double)</SourceLine>
-   <SourceLine>CGPathAddRoundedRect (APathRef, aTransform, aRect, cornerWidth, CornerHeight)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathAddRoundedRect lib CoreGraphics  (id as ptr, aTransform as CGAffineTransform32Bit, aRect as NSRect32Bit, cornerWidth as Single, CornerHeight as Single)</SourceLine>
-   <SourceLine>CGPathAddRoundedRect (APathRef, aTransform.toCGAffineTransform32Bit, aRect.toNSRect32, cornerWidth, CornerHeight)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, aRect as NSRect, cornerWidth as Double, CornerHeight as Double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <ExternalMethod>
-  <ItemName>CGPathCloseSubpath</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Declare Sub CGPathCloseSubpath Lib CoreGraphics (CFTypeRef as Ptr)</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>CFTypeRef as Ptr</ItemParams>
-  <ItemResult></ItemResult>
-  <LibraryName>#CoreGraphics</LibraryName>
-  <SoftLink>0</SoftLink>
- </ExternalMethod>
  <Method>
   <ItemName>CGPathContainsPoint</ItemName>
   <Compatibility></Compatibility>
@@ -653,6 +48,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <Method>
   <ItemName>CGPathCreateCopyByTransformingPath</ItemName>
@@ -667,64 +63,6 @@
    <SourceLine>#elseif Target32Bit</SourceLine>
    <SourceLine>Declare Function CGPathCreateCopyByTransformingPath lib CoreGraphics (id as ptr, aTransform as CGAffineTransform32Bit) as ptr</SourceLine>
    <SourceLine>return CGPathCreateCopyByTransformingPath (APathRef, aTransform.toCGAffineTransform32Bit)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Function</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform</ItemParams>
-  <ItemResult>Ptr</ItemResult>
- </Method>
- <ExternalMethod>
-  <ItemName>CGPathCreateMutable</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Declare Function CGPathCreateMutable Lib CoreGraphics () As Ptr</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>33</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams></ItemParams>
-  <ItemResult>Ptr</ItemResult>
-  <LibraryName>#CoreGraphics</LibraryName>
-  <SoftLink>0</SoftLink>
- </ExternalMethod>
- <ExternalMethod>
-  <ItemName>CGPathCreateMutableCopy</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Declare Function CGPathCreateMutableCopy Lib CoreGraphics (CFTypeRef as Ptr) As Ptr</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>CFTypeRef as Ptr</ItemParams>
-  <ItemResult>Ptr</ItemResult>
-  <LibraryName>#CoreGraphics</LibraryName>
-  <SoftLink>0</SoftLink>
- </ExternalMethod>
- <Method>
-  <ItemName>CGPathCreateMutableCopyByTransformingPath</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function CGPathCreateMutableCopyByTransformingPath(APathRef as Ptr, aTransform as CGAffineTransform) As Ptr</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Function CGPathCreateMutableCopyByTransformingPath lib CoreGraphics (id as ptr, aTransform as CGAffineTransform) as ptr</SourceLine>
-   <SourceLine>return CGPathCreateMutableCopyByTransformingPath (apathref, aTransform)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Function CGPathCreateMutableCopyByTransformingPath lib CoreGraphics (id as ptr, aTransform as CGAffineTransform32Bit) as ptr</SourceLine>
-   <SourceLine>return CGPathCreateMutableCopyByTransformingPath (APathRef, aTransform.toCGAffineTransform32Bit)</SourceLine>
    <SourceLine>#endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
@@ -752,6 +90,7 @@
   <ItemResult>boolean</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <Method>
   <ItemName>CGPathIsRect</ItemName>
@@ -780,30 +119,6 @@
   <ItemParams>APathRef as Ptr, byref aRect as NSRect</ItemParams>
   <ItemResult>boolean</ItemResult>
  </Method>
- <Method>
-  <ItemName>CGPathMoveToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CGPathMoveToPoint(APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double)</SourceLine>
-   <SourceLine>#if Target64Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathMoveToPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform,  x as double, y as double)</SourceLine>
-   <SourceLine>CGPathMoveToPoint (APathRef, aTransform, x, y)</SourceLine>
-   <SourceLine>#elseif Target32Bit</SourceLine>
-   <SourceLine>Declare Sub CGPathMoveToPoint lib CoreGraphics  (Id as Ptr, aTransform as CGAffineTransform32Bit,  x as single, y as single)</SourceLine>
-   <SourceLine>CGPathMoveToPoint (APathRef, aTransform.toCGAffineTransform32Bit, x, y)</SourceLine>
-   <SourceLine>#endif</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>1</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>APathRef as Ptr, aTransform as CGAffineTransform, x as double, y as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
  <ExternalMethod>
   <ItemName>CGPathRelease</ItemName>
   <Compatibility></Compatibility>
@@ -820,6 +135,7 @@
   <ItemResult></ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CGPathRetain</ItemName>
@@ -837,24 +153,8 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#CoreGraphics</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
- <Method>
-  <ItemName>CloseSubPath</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub CloseSubPath()</SourceLine>
-   <SourceLine>CGPathCloseSubpath mCFTypeRef</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams></ItemParams>
-  <ItemResult></ItemResult>
- </Method>
  <Method>
   <ItemName>Constructor</ItemName>
   <Compatibility></Compatibility>
@@ -862,15 +162,12 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Constructor()</SourceLine>
-   <SourceLine>// Calling the overridden superclass constructor.</SourceLine>
-   <SourceLine>Super.Constructor (CGPathCreateMutable, true)</SourceLine>
-   <SourceLine>MHasownership = true</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
   <AliasName></AliasName>
-  <ItemFlags>4096</ItemFlags>
+  <ItemFlags>4129</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams></ItemParams>
   <ItemResult></ItemResult>
@@ -882,7 +179,7 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function ContainsPoint(aPoint as NSPoint, evenoddfill as boolean = true) As Boolean</SourceLine>
-   <SourceLine>return ContainsPoint (aPoint, TransformExtension.CGAffineTransformIdentity, evenoddfill)</SourceLine>
+   <SourceLine>return ContainsPoint (aPoint,  evenoddfill, CGAffineTransformIdentity)</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -898,7 +195,7 @@
   <Visible>1</Visible>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function ContainsPoint(aPoint as NSPoint, aTransform as CGAffineTransform, evenoddfill as boolean = true) As Boolean</SourceLine>
+   <SourceLine>Function ContainsPoint(aPoint as NSPoint, evenoddfill as boolean = true, aTransform as CGAffineTransform) As Boolean</SourceLine>
    <SourceLine>return CGPathContainsPoint (mCFTypeRef, aTransform, aPoint, evenoddfill)</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -906,7 +203,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>aPoint as NSPoint, aTransform as CGAffineTransform, evenoddfill as boolean = true</ItemParams>
+  <ItemParams>aPoint as NSPoint, evenoddfill as boolean = true, aTransform as CGAffineTransform</ItemParams>
   <ItemResult>Boolean</ItemResult>
  </Method>
  <Method>
@@ -916,7 +213,10 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function Copy() As AppleCGPath</SourceLine>
-   <SourceLine>return new AppleCGPath (CGPathCreateCopy (mCFTypeRef), true)</SourceLine>
+   <SourceLine>dim result as new AppleCGPath (CGPathCreateCopy (CFTypeRef), true)</SourceLine>
+   <SourceLine>Result.Mhasownership = true</SourceLine>
+   <SourceLine>return result</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -961,74 +261,6 @@
   <ItemResult>Boolean</ItemResult>
  </Method>
  <Method>
-  <ItemName>MoveToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub MoveToPoint(x as double, y as double)</SourceLine>
-   <SourceLine>MoveToPoint  x, y, TransformExtension.CGAffineTransformIdentity</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x as double, y as double</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>MoveToPoint</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub MoveToPoint(x as double, y as double, aTransform as CGAffineTransform)</SourceLine>
-   <SourceLine>CGPathMoveToPoint mcftypeRef, aTransform,  x, y</SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>x as double, y as double, aTransform as CGAffineTransform</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>MutableCopy</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function MutableCopy() As AppleCGPath</SourceLine>
-   <SourceLine>return new AppleCGPath (CGPathCreateMutableCopy (mCFTypeRef), true)</SourceLine>
-   <SourceLine>End Function</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams></ItemParams>
-  <ItemResult>AppleCGPath</ItemResult>
- </Method>
- <Method>
-  <ItemName>MutableTransformedCopy</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function MutableTransformedCopy(aTransform as CGAffineTransform) As AppleCGPath</SourceLine>
-   <SourceLine>return new AppleCGPath (CGPathCreateMutableCopyByTransformingPath (mCFTypeRef, aTransform), true)</SourceLine>
-   <SourceLine>End Function</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>aTransform as CGAffineTransform</ItemParams>
-  <ItemResult>AppleCGPath</ItemResult>
- </Method>
- <Method>
   <ItemName>Release</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
@@ -1063,12 +295,12 @@
   <ItemResult></ItemResult>
  </Method>
  <Method>
-  <ItemName>TransformedCopy</ItemName>
+  <ItemName>Copy</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function TransformedCopy(aTransform as CGAffineTransform) As AppleCGPath</SourceLine>
+   <SourceLine>Function Copy(aTransform as CGAffineTransform) As AppleCGPath</SourceLine>
    <SourceLine>return new AppleCGPath (CGPathCreateCopyByTransformingPath (mCFTypeRef, aTransform), true)</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -1077,6 +309,155 @@
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>aTransform as CGAffineTransform</ItemParams>
+  <ItemResult>AppleCGPath</ItemResult>
+ </Method>
+ <ExternalMethod>
+  <ItemName>CGPathIsEmpty</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Function CGPathIsEmpty Lib CoreGraphics (CFTypeRef as Ptr) As Boolean</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>CFTypeRef as Ptr</ItemParams>
+  <ItemResult>Boolean</ItemResult>
+  <LibraryName>#CoreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
+ </ExternalMethod>
+ <ExternalMethod>
+  <ItemName>CGPathApply</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Sub CGPathApply Lib CoreGraphics (CFTypeRef as Ptr, info as ptr, Handler as Ptr)</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>CFTypeRef as Ptr, info as ptr, Handler as Ptr</ItemParams>
+  <ItemResult></ItemResult>
+  <LibraryName>#CoreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
+ </ExternalMethod>
+ <Method>
+  <ItemName>PathApplyTemplate</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub PathApplyTemplate(Info as Ptr, PathElement as CGPathElement)</SourceLine>
+   <SourceLine>// This is a dummy template for the Apply methods.</SourceLine>
+   <SourceLine>// With info, you can forward the pointer to some user data you want the method to receive</SourceLine>
+   <SourceLine>// The PathElement gives you information about the pathelement the method is examining currently. </SourceLine>
+   <SourceLine>// ElementType tells you about its type and Points is an AppleArray of the points the PathElement contains</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>// Don't forget to remove these pragmas:</SourceLine>
+   <SourceLine>#pragma Unused info</SourceLine>
+   <SourceLine>#pragma Unused PathElement</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>33</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Info as Ptr, PathElement as CGPathElement</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>Apply</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub Apply(UserData as Ptr, MethodHandler as Ptr)</SourceLine>
+   <SourceLine>CGPathApply mcftyperef, UserData, MethodHandler</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>UserData as Ptr, MethodHandler as Ptr</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <ExternalMethod>
+  <ItemName>CGPathApplierFunction</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Declare Sub CGPathApplierFunction Lib CoreGraphics (Info As Ptr, PathElement as CGPathElement)</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>1</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>Info As Ptr, PathElement as CGPathElement</ItemParams>
+  <ItemResult></ItemResult>
+  <LibraryName>#CoreGraphics</LibraryName>
+  <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
+ </ExternalMethod>
+ <Method>
+  <ItemName>DefineCallBackFunction</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Sub DefineCallBackFunction(InfoPtr as Ptr, PathElement as CGPathElement)</SourceLine>
+   <SourceLine>CGPathApplierFunction infoptr, PathElement</SourceLine>
+   <SourceLine>End Sub</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>InfoPtr as Ptr, PathElement as CGPathElement</ItemParams>
+  <ItemResult></ItemResult>
+ </Method>
+ <Method>
+  <ItemName>MutableCopy</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function MutableCopy() As AppleCGMutablePath</SourceLine>
+   <SourceLine>return new AppleCGMutablePath(self)</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams></ItemParams>
+  <ItemResult>AppleCGMutablePath</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>MakeFromCFTypeRef</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine> Shared Function MakeFromCFTypeRef(aCFTypeRef as ptr) As AppleCGPath</SourceLine>
+   <SourceLine>return if (aCFTypeRef = nil, nil, new AppleCGPath(aCFTypeRef))</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>1</IsShared>
+  <ItemParams>aCFTypeRef as ptr</ItemParams>
   <ItemResult>AppleCGPath</ItemResult>
  </Method>
  <Property>
@@ -1167,7 +548,6 @@
   <GetAccessor>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Get</SourceLine>
-   <SourceLine>Declare Function CGPathIsEmpty lib CoreGraphics  (id as ptr) as Boolean</SourceLine>
    <SourceLine>return CGPathIsEmpty (mcftypeRef)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Get</SourceLine>
@@ -1235,6 +615,46 @@
  </Property>
  <ViewBehavior>
   <ViewProperty>
+   <ObjName>CFTypeDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RetainCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Hash</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>TypeID</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
    <ObjName>Index</ObjName>
    <Visible>1</Visible>
    <PropertyGroup>ID</PropertyGroup>
@@ -1278,5 +698,35 @@
    <ItemType>Integer</ItemType>
   </ViewProperty>
  </ViewBehavior>
+ <Structure>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>CGPathElement</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemName>CGPathElement</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>ElementType As CGPathElementType</SourceLine>
+   <SourceLine>Points As Ptr</SourceLine>
+  </ItemSource>
+ </Structure>
+ <Enumeration>
+  <TextEncoding>134217984</TextEncoding>
+  <ItemName>CGPathElementType</ItemName>
+  <ItemFlags>0</ItemFlags>
+  <ItemType>UInt32</ItemType>
+  <ItemName>CGPathElementType</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>MoveToPoint</SourceLine>
+   <SourceLine>AddLineToPoint</SourceLine>
+   <SourceLine>AddQuadCurveToPoint</SourceLine>
+   <SourceLine>AddCurveToPoint</SourceLine>
+   <SourceLine>CloseSubpath</SourceLine>
+  </ItemSource>
+ </Enumeration>
 </block>
 </RBProject>

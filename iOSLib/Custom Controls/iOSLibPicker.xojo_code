@@ -51,12 +51,15 @@ Inherits iOSUserControl
 		Protected Sub HandleSelectionChange(sender as ApplePickerViewDataSource, row as integer, column as integer)
 		  mSelectedColumn = column
 		  RaiseEvent SelectionChanged(row,column)
+		  #pragma unused sender
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_layerClass(id as ptr, sel as ptr) As Ptr
 		  return NSClassFromString ("CAGradientLayer")
+		  #pragma unused id
+		  #pragma unused sel
 		End Function
 	#tag EndMethod
 

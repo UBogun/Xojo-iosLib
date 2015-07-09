@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="143859761">
  <ObjName>AppleData</ObjName>
  <ObjContainerID>308434943</ObjContainerID>
@@ -24,6 +24,7 @@
   <ItemResult>Ptr</ItemResult>
   <LibraryName>#Foundation</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CFDataGetLength</ItemName>
@@ -41,6 +42,7 @@
   <ItemResult>Integer</ItemResult>
   <LibraryName>#Foundation</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CFDataGetTypeID</ItemName>
@@ -58,6 +60,7 @@
   <ItemResult>UInteger</ItemResult>
   <LibraryName>#Foundation</LibraryName>
   <SoftLink>0</SoftLink>
+  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <Method>
   <ItemName>Constructor</ItemName>
@@ -94,30 +97,6 @@
   <ItemFlags>4096</ItemFlags>
   <IsShared>0</IsShared>
   <ItemParams>data as AppleData</ItemParams>
-  <ItemResult></ItemResult>
- </Method>
- <Method>
-  <ItemName>Constructor</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub Constructor(atext as CFStringRef, options as Base64DecodingOptions = base64decodingoptions.none)</SourceLine>
-   <SourceLine>// declare function initWithBase64EncodedString lib Foundation selector "initWithBase64EncodedString:options:" (id as ptr, atext as cfstringref, options as Base64DecodingOptions) as ptr</SourceLine>
-   <SourceLine>// dim encode as text = atext.</SourceLine>
-   <SourceLine>// dim result as ptr = initWithBase64EncodedString (alloc(ClassPtr), encode, options)</SourceLine>
-   <SourceLine>// if result &lt;&gt; Nil then</SourceLine>
-   <SourceLine>// super.Constructor (result)</SourceLine>
-   <SourceLine>// mHasownership = true</SourceLine>
-   <SourceLine>// end if</SourceLine>
-   <SourceLine></SourceLine>
-   <SourceLine>End Sub</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>4096</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>atext as CFStringRef, options as Base64DecodingOptions = base64decodingoptions.none</ItemParams>
   <ItemResult></ItemResult>
  </Method>
  <Method>
@@ -431,6 +410,46 @@
  </Property>
  <ViewBehavior>
   <ViewProperty>
+   <ObjName>DebugDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>IsNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RetainCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Hash</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
    <ObjName>Index</ObjName>
    <Visible>1</Visible>
    <PropertyGroup>ID</PropertyGroup>
@@ -462,6 +481,16 @@
    <PropertyGroup>Position</PropertyGroup>
    <PropertyValue>0</PropertyValue>
    <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>CFTypeID</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Length</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
   </ViewProperty>
  </ViewBehavior>
  <Enumeration>

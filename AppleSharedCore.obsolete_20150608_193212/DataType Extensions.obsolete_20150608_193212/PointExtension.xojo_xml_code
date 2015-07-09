@@ -292,7 +292,11 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function toMemoryBlock(extends aPoint as NSPoint) As xojo.Core.MutableMemoryBlock</SourceLine>
+   <SourceLine>#if Target64Bit</SourceLine>
    <SourceLine>return MemoryBlockExtension.fromNSPoint (aPoint)</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>return MemoryBlockExtension.fromNSPoint32 (aPoint)</SourceLine>
+   <SourceLine>#endif</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -337,23 +341,6 @@
   <ItemResult>NSPoint</ItemResult>
  </Method>
  <Method>
-  <ItemName>toMemoryBlock32</ItemName>
-  <Compatibility></Compatibility>
-  <Visible>1</Visible>
-  <ItemSource>
-   <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Function toMemoryBlock32(extends aPoint as NSPoint) As xojo.Core.MutableMemoryBlock</SourceLine>
-   <SourceLine>return MemoryBlockExtension.fromNSPoint32 (aPoint)</SourceLine>
-   <SourceLine>End Function</SourceLine>
-  </ItemSource>
-  <TextEncoding>134217984</TextEncoding>
-  <AliasName></AliasName>
-  <ItemFlags>0</ItemFlags>
-  <IsShared>0</IsShared>
-  <ItemParams>extends aPoint as NSPoint</ItemParams>
-  <ItemResult>xojo.Core.MutableMemoryBlock</ItemResult>
- </Method>
- <Method>
   <ItemName>toCIVector</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
@@ -369,6 +356,75 @@
   <IsShared>0</IsShared>
   <ItemParams>extends p as NSPoint</ItemParams>
   <ItemResult>AppleCIVector</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toMemoryBlock32</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toMemoryBlock32(extends aPoint as NSPoint) As xojo.Core.MutableMemoryBlock</SourceLine>
+   <SourceLine>return MemoryBlockExtension.fromNSPoint32 (aPoint)</SourceLine>
+   <SourceLine></SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends aPoint as NSPoint</ItemParams>
+  <ItemResult>xojo.Core.MutableMemoryBlock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toMemoryBlock</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toMemoryBlock(extends Points() as NSPoint) As xojo.Core.MutableMemoryBlock</SourceLine>
+   <SourceLine>dim count as uinteger = Points.Ubound</SourceLine>
+   <SourceLine>dim mb as new xojo.Core.MutableMemoryBlock (IntegerSize*(count+1)*2)</SourceLine>
+   <SourceLine>dim q as uinteger</SourceLine>
+   <SourceLine>for p as uinteger = 0 to count</SourceLine>
+   <SourceLine>q=p*2</SourceLine>
+   <SourceLine>#if Target64Bit</SourceLine>
+   <SourceLine>mb.DoubleValue(q*IntegerSize) = points(p).x</SourceLine>
+   <SourceLine>mb.DoubleValue(q*IntegerSize+IntegerSize) = points(p).y</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>mb.SingleValue(q*IntegerSize) = points(p).x</SourceLine>
+   <SourceLine>mb.SingleValue(q*IntegerSize+IntegerSize) = points(p).y</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return mb</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends Points() as NSPoint</ItemParams>
+  <ItemResult>xojo.Core.MutableMemoryBlock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSPoint</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSPoint(extends points() as xojo.core.point) As NSPoint()</SourceLine>
+   <SourceLine>dim resultarray() as NSPoint</SourceLine>
+   <SourceLine>for q as uinteger = 0 to points.Ubound</SourceLine>
+   <SourceLine>resultarray.Append Points(q).toNSPoint</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return resultarray</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends points() as xojo.core.point</ItemParams>
+  <ItemResult>NSPoint()</ItemResult>
  </Method>
  <ViewBehavior>
   <ViewProperty>

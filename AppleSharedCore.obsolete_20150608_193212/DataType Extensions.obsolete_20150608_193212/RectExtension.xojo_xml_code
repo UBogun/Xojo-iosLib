@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="2119170047">
  <ObjName>RectExtension</ObjName>
  <ObjContainerID>1412438015</ObjContainerID>
@@ -151,8 +151,8 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function toText(extends n as NSRect, format as text = "###") As text</SourceLine>
-   <SourceLine>// dim mylocale as xojo.core.locale = locale.current</SourceLine>
-   <SourceLine>// return n.Origin.x.totext (mylocale, format)+", "+n.Origin.y.totext  (mylocale, format)+", "+n.size_.width.totext (mylocale, format)+", "+n.size_.height.totext  (mylocale, format)</SourceLine>
+   <SourceLine>dim mylocale as xojo.core.locale = locale.current</SourceLine>
+   <SourceLine>return n.Origin.x.totext (mylocale, format)+", "+n.Origin.y.totext  (mylocale, format)+", "+n.size_.width.totext (mylocale, format)+", "+n.size_.height.totext  (mylocale, format)</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -178,6 +178,61 @@
   <IsShared>0</IsShared>
   <ItemParams>extends r as NSRect</ItemParams>
   <ItemResult>AppleCIVector</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toMemoryBlock</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toMemoryBlock(extends Rects() as NSRect) As xojo.Core.MutableMemoryBlock</SourceLine>
+   <SourceLine>dim count as uinteger = Rects.Ubound</SourceLine>
+   <SourceLine>dim mb as new xojo.Core.MutableMemoryBlock (IntegerSize*(count+1)*4)</SourceLine>
+   <SourceLine>dim q as uinteger</SourceLine>
+   <SourceLine>for p as uinteger = 0 to count</SourceLine>
+   <SourceLine>q=p*4</SourceLine>
+   <SourceLine>#if Target64Bit</SourceLine>
+   <SourceLine>mb.DoubleValue(q*IntegerSize) = rects(p).Origin.x</SourceLine>
+   <SourceLine>mb.DoubleValue(q*IntegerSize+IntegerSize) = rects(p).Origin.y</SourceLine>
+   <SourceLine>mb.DoubleValue(q*IntegerSize+2*IntegerSize) = rects(p).Size_.width</SourceLine>
+   <SourceLine>mb.DoubleValue(q*IntegerSize+3*IntegerSize) = rects(p).Size_.height</SourceLine>
+   <SourceLine>#elseif Target32Bit</SourceLine>
+   <SourceLine>mb.SingleValue(q*IntegerSize) = rects(p).Origin.x</SourceLine>
+   <SourceLine>mb.SingleValue(q*IntegerSize+IntegerSize) = rects(p).Origin.y</SourceLine>
+   <SourceLine>mb.SingleValue(q*IntegerSize+2*IntegerSize) = rects(p).Size_.width</SourceLine>
+   <SourceLine>mb.SingleValue(q*IntegerSize+3*IntegerSize) = rects(p).Size_.height</SourceLine>
+   <SourceLine>#endif</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return mb</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends Rects() as NSRect</ItemParams>
+  <ItemResult>xojo.Core.MutableMemoryBlock</ItemResult>
+ </Method>
+ <Method>
+  <ItemName>toNSRect</ItemName>
+  <Compatibility></Compatibility>
+  <Visible>1</Visible>
+  <ItemSource>
+   <TextEncoding>134217984</TextEncoding>
+   <SourceLine>Function toNSRect(extends rects() as xojo.core.rect) As NSRect()</SourceLine>
+   <SourceLine>dim resultarray() as NSRect</SourceLine>
+   <SourceLine>for q as uinteger = 0 to rects.Ubound</SourceLine>
+   <SourceLine>resultarray.Append rects(q).ToNSRect</SourceLine>
+   <SourceLine>next</SourceLine>
+   <SourceLine>return resultarray</SourceLine>
+   <SourceLine>End Function</SourceLine>
+  </ItemSource>
+  <TextEncoding>134217984</TextEncoding>
+  <AliasName></AliasName>
+  <ItemFlags>0</ItemFlags>
+  <IsShared>0</IsShared>
+  <ItemParams>extends rects() as xojo.core.rect</ItemParams>
+  <ItemResult>NSRect()</ItemResult>
  </Method>
  <ViewBehavior>
   <ViewProperty>

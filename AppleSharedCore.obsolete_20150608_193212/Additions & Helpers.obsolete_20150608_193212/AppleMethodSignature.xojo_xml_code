@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="1160245102">
  <ObjName>AppleMethodSignature</ObjName>
  <ObjContainerID>308434943</ObjContainerID>
@@ -15,10 +15,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function ArgumentTypeAtIndex(index as UInteger) As cstring</SourceLine>
-   <SourceLine>#if TargetMacOS</SourceLine>
    <SourceLine>declare function getArgumentTypeAtIndex lib Foundation selector "getArgumentTypeAtIndex:" (id as ptr, index as UInteger) as CString</SourceLine>
    <SourceLine>return getArgumentTypeAtIndex (id, index)</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -52,11 +51,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub Constructor(Types as CString)</SourceLine>
-   <SourceLine>#If TargetMacos</SourceLine>
    <SourceLine>Declare Function signatureWithObjCTypes lib Foundation selector "signatureWithObjCTypes:" (id as ptr, types as cstring) As Ptr</SourceLine>
    <SourceLine>Super.Constructor (signatureWithObjCTypes (ClassPtr, Types))</SourceLine>
    <SourceLine>mhasOwnership = true</SourceLine>
-   <SourceLine>#Endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
@@ -328,6 +325,46 @@
  </Property>
  <ViewBehavior>
   <ViewProperty>
+   <ObjName>DebugDescription</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>HasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>IsNIL</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>mHasOwnership</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Description</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Text</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>isProxy</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RetainCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Hash</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
    <ObjName>Index</ObjName>
    <Visible>1</Visible>
    <PropertyGroup>ID</PropertyGroup>
@@ -364,6 +401,21 @@
    <PropertyGroup>Position</PropertyGroup>
    <PropertyValue>0</PropertyValue>
    <ItemType>Integer</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>FrameLength</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>MethodReturnLength</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>NumberOfArguments</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
   </ViewProperty>
  </ViewBehavior>
 </block>

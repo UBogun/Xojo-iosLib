@@ -43,6 +43,7 @@ Inherits AppleView
 		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
 		  dim ego as new AppleSKView (pid)
 		  ego.informonDidAddSubview  (view)
+		  #Pragma Unused Sel
 		  
 		  
 		End Sub
@@ -53,7 +54,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informonDidMoveToSuperview
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -62,7 +63,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informonDidMoveToWindow
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -71,7 +72,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informonLayoutSubviews
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -80,7 +81,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informOnMotionBeganwithEvent  (type, anevent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -89,7 +90,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informOnMotionCancelledwithEvent  (type, anevent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -98,7 +99,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informOnMotionEndedwithEvent  (type, anevent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -107,7 +108,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informOnTouchesBeganwithEvent  (touchset, anevent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -116,7 +117,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informOnTouchesCancelledwithEvent  (touchset, anevent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -125,7 +126,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informOnTouchesEndedwithEvent  (touchset, anevent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -134,7 +135,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informOnTouchesMovedwithEvent  (touchset, anevent)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -143,7 +144,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informonwillMoveToSuperview  (view)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -152,7 +153,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informonwillMoveToWindow (window)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -161,7 +162,7 @@ Inherits AppleView
 		  dim ego as new AppleSKView (pid)
 		  ego.informonwillRemoveSubview  (view)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -561,6 +562,11 @@ Inherits AppleView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -634,6 +640,11 @@ Inherits AppleView
 			Name="PreservesSuperviewLayoutMargins"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ShouldCullNonVisibleNodes"

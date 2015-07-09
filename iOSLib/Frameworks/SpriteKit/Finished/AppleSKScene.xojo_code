@@ -47,6 +47,8 @@ Inherits AppleSKEffectNode
 		  dim ego as new AppleSKScene (pid)
 		  ego.informonDidApplyConstraints
 		  
+		  #Pragma Unused Scene
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -55,8 +57,7 @@ Inherits AppleSKEffectNode
 		  dim ego as new AppleSKScene (pid)
 		  ego.informonDidBeginContact (Contact)
 		  
-		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -65,8 +66,7 @@ Inherits AppleSKEffectNode
 		  dim ego as new AppleSKScene (pid)
 		  ego.informondidChangesize (size.tonssize)
 		  
-		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -75,8 +75,7 @@ Inherits AppleSKEffectNode
 		  dim ego as new AppleSKScene (pid)
 		  ego.informondidChangesize (size)
 		  
-		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -85,7 +84,7 @@ Inherits AppleSKEffectNode
 		  dim ego as new AppleSKScene (pid)
 		  ego.informonDidEndContact (Contact)
 		  
-		  
+		  #Pragma Unused Sel
 		  
 		End Sub
 	#tag EndMethod
@@ -95,6 +94,8 @@ Inherits AppleSKEffectNode
 		  dim ego as new AppleSKScene (pid)
 		  ego.informonDidEvaluteActions
 		  
+		  #Pragma Unused Scene
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -102,7 +103,8 @@ Inherits AppleSKEffectNode
 		Private Shared Sub impl_didFinishUpdateForScene(pid as ptr, sel as ptr, Scene as Ptr)
 		  dim ego as new AppleSKScene (pid)
 		  ego.informonDidFinishUpdate
-		  
+		  #Pragma Unused Scene
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -111,8 +113,7 @@ Inherits AppleSKEffectNode
 		  dim ego as new AppleSKScene (pid)
 		  ego.informondidMoveToView (view)
 		  
-		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -121,6 +122,8 @@ Inherits AppleSKEffectNode
 		  dim ego as new AppleSKScene (pid)
 		  ego.informonDidSimulatePhysics
 		  
+		  #Pragma Unused Scene
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -128,7 +131,8 @@ Inherits AppleSKEffectNode
 		Private Shared Sub impl_updateforscene(pid as ptr, sel as ptr, CurrentTime as double, Scene as Ptr)
 		  dim ego as new AppleSKScene (pid)
 		  ego.informonSceneUpdate (CurrentTime)
-		  
+		  #Pragma Unused Scene
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -137,7 +141,7 @@ Inherits AppleSKEffectNode
 		  dim ego as new AppleSKScene (pid)
 		  ego.informonwillMoveFromView (view)
 		  
-		  
+		  #Pragma Unused Sel
 		End Sub
 	#tag EndMethod
 
@@ -449,6 +453,11 @@ Inherits AppleSKEffectNode
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -507,6 +516,11 @@ Inherits AppleSKEffectNode
 			Name="Rasterize"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ScaleMode"

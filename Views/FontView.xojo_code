@@ -60,11 +60,6 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Action(section As Integer, row As Integer)
-		  
-		End Sub
-	#tag EndEvent
-	#tag Event
 		Sub AccessoryAction(section As Integer, row As Integer)
 		  dim Familyname as text = me.RowData(section, row).Text
 		  dim iv as new FontDetailView (Familyname)

@@ -165,11 +165,6 @@ End
 		  
 		End Sub
 	#tag EndEvent
-	#tag Event
-		Sub SelectionChanged(row as integer, column as integer)
-		  
-		End Sub
-	#tag EndEvent
 #tag EndEvents
 #tag Events Canvas1
 	#tag Event

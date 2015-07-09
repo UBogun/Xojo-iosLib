@@ -113,18 +113,6 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events Table1
-	#tag Event
-		Sub Open()
-		  
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Action(section As Integer, row As Integer)
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="BackButtonTitle"

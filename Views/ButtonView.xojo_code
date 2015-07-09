@@ -10,10 +10,10 @@ Begin iosView ButtonView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 47, 
-      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 112, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 47, 
+      AutoLayout      =   Button1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Caption         =   "This is one big button, isn't it?"
       Enabled         =   True
       Height          =   112.0
@@ -30,13 +30,14 @@ Begin iosView ButtonView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Label1, 2, Button1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   Label1, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label1, 2, Button1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   305.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Tap and hold the button to see iOS change its properties by state. See the iOSButtonExtension for convenience methods to access additional features for iOSButtons and the AppleButton class for the full feature set. Feel free to add more convenience methods (and to add them to the project)."

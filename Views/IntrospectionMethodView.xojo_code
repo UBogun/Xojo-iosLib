@@ -28,13 +28,6 @@ End
 #tag EndIOSView
 
 #tag WindowCode
-	#tag Event
-		Sub ToolbarPressed(button As iOSToolButton)
-		  
-		End Sub
-	#tag EndEvent
-
-
 	#tag Method, Flags = &h1000
 		Sub Constructor(method as AppleMethod)
 		  // Calling the overridden superclass constructor.
@@ -55,7 +48,7 @@ End
 		  Table1.AddSection (Introspection.Argumenttypes.toCommaList)
 		  Table1.AddSection (Introspection.ArgumenttypesTranslated.toCommaList)
 		  Table1.AddSection ("Return type: "+Introspection.ReturnType+" = "+Introspection.ReturnTypeTranslated)
-		  
+		  #Pragma Unused filter
 		End Sub
 	#tag EndMethod
 
@@ -75,13 +68,6 @@ End
 	#tag Event
 		Sub Open()
 		  showClasses
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Action(section As Integer, row As Integer)
-		  // dim Classname as text = me.RowData(section, row).Text
-		  
-		  // break
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="1171767295">
  <ObjName>AppleObject</ObjName>
  <ObjContainerID>308434943</ObjContainerID>
@@ -592,10 +592,8 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function ClassMethodImplementationForSelector(aSelector as Ptr) As Ptr</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare function methodForSelector lib Foundation selector "methodForSelector:" (id as Ptr, aselector as Ptr) as Ptr</SourceLine>
    <SourceLine>return methodForSelector (class_, aSelector)</SourceLine>
-   <SourceLine>#endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -631,10 +629,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function ConformsToProtocol(aProtocol as Ptr) As Boolean</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>Declare function conformsToProtocol lib Foundation selector "conformsToProtocol:" (id as ptr, aProtocol as Ptr) as Boolean</SourceLine>
    <SourceLine>return conformsToProtocol (id, aProtocol)</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -687,7 +684,7 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine> Shared Function MethodSignatureForSelector(aSelector as cfstringref) As AppleMethodSignature</SourceLine>
-   <SourceLine>return MacOSMethodSignatureForSelector (NSSelectorFromString(aSelector))</SourceLine>
+   <SourceLine>return AppleMethodSignatureForSelector (NSSelectorFromString(aSelector))</SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -698,16 +695,14 @@
   <ItemResult>AppleMethodSignature</ItemResult>
  </Method>
  <Method>
-  <ItemName>MacOSMethodSignatureForSelector</ItemName>
+  <ItemName>AppleMethodSignatureForSelector</ItemName>
   <Compatibility></Compatibility>
   <Visible>1</Visible>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine> Shared Function MacOSMethodSignatureForSelector(aSelector as Ptr) As AppleMethodSignature</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
+   <SourceLine> Shared Function AppleMethodSignatureForSelector(aSelector as Ptr) As AppleMethodSignature</SourceLine>
    <SourceLine>declare function instanceMethodSignatureForSelector lib Foundation selector "instanceMethodSignatureForSelector:" (id as Ptr, aselector as Ptr) as Ptr</SourceLine>
    <SourceLine>return  AppleMethodSignature.MakeFromPtr( instanceMethodSignatureForSelector (classptr, aSelector))</SourceLine>
-   <SourceLine>#endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -725,10 +720,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function getCopy(anInstance as Ptr) As Ptr</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare function copy lib Foundation selector "copy" (id as ptr) as ptr</SourceLine>
    <SourceLine>return copy (anInstance)</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -762,10 +756,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function getMutableCopy(anInstance as Ptr) As Ptr</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare function mutableCopy lib Foundation selector "mutableCopy" (id as ptr) as ptr</SourceLine>
    <SourceLine>return mutableCopy (anInstance)</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -816,10 +809,8 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function InstanceMethodImplementationForSelector(aSelector as Ptr) As Ptr</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare function methodForSelector lib Foundation selector "methodForSelector:" (id as Ptr, aselector as Ptr) as Ptr</SourceLine>
    <SourceLine>return methodForSelector (id, aSelector)</SourceLine>
-   <SourceLine>#endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -837,10 +828,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function isKindOfClass(aClass as Ptr) As Boolean</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare function isKindOfClass lib Foundation selector "isKindOfClass:" (id as Ptr, aClass as Ptr) as Boolean</SourceLine>
    <SourceLine>return isKindOfClass (id, aClass)</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -857,10 +847,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function isMemberOfClass(aClass as Ptr) As Boolean</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare function isMemberOfClass lib Foundation selector "isMemberOfClass:" (id as Ptr, aClass as Ptr) as Boolean</SourceLine>
    <SourceLine>return isMemberOfClass (id, aClass)</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -877,10 +866,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function isSubclassOfClass(aClass as Ptr) As Boolean</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare function isSubclassOfClass lib Foundation selector "isSubclassOfClass:" (id as Ptr, aClass as Ptr) as Boolean</SourceLine>
    <SourceLine>return isSubclassOfClass (id, aClass)</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -914,10 +902,8 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function MethodSignatureForSelector(aSelector as Ptr) As AppleMethodSignature</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare function methodSignatureForSelector lib Foundation selector "methodSignatureForSelector:" (id as Ptr, aselector as Ptr) as Ptr</SourceLine>
    <SourceLine>return  AppleMethodSignature.MakefromPtr ( methodSignatureForSelector (id, aSelector))</SourceLine>
-   <SourceLine>#endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
@@ -935,7 +921,8 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function PerformSelector(aSelector as cfstringref, anObject as Ptr = NIL, anotherObject as Ptr = NIL) As Ptr</SourceLine>
-   <SourceLine>return PerformSelector (NSSelectorFromString(aSelector))</SourceLine>
+   <SourceLine>return PerformSelector (NSSelectorFromString(aSelector), anobject, anotherObject)</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
@@ -991,7 +978,6 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function PerformSelector(aSelector as Ptr, anObject as Ptr = NIL, anotherObject as Ptr = NIL) As Ptr</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>Declare function performSelector lib Foundation selector "performSelector:"(id as ptr, aselector as Ptr) as Ptr</SourceLine>
    <SourceLine>Declare function performSelectorwithObject lib Foundation selector "performSelector:withObject:"(id as ptr, aselector as Ptr, withObject as Ptr) as Ptr</SourceLine>
    <SourceLine>Declare function performSelectorwithObjectwithObject lib Foundation selector "performSelector:withObject:withObject:"(id as ptr, aselector as Ptr, withObject as Ptr, anotherobject as Ptr) as Ptr</SourceLine>
@@ -1003,7 +989,6 @@
    <SourceLine>else</SourceLine>
    <SourceLine>return performSelector (id, aSelector)</SourceLine>
    <SourceLine>end if</SourceLine>
-   <SourceLine>#endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
@@ -1022,12 +1007,10 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub PerformSelector(aSelector as Ptr, anObject as Ptr, waitUntilDone as Boolean = False)</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>Declare sub performSelectorOnMainThread lib Foundation selector "performSelectorOnMainThread:withObject:waitUntilDone:" _</SourceLine>
    <SourceLine>(id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>performSelectorOnMainThread id, aSelector, anObject, waituntildone</SourceLine>
-   <SourceLine>#endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
@@ -1046,11 +1029,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub PerformSelector(aSelector as Ptr, delay as double, anObject as Ptr = Nil)</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>Declare Sub performSelectorwithObjectafterDelay lib Foundation selector "performSelector:withObject:afterDelay:" (id as ptr, aselector as Ptr, withObject as Ptr, delay as Double)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>performSelectorwithObjectafterDelay id, aSelector, anObject, delay</SourceLine>
-   <SourceLine>#endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine></SourceLine>
@@ -1090,11 +1071,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub PerformSelectorInBackground(aSelector as Ptr, anObject as Ptr = NIL)</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>Declare sub performSelectorInBackground lib Foundation selector "performSelectorInBackground:withObject:" (id as ptr, aselector as Ptr, withObject as Ptr)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>performSelectorInBackground id, aSelector, anObject</SourceLine>
-   <SourceLine>#endif</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
@@ -1130,12 +1109,11 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Function RespondsToSelector(aSelector as ptr) As Boolean</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>return ObjectiveCRuntime.class_respondsToSelector (ClassPtr, aSelector)</SourceLine>
    <SourceLine>// Probably faster this way</SourceLine>
    <SourceLine>// Declare function respondsToSelector lib Foundation selector "respondsToSelector:" (id as ptr, aselector as Ptr) as Boolean</SourceLine>
    <SourceLine>// return respondsToSelector (id, aSelector)</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Function</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1152,10 +1130,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub SetNilValueForKey(key as cfstringref)</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare sub setNilValueForKey lib Foundation selector "setNilValueForKey:" (id as Ptr, key as CFStringRef)</SourceLine>
    <SourceLine>setNilValueForKey (id, key)</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1286,10 +1263,9 @@
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
    <SourceLine>Sub setOpaque(value as boolean)</SourceLine>
-   <SourceLine>#if targetmacos</SourceLine>
    <SourceLine>declare sub setOpaque lib Foundation selector "setOpaque:" (id as ptr, value as Boolean)</SourceLine>
    <SourceLine>setOpaque id, value</SourceLine>
-   <SourceLine>#endif</SourceLine>
+   <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
   <TextEncoding>134217984</TextEncoding>
@@ -1878,6 +1854,16 @@
    <ObjName>isProxy</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>Boolean</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>RetainCount</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
+  </ViewProperty>
+  <ViewProperty>
+   <ObjName>Hash</ObjName>
+   <PropertyGroup>Behavior</PropertyGroup>
+   <ItemType>UInteger</ItemType>
   </ViewProperty>
  </ViewBehavior>
  <Enumeration>
