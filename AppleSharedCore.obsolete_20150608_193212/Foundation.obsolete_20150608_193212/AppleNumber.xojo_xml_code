@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="1857009663">
  <ObjName>AppleNumber</ObjName>
  <ObjContainerID>308434943</ObjContainerID>
@@ -24,7 +24,6 @@
   <ItemResult>Integer</ItemResult>
   <LibraryName>#Foundation</LibraryName>
   <SoftLink>0</SoftLink>
-  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CFNumberGetType</ItemName>
@@ -42,7 +41,6 @@
   <ItemResult>CFNumberTypes</ItemResult>
   <LibraryName>#Foundation</LibraryName>
   <SoftLink>0</SoftLink>
-  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <ExternalMethod>
   <ItemName>CFNumberIsFloatType</ItemName>
@@ -60,7 +58,6 @@
   <ItemResult>Boolean</ItemResult>
   <LibraryName>#Foundation</LibraryName>
   <SoftLink>0</SoftLink>
-  <ObjectiveC>0</ObjectiveC>
  </ExternalMethod>
  <Method>
   <ItemName>Constructor</ItemName>
@@ -821,16 +818,6 @@
    <ItemType>Boolean</ItemType>
   </ViewProperty>
   <ViewProperty>
-   <ObjName>RetainCount</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInteger</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Hash</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInteger</ItemType>
-  </ViewProperty>
-  <ViewProperty>
    <ObjName>BoolValue</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>Boolean</ItemType>
@@ -894,26 +881,6 @@
    <ItemType>Integer</ItemType>
   </ViewProperty>
   <ViewProperty>
-   <ObjName>Int16Value</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Int16</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Int32Value</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Int32</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Int64Value</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Int64</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Int8Value</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>Int8</ItemType>
-  </ViewProperty>
-  <ViewProperty>
    <ObjName>NumberType</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>CFNumberTypes</ItemType>
@@ -937,31 +904,6 @@
     <ItemDef>16 - CGFloat</ItemDef>
     <ItemDef>16 - Max</ItemDef>
    </Enumeration>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>UInt16Value</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInt16</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>UInt32Value</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInt32</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>UInt64Value</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInt64</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>UInt8Value</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInt8</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>UIntegerValue</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInteger</ItemType>
   </ViewProperty>
  </ViewBehavior>
 </block>
