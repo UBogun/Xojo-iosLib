@@ -1,7 +1,7 @@
 #tag Class
 Protected Class iOSLibHTMLViewerWithInterface
 Inherits iOSLibHTMLViewer
-Implements AppleEventForwarder
+Implements AppleNSEventForwarder
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub InformOnError(Error as Ptr)
 		  dim myarray as new AppleMutableArray(2)
@@ -42,11 +42,11 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub NotifyObservers(EventProperties As AppleArray)
-		  // Part of the AppleEventForwarder interface.
+		  // Part of the AppleNSEventForwarder interface.
 		  
 		  if Receivers.HasKey(id) then
 		    dim wR as WeakRef = Receivers.value(id)
-		    dim observer as AppleEventReceiver = AppleEventReceiver( wr.Value)
+		    dim observer as AppleNSEventReceiver = AppleNSEventReceiver( wr.Value)
 		    if observer <> nil then
 		      observer.ReceivedEvent (EventProperties)
 		    end if
@@ -55,8 +55,8 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RegisterObserver(observer As AppleEventReceiver)
-		  // Part of the AppleEventForwarder interface.
+		Sub RegisterObserver(observer As AppleNSEventReceiver)
+		  // Part of the AppleNSEventForwarder interface.
 		  
 		  if Receivers = nil then Receivers = new dictionary
 		  
@@ -66,7 +66,7 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub RemoveObserver()
-		  // Part of the AppleEventForwarder interface.
+		  // Part of the AppleNSEventForwarder interface.
 		  
 		  if Receivers.HasKey (id) then Receivers.Remove (id)
 		  

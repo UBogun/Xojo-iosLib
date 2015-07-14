@@ -1,7 +1,7 @@
 #tag Class
 Protected Class AppleSKViewer
 Inherits iOSUserControl
-Implements AppleEventReceiver
+Implements AppleNSEventReceiver
 	#tag Event
 		Sub Close()
 		  if mscene <> nil then
@@ -137,7 +137,7 @@ Implements AppleEventReceiver
 
 	#tag Method, Flags = &h21
 		Private Sub ReceivedEvent(Details as AppleArray)
-		  // Part of the AppleEventReceiver interface.
+		  // Part of the AppleNSEventReceiver interface.
 		  if not Details.IsNIL then
 		    if Details.Count > 0 then
 		      dim compare as text = Details.TextAtIndex(0)
@@ -164,25 +164,25 @@ Implements AppleEventReceiver
 		      case AppleSKScenewithinterface.DidApplyConstraints
 		        RaiseEvent DidApplyConstraints
 		      case AppleSKViewForViewer.TouchesBegan
-		        raiseEvent TouchesBegan (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        raiseEvent TouchesBegan (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleSKViewForViewer.TouchesEnded
-		        raiseEvent TouchesEnded (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        raiseEvent TouchesEnded (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleSKViewForViewer.TouchesMoved
-		        raiseEvent TouchesMoved (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        raiseEvent TouchesMoved (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleSKViewForViewer.TouchesCancelled
-		        raiseEvent TouchesCancelled (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        raiseEvent TouchesCancelled (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.MotionBegan
 		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
-		        dim myType as AppleEvent.UIEventSubtype = AppleEvent.UIEventSubtype (mynumber.IntegerValue)
-		        RaiseEvent MotionBegan (mytype, AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        dim myType as AppleNSEvent.UIEventSubtype = AppleNSEvent.UIEventSubtype (mynumber.IntegerValue)
+		        RaiseEvent MotionBegan (mytype, AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.MotionEnded
 		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
-		        dim myType as AppleEvent.UIEventSubtype = AppleEvent.UIEventSubtype (mynumber.IntegerValue)
-		        RaiseEvent MotionEnded (mytype, AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        dim myType as AppleNSEvent.UIEventSubtype = AppleNSEvent.UIEventSubtype (mynumber.IntegerValue)
+		        RaiseEvent MotionEnded (mytype, AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.MotionCancelled
 		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
-		        dim myType as AppleEvent.UIEventSubtype = AppleEvent.UIEventSubtype (mynumber.IntegerValue)
-		        RaiseEvent MotionCancelled (mytype, AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        dim myType as AppleNSEvent.UIEventSubtype = AppleNSEvent.UIEventSubtype (mynumber.IntegerValue)
+		        RaiseEvent MotionCancelled (mytype, AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		        
 		      case AppleView.LayoutSubviews
 		        raiseevent LayoutSubviews
@@ -243,31 +243,31 @@ Implements AppleEventReceiver
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event MotionBegan(Type as AppleEvent.uieventsubtype, anEvent as AppleEvent)
+		Event MotionBegan(Type as AppleNSEvent.uieventsubtype, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event MotionCancelled(Type as AppleEvent.uieventsubtype, anEvent as AppleEvent)
+		Event MotionCancelled(Type as AppleNSEvent.uieventsubtype, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event MotionEnded(Type as AppleEvent.uieventsubtype, anEvent as AppleEvent)
+		Event MotionEnded(Type as AppleNSEvent.uieventsubtype, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesBegan(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesBegan(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesCancelled(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesCancelled(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesEnded(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesEnded(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesMoved(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesMoved(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0

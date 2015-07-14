@@ -27,7 +27,7 @@ Protected Class CGAnimatedCurve
 		  
 		  LineWidth = math.RandomInt (1, 20)
 		  MyColor = ColorExtension.RandomColor (2, 255)
-		  dim mycap as integer = math.RandomInt(0,2)
+		  dim mycap as uint32 = math.RandomInt(0,2)
 		  cap = CGLineCap (mycap)
 		  ChangeMutation
 		End Sub
@@ -175,6 +175,26 @@ Protected Class CGAnimatedCurve
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CP1YV"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CP2X"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CP2XV"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CP2Y"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CP2YV"
 			Group="Behavior"
 			Type="Double"
 		#tag EndViewProperty

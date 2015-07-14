@@ -27,7 +27,7 @@ Inherits AppleControl
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleView
 		  // Constructor(aFrame As NSRect) -- From AppleView
-		  // Constructor(aFrame As NSRect, observer as AppleEventReceiver) -- From AppleView
+		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
 		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject

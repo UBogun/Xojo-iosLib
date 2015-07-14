@@ -1,7 +1,7 @@
 #tag Class
 Protected Class AppleSKSceneWithInterface
 Inherits AppleSKScene
-Implements AppleEventForwarder
+Implements AppleNSEventForwarder
 	#tag Method, Flags = &h1021
 		Private Sub Constructor()
 		  
@@ -22,7 +22,7 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(asize as NSSize, observer As AppleEventReceiver)
+		Sub Constructor(asize as NSSize, observer As AppleNSEventReceiver)
 		  RegisterObserver observer
 		  
 		  #if Target64bit
@@ -235,17 +235,17 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub NotifyObservers(EventProperties As AppleArray)
-		  // Part of the AppleEventForwarder interface.
+		  // Part of the AppleNSEventForwarder interface.
 		  
-		  dim observer as AppleEventReceiver = Receivers.Value(id)
+		  dim observer as AppleNSEventReceiver = Receivers.Value(id)
 		  observer.ReceivedEvent (EventProperties)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RegisterObserver(observer As AppleEventReceiver)
-		  // Part of the AppleEventForwarder interface.
+		Sub RegisterObserver(observer As AppleNSEventReceiver)
+		  // Part of the AppleNSEventForwarder interface.
 		  if Receivers = nil then Receivers = new Dictionary
 		  
 		  Receivers.Value(id) = weakref.Create (observer)
@@ -254,7 +254,7 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub RemoveObserver()
-		  // Part of the AppleEventForwarder interface.
+		  // Part of the AppleNSEventForwarder interface.
 		  if Receivers <> nil Then
 		    if Receivers.HasKey (id) then Receivers.Remove (id)
 		  end if

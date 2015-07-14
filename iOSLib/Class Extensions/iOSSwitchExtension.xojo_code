@@ -1,36 +1,39 @@
 #tag Module
-Protected Module UIEdgeInsetExtension
+Protected Module iOSSwitchExtension
 	#tag Method, Flags = &h0
-		Function toUIEdgeInset(extends u as UIEdgeInsets32Bit) As UIEdgeInsets
-		  dim result as UIEdgeInsets
-		  result.Top = u.Top
-		  result.left = u.left
-		  result.Bottom = u.Bottom
-		  result.Right = u.right
-		  return result
+		Function AppleSwitch(extends s as iOSSwitch) As AppleSwitch
+		  return new appleswitch (s.Handle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toUIEdgeInset32(extends u as UIEdgeInsets) As UIEdgeInsets32Bit
-		  dim result as UIEdgeInsets32Bit
-		  result.Top = u.Top
-		  result.left = u.left
-		  result.Bottom = u.Bottom
-		  result.Right = u.right
-		  return result
+		Sub On(extends s as iOSSwitch, assigns value as boolean)
+		  s.AppleSwitch.On = value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function OnTintColor(extends s as iOSSwitch) As Color
+		  return s.AppleSwitch.OnTintColor.toColor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function UIEdgeInsets(top as double, left as Double, bottom as double, right as double) As UIEdgeInsets
-		  dim result as  UIEdgeInsets
-		  result.top = top
-		  result.Bottom = bottom
-		  result.left = left
-		  result.right = right
-		  return result
+		Sub OnTintColor(extends s as iOSSwitch, assigns value as Color)
+		  s.AppleSwitch.OnTintColor = new AppleColor(value)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ThumbTintColor(extends s as iOSSwitch) As Color
+		  return s.AppleSwitch.ThumbTintColor.toColor
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ThumbTintColor(extends s as iOSSwitch, assigns value as Color)
+		  s.AppleSwitch.ThumbTintColor = new AppleColor(value)
+		End Sub
 	#tag EndMethod
 
 
