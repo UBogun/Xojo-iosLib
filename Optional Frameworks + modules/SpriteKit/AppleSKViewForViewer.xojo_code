@@ -1,7 +1,7 @@
 #tag Class
 Protected Class AppleSKViewForViewer
 Inherits AppleSKView
-Implements AppleEventForwarder
+Implements AppleNSEventForwarder
 	#tag Method, Flags = &h1021
 		Private Sub Constructor()
 		  
@@ -242,7 +242,7 @@ Implements AppleEventForwarder
 		  dim myarray as new AppleMutableArray(3)
 		  myarray.AddText  motionBegan
 		  myarray.Addobject new AppleNumber (type)
-		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
+		  myarray.Addobject AppleNSEvent.MakefromPtr (anevent)
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
@@ -252,7 +252,7 @@ Implements AppleEventForwarder
 		  dim myarray as new AppleMutableArray(3)
 		  myarray.AddText  MotionCancelled
 		  myarray.Addobject new AppleNumber (type)
-		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
+		  myarray.Addobject AppleNSEvent.MakefromPtr (anevent)
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
@@ -262,7 +262,7 @@ Implements AppleEventForwarder
 		  dim myarray as new AppleMutableArray(3)
 		  myarray.AddText  MotionEnded
 		  myarray.Addobject new AppleNumber (type)
-		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
+		  myarray.Addobject AppleNSEvent.MakefromPtr (anevent)
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
@@ -272,7 +272,7 @@ Implements AppleEventForwarder
 		  dim myarray as new AppleMutableArray(3)
 		  myarray.AddText  TouchesBegan
 		  myarray.Addobject AppleSet.MakefromPtr (touchset)
-		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
+		  myarray.Addobject AppleNSEvent.MakefromPtr (anevent)
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
@@ -282,7 +282,7 @@ Implements AppleEventForwarder
 		  dim myarray as new AppleMutableArray(3)
 		  myarray.AddText  TouchesCancelled
 		  myarray.Addobject AppleSet.MakefromPtr (touchset)
-		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
+		  myarray.Addobject AppleNSEvent.MakefromPtr (anevent)
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
@@ -292,7 +292,7 @@ Implements AppleEventForwarder
 		  dim myarray as new AppleMutableArray(3)
 		  myarray.AddText TouchesEnded
 		  myarray.Addobject AppleSet.MakefromPtr (touchset)
-		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
+		  myarray.Addobject AppleNSEvent.MakefromPtr (anevent)
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
@@ -302,7 +302,7 @@ Implements AppleEventForwarder
 		  dim myarray as new AppleMutableArray(3)
 		  myarray.AddText  TouchesMoved
 		  myarray.Addobject AppleSet.MakefromPtr (touchset)
-		  myarray.Addobject AppleEvent.MakefromPtr (anevent)
+		  myarray.Addobject AppleNSEvent.MakefromPtr (anevent)
 		  NotifyObservers (myarray)
 		End Sub
 	#tag EndMethod
@@ -336,11 +336,11 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub NotifyObservers(EventProperties As AppleArray)
-		  // Part of the AppleEventForwarder interface.
+		  // Part of the AppleNSEventForwarder interface.
 		  
 		  if Receivers.HasKey(id) then
 		    dim wR as WeakRef = Receivers.value(id)
-		    dim observer as AppleEventReceiver = AppleEventReceiver( wr.Value)
+		    dim observer as AppleNSEventReceiver = AppleNSEventReceiver( wr.Value)
 		    if observer <> nil then
 		      observer.ReceivedEvent (EventProperties)
 		    end if
@@ -350,16 +350,16 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RegisterObserver(observer As AppleEventReceiver)
-		  // Part of the AppleEventForwarder interface.
+		Sub RegisterObserver(observer As AppleNSEventReceiver)
+		  // Part of the AppleNSEventForwarder interface.
 		  
 		  Receivers.Value(id) = weakref.Create (observer)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RemoveObserver(observer As AppleEventReceiver)
-		  // Part of the AppleEventForwarder interface.
+		Sub RemoveObserver(observer As AppleNSEventReceiver)
+		  // Part of the AppleNSEventForwarder interface.
 		  
 		  if Receivers.HasKey (id) then Receivers.Remove (id)
 		  
