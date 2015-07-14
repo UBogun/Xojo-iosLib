@@ -24,11 +24,6 @@ Inherits AppleData
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="CFTypeID"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="DebugDescription"
 			Group="Behavior"
 			Type="Text"
@@ -37,11 +32,6 @@ Inherits AppleData
 			Name="Description"
 			Group="Behavior"
 			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Hash"
-			Group="Behavior"
-			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HasOwnership"
@@ -73,11 +63,6 @@ Inherits AppleData
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Length"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="mHasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -87,11 +72,6 @@ Inherits AppleData
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="RetainCount"
-			Group="Behavior"
-			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

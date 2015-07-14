@@ -92,11 +92,6 @@ Inherits AppleGestureRecognizer
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Hash"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -137,30 +132,18 @@ Inherits AppleGestureRecognizer
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="NumberOfTapsRequired"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="NumberOfTouches"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="NumberOfTouchesRequired"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="RetainCount"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="State"
 			Group="Behavior"
 			Type="UIGestureRecognizerState"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - Possible"
+				"1 - Began"
+				"2 - Changed"
+				"3 - Ended"
+				"4 - Cancelled"
+				"5 - Failed"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

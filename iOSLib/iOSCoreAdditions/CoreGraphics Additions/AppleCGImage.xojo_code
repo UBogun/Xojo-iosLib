@@ -76,11 +76,6 @@ Inherits AppleCFObject
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Hash"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -137,11 +132,6 @@ Inherits AppleCFObject
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TypeID"
-			Group="Behavior"
-			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"

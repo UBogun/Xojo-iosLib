@@ -429,6 +429,12 @@ Inherits AppleControl
 			Group="Behavior"
 			Type="UIControlContentHorizontalAlignment"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - Center"
+				"1 - Left"
+				"2 - Right"
+				"3 - Fill"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentMode"
@@ -461,6 +467,12 @@ Inherits AppleControl
 			Group="Behavior"
 			Type="UIControlContentVerticalAlignment"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - Center"
+				"1 - Top"
+				"2 - Bottom"
+				"3 - Fill"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CurrentTitle"
@@ -491,11 +503,6 @@ Inherits AppleControl
 			Name="HasAmbiguousLayout"
 			Group="Behavior"
 			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Hash"
-			Group="Behavior"
-			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HasOwnership"
@@ -568,11 +575,6 @@ Inherits AppleControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="RetainCount"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="ReversesTitleShadowWhenHighlighted"
 			Group="Behavior"
 			Type="Boolean"
@@ -592,6 +594,14 @@ Inherits AppleControl
 			Group="Behavior"
 			Type="UIControlState"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - Normal"
+				"1 - Highlighted"
+				"2 - Disabled"
+				"3 - Selected"
+				"4 - Application"
+				"5 - Reserved"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

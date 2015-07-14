@@ -298,11 +298,6 @@ Protected Class UIControlEvent
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="ID"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

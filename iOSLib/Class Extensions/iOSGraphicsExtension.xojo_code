@@ -36,7 +36,7 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AddLines(extends g as iosgraphics,  points() as xojo.core.point)
+		Sub AddLines(extends g as iosgraphics, points() as xojo.core.point)
 		  g.CGContext.Addlines points.tonspoint
 		End Sub
 	#tag EndMethod
@@ -72,7 +72,7 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AddRects(extends g as iosgraphics,  Rects() as xojo.core.rect)
+		Sub AddRects(extends g as iosgraphics, Rects() as xojo.core.rect)
 		  g.CGContext.AddRects rects.tonsrect
 		End Sub
 	#tag EndMethod
@@ -180,19 +180,19 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub DrawRadialGradient(extends g as iosgraphics, Colors() As color,  StartX As Double, StartY as Double, StartRadius As Double, EndX as Double, EndY as Double, EndRadius As Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
+		Sub DrawRadialGradient(extends g as iosgraphics, Colors() As color, StartX As Double, StartY as Double, StartRadius As Double, EndX as Double, EndY as Double, EndRadius As Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
 		  g.CGContext.DrawRadialGradient colors, nspoint (startx, starty), StartRadius, nspoint (endx, endy), endradius, DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub DrawRadialGradient(extends g as iosgraphics, Colors() As color,  StartCenter As xojo.core.point, StartRadius As Double, EndCenter As xojo.core.point, EndRadius As Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
+		Sub DrawRadialGradient(extends g as iosgraphics, Colors() As color, StartCenter As xojo.core.point, StartRadius As Double, EndCenter As xojo.core.point, EndRadius As Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
 		  g.CGContext.DrawRadialGradient colors, Startcenter.tonspoint, StartRadius, endcenter.tonspoint, endradius, DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function DrawTiledImage(extends g as iOSGraphics, image as iOSImage, x as double, y as double, width as double , height as double) As Double
+		Function DrawTiledImage(extends g as iOSGraphics, image as iOSImage, x as double, y as double, width as double, height as double) As Double
 		  g.SaveState // saving the current state because the context needs to be flipped for the tiledimage call
 		  g.Translate (0, g.Height) // flip it
 		  g.Scale (1, -1)
@@ -218,7 +218,7 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub FillRects(extends g as iosgraphics,  Rects() as xojo.core.rect)
+		Sub FillRects(extends g as iosgraphics, Rects() as xojo.core.rect)
 		  g.CGContext.fillrects rects.tonsrect
 		End Sub
 	#tag EndMethod
@@ -249,8 +249,8 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub FontSmoothing(extends g as iOSGraphics, assigns value as boolean)
-		  g.CGContext.AllowFontSmoothing = value 
-		  g.CGContext.ShouldSmoothFonts = value 
+		  g.CGContext.AllowFontSmoothing = value
+		  g.CGContext.ShouldSmoothFonts = value
 		End Sub
 	#tag EndMethod
 
@@ -394,7 +394,7 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub StrokeLines(extends g as iosgraphics,  points() as xojo.core.point)
+		Sub StrokeLines(extends g as iosgraphics, points() as xojo.core.point)
 		  g.CGContext.StrokeLines points.tonspoint
 		End Sub
 	#tag EndMethod

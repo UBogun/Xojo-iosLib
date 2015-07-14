@@ -103,11 +103,6 @@ Inherits AppleViewController
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Hash"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -195,11 +190,6 @@ Inherits AppleViewController
 				"0 - ActionSheet"
 				"1 - Alert"
 			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="RetainCount"
-			Group="Behavior"
-			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

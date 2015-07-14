@@ -620,7 +620,7 @@ Inherits AppleView
 		  if Observers.HasKey (id)  then
 		    dim wr as weakref = Observers.Value (id)
 		    if wr <> NIL then
-		      dim myControl as  AppleScrollViewer = AppleScrollViewer(wr.Value)
+		      dim myControl as  AppleScrollViewcontrol = AppleScrollViewcontrol(wr.Value)
 		      myControl.ReceivedEvent EventProperties
 		    end if
 		  end if
@@ -1618,12 +1618,6 @@ Inherits AppleView
 			Name="IndicatorStyle"
 			Group="Behavior"
 			Type="UIScrollViewIndicatorStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - Black"
-				"2 - White"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IsFirstResponder"
@@ -1644,12 +1638,6 @@ Inherits AppleView
 			Name="KeyboardDismissMode"
 			Group="Behavior"
 			Type="UIScrollViewKeyboardDismissMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - None"
-				"1 - OnDrag"
-				"2 - Interactive"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -1676,12 +1664,6 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="MultipleTouchEnabled"
 			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mZoomable"
-			Group="Behavior"
-			InitialValue="true"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -1771,6 +1753,11 @@ Inherits AppleView
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="UserInteractionEnabled"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Zoomable"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
