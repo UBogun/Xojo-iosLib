@@ -1,7 +1,14 @@
 #tag Class
 Protected Class AppleView
 Inherits AppleResponder
-Implements AppleEventForwarder
+Implements AppleNSEventForwarder
+	#tag Method, Flags = &h0
+		Sub AddGestureRecognizer(GestureRecognizer as AppleGestureRecognizer)
+		  declare sub addGestureRecognizer lib UIKit selector "addGestureRecognizer:" (id as ptr, GestureRecognizer as ptr)
+		  addGestureRecognizer id, GestureRecognizer.id
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub AddSubview(aView as AppleView)
 		  declare sub addSubview lib UIKit selector "addSubview:" (id as ptr, aview as ptr)
@@ -132,7 +139,7 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame As NSRect, observer as AppleEventReceiver)
+		Sub Constructor(aFrame As NSRect, observer as AppleNSEventReceiver)
 		  Constructor (aFrame)
 		  RegisterObserver (observer)
 		  
@@ -319,7 +326,7 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
+		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
 		  dim ego as new AppleView (pid)
 		  ego.informonMotionBeganwithEvent  (type, anEvent)
 		  
@@ -328,7 +335,7 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
+		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
 		  dim ego as new AppleView (pid)
 		  ego.informonMotionCancelledwithEvent  (type, anEvent)
 		  
@@ -337,7 +344,7 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
+		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
 		  dim ego as new AppleView (pid)
 		  ego.informonMotionEndedwithEvent  (type, anEvent)
 		  
@@ -453,7 +460,6 @@ Implements AppleEventForwarder
 		Attributes( hidden )  Sub informonDrawRect(Rect as NSRect)
 		  RaiseEvent DrawRect (rect)
 		  
-		  
 		  If Observers.HasKey(id) then
 		    dim myarray as new AppleMutableArray(2)
 		    myarray.AddText  DrawRect
@@ -479,8 +485,8 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonMotionBeganwithEvent(type as AppleEvent.UIEventSubtype, anEvent as ptr)
-		  RaiseEvent MotionBeganwithEvent ( type, AppleEvent.makefromptr (anevent))
+		Attributes( hidden )  Sub informonMotionBeganwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as ptr)
+		  RaiseEvent MotionBeganwithEvent ( type, AppleNSEvent.makefromptr (anevent))
 		  
 		  
 		  If Observers.HasKey(id) then
@@ -495,8 +501,8 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonMotionCancelledwithEvent(type as AppleEvent.UIEventSubtype, anEvent as ptr)
-		  RaiseEvent MotionCancelledwithEvent ( type, AppleEvent.makefromptr (anevent))
+		Attributes( hidden )  Sub informonMotionCancelledwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as ptr)
+		  RaiseEvent MotionCancelledwithEvent ( type, AppleNSEvent.makefromptr (anevent))
 		  
 		  
 		  If Observers.HasKey(id) then
@@ -511,8 +517,8 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonMotionEndedwithEvent(type as AppleEvent.UIEventSubtype, anEvent as ptr)
-		  RaiseEvent MotionEndedwithEvent ( type, AppleEvent.makefromptr (anevent))
+		Attributes( hidden )  Sub informonMotionEndedwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as ptr)
+		  RaiseEvent MotionEndedwithEvent ( type, AppleNSEvent.makefromptr (anevent))
 		  
 		  
 		  If Observers.HasKey(id) then
@@ -528,7 +534,7 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonTouchesBeganwithEvent(Touchset as ptr, anEvent as ptr)
-		  RaiseEvent TouchesBeganwithEvent ( AppleSet.makefromptr( touchset), AppleEvent.makefromptr (anevent))
+		  RaiseEvent TouchesBeganwithEvent ( AppleSet.makefromptr( touchset), AppleNSEvent.makefromptr (anevent))
 		  
 		  If Observers.HasKey(id) then
 		    dim myarray as new AppleMutableArray(3)
@@ -543,7 +549,7 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonTouchesCancelledwithEvent(Touchset as ptr, anEvent as ptr)
-		  RaiseEvent TouchesCancelledwithEvent ( AppleSet.makefromptr( touchset), AppleEvent.makefromptr (anevent))
+		  RaiseEvent TouchesCancelledwithEvent ( AppleSet.makefromptr( touchset), AppleNSEvent.makefromptr (anevent))
 		  
 		  
 		  If Observers.HasKey(id) then
@@ -559,7 +565,7 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonTouchesEndedwithEvent(Touchset as ptr, anEvent as ptr)
-		  RaiseEvent TouchesBeganwithEvent ( AppleSet.makefromptr( touchset), AppleEvent.makefromptr (anevent))
+		  RaiseEvent TouchesBeganwithEvent ( AppleSet.makefromptr( touchset), AppleNSEvent.makefromptr (anevent))
 		  
 		  
 		  If Observers.HasKey(id) then
@@ -575,7 +581,7 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonTouchesMovedwithEvent(Touchset as ptr, anEvent as ptr)
-		  RaiseEvent TouchesMovedwithEvent ( AppleSet.makefromptr( touchset), AppleEvent.makefromptr (anevent))
+		  RaiseEvent TouchesMovedwithEvent ( AppleSet.makefromptr( touchset), AppleNSEvent.makefromptr (anevent))
 		  
 		  
 		  If Observers.HasKey(id) then
@@ -597,7 +603,7 @@ Implements AppleEventForwarder
 		  If Observers.HasKey(id) then
 		    dim myarray as new AppleMutableArray(2)
 		    myarray.AddText  WillMoveToSuperview
-		    myarray.AddPtr view
+		    if view <> nil then myarray.AddPtr view
 		    NotifyObservers (myarray)
 		  End If
 		  
@@ -612,7 +618,7 @@ Implements AppleEventForwarder
 		  If Observers.HasKey(id) then
 		    dim myarray as new AppleMutableArray(2)
 		    myarray.AddText  WillMoveToWindow
-		    myarray.AddPtr Window
+		    if window <> nil then myarray.AddPtr Window
 		    NotifyObservers (myarray)
 		  End If
 		  
@@ -682,7 +688,7 @@ Implements AppleEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub NotifyObservers(EventProperties As AppleArray)
-		  // Part of the AppleEventForwarder interface.
+		  // Part of the AppleNSEventForwarder interface.
 		  if Observers.HasKey (id)  then
 		    dim wr as weakref = Observers.Value (id)
 		    if wr <> NIL then
@@ -695,8 +701,8 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RegisterObserver(observer As AppleEventReceiver)
-		  // Part of the AppleEventForwarder interface.
+		Sub RegisterObserver(observer As AppleNSEventReceiver)
+		  // Part of the AppleNSEventForwarder interface.
 		  observers.Value (id) = weakref.create(observer)
 		  
 		  
@@ -711,9 +717,18 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub RemoveGestureRecognizer(GestureRecognizer as AppleGestureRecognizer)
+		  declare sub removeGestureRecognizer lib UIKit selector "removeGestureRecognizer:" (id as ptr, GestureRecognizer as ptr)
+		  removeGestureRecognizer id, GestureRecognizer.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub RemoveObserver()
-		  // Part of the AppleEventForwarder interface.
-		  if Observers.HasKey(id) then observers.Remove id
+		  // Part of the AppleNSEventForwarder interface.
+		  if Observers <> nil then
+		    if Observers.HasKey(id) then observers.Remove id
+		  end if
 		End Sub
 	#tag EndMethod
 
@@ -1024,7 +1039,7 @@ Implements AppleEventForwarder
 	#tag EndMethod
 
 
-	#tag Hook, Flags = &h0
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E206120626C6F636B20616E696D6174696F6E20636F6D706C657465732077697468206120626F6F6C65616E2076616C756520666F722074686520616E696D6174696F6E277320636F6D706C6574696F6E
 		Event AnimationFinished(animationCompleted as boolean)
 	#tag EndHook
 
@@ -1049,31 +1064,31 @@ Implements AppleEventForwarder
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event MotionBeganwithEvent(type as AppleEvent.UIEventSubtype, anEvent as AppleEvent)
+		Event MotionBeganwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event MotionCancelledwithEvent(type as AppleEvent.UIEventSubtype, anEvent as AppleEvent)
+		Event MotionCancelledwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event MotionEndedwithEvent(type as AppleEvent.UIEventSubtype, anEvent as AppleEvent)
+		Event MotionEndedwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesBeganwithEvent(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesBeganwithEvent(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesCancelledwithEvent(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesCancelledwithEvent(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesEndedwithEvent(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesEndedwithEvent(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesMovedwithEvent(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesMovedwithEvent(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -1366,6 +1381,22 @@ Implements AppleEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  Declare Function gestureRecognizers lib UIKit selector "gestureRecognizers" (id as ptr) as ptr
+			  return AppleArray.MakeFromPtr (gestureRecognizers(id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare sub setGestureRecognizers lib UIKit selector "setGestureRecognizers:" (id as ptr, value as ptr)
+			  setGestureRecognizers id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		GestureRecognizers As AppleArray
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare Function hasAmbiguousLayout lib UIKit selector "hasAmbiguousLayout" (id as ptr) as Boolean
 			  return hasAmbiguousLayout (id)
 			End Get
@@ -1489,8 +1520,8 @@ Implements AppleEventForwarder
 		MultipleTouchEnabled As Boolean
 	#tag EndComputedProperty
 
-	#tag Property, Flags = &h21
-		Private Shared Observers As Dictionary
+	#tag Property, Flags = &h1
+		Protected Shared Observers As Dictionary
 	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1546,6 +1577,16 @@ Implements AppleEventForwarder
 			End Get
 		#tag EndGetter
 		SizeThatFits As NSSize
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function subviews lib UIKit selector "subviews" (id as ptr) as ptr
+			  return AppleArray.MakeFromPtr (subviews(id))
+			End Get
+		#tag EndGetter
+		SubViews As AppleArray
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1854,11 +1895,6 @@ Implements AppleEventForwarder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Hash"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -1922,11 +1958,6 @@ Implements AppleEventForwarder
 			Name="PreservesSuperviewLayoutMargins"
 			Group="Behavior"
 			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="RetainCount"
-			Group="Behavior"
-			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

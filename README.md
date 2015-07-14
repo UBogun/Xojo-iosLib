@@ -7,6 +7,9 @@ iOSLib tries to implement declared features completely transparent to Xojo, whic
 If you want to dig deeper into iOS, you can always address the API features on a class level and use all the bells and whistles.
 You are very welcome to send additions, declares or more convenience methods that create a native Xojo-like feeling for the declare routines.
 
+#Very important – Code is currently broken! Don't download!
+I am sorry, but GitHub and Xojo have formed a conspiration and they will mark a class as missing that is not missing. I'll try to fix ASAP. Sorry again, it looks like GitHub together with shared code is no good idea – or I really don't understand the details.
+
 ##Important – previous code will be broken!
 **This is a new and (I very much hope so) final modification to the structure. As you can see, the project's name is now iOSLib Unified. I have renamed (most of all will do all) classes from iOSLib… to Apple… The reason I did so is I am working on a MacOS X library to be released after Xojo2015r3 which shares a lot of the code and which will enable you to transfer many projects without a lot of manual modifications needed.**
 

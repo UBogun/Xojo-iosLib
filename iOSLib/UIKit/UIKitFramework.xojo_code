@@ -15,6 +15,18 @@ Protected Module UIKitFramework
 		Natural
 	#tag EndEnum
 
+	#tag Enum, Name = UIScrollViewIndicatorStyle, Type = Integer, Flags = &h0
+		Default
+		  Black
+		White
+	#tag EndEnum
+
+	#tag Enum, Name = UIScrollViewKeyboardDismissMode, Type = Integer, Flags = &h0
+		None
+		  OnDrag
+		Interactive
+	#tag EndEnum
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

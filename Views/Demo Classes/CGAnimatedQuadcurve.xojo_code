@@ -23,7 +23,7 @@ Protected Class CGAnimatedQuadcurve
 		  
 		  LineWidth = math.RandomInt (1, 20)
 		  MyColor = ColorExtension.RandomColor (2, 255)
-		  dim mycap as integer = math.RandomInt(0,2)
+		  dim mycap as uint32 = math.RandomInt(0,2)
 		  cap = CGLineCap (mycap)
 		  ChangeMutation
 		End Sub
@@ -129,19 +129,30 @@ Protected Class CGAnimatedQuadcurve
 			Name="cap"
 			Group="Behavior"
 			Type="CGLineCap"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Butt"
+				"1 - Round"
+				"2 - Square"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="CW"
-			Group="Behavior"
-			Type="boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Endangle"
+			Name="CPX"
 			Group="Behavior"
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="EndangleV"
+			Name="CPXV"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CPY"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CPYV"
 			Group="Behavior"
 			Type="Double"
 		#tag EndViewProperty
@@ -182,30 +193,30 @@ Protected Class CGAnimatedQuadcurve
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Radius"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="RadiusV"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="StartAngle"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="StartAngleV"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SX"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SXV"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SY"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SYV"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

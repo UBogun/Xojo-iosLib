@@ -18,6 +18,7 @@ Inherits AppleObject
 		  dim myAni as new AppleCAAnimation (animation)
 		  if not myAni.IsNIL  then myani.informonstart
 		  #Pragma Unused Pid
+		  #pragma unused SEL
 		  
 		End Function
 	#tag EndMethod
@@ -27,6 +28,7 @@ Inherits AppleObject
 		  dim myAni as new AppleCAAnimation (animation)
 		  if not myAni.IsNIL  then myani.informonstop (Finished)
 		  #Pragma Unused Pid
+		  #pragma unused SEL
 		  
 		End Function
 	#tag EndMethod
