@@ -506,6 +506,14 @@ Inherits AppleView
 			Name="TextAlignment"
 			Group="Behavior"
 			Type="NSTextAlignment"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Left"
+				"1 - Center"
+				"2 - Right"
+				"3 - Justified"
+				"4 - Natural"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextInputContextIdentifier"

@@ -17,7 +17,7 @@ Protected Module DoubleExtension
 
 	#tag Method, Flags = &h0
 		Function toCGFloatMB(extends t() as double) As xojo.core.memoryblock
-		  dim count as uinteger = t.Ubound 
+		  dim count as uinteger = t.Ubound
 		  if count > -1 then
 		    dim mb as new xojo.Core.MutableMemoryBlock ((count+1)*IntegerSize)
 		    for q as uinteger= 0 to count

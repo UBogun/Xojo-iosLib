@@ -64,7 +64,7 @@ Protected Module ObjectiveCRuntime
 	#tag Method, Flags = &h0
 		Function BuildTargetClass(superClassName as Text, newClassName as Text, methods() as TargetClassMethodHelper, Protocols() As Text) As ptr
 		  dim result as Ptr = BuildTargetClass (superClassName, newClassName, Methods)
-		  for q as uinteger= 0 to Protocols.Ubound 
+		  for q as uinteger= 0 to Protocols.Ubound
 		    if not class_addProtocol (result, NSProtocolFromString (Protocols(q))) then
 		      AppleLibSystem.MakeException ( "Couldn't add protocol "+Protocols(q)+" to class "+newClassName)
 		    end if

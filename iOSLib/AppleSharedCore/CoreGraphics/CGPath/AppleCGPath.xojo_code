@@ -136,7 +136,7 @@ Inherits AppleCFObject
 		Private Sub PathApplyTemplate(Info as Ptr, PathElement as CGPathElement)
 		  // This is a dummy template for the Apply methods.
 		  // With info, you can forward the pointer to some user data you want the method to receive
-		  // The PathElement gives you information about the pathelement the method is examining currently. 
+		  // The PathElement gives you information about the pathelement the method is examining currently.
 		  // ElementType tells you about its type and Points is an AppleArray of the points the PathElement contains
 		  
 		  

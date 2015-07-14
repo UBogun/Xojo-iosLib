@@ -468,7 +468,7 @@ Inherits AppleCFObject
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
-		Protected Shared Sub CGContextSetLineDash(id as ptr, Phase As Double, Lengths As AppleArray,  count as UInteger = 0)
+		Protected Shared Sub CGContextSetLineDash(id as ptr, Phase As Double, Lengths As AppleArray, count as UInteger = 0)
 		  if count = 0 then count = Lengths.Count
 		  #if Target64Bit
 		    Declare sub CGContextSetLineDash lib CoreGraphics (id as ptr, Phase As Double, Lengths As Ptr,  count as UInteger)
@@ -734,13 +734,13 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetLineDash(Phase As Double, Lengths As AppleArray,  count as UInteger = 0)
+		Sub SetLineDash(Phase As Double, Lengths As AppleArray, count as UInteger = 0)
 		  CGContextSetLineDash mCFTypeRef, Phase, Lengths, count
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetLineDash(Phase As Double, Lengths() As Double,  count as UInteger = 0)
+		Sub SetLineDash(Phase As Double, Lengths() As Double, count as UInteger = 0)
 		  CGContextSetLineDash mCFTypeRef, Phase, Lengths.toAppleArray, count
 		End Sub
 	#tag EndMethod
@@ -806,7 +806,7 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub UIGraphicsEndImageContext()
 		  #if TargetIOS
-		    Declare sub UIGraphicsEndImageContext lib CoreGraphics 
+		    Declare sub UIGraphicsEndImageContext lib CoreGraphics
 		    UIGraphicsEndImageContext
 		  #endif
 		End Sub

@@ -388,7 +388,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputAngleKey) then 
+			  if InputKeys.ContainsText (kCIInputAngleKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputAngleKey))
 			    return result.DoubleValue
 			  end if
@@ -405,7 +405,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputAspectRatioKey) then 
+			  if InputKeys.ContainsText (kCIInputAspectRatioKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputAspectRatioKey))
 			    return result.DoubleValue
 			  end if
@@ -450,7 +450,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputBrightnessKey) then 
+			  if InputKeys.ContainsText (kCIInputBrightnessKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputBrightnessKey))
 			    return result.DoubleValue
 			  end if
@@ -467,7 +467,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputCenterKey) then 
+			  if InputKeys.ContainsText (kCIInputCenterKey) then
 			    dim result as AppleCIVector = AppleCIVector.MakefromPtr (ValueForKey (kCIInputCenterKey))
 			    return result.toNSPoint
 			  end if
@@ -526,7 +526,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputContrastKey) then 
+			  if InputKeys.ContainsText (kCIInputContrastKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputContrastKey))
 			    return result.DoubleValue
 			  end if
@@ -543,7 +543,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputEVKey) then 
+			  if InputKeys.ContainsText (kCIInputEVKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputEVKey))
 			    return result.DoubleValue
 			  end if
@@ -560,7 +560,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputExtentKey) then 
+			  if InputKeys.ContainsText (kCIInputExtentKey) then
 			    dim result as AppleCIVector = AppleCIVector.MakefromPtr (ValueForKey (kCIInputExtentKey))
 			    return result.toNSRect
 			  end if
@@ -591,7 +591,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputIntensityKey) then 
+			  if InputKeys.ContainsText (kCIInputIntensityKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputIntensityKey))
 			    return result.DoubleValue
 			  end if
@@ -646,7 +646,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputRadiusKey) then 
+			  if InputKeys.ContainsText (kCIInputRadiusKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputRadiusKey))
 			    return result.DoubleValue
 			  end if
@@ -663,7 +663,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputSaturationKey) then 
+			  if InputKeys.ContainsText (kCIInputSaturationKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputSaturationKey))
 			    return result.DoubleValue
 			  end if
@@ -680,7 +680,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputScaleKey) then 
+			  if InputKeys.ContainsText (kCIInputScaleKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputScaleKey))
 			    return result.DoubleValue
 			  end if
@@ -697,7 +697,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputSharpnessKey) then 
+			  if InputKeys.ContainsText (kCIInputSharpnessKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputSharpnessKey))
 			    return result.DoubleValue
 			  end if
@@ -742,7 +742,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputTimeKey) then 
+			  if InputKeys.ContainsText (kCIInputTimeKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputTimeKey))
 			    return result.DoubleValue
 			  end if
@@ -759,7 +759,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputTransformKey) then 
+			  if InputKeys.ContainsText (kCIInputTransformKey) then
 			    return  CGAffineTransformForKey (kCIInputTransformKey)
 			  end if
 			End Get
@@ -775,7 +775,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputVersionKey) then 
+			  if InputKeys.ContainsText (kCIInputVersionKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputVersionKey))
 			    return result.DoubleValue
 			  end if
@@ -792,7 +792,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  if InputKeys.ContainsText (kCIInputWidthKey) then 
+			  if InputKeys.ContainsText (kCIInputWidthKey) then
 			    dim result as AppleNumber = AppleNumber.MakefromPtr (ValueForKey (kCIInputWidthKey))
 			    return result.DoubleValue
 			  end if
