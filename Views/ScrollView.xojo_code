@@ -7,18 +7,17 @@ Begin iosView ScrollView
    TabTitle        =   "AppleScrollView"
    Title           =   ""
    Top             =   0
-   Begin AppleScrollViewer AppleScrollView1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   AppleScrollView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   AppleScrollView1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -44, 
-      AutoLayout      =   AppleScrollView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   AppleScrollView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      Height          =   371.0
-      Left            =   0
+   Begin AppleScrollViewer AppleScrollViewer1
+      AutoLayout      =   AppleScrollViewer1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AppleScrollViewer1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AppleScrollViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AppleScrollViewer1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
+      Compatibility   =   ""
+      Height          =   415.0
+      Left            =   0.0
       LockedInPosition=   False
       Scope           =   0
-      Top             =   65
+      Top             =   65.0
       Visible         =   True
       Width           =   320.0
    End
@@ -48,7 +47,7 @@ End
 		    self.PushToCurl help
 		  else
 		    dim cc as new ScaleView
-		    AppleScrollView1.ScrollContent = cc
+		    AppleScrollViewer1.ScrollContent = cc
 		    scv= cc
 		  end if
 		End Sub
@@ -62,7 +61,7 @@ End
 
 #tag EndWindowCode
 
-#tag Events AppleScrollView1
+#tag Events AppleScrollViewer1
 	#tag Event
 		Sub Open()
 		  me.ScrollContent = iosliblogo
