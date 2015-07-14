@@ -27,7 +27,7 @@ Protected Class CGAnimatedArctoPoint
 		  cw = math.RandomInt (0,1) = 0
 		  Radius = math.RandomInt (1, maxx*2)
 		  MyColor = ColorExtension.RandomColor (2, 255)
-		  dim mycap as integer = math.RandomInt(0,2)
+		  dim mycap as uint32 = math.RandomInt(0,2)
 		  cap = CGLineCap (mycap)
 		  ChangeMutation
 		End Sub
@@ -154,16 +154,6 @@ Protected Class CGAnimatedArctoPoint
 			Type="boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Endangle"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="EndangleV"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -210,20 +200,30 @@ Protected Class CGAnimatedArctoPoint
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="StartAngle"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="StartAngleV"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SX"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SXV"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SY"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SYV"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -238,12 +238,32 @@ Protected Class CGAnimatedArctoPoint
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="X1"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="X1V"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="XV"
 			Group="Behavior"
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Y"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Y1"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Y1V"
 			Group="Behavior"
 			Type="Double"
 		#tag EndViewProperty

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="1206474751">
- <ObjName>AppleEventForwarder</ObjName>
+ <ObjName>AppleNSEventForwarder</ObjName>
  <ObjContainerID>1976330239</ObjContainerID>
  <IsClass>1</IsClass>
  <ItemFlags>1</ItemFlags>
@@ -30,7 +30,7 @@
   <Visible>1</Visible>
   <ItemSource>
    <TextEncoding>134217984</TextEncoding>
-   <SourceLine>Sub RegisterObserver(observer As AppleEventReceiver)</SourceLine>
+   <SourceLine>Sub RegisterObserver(observer As AppleNSEventReceiver)</SourceLine>
    <SourceLine></SourceLine>
    <SourceLine>End Sub</SourceLine>
   </ItemSource>
@@ -38,7 +38,7 @@
   <AliasName></AliasName>
   <ItemFlags>0</ItemFlags>
   <IsShared>0</IsShared>
-  <ItemParams>observer As AppleEventReceiver</ItemParams>
+  <ItemParams>observer As AppleNSEventReceiver</ItemParams>
   <ItemResult></ItemResult>
  </Method>
  <Method>

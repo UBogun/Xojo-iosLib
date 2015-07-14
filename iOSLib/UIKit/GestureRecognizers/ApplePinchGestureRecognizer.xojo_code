@@ -8,6 +8,12 @@ Inherits AppleGestureRecognizer
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As ApplePinchGestureRecognizer
+		  return if (aptr = nil, nil, new ApplePinchGestureRecognizer (aptr))
+		End Function
+	#tag EndMethod
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter

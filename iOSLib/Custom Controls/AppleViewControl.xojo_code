@@ -1,13 +1,13 @@
 #tag Class
 Protected Class AppleViewControl
 Inherits iosusercontrol
-Implements AppleEventReceiver
+Implements AppleNSEventReceiver
 	#tag Event
 		Function CreateView() As UInteger
 		  dim frame as  NSRect = nsrect (0,0,100,100)
 		  viewobject =  new appleview (frame, self)
-		  system.debuglog Integer(me.Handle).ToText + EndOfline + Integer(viewobject.id).totext
-		  Return UInteger(viewobject.id)
+		  'system.debuglog Integer(me.Handle).ToText + EndOfline + Integer(viewobject.id).totext
+		  Return UInteger(ViewObject.id)
 		  
 		  
 		  
@@ -17,7 +17,7 @@ Implements AppleEventReceiver
 
 	#tag Method, Flags = &h0
 		Sub ReceivedEvent(Details as AppleArray)
-		  // Part of the AppleEventReceiver interface.
+		  // Part of the AppleNSEventReceiver interface.
 		  if not Details.IsNIL then
 		    if Details.Count > 0 then
 		      dim compare as text = Details.TextAtIndex(0)
@@ -41,28 +41,30 @@ Implements AppleEventReceiver
 		        dim newview as AppleView  = AppleView.MakeFromPtr (Details.PtrAtIndex(1))
 		        RaiseEvent WillRemoveSubview (newview)
 		      case AppleView.TouchesBegan
-		        raiseEvent TouchesBegan (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        raiseEvent TouchesBegan (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.TouchesEnded
-		        raiseEvent TouchesEnded (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        raiseEvent TouchesEnded (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.TouchesMoved
-		        raiseEvent TouchesMoved (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        raiseEvent TouchesMoved (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.TouchesCancelled
-		        raiseEvent TouchesCancelled (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        raiseEvent TouchesCancelled (AppleSet.makefromptr (Details.PtrAtIndex(1)), AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.MotionBegan
 		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
-		        dim myType as AppleEvent.UIEventSubtype = AppleEvent.UIEventSubtype (mynumber.IntegerValue)
-		        RaiseEvent MotionBegan (mytype, AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        dim myType as AppleNSEvent.UIEventSubtype = AppleNSEvent.UIEventSubtype (mynumber.IntegerValue)
+		        RaiseEvent MotionBegan (mytype, AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.MotionEnded
 		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
-		        dim myType as AppleEvent.UIEventSubtype = AppleEvent.UIEventSubtype (mynumber.IntegerValue)
-		        RaiseEvent MotionEnded (mytype, AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        dim myType as AppleNSEvent.UIEventSubtype = AppleNSEvent.UIEventSubtype (mynumber.IntegerValue)
+		        RaiseEvent MotionEnded (mytype, AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.MotionCancelled
 		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
-		        dim myType as AppleEvent.UIEventSubtype = AppleEvent.UIEventSubtype (mynumber.IntegerValue)
-		        RaiseEvent MotionCancelled (mytype, AppleEvent.makefromptr  (Details.PtrAtIndex(2)))
+		        dim myType as AppleNSEvent.UIEventSubtype = AppleNSEvent.UIEventSubtype (mynumber.IntegerValue)
+		        RaiseEvent MotionCancelled (mytype, AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		        
 		      case AppleView.LayoutSubviews
 		        raiseevent LayoutSubviews
+		      else
+		        break
 		      End Select
 		    end if
 		  end if
@@ -96,31 +98,31 @@ Implements AppleEventReceiver
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event MotionBegan(type as AppleEvent.UIEventSubtype, anEvent as AppleEvent)
+		Event MotionBegan(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event MotionCancelled(type as AppleEvent.UIEventSubtype, anEvent as AppleEvent)
+		Event MotionCancelled(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event MotionEnded(type as AppleEvent.UIEventSubtype, anEvent as AppleEvent)
+		Event MotionEnded(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesBegan(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesBegan(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesCancelled(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesCancelled(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesEnded(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesEnded(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event TouchesMoved(Touchset as AppleSet, anEvent as AppleEvent)
+		Event TouchesMoved(Touchset as AppleSet, anEvent as AppleNSEvent)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -139,12 +141,21 @@ Implements AppleEventReceiver
 	#tag Note, Name = ReadMe
 		
 		AppleViewControl is the basic class for custom controls implementing the events of a UIView and a property holding the view alive for the livetime of the control itself.
-		AppleViewControl uses the AppleEventForwarder interface to get the events from the view. 
+		AppleViewControl uses the AppleNSEventForwarder interface to get the events from the view. 
 		
 		AppleView itself uses a shared dictionary to connect the view to the weakref of the viewcontroller. As long as the value is valid, the events are forwarded. 
 		During view destruction, the dictionary is cleaned from the entry.
 	#tag EndNote
 
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return ViewObject
+			End Get
+		#tag EndGetter
+		AppleView As AppleView
+	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
 		Private ViewObject As AppleView

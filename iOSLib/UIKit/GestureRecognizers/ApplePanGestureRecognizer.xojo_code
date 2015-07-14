@@ -9,6 +9,12 @@ Inherits AppleGestureRecognizer
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As ApplePanGestureRecognizer
+		  return if (aptr = nil, nil, new ApplePanGestureRecognizer (aptr))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function TranslationInView(aView as AppleView) As NSPoint
 		  #if Target64Bit
 		    Declare function translationInView lib UIKit selector "translationInView:" (id as ptr, view as ptr) as NSPoint

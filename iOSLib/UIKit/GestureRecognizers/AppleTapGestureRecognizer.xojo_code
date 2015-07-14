@@ -1,11 +1,23 @@
 #tag Class
 Protected Class AppleTapGestureRecognizer
 Inherits AppleGestureRecognizer
+	#tag Method, Flags = &h1021
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1000
 		Sub Constructor(target as AppleObject, SEL as ptr)
 		  Super.Constructor (classptr, Target, SEL)
 		  
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As AppleTapGestureRecognizer
+		  return if (aptr = nil, nil, new AppleTapGestureRecognizer (aptr))
+		End Function
 	#tag EndMethod
 
 

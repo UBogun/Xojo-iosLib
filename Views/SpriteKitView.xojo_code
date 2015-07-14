@@ -12,10 +12,10 @@ Begin iosView SpriteKitView
       AccessibilityLabel=   ""
       AllowsTransparency=   False
       Asynchronous    =   False
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
       FrameInterval   =   0
       Height          =   407.0
       IgnoresSiblingOrder=   False
@@ -445,7 +445,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub ProcessSpaceShooterTouch(touchset as AppleSet, nsevent as AppleEvent)
+		Private Sub ProcessSpaceShooterTouch(touchset as AppleSet, nsevent as AppleNSEvent)
 		  if CanSteer then
 		    dim touch as AppleSKTouch = AppleSKTouch.MakeFromPtr (touchset.AllObjects.PtrAtIndex(0)) // get the first touch item of the array
 		    dim location as NSPoint = touch.LocationInNode (SpaceShooterScene) // and convert its point to view points
@@ -912,7 +912,7 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub TouchesEnded(Touchset as AppleSet, anEvent as AppleEvent)
+		Sub TouchesEnded(Touchset as AppleSet, anEvent as AppleNSEvent)
 		  select case me.scene.name
 		  case "SpaceShooter"
 		    ProcessSpaceShooterTouch (Touchset, anEvent)
