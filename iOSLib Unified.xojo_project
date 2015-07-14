@@ -192,7 +192,6 @@ iOSView=ColorPickerView;iOSLib/Custom Controls/ColorPickerView.xojo_code;&h70B54
 Class=AppleColorPicker;iOSLib/Custom Controls/AppleColorPicker.xojo_code;&h18B67FFF;&h353BE7FF;false
 Class=iOSLibGradientView;iOSLib/Custom Controls/iOSLibGradientView.xojo_code;&h967F7FF;&h353BE7FF;false
 Class=AppleScrollViewer;iOSLib/Custom Controls/AppleScrollViewer.xojo_code;&h2455EFFF;&h353BE7FF;false
-Class=AppleScrollViewControl;iOSLib/Custom Controls/AppleScrollViewControl.xojo_code;&h6DEF0FFF;&h353BE7FF;false
 Folder=Class Extensions;iOSLib/Class Extensions;&hE10FFFF;&h59E847FF;false
 Module=iOSSwitchExtension;iOSLib/Class Extensions/iOSSwitchExtension.xojo_code;&h1FD1F7FF;&hE10FFFF;false
 Module=iOSGraphicsExtension;iOSLib/Class Extensions/iOSGraphicsExtension.xojo_code;&h9EC87FF;&hE10FFFF;false
