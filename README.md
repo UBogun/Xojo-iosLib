@@ -10,7 +10,7 @@ You are very welcome to send additions, declares or more convenience methods tha
 #Very important – New, easier structure!
 As I was having troubles too often with th project not finding its external files anymore, I have included external files now. You will most probably only have to locate images and sounds once.
 **As a side effect, there is now one main project containing iOSLib and the splash screen. The demo views have moved to different separate projects in a Demo projects folder.**  
-**_Please note you have to copy the iOSLib folder from the main project into the demo projects. Else they will not run!_**  
+###Please note you have to copy the iOSLib folder from the main project into the demo projects. Else they will not run!  
 
 ##Important – previous code will be broken!
 **This is a new and (I very much hope so) final modification to the structure. As you can see, the project's name is now iOSLib Unified. I have renamed (most of all will do all) classes from iOSLib… to Apple… The reason I did so is I am working on a MacOS X library to be released after Xojo2015r3 which shares a lot of the code and which will enable you to transfer many projects without a lot of manual modifications needed.**
