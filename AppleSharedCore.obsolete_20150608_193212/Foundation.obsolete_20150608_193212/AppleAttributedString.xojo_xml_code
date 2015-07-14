@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
+<RBProject version="2015r2.2" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="1152454655">
  <ObjName>AppleAttributedString</ObjName>
  <ObjContainerID>308434943</ObjContainerID>
@@ -367,16 +367,6 @@
    <ItemType>Boolean</ItemType>
   </ViewProperty>
   <ViewProperty>
-   <ObjName>RetainCount</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInteger</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Hash</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInteger</ItemType>
-  </ViewProperty>
-  <ViewProperty>
    <ObjName>Index</ObjName>
    <Visible>1</Visible>
    <PropertyGroup>ID</PropertyGroup>
@@ -413,11 +403,6 @@
    <ObjName>toText</ObjName>
    <PropertyGroup>Behavior</PropertyGroup>
    <ItemType>Text</ItemType>
-  </ViewProperty>
-  <ViewProperty>
-   <ObjName>Length</ObjName>
-   <PropertyGroup>Behavior</PropertyGroup>
-   <ItemType>UInteger</ItemType>
   </ViewProperty>
  </ViewBehavior>
  <Constant>

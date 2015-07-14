@@ -1,66 +1,35 @@
 #tag Class
-Protected Class AppleControl
-Inherits AppleView
-	#tag Method, Flags = &h0
-		Function Actions(Target as appleobject, Events as UIControlEvent) As AppleArray
-		  Declare function actionsForTarget lib UIKit selector "actionsForTarget:forControlEvents:" (id as ptr, target as ptr, events as UInteger) as ptr
-		  return AppleArray.MakeFromPtr (actionsForTarget(id, Target.id, Events.id))
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub AddTarget(Target as appleobject, SEL as Ptr, Events as UIControlEvent)
-		  Declare Sub addTarget lib UIKit selector "addTarget:action:forControlEvents:" (id as ptr, target as ptr, SEL as ptr, events as UInteger)
-		  addTarget id, target.id, sel, Events.id
+Protected Class AppleSwitch
+Inherits AppleControl
+	#tag Method, Flags = &h21
+		Private Sub Constructor()
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RemoveTarget(Target as appleobject, SEL as Ptr, Events as UIControlEvent)
-		  Declare Sub removeTarget lib UIKit selector "removeTarget:action:forControlEvents:" (id as ptr, target as ptr, SEL as ptr, events as UInteger)
-		  removeTarget id, target.id, sel, Events.id
+		Sub Constructor(Frame as NSRect)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleView
+		  // Constructor(aFrame As NSRect) -- From AppleView
+		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (DoInitWithFrame (alloc(ClassPtr), Frame))
+		  mHasOwnership = true
+		  
+		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub SendAction(SEL as Ptr, Target as AppleObject, UIEvent as AppleNSEvent)
-		  Declare Sub sendActionTo lib UIKit selector "sendAction:to:forEvent:" (id as ptr, SEL as ptr, Target as Ptr, UIEvent as ptr)
-		  SendActionTo id, SEL, Target.id, UIEvent.id
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub SendActions(Events as UIControlEvent)
-		  Declare Sub sendActions lib UIKit selector "sendActionsForControlEvents:" (id as ptr, events as UInteger)
-		  SendActions id, Events.id
-		End Sub
-	#tag EndMethod
-
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function allControlEvents lib UIKit selector "allControlEvents" (id as ptr) as UInteger
-			  return new UIControlEvent(allControlEvents(id))
-			End Get
-		#tag EndGetter
-		AllControlEvents As UIControlEvent
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function allTargets lib UIKit selector "allTargets" (id as ptr) as ptr
-			  return appleset.MakeFromPtr (allTargets(id))
-			End Get
-		#tag EndGetter
-		AllTargets As AppleSet
-	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIControl")
+			  static mClassPtr as Ptr = NSClassFromString ("UISwitch")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -70,136 +39,50 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function contentHorizontalAlignment lib UIKit selector "contentHorizontalAlignment" (id as ptr) as UIControlContentHorizontalAlignment
-			  return contentHorizontalAlignment (id)
+			  Declare Function isOn lib UIKit selector "isOn" (id as ptr) as Boolean
+			  return ison (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setcontentHorizontalAlignment lib UIKit selector "contentHorizontalAlignment:" (id as ptr, value as UIControlContentHorizontalAlignment)
-			  setcontentHorizontalAlignment id, value
+			  Declare Sub setOn lib UIKit selector "setOn:" (id as ptr, value as Boolean)
+			  setOn id, value
 			End Set
 		#tag EndSetter
-		ContentHorizontalAlignment As UIControlContentHorizontalAlignment
+		On As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function contentVerticalAlignment lib UIKit selector "contentVerticalAlignment" (id as ptr) as UIControlContentVerticalAlignment
-			  return contentVerticalAlignment (id)
+			  Declare Function onTintColor lib UIKit selector "onTintColor" (id as ptr) as Ptr
+			  return applecolor.MakeFromPtr (onTintColor (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setContentVerticalAlignment lib UIKit selector "setContentVerticalAlignment:" (id as ptr, value as UIControlContentVerticalAlignment)
-			  setContentVerticalAlignment id, value
+			  Declare Sub setOnTintColor lib UIKit selector "setOnTintColor:" (id as ptr, value as Ptr)
+			  setOnTintColor id, value.id
 			End Set
 		#tag EndSetter
-		ContentVerticalAlignment As UIControlContentVerticalAlignment
+		OnTintColor As Applecolor
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function enabled lib UIKit selector "isEnabled" (id as ptr) as Boolean
-			  return enabled (id)
+			  Declare Function thumbTintColor lib UIKit selector "thumbTintColor" (id as ptr) as Ptr
+			  return applecolor.MakeFromPtr (thumbTintColor (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setEnabled lib UIKit selector "setEnabled:" (id as ptr, value as Boolean)
-			  setenabled id, value
+			  Declare Sub setThumbTintColor lib UIKit selector "setThumbTintColor:" (id as ptr, value as Ptr)
+			  setThumbTintColor id, value.id
 			End Set
 		#tag EndSetter
-		Enabled As Boolean
+		ThumbTintColor As Applecolor
 	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function Highlighted lib UIKit selector "isHighlighted" (id as ptr) as Boolean
-			  return Highlighted (id)
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare sub setHighlighted lib UIKit selector "setHighlighted:" (id as ptr, value as Boolean)
-			  setHighlighted id, value
-			End Set
-		#tag EndSetter
-		Highlighted As Boolean
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function selected lib UIKit selector "isSelected" (id as ptr) as Boolean
-			  return selected (id)
-			End Get
-		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare sub setSelected lib UIKit selector "setSelected:" (id as ptr, value as Boolean)
-			  setSelected id, value
-			End Set
-		#tag EndSetter
-		Selected As Boolean
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function state lib UIKit selector "state" (id as ptr) as UIControlState
-			  return state (id)
-			End Get
-		#tag EndGetter
-		State As UIControlState
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function isTouchInside lib UIKit selector "isTouchInside" (id as ptr) as Boolean
-			  return isTouchInside (id)
-			End Get
-		#tag EndGetter
-		TouchInside As Boolean
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Declare function tracking lib UIKit selector "isTracking" (id as ptr) as Boolean
-			  return tracking (id)
-			End Get
-		#tag EndGetter
-		Tracking As Boolean
-	#tag EndComputedProperty
-
-
-	#tag Enum, Name = UIControlContentHorizontalAlignment, Type = Integer, Flags = &h0
-		Center
-		  Left
-		  Right
-		Fill
-	#tag EndEnum
-
-	#tag Enum, Name = UIControlContentVerticalAlignment, Type = Integer, Flags = &h0
-		Center
-		  Top
-		  Bottom
-		Fill
-	#tag EndEnum
-
-	#tag Enum, Name = UIControlState, Type = UInteger, Flags = &h0
-		Normal
-		  Highlighted
-		  Disabled
-		  Selected
-		  Application
-		Reserved
-	#tag EndEnum
 
 
 	#tag ViewBehavior
@@ -362,6 +245,11 @@ Inherits AppleView
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="On"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Opaque"

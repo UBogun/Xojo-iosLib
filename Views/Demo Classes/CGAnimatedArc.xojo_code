@@ -20,7 +20,7 @@ Protected Class CGAnimatedArc
 		  cw = math.RandomInt (0,1) = 0
 		  Radius = math.RandomInt (1, maxx*2)
 		  MyColor = ColorExtension.RandomColor (2, 255)
-		  dim mycap as integer = math.RandomInt(0,2)
+		  dim mycap as uint32 = math.RandomInt(0,2)
 		  cap = CGLineCap (mycap)
 		  ChangeMutation
 		End Sub

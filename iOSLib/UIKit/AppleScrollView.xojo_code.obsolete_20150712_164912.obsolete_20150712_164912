@@ -1,166 +1,231 @@
 #tag Class
-Protected Class AppleImageView
+Protected Class AppleScrollView
 Inherits AppleView
+	#tag Method, Flags = &h1021
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1000
-		Sub Constructor(animage as appleimage)
-		  Declare Function initWithImage lib UIKit selector "initWithImage:" (id as ptr, animage as ptr) as ptr
-		  // Calling the overridden superclass constructor.
-		  // Note that this may need modifications if there are multiple constructor choices.
-		  // Possible constructor calls:
-		  // Constructor() -- From AppleView
-		  // Constructor(aFrame As NSRect) -- From AppleView
-		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
-		  // Constructor() -- From AppleResponder
-		  // Constructor() -- From AppleObject
-		  // Constructor(AnId as Ptr) -- From AppleObject
-		  Super.Constructor (initWithImage(alloc(classptr), animage.id))
-		  MHasOwnership = true
+		Sub Constructor(aFrame As NSRect)
+		  Super.Constructor (DoInitWithFrame (alloc(ClassPtr), aFrame))
+		  mHasOwnership = true
+		  setDelegate id, id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(aFrame As NSRect, observer as AppleEventReceiver)
+		  Constructor (aFrame)
+		  RegisterObserver (observer)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonDidAddSubview  (view)
-		  #Pragma Unused Sel
 		  
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_DidMoveToSuperview(pid as ptr, sel as ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonDidMoveToSuperview
 		  
-		  #Pragma Unused Sel
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_DidMoveToWindow(pid as ptr, sel as ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonDidMoveToWindow
 		  
-		  #Pragma Unused Sel
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as NSRect32Bit)
+		  dim ego as new AppleScrollView (pid)
+		  ego.informonDrawRect (rect.toNSRect)
 		  
+		  
+		  
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as NSRect)
+		  dim ego as new AppleScrollView (pid)
+		  ego.informonDrawRect (rect)
+		  
+		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_LayoutSubviews(pid as ptr, sel as ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonlayoutSubviews
 		  
-		  #Pragma Unused Sel
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
-		  dim ego as new AppleImageView (pid)
+		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonMotionBeganwithEvent  (type, anEvent)
-		  #Pragma Unused Sel
 		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
-		  dim ego as new AppleImageView (pid)
+		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonMotionCancelledwithEvent  (type, anEvent)
-		  #Pragma Unused Sel
 		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
-		  dim ego as new AppleImageView (pid)
+		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, Type as AppleEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonMotionEndedwithEvent  (type, anEvent)
-		  #Pragma Unused Sel
 		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_TouchesBeganWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonTouchesBeganwithEvent  (Touchset, anEvent)
 		  
-		  #Pragma Unused Sel
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_TouchesCancelledWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonTouchesCancelledwithEvent  (Touchset, anEvent)
 		  
-		  #Pragma Unused Sel
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_TouchesEndedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonTouchesEndedwithEvent  (Touchset, anEvent)
 		  
-		  #Pragma Unused Sel
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_TouchesMovedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonTouchesMovedwithEvent  (Touchset, anEvent)
 		  
-		  #Pragma Unused Sel
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_WillBeginDragging(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new AppleScrollView (pid)
+		  ego.informonWillBeginDragging 
 		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willBeginZooming(pid as ptr, sel as ptr, scroller as ptr, view as Ptr)
+		  dim ego as new AppleScrollView (pid)
+		  break
+		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_willMoveToSuperview(pid as ptr, sel as ptr, view as Ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonwillMoveToSuperview  (view)
 		  
-		  #Pragma Unused Sel
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_willMoveToWindow(pid as ptr, sel as ptr, window as Ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonwillMoveToWindow (window)
 		  
-		  #Pragma Unused Sel
-		  
+		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_willRemoveSubview(pid as ptr, sel as ptr, view as Ptr)
-		  dim ego as new AppleImageView (pid)
+		  dim ego as new AppleScrollView (pid)
 		  ego.informonwillRemoveSubview  (view)
 		  
-		  #Pragma Unused Sel
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonWillBeginDragging()
+		  RaiseEvent DragBegin
+		  
+		  If Observers.HasKey(id) then
+		    dim myarray as new AppleMutableArray(1)
+		    myarray.AddText  WillBeginDragging
+		    NotifyObservers (myarray)
+		  End If
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MakeFromPtr(aPtr as Ptr) As AppleImageView
-		  return if (aptr <> NIL, new AppleImageView (aptr), NIL)
+		 Shared Function MakeFromPtr(aPtr as Ptr) As AppleScrollView
+		  return if (aptr = nil, nil, new AppleScrollView(aptr))
 		End Function
 	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub NotifyObservers(EventProperties As AppleArray)
+		  // Part of the AppleEventForwarder interface.
+		  if Observers.HasKey (id)  then
+		    dim wr as weakref = Observers.Value (id)
+		    if wr <> NIL then
+		      dim myControl as  AppleScrollViewer = AppleScrollViewer(wr.Value)
+		      myControl.ReceivedEvent EventProperties
+		    end if
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event DragBegin()
+	#tag EndHook
 
 
 	#tag ComputedProperty, Flags = &h1
@@ -188,14 +253,94 @@ Inherits AppleView
 			    methods.Append new TargetClassMethodHelper("motionEnded:withEvent:", AddressOf impl_MotionEndedWithEvent, "v@:i@")
 			    methods.Append new TargetClassMethodHelper("motionCancelled:withEvent:", AddressOf impl_MotionCancelledWithEvent, "v@:i@")
 			    
+			    methods.Append new TargetClassMethodHelper("scrollViewWillBeginDragging", AddressOf impl_WillBeginDragging, "v@:@")
+			    methods.Append new TargetClassMethodHelper("scrollViewWillBeginZooming:withView:",AddressOf impl_willBeginZooming,"v@:@@")
 			    
-			    targetID = BuildTargetClass ("UIImageView", "iOSLibUIImageView",methods)
+			    #if Target64Bit
+			      methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")
+			    #elseif Target32Bit
+			      methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect32, "v@:{CGRect}")
+			    #endif
+			    
+			    targetID = BuildTargetClass ("UIScrollView", "iOSLibScrollView",methods)
 			  end if
 			  Return targetID
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if Target64Bit
+			    Declare function contentOffset lib UIKit selector "contentOffset" (id as ptr) as NSPoint
+			    return contentOffset (id)
+			  #elseif Target32Bit
+			    Declare function contentOffset lib UIKit selector "contentOffset" (id as ptr) as NSPoint32Bit
+			    return contentOffset(id).toNSPoint
+			  #endif
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    Declare sub setContentOffset lib UIKit selector "setContentOffset:" (id as ptr, value as NSPoint)
+			    setContentOffset (id, value)
+			  #elseif Target32Bit
+			    Declare sub setContentOffset lib UIKit selector "setContentOffset:" (id as ptr, value as NSPoint32Bit)
+			    setContentOffset (id, value.toNSPoint32)
+			  #endif
+			End Set
+		#tag EndSetter
+		ContentOffset As NSPoint
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if Target64Bit
+			    Declare function contentSize lib UIKit selector "contentSize" (id as ptr) as NSSize
+			    return contentSize (id)
+			  #elseif Target32Bit
+			    Declare function contentSize lib UIKit selector "contentSize" (id as ptr) as NSSize32Bit
+			    return contentSize(id).toNSSize
+			  #endif
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    Declare sub setContentSize lib UIKit selector "setContentSize:" (id as ptr, value as NSSize)
+			    setcontentSize (id, value)
+			  #elseif Target32Bit
+			    Declare sub setContentSize lib UIKit selector "setContentSize:" (id as ptr, value as NSSize32Bit)
+			    setcontentSize (id, value.toNSSize32)
+			  #endif
+			End Set
+		#tag EndSetter
+		ContentSize As NSSize
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function scrollEnabled lib UIKit selector "isScrollEnabled" (id as ptr) as Boolean
+			  Return scrollEnabled (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setScrollEnabled lib UIKit selector "setScrollEnabled:" (id as ptr, value as Boolean)
+			  setScrollEnabled id, value
+			End Set
+		#tag EndSetter
+		ScrollEnabled As Boolean
+	#tag EndComputedProperty
+
+
+	#tag Constant, Name = WillBeginDragging, Type = Text, Dynamic = False, Default = \"WillBeginDragging", Scope = Public
+	#tag EndConstant
 
 
 	#tag ViewBehavior
@@ -339,6 +484,11 @@ Inherits AppleView
 			Name="RetainCount"
 			Group="Behavior"
 			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ScrollEnabled"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

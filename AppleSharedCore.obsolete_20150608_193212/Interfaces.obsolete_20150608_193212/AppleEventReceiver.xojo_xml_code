@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RBProject version="2015r3" FormatVersion="2" MinIDEVersion="20140300">
 <block type="Module" ID="524488703">
- <ObjName>AppleEventReceiver</ObjName>
+ <ObjName>AppleNSEventReceiver</ObjName>
  <ObjContainerID>1976330239</ObjContainerID>
  <IsClass>1</IsClass>
  <ItemFlags>1</ItemFlags>
