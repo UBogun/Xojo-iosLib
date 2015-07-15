@@ -1,0 +1,231 @@
+#tag Class
+Protected Class AppleCAGradientLayer
+Inherits AppleCALayer
+	#tag Method, Flags = &h1000
+		Sub Constructor()
+		  
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleCALayer
+		  // Constructor(aLayer As AppleCALayer) -- From iAppleCALayer// Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (Init(Alloc(ClassPtr)))
+		  mhasownership = true
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(ColorArray() As Color)
+		  
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleCALayer
+		  // Constructor(aLayer As AppleCALayer) -- From iAppleCALayer// Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (Init(Alloc(ClassPtr)))
+		  SetColors  (colorarray)
+		  mhasownership = true
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(ColorArray() As Color, LocationsArray() As Double)
+		  
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleCALayer
+		  // Constructor(aLayer As AppleCALayer) -- From iAppleCALayer// Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (Init(Alloc(ClassPtr)))
+		  mhasownership = true
+		  SetColors colorarray
+		  SetLocations LocationsArray
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(ColorArray() As Color, LocationsArray() As Double, Start_point as xojo.core.Point, End_point as xojo.core.Point)
+		  
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleCALayer
+		  // Constructor(aLayer As AppleCALayer) -- From iAppleCALayer// Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (Init(Alloc(ClassPtr)))
+		  mhasownership = true
+		  
+		  SetColors (colorarray)
+		  SetLocations LocationsArray
+		  startpoint = start_point.toNSPoint
+		  EndPoint = End_point.toNSPoint
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub DistributeLocationsEvenly()
+		  Locations = nil
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub SetColors(ColorArray() As Color)
+		  Colors = AppleMutableArray.CGColorArray (colorarray)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub SetColors(paramarray ColorArray() As Color)
+		  Colors = AppleMutableArray.CGColorArray (colorarray)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub SetLocations(LocationArray() As Double)
+		  Locations = AppleMutableArray.NumberArray (locationarray)
+		  
+		End Sub
+	#tag EndMethod
+
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static mClassPtr as Ptr = NSClassFromString ("CAGradientLayer")
+			  return mClassPtr
+			End Get
+		#tag EndGetter
+		Protected Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function colors lib QuartzCore selector "colors" (id as ptr) as Ptr
+			  Return AppleArray.MakeFromPtr (colors (id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setColors lib QuartzCore selector "setColors:" (id as ptr, value as ptr)
+			  setColors (id, value.Id)
+			End Set
+		#tag EndSetter
+		Colors As AppleArray
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if target64bit
+			    declare function endPoint lib QuartzCore selector "endPoint" (id as ptr) as NSPoint
+			    return endPoint (id)
+			  #elseif Target32Bit
+			    declare function endPoint lib QuartzCore selector "endPoint" (id as ptr) as NSPoint32Bit
+			    return endPoint(id).toNSPoint
+			  #endif
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if target64bit
+			    declare Sub setEndPoint lib QuartzCore selector "setEndPoint:" (id as ptr, value as NSPoint)
+			    setEndPoint (id, value)
+			  #elseif Target32Bit
+			    declare Sub setEndPoint lib QuartzCore selector "setEndPoint:" (id as ptr, value as NSPoint32Bit)
+			    setEndPoint (id, value.toNSPoint32)
+			  #endif
+			End Set
+		#tag EndSetter
+		EndPoint As NSPoint
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function locations lib QuartzCore selector "locations" (id as ptr) as Ptr
+			  Return AppleArray.MakeFromPtr (locations (id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setLocations lib QuartzCore selector "setLocations:" (id as ptr, value as ptr)
+			  setLocations (id, if (value <> NIL, value.Id, NIL))
+			End Set
+		#tag EndSetter
+		Locations As AppleArray
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if target64bit
+			    declare function startPoint lib QuartzCore selector "startPoint" (id as ptr) as NSPoint
+			    return startPoint (id)
+			  #elseif Target32Bit
+			    declare function startPoint lib QuartzCore selector "startPoint" (id as ptr) as NSPoint32Bit
+			    return startPoint(id).toNSPoint
+			  #endif
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if target64bit
+			    declare Sub setStartPoint lib QuartzCore selector "setStartPoint:" (id as ptr, value as NSPoint)
+			    setStartPoint (id, value)
+			  #elseif Target32Bit
+			    declare Sub setStartPoint lib QuartzCore selector "setStartPoint:" (id as ptr, value as NSPoint32Bit)
+			    setStartPoint (id, value.toNSPoint32)
+			  #endif
+			End Set
+		#tag EndSetter
+		StartPoint As NSPoint
+	#tag EndComputedProperty
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass

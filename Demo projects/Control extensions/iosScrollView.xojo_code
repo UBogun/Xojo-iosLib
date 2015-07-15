@@ -8,20 +8,24 @@ Begin iosView iosScrollView
    Title           =   ""
    Top             =   0
    Begin AppleScrollViewer AppleScrollViewControl1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AlwaysBounceHorizontal=   True
       AlwaysBounceVertical=   True
-      AutoLayout      =   AppleScrollViewControl1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   AppleScrollViewControl1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   AppleScrollViewControl1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AppleScrollViewControl1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   AppleScrollViewControl1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   AppleScrollViewControl1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AppleScrollViewControl1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       BackgroundColor =   &cFFFFFF00
       Bounces         =   True
       BouncesZoom     =   True
       CanCancelContentTouches=   False
-      DecelerationRate=   0.9979999999999999982236
+      Decelerating    =   False
+      DecelerationRate=   1.0
       DirectionalLock =   False
+      Dragging        =   False
       Height          =   460.0
-      Left            =   0.0
+      Left            =   0
       LockedInPosition=   False
       MaximumZoomScale=   5.0
       MinimumZoomScale=   0.1000000000000000055511
@@ -31,10 +35,13 @@ Begin iosView iosScrollView
       ScrollsToTop    =   True
       ShowsHorizontalScrollIndicator=   True
       ShowsVerticalScrollIndicator=   True
-      Top             =   20.0
+      Top             =   20
+      Tracking        =   False
       Visible         =   True
       Width           =   320.0
       Zoomable        =   True
+      ZoomBouncing    =   False
+      Zooming         =   False
       ZoomOnDoubleTap =   True
       ZoomScale       =   1.0
    End
@@ -58,12 +65,13 @@ End
 		  if button.Caption = "Help" then
 		    dim i as new InfoView("AppleScrollView and its custom control AppleScrollViewer allow you to scroll and zoom any content – the contentView is basically just a view and convenience methods exist to get one from an iOSImage, an iOSControl or a complete iOSView."+ EndOfline+ _
 		    "Try dragging, zooming and double/two-finger taps on the view"+ EndOfline +EndOfline+ _
-		    "Next would be to try to stitch together one big viw from different views so we can have a UI that goes beyond a devices' borders")
+		    "Next would be to try to stitch together one big view from different views so we can have a UI that goes beyond a devices' borders")
 		    self.PushToCurl i
 		  else
-		    dim i as new ButtonView
-		    AppleScrollViewControl1.ScrollContent = i
-		    InterActiveContent = i
+		    dim v1 as new menuview
+		    dim v2 as new TextFieldView
+		    dim v3 as new buttonview
+		    AppleScrollViewControl1.SetMultiViewScrollContent  (v1, v2, v3)
 		  end if
 		End Sub
 	#tag EndEvent
@@ -71,6 +79,10 @@ End
 
 	#tag Property, Flags = &h21
 		Private InterActiveContent As iOSView
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private InterActiveContent1 As iOSView
 	#tag EndProperty
 
 

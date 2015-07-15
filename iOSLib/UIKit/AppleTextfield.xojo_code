@@ -530,6 +530,16 @@ Inherits AppleControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AutoresizesSubviews"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="BorderStyle"
 			Group="Behavior"
 			Type="UITextFieldBorderStyle"
@@ -559,12 +569,112 @@ Inherits AppleControl
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="ClearsContextBeforeDrawing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ClearsOnEditBegin"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsOnInsertion"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ClipsToBounds"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentHorizontalAlignment"
+			Group="Behavior"
+			Type="UIControlContentHorizontalAlignment"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Center"
+				"1 - Left"
+				"2 - Right"
+				"3 - Fill"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentMode"
+			Group="Behavior"
+			Type="UIViewContentMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - ScaleToFill"
+				"1 - ScaleAspectFit"
+				"2 - ScaleAspectFill"
+				"3 - Redraw"
+				"4 - Center"
+				"5 - Top"
+				"6 - Bottom"
+				"7 - Left"
+				"8 - Right"
+				"9 - TopLeft"
+				"10 - TopRight"
+				"11 - BottomLeft"
+				"12 - BottomRight"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentScaleFactor"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentVerticalAlignment"
+			Group="Behavior"
+			Type="UIControlContentVerticalAlignment"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Center"
+				"1 - Top"
+				"2 - Bottom"
+				"3 - Fill"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Enabled"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExclusiveTouch"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasAmbiguousLayout"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hidden"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Highlighted"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -577,6 +687,21 @@ Inherits AppleControl
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="isEditing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -600,9 +725,19 @@ Inherits AppleControl
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="MinimumFontSize"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MultipleTouchEnabled"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -611,9 +746,19 @@ Inherits AppleControl
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Opaque"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Placeholder"
 			Group="Behavior"
 			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="PreservesSuperviewLayoutMargins"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RightViewMode"
@@ -628,10 +773,50 @@ Inherits AppleControl
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Selected"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="State"
+			Group="Behavior"
+			Type="UIControlState"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Normal"
+				"1 - Highlighted"
+				"2 - Disabled"
+				"3 - Selected"
+				"4 - Application"
+				"5 - Reserved"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Tag"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TintAdjustmentMode"
+			Group="Behavior"
+			Type="UIViewTintAdjustmentMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Automatic"
+				"1 - Normal"
+				"2 - Dimmed"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -639,6 +824,26 @@ Inherits AppleControl
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TouchInside"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Tracking"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TranslatesAutoresizingMaskIntoConstraints"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UserInteractionEnabled"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

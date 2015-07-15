@@ -1094,9 +1094,29 @@ Inherits AppleCFObject
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="BlendMode"
+			Group="Behavior"
+			Type="CGBlendMode"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CFTypeDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Flatness"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -1106,11 +1126,36 @@ Inherits AppleCFObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="InterpolationQuality"
+			Group="Behavior"
+			Type="CGInterpolationQuality"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="LineCap"
+			Group="Behavior"
+			Type="CGLineCap"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="LineJoin"
+			Group="Behavior"
+			Type="CGLineJoin"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MiterLimit"
@@ -1127,6 +1172,16 @@ Inherits AppleCFObject
 			Name="PathIsEmpty"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RenderingIntent"
+			Group="Behavior"
+			Type="CGColorRenderingIntent"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ShouldSmoothFonts"
@@ -1148,6 +1203,11 @@ Inherits AppleCFObject
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextDrawingMode"
+			Group="Behavior"
+			Type="CGTextDrawingMode"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

@@ -101,11 +101,83 @@ Inherits AppleAVPlayer
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="actionAtItemEnd"
+			Group="Behavior"
+			Type="AVPlayerActionAtItemEnd"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Advance"
+				"1 - Pause"
+				"2 - None"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AllowsExternalPlayback"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AutomaticMediaSelection"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ClosedCaption"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExternalPlaybackActive"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExternalPlaybackVideoGravity"
+			Group="Behavior"
+			Type="AVLayerGravity"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Fill"
+				"1 - FitProportional"
+				"2 - FillProportional"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExternalPlaybackWhileExternalScreenActive"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -115,10 +187,36 @@ Inherits AppleAVPlayer
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Muted"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Rate"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Status"
+			Group="Behavior"
+			Type="AVPlayerStatus"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Unknown"
+				"1 - ReadyToPlay"
+				"2 - Failed"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
@@ -132,6 +230,11 @@ Inherits AppleAVPlayer
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Volume"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

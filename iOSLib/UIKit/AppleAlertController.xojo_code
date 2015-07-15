@@ -93,11 +93,41 @@ Inherits AppleViewController
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -110,6 +140,40 @@ Inherits AppleViewController
 			Name="Message"
 			Group="Behavior"
 			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ModalPresentationStyle"
+			Group="Behavior"
+			Type="UIViewModalPresentationStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - FullScreen"
+				"1 - PageSheet"
+				"2 - FormSheet"
+				"3 - CurrentContext"
+				"4 - Custom"
+				"5 - OverFullScreen"
+				"6 - OverCurrentContext"
+				"7 - PopOver"
+				"-1 - None"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ModalTransitonStyle"
+			Group="Behavior"
+			Type="UIModalTransitionStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - CoverVertical"
+				"1 - FlipHorizontal"
+				"2 - CrossDissolve"
+				"3 - PartialCurl"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -132,6 +196,11 @@ Inherits AppleViewController
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Title"

@@ -42,6 +42,7 @@ Implements AppleNSEventReceiver
 		        RaiseEvent DidMoveToSuperview
 		      case AppleView.DidMoveToWindow
 		        RaiseEvent DidMoveToWindow
+		        OrientationFrame = me.AppleView.Frame
 		      case AppleView.WillRemoveSubview
 		        dim newview as AppleView  = AppleView.MakeFromPtr (Details.PtrAtIndex(1))
 		        RaiseEvent WillRemoveSubview (newview)
@@ -66,6 +67,13 @@ Implements AppleNSEventReceiver
 		        dim myType as AppleNSEvent.UIEventSubtype = AppleNSEvent.UIEventSubtype (mynumber.IntegerValue)
 		        RaiseEvent MotionCancelled (mytype, AppleNSEvent.makefromptr  (Details.PtrAtIndex(2)))
 		      case AppleView.LayoutSubviews
+		        if OrientationFrame.size_.width <> me.AppleView.Frame.size_.width then
+		          OrientationFrame = me.AppleView.Frame
+		          RaiseEvent OrientationChanged
+		          if ViewArray.Ubound > -1 then
+		            StitchViews
+		          end if
+		        end if
 		        raiseevent LayoutSubviews
 		      case appleview.DrawRect
 		        dim mynumber as AppleNumber = AppleNumber.MakefromPtr(Details.PtrAtIndex(1))
@@ -115,19 +123,28 @@ Implements AppleNSEventReceiver
 
 	#tag Method, Flags = &h0
 		Sub ScrollContent(assigns value as iOSControl)
+		  redim ViewArray(-1)
 		  AppleView.ContentView = new appleimageview (value.Handle)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ScrollContent(assigns value as iosimage)
+		  redim ViewArray(-1)
 		  AppleView.ContentView = new appleimageview (new appleimage(value))
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ScrollContent(assigns value as iOSView)
+		  redim ViewArray(-1)
 		  AppleView.ContentView = new appleview (value.ViewHandle)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ScrollContentWithOutClear(assigns value as iosimage)
+		  AppleView.ContentView = new appleimageview (new appleimage(value))
 		End Sub
 	#tag EndMethod
 
@@ -154,6 +171,26 @@ Implements AppleNSEventReceiver
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub SetMultiViewScrollContent(paramarray value() as iOSView)
+		  // Courtesy of Tom Iwaniec 
+		  
+		  redim ViewArray(-1) // release old views
+		  
+		  ///get max height and save to InterActiveContent
+		  for i as integer=0 to UBound(value)
+		    dim currentView as iosView = value(i)
+		    ViewArray.Append currentView
+		  next
+		  
+		  StitchViews
+		  
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub SetScrollIndictaorInsets(top as double, left as double, bottom as double, right as double)
 		  ViewObject.ScrollIndicatorInsets = UIEdgeInsets(top, left, bottom, right)
 		End Sub
@@ -162,6 +199,34 @@ Implements AppleNSEventReceiver
 	#tag Method, Flags = &h0
 		Sub SetZoomScale(value as double)
 		  ViewObject.SetZoomScale value
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub StitchViews()
+		  dim currentY as double
+		  dim fullView as AppleView
+		  fullView = new AppleView(NSRect (0,0, me.Width, me.Height * (ViewArray.Ubound+1)))
+		  fullView.BackgroundColor = new applecolor( &cffffffff)
+		  for i as integer=0 to UBound(ViewArray)
+		    dim theAppleView as new AppleView (ViewArray(i).ViewHandle)
+		    theAppleView.Frame = me.AppleView.Frame
+		    fullView.AddSubview theAppleView
+		    theAppleView.frame = NSRect(0, currentY, theAppleView.Frame.Size_.width, theAppleView.frame.Size_.height)
+		    currentY=currentY+  theAppleView.frame.Size_.height
+		  next
+		  system.DebugLog "stitched"
+		  me.AppleView.ContentView =  fullView
+		  system.DebugLog "assigned"
+		  me.ZoomScale=1
+		  me.MinimumZoomScale = 1
+		  me.MaximumZoomScale = 1
+		  me.BouncesZoom = false
+		  me.Bounces = false
+		  me.Zoomable = false
+		  me.PagingEnabled = true
+		  me.SetContentOffset( 0,0, false)
+		  
 		End Sub
 	#tag EndMethod
 
@@ -234,6 +299,10 @@ Implements AppleNSEventReceiver
 
 	#tag Hook, Flags = &h0
 		Event MotionEnded(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event OrientationChanged()
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -498,6 +567,10 @@ Implements AppleNSEventReceiver
 		MinimumZoomScale As Double
 	#tag EndComputedProperty
 
+	#tag Property, Flags = &h21
+		Private OrientationFrame As NSRect
+	#tag EndProperty
+
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
@@ -603,6 +676,10 @@ Implements AppleNSEventReceiver
 		#tag EndGetter
 		TwoFingerTapRecognizer As AppleTapGestureRecognizer
 	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private ViewArray() As iOSView
+	#tag EndProperty
 
 	#tag Property, Flags = &h21
 		Private ViewObject As AppleScrollView

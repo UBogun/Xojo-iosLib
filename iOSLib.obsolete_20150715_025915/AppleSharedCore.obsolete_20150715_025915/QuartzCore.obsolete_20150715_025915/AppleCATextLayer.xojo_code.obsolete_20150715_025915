@@ -1,0 +1,93 @@
+#tag Class
+Protected Class AppleCATextLayer
+Inherits AppleCALayer
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static mClassPtr as Ptr = NSClassFromString ("CATextLayer")
+			  return mClassPtr
+			End Get
+		#tag EndGetter
+		Protected Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function string_ lib QuartzCore selector "string" (id as ptr) as CFStringRef
+			  return string_ (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setString lib QuartzCore selector "setString:" (id as ptr, value as CFStringRef)
+			  setString (id, value)
+			End Set
+		#tag EndSetter
+		Content As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function wrapped lib QuartzCore selector "isWrapped" (id as ptr) as Boolean
+			  return wrapped (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setWrapped lib QuartzCore selector "setWrapped:" (id as ptr, value as Boolean)
+			  setWrapped (id, value)
+			End Set
+		#tag EndSetter
+		Wrapped As Boolean
+	#tag EndComputedProperty
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Content"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Wrapped"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass
