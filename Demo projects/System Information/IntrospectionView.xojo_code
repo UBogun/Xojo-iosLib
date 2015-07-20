@@ -10,43 +10,30 @@ Begin iosView IntrospectionView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Table1, 3, AppleSearchBarControl1, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 3, TextField1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       Format          =   "0"
-      Height          =   368.0
+      Height          =   317.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   0
       SectionCount    =   0
-      Top             =   112
+      Top             =   163
       Visible         =   True
       Width           =   320.0
    End
-   Begin iOSTextField TextField1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   TextField1, 7, , 0, False, +1.00, 1, 1, 169, 
-      AutoLayout      =   TextField1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   TextField1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   TextField1, 8, , 0, True, +1.00, 1, 1, 31, 
-      Enabled         =   True
-      Height          =   31.0
-      KeyboardType    =   "0"
-      Left            =   131
+   Begin AppleSearchBarControl AppleSearchBarControl1
+      AutoLayout      =   AppleSearchBarControl1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
+      AutoLayout      =   AppleSearchBarControl1, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   AppleSearchBarControl1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   AppleSearchBarControl1, 8, , 0, False, +1.00, 1, 1, 82, 
+      Height          =   82.0
+      Left            =   20.0
       LockedInPosition=   False
-      Password        =   False
-      PlaceHolder     =   "Filter"
-      Scope           =   0
-      Text            =   ""
-      TextAlignment   =   "0"
-      TextColor       =   &c00000000
-      TextFont        =   ""
-      TextSize        =   0
-      Top             =   73
-      Visible         =   True
-      Width           =   169.0
+      Top             =   73.0
+      Width           =   280.0
    End
 End
 #tag EndIOSView
@@ -67,8 +54,14 @@ End
 		    dim myname as text =mClasses (q)
 		    cell = new iOSTableCellData (myname, "", NIL, iostablecelldata.accessorytypes.detail)
 		    if not filter.empty  then
-		      if myname.IndexOf (filter) = 0 then
-		        table1.AddRow (0, cell)
+		      if AppleSearchBarControl1.SelectedButton = 0 then
+		        if myname.IndexOf (filter) = 0 then
+		          table1.AddRow (0, cell)
+		        end if
+		      else
+		        if myname.IndexOf (filter) > -1 then
+		          table1.AddRow (0, cell)
+		        end if
 		      end if
 		    else
 		      table1.AddRow (0, cell)
@@ -108,11 +101,23 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events TextField1
+#tag Events AppleSearchBarControl1
 	#tag Event
-		Sub TextChange()
-		  
-		  showClasses (me.text)
+		Sub Open()
+		  me.SetScopeButtonTitles ("Starts with", "Contains")
+		  me.ShowsScopeBar = true
+		  me.Placeholder = "Search classes"
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub TextDidChange(SearchText As Text)
+		  showClasses (SearchText)
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub ScopeButtonSelectionChanged(ButtonIndex as Integer)
+		  showClasses (me.SearchText)
+		  #pragma unused ButtonIndex
 		End Sub
 	#tag EndEvent
 #tag EndEvents

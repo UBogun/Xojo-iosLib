@@ -19,6 +19,12 @@ Inherits AppleView
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h1000
+		Sub Constructor(animage as iosimage)
+		  Constructor (new AppleImage(animage))
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
 		  dim ego as new AppleImageView (pid)
@@ -271,6 +277,11 @@ Inherits AppleView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Hidden"
 			Group="Behavior"
 			Type="Boolean"
@@ -373,6 +384,11 @@ Inherits AppleView
 			Name="UserInteractionEnabled"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

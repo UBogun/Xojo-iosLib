@@ -2,19 +2,6 @@
 Protected Class AppleViewControl
 Inherits iosusercontrol
 Implements AppleNSEventReceiver
-	#tag Event
-		Function CreateView() As UInteger
-		  dim frame as  NSRect = nsrect (0,0,100,100)
-		  viewobject =  new appleview (frame, self)
-		  'system.debuglog Integer(me.Handle).ToText + EndOfline + Integer(viewobject.id).totext
-		  Return UInteger(ViewObject.id)
-		  
-		  
-		  
-		End Function
-	#tag EndEvent
-
-
 	#tag Method, Flags = &h0
 		Sub ReceivedEvent(Details as AppleArray)
 		  // Part of the AppleNSEventReceiver interface.
@@ -26,7 +13,7 @@ Implements AppleNSEventReceiver
 		        dim newview as AppleView
 		        if Details.Count > 1 then newview  = AppleView.MakeFromPtr (Details.PtrAtIndex(1))
 		        RaiseEvent WillMoveToSuperview (newview)
-		      case AppleView.WillMoveToWindow
+		      case AppleView.kWillMoveToWindow
 		        dim windowptr as ptr
 		        if Details.Count > 1 then WindowPtr = Details.PtrAtIndex(1)
 		        RaiseEvent WillMoveToWindow (windowptr)
@@ -70,6 +57,12 @@ Implements AppleNSEventReceiver
 		  end if
 		  
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ReceivedReturnEvent(Details as AppleArray) As Boolean
+		  #pragma unused details
+		End Function
 	#tag EndMethod
 
 

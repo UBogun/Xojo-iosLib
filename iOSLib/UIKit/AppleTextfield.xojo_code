@@ -31,8 +31,52 @@ Inherits AppleControl
 		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
-		  Super.Constructor (aframe)
+		  Super.Constructor (DoInitWithFrame (alloc(ClassPtr), aFrame))
+		  mHasOwnership = true
+		  if Observers = nil then Observers = new xojo.Core.Dictionary
+		  if EventControlled = nil then EventControlled = new Dictionary
+		  EventControlled.Value (id) = false
+		  me.UserInteractionEnabled = true
+		  // me.AddGestureRecognizer new ApplePanGestureRecognizer (id, NSSelectorFromString ("panReceived"))
+		  // me.setDelegate (id, id)
 		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(aFrame As NSRect, observer as AppleNSEventReceiver)
+		  Constructor (aFrame)
+		  RegisterObserver (observer)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(p as ptr)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleView
+		  // Constructor(aFrame As NSRect) -- From AppleView
+		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  
+		  // make sure the class has been constructed
+		  dim classp as ptr = me.ClassPtr
+		  #pragma Unused ClassP
+		  Super.Constructor(p)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Destructor()
+		  if mhasownership and retaincount = 1 then
+		    
+		    super.Destructor
+		  end if
 		End Sub
 	#tag EndMethod
 
@@ -45,6 +89,348 @@ Inherits AppleControl
 		    Declare Function editingRectForBounds lib UIKit selector "editingRectForBounds:" (id as ptr, bounds as NSRect32Bit) as NSRect32Bit
 		    return  editingRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonDidAddSubview  (view)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidMoveToSuperview(pid as ptr, sel as ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonDidMoveToSuperview
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DidMoveToWindow(pid as ptr, sel as ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonDidMoveToWindow
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as NSRect32Bit)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonDrawRect (rect.toNSRect)
+		  
+		  
+		  
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as NSRect)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonDrawRect (rect)
+		  
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_LayoutSubviews(pid as ptr, sel as ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonlayoutSubviews
+		  dim superclass as ptr = ObjectiveCRuntime.class_getSuperclass (ego.Class_)
+		  dim scname as cstring = ObjectiveCRuntime.class_getName (superclass)
+		  dim classmethod as ptr = ObjectiveCRuntime.class_getInstanceMethod (superclass, sel)
+		  dim mname as CString = ObjectiveCRuntime.method_getName (classmethod)
+		  dim result as ptr =  ObjectiveCRuntime.method_invoke (pid,  classmethod, nil)
+		  // ego.PerformSelector (NSStringFromSelector(sel), 0)
+		  // #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonMotionBeganwithEvent  (type, anEvent)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonMotionCancelledwithEvent  (type, anEvent)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonMotionEndedwithEvent  (type, anEvent)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_PanReceived()
+		  break
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TextFieldDidBeginEditing(pid as ptr, sel as ptr, textfield as ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonDidBeginEditing
+		  break
+		  #Pragma Unused  sel
+		  #Pragma unused textfield
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_textFieldDidEndEditing(pid as ptr, sel as ptr, textfield as ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonDidEndEditing
+		  
+		  #Pragma Unused  sel
+		  #Pragma unused textfield
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function impl_TextFieldShouldBeginEditing(pid as ptr, sel as ptr, textfield as ptr) As Boolean
+		  dim ego as new AppleTextfield (pid)
+		  return ego.informonShouldBeginEditing
+		  
+		  #Pragma Unused  sel
+		  #Pragma unused textfield
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function impl_textFieldshouldChangeCharactersInRange(pid as ptr, sel as ptr, textfield as ptr, range as NSRange, ReplacementString As CFStringRef) As Boolean
+		  dim ego as new AppleTextfield (pid)
+		  return ego.informonShouldChangeCharactersInRange (range, ReplacementString)
+		  
+		  #Pragma Unused  sel
+		  #Pragma unused textfield
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function impl_textFieldShouldClear(pid as ptr, sel as ptr, textfield as ptr) As Boolean
+		  dim ego as new AppleTextfield (pid)
+		  return ego.informonShouldClear
+		  
+		  #Pragma Unused  sel
+		  #Pragma unused textfield
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function impl_textFieldShouldEndEditing(pid as ptr, sel as ptr, textfield as ptr) As Boolean
+		  dim ego as new AppleTextfield (pid)
+		  return ego.informonShouldEndEditing
+		  
+		  #Pragma Unused  sel
+		  #Pragma unused textfield
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function impl_textFieldShouldReturn(pid as ptr, sel as ptr, textfield as ptr) As Boolean
+		  dim ego as new AppleTextfield (pid)
+		  return ego.informonShouldReturn
+		  
+		  #Pragma Unused  sel
+		  #Pragma unused textfield
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesBeganWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonTouchesBeganwithEvent  (Touchset, anEvent)
+		  break
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesCancelledWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonTouchesCancelledwithEvent  (Touchset, anEvent)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesEndedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonTouchesEndedwithEvent  (Touchset, anEvent)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_TouchesMovedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonTouchesMovedwithEvent  (Touchset, anEvent)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willMoveToSuperview(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonwillMoveToSuperview  (view)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willMoveToWindow(pid as ptr, sel as ptr, window as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonwillMoveToWindow (window)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_willRemoveSubview(pid as ptr, sel as ptr, view as Ptr)
+		  dim ego as new AppleTextfield (pid)
+		  ego.informonwillRemoveSubview  (view)
+		  
+		  #Pragma Unused  sel
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidBeginEditing()
+		  RaiseEvent DidBeginEditing
+		  
+		  
+		  If Observers.HasKey(id) then
+		    dim myarray as new AppleMutableArray(1)
+		    myarray.AddText  kDidBeginEditing
+		    NotifyObservers (myarray)
+		  End If
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidEndEditing()
+		  RaiseEvent DidEndEditing
+		  
+		  
+		  If Observers.HasKey(id) then
+		    dim myarray as new AppleMutableArray(1)
+		    myarray.AddText  kDidEndEditing
+		    NotifyObservers (myarray)
+		  End If
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Function informonShouldBeginEditing() As boolean
+		  if UseChangeEvents then
+		    return RaiseEvent ShouldBeginEditing
+		  else
+		    return true
+		  end if
+		  
+		  If Observers.HasKey(id) then
+		    dim myarray as new AppleMutableArray(1)
+		    myarray.AddText  kShouldBeginEditing
+		    NotifyObservers (myarray)
+		  End If
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Function informonShouldChangeCharactersInRange(Range as NSRange, Replacement as Text) As boolean
+		  if UseChangeEvents then
+		    return RaiseEvent ShouldChangeCharactersInRange (range.location, range.length, replacement)
+		  else
+		    return true
+		  end if
+		  
+		  If Observers.HasKey(id) then
+		    dim myarray as new AppleMutableArray(1)
+		    myarray.AddText  kShouldChangeCharacters
+		    NotifyObservers (myarray)
+		  End If
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Function informonShouldClear() As boolean
+		  if UseChangeEvents then
+		    return RaiseEvent ShouldClear
+		  else
+		    return true
+		  end if
+		  
+		  If Observers.HasKey(id) then
+		    dim myarray as new AppleMutableArray(1)
+		    myarray.AddText  kShouldClear
+		    NotifyObservers (myarray)
+		  End If
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Function informonShouldEndEditing() As boolean
+		  if UseChangeEvents then
+		    return RaiseEvent ShouldEndEditing
+		  else
+		    return true
+		  end if
+		  
+		  If Observers.HasKey(id) then
+		    dim myarray as new AppleMutableArray(1)
+		    myarray.AddText  kShouldEndEditing
+		    NotifyObservers (myarray)
+		  End If
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Function informonShouldReturn() As boolean
+		  if UseChangeEvents then
+		    return RaiseEvent ShouldReturn
+		  else
+		    return true
+		  end if
+		  
+		  If Observers.HasKey(id) then
+		    dim myarray as new AppleMutableArray(1)
+		    myarray.AddText  kShouldReturn
+		    NotifyObservers (myarray)
+		  End If
 		  
 		End Function
 	#tag EndMethod
@@ -76,6 +462,15 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub RegisterObserver(observer As AppleNSEventReceiver)
+		  // Part of the AppleNSEventForwarder interface.
+		  observers.Value (id) = weakref.create(observer)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function RightViewRectForBounds(Bounds as NSRect) As NSRect
 		  #if Target64Bit
 		    Declare Function rightViewRectForBounds lib UIKit selector "rightViewRectForBounds:" (id as ptr, bounds as nsrect) as NSRect
@@ -100,6 +495,35 @@ Inherits AppleControl
 		  
 		End Function
 	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event DidBeginEditing()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DidEndEditing()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ShouldBeginEditing() As Boolean
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ShouldChangeCharactersInRange(Start as UInteger, Length as UInteger, Replacement as Text) As Boolean
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ShouldClear() As Boolean
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ShouldEndEditing() As Boolean
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ShouldReturn() As Boolean
+	#tag EndHook
 
 
 	#tag ComputedProperty, Flags = &h0
@@ -130,6 +554,15 @@ Inherits AppleControl
 			End Set
 		#tag EndSetter
 		AllowsEditingTextAttributes As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return new AppleTextfield(GetAppearance(classptr))
+			End Get
+		#tag EndGetter
+		Shared Appearance As AppleTextfield
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -211,8 +644,50 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UITextfield")
-			  return mClassPtr
+			  static targetID as ptr = NSClassFromString ("UITextField")
+			  // static targetID as ptr
+			  
+			  if targetID = Nil then
+			    if Observers = nil then Observers = new Dictionary
+			    dim methods() as TargetClassMethodHelper
+			    //override UIView methods
+			    methods.Append new TargetClassMethodHelper("willMoveToWindow:", AddressOf impl_willMoveToWindow, "v@:@")
+			    methods.Append new TargetClassMethodHelper("didMoveToWindow", AddressOf impl_DidMoveToWindow, "v@:")
+			    methods.Append new TargetClassMethodHelper("willMoveToSuperview:", AddressOf impl_willMoveToSuperview, "v@:@")
+			    methods.Append new TargetClassMethodHelper("didMoveToSuperview", AddressOf impl_DidMoveToSuperview, "v@:")
+			    methods.Append new TargetClassMethodHelper("willRemoveSubview:", AddressOf impl_willRemoveSubview, "v@:@")
+			    methods.Append new TargetClassMethodHelper("didAddSubview:", AddressOf impl_DidAddSubview, "v@:@")
+			    // methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
+			    
+			    // methods.Append new TargetClassMethodHelper("touchesBegan:withEvent:", AddressOf impl_TouchesBeganWithEvent, "v@:@@")
+			    // methods.Append new TargetClassMethodHelper("touchesEnded:withEvent:", AddressOf impl_TouchesEndedWithEvent, "v@:@@")
+			    // methods.Append new TargetClassMethodHelper("touchesMoved:withEvent:", AddressOf impl_TouchesMovedWithEvent, "v@:@@")
+			    // methods.Append new TargetClassMethodHelper("touchesCancelled:withEvent:", AddressOf impl_TouchesCancelledWithEvent, "v@:@@")
+			    
+			    methods.Append new TargetClassMethodHelper("motionBegan:withEvent:", AddressOf impl_MotionBeganWithEvent, "v@:i@")
+			    methods.Append new TargetClassMethodHelper("motionEnded:withEvent:", AddressOf impl_MotionEndedWithEvent, "v@:i@")
+			    methods.Append new TargetClassMethodHelper("motionCancelled:withEvent:", AddressOf impl_MotionCancelledWithEvent, "v@:i@")
+			    methods.Append new TargetClassMethodHelper("panReceived", AddressOf impl_PanReceived, "v@:")
+			    // TextField methods
+			    
+			    // methods.Append new TargetClassMethodHelper ("textFieldShouldBeginEditing:", AddressOf impl_textFieldShouldBeginEditing, "B@:@")
+			    methods.Append new TargetClassMethodHelper ("textFieldDidBeginEditing:", AddressOf impl_textFieldDidBeginEditing, "v@:@")
+			    // methods.Append new TargetClassMethodHelper ("textFieldShouldEndEditing:", AddressOf impl_textFieldShouldEndEditing, "B:@")
+			    methods.Append new TargetClassMethodHelper ("textFieldDidEndEditing:", AddressOf impl_textFieldDidEndEditing, "v@:@")
+			    
+			    // methods.Append new TargetClassMethodHelper ("textField:shouldChangeCharactersInRange:replacementString:", AddressOf impl_textFieldshouldChangeCharactersInRange, "B@:@{NSRange}@")
+			    // methods.Append new TargetClassMethodHelper ("textFieldShouldClear:", AddressOf impl_textFieldShouldClear, "B@:@")
+			    // methods.Append new TargetClassMethodHelper ("textFieldShouldReturn:", AddressOf impl_textFieldShouldReturn, "B@:@")
+			    
+			    #if Target64Bit
+			      // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")
+			    #elseif Target32Bit
+			      // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect32, "v@:{CGRect}")
+			    #endif
+			    
+			    targetID = BuildTargetClass ("UITextField", "iOSLibTextField",methods)
+			  end if
+			  Return targetID
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
@@ -294,6 +769,20 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  return appleobject.MakeFromPtr (getDelegate (id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setDelegate id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		Delegate_ As AppleObject
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare Function disabledBackground lib UIKit selector "disabledBackground" (id as ptr) as ptr
 			  return AppleImage.MakeFromPtr (disabledBackground(id))
 			End Get
@@ -306,6 +795,10 @@ Inherits AppleControl
 		#tag EndSetter
 		DisabledBackgroundImage As AppleImage
 	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private Shared EventControlled As Dictionary
+	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
@@ -380,7 +873,7 @@ Inherits AppleControl
 			  #elseif Target32Bit
 			    Declare Function minimumFontSize lib UIKit selector "minimumFontSize" (id as ptr) as single
 			  #endif
-			  return  minimumFontSize (classptr)
+			  return  minimumFontSize (id)
 			  
 			End Get
 		#tag EndGetter
@@ -391,7 +884,7 @@ Inherits AppleControl
 			  #elseif Target32Bit
 			    Declare Sub setMinimumFontSize lib UIKit selector "setMinimumFontSize:" (id as ptr, value as single)
 			  #endif
-			  setMinimumFontSize Classptr, value
+			  setMinimumFontSize id, value
 			End Set
 		#tag EndSetter
 		MinimumFontSize As Double
@@ -400,14 +893,12 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function placeholder lib UIKit selector "placeholder" (id as ptr) as CFStringRef
-			  Return placeholder (id)
+			  return getplaceholder
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setPlaceholder lib UIKit selector "setPlaceholder:" (id as ptr, value as CFStringRef)
-			  setPlaceholder id, value
+			  SetPlaceHolder value
 			End Set
 		#tag EndSetter
 		Placeholder As Text
@@ -501,6 +992,43 @@ Inherits AppleControl
 		#tag EndSetter
 		TypingAttributes As AppleDictionary
 	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  dim value as boolean = EventControlled.value(id)
+			  return value
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  EventControlled.value(id) = value
+			End Set
+		#tag EndSetter
+		UseChangeEvents As Boolean
+	#tag EndComputedProperty
+
+
+	#tag Constant, Name = kDidBeginEditing, Type = Text, Dynamic = False, Default = \"DidBeginEditing", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kDidEndEditing, Type = Text, Dynamic = False, Default = \"DidBeginEditing", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kShouldBeginEditing, Type = Text, Dynamic = False, Default = \"ShouldBeginEditing", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kShouldChangeCharacters, Type = Text, Dynamic = False, Default = \"ShouldChangeCharacters", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kShouldClear, Type = Text, Dynamic = False, Default = \"ShouldClear", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kShouldEndEditing, Type = Text, Dynamic = False, Default = \"ShouldEndEditing", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kShouldReturn, Type = Text, Dynamic = False, Default = \"ShouldReturn", Scope = Public
+	#tag EndConstant
 
 
 	#tag Enum, Name = UITextFieldBorderStyle, Type = Integer, Flags = &h0
@@ -667,6 +1195,11 @@ Inherits AppleControl
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Hidden"
@@ -841,9 +1374,19 @@ Inherits AppleControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="UseChangeEvents"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="UserInteractionEnabled"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

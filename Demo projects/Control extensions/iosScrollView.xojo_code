@@ -8,42 +8,15 @@ Begin iosView iosScrollView
    Title           =   ""
    Top             =   0
    Begin AppleScrollViewer AppleScrollViewControl1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AlwaysBounceHorizontal=   True
-      AlwaysBounceVertical=   True
-      AutoLayout      =   AppleScrollViewControl1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   AppleScrollViewControl1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   AppleScrollViewControl1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AppleScrollViewControl1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   AppleScrollViewControl1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      BackgroundColor =   &cFFFFFF00
-      Bounces         =   True
-      BouncesZoom     =   True
-      CanCancelContentTouches=   False
-      Decelerating    =   False
-      DecelerationRate=   1.0
-      DirectionalLock =   False
-      Dragging        =   False
+      AutoLayout      =   AppleScrollViewControl1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
       Height          =   460.0
-      Left            =   0
+      Left            =   0.0
       LockedInPosition=   False
-      MaximumZoomScale=   5.0
-      MinimumZoomScale=   0.1000000000000000055511
-      PagingEnabled   =   False
-      Scope           =   0
-      ScrollEnabled   =   True
-      ScrollsToTop    =   True
-      ShowsHorizontalScrollIndicator=   True
-      ShowsVerticalScrollIndicator=   True
-      Top             =   20
-      Tracking        =   False
-      Visible         =   True
+      Top             =   20.0
       Width           =   320.0
-      Zoomable        =   True
-      ZoomBouncing    =   False
-      Zooming         =   False
-      ZoomOnDoubleTap =   True
-      ZoomScale       =   1.0
    End
 End
 #tag EndIOSView

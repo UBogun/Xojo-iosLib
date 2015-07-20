@@ -86,15 +86,15 @@ Protected Module ObjectiveCRuntime
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function class_copyIvarList Lib obj_C (aClass as Ptr, byref OutCount as UInteger) As Ptr
+		Protected Declare Function class_copyIvarList Lib obj_C (aClass as Ptr, byref OutCount as uint32) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function class_copyMethodList Lib obj_C (aClass as Ptr, byref OutCount as UInteger) As Ptr
+		Protected Declare Function class_copyMethodList Lib obj_C (aClass as Ptr, byref OutCount as UInt32) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function class_copyPropertyList Lib obj_C (aClass as Ptr, byref OutCount as UInteger) As Ptr
+		Protected Declare Function class_copyPropertyList Lib obj_C (aClass as Ptr, byref OutCount as UInt32) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
@@ -127,6 +127,10 @@ Protected Module ObjectiveCRuntime
 
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function class_getMethodImplementation Lib obj_C (aClass as Ptr, Selector as Ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function class_getMethodImplementation_stret Lib obj_C (aClass as Ptr, Selector as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
@@ -231,6 +235,10 @@ Protected Module ObjectiveCRuntime
 
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function objc_getMetaClass Lib obj_C (ClassName as CString) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub objc_msgSendSuper Lib obj_C (SuperObject as ObjectiveCRuntime . objc_super, SEL as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
@@ -485,7 +493,7 @@ Protected Module ObjectiveCRuntime
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = Obj_C, Type = Text, Dynamic = False, Default = \"/usr/lib/libobjc.A.dylib", Scope = Private
+	#tag Constant, Name = Obj_C, Type = Text, Dynamic = False, Default = \"/usr/lib/libobjc.dylib", Scope = Public
 	#tag EndConstant
 
 
@@ -497,6 +505,11 @@ Protected Module ObjectiveCRuntime
 	#tag Structure, Name = objc_property_attribute_t, Flags = &h0
 		Name as CString
 		Value as CString
+	#tag EndStructure
+
+	#tag Structure, Name = objc_super, Flags = &h0
+		Instance as Ptr
+		SuperClass as Ptr
 	#tag EndStructure
 
 

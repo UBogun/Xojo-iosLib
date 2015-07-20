@@ -8,6 +8,13 @@ Inherits AppleGestureRecognizer
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h1000
+		Sub Constructor(target as Ptr, SEL as ptr)
+		  Super.Constructor (classptr, Target, SEL)
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function MakeFromPtr(aPtr as Ptr) As ApplePanGestureRecognizer
 		  return if (aptr = nil, nil, new ApplePanGestureRecognizer (aptr))

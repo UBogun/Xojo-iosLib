@@ -5,7 +5,7 @@ Inherits iosusercontrol
 		Function CreateView() As UInteger
 		  'dim ab as new AppleButton (AppleButton.UIButtonType.ContactAdd)
 		  // ab.ImageView.Layer.BorderWidth = 2
-		  // ab.setTitleForState ("§Test", AppleControl.UIControlState.Normal)
+		  // ab.setTitleForState ("§Test", UIKitFramework.UIControlState.Normal)
 		  // break
 		  'dim mb as new iOSMessageBox
 		  'mb.Message = (ab.SizeThatFits.width.totext +", "+ab.SizeThatFits.height.totext)

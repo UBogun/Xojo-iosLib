@@ -10,10 +10,10 @@ Begin iosView CGGraphicsDrawLinesView
    Begin iOScanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Canvas1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -55, 
-      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Canvas1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -55, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       Height          =   352.0
       Left            =   20
       LockedInPosition=   False
@@ -36,10 +36,10 @@ Begin iosView CGGraphicsDrawLinesView
    Begin iOSSwitch Switch1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch1, 3, Canvas1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   Switch1, 1, Canvas1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch1, 3, Canvas1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   20
@@ -53,10 +53,10 @@ Begin iosView CGGraphicsDrawLinesView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 3, Switch1, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 2, Canvas1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 86, 
+      AutoLayout      =   Label1, 3, Switch1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 2, Canvas1, 2, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   86

@@ -3,9 +3,20 @@ Protected Class AppleScrollViewer
 Inherits iosusercontrol
 Implements AppleNSEventReceiver
 	#tag Event
+		Sub Close()
+		  // Clean-up
+		  me.AppleView.RemoveObserver ()
+		  redim ViewArray(-1)
+		  ViewObject.Release
+		  RaiseEvent Close
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Function CreateView() As UInteger
 		  dim frame as  NSRect = nsrect (0,0,100,100)
 		  viewobject = new AppleScrollView (frame, self)
+		  ViewObject.AutoRelease
 		  Return UInteger(viewobject.id)
 		  
 		  
@@ -31,7 +42,7 @@ Implements AppleNSEventReceiver
 		        dim newview as AppleView
 		        if Details.Count > 1 then newview  = AppleView.MakeFromPtr (Details.PtrAtIndex(1))
 		        RaiseEvent WillMoveToSuperview (newview)
-		      case AppleView.WillMoveToWindow
+		      case AppleView.kWillMoveToWindow
 		        dim windowptr as ptr
 		        if Details.Count > 1 then WindowPtr = Details.PtrAtIndex(1)
 		        RaiseEvent WillMoveToWindow (windowptr)
@@ -122,6 +133,12 @@ Implements AppleNSEventReceiver
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function ReceivedReturnEvent(Details as AppleArray) As Boolean
+		  #pragma unused details
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub ScrollContent(assigns value as iOSControl)
 		  redim ViewArray(-1)
 		  AppleView.ContentView = new appleimageview (value.Handle)
@@ -172,7 +189,7 @@ Implements AppleNSEventReceiver
 
 	#tag Method, Flags = &h0
 		Sub SetMultiViewScrollContent(paramarray value() as iOSView)
-		  // Courtesy of Tom Iwaniec 
+		  // Courtesy of Tom Iwaniec
 		  
 		  redim ViewArray(-1) // release old views
 		  
@@ -183,6 +200,12 @@ Implements AppleNSEventReceiver
 		  next
 		  
 		  StitchViews
+		  
+		  me.BouncesZoom = false
+		  me.Bounces = false
+		  me.Zoomable = false
+		  me.PagingEnabled = true
+		  me.SetContentOffset( 0,0, false)
 		  
 		  
 		  
@@ -215,16 +238,11 @@ Implements AppleNSEventReceiver
 		    theAppleView.frame = NSRect(0, currentY, theAppleView.Frame.Size_.width, theAppleView.frame.Size_.height)
 		    currentY=currentY+  theAppleView.frame.Size_.height
 		  next
-		  system.DebugLog "stitched"
 		  me.AppleView.ContentView =  fullView
-		  system.DebugLog "assigned"
+		  
 		  me.ZoomScale=1
 		  me.MinimumZoomScale = 1
 		  me.MaximumZoomScale = 1
-		  me.BouncesZoom = false
-		  me.Bounces = false
-		  me.Zoomable = false
-		  me.PagingEnabled = true
 		  me.SetContentOffset( 0,0, false)
 		  
 		End Sub
@@ -239,6 +257,10 @@ Implements AppleNSEventReceiver
 
 	#tag Hook, Flags = &h0
 		Event AnimationFinished(animationCompleted as boolean)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event Close()
 	#tag EndHook
 
 	#tag Hook, Flags = &h0, Description = 4669726573207768656E2061206E65772073756276696577207761732061646465642C2072657475726E696E67207468652073756276696577

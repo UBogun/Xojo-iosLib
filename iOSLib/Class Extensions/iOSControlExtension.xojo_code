@@ -13,20 +13,20 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateBackgroundColor(extends c as ioscontrol, newcolor as color, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		Sub AnimateBackgroundColor(extends c as ioscontrol, newcolor as color, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut)
 		  c.AppleView.AnimateColor newcolor.toAppleColor, AppleViewAnimationOption.OptionNone, Seconds, curve
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateSize(extends c as ioscontrol, width as Double, height as Double, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		Sub AnimateSize(extends c as ioscontrol, width as Double, height as Double, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut)
 		  dim newFrame as new rect (0,0,Width, Height)
 		  c.AppleView.AnimateBounds (newFrame.toNSRect, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateTransform(extends c as ioscontrol, aTransform as CGAffineTransform, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		Sub AnimateTransform(extends c as ioscontrol, aTransform as CGAffineTransform, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut)
 		  c.AppleView.AnimateTransform (aTransform, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
 	#tag EndMethod
@@ -68,13 +68,13 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub FadeIn(extends c as ioscontrol, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		Sub FadeIn(extends c as ioscontrol, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut)
 		  c.AppleView.AnimateAlpha (1, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub FadeOut(extends c as ioscontrol, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		Sub FadeOut(extends c as ioscontrol, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut)
 		  c.AppleView.AnimateAlpha (0, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
 	#tag EndMethod
@@ -92,7 +92,7 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub MoveTo(extends c as ioscontrol, x as Double, y as Double, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut)
+		Sub MoveTo(extends c as ioscontrol, x as Double, y as Double, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut)
 		  dim newFrame as new rect (x, y ,c.Width, c.Height)
 		  c.AppleView.AnimateFrame (newFrame.toNSRect, AppleViewAnimationOption.OptionNone, Seconds, curve)
 		End Sub
@@ -147,26 +147,26 @@ Protected Module iOSControlExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateBackgroundColor(extends c as ioscontrol, newcolor as color, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		Sub SpringAnimateBackgroundColor(extends c as ioscontrol, newcolor as color, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
 		  c.AppleView.springAnimateColor newcolor.toAppleColor, AppleViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateSize(extends c as ioscontrol, width as Double, height as Double, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		Sub SpringAnimateSize(extends c as ioscontrol, width as Double, height as Double, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
 		  dim newFrame as new rect (0,0,Width, Height)
 		  c.AppleView.SpringAnimateBounds (newFrame.toNSRect, AppleViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateTransform(extends c as ioscontrol, aTransform as CGAffineTransform, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		Sub SpringAnimateTransform(extends c as ioscontrol, aTransform as CGAffineTransform, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
 		  c.AppleView.SpringAnimateTransform (aTransform, AppleViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringMoveTo(extends c as ioscontrol, x as Double, y as Double, Seconds as double = 0.2, curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
+		Sub SpringMoveTo(extends c as ioscontrol, x as Double, y as Double, Seconds as double = 0.2, curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, DampingRatio as Double = 1, Velocity As Double = 1)
 		  dim newFrame as new rect (x, y ,c.Width, c.Height)
 		  c.AppleView.SpringAnimateFrame (newFrame.toNSRect, AppleViewAnimationOption.OptionNone, DampingRatio, Velocity, Seconds, curve)
 		End Sub

@@ -103,6 +103,25 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Operator_Convert(animage as iOSImage) As AppleImage
+		  return new AppleImage(animage)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ResizableImage(CapInsets as UIEdgeInsets) As AppleImage
+		  #if Target64Bit
+		    Declare Function resizableImageWithCapInsets lib UIKit selector "resizableImageWithCapInsets:" (id as ptr, insets as UIEdgeInsets) as ptr
+		    return new AppleImage (resizableImageWithCapInsets(id, CapInsets))
+		  #elseif Target32Bit
+		    Declare Function resizableImageWithCapInsets lib UIKit selector "resizableImageWithCapInsets:" (id as ptr, insets as UIEdgeInsets32Bit) as ptr
+		    return new AppleImage (resizableImageWithCapInsets(id, CapInsets.toUIEdgeInset32))
+		  #endif
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Resize(Scalefactor as double) As AppleImage
 		  if toCGImage <> NIL then
 		    return new AppleImage (toCGImage, Scalefactor)
@@ -171,7 +190,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return  iOSImage.FromHandle (id)
+			  return if (id = nil, nil, iOSImage.FromHandle (id))
 			End Get
 		#tag EndGetter
 		toiOSImage As iOSImage

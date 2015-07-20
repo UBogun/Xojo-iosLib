@@ -1,9 +1,30 @@
 #tag Class
 Protected Class AppleColor
 Inherits AppleObject
+	#tag Method, Flags = &h0
+		Function ChangeAlpha(alpha as double) As AppleColor
+		  #if Target64Bit
+		    Declare function colorWithAlphaComponent lib UIKit selector "colorWithAlphaComponent:" (id as ptr, alpha as double) as ptr
+		  #elseif Target32Bit
+		    Declare function colorWithAlphaComponent lib UIKit selector "colorWithAlphaComponent:" (id as ptr, alpha as single) as ptr
+		  #endif
+		  dim resultcolor as new AppleColor (colorWithAlphaComponent(id, alpha))
+		  resultcolor.RetainClassObject
+		  return resultcolor
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1021
 		Private Sub Constructor()
 		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(anImage as AppleImage)
+		  Declare function initWithPatternImage lib UIKit selector "initWithPatternImage:" (id as ptr, patternimage as ptr) as ptr
+		  super.Constructor initWithPatternImage(alloc(ClassPtr), anImage.id)
+		  mHasOwnership = true
 		End Sub
 	#tag EndMethod
 
@@ -31,6 +52,12 @@ Inherits AppleObject
 		  mhasOwnership = true
 		  
 		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(anImage as iosimage)
+		  Constructor (new appleimage(anImage))
 		End Sub
 	#tag EndMethod
 
@@ -68,8 +95,8 @@ Inherits AppleObject
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Function Operator_Convert(acolor as Color) As AppleColor
+	#tag Method, Flags = &h0
+		Function Operator_Convert(acolor as Color) As AppleColor
 		  return new AppleColor(acolor)
 		End Function
 	#tag EndMethod
@@ -92,6 +119,28 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  Declare function BlackColor lib UIKit selector "blackColor" (id as ptr) as ptr
+			  static mBlackColor as  applecolor = new applecolor (BlackColor(classptr))
+			  return mBlackColor
+			End Get
+		#tag EndGetter
+		Shared BlackColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function blueColor lib UIKit selector "blueColor" (id as ptr) as ptr
+			  static mblueColor as  applecolor = new applecolor (blueColor(classptr))
+			  return mblueColor
+			End Get
+		#tag EndGetter
+		Shared BlueColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  dim red, green, blue, alpha as double
 			  call getRGB (red, green, blue, alpha)
 			  #pragma unused red
@@ -103,6 +152,17 @@ Inherits AppleObject
 		BlueValue As Double
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function brownColor lib UIKit selector "brownColor" (id as ptr) as ptr
+			  static mbrownColor as  applecolor = new applecolor (brownColor(classptr))
+			  return mbrownColor
+			End Get
+		#tag EndGetter
+		Shared BrownColor As AppleColor
+	#tag EndComputedProperty
+
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
@@ -111,6 +171,17 @@ Inherits AppleObject
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function clearColor lib UIKit selector "clearColor" (id as ptr) as ptr
+			  static mclearColor as  applecolor = new applecolor (clearColor(classptr))
+			  return mclearColor
+			End Get
+		#tag EndGetter
+		Shared ClearColor As AppleColor
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -132,6 +203,61 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  Declare function cyanColor lib UIKit selector "cyanColor" (id as ptr) as ptr
+			  static mcyanColor as  applecolor = new applecolor (cyanColor(classptr))
+			  return mcyanColor
+			End Get
+		#tag EndGetter
+		Shared CyanColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function darkGrayColor lib UIKit selector "darkGrayColor" (id as ptr) as ptr
+			  static mdarkGrayColor as  applecolor = new applecolor (darkGrayColor(classptr))
+			  return mdarkGrayColor
+			End Get
+		#tag EndGetter
+		Shared DarkGrayColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function darkTextColor lib UIKit selector "darkTextColor" (id as ptr) as ptr
+			  static mdarkTextColor as  applecolor = new applecolor (darkTextColor(classptr))
+			  return mdarkTextColor
+			End Get
+		#tag EndGetter
+		Shared DarkTextColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function grayColor lib UIKit selector "grayColor" (id as ptr) as ptr
+			  static mgrayColor as  applecolor = new applecolor (grayColor(classptr))
+			  return mgrayColor
+			End Get
+		#tag EndGetter
+		Shared GrayColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function greenColor lib UIKit selector "greenColor" (id as ptr) as ptr
+			  static mgreenColor as  applecolor = new applecolor (greenColor(classptr))
+			  return mgreenColor
+			End Get
+		#tag EndGetter
+		Shared GreenColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  dim red, green, blue, alpha as double
 			  call getRGB (red, green, blue, alpha)
 			  #pragma unused red
@@ -141,6 +267,83 @@ Inherits AppleObject
 			End Get
 		#tag EndGetter
 		GreenValue As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function groupTableViewBackgroundColor lib UIKit selector "groupTableViewBackgroundColor" (id as ptr) as ptr
+			  static mgroupTableViewBackgroundColor as  applecolor = new applecolor (groupTableViewBackgroundColor(classptr))
+			  return mgroupTableViewBackgroundColor
+			End Get
+		#tag EndGetter
+		Shared GroupTableViewBackgroundColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function lightGrayColor lib UIKit selector "lightGrayColor" (id as ptr) as ptr
+			  static mlightGrayColor as  applecolor = new applecolor (lightGrayColor(classptr))
+			  return mlightGrayColor
+			End Get
+		#tag EndGetter
+		Shared LightGrayColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function lightTextColor lib UIKit selector "lightTextColor" (id as ptr) as ptr
+			  static mlightTextColor as  applecolor = new applecolor (lightTextColor(classptr))
+			  return mlightTextColor
+			End Get
+		#tag EndGetter
+		Shared LightTextColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function magentaColor lib UIKit selector "magentaColor" (id as ptr) as ptr
+			  static mmagentaColor as  applecolor = new applecolor (magentaColor(classptr))
+			  return mmagentaColor
+			End Get
+		#tag EndGetter
+		Shared MagentaColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function orangeColor lib UIKit selector "orangeColor" (id as ptr) as ptr
+			  static morangeColor as  applecolor = new applecolor (orangeColor(classptr))
+			  return morangeColor
+			End Get
+		#tag EndGetter
+		Shared OrangeColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function purpleColor lib UIKit selector "purpleColor" (id as ptr) as ptr
+			  static mpurpleColor as  applecolor = new applecolor (purpleColor(classptr))
+			  return mpurpleColor
+			End Get
+		#tag EndGetter
+		Shared PurpleColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function redColor lib UIKit selector "redColor" (id as ptr) as ptr
+			  static mredColor as  applecolor = new applecolor (redColor(classptr))
+			  return mredColor
+			End Get
+		#tag EndGetter
+		Shared RedColor As AppleColor
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -171,6 +374,28 @@ Inherits AppleObject
 			End Get
 		#tag EndGetter
 		toColor As Color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function whiteColor lib UIKit selector "whiteColor" (id as ptr) as ptr
+			  static mwhiteColor as  applecolor = new applecolor (whiteColor(classptr))
+			  return mwhiteColor
+			End Get
+		#tag EndGetter
+		Shared WhiteColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function yellowColor lib UIKit selector "yellowColor" (id as ptr) as ptr
+			  static myellowColor as  applecolor = new applecolor (yellowColor(classptr))
+			  return myellowColor
+			End Get
+		#tag EndGetter
+		Shared YellowColor As AppleColor
 	#tag EndComputedProperty
 
 

@@ -319,7 +319,7 @@ Implements AppleNSEventForwarder
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonwillMoveToWindow(window as Ptr)
 		  dim myarray as new AppleMutableArray(2)
-		  myarray.AddText  WillMoveToWindow
+		  myarray.AddText  kWillMoveToWindow
 		  if window <> nil then myarray.AddPtr window
 		  NotifyObservers (myarray)
 		End Sub

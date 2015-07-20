@@ -35,6 +35,7 @@ Picture=iPhone603x;../../Images/Launch Images/App icons/App Icon/iPhone603x.png;
 iOSView=ButtonView;ButtonView.xojo_code;&h5EB66FFF;&h0;false
 Picture=Birnebuntklein;../../Images/Birne bunt klein.png;&hE2727FF;&h0;false;0;&h0
 iOSView=InfoView;InfoView.xojo_code;&h57BE77FF;&h0;false
+iOSView=SearchFieldView;SearchFieldView.xojo_code;&h5CF1BFFF;&h0;false
 DefaultScreen=iPhoneScreen
 DefaultTabletScreen=iPadScreen
 MajorVersion=1

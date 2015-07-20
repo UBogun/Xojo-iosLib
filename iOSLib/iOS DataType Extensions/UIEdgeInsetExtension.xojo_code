@@ -33,6 +33,13 @@ Protected Module UIEdgeInsetExtension
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function UIEdgeInsetsZero() As UIEdgeInsets
+		  dim result as UIEdgeInsets
+		  return result
+		End Function
+	#tag EndMethod
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

@@ -15,14 +15,21 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1001
-		Protected Sub Constructor(aClass as ptr, target as AppleObject, SEL as ptr)
+		Protected Sub Constructor(aClass as ptr, target as Appleobject, SEL as ptr)
+		  Constructor (aClass, Target.id, SEL)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1001
+		Protected Sub Constructor(aClass as ptr, target as Ptr, SEL as ptr)
 		  Declare function initWithTarget lib UIKit selector "initWithTarget:action:" (id as ptr, Target as ptr, action as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
-		  Super.Constructor (initWithTarget (Alloc(aClass), Target.id, SEL))
+		  Super.Constructor (initWithTarget (Alloc(aClass), Target, SEL))
 		  mHasOwnership = true
 		  
 		End Sub

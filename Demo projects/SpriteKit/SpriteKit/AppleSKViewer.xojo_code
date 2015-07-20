@@ -146,7 +146,7 @@ Implements AppleNSEventReceiver
 		        dim newview as AppleView
 		        if Details.Count > 1 then newview  = AppleView.MakeFromPtr (Details.PtrAtIndex(1))
 		        RaiseEvent WillMoveToSuperview (newview)
-		      case AppleSKViewForViewer.WillMoveToWindow
+		      case AppleSKViewForViewer.kWillMoveToWindow
 		        dim windowptr as ptr
 		        if Details.Count > 1 then WindowPtr = Details.PtrAtIndex(1)
 		        RaiseEvent WillMoveToWindow (windowptr)
@@ -191,6 +191,12 @@ Implements AppleNSEventReceiver
 		  end if
 		  
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function ReceivedReturnEvent(Details as AppleArray) As boolean
+		  #pragma unused details
+		End Function
 	#tag EndMethod
 
 

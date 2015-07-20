@@ -93,6 +93,16 @@ Inherits AppleViewController
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="AutomaticallyAdjustsScrollViewInsets"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AutoRotate"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="DebugDescription"
 			Group="Behavior"
 			Type="Text"
@@ -101,6 +111,11 @@ Inherits AppleViewController
 			Name="Description"
 			Group="Behavior"
 			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExtendedLayoutIncludesOpaqueBars"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HasOwnership"
@@ -147,39 +162,30 @@ Inherits AppleViewController
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="ModalInPopover"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ModalPresentationStyle"
 			Group="Behavior"
 			Type="UIViewModalPresentationStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - FullScreen"
-				"1 - PageSheet"
-				"2 - FormSheet"
-				"3 - CurrentContext"
-				"4 - Custom"
-				"5 - OverFullScreen"
-				"6 - OverCurrentContext"
-				"7 - PopOver"
-				"-1 - None"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ModalTransitonStyle"
 			Group="Behavior"
 			Type="UIModalTransitionStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - CoverVertical"
-				"1 - FlipHorizontal"
-				"2 - CrossDissolve"
-				"3 - PartialCurl"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="NibName"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PreferredStyle"
@@ -213,6 +219,11 @@ Inherits AppleViewController
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ViewIsLoaded"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

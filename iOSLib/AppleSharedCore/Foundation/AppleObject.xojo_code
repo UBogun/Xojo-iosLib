@@ -9,6 +9,14 @@ Implements AppleGeneralObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0, CompatibilityFlags = (TargetIOS)
+		 Shared Function AppearanceWhenContainedIn(paramarray classes() as ptr) As AppleObject
+		  dim mb as MemoryBlock = classes.toNilTerminatedMemoryBlock
+		  Declare function appearanceWhenContainedIn lib UIKit selector "appearanceWhenContainedIn:" (id as ptr, classes as ptr) as ptr
+		  return new AppleObject(appearanceWhenContainedIn (classptr, mb.Data))
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function AppleMethodSignatureForSelector(aSelector as Ptr) As AppleMethodSignature
 		  declare function instanceMethodSignatureForSelector lib Foundation selector "instanceMethodSignatureForSelector:" (id as Ptr, aselector as Ptr) as Ptr
@@ -168,6 +176,13 @@ Implements AppleGeneralObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h1, CompatibilityFlags = (TargetIOS)
+		Protected Shared Function GetAppearance(classptr as ptr) As Ptr
+		  declare function appearance lib UIKit selector "appearance" (id as ptr) as ptr
+		  return appearance (classptr)
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Function getAttributes() As Ptr
 		  #if targetmacos
@@ -249,6 +264,15 @@ Implements AppleGeneralObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function getSuperObject(id as ptr, instanceclass as ptr) As objc_super
+		  dim result as ObjectiveCRuntime.objc_super
+		  result.Instance = id
+		  result.SuperClass = ObjectiveCRuntime.class_getSuperclass (instanceClass)
+		  return result
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Function getTitle() As Text
 		  Declare Function title lib Foundation selector "title" (id as ptr) as CFStringRef
@@ -310,14 +334,14 @@ Implements AppleGeneralObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MethodSignatureForSelector(aSelector as cfstringref) As AppleMethodSignature
-		  return AppleMethodSignatureForSelector (NSSelectorFromString(aSelector))
+		Function MethodSignatureForSelector(aSelector as cfstringref) As AppleMethodSignature
+		  return MethodSignatureForSelector (NSSelectorFromString(aSelector))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function MethodSignatureForSelector(aSelector as cfstringref) As AppleMethodSignature
-		  return MethodSignatureForSelector (NSSelectorFromString(aSelector))
+		 Shared Function MethodSignatureForSelector(aSelector as cfstringref) As AppleMethodSignature
+		  return AppleMethodSignatureForSelector (NSSelectorFromString(aSelector))
 		End Function
 	#tag EndMethod
 
@@ -432,8 +456,8 @@ Implements AppleGeneralObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Sub Release()
+	#tag Method, Flags = &h0
+		Sub Release()
 		  declare Sub release lib Foundation selector "release" (id as ptr)
 		  release (mid)
 		End Sub
@@ -548,6 +572,12 @@ Implements AppleGeneralObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function SuperClassMethodImplementationForSelector(aSelector as Ptr) As Ptr
+		  return ObjectiveCRuntime.class_getMethodImplementation_stret (me.SuperClass, aSelector)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function ValueForKey(Key as CFStringRef) As ptr
 		  Declare Function ValueForKey lib Foundation selector "valueForKey:" (id as ptr, KeyPath as CFStringRef) as ptr
 		  return ValueForKey (id, Key)
@@ -568,6 +598,15 @@ Implements AppleGeneralObject
 		End Function
 	#tag EndMethod
 
+
+	#tag ComputedProperty, Flags = &h0, CompatibilityFlags = (TargetIOS and (Target32Bit or Target64Bit)), Description = 546865206170706572616E6365206F626A656374206C65747320796F75206368616E67652070726F70657274696573206F6E20636C617373206C6576656C2E
+		#tag Getter
+			Get
+			  return new appleobject (GetAppearance (classptr))
+			End Get
+		#tag EndGetter
+		Shared Appearance As AppleObject
+	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter

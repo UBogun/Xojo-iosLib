@@ -6,6 +6,12 @@ Protected Interface AppleNSEventReceiver
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function ReceivedReturnEvent(Details as AppleArray) As Boolean
+		  
+		End Function
+	#tag EndMethod
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

@@ -148,17 +148,6 @@ Protected Class CGAnimatedCurve
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="cap"
-			Group="Behavior"
-			Type="CGLineCap"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Butt"
-				"1 - Round"
-				"2 - Square"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="CP1X"
 			Group="Behavior"
 			Type="Double"

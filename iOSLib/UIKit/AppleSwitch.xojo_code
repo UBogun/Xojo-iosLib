@@ -26,6 +26,15 @@ Inherits AppleControl
 	#tag EndMethod
 
 
+	#tag ComputedProperty, Flags = &h0, CompatibilityFlags = (TargetIOS and (Target32Bit or Target64Bit)), Description = 546865206170706572616E6365206F626A656374206C65747320796F75206368616E67652070726F70657274696573206F6E20636C617373206C6576656C2E
+		#tag Getter
+			Get
+			  return new appleswitch (GetAppearance (classptr))
+			End Get
+		#tag EndGetter
+		Shared Apperance As Appleswitch
+	#tag EndComputedProperty
+
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
@@ -187,6 +196,11 @@ Inherits AppleControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Hidden"
 			Group="Behavior"
 			Type="Boolean"
@@ -328,6 +342,11 @@ Inherits AppleControl
 			Name="UserInteractionEnabled"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

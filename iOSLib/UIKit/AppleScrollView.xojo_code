@@ -67,6 +67,16 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Destructor()
+		  if mhasownership then
+		    ContentView = NIL
+		    RemoveAllGestureRecognizers
+		    super.Destructor
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub FlashScrollIndicators()
 		  Declare sub flashScrollIndicators lib UIKit selector "flashScrollIndicators" (id as ptr)
 		  flashScrollIndicators id
@@ -637,6 +647,14 @@ Inherits AppleView
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Sub RemoveAllGestureRecognizers()
+		  while GestureRecognizers.Count > 0
+		    RemoveGestureRecognizer (AppleGestureRecognizer (GestureRecognizers.ObjectAtIndex(GestureRecognizers.count)))
+		  wend
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub ScrollToRect(value as NSRect)
 		  #if Target64Bit
@@ -978,17 +996,18 @@ Inherits AppleView
 			  while ContentView <> nil
 			    ContentView.RemoveFromSuperview
 			  wend
-			  me.AddSubview value
-			  me.ContentSize = value.Bounds.Size_
-			  dim scaleWidth as double =  me.Frame.Size_.width / me.contentSize.width
-			  dim scaleHeight as double = me.Frame.Size_.height / me.contentSize.height
-			  dim minScale as double = MIN(scaleWidth, scaleHeight)
-			  me.maximumZoomScale = 1.0
-			  me.zoomScale = minScale
-			  me.minimumZoomScale = minScale
-			  System.debuglog "ContentSize: "+me.ContentSize.width.totext+", "+me.ContentSize.height.totext
-			  
-			  me.CenterContentView
+			  if value <> nil then
+			    me.AddSubview value
+			    me.ContentSize = value.Bounds.Size_
+			    dim scaleWidth as double =  me.Frame.Size_.width / me.contentSize.width
+			    dim scaleHeight as double = me.Frame.Size_.height / me.contentSize.height
+			    dim minScale as double = MIN(scaleWidth, scaleHeight)
+			    me.maximumZoomScale = 1.0
+			    me.zoomScale = minScale
+			    me.minimumZoomScale = minScale
+			    
+			    me.CenterContentView
+			  end if
 			End Set
 		#tag EndSetter
 		ContentView As AppleView
@@ -1597,6 +1616,11 @@ Inherits AppleView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Hidden"
 			Group="Behavior"
 			Type="Boolean"
@@ -1749,6 +1773,11 @@ Inherits AppleView
 			Name="UserInteractionEnabled"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Zoomable"

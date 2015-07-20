@@ -202,7 +202,7 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  if mhasownership then
+		  if mhasownership and retaincount = 1 then
 		    RemoveObserver
 		  end if
 		End Sub
@@ -242,6 +242,13 @@ Implements AppleNSEventForwarder
 		  Declare function font lib UIKit selector "font" (id as ptr) as Ptr
 		  return applefont.MakeFromPtr (font (id))
 		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function getPlaceHolder() As Text
+		  Declare Function placeholder lib UIKit selector "placeholder" (id as ptr) as CFStringRef
+		  Return placeholder (id)
 		End Function
 	#tag EndMethod
 
@@ -617,7 +624,7 @@ Implements AppleNSEventForwarder
 		  
 		  If Observers.HasKey(id) then
 		    dim myarray as new AppleMutableArray(2)
-		    myarray.AddText  WillMoveToWindow
+		    myarray.AddText  kWillMoveToWindow
 		    if window <> nil then myarray.AddPtr Window
 		    NotifyObservers (myarray)
 		  End If
@@ -698,6 +705,20 @@ Implements AppleNSEventForwarder
 		  end if
 		  
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function NotifyObserversBoolean(EventProperties As AppleArray) As Boolean
+		  // Part of the AppleNSEventForwarder interface.
+		  if Observers.HasKey (id)  then
+		    dim wr as weakref = Observers.Value (id)
+		    if wr <> NIL then
+		      dim myControl as  AppleViewControl = appleviewcontrol(wr.Value)
+		      return myControl.ReceivedReturnEvent (EventProperties)
+		    end if
+		  end if
+		  
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -782,6 +803,13 @@ Implements AppleNSEventForwarder
 		Sub SetNeedsLayout()
 		  Declare sub setNeedsLayout lib UIKit selector "setNeedsLayout" (id as ptr)
 		  setNeedsLayout (id)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub SetPlaceHolder(value as cfstringRef)
+		  Declare Sub setPlaceholder lib UIKit selector "setPlaceholder:" (id as ptr, value as CFStringRef)
+		  setPlaceholder id, value
 		End Sub
 	#tag EndMethod
 
@@ -1407,6 +1435,20 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  return me.Frame.size_.height
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  me.frame = NSRect (me.left, me.top, me.Width, value)
+			End Set
+		#tag EndSetter
+		Height As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare Function hidden lib UIKit selector "isHidden" (id as ptr) as Boolean
 			  return hidden (id)
 			End Get
@@ -1479,6 +1521,20 @@ Implements AppleNSEventForwarder
 			End Set
 		#tag EndSetter
 		LayoutMargins As UIEdgeInsets
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return me.Frame.Origin.x
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  me.frame = NSRect (value, me.top, me.Width, me.Height)
+			End Set
+		#tag EndSetter
+		Left As Double
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1652,6 +1708,20 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  return me.Frame.Origin.y
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  me.frame = NSRect (me.left, value, me.Width, me.Height)
+			End Set
+		#tag EndSetter
+		Top As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  #if Target32Bit
 			    Declare function Transform lib UIKit selector "transform" (id as ptr) as CGAffineTransform32Bit
 			    return Transform(id).toCGAffineTransform
@@ -1731,6 +1801,20 @@ Implements AppleNSEventForwarder
 		UserInteractionEnabled As Boolean
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return me.Frame.size_.width
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  me.frame = NSRect (me.left, me.top, value, me.Height)
+			End Set
+		#tag EndSetter
+		Width As Double
+	#tag EndComputedProperty
+
 
 	#tag Constant, Name = DidAddSubview, Type = Text, Dynamic = False, Default = \"DidAddSubview", Scope = Public
 	#tag EndConstant
@@ -1742,6 +1826,9 @@ Implements AppleNSEventForwarder
 	#tag EndConstant
 
 	#tag Constant, Name = DrawRect, Type = Text, Dynamic = False, Default = \"DrawRect", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kWillMoveToWindow, Type = Text, Dynamic = False, Default = \"WillMoveToWindow", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = LayoutSubviews, Type = Text, Dynamic = False, Default = \"LayoutSubviews", Scope = Public
@@ -1771,60 +1858,8 @@ Implements AppleNSEventForwarder
 	#tag Constant, Name = WillMoveToSuperview, Type = Text, Dynamic = False, Default = \"WillMoveToSuperview", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = WillMoveToWindow, Type = Text, Dynamic = False, Default = \"WillMoveToWindow", Scope = Public
-	#tag EndConstant
-
 	#tag Constant, Name = WillRemoveSubview, Type = Text, Dynamic = False, Default = \"WillRemoveSubview", Scope = Public
 	#tag EndConstant
-
-
-	#tag Enum, Name = UIVIewAnimationCurve, Type = Integer, Flags = &h0
-		EaseInEaseOut
-		  EaseIn
-		  EaseOut
-		Linear
-	#tag EndEnum
-
-	#tag Enum, Name = UIVIewAnimationTransition, Type = Integer, Flags = &h0
-		None
-		  FlipFromLeft
-		  FlipFromRight
-		  CurlUp
-		CurlDown
-	#tag EndEnum
-
-	#tag Enum, Name = UIViewContentMode, Type = Integer, Flags = &h0
-		ScaleToFill
-		  ScaleAspectFit
-		  ScaleAspectFill
-		  Redraw
-		  Center
-		  Top
-		  Bottom
-		  Left
-		  Right
-		  TopLeft
-		  TopRight
-		  BottomLeft
-		BottomRight
-	#tag EndEnum
-
-	#tag Enum, Name = UIViewTintAdjustmentMode, Type = Integer, Flags = &h0
-		Automatic
-		  Normal
-		Dimmed
-	#tag EndEnum
-
-	#tag Enum, Name = UIVIewTransition, Type = Integer, Flags = &h0
-		None
-		  FlipFromLeft
-		  FlipFromRight
-		  CurlUp
-		  CurlDown
-		  CrossDissolve
-		  FlipFromTop
-		FlipFromBottom
-	#tag EndEnum
 
 
 	#tag ViewBehavior
@@ -1898,6 +1933,11 @@ Implements AppleNSEventForwarder
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Hidden"
@@ -2002,6 +2042,11 @@ Implements AppleNSEventForwarder
 			Name="UserInteractionEnabled"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

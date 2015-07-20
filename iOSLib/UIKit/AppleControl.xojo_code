@@ -178,30 +178,6 @@ Inherits AppleView
 	#tag EndComputedProperty
 
 
-	#tag Enum, Name = UIControlContentHorizontalAlignment, Type = Integer, Flags = &h0
-		Center
-		  Left
-		  Right
-		Fill
-	#tag EndEnum
-
-	#tag Enum, Name = UIControlContentVerticalAlignment, Type = Integer, Flags = &h0
-		Center
-		  Top
-		  Bottom
-		Fill
-	#tag EndEnum
-
-	#tag Enum, Name = UIControlState, Type = UInteger, Flags = &h0
-		Normal
-		  Highlighted
-		  Disabled
-		  Selected
-		  Application
-		Reserved
-	#tag EndEnum
-
-
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Alpha"
@@ -302,6 +278,11 @@ Inherits AppleView
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Hidden"
@@ -440,6 +421,11 @@ Inherits AppleView
 			Name="UserInteractionEnabled"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

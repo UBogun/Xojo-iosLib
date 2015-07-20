@@ -131,6 +131,17 @@ Inherits AppleArray
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function Textarray(Textarray() as text) As AppleMutableArray
+		  dim count as uinteger = Textarray.Ubound
+		  dim myarray as new AppleMutableArray (count + 1)
+		  for q as uinteger = 0 to count
+		    myarray.AddText Textarray(q)
+		  next
+		  return myarray
+		End Function
+	#tag EndMethod
+
 
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
