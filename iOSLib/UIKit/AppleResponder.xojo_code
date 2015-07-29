@@ -78,6 +78,13 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
+		Protected Function getEnabled() As Boolean
+		  Declare function enabled lib UIKit selector "isEnabled" (id as ptr) as Boolean
+		  return enabled (id)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
 		Protected Function getFrame() As NSRect
 		  #if target32bit
 		    declare function getframe lib UIKit selector "frame" (id as Ptr) as NSRect32Bit
@@ -156,6 +163,13 @@ Inherits AppleObject
 		 Shared Sub setDelegate(anid as ptr, value as Ptr)
 		  Declare Sub setDelegate lib uikit selector "setDelegate:" (id as ptr, value as Ptr)
 		  setDelegate (anid, value)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub SetEnabled(value as Boolean)
+		  Declare Sub setEnabled lib UIKit selector "setEnabled:" (id as ptr, value as Boolean)
+		  setenabled (id, value)
 		End Sub
 	#tag EndMethod
 

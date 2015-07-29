@@ -61,13 +61,13 @@ Protected Module iOSTextFieldExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ClearButtonMode(extends f as iOSTextField) As AppleTextfield.UITextFieldViewMode
+		Function ClearButtonMode(extends f as iOSTextField) As uikitframework.UITextFieldViewMode
 		  return f.AppleTextField.ClearButtonMode
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ClearButtonMode(extends f as iOSTextField, assigns value as AppleTextfield.UITextFieldViewMode)
+		Sub ClearButtonMode(extends f as iOSTextField, assigns value as uikitframework.UITextFieldViewMode)
 		  f.AppleTextField.ClearButtonMode = value
 		End Sub
 	#tag EndMethod
@@ -162,13 +162,13 @@ Protected Module iOSTextFieldExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function LeftViewMode(extends f as iOSTextField) As AppleTextfield.UITextFieldViewMode
+		Function LeftViewMode(extends f as iOSTextField) As uikitframework.UITextFieldViewMode
 		  return f.AppleTextField.LeftViewMode
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub LeftViewMode(extends f as iOSTextField, assigns value as AppleTextfield.UITextFieldViewMode)
+		Sub LeftViewMode(extends f as iOSTextField, assigns value as uikitframework.UITextFieldViewMode)
 		  f.AppleTextField.LeftViewMode = value
 		End Sub
 	#tag EndMethod
@@ -203,13 +203,13 @@ Protected Module iOSTextFieldExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RightViewMode(extends f as iOSTextField) As AppleTextfield.UITextFieldViewMode
+		Function RightViewMode(extends f as iOSTextField) As uikitframework.UITextFieldViewMode
 		  return f.AppleTextField.RightViewMode
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RightViewMode(extends f as iOSTextField, assigns value as AppleTextfield.UITextFieldViewMode)
+		Sub RightViewMode(extends f as iOSTextField, assigns value as uikitframework.UITextFieldViewMode)
 		  f.AppleTextField.RightViewMode = value
 		End Sub
 	#tag EndMethod

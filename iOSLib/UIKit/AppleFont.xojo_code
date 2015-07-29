@@ -73,6 +73,20 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Function SystemFont(FontSize as double = 0) As AppleFont
+		  #if Target64Bit
+		    Declare function systemFontOfSize lib UIKit selector "systemFontOfSize:" (id as ptr, Fontsize as double) as ptr
+		  #elseif Target32Bit
+		    Declare function systemFontOfSize lib UIKit selector "systemFontOfSize:" (id as ptr, Fontsize as single) as ptr
+		  #endif
+		  if Fontsize = 0 then FontsIze = SystemFontSize
+		  Dim Result as new applefont (systemFontOfSize (ClassPtr, fontsize))
+		  result.RetainClassObject
+		  return result
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function toiOSFont() As iOSFont
 		  return new iOSFont (FontName, PointSize)
 		End Function

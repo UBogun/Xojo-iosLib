@@ -431,6 +431,12 @@ Inherits AppleObject
 			Name="HTTPCookieAcceptPolicy"
 			Group="Behavior"
 			Type="AppleHTTPCookieStorage.NSHTTPCookieAcceptPolicy"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Always"
+				"1 - Never"
+				"2 - OnlyFromMainDocument"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HTTPMaximumConnectionsPerHost"
@@ -491,11 +497,28 @@ Inherits AppleObject
 			Name="NetworkServiceType"
 			Group="Behavior"
 			Type="AppleURLRequest.NSURLRequestNetworkServiceType"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - VoIP"
+				"2 - Video"
+				"3 - Background"
+				"4 - Voice"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RequestCachePolicy"
 			Group="Behavior"
 			Type="AppleURLRequest.NSURLRequestCachePolicy"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - UseProtocolCachePolicy"
+				"1 - ReloadIgnoringLocalCacheData"
+				"2 - ReloadIgnoringLocalAndRemoteCacheData"
+				"3 - ReturnCacheDataElseLoad"
+				"4 - ReturnCacheDataDontLoad"
+				"5 - ReloadRevalidatingCacheData"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SessionSendsLaunchEvents"

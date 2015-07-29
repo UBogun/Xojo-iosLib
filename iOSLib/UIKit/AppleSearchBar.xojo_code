@@ -1014,6 +1014,11 @@ Inherits AppleView
 			Name="BarStyle"
 			Group="Behavior"
 			Type="UIBarStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Black"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsContextBeforeDrawing"
@@ -1160,6 +1165,12 @@ Inherits AppleView
 			Name="SearchBarStyle"
 			Group="Behavior"
 			Type="UIsearchBarStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Prominent"
+				"2 - Minimal"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="searchResultsButtonSelected"

@@ -573,7 +573,9 @@ Implements AppleGeneralObject
 
 	#tag Method, Flags = &h0
 		Function SuperClassMethodImplementationForSelector(aSelector as Ptr) As Ptr
-		  return ObjectiveCRuntime.class_getMethodImplementation_stret (me.SuperClass, aSelector)
+		  #if Target32Bit
+		    return ObjectiveCRuntime.class_getMethodImplementation_stret (me.SuperClass, aSelector)
+		  #endif
 		End Function
 	#tag EndMethod
 
@@ -598,15 +600,6 @@ Implements AppleGeneralObject
 		End Function
 	#tag EndMethod
 
-
-	#tag ComputedProperty, Flags = &h0, CompatibilityFlags = (TargetIOS and (Target32Bit or Target64Bit)), Description = 546865206170706572616E6365206F626A656374206C65747320796F75206368616E67652070726F70657274696573206F6E20636C617373206C6576656C2E
-		#tag Getter
-			Get
-			  return new appleobject (GetAppearance (classptr))
-			End Get
-		#tag EndGetter
-		Shared Appearance As AppleObject
-	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter

@@ -126,14 +126,6 @@ Inherits AppleGestureRecognizer
 			Group="Behavior"
 			Type="UIGestureRecognizerState"
 			EditorType="Enum"
-			#tag EnumValues
-				"0 - Possible"
-				"1 - Began"
-				"2 - Changed"
-				"3 - Ended"
-				"4 - Cancelled"
-				"5 - Failed"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

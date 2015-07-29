@@ -1,6 +1,36 @@
 #tag Class
 Protected Class AppleLabel
 Inherits AppleView
+	#tag Method, Flags = &h1021
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(Rect as NSRect)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleView
+		  // Constructor(aFrame As NSRect) -- From AppleView
+		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (DoInitWithFrame(Alloc(classptr), rect))
+		  mHasOwnership = true
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MakefromPtr(aPtr as Ptr) As AppleLabel
+		  return if (aptr = nil, nil, new AppleLabel(aptr))
+		End Function
+	#tag EndMethod
+
+
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
@@ -72,14 +102,12 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function enabled lib UIKit selector "isEnabled" (id as ptr) as Boolean
-			  return enabled (id)
+			  return getenabled
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setEnabled lib UIKit selector "setEnabled:" (id as ptr, value as Boolean)
-			  setenabled id, value
+			  SetEnabled value
 			End Set
 		#tag EndSetter
 		Enabled As Boolean
@@ -511,6 +539,14 @@ Inherits AppleView
 			Name="TextAlignment"
 			Group="Behavior"
 			Type="NSTextAlignment"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Left"
+				"1 - Center"
+				"2 - Right"
+				"3 - Justified"
+				"4 - Natural"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextInputContextIdentifier"

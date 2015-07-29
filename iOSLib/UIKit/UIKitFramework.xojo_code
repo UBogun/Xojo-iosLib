@@ -26,6 +26,17 @@ Protected Module UIKitFramework
 		Natural
 	#tag EndEnum
 
+	#tag Enum, Name = UIAlertActionStyle, Type = Integer, Flags = &h0
+		Default
+		  Cancel
+		Destructive
+	#tag EndEnum
+
+	#tag Enum, Name = UIAlertControllerStyle, Type = Integer, Flags = &h0
+		ActionSheet
+		Alert
+	#tag EndEnum
+
 	#tag Enum, Name = UIBarMetrics, Type = Integer, Flags = &h0
 		Default
 		  Compact
@@ -68,6 +79,37 @@ Protected Module UIKitFramework
 		Reserved
 	#tag EndEnum
 
+	#tag Enum, Name = UIGestureRecognizerState, Type = Integer, Flags = &h0
+		Possible
+		  Began
+		  Changed
+		  Ended
+		  Cancelled
+		Failed
+	#tag EndEnum
+
+	#tag Enum, Name = UIImageOrientation, Type = Integer, Flags = &h0
+		Normal
+		  HalfwayRound
+		  QuarterRight
+		  QuarerLeft
+		  UpMirrored
+		  DownMirrored
+		  LeftMirrored
+		RightMirrored
+	#tag EndEnum
+
+	#tag Enum, Name = UIImageRenderingMode, Type = Integer, Flags = &h0
+		Automatic
+		  AlwaysOriginal
+		AlwaysTemplate
+	#tag EndEnum
+
+	#tag Enum, Name = UIImageResizingMode, Type = Integer, Flags = &h0
+		Tiled
+		Stretched
+	#tag EndEnum
+
 	#tag Enum, Name = UIModalTransitionStyle, Type = Integer, Flags = &h0
 		CoverVertical
 		  FlipHorizontal
@@ -98,6 +140,32 @@ Protected Module UIKitFramework
 		Default
 		  Prominent
 		Minimal
+	#tag EndEnum
+
+	#tag Enum, Name = UITextFieldBorderStyle, Type = Integer, Flags = &h0
+		None
+		  Line
+		  Bezel
+		RoundedRect
+	#tag EndEnum
+
+	#tag Enum, Name = UITextFieldViewMode, Type = Integer, Flags = &h0
+		Never
+		  WhileEditing
+		  UnlessEditing
+		Always
+	#tag EndEnum
+
+	#tag Enum, Name = UIUserInterfaceIdiom, Type = Integer, Flags = &h0
+		Unspecified = -1
+		  iPhone
+		iPad
+	#tag EndEnum
+
+	#tag Enum, Name = UIUserInterfaceSizeClass, Type = Integer, Flags = &h0
+		Unspecified
+		  Compact
+		Regular
 	#tag EndEnum
 
 	#tag Enum, Name = UIVIewAnimationCurve, Type = Integer, Flags = &h0

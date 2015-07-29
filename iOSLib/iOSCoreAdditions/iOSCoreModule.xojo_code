@@ -11,8 +11,25 @@ Protected Module iOSCoreModule
 	#tag EndComputedProperty
 
 	#tag Property, Flags = &h0
-		LibDebug As Boolean = false
+		LibDebug As Boolean = true
 	#tag EndProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #If Target32Bit Then
+			    Declare Function scale Lib "Foundation" Selector "scale" (classRef As Ptr) As Single
+			  #Else
+			    Declare Function scale Lib "Foundation" Selector "scale" (classRef As Ptr) As Double
+			  #Endif
+			  Declare Function mainScreen Lib "Foundation" Selector "mainScreen" (classRef As Ptr) As Ptr
+			  
+			  Return scale(mainScreen(NSClassFromString("UIScreen")))
+			  
+			End Get
+		#tag EndGetter
+		ScreenResolution As double
+	#tag EndComputedProperty
 
 
 	#tag ViewBehavior
@@ -46,6 +63,11 @@ Protected Module iOSCoreModule
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ScreenResolution"
+			Group="Behavior"
+			Type="double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

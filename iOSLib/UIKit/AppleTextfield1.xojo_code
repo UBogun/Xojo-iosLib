@@ -1046,21 +1046,6 @@ Inherits AppleControl
 	#tag EndConstant
 
 
-	#tag Enum, Name = UITextFieldBorderStyle, Type = Integer, Flags = &h0
-		None
-		  Line
-		  Bezel
-		RoundedRect
-	#tag EndEnum
-
-	#tag Enum, Name = UITextFieldViewMode, Type = Integer, Flags = &h0
-		Never
-		  WhileEditing
-		  UnlessEditing
-		Always
-	#tag EndEnum
-
-
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="AdjustsFontSizeToFitWidth"
@@ -1136,12 +1121,6 @@ Inherits AppleControl
 			Group="Behavior"
 			Type="UIControlContentHorizontalAlignment"
 			EditorType="Enum"
-			#tag EnumValues
-				"0 - Center"
-				"1 - Left"
-				"2 - Right"
-				"3 - Fill"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentMode"
@@ -1174,12 +1153,6 @@ Inherits AppleControl
 			Group="Behavior"
 			Type="UIControlContentVerticalAlignment"
 			EditorType="Enum"
-			#tag EnumValues
-				"0 - Center"
-				"1 - Top"
-				"2 - Bottom"
-				"3 - Fill"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"
@@ -1330,14 +1303,6 @@ Inherits AppleControl
 			Group="Behavior"
 			Type="UIControlState"
 			EditorType="Enum"
-			#tag EnumValues
-				"0 - Normal"
-				"1 - Highlighted"
-				"2 - Disabled"
-				"3 - Selected"
-				"4 - Application"
-				"5 - Reserved"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

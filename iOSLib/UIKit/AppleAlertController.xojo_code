@@ -1,6 +1,28 @@
 #tag Class
 Protected Class AppleAlertController
 Inherits AppleViewController
+	#tag Method, Flags = &h0
+		Sub AddAction(Action as AppleAlertAction)
+		  declare sub addAction lib UIKit selector "addAction:" (obj_id as ptr, action as ptr)
+		  addAction id, action.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub AddTextField(TextField as AppleTextfield, configurationHandler as Ptr = nil)
+		  declare sub addTextFieldWithConfigurationHandler lib UIKit selector "addTextFieldWithConfigurationHandler:" (obj_id as ptr, confighandler as ptr)
+		  addTextFieldWithConfigurationHandler id, configurationHandler
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub ConfigurationHandlerTemplate(TextFieldPtr as Ptr)
+		  dim textfield as new AppleTextfield(TextFieldPtr)
+		  // Here, do something with your textfield properties.
+		  #pragma unused TextField
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1021
 		Private Sub Constructor()
 		  
@@ -17,16 +39,49 @@ Inherits AppleViewController
 		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
-		  if isAvailable then Super.Constructor (alertControllerWithTitle (classptr, Title, Message, preferredStyle))
-		  RetainClassObject
+		  if isAvailable then
+		    Super.Constructor (alertControllerWithTitle (classptr, Title, Message, preferredStyle))
+		    RetainClassObject
+		  else
+		    AppleLibSystem.MakeException ("UIAlertController is not available on this system, probably below iOS 8. Use AppleActionSheet instead")
+		  end if
 		End Sub
 	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informOnAlertFinished(Selection as text)
+		  RaiseEvent Alert (selection)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Show(ViewControl as AppleViewController, animated as boolean = true)
+		  ParentViewControl = ViewControl
+		  viewcontrol.Present (self, true)
+		End Sub
+	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event Alert(SelectedButtonTitle as Text)
+	#tag EndHook
 
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIAlertViewController")
+			  Declare Function actions lib UIKit selector "actions" (id as ptr) as ptr
+			  Return AppleArray.MakeFromPtr (actions(id))
+			  
+			End Get
+		#tag EndGetter
+		Actions As AppleArray
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static mClassPtr as Ptr = NSClassFromString ("UIAlertController")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -59,6 +114,10 @@ Inherits AppleViewController
 		Message As Text
 	#tag EndComputedProperty
 
+	#tag Property, Flags = &h21
+		Private ParentViewControl As AppleViewController
+	#tag EndProperty
+
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
@@ -68,6 +127,26 @@ Inherits AppleViewController
 			End Get
 		#tag EndGetter
 		PreferredStyle As UIAlertControllerStyle
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return AppleAlertAction.LastSelectedTitle
+			End Get
+		#tag EndGetter
+		SelectedTitle As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function textFields lib UIKit selector "textFields" (id as ptr) as ptr
+			  Return AppleArray.MakeFromPtr (textFields(id))
+			  
+			End Get
+		#tag EndGetter
+		TextFields As AppleArray
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -83,12 +162,6 @@ Inherits AppleViewController
 		#tag EndSetter
 		Title As Text
 	#tag EndComputedProperty
-
-
-	#tag Enum, Name = UIAlertControllerStyle, Type = Integer, Flags = &h0
-		ActionSheet
-		Alert
-	#tag EndEnum
 
 
 	#tag ViewBehavior
@@ -170,11 +243,30 @@ Inherits AppleViewController
 			Name="ModalPresentationStyle"
 			Group="Behavior"
 			Type="UIViewModalPresentationStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - FullScreen"
+				"1 - PageSheet"
+				"2 - FormSheet"
+				"3 - CurrentContext"
+				"4 - Custom"
+				"5 - OverFullScreen"
+				"6 - OverCurrentContext"
+				"7 - PopOver"
+				"-1 - None"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ModalTransitonStyle"
 			Group="Behavior"
 			Type="UIModalTransitionStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - CoverVertical"
+				"1 - FlipHorizontal"
+				"2 - CrossDissolve"
+				"3 - PartialCurl"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -196,6 +288,11 @@ Inherits AppleViewController
 				"0 - ActionSheet"
 				"1 - Alert"
 			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SelectedTitle"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

@@ -1,27 +1,67 @@
 #tag Class
-Protected Class AppleWindow
+Protected Class AppleActionSheet
 Inherits AppleView
+	#tag Method, Flags = &h0
+		Sub AddButton(ButtonTitle as CFStringRef)
+		  Declare sub addButtonWithTitle  lib uikit selector "addButtonWithTitle:" (id as ptr, title as CFStringRef)
+		  addButtonWithTitle id, ButtonTitle
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h1021
-		Private Sub Constructor()
+		Private Sub constructor()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(Title As CFStringRef, CancelButtonTitle as text, DestructiveButtonTitle As text)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleView
+		  // Constructor(aFrame As NSRect) -- From AppleView
+		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  
+		  // dim cancel as new AppleCFString(CancelButtonTitle)
+		  // dim desttruct as new AppleCFString (DestructiveButtonTitle)
+		  
+		  Declare Function initWithTitle lib UIKit selector "initWithTitle:delegate:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:" _
+		  (id as ptr, Title as cfstringref, delegate_ as ptr,  CancelButtonTitle as CFStringRef, DestructiveButtonTitle as CFStringRef, otherbuttonTitles as ptr) as ptr
+		  
+		  if CancelButtonTitle.Empty then
+		    Super.Constructor initWithTitle (Alloc(classptr), Title, Nil, Nil,  DestructiveButtonTitle, Nil)
+		  elseif DestructiveButtonTitle.Empty then
+		    Super.Constructor initWithTitle (Alloc(classptr), Title, Nil, CancelButtonTitle,  NIL, Nil)
+		  else
+		    Super.Constructor initWithTitle (Alloc(classptr), Title, Nil, CancelButtonTitle,  DestructiveButtonTitle, Nil)
+		  end if
+		  
+		  
+		  mHasOwnership = true
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MakefromPtr(aPtr as Ptr) As AppleWindow
-		  return if (aptr = nil, nil, new AppleWindow (aptr))
-		End Function
+		Sub ShowInView(view as AppleView)
+		  Declare sub showInView  lib uikit selector "showInView:" (id as ptr, view as ptr)
+		  showInView id, view.id
+		End Sub
 	#tag EndMethod
 
 
-	#tag ComputedProperty, Flags = &h1
+	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIWindow")
+			  static mClassPtr as Ptr = NSClassFromString ("UIActionSheet")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
-		Protected Shared ClassPtr As Ptr
+		Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
 
@@ -51,6 +91,21 @@ Inherits AppleView
 			Group="Behavior"
 			Type="UIViewContentMode"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - ScaleToFill"
+				"1 - ScaleAspectFit"
+				"2 - ScaleAspectFill"
+				"3 - Redraw"
+				"4 - Center"
+				"5 - Top"
+				"6 - Bottom"
+				"7 - Left"
+				"8 - Right"
+				"9 - TopLeft"
+				"10 - TopRight"
+				"11 - BottomLeft"
+				"12 - BottomRight"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentScaleFactor"
@@ -168,6 +223,11 @@ Inherits AppleView
 			Group="Behavior"
 			Type="UIViewTintAdjustmentMode"
 			EditorType="Enum"
+			#tag EnumValues
+				"0 - Automatic"
+				"1 - Normal"
+				"2 - Dimmed"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

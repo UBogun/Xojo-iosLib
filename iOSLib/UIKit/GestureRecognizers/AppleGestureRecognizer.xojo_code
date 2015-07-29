@@ -261,14 +261,8 @@ Inherits AppleObject
 	#tag EndComputedProperty
 
 
-	#tag Enum, Name = UIGestureRecognizerState, Type = Integer, Flags = &h0
-		Possible
-		  Began
-		  Changed
-		  Ended
-		  Cancelled
-		Failed
-	#tag EndEnum
+	#tag Constant, Name = kPanGesture, Type = Text, Dynamic = False, Default = \"PanGesture", Scope = Public
+	#tag EndConstant
 
 
 	#tag ViewBehavior

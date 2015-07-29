@@ -1038,13 +1038,6 @@ Inherits AppleControl
 		RoundedRect
 	#tag EndEnum
 
-	#tag Enum, Name = UITextFieldViewMode, Type = Integer, Flags = &h0
-		Never
-		  WhileEditing
-		  UnlessEditing
-		Always
-	#tag EndEnum
-
 
 	#tag ViewBehavior
 		#tag ViewProperty

@@ -69,6 +69,12 @@ Inherits AppleObject
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function MakefromPtr(aPtr as Ptr) As AppleData
+		  return if (aptr = nil, nil, new AppleData(aPtr))
+		End Function
+	#tag EndMethod
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter

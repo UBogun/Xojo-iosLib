@@ -163,6 +163,16 @@ Inherits AppleObject
 		Shared BrownColor As AppleColor
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function CGColor lib UIKit selector "CGColor" (id as ptr) as ptr
+			  return AppleCGColor.MakeFromCFTypeRef (CGColor(id))
+			End Get
+		#tag EndGetter
+		CGColor As AppleCGColor
+	#tag EndComputedProperty
+
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
