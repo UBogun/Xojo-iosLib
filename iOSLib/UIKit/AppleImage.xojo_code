@@ -678,17 +678,6 @@ Inherits AppleObject
 			Name="ImageOrientation"
 			Group="Behavior"
 			Type="UIImageOrientation"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Normal"
-				"1 - HalfwayRound"
-				"2 - QuarterRight"
-				"3 - QuarerLeft"
-				"4 - UpMirrored"
-				"5 - DownMirrored"
-				"6 - LeftMirrored"
-				"7 - RightMirrored"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -729,22 +718,11 @@ Inherits AppleObject
 			Name="RenderingMode"
 			Group="Behavior"
 			Type="UIImageRenderingMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Automatic"
-				"1 - AlwaysOriginal"
-				"2 - AlwaysTemplate"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ResizingMode"
 			Group="Behavior"
 			Type="UIImageResizingMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Tiled"
-				"1 - Stretched"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Scale"

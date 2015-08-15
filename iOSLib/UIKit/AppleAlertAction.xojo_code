@@ -173,12 +173,6 @@ Inherits AppleObject
 			Name="Style"
 			Group="Behavior"
 			Type="UIALertActionStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - Cancel"
-				"2 - Destructive"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

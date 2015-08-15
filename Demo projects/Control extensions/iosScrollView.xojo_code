@@ -1,22 +1,49 @@
 #tag IOSView
 Begin iosView iosScrollView
-   BackButtonTitle =   ""
+   BackButtonTitle =   "return"
    Compatibility   =   ""
    Left            =   0
-   NavigationBarVisible=   False
+   NavigationBarVisible=   True
    TabTitle        =   ""
    Title           =   ""
    Top             =   0
    Begin AppleScrollViewer AppleScrollViewControl1
-      AutoLayout      =   AppleScrollViewControl1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AlwaysBounceHorizontal=   True
+      AlwaysBounceVertical=   True
       AutoLayout      =   AppleScrollViewControl1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   AppleScrollViewControl1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AppleScrollViewControl1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AppleScrollViewControl1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
-      Height          =   460.0
-      Left            =   0.0
+      BackgroundColor =   &cFFFFFF00
+      Bounces         =   True
+      BouncesZoom     =   True
+      CanCancelContentTouches=   False
+      Decelerating    =   False
+      DecelerationRate=   0.9979999999999999982236
+      DirectionalLock =   False
+      Dragging        =   False
+      Height          =   415.0
+      Left            =   0
       LockedInPosition=   False
-      Top             =   20.0
+      MaximumZoomScale=   5.0
+      MinimumZoomScale=   0.1000000000000000055511
+      PagingEnabled   =   False
+      Scope           =   0
+      ScrollEnabled   =   True
+      ScrollsToTop    =   True
+      ShowsHorizontalScrollIndicator=   True
+      ShowsVerticalScrollIndicator=   True
+      Top             =   65
+      Tracking        =   False
+      Visible         =   True
       Width           =   320.0
+      Zoomable        =   True
+      ZoomBouncing    =   False
+      Zooming         =   False
+      ZoomOnDoubleTap =   True
+      ZoomScale       =   1.0
    End
 End
 #tag EndIOSView

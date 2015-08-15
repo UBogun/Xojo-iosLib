@@ -72,11 +72,11 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextAddArc(Context as Ptr, x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Int32)
 		  #if Target64Bit
-		    Declare Sub CGContextAddArc lib CoreGraphics _
+		    Declare Sub CGContextAddArc lib CoreGraphicsLib _
 		    (id as ptr,  x as double, y as double, radius as double, startAngle as Double, EndAngle As Double, ClockWise As Int32)
 		    CGContextAddArc (Context, x, y, radius, startAngle, EndAngle, ClockWise)
 		  #elseif Target32Bit
-		    Declare Sub CGContextAddArc lib CoreGraphics _
+		    Declare Sub CGContextAddArc lib CoreGraphicsLib _
 		    (id as ptr, x as single, y as single, radius as single, startAngle as single, EndAngle As single, ClockWise As Int32)
 		    CGContextAddArc (Context, x, y, radius, startAngle, EndAngle, ClockWise)
 		  #endif
@@ -87,11 +87,11 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextAddArcToPoint(APathRef as Ptr, x1 as double, y1 as double, x2 as double, y2 as double, radius as double)
 		  #if Target64Bit
-		    Declare Sub CGContextAddArcToPoint lib CoreGraphics _
+		    Declare Sub CGContextAddArcToPoint lib CoreGraphicsLib _
 		    (Id as Ptr,  x1 as double, y1 as double,  x2 as double, y2 as double, radius as double)
 		    CGContextAddArcToPoint (APathRef, x1, y1, x2, y2, radius)
 		  #elseif Target32Bit
-		    Declare Sub CGContextAddArcToPoint lib CoreGraphics _
+		    Declare Sub CGContextAddArcToPoint lib CoreGraphicsLib _
 		    (Id as Ptr,  x1 as single, y1 as single,  x2 as single, y2 as single, radius as single)
 		    CGContextAddArcToPoint (APathRef, x1, y1, x2, y2, radius)
 		  #endif
@@ -102,11 +102,11 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextAddCurveToPoint(APathRef as Ptr, cp1x as double, cp1y as double, cp2x as double, cp2y as double, x as double, y as double)
 		  #if Target64Bit
-		    Declare Sub CGContextAddCurveToPoint lib CoreGraphics _
+		    Declare Sub CGContextAddCurveToPoint lib CoreGraphicsLib _
 		    (Id as Ptr, cp1x as double, cp1y as double,  cp2x as double, cp2y as double, x as double, y as double)
 		    CGContextAddCurveToPoint (APathRef, cp1x, cp1y, cp2x, cp2y, x, y)
 		  #elseif Target32Bit
-		    Declare Sub CGContextAddCurveToPoint lib CoreGraphics _
+		    Declare Sub CGContextAddCurveToPoint lib CoreGraphicsLib _
 		    (Id as Ptr, cp1x as single, cp1y as single,  cp2x as single, cp2y as single, x as single, y as single)
 		    CGContextAddCurveToPoint (APathRef, cp1x, cp1y, cp2x, cp2y, x, y)
 		  #endif
@@ -117,10 +117,10 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextAddEllipseInRect(APathRef as Ptr, aRect as NSRect)
 		  #if Target64Bit
-		    Declare Sub CGContextAddEllipseInRect lib CoreGraphics  (id as ptr,  aRect as nsrect)
+		    Declare Sub CGContextAddEllipseInRect lib CoreGraphicsLib (id as ptr,  aRect as nsrect)
 		    CGContextAddEllipseInRect (APathRef,  aRect)
 		  #elseif Target32Bit
-		    Declare Sub CGContextAddEllipseInRect lib CoreGraphics  (id as ptr,  aRect as NSRect32Bit)
+		    Declare Sub CGContextAddEllipseInRect lib CoreGraphicsLib (id as ptr,  aRect as NSRect32Bit)
 		    CGContextAddEllipseInRect (APathRef,  aRect.toNSRect32)
 		  #endif
 		  
@@ -128,31 +128,31 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextAddLines Lib CoreGraphics (CFTypeRef as Ptr, Points as Ptr, Count as Uinteger)
+		Protected Declare Sub CGContextAddLines Lib CoreGraphicsLib (CFTypeRef as Ptr, Points as Ptr, Count as Uinteger)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextAddLineToPoint(id as ptr, x as double, y as double)
 		  #if Target64Bit
-		    Declare sub CGContextAddLineToPoint lib CoreGraphics (id as ptr, x as double, y as double)
+		    Declare sub CGContextAddLineToPoint lib CoreGraphicsLib (id as ptr, x as double, y as double)
 		  #elseif Target32Bit
-		    Declare sub CGContextAddLineToPoint lib CoreGraphics (id as ptr, x as single, y as single)
+		    Declare sub CGContextAddLineToPoint lib CoreGraphicsLib (id as ptr, x as single, y as single)
 		  #endif
 		  CGContextAddLineToPoint id, x, y
 		End Sub
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextAddPath Lib CoreGraphics (CFTypeRef as Ptr, Path as ptr)
+		Protected Declare Sub CGContextAddPath Lib CoreGraphicsLib (CFTypeRef as Ptr, Path as ptr)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextAddQuadCurveToPoint(APathRef as Ptr, cpx as double, cpy as double, x as double, y as double)
 		  #if Target64Bit
-		    Declare Sub CGContextAddQuadCurveToPoint lib CoreGraphics  (Id as Ptr, cpx as double, cpy as double,  x as double, y as double)
+		    Declare Sub CGContextAddQuadCurveToPoint lib CoreGraphicsLib (Id as Ptr, cpx as double, cpy as double,  x as double, y as double)
 		    CGContextAddQuadCurveToPoint (APathRef, cpx, cpy, x, y)
 		  #elseif Target32Bit
-		    Declare Sub CGContextAddQuadCurveToPoint lib CoreGraphics  (Id as Ptr, cpx as single, cpy as single,  x as single, y as single)
+		    Declare Sub CGContextAddQuadCurveToPoint lib CoreGraphicsLib (Id as Ptr, cpx as single, cpy as single,  x as single, y as single)
 		    CGContextAddQuadCurveToPoint (APathRef,  cpx, cpy, x, y)
 		  #endif
 		  
@@ -162,10 +162,10 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextAddRect(APathRef as Ptr, aRect as NSRect)
 		  #if Target64Bit
-		    Declare Sub CGContextAddRect lib CoreGraphics  (id as ptr, aRect as nsrect)
+		    Declare Sub CGContextAddRect lib CoreGraphicsLib (id as ptr, aRect as nsrect)
 		    CGContextAddRect (APathRef,  aRect)
 		  #elseif Target32Bit
-		    Declare Sub CGContextAddRect lib CoreGraphics  (id as ptr, aRect as NSRect32Bit)
+		    Declare Sub CGContextAddRect lib CoreGraphicsLib (id as ptr, aRect as NSRect32Bit)
 		    CGContextAddRect (APathRef,  aRect.toNSRect32)
 		  #endif
 		  
@@ -173,20 +173,20 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextAddRects Lib CoreGraphics (CFTypeRef as Ptr, Rects as Ptr, Count as Uinteger)
+		Protected Declare Sub CGContextAddRects Lib CoreGraphicsLib (CFTypeRef as Ptr, Rects as Ptr, Count as Uinteger)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextBeginPath Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextBeginPath Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextClearRect(APathRef as Ptr, aRect as NSRect)
 		  #if Target64Bit
-		    Declare Sub CGContextClearRect lib CoreGraphics  (id as ptr,  aRect as nsrect)
+		    Declare Sub CGContextClearRect lib CoreGraphicsLib (id as ptr,  aRect as nsrect)
 		    CGContextClearRect (APathRef,  aRect)
 		  #elseif Target32Bit
-		    Declare Sub CGContextClearRect lib CoreGraphics  (id as ptr,  aRect as NSRect32Bit)
+		    Declare Sub CGContextClearRect lib CoreGraphicsLib (id as ptr,  aRect as NSRect32Bit)
 		    CGContextClearRect (APathRef,  aRect.toNSRect32)
 		  #endif
 		  
@@ -194,20 +194,20 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextClosePath Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextClosePath Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextCopyPath Lib CoreGraphics (CFTypeRef as Ptr) As Ptr
+		Protected Declare Function CGContextCopyPath Lib CoreGraphicsLib (CFTypeRef as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextDrawImage(id as ptr, Rect as NSRect, image as AppleCGImage)
 		  #if Target64Bit
-		    declare sub CGContextDrawImage lib CoreGraphics (Id as ptr, Rect as NSRect, Image as Ptr)
+		    declare sub CGContextDrawImage lib CoreGraphicsLib (Id as ptr, Rect as NSRect, Image as Ptr)
 		    CGContextDrawImage id, rect, image.CFTypeRef
 		  #elseif Target32Bit
-		    declare sub CGContextDrawImage lib CoreGraphics (Id as ptr, Rect as NSRect32Bit, Image as Ptr)
+		    declare sub CGContextDrawImage lib CoreGraphicsLib (Id as ptr, Rect as NSRect32Bit, Image as Ptr)
 		    CGContextDrawImage id, rect.toNSRect32, image.CFTypeRef
 		  #endif
 		End Sub
@@ -216,11 +216,11 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextDrawLinearGradient(Context as Ptr, gradient as Ptr, startPoint as NSPoint, EndPoint AS NSPoint, options As uint32)
 		  #if Target64Bit
-		    Declare Sub CGContextDrawLinearGradient lib CoreGraphics _
+		    Declare Sub CGContextDrawLinearGradient lib CoreGraphicsLib _
 		    (Context as Ptr, gradient as Ptr, startPoint as NSPoint, EndPoint AS NSPoint, options As UInt32)
 		    CGContextDrawLinearGradient (Context, gradient, startPoint, endpoint, options)
 		  #elseif Target32Bit
-		    Declare Sub CGContextDrawLinearGradient lib CoreGraphics _
+		    Declare Sub CGContextDrawLinearGradient lib CoreGraphicsLib _
 		    (Context as Ptr, gradient as Ptr, startPoint as NSPoint32Bit, EndPoint AS NSPoint32Bit, options As UInt32)
 		    CGContextDrawLinearGradient (Context, gradient, startPoint.toNSPoint32, endpoint.toNSPoint32, options)
 		  #endif
@@ -229,17 +229,17 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextDrawPath Lib CoreGraphics (CFTypeRef as Ptr, DrawingMode as CGPathDrawingMode)
+		Protected Declare Sub CGContextDrawPath Lib CoreGraphicsLib (CFTypeRef as Ptr, DrawingMode as CGPathDrawingMode)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextDrawRadialGradient(Context as Ptr, gradient as Ptr, startCenter as NSPoint, StartRadius As Double, EndCenter AS NSPoint, EndRadius As Double, options As uint32)
 		  #if Target64Bit
-		    Declare Sub CGContextDrawRadialGradient lib CoreGraphics _
+		    Declare Sub CGContextDrawRadialGradient lib CoreGraphicsLib _
 		    (Context as Ptr, gradient as Ptr, startCenter as NSPoint, StartRadius As Double, EndCenter AS NSPoint, EndRadius As Double, options As uint32)
 		    CGContextDrawRadialGradient (Context, gradient, startCenter, StartRadius, EndCenter, endradius, options)
 		  #elseif Target32Bit
-		    Declare Sub CGContextDrawRadialGradient lib CoreGraphics _
+		    Declare Sub CGContextDrawRadialGradient lib CoreGraphicsLib _
 		    (Context as Ptr, gradient as Ptr, startCenter as NSPoint32Bit, StartRadius As Single, EndCenter AS NSPoint32Bit, EndRadius As Single, options As uint32)
 		    CGContextDrawRadialGradient (Context, gradient, startCenter.toNSPoint32, StartRadius, EndCenter.toNSPoint32, endradius, options)
 		  #endif
@@ -250,76 +250,76 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextDrawTiledImage(id as ptr, Rect as NSRect, image as AppleCGImage)
 		  #if Target64Bit
-		    declare sub CGContextDrawTiledImage lib CoreGraphics (Id as ptr, Rect as NSRect, Image as Ptr)
+		    declare sub CGContextDrawTiledImage lib CoreGraphicsLib (Id as ptr, Rect as NSRect, Image as Ptr)
 		    CGContextDrawTiledImage id, rect, image.CFTypeRef
 		  #elseif Target32Bit
-		    declare sub CGContextDrawTiledImage lib CoreGraphics (Id as ptr, Rect as NSRect32Bit, Image as Ptr)
+		    declare sub CGContextDrawTiledImage lib CoreGraphicsLib (Id as ptr, Rect as NSRect32Bit, Image as Ptr)
 		    CGContextDrawTiledImage id, rect.toNSRect32, image.CFTypeRef
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextEOFillPath Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextEOFillPath Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextFillPath Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextFillPath Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextFillRects Lib CoreGraphics (CFTypeRef as Ptr, Rects as Ptr, Count as Uinteger)
+		Protected Declare Sub CGContextFillRects Lib CoreGraphicsLib (CFTypeRef as Ptr, Rects as Ptr, Count as Uinteger)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextFlush Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextFlush Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetAllowsFontSmoothing Lib CoreGraphics (CFTypeRef as Ptr) As Boolean
+		Protected Declare Function CGContextGetAllowsFontSmoothing Lib CoreGraphicsLib (CFTypeRef as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetAllowsFontSubpixelPositioning Lib CoreGraphics (CFTypeRef as Ptr) As Boolean
+		Protected Declare Function CGContextGetAllowsFontSubpixelPositioning Lib CoreGraphicsLib (CFTypeRef as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetAllowsFontSubpixelQuantization Lib CoreGraphics (CFTypeRef as Ptr) As Boolean
+		Protected Declare Function CGContextGetAllowsFontSubpixelQuantization Lib CoreGraphicsLib (CFTypeRef as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetBlendMode Lib CoreGraphics (CFTypeRef as Ptr) As CGBlendMode
+		Protected Declare Function CGContextGetBlendMode Lib CoreGraphicsLib (CFTypeRef as Ptr) As CGBlendMode
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Function CGContextGetFlatness(id as ptr) As double
 		  #if Target64Bit
-		    Declare function CGContextGetFlatness lib CoreGraphics (id as ptr)  as double
+		    Declare function CGContextGetFlatness lib CoreGraphicsLib (id as ptr)  as double
 		  #elseif Target32Bit
-		    Declare function CGContextGetFlatness lib CoreGraphics (id as ptr)  as single
+		    Declare function CGContextGetFlatness lib CoreGraphicsLib (id as ptr)  as single
 		  #endif
 		  Return CGContextGetFlatness (id)
 		End Function
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetInterpolationQuality Lib CoreGraphics (CFTypeRef as Ptr) As CGInterpolationQuality
+		Protected Declare Function CGContextGetInterpolationQuality Lib CoreGraphicsLib (CFTypeRef as Ptr) As CGInterpolationQuality
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetLineCap Lib CoreGraphics (CFTypeRef as Ptr) As CGLineCap
+		Protected Declare Function CGContextGetLineCap Lib CoreGraphicsLib (CFTypeRef as Ptr) As CGLineCap
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetLineJoin Lib CoreGraphics (CFTypeRef as Ptr) As CGLineJoin
+		Protected Declare Function CGContextGetLineJoin Lib CoreGraphicsLib (CFTypeRef as Ptr) As CGLineJoin
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Function CGContextGetMiterLimit(id as ptr) As Double
 		  #if Target64Bit
-		    Declare function CGContextGetMiterLimit lib CoreGraphics (id as ptr) as double
+		    Declare function CGContextGetMiterLimit lib CoreGraphicsLib (id as ptr) as double
 		  #elseif Target32Bit
-		    Declare function CGContextGetMiterLimit lib CoreGraphics (id as ptr) as single
+		    Declare function CGContextGetMiterLimit lib CoreGraphicsLib (id as ptr) as single
 		  #endif
 		  return CGContextGetMiterLimit (id)
 		End Function
@@ -328,10 +328,10 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Function CGContextGetPathBoundingBox(context as Ptr) As NSRect
 		  #if Target64Bit
-		    Declare function CGContextGetPathBoundingBox lib CoreGraphics (id as ptr) as nsrect
+		    Declare function CGContextGetPathBoundingBox lib CoreGraphicsLib (id as ptr) as nsrect
 		    return CGContextGetPathBoundingBox (context)
 		  #elseif Target32Bit
-		    Declare function CGContextGetPathBoundingBox lib CoreGraphics (id as ptr) as NSRect32Bit
+		    Declare function CGContextGetPathBoundingBox lib CoreGraphicsLib (id as ptr) as NSRect32Bit
 		    return CGContextGetPathBoundingBox(context).toNSRect
 		  #endif
 		  
@@ -341,10 +341,10 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Function CGContextGetPathCurrentPoint(context as Ptr) As NSPoint
 		  #if Target64Bit
-		    Declare function CGContextGetPathCurrentPoint lib CoreGraphics (id as ptr) as NSPoint
+		    Declare function CGContextGetPathCurrentPoint lib CoreGraphicsLib (id as ptr) as NSPoint
 		    return CGContextGetPathCurrentPoint (context)
 		  #elseif Target32Bit
-		    Declare function CGContextGetPathCurrentPoint lib CoreGraphics (id as ptr) as NSPoint32Bit
+		    Declare function CGContextGetPathCurrentPoint lib CoreGraphicsLib (id as ptr) as NSPoint32Bit
 		    return CGContextGetPathCurrentPoint(context).tonspoint
 		  #endif
 		  
@@ -354,10 +354,10 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Function CGContextGetPatternPhase(id as ptr) As NSSize
 		  #if Target64Bit
-		    Declare Function CGContextGetPatternPhase lib CoreGraphics (id as ptr) As NSSize
+		    Declare Function CGContextGetPatternPhase lib CoreGraphicsLib (id as ptr) As NSSize
 		    return CGContextGetPatternPhase (id)
 		  #elseif Target32Bit
-		    Declare Function CGContextGetPatternPhase lib CoreGraphics (id as ptr) As NSSize32Bit
+		    Declare Function CGContextGetPatternPhase lib CoreGraphicsLib (id as ptr) As NSSize32Bit
 		    return CGContextGetPatternPhase(id).tonssize
 		  #endif
 		  
@@ -365,35 +365,35 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetRenderingIntent Lib CoreGraphics (CFTypeRef as Ptr) As CGColorRenderingIntent
+		Protected Declare Function CGContextGetRenderingIntent Lib CoreGraphicsLib (CFTypeRef as Ptr) As CGColorRenderingIntent
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetShouldSmoothFonts Lib CoreGraphics (CFTypeRef as Ptr) As Boolean
+		Protected Declare Function CGContextGetShouldSmoothFonts Lib CoreGraphicsLib (CFTypeRef as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetShouldSubpixelPositionFonts Lib CoreGraphics (CFTypeRef as Ptr) As Boolean
+		Protected Declare Function CGContextGetShouldSubpixelPositionFonts Lib CoreGraphicsLib (CFTypeRef as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetShouldSubpixelQuantizeFonts Lib CoreGraphics (CFTypeRef as Ptr) As Boolean
+		Protected Declare Function CGContextGetShouldSubpixelQuantizeFonts Lib CoreGraphicsLib (CFTypeRef as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetTextDrawingMode Lib CoreGraphics (CFTypeRef as Ptr) As CGTextDrawingMode
+		Protected Declare Function CGContextGetTextDrawingMode Lib CoreGraphicsLib (CFTypeRef as Ptr) As CGTextDrawingMode
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextIsPathEmpty Lib CoreGraphics (CFTypeRef as Ptr) As Boolean
+		Protected Declare Function CGContextIsPathEmpty Lib CoreGraphicsLib (CFTypeRef as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextMoveToPoint(id as ptr, x as double, y as double)
 		  #if Target64Bit
-		    Declare sub CGContextMoveToPoint lib CoreGraphics (id as ptr, x as double, y as double)
+		    Declare sub CGContextMoveToPoint lib CoreGraphicsLib (id as ptr, x as double, y as double)
 		  #elseif Target32Bit
-		    Declare sub CGContextMoveToPoint lib CoreGraphics (id as ptr, x as single, y as single)
+		    Declare sub CGContextMoveToPoint lib CoreGraphicsLib (id as ptr, x as single, y as single)
 		  #endif
 		  CGContextMoveToPoint id, x, y
 		End Sub
@@ -402,10 +402,10 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Function CGContextPathContainsPoint(context as Ptr, point as nspoint, mode as CGPathDrawingMode) As boolean
 		  #if Target64Bit
-		    Declare function CGContextPathContainsPoint lib CoreGraphics (id as ptr, point as nspoint, mode as CGPathDrawingMode) as boolean
+		    Declare function CGContextPathContainsPoint lib CoreGraphicsLib (id as ptr, point as nspoint, mode as CGPathDrawingMode) as boolean
 		    return CGContextPathContainsPoint (context, point, mode)
 		  #elseif Target32Bit
-		    Declare function CGContextPathContainsPoint lib CoreGraphics (id as ptr, point as NSPoint32Bit, mode as CGPathDrawingMode) as boolean
+		    Declare function CGContextPathContainsPoint lib CoreGraphicsLib (id as ptr, point as NSPoint32Bit, mode as CGPathDrawingMode) as boolean
 		    return CGContextPathContainsPoint (context, point.toNSPoint32, mode)
 		  #endif
 		  
@@ -413,82 +413,82 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextRelease Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextRelease Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextReplacePathWithStrokedPath Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextReplacePathWithStrokedPath Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextRestoreGState Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextRestoreGState Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextRetain Lib CoreGraphics (CFTypeRef as Ptr) As Ptr
+		Protected Declare Function CGContextRetain Lib CoreGraphicsLib (CFTypeRef as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSaveGState Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextSaveGState Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetAllowsFontSmoothing Lib CoreGraphics (CFTypeRef as Ptr, value as Boolean)
+		Protected Declare Sub CGContextSetAllowsFontSmoothing Lib CoreGraphicsLib (CFTypeRef as Ptr, value as Boolean)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetAllowsFontSubpixelPositioning Lib CoreGraphics (CFTypeRef as Ptr, value as Boolean)
+		Protected Declare Sub CGContextSetAllowsFontSubpixelPositioning Lib CoreGraphicsLib (CFTypeRef as Ptr, value as Boolean)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetAllowsFontSubpixelQuantization Lib CoreGraphics (CFTypeRef as Ptr, value as Boolean)
+		Protected Declare Sub CGContextSetAllowsFontSubpixelQuantization Lib CoreGraphicsLib (CFTypeRef as Ptr, value as Boolean)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetBlendMode Lib CoreGraphics (CFTypeRef as Ptr, value as CGBlendMode)
+		Protected Declare Sub CGContextSetBlendMode Lib CoreGraphicsLib (CFTypeRef as Ptr, value as CGBlendMode)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextSetFlatness(id as ptr, Flatness As Double)
 		  #if Target64Bit
-		    Declare sub CGContextSetFlatness lib CoreGraphics (id as ptr, value as double)
+		    Declare sub CGContextSetFlatness lib CoreGraphicsLib (id as ptr, value as double)
 		  #elseif Target32Bit
-		    Declare sub CGContextSetFlatness lib CoreGraphics (id as ptr, value as single)
+		    Declare sub CGContextSetFlatness lib CoreGraphicsLib (id as ptr, value as single)
 		  #endif
 		  CGContextSetFlatness id, Flatness
 		End Sub
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetInterpolationQuality Lib CoreGraphics (CFTypeRef as Ptr, value as CGInterpolationQuality)
+		Protected Declare Sub CGContextSetInterpolationQuality Lib CoreGraphicsLib (CFTypeRef as Ptr, value as CGInterpolationQuality)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetLineCap Lib CoreGraphics (CFTypeRef as Ptr, value as CGLineCap)
+		Protected Declare Sub CGContextSetLineCap Lib CoreGraphicsLib (CFTypeRef as Ptr, value as CGLineCap)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextSetLineDash(id as ptr, Phase As Double, Lengths As AppleArray, count as UInteger = 0)
 		  if count = 0 then count = Lengths.Count
 		  #if Target64Bit
-		    Declare sub CGContextSetLineDash lib CoreGraphics (id as ptr, Phase As Double, Lengths As Ptr,  count as UInteger)
+		    Declare sub CGContextSetLineDash lib CoreGraphicsLib (id as ptr, Phase As Double, Lengths As Ptr,  count as UInteger)
 		  #elseif Target32Bit
-		    Declare sub CGContextSetLineDash lib CoreGraphics (id as ptr, Phase As Single, Lengths As Ptr,  count as UInteger)
+		    Declare sub CGContextSetLineDash lib CoreGraphicsLib (id as ptr, Phase As Single, Lengths As Ptr,  count as UInteger)
 		  #endif
 		  CGContextSetLineDash id, Phase, if (lengths = nil, nil, lengths.id), count
 		End Sub
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetLineJoin Lib CoreGraphics (CFTypeRef as Ptr, value as CGLineJoin)
+		Protected Declare Sub CGContextSetLineJoin Lib CoreGraphicsLib (CFTypeRef as Ptr, value as CGLineJoin)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextSetMiterLimit(id as ptr, Limit As Double)
 		  #if Target64Bit
-		    Declare sub CGContextSetMiterLimit lib CoreGraphics (id as ptr, value as double)
+		    Declare sub CGContextSetMiterLimit lib CoreGraphicsLib (id as ptr, value as double)
 		  #elseif Target32Bit
-		    Declare sub CGContextSetMiterLimit lib CoreGraphics (id as ptr, value as single)
+		    Declare sub CGContextSetMiterLimit lib CoreGraphicsLib (id as ptr, value as single)
 		  #endif
 		  CGContextSetMiterLimit id, limit
 		End Sub
@@ -497,10 +497,10 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextSetPatternPhase(id as ptr, Phase As NSSize)
 		  #if Target64Bit
-		    Declare sub CGContextSetPatternPhase lib CoreGraphics (id as ptr, Phase As NSSize)
+		    Declare sub CGContextSetPatternPhase lib CoreGraphicsLib (id as ptr, Phase As NSSize)
 		    CGContextSetPatternPhase id, Phase
 		  #elseif Target32Bit
-		    Declare sub CGContextSetPatternPhase lib CoreGraphics (id as ptr, Phase As NSSize32Bit)
+		    Declare sub CGContextSetPatternPhase lib CoreGraphicsLib (id as ptr, Phase As NSSize32Bit)
 		    CGContextSetPatternPhase id, Phase.toNSSize32
 		  #endif
 		  
@@ -508,16 +508,16 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetRenderingIntent Lib CoreGraphics (CFTypeRef as Ptr, value as CGColorRenderingIntent)
+		Protected Declare Sub CGContextSetRenderingIntent Lib CoreGraphicsLib (CFTypeRef as Ptr, value as CGColorRenderingIntent)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextSetShadow(id as ptr, offset as nssize, blur as double)
 		  #if Target64Bit
-		    Declare sub CGContextSetShadow lib CoreGraphics (id as ptr, offset as nssize, blur as double)
+		    Declare sub CGContextSetShadow lib CoreGraphicsLib (id as ptr, offset as nssize, blur as double)
 		    CGContextSetShadow id, offset, blur
 		  #elseif Target32Bit
-		    Declare sub CGContextSetShadow lib CoreGraphics (id as ptr, offset as NSSize32Bit, blur as single)
+		    Declare sub CGContextSetShadow lib CoreGraphicsLib (id as ptr, offset as NSSize32Bit, blur as single)
 		    CGContextSetShadow id, offset.toNSSize32, blur
 		  #endif
 		  
@@ -527,10 +527,10 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextSetShadowWithColor(id as ptr, offset as nssize, blur as double, shadowcolor as AppleCGColor)
 		  #if Target64Bit
-		    Declare sub CGContextSetShadowWithColor lib CoreGraphics (id as ptr, offset as nssize, blur as double, shadowcolor as ptr)
+		    Declare sub CGContextSetShadowWithColor lib CoreGraphicsLib (id as ptr, offset as nssize, blur as double, shadowcolor as ptr)
 		    CGContextSetShadowWithColor id, offset, blur, if (shadowcolor = nil, nil, shadowcolor.mCFTypeRef)
 		  #elseif Target32Bit
-		    Declare sub CGContextSetShadowWithColor lib CoreGraphics (id as ptr, offset as NSSize32Bit, blur as single, shadowcolor as ptr)
+		    Declare sub CGContextSetShadowWithColor lib CoreGraphicsLib (id as ptr, offset as NSSize32Bit, blur as single, shadowcolor as ptr)
 		    CGContextSetShadowWithColor id, offset.toNSSize32, blur, if (shadowcolor = nil, nil, shadowcolor.mCFTypeRef)
 		  #endif
 		  
@@ -538,36 +538,36 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetShouldSmoothFonts Lib CoreGraphics (CFTypeRef as Ptr, value as Boolean)
+		Protected Declare Sub CGContextSetShouldSmoothFonts Lib CoreGraphicsLib (CFTypeRef as Ptr, value as Boolean)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetShouldSubpixelPositionFonts Lib CoreGraphics (CFTypeRef as Ptr, value as Boolean)
+		Protected Declare Sub CGContextSetShouldSubpixelPositionFonts Lib CoreGraphicsLib (CFTypeRef as Ptr, value as Boolean)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetShouldSubpixelQuantizeFonts Lib CoreGraphics (CFTypeRef as Ptr, value as Boolean)
+		Protected Declare Sub CGContextSetShouldSubpixelQuantizeFonts Lib CoreGraphicsLib (CFTypeRef as Ptr, value as Boolean)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSetTextDrawingMode Lib CoreGraphics (CFTypeRef as Ptr, value as CGTextDrawingMode)
+		Protected Declare Sub CGContextSetTextDrawingMode Lib CoreGraphicsLib (CFTypeRef as Ptr, value as CGTextDrawingMode)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextStrokeLineSegments Lib CoreGraphics (CFTypeRef as Ptr, Points as Ptr, Count as Uinteger)
+		Protected Declare Sub CGContextStrokeLineSegments Lib CoreGraphicsLib (CFTypeRef as Ptr, Points as Ptr, Count as Uinteger)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextStrokePath Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextStrokePath Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CGContextStrokeRectWithWidth(APathRef as Ptr, aRect as NSRect, width as double)
 		  #if Target64Bit
-		    Declare Sub CGContextStrokeRectWithWidth lib CoreGraphics  (id as ptr, aRect as nsrect, width as double)
+		    Declare Sub CGContextStrokeRectWithWidth lib CoreGraphicsLib (id as ptr, aRect as nsrect, width as double)
 		    CGContextStrokeRectWithWidth (APathRef,  aRect, width)
 		  #elseif Target32Bit
-		    Declare Sub CGContextStrokeRectWithWidth lib CoreGraphics  (id as ptr, aRect as NSRect32Bit, width as single)
+		    Declare Sub CGContextStrokeRectWithWidth lib CoreGraphicsLib (id as ptr, aRect as NSRect32Bit, width as single)
 		    CGContextStrokeRectWithWidth (APathRef,  aRect.toNSRect32, width)
 		  #endif
 		  
@@ -575,7 +575,7 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGContextSynchronize Lib CoreGraphics (CFTypeRef as Ptr)
+		Protected Declare Sub CGContextSynchronize Lib CoreGraphicsLib (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -793,10 +793,10 @@ Inherits AppleCFObject
 		Protected Shared Sub UIGraphicsBeginImageContext(asize as NSSize)
 		  #if TargetIOS
 		    #if Target64Bit
-		      declare sub UIGraphicsBeginImageContext lib CoreGraphics (asize as NSSize)
+		      declare sub UIGraphicsBeginImageContext lib CoreGraphicsLib (asize as NSSize)
 		      UIGraphicsBeginImageContext (asize)
 		    #elseif Target32Bit
-		      declare sub UIGraphicsBeginImageContext lib CoreGraphics (asize as NSSize32Bit)
+		      declare sub UIGraphicsBeginImageContext lib CoreGraphicsLib (asize as NSSize32Bit)
 		      UIGraphicsBeginImageContext (asize.toNSSize32)
 		    #endif
 		  #endif
@@ -806,7 +806,7 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub UIGraphicsEndImageContext()
 		  #if TargetIOS
-		    Declare sub UIGraphicsEndImageContext lib CoreGraphics
+		    Declare sub UIGraphicsEndImageContext lib CoreGraphicsLib
 		    UIGraphicsEndImageContext
 		  #endif
 		End Sub
@@ -815,7 +815,7 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Function UIGraphicsGetCurrentContext() As ptr
 		  #if TargetIOS
-		    Declare function UIGraphicsGetCurrentContext lib CoreGraphics as ptr
+		    Declare function UIGraphicsGetCurrentContext lib CoreGraphicsLib as ptr
 		    return UIGraphicsGetCurrentContext
 		  #endif
 		End Function
@@ -1097,37 +1097,6 @@ Inherits AppleCFObject
 			Name="BlendMode"
 			Group="Behavior"
 			Type="CGBlendMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Normal"
-				"1 - Multiply"
-				"2 - Screen"
-				"3 - Overlay"
-				"4 - Darken"
-				"5 - Lighten"
-				"6 - ColorDodge"
-				"7 - ColorBurn"
-				"8 - SoftLight"
-				"9 - HardLight"
-				"10 - Difference"
-				"11 - Exclusion"
-				"12 - Hue"
-				"13 - Saturation"
-				"14 - Color"
-				"15 - Luminosity"
-				"16 - Clear"
-				"17 - Copy"
-				"18 - SourceIn"
-				"19 - SourceOut"
-				"20 - SourceAtop"
-				"21 - DestinationOver"
-				"22 - DestinationIn"
-				"23 - DestinationOut"
-				"24 - DestinationAtop"
-				"25 - ModeXOR"
-				"26 - PlusDarker"
-				"27 - PlusLighter"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CFTypeDescription"
@@ -1160,14 +1129,6 @@ Inherits AppleCFObject
 			Name="InterpolationQuality"
 			Group="Behavior"
 			Type="CGInterpolationQuality"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - None"
-				"2 - Low"
-				"4 - Medium"
-				"3 - High"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="isNIL"
@@ -1185,23 +1146,11 @@ Inherits AppleCFObject
 			Name="LineCap"
 			Group="Behavior"
 			Type="CGLineCap"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Butt"
-				"1 - Round"
-				"2 - Square"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LineJoin"
 			Group="Behavior"
 			Type="CGLineJoin"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Miter"
-				"1 - Round"
-				"2 - Bevel"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mHasOwnership"
@@ -1228,14 +1177,6 @@ Inherits AppleCFObject
 			Name="RenderingIntent"
 			Group="Behavior"
 			Type="CGColorRenderingIntent"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - AbsoluteColorimetric"
-				"2 - RelativeColorimetric"
-				"3 - Perceptual"
-				"4 - Saturation"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RetainCount"
@@ -1267,17 +1208,6 @@ Inherits AppleCFObject
 			Name="TextDrawingMode"
 			Group="Behavior"
 			Type="CGTextDrawingMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Fill"
-				"1 - Stroke"
-				"2 - FillStroke"
-				"3 - Invisible"
-				"4 - FillClip"
-				"5 - StrokeClip"
-				"6 - FillStrokeClip"
-				"7 - Clip"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

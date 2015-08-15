@@ -2,20 +2,20 @@
 Protected Class AppleNumber
 Inherits AppleValue
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFNumberGetByteSize Lib Foundation (Number as Ptr) As Integer
+		Protected Declare Function CFNumberGetByteSize Lib FoundationLib (Number as Ptr) As Integer
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFNumberGetType Lib Foundation (Number as Ptr) As CFNumberTypes
+		Protected Declare Function CFNumberGetType Lib FoundationLib (Number as Ptr) As CFNumberTypes
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFNumberIsFloatType Lib Foundation (Number as Ptr) As Boolean
+		Protected Declare Function CFNumberIsFloatType Lib FoundationLib (Number as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(aBool as boolean)
-		  declare function initWithBool lib Foundation Selector "initWithBool:" (id as ptr, aBool as boolean) as ptr
+		  declare function initWithBool lib FoundationLib  Selector "initWithBool:" (id as ptr, aBool as boolean) as ptr
 		  super.constructor (initWithBool (Alloc(ClassPtr), aBool))
 		  mhasOwnership = true
 		  
@@ -25,7 +25,7 @@ Inherits AppleValue
 
 	#tag Method, Flags = &h0
 		Sub Constructor(aDouble as Double)
-		  declare function initWithDouble lib Foundation Selector "initWithDouble:" (id as ptr, aDouble as double) as ptr
+		  declare function initWithDouble lib FoundationLib  Selector "initWithDouble:" (id as ptr, aDouble as double) as ptr
 		  super.constructor ( initWithDouble (Alloc(ClassPtr), aDouble))
 		  mhasOwnership = true
 		  
@@ -34,7 +34,7 @@ Inherits AppleValue
 
 	#tag Method, Flags = &h0
 		Sub Constructor(anint as int16)
-		  declare function initWithShort lib Foundation Selector "initWithShort:" (id as ptr, anint as int16) as ptr
+		  declare function initWithShort lib FoundationLib  Selector "initWithShort:" (id as ptr, anint as int16) as ptr
 		  super.constructor ( initWithShort (Alloc(ClassPtr), anint))
 		  mhasOwnership = true
 		  
@@ -43,7 +43,7 @@ Inherits AppleValue
 
 	#tag Method, Flags = &h0
 		Sub Constructor(achar as int8)
-		  declare function initWithChar lib Foundation Selector "initWithChar:" (id as ptr, achar as int8) as ptr
+		  declare function initWithChar lib FoundationLib  Selector "initWithChar:" (id as ptr, achar as int8) as ptr
 		  super.constructor ( initWithChar (Alloc(ClassPtr), achar))
 		  mhasOwnership = true
 		  
@@ -52,7 +52,7 @@ Inherits AppleValue
 
 	#tag Method, Flags = &h0
 		Sub Constructor(anint as Integer)
-		  declare function initWithInteger lib Foundation Selector "initWithInteger:" (id as ptr, anint as integer) as ptr
+		  declare function initWithInteger lib FoundationLib  Selector "initWithInteger:" (id as ptr, anint as integer) as ptr
 		  super.constructor ( initWithInteger (Alloc(ClassPtr), anint))
 		  mhasOwnership = true
 		  
@@ -61,7 +61,7 @@ Inherits AppleValue
 
 	#tag Method, Flags = &h0
 		Sub Constructor(aSingle as Single)
-		  declare function initWithFloat lib Foundation Selector "initWithFloat:" (id as ptr, asingle as single) as ptr
+		  declare function initWithFloat lib FoundationLib  Selector "initWithFloat:" (id as ptr, asingle as single) as ptr
 		  super.constructor ( initWithFloat (Alloc(ClassPtr), asingle))
 		  mhasOwnership = true
 		  
@@ -70,7 +70,7 @@ Inherits AppleValue
 
 	#tag Method, Flags = &h0
 		Function Description(Locale as xojo.Core.Locale) As cfstringref
-		  // declare function descriptionWithLocale lib Foundation Selector "descriptionWithLocale:" (id as ptr, locale as ptr) as cfstringref
+		  // declare function descriptionWithLocale lib FoundationLib  Selector "descriptionWithLocale:" (id as ptr, locale as ptr) as cfstringref
 		  // return descriptionWithLocale (id, Locale.Raw.)
 		  
 		End Function
@@ -78,7 +78,7 @@ Inherits AppleValue
 
 	#tag Method, Flags = &h0
 		Function Equals(aNumber as AppleNumber) As boolean
-		  declare function isEqualToNumber lib Foundation Selector "isEqualToNumber:" (id as ptr, anumber as ptr) as boolean
+		  declare function isEqualToNumber lib FoundationLib  Selector "isEqualToNumber:" (id as ptr, anumber as ptr) as boolean
 		  return isEqualToNumber (id, aNumber.id)
 		  
 		End Function
@@ -94,7 +94,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function boolValue_ lib Foundation Selector "boolValue" (id as ptr) as boolean
+			  declare function boolValue_ lib FoundationLib  Selector "boolValue" (id as ptr) as boolean
 			  return boolValue_ (id)
 			  
 			End Get
@@ -124,7 +124,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function doubleValue_ lib Foundation Selector "doubleValue" (id as ptr) as double
+			  declare function doubleValue_ lib FoundationLib  Selector "doubleValue" (id as ptr) as double
 			  return DoubleValue_ (id)
 			  
 			End Get
@@ -135,7 +135,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function shortValue lib Foundation Selector "shortValue" (id as ptr) as int16
+			  declare function shortValue lib FoundationLib  Selector "shortValue" (id as ptr) as int16
 			  return shortValue (id)
 			  
 			End Get
@@ -146,7 +146,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function intValue lib Foundation Selector "intValue" (id as ptr) as int32
+			  declare function intValue lib FoundationLib  Selector "intValue" (id as ptr) as int32
 			  return intValue (id)
 			  
 			End Get
@@ -157,7 +157,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function longLongValue lib Foundation Selector "longLongValue" (id as ptr) as int64
+			  declare function longLongValue lib FoundationLib  Selector "longLongValue" (id as ptr) as int64
 			  return longLongValue (id)
 			  
 			End Get
@@ -168,7 +168,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function charValue lib Foundation Selector "charValue" (id as ptr) as int8
+			  declare function charValue lib FoundationLib  Selector "charValue" (id as ptr) as int8
 			  return charValue (id)
 			  
 			End Get
@@ -179,7 +179,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function integerValue lib Foundation Selector "integerValue" (id as ptr) as integer
+			  declare function integerValue lib FoundationLib  Selector "integerValue" (id as ptr) as integer
 			  return integerValue (id)
 			  
 			End Get
@@ -208,7 +208,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function objCType lib Foundation Selector "objCType" (id as ptr) as CString
+			  declare function objCType lib FoundationLib  Selector "objCType" (id as ptr) as CString
 			  return objCType (id)
 			  
 			End Get
@@ -219,7 +219,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function floatValue lib Foundation Selector "floatValue" (id as ptr) as single
+			  declare function floatValue lib FoundationLib  Selector "floatValue" (id as ptr) as single
 			  return floatValue (id)
 			  
 			End Get
@@ -239,7 +239,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function stringValue_ lib Foundation Selector "stringValue" (id as ptr) as cfstringref
+			  declare function stringValue_ lib FoundationLib  Selector "stringValue" (id as ptr) as cfstringref
 			  return stringValue_ (id)
 			  
 			End Get
@@ -250,7 +250,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function unsignedShortValue lib Foundation Selector "unsignedShortValue" (id as ptr) as uint16
+			  declare function unsignedShortValue lib FoundationLib  Selector "unsignedShortValue" (id as ptr) as uint16
 			  return unsignedShortValue (id)
 			  
 			End Get
@@ -261,7 +261,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function unsignedLongValue lib Foundation Selector "unsignedLongValue" (id as ptr) as uint32
+			  declare function unsignedLongValue lib FoundationLib  Selector "unsignedLongValue" (id as ptr) as uint32
 			  return unsignedLongValue (id)
 			  
 			End Get
@@ -272,7 +272,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function unsignedLongLongValue lib Foundation Selector "unsignedLongLongValue" (id as ptr) as uint64
+			  declare function unsignedLongLongValue lib FoundationLib  Selector "unsignedLongLongValue" (id as ptr) as uint64
 			  return unsignedLongLongValue (id)
 			  
 			End Get
@@ -283,7 +283,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function unsignedCharValue lib Foundation Selector "unsignedCharValue" (id as ptr) as uint8
+			  declare function unsignedCharValue lib FoundationLib  Selector "unsignedCharValue" (id as ptr) as uint8
 			  return unsignedCharValue (id)
 			  
 			End Get
@@ -294,7 +294,7 @@ Inherits AppleValue
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function unsignedIntegerValue lib Foundation Selector "unsignedIntegerValue" (id as ptr) as uinteger
+			  declare function unsignedIntegerValue lib FoundationLib  Selector "unsignedIntegerValue" (id as ptr) as uinteger
 			  return unsignedIntegerValue (id)
 			  
 			End Get
@@ -378,26 +378,6 @@ Inherits AppleValue
 			Name="NumberType"
 			Group="Behavior"
 			Type="CFNumberTypes"
-			EditorType="Enum"
-			#tag EnumValues
-				"1 - Int8"
-				"2 - Int16"
-				"3 - Int32"
-				"4 - Int64"
-				"5 - Float32"
-				"6 - Float64"
-				"7 - Char"
-				"8 - Short"
-				"9 - Int"
-				"10 - Long"
-				"11 - LongLong"
-				"12 - Float"
-				"13 - Double"
-				"14 - CFIndex"
-				"15 - NSInteger"
-				"16 - CGFloat"
-				"16 - Max"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SingleValue"

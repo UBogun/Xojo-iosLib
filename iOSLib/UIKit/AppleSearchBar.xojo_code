@@ -568,6 +568,15 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  return new AppleSearchBar(GetAppearance(classptr))
+			End Get
+		#tag EndGetter
+		Shared Appearance As AppleSearchBar
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare Function backgroundImage lib UIKit selector "backgroundImage" (id as ptr) as Ptr
 			  Return AppleImage.MakeFromPtr (backgroundImage (id))
 			End Get
@@ -809,7 +818,7 @@ Inherits AppleView
 			  setSearchResultsButtonSelected id, value
 			End Set
 		#tag EndSetter
-		searchResultsButtonSelected As Boolean
+		SearchResultsButtonSelected As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1014,11 +1023,6 @@ Inherits AppleView
 			Name="BarStyle"
 			Group="Behavior"
 			Type="UIBarStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - Black"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsContextBeforeDrawing"
@@ -1038,7 +1042,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="UIViewContentMode"
+			Type="UIKitFramework.UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"
@@ -1165,15 +1169,9 @@ Inherits AppleView
 			Name="SearchBarStyle"
 			Group="Behavior"
 			Type="UIsearchBarStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - Prominent"
-				"2 - Minimal"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="searchResultsButtonSelected"
+			Name="SearchResultsButtonSelected"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -1226,7 +1224,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
 			Group="Behavior"
-			Type="UIViewTintAdjustmentMode"
+			Type="uikitframework.UIViewTintAdjustmentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Automatic"

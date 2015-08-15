@@ -160,12 +160,6 @@ Inherits AppleObject
 			Name="HorizontalSizeClass"
 			Group="Behavior"
 			Type="UIUserInterfaceSizeClass"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Unspecified"
-				"1 - Compact"
-				"2 - Regular"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -219,23 +213,11 @@ Inherits AppleObject
 			Name="UserInterfaceIdiom"
 			Group="Behavior"
 			Type="UIUserInterfaceIdiom"
-			EditorType="Enum"
-			#tag EnumValues
-				"-1 - Unspecified"
-				"0 - iPhone"
-				"1 - iPad"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="VerticalSizeClass"
 			Group="Behavior"
 			Type="UIUserInterfaceSizeClass"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Unspecified"
-				"1 - Compact"
-				"2 - Regular"
-			#tag EndEnumValues
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

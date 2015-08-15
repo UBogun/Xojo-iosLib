@@ -7,32 +7,15 @@ Begin iosView InfoView
    TabTitle        =   ""
    Title           =   ""
    Top             =   0
-   Begin iOSImageView ImageView1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 7, ImageView1, 8, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.15, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      ContentMode     =   "1"
-      Height          =   72.0
-      Image           =   "1702440959"
-      Left            =   228
-      LockedInPosition=   False
-      Scope           =   0
-      Top             =   28
-      Visible         =   True
-      Width           =   72.0
-   End
    Begin iostextarea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   TextArea1, 3, ImageView1, 4, False, +1.00, 2, 1, *kStdControlGapV, 
-      AutoLayout      =   TextArea1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   TextArea1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   TextArea1, 3, <Parent>, 3, False, +1.00, 1, 1, 116, 
+      AutoLayout      =   TextArea1, 2, <Parent>, 1, False, +1.00, 1, 1, 300, 
+      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Editable        =   False
-      Height          =   372.0
+      Height          =   364.0
       KeyboardType    =   "0"
       Left            =   20
       LockedInPosition=   False
@@ -42,17 +25,17 @@ Begin iosView InfoView
       TextColor       =   &c00000000
       TextFont        =   ""
       TextSize        =   0
-      Top             =   108
+      Top             =   116
       Visible         =   True
       Width           =   280.0
    End
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 79, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 4, TextArea1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   Button1, 1, TextArea1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 4, TextArea1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 79, 
       Caption         =   "<  Return"
       Enabled         =   True
       Height          =   30.0
@@ -62,9 +45,26 @@ Begin iosView InfoView
       TextColor       =   &c007AFF00
       TextFont        =   ""
       TextSize        =   0
-      Top             =   70
+      Top             =   78
       Visible         =   True
       Width           =   79.0
+   End
+   Begin iOSImageView ImageView1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.15, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 7, ImageView1, 8, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      ContentMode     =   "1"
+      Height          =   72.0
+      Image           =   "857282559"
+      Left            =   228
+      LockedInPosition=   False
+      Scope           =   0
+      Top             =   28
+      Visible         =   True
+      Width           =   72.0
    End
 End
 #tag EndIOSView
@@ -88,13 +88,6 @@ End
 
 #tag EndWindowCode
 
-#tag Events ImageView1
-	#tag Event
-		Sub Open()
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events TextArea1
 	#tag Event
 		Sub Open()
@@ -107,6 +100,13 @@ End
 	#tag Event
 		Sub Action()
 		  self.Dismiss (true)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ImageView1
+	#tag Event
+		Sub Open()
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

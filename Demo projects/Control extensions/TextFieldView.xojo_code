@@ -236,7 +236,7 @@ End
 		Sub ValueChanged()
 		  if me.value then
 		    TextField1.LeftImage = iosLibLogo
-		    TextField1.LeftViewMode = AppleTextfield.UITextFieldViewMode.Always
+		    TextField1.LeftViewMode = UITextFieldViewMode.Always
 		  else
 		    TextField1.ClearLeftImage
 		  end if
@@ -253,7 +253,7 @@ End
 		Sub ValueChanged()
 		  if me.value then
 		    TextField1.RightImage = Birnebuntklein
-		    TextField1.RightViewMode = AppleTextfield.UITextFieldViewMode.Always
+		    TextField1.RightViewMode = UITextFieldViewMode.Always
 		  else
 		    TextField1.ClearRightImage
 		  end if

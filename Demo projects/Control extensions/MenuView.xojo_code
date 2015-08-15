@@ -7,39 +7,39 @@ Begin iosView MenuView
    TabTitle        =   ""
    Title           =   "iOSLib Menu"
    Top             =   0
+   Begin iOSTable Table1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 161, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      Format          =   "0"
+      Height          =   319.0
+      Left            =   0
+      LockedInPosition=   False
+      Scope           =   0
+      SectionCount    =   0
+      Top             =   161
+      Visible         =   True
+      Width           =   320.0
+   End
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 51, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 81, 
       AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 65, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   51.0
       Image           =   "857282559"
       Left            =   235
       LockedInPosition=   False
       Scope           =   0
-      Top             =   73
+      Top             =   81
       Visible         =   True
       Width           =   65.0
-   End
-   Begin iOSTable Table1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      Format          =   "0"
-      Height          =   348.0
-      Left            =   0
-      LockedInPosition=   False
-      Scope           =   0
-      SectionCount    =   0
-      Top             =   132
-      Visible         =   True
-      Width           =   320.0
    End
 End
 #tag EndIOSView
@@ -47,13 +47,6 @@ End
 #tag WindowCode
 #tag EndWindowCode
 
-#tag Events ImageView1
-	#tag Event
-		Sub Open()
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events Table1
 	#tag Event
 		Sub Open()

@@ -102,12 +102,12 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return getenabled
+			  return UIKitFramework.getenabled (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  SetEnabled value
+			  UIKitFramework.SetEnabled id, value
 			End Set
 		#tag EndSetter
 		Enabled As Boolean
@@ -179,9 +179,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function MinimumScaleFactor lib Foundation selector "minimumScaleFactor" (id as ptr) as double
+			    declare function MinimumScaleFactor lib FoundationLib  selector "minimumScaleFactor" (id as ptr) as double
 			  #elseif Target32Bit
-			    declare function MinimumScaleFactor lib Foundation selector "minimumScaleFactor" (id as ptr) as single
+			    declare function MinimumScaleFactor lib FoundationLib  selector "minimumScaleFactor" (id as ptr) as single
 			  #endif
 			  return MinimumScaleFactor (id)
 			End Get
@@ -189,9 +189,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare Sub setMinimumScaleFactor lib Foundation selector "setMinimumScaleFactor:" (id as ptr, value as double)
+			    declare Sub setMinimumScaleFactor lib FoundationLib  selector "setMinimumScaleFactor:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    declare Sub setMinimumScaleFactor lib Foundation selector "setMinimumScaleFactor:" (id as ptr, value as single)
+			    declare Sub setMinimumScaleFactor lib FoundationLib  selector "setMinimumScaleFactor:" (id as ptr, value as single)
 			  #endif
 			  setMinimumScaleFactor (id, value)
 			End Set
@@ -219,9 +219,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function preferredMaxLayoutWidth lib Foundation selector "preferredMaxLayoutWidth" (id as ptr) as double
+			    declare function preferredMaxLayoutWidth lib FoundationLib  selector "preferredMaxLayoutWidth" (id as ptr) as double
 			  #elseif Target32Bit
-			    declare function preferredMaxLayoutWidth lib Foundation selector "preferredMaxLayoutWidth" (id as ptr) as single
+			    declare function preferredMaxLayoutWidth lib FoundationLib  selector "preferredMaxLayoutWidth" (id as ptr) as single
 			  #endif
 			  return preferredMaxLayoutWidth (id)
 			End Get
@@ -229,9 +229,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare Sub setPreferredMaxLayoutWidth lib Foundation selector "setPreferredMaxLayoutWidth:" (id as ptr, value as double)
+			    declare Sub setPreferredMaxLayoutWidth lib FoundationLib  selector "setPreferredMaxLayoutWidth:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    declare Sub setPreferredMaxLayoutWidth lib Foundation selector "setPreferredMaxLayoutWidth:" (id as ptr, value as single)
+			    declare Sub setPreferredMaxLayoutWidth lib FoundationLib  selector "setPreferredMaxLayoutWidth:" (id as ptr, value as single)
 			  #endif
 			  setPreferredMaxLayoutWidth (id, value)
 			End Set
@@ -372,7 +372,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="UIViewContentMode"
+			Type="UIKitFramework.UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"
@@ -539,14 +539,6 @@ Inherits AppleView
 			Name="TextAlignment"
 			Group="Behavior"
 			Type="NSTextAlignment"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Left"
-				"1 - Center"
-				"2 - Right"
-				"3 - Justified"
-				"4 - Natural"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextInputContextIdentifier"
@@ -556,7 +548,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
 			Group="Behavior"
-			Type="UIViewTintAdjustmentMode"
+			Type="uikitframework.UIViewTintAdjustmentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Automatic"

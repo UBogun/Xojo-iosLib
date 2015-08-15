@@ -1536,7 +1536,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="UIViewContentMode"
+			Type="UIKitFramework.UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"
@@ -1636,12 +1636,6 @@ Inherits AppleView
 			Name="IndicatorStyle"
 			Group="Behavior"
 			Type="UIScrollViewIndicatorStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - Black"
-				"2 - White"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IsFirstResponder"
@@ -1662,12 +1656,6 @@ Inherits AppleView
 			Name="KeyboardDismissMode"
 			Group="Behavior"
 			Type="UIScrollViewKeyboardDismissMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - None"
-				"1 - OnDrag"
-				"2 - Interactive"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -1756,7 +1744,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
 			Group="Behavior"
-			Type="UIViewTintAdjustmentMode"
+			Type="uikitframework.UIViewTintAdjustmentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Automatic"
