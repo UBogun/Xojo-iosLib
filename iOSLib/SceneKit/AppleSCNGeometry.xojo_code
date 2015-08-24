@@ -11,6 +11,22 @@ Inherits AppleSCNObject
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare function materials lib SceneKitLib selector "materials" (id as ptr) as ptr
+			  return AppleArray.MakeFromPtr (materials(id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setMaterials lib SceneKitLib selector "setMaterials:" (id as ptr, value as ptr)
+			  setMaterials id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		Materials As AppleArray
+	#tag EndComputedProperty
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

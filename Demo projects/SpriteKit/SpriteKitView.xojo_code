@@ -12,10 +12,10 @@ Begin iosView SpriteKitView
       AccessibilityLabel=   ""
       AllowsTransparency=   False
       Asynchronous    =   False
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       FrameInterval   =   0
       Height          =   407.0
       IgnoresSiblingOrder=   False

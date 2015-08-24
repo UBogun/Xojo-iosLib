@@ -1322,17 +1322,17 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function ContentMode lib UIKit selector "contentMode" (id as ptr) as uikitframework.UIViewContentMode
+			  Declare function ContentMode lib UIKit selector "contentMode" (id as ptr) as UIViewContentMode
 			  return ContentMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setContentMode lib UIKit selector "setContentMode:" (id as ptr, value as UIKitFramework.UIViewContentMode)
+			  Declare Sub setContentMode lib UIKit selector "setContentMode:" (id as ptr, value as UIViewContentMode)
 			  setContentMode id, value
 			End Set
 		#tag EndSetter
-		ContentMode As UIKitFramework.UIViewContentMode
+		ContentMode As UIViewContentMode
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1676,17 +1676,17 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function tintAdjustmentMode lib UIKit selector "tintAdjustmentMode" (id as ptr) as uikitframework.UIViewTintAdjustmentMode
+			  Declare function tintAdjustmentMode lib UIKit selector "tintAdjustmentMode" (id as ptr) as UIViewTintAdjustmentMode
 			  return tintAdjustmentMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setTintAdjustmentMode lib UIKit selector "setTintAdjustmentMode:" (id as ptr, value as uikitframework.UIViewTintAdjustmentMode)
+			  Declare Sub setTintAdjustmentMode lib UIKit selector "setTintAdjustmentMode:" (id as ptr, value as UIViewTintAdjustmentMode)
 			  setTintAdjustmentMode id, value
 			End Set
 		#tag EndSetter
-		TintAdjustmentMode As uikitframework.UIViewTintAdjustmentMode
+		TintAdjustmentMode As UIViewTintAdjustmentMode
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1887,7 +1887,7 @@ Implements AppleNSEventForwarder
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="UIKitFramework.UIViewContentMode"
+			Type="UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"
@@ -2019,7 +2019,7 @@ Implements AppleNSEventForwarder
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
 			Group="Behavior"
-			Type="uikitframework.UIViewTintAdjustmentMode"
+			Type="UIViewTintAdjustmentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Automatic"

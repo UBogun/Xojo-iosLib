@@ -468,7 +468,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return getFrame
+			  return UIKitFramework.getFrame (id)
 			End Get
 		#tag EndGetter
 		Frame As NSRect

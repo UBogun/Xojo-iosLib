@@ -79,6 +79,50 @@ Inherits AppleSCNObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  Declare function constraints lib SceneKitLib selector "constraints" (id as ptr) as ptr
+			  return AppleArray.MakeFromPtr (constraints(id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setConstraints lib SceneKitLib selector "setConstraints:" (id as ptr, value as ptr)
+			  setConstraints id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		Constraints As AppleArray
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if Target64Bit
+			    Declare function eulerAngles lib SceneKitLib selector "eulerAngles" (id as ptr) as SCNVector3
+			    return eulerAngles (id)
+			  #elseif Target32Bit
+			    Declare function eulerAngles lib SceneKitLib selector "eulerAngles" (id as ptr) as SCNVector3_32Bit
+			    return eulerAngles (id).tovector3
+			  #endif
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    Declare sub setEulerAngles lib SceneKitLib selector "setEulerAngles:" (id as ptr, value as SCNVector3)
+			    setEulerAngles (id, value)
+			  #elseif Target32Bit
+			    Declare sub setEulerAngles lib SceneKitLib selector "setEulerAngles:" (id as ptr, value as SCNVector3_32Bit)
+			    setEulerAngles (id, value.toVector3_32)
+			  #endif
+			  
+			End Set
+		#tag EndSetter
+		EulerAngles As SCNVector3
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare function light lib SceneKitLib selector "light" (id as ptr) as ptr
 			  return AppleSCNLight.MakeFromPtr (light(id))
 			End Get

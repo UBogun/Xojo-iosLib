@@ -1536,7 +1536,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="UIKitFramework.UIViewContentMode"
+			Type="UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"
@@ -1744,7 +1744,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
 			Group="Behavior"
-			Type="uikitframework.UIViewTintAdjustmentMode"
+			Type="UIViewTintAdjustmentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Automatic"

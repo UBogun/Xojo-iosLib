@@ -66,17 +66,6 @@ Inherits AppleObject
 			  
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  #if target32bit
-			    declare sub setAlpha lib CoreImage selector "setAlpha:" (id as ptr, value as single)
-			  #elseif target64bit
-			    declare sub setAlpha lib CoreImage selector "setAlpha:" (id as ptr, value as double)
-			  #endif
-			  setalpha id, value
-			  
-			End Set
-		#tag EndSetter
 		Alpha As Double
 	#tag EndComputedProperty
 
@@ -92,17 +81,6 @@ Inherits AppleObject
 			  
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  #if target32bit
-			    declare sub setBlue lib CoreImage selector "setBlue:" (id as ptr, value as single)
-			  #elseif target64bit
-			    declare sub setBlue lib CoreImage selector "setBlue:" (id as ptr, value as double)
-			  #endif
-			  setBlue id, value
-			  
-			End Set
-		#tag EndSetter
 		Blue As Double
 	#tag EndComputedProperty
 
@@ -128,17 +106,6 @@ Inherits AppleObject
 			  
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  #if target32bit
-			    declare sub setGreen lib CoreImage selector "setGreen:" (id as ptr, value as single)
-			  #elseif target64bit
-			    declare sub setGreen lib CoreImage selector "setGreen:" (id as ptr, value as double)
-			  #endif
-			  setGreen id, value
-			  
-			End Set
-		#tag EndSetter
 		Green As Double
 	#tag EndComputedProperty
 
@@ -154,17 +121,6 @@ Inherits AppleObject
 			  
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  #if target32bit
-			    declare sub setRed lib CoreImage selector "setRed:" (id as ptr, value as single)
-			  #elseif target64bit
-			    declare sub setRed lib CoreImage selector "setRed:" (id as ptr, value as double)
-			  #endif
-			  setRed id, value
-			  
-			End Set
-		#tag EndSetter
 		Red As Double
 	#tag EndComputedProperty
 

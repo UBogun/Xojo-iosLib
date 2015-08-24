@@ -49,23 +49,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="UIKitFramework.UIViewContentMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - ScaleToFill"
-				"1 - ScaleAspectFit"
-				"2 - ScaleAspectFill"
-				"3 - Redraw"
-				"4 - Center"
-				"5 - Top"
-				"6 - Bottom"
-				"7 - Left"
-				"8 - Right"
-				"9 - TopLeft"
-				"10 - TopRight"
-				"11 - BottomLeft"
-				"12 - BottomRight"
-			#tag EndEnumValues
+			Type="UIViewContentMode"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentScaleFactor"
@@ -181,13 +165,7 @@ Inherits AppleView
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
 			Group="Behavior"
-			Type="uikitframework.UIViewTintAdjustmentMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Automatic"
-				"1 - Normal"
-				"2 - Dimmed"
-			#tag EndEnumValues
+			Type="UIViewTintAdjustmentMode"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

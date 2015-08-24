@@ -138,16 +138,6 @@ Inherits AppleObject
 			  return W (id)
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  #if Target64Bit
-			    declare sub setW lib CoreImage selector "setW:" (id as ptr, value as double)
-			  #elseif Target32Bit
-			    Declare Sub setW lib CoreImage selector "setW:" (id as ptr, value as single)
-			  #endif
-			  setW id, value
-			End Set
-		#tag EndSetter
 		W As Double
 	#tag EndComputedProperty
 
@@ -162,16 +152,6 @@ Inherits AppleObject
 			  return X (id)
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  #if Target64Bit
-			    declare sub setX lib CoreImage selector "setX:" (id as ptr, value as double)
-			  #elseif Target32Bit
-			    Declare Sub setX lib CoreImage selector "setX:" (id as ptr, value as single)
-			  #endif
-			  setX id, value
-			End Set
-		#tag EndSetter
 		X As Double
 	#tag EndComputedProperty
 
@@ -186,16 +166,6 @@ Inherits AppleObject
 			  return Y (id)
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  #if Target64Bit
-			    declare sub setY lib CoreImage selector "setY:" (id as ptr, value as double)
-			  #elseif Target32Bit
-			    Declare Sub setY lib CoreImage selector "setY:" (id as ptr, value as single)
-			  #endif
-			  setY id, value
-			End Set
-		#tag EndSetter
 		Y As Double
 	#tag EndComputedProperty
 
@@ -210,16 +180,6 @@ Inherits AppleObject
 			  return Z (id)
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  #if Target64Bit
-			    declare sub setZ lib CoreImage selector "setZ:" (id as ptr, value as double)
-			  #elseif Target32Bit
-			    Declare Sub setZ lib CoreImage selector "setZ:" (id as ptr, value as single)
-			  #endif
-			  setZ id, value
-			End Set
-		#tag EndSetter
 		Z As Double
 	#tag EndComputedProperty
 
