@@ -9,7 +9,7 @@ Inherits AppleURLResponse
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(URL as AppleURL, StatusCode As Integer, HTTPVersion as CFStringRef, HeaderFields As AppleDictionary)
-		  Declare function initWithURL lib FoundationLib  selector "initWithURL:statusCode:HTTPVersion:headerFields:" _
+		  Declare function initWithURL lib FoundationLibName  selector "initWithURL:statusCode:HTTPVersion:headerFields:" _
 		  (id as ptr, URL as ptr, StatusCode as Integer, HTTPVersion as CFStringRef, HeaderFields as Ptr) as Ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -24,7 +24,7 @@ Inherits AppleURLResponse
 
 	#tag Method, Flags = &h0
 		 Shared Function LocalizedString(StatusCode as Integer) As Text
-		  Declare function localizedStringForStatusCode lib FoundationLib  selector "localizedStringForStatusCode:" (id as ptr, statuscode as integer) as CFStringRef
+		  Declare function localizedStringForStatusCode lib FoundationLibName  selector "localizedStringForStatusCode:" (id as ptr, statuscode as integer) as CFStringRef
 		  return localizedStringForStatusCode (classptr, StatusCode)
 		End Function
 	#tag EndMethod
@@ -39,7 +39,7 @@ Inherits AppleURLResponse
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function allHeaderFields lib FoundationLib  selector "allHeaderFields" (id as ptr) as ptr
+			  Declare Function allHeaderFields lib FoundationLibName  selector "allHeaderFields" (id as ptr) as ptr
 			  return AppleDictionary.MakeFromPtr (allHeaderFields (id))
 			End Get
 		#tag EndGetter
@@ -49,7 +49,7 @@ Inherits AppleURLResponse
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSHTTPURLResponse")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSHTTPURLResponse")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -68,7 +68,7 @@ Inherits AppleURLResponse
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function statusCode lib FoundationLib  selector "statusCode" (id as ptr) as Integer
+			  Declare Function statusCode lib FoundationLibName  selector "statusCode" (id as ptr) as Integer
 			  return statusCode (id)
 			End Get
 		#tag EndGetter

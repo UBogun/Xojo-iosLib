@@ -1,75 +1,62 @@
 #tag Module
 Protected Module PointExtension
 	#tag Method, Flags = &h0
-		Function AngleRadians(extends NP as NSPoint) As Double
+		Function AngleRadians(extends NP as FoundationFramework.NSPoint) As Double
 		  return atan2 (np.y, np.x)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function fromMemoryBlock(MB as xojo.Core.MemoryBlock) As NSPoint
+		Function fromMemoryBlock(MB as xojo.Core.MemoryBlock) As FoundationFramework.NSPoint
 		  return mb.toNSPoint
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Magnitude(extends NP as NSPoint) As Double
+		Function Magnitude(extends NP as FoundationFramework.NSPoint) As Double
 		  return SQrt (NP.x^2 + NP.y^2)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Normalized(extends NP as NSPoint) As NSPoint
+		Function Normalized(extends NP as FoundationFramework.NSPoint) As FoundationFramework.NSPoint
 		  return np.Vector_Divide ( np.Magnitude )
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function NSPoint(x as double, y as double) As NSPoint
-		  #pragma DisableBackgroundTasks
-		  #pragma DisableBoundsChecking
-		  #Pragma NilObjectChecking false
-		  
-		  dim NP as NSPoint
-		  NP.x = x
-		  NP.y = y
-		  return np
+		Function Operator_Multiply(extends NP as FoundationFramework.NSPoint, value as double) As FoundationFramework.NSPoint
+		  return FoundationFrameWork.NSMakePoint (np.x * value, np.y * value)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Operator_Multiply(extends NP as nspoint, value as double) As NSPoint
-		  return NSPoint (np.x * value, np.y * value)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function Operator_Multiply(extends NP as nspoint, NP2 as NSPoint) As double
+		Function Operator_Multiply(extends NP as FoundationFramework.NSPoint, NP2 as FoundationFramework.NSPoint) As double
 		  return (NP.x * NP2.x) +  (NP.y * NP2.y)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toCIVector(extends p as NSPoint) As AppleCIVector
+		Function toCIVector(extends p as FoundationFramework.NSPoint) As AppleCIVector
 		  return new AppleCIVector (p.x, p.y)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toCorePoint(extends p as NSPoint) As xojo.core.point
+		Function toCorePoint(extends p as FoundationFramework.NSPoint) As xojo.core.point
 		  return new xojo.core.point (p.x, p.y)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toCorePoint(extends p as NSPoint32Bit) As xojo.core.point
+		Function toCorePoint(extends p as FoundationFramework.NSPoint32Bit) As xojo.core.point
 		  return p.toNSPoint.toCorePoint
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toMemoryBlock(extends Points() as NSPoint) As xojo.Core.MutableMemoryBlock
+		Function toMemoryBlock(extends Points() as FoundationFramework.NSPoint) As xojo.Core.MutableMemoryBlock
 		  dim count as uinteger = Points.Ubound
 		  dim mb as new xojo.Core.MutableMemoryBlock (IntegerSize*(count+1)*2)
 		  dim q as uinteger
@@ -88,7 +75,7 @@ Protected Module PointExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toMemoryBlock(extends aPoint as NSPoint) As xojo.Core.MutableMemoryBlock
+		Function toMemoryBlock(extends aPoint as FoundationFramework.NSPoint) As xojo.Core.MutableMemoryBlock
 		  #if Target64Bit
 		    return MemoryBlockExtension.fromNSPoint (aPoint)
 		  #elseif Target32Bit
@@ -98,15 +85,15 @@ Protected Module PointExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toMemoryBlock32(extends aPoint as NSPoint) As xojo.Core.MutableMemoryBlock
+		Function toMemoryBlock32(extends aPoint as FoundationFramework.NSPoint) As xojo.Core.MutableMemoryBlock
 		  return MemoryBlockExtension.fromNSPoint32 (aPoint)
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSPoint(extends p as NSPoint32Bit) As NSPoint
-		  dim result as NSPoint
+		Function toNSPoint(extends p as FoundationFramework.NSPoint32Bit) As FoundationFramework.NSPoint
+		  dim result as FoundationFramework.NSPoint
 		  result.x = p.x
 		  result.y = p.y
 		  return result
@@ -114,8 +101,8 @@ Protected Module PointExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSPoint(extends points() as xojo.core.point) As NSPoint()
-		  dim resultarray() as NSPoint
+		Function toNSPoint(extends points() as xojo.core.point) As FoundationFramework.NSPoint()
+		  dim resultarray() as FoundationFramework.NSPoint
 		  for q as uinteger = 0 to points.Ubound
 		    resultarray.Append Points(q).toNSPoint
 		  next
@@ -124,11 +111,11 @@ Protected Module PointExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSPoint(extends p as xojo.core.point) As NSPoint
+		Function toNSPoint(extends p as xojo.core.point) As FoundationFramework.NSPoint
 		  #pragma DisableBackgroundTasks
 		  #pragma DisableBoundsChecking
 		  #Pragma NilObjectChecking false
-		  dim result as NSPoint
+		  dim result as FoundationFramework.NSPoint
 		  result.x = p.X
 		  result.y = p.y
 		  return result
@@ -136,11 +123,11 @@ Protected Module PointExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSPoint32(extends p as NSPoint) As NSPoint32Bit
+		Function toNSPoint32(extends p as FoundationFramework.NSPoint) As FoundationFramework.NSPoint32Bit
 		  #pragma DisableBackgroundTasks
 		  #pragma DisableBoundsChecking
 		  #Pragma NilObjectChecking false
-		  dim result as NSPoint32Bit
+		  dim result as FoundationFramework.NSPoint32Bit
 		  result.x = p.x
 		  result.y = p.y
 		  return result
@@ -148,32 +135,32 @@ Protected Module PointExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSPoint32(extends p as xojo.core.point) As NSPoint32Bit
+		Function toNSPoint32(extends p as xojo.core.point) As FoundationFramework.NSPoint32Bit
 		  return p.toNSPoint.toNSPoint32
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Vector_Add(extends NP as nspoint, NP2 as NSPoint) As NSPoint
-		  return NSPoint (NP.x + NP2.x, NP.y + NP2.y)
+		Function Vector_Add(extends NP as FoundationFramework.NSPoint, NP2 as FoundationFramework.NSPoint) As FoundationFramework.NSPoint
+		  return FoundationFrameWork.NSMakePoint (NP.x + NP2.x, NP.y + NP2.y)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Vector_Divide(extends NP as nspoint, Value as double) As NSPoint
-		  return NSPoint (NP.x /value, NP.y / value)
+		Function Vector_Divide(extends NP as FoundationFramework.NSPoint, Value as double) As FoundationFramework.NSPoint
+		  return FoundationFrameWork.NSMakePoint (NP.x /value, NP.y / value)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Vector_Square(extends aPoint as NSPoint) As NSPoint
-		  return nspoint (aPoint.x^2 , aPoint.y^2)
+		Function Vector_Square(extends aPoint as FoundationFramework.NSPoint) As FoundationFramework.NSPoint
+		  return FoundationFrameWork.NSMakePoint (aPoint.x^2 , aPoint.y^2)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Vector_Subtract(extends NP as nspoint, NP2 as NSPoint) As NSPoint
-		  return NSPoint (NP.x - NP2.x, NP.y - NP2.y)
+		Function Vector_Subtract(extends NP as FoundationFramework.NSPoint, NP2 as FoundationFramework.NSPoint) As FoundationFramework.NSPoint
+		  return FoundationFrameWork.NSMakePoint (NP.x - NP2.x, NP.y - NP2.y)
 		End Function
 	#tag EndMethod
 

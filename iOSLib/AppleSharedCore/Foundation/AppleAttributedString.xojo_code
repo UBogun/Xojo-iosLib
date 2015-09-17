@@ -3,7 +3,7 @@ Protected Class AppleAttributedString
 Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function AttributesAtIndex(index as UInteger) As AppleDictionary
-		  declare function attributesAtIndex lib FoundationLib  selector "attributesAtIndex:effectiveRange:" (id as ptr,  rangeptr as ptr) as Ptr
+		  declare function attributesAtIndex lib FoundationLibName  selector "attributesAtIndex:effectiveRange:" (id as ptr,  rangeptr as ptr) as Ptr
 		  dim result as ptr = attributesAtIndex(id, nil)
 		  return AppleDictionary.MakeFromPtr (result)
 		End Function
@@ -17,7 +17,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(astring as AppleAttributedString)
-		  declare function initWithAttributedString lib FoundationLib  selector "initWithAttributedString:" (id as ptr, astring as Ptr) as ptr
+		  declare function initWithAttributedString lib FoundationLibName  selector "initWithAttributedString:" (id as ptr, astring as Ptr) as ptr
 		  super.Constructor (initWithAttributedString (alloc(classptr), astring.id))
 		  mHasOwnership = true
 		End Sub
@@ -25,7 +25,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(astring as CFStringRef)
-		  declare function initWithString lib FoundationLib  selector "initWithString:" (id as ptr, astring as CFStringRef) as ptr
+		  declare function initWithString lib FoundationLibName  selector "initWithString:" (id as ptr, astring as CFStringRef) as ptr
 		  super.Constructor (initWithString (alloc(classptr), astring))
 		  mHasOwnership = true
 		End Sub
@@ -33,7 +33,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(astring as cfstringref, Fontname as CFStringRef)
-		  declare function initWithStringattributes lib FoundationLib  selector "initWithString:attributes:" (id as ptr, astring as CFStringRef, attDict as ptr) as ptr
+		  declare function initWithStringattributes lib FoundationLibName  selector "initWithString:attributes:" (id as ptr, astring as CFStringRef, attDict as ptr) as ptr
 		  dim AttDict as new AppleMutableDictionary (1)
 		  dim offset as double = 0.3
 		  AttDict.SetObjectForKey (StringAttributes.Value(BasellneOffset), new AppleNumber (offset))
@@ -43,26 +43,26 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Draw(aPoint as NSPoint)
+		Sub Draw(aPoint as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    declare Sub drawAtPoint lib FoundationLib  selector "drawAtPoint:" (id as ptr, value as NSPoint)
+		    declare Sub drawAtPoint lib FoundationLibName  selector "drawAtPoint:" (id as ptr, value as FoundationFramework.NSPoint)
 		    drawAtPoint (id, aPoint)
 		  #elseif Target32Bit
-		    declare Sub drawAtPoint lib FoundationLib  selector "drawAtPoint:" (id as ptr, value as NSPoint32Bit)
-		    drawAtPoint (id, aPoint.tonspoint32)
+		    declare Sub drawAtPoint lib FoundationLibName  selector "drawAtPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
+		    drawAtPoint (id, aPoint.toNSPoint32)
 		  #endif
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Draw(ARect as NSRect)
+		Sub Draw(ARect as FoundationFramework.NSRect)
 		  // iOSLibCGContext.UIGraphicsBeginImageContext (arect.Size_)
 		  #if Target64Bit
-		    declare Sub drawInRect lib FoundationLib  selector "drawInRect:" (id as ptr, value as NSRect)
+		    declare Sub drawInRect lib FoundationLibName  selector "drawInRect:" (id as ptr, value  as FoundationFramework.NSRect)
 		    drawInRect (id, aRect)
 		  #elseif Target32Bit
-		    declare Sub drawInRect lib FoundationLib  selector "drawInRect:" (id as ptr, value as NSRect32Bit)
+		    declare Sub drawInRect lib FoundationLibName  selector "drawInRect:" (id as ptr, value as FoundationFramework.NSRect32Bit)
 		    drawInRect (id, aRect.toNSRect32)
 		  #endif
 		  // iOSLibCGContext.UIGraphicsEndImageContext
@@ -72,12 +72,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Draw(ARect as NSRect, options as AppleStringDrawingOptions, byref context as AppleStringDrawingContext)
+		Sub Draw(ARect as FoundationFramework.NSRect, options as AppleStringDrawingOptions, byref context as AppleStringDrawingContext)
 		  #if Target64Bit
-		    declare Sub drawWithRect lib FoundationLib  selector "drawWithRect:options:context:" (id as ptr, value as NSRect, options as integer, context as ptr)
+		    declare Sub drawWithRect lib FoundationLibName  selector "drawWithRect:options:context:" (id as ptr, value  as FoundationFramework.NSRect, options as integer, context as ptr)
 		    drawWithRect (id, aRect, options.id, context.id)
 		  #elseif Target32Bit
-		    declare Sub drawWithRect lib FoundationLib  selector "drawWithRect:options:context:" (id as ptr, value as NSRect32Bit, options as integer, context as ptr)
+		    declare Sub drawWithRect lib FoundationLibName  selector "drawWithRect:options:context:" (id as ptr, value as FoundationFramework.NSRect32Bit, options as integer, context as ptr)
 		    drawWithRect (id, aRect.toNSRect32, options.Id, context.id)
 		  #endif
 		  
@@ -94,7 +94,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSAttributedString")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSAttributedString")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -104,7 +104,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function length lib FoundationLib  selector "length" (id as ptr) as UInteger
+			  declare function length lib FoundationLibName  selector "length" (id as ptr) as UInteger
 			  return length (id)
 			End Get
 		#tag EndGetter
@@ -117,7 +117,7 @@ Inherits AppleObject
 			  return getSize
 			End Get
 		#tag EndGetter
-		Size_ As NSSize
+		Size_ As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -138,7 +138,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function string_ lib FoundationLib  selector "string" (id as ptr) as CFStringRef
+			  declare function string_ lib FoundationLibName  selector "string" (id as ptr) as CFStringRef
 			  return string_ (id)
 			End Get
 		#tag EndGetter

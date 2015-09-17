@@ -3,14 +3,14 @@ Protected Class AppleAVPlayer
 Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub CancelPrerolls()
-		  Declare sub cancelPendingPrerolls lib AVFoundationLib selector "cancelPendingPrerolls" (id as ptr)
+		  Declare sub cancelPendingPrerolls lib AVFoundationLibName selector "cancelPendingPrerolls" (id as ptr)
 		  cancelPendingPrerolls (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(aURL as AppleURL)
-		  Declare function initWithURL lib AVFoundationLib selector "initWithURL:" (id as ptr, url as ptr) as ptr
+		  Declare function initWithURL lib AVFoundationLibName selector "initWithURL:" (id as ptr, url as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -44,21 +44,21 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub Pause()
-		  Declare sub pause lib AVFoundationLib selector "pause" (id as ptr)
+		  Declare sub pause lib AVFoundationLibName selector "pause" (id as ptr)
 		  pause (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Play()
-		  Declare sub play lib AVFoundationLib selector "play" (id as ptr)
+		  Declare sub play lib AVFoundationLibName selector "play" (id as ptr)
 		  play (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub PreRoll(Rate As Single)
-		  Declare sub prerollAtRate lib AVFoundationLib selector "prerollAtRate:completionHandler:" (id as ptr, rate as single, Block as ptr)
+		  Declare sub prerollAtRate lib AVFoundationLibName selector "prerollAtRate:completionHandler:" (id as ptr, rate as single, Block as ptr)
 		  dim Block as new AppleBlock (AddressOf PrerollCompletionBlock)
 		  prerollAtRate id, rate, block.Handle
 		End Sub
@@ -72,7 +72,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub SeekToTime(Time as CMTime)
-		  Declare sub seekToTime lib AVFoundationLib selector "seekToTime:completionHandler:" (id as ptr, time as CMTime, block as ptr)
+		  Declare sub seekToTime lib AVFoundationLibName selector "seekToTime:completionHandler:" (id as ptr, time as CMTime, block as ptr)
 		  dim block as new AppleBlock (AddressOf SeekToTimeCompletionBlock)
 		  seekToTime id, time, block.Handle
 		End Sub
@@ -80,7 +80,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub SeekToTime(Time as CMTime, ToleranceBefore As CMTime, ToleranceAfter as CMTime)
-		  Declare sub seekToTimeTolerance lib AVFoundationLib selector "seekToTime:toleranceBefore:toleranceAfter:completionHandler:" _
+		  Declare sub seekToTimeTolerance lib AVFoundationLibName selector "seekToTime:toleranceBefore:toleranceAfter:completionHandler:" _
 		  (id as ptr, time as CMTime, ToleranceBefore as CMTime, ToleranceAfter as CMTime, block as ptr)
 		  dim block as new AppleBlock (AddressOf SeekToTimeCompletionBlock)
 		  seekToTimeTolerance id, time, ToleranceBefore, ToleranceAfter, block.Handle
@@ -95,7 +95,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub Synchronize(Rate as single, itemTime as CMTime, Hosttime as CMTime)
-		  Declare sub setRate lib AVFoundationLib selector "setRate:time:atHostTime:" (id as ptr, rate as single, itemTime as CMTime, Hosttime as CMTime)
+		  Declare sub setRate lib AVFoundationLibName selector "setRate:time:atHostTime:" (id as ptr, rate as single, itemTime as CMTime, Hosttime as CMTime)
 		  setRate id, rate, itemTime, Hosttime
 		End Sub
 	#tag EndMethod
@@ -113,13 +113,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function actionAtItemEnd lib AVFoundationLib selector "actionAtItemEnd" (id as ptr) as AVPlayerActionAtItemEnd
+			  Declare function actionAtItemEnd lib AVFoundationLibName selector "actionAtItemEnd" (id as ptr) as AVPlayerActionAtItemEnd
 			  return actionAtItemEnd (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setActionAtItemEnd lib AVFoundationLib selector "setActionAtItemEnd:" (id as ptr, value as AVPlayerActionAtItemEnd)
+			  Declare Sub setActionAtItemEnd lib AVFoundationLibName selector "setActionAtItemEnd:" (id as ptr, value as AVPlayerActionAtItemEnd)
 			  setActionAtItemEnd id, value
 			End Set
 		#tag EndSetter
@@ -129,13 +129,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function allowsExternalPlayback lib AVFoundationLib selector "allowsExternalPlayback" (id as ptr) as Boolean
+			  Declare function allowsExternalPlayback lib AVFoundationLibName selector "allowsExternalPlayback" (id as ptr) as Boolean
 			  return allowsExternalPlayback (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAllowsExternalPlayback lib AVFoundationLib selector "setAllowsExternalPlayback:" (id as ptr, value as Boolean)
+			  Declare Sub setAllowsExternalPlayback lib AVFoundationLibName selector "setAllowsExternalPlayback:" (id as ptr, value as Boolean)
 			  setAllowsExternalPlayback id, value
 			End Set
 		#tag EndSetter
@@ -145,13 +145,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function appliesMediaSelectionCriteriaAutomatically lib AVFoundationLib selector "appliesMediaSelectionCriteriaAutomatically" (id as ptr) as Boolean
+			  Declare function appliesMediaSelectionCriteriaAutomatically lib AVFoundationLibName selector "appliesMediaSelectionCriteriaAutomatically" (id as ptr) as Boolean
 			  return appliesMediaSelectionCriteriaAutomatically (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAppliesMediaSelectionCriteriaAutomatically lib AVFoundationLib selector "setAppliesMediaSelectionCriteriaAutomatically:" (id as ptr, value as Boolean)
+			  Declare Sub setAppliesMediaSelectionCriteriaAutomatically lib AVFoundationLibName selector "setAppliesMediaSelectionCriteriaAutomatically:" (id as ptr, value as Boolean)
 			  setAppliesMediaSelectionCriteriaAutomatically id, value
 			End Set
 		#tag EndSetter
@@ -161,7 +161,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("AVPlayer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("AVPlayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -171,13 +171,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function isClosedCaptionDisplayEnabled lib AVFoundationLib selector "isClosedCaptionDisplayEnabled" (id as ptr) as Boolean
+			  Declare function isClosedCaptionDisplayEnabled lib AVFoundationLibName selector "isClosedCaptionDisplayEnabled" (id as ptr) as Boolean
 			  return isClosedCaptionDisplayEnabled (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setClosedCaptionDisplayEnabled lib AVFoundationLib selector "setClosedCaptionDisplayEnabled:" (id as ptr, value as Boolean)
+			  Declare Sub setClosedCaptionDisplayEnabled lib AVFoundationLibName selector "setClosedCaptionDisplayEnabled:" (id as ptr, value as Boolean)
 			  setClosedCaptionDisplayEnabled id, value
 			End Set
 		#tag EndSetter
@@ -187,7 +187,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentItem lib AVFoundationLib selector "currentItem" (id as ptr) as Ptr
+			  Declare function currentItem lib AVFoundationLibName selector "currentItem" (id as ptr) as Ptr
 			  return AppleAVPlayerItem.makefromPtr (currentItem (id))
 			End Get
 		#tag EndGetter
@@ -197,13 +197,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentTime lib AVFoundationLib selector "currentTime" (id as ptr) as CMTime
+			  Declare function currentTime lib AVFoundationLibName selector "currentTime" (id as ptr) as CMTime
 			  return currentTime (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setCurrentTime lib AVFoundationLib selector "setCurrentTime:" (id as ptr, value as CMTime)
+			  Declare Sub setCurrentTime lib AVFoundationLibName selector "setCurrentTime:" (id as ptr, value as CMTime)
 			  setCurrentTime id, value
 			End Set
 		#tag EndSetter
@@ -213,7 +213,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function isExternalPlaybackActive lib AVFoundationLib selector "isExternalPlaybackActive" (id as ptr) as Boolean
+			  Declare function isExternalPlaybackActive lib AVFoundationLibName selector "isExternalPlaybackActive" (id as ptr) as Boolean
 			  return isExternalPlaybackActive (id)
 			End Get
 		#tag EndGetter
@@ -253,13 +253,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  Declare function externalPlaybackVideoGravity lib AVFoundationLib selector "externalPlaybackVideoGravity" (id as ptr) as CFStringRef
+			  Declare function externalPlaybackVideoGravity lib AVFoundationLibName selector "externalPlaybackVideoGravity" (id as ptr) as CFStringRef
 			  return externalPlaybackVideoGravity (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setExternalPlaybackVideoGravity lib AVFoundationLib selector "setExternalPlaybackVideoGravity:" (id as ptr, value as CFStringRef)
+			  Declare Sub setExternalPlaybackVideoGravity lib AVFoundationLibName selector "setExternalPlaybackVideoGravity:" (id as ptr, value as CFStringRef)
 			  setExternalPlaybackVideoGravity id, value
 			End Set
 		#tag EndSetter
@@ -269,13 +269,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function usesExternalPlaybackWhileExternalScreenIsActive lib AVFoundationLib selector "usesExternalPlaybackWhileExternalScreenIsActive" (id as ptr) as Boolean
+			  Declare function usesExternalPlaybackWhileExternalScreenIsActive lib AVFoundationLibName selector "usesExternalPlaybackWhileExternalScreenIsActive" (id as ptr) as Boolean
 			  return usesExternalPlaybackWhileExternalScreenIsActive (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setUsesExternalPlaybackWhileExternalScreenIsActive lib AVFoundationLib selector "setUsesExternalPlaybackWhileExternalScreenIsActive:" (id as ptr, value as Boolean)
+			  Declare Sub setUsesExternalPlaybackWhileExternalScreenIsActive lib AVFoundationLibName selector "setUsesExternalPlaybackWhileExternalScreenIsActive:" (id as ptr, value as Boolean)
 			  setUsesExternalPlaybackWhileExternalScreenIsActive id, value
 			End Set
 		#tag EndSetter
@@ -285,13 +285,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function isMuted lib AVFoundationLib selector "isMuted" (id as ptr) as Boolean
+			  Declare function isMuted lib AVFoundationLibName selector "isMuted" (id as ptr) as Boolean
 			  return isMuted (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMuted lib AVFoundationLib selector "setMuted:" (id as ptr, value as Boolean)
+			  Declare Sub setMuted lib AVFoundationLibName selector "setMuted:" (id as ptr, value as Boolean)
 			  setMuted id, value
 			End Set
 		#tag EndSetter
@@ -301,13 +301,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function rate lib AVFoundationLib selector "rate" (id as ptr) as Single
+			  Declare function rate lib AVFoundationLibName selector "rate" (id as ptr) as Single
 			  return rate (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setRate lib AVFoundationLib selector "setRate:" (id as ptr, value as Single)
+			  Declare Sub setRate lib AVFoundationLibName selector "setRate:" (id as ptr, value as Single)
 			  setRate id, value
 			End Set
 		#tag EndSetter
@@ -317,7 +317,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function status lib AVFoundationLib selector "status" (id as ptr) as AVPlayerStatus
+			  Declare function status lib AVFoundationLibName selector "status" (id as ptr) as AVPlayerStatus
 			  return status (id)
 			End Get
 		#tag EndGetter
@@ -327,13 +327,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function volume lib AVFoundationLib selector "volume" (id as ptr) as Single
+			  Declare function volume lib AVFoundationLibName selector "volume" (id as ptr) as Single
 			  return volume (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setVolume lib AVFoundationLib selector "setVolume:" (id as ptr, value as Single)
+			  Declare Sub setVolume lib AVFoundationLibName selector "setVolume:" (id as ptr, value as Single)
 			  setVolume id, value
 			End Set
 		#tag EndSetter

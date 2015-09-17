@@ -2,63 +2,63 @@
 Protected Class AppleCFBundle
 Inherits AppleCFObject
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetAllBundles Lib FoundationLib (Bundle as ptr) As Ptr
+		Protected Declare Function CFBundleGetAllBundles Lib FoundationLibName (Bundle as ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetBundleWithIdentifier Lib FoundationLib (BundleID as CFStringRef) As Ptr
+		Protected Declare Function CFBundleGetBundleWithIdentifier Lib FoundationLibName (BundleID as CFStringRef) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetDataPointerForName Lib FoundationLib (Bundle as Ptr, symbolName as CFStringRef) As Ptr
+		Protected Declare Function CFBundleGetDataPointerForName Lib FoundationLibName (Bundle as Ptr, symbolName as CFStringRef) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetDevelopmentRegion Lib FoundationLib (Bundle as Ptr) As cfstringref
+		Protected Declare Function CFBundleGetDevelopmentRegion Lib FoundationLibName (Bundle as Ptr) As cfstringref
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetIdentifier Lib FoundationLib (Bundle as Ptr) As cfstringref
+		Protected Declare Function CFBundleGetIdentifier Lib FoundationLibName (Bundle as Ptr) As cfstringref
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetInfoDictionary Lib FoundationLib (Bundle as Ptr) As Ptr
+		Protected Declare Function CFBundleGetInfoDictionary Lib FoundationLibName (Bundle as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetLocalInfoDictionary Lib FoundationLib (Bundle as Ptr) As Ptr
+		Protected Declare Function CFBundleGetLocalInfoDictionary Lib FoundationLibName (Bundle as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetMainBundle Lib FoundationLib () As Ptr
+		Protected Declare Function CFBundleGetMainBundle Lib FoundationLibName () As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CFBundleGetPackageInfo Lib FoundationLib (Bundle as Ptr, type as ptr, Creator as ptr)
+		Protected Declare Sub CFBundleGetPackageInfo Lib FoundationLibName (Bundle as Ptr, type as ptr, Creator as ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetTypeID Lib FoundationLib (Bundle as Ptr) As uinteger
+		Protected Declare Function CFBundleGetTypeID Lib FoundationLibName (Bundle as Ptr) As uinteger
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetValueForInfoDictionaryKey Lib FoundationLib (Bundle as Ptr, key as CFStringRef) As Ptr
+		Protected Declare Function CFBundleGetValueForInfoDictionaryKey Lib FoundationLibName (Bundle as Ptr, key as CFStringRef) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleGetVersionNumber Lib FoundationLib (Bundle as Ptr) As UINt32
+		Protected Declare Function CFBundleGetVersionNumber Lib FoundationLibName (Bundle as Ptr) As UINt32
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleIsExecutableLoaded Lib FoundationLib (Bundle as Ptr) As Boolean
+		Protected Declare Function CFBundleIsExecutableLoaded Lib FoundationLibName (Bundle as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFBundleLoadExecutable Lib FoundationLib (Bundle as Ptr) As Boolean
+		Protected Declare Function CFBundleLoadExecutable Lib FoundationLibName (Bundle as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CFBundleUnloadExecutable Lib FoundationLib (Bundle as Ptr)
+		Protected Declare Sub CFBundleUnloadExecutable Lib FoundationLibName (Bundle as Ptr)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1000

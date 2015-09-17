@@ -8,13 +8,13 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(Rect as NSRect)
+		Sub Constructor(Rect as FoundationFramework.NSRect)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleView
-		  // Constructor(aFrame As NSRect) -- From AppleView
-		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect, observer as AppleNSEventReceiver) -- From AppleView
 		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
@@ -92,7 +92,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UILabel")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UILabel")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -179,9 +179,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function MinimumScaleFactor lib FoundationLib  selector "minimumScaleFactor" (id as ptr) as double
+			    declare function MinimumScaleFactor lib FoundationLibName  selector "minimumScaleFactor" (id as ptr) as double
 			  #elseif Target32Bit
-			    declare function MinimumScaleFactor lib FoundationLib  selector "minimumScaleFactor" (id as ptr) as single
+			    declare function MinimumScaleFactor lib FoundationLibName  selector "minimumScaleFactor" (id as ptr) as single
 			  #endif
 			  return MinimumScaleFactor (id)
 			End Get
@@ -189,9 +189,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare Sub setMinimumScaleFactor lib FoundationLib  selector "setMinimumScaleFactor:" (id as ptr, value as double)
+			    declare Sub setMinimumScaleFactor lib FoundationLibName  selector "setMinimumScaleFactor:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    declare Sub setMinimumScaleFactor lib FoundationLib  selector "setMinimumScaleFactor:" (id as ptr, value as single)
+			    declare Sub setMinimumScaleFactor lib FoundationLibName  selector "setMinimumScaleFactor:" (id as ptr, value as single)
 			  #endif
 			  setMinimumScaleFactor (id, value)
 			End Set
@@ -219,9 +219,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function preferredMaxLayoutWidth lib FoundationLib  selector "preferredMaxLayoutWidth" (id as ptr) as double
+			    declare function preferredMaxLayoutWidth lib FoundationLibName  selector "preferredMaxLayoutWidth" (id as ptr) as double
 			  #elseif Target32Bit
-			    declare function preferredMaxLayoutWidth lib FoundationLib  selector "preferredMaxLayoutWidth" (id as ptr) as single
+			    declare function preferredMaxLayoutWidth lib FoundationLibName  selector "preferredMaxLayoutWidth" (id as ptr) as single
 			  #endif
 			  return preferredMaxLayoutWidth (id)
 			End Get
@@ -229,9 +229,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare Sub setPreferredMaxLayoutWidth lib FoundationLib  selector "setPreferredMaxLayoutWidth:" (id as ptr, value as double)
+			    declare Sub setPreferredMaxLayoutWidth lib FoundationLibName  selector "setPreferredMaxLayoutWidth:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    declare Sub setPreferredMaxLayoutWidth lib FoundationLib  selector "setPreferredMaxLayoutWidth:" (id as ptr, value as single)
+			    declare Sub setPreferredMaxLayoutWidth lib FoundationLibName  selector "setPreferredMaxLayoutWidth:" (id as ptr, value as single)
 			  #endif
 			  setPreferredMaxLayoutWidth (id, value)
 			End Set
@@ -259,10 +259,10 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if target32bit
-			    DEclare Function shadowOffset lib UIKit selector "shadowOffset" (id as ptr) as NSSize32Bit
+			    DEclare Function shadowOffset lib UIKit selector "shadowOffset" (id as ptr) as FoundationFramework.NSSize32Bit
 			    return shadowOffset(id).toNSSize
 			  #elseif Target64Bit
-			    DEclare Function shadowOffset lib UIKit selector "shadowOffset" (id as ptr) as NSSize
+			    DEclare Function shadowOffset lib UIKit selector "shadowOffset" (id as ptr) as FoundationFramework.NSSize
 			    return shadowOffset (id)
 			  #endif
 			  
@@ -271,15 +271,15 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if target32bit
-			    DEclare Sub setShadowOffset lib UIKit selector "setShadowOffset:" (id as ptr, value as NSSize32Bit)
+			    DEclare Sub setShadowOffset lib UIKit selector "setShadowOffset:" (id as ptr, value as FoundationFramework.NSSize32Bit)
 			    setShadowOffset id, value.toNSSize32
 			  #elseif Target64Bit
-			    DEclare Sub setShadowOffset lib UIKit selector "setShadowOffset:" (id as ptr, value as NSSize)
+			    DEclare Sub setShadowOffset lib UIKit selector "setShadowOffset:" (id as ptr, value as FoundationFramework.NSSize)
 			    setShadowOffset id, value
 			  #endif
 			End Set
 		#tag EndSetter
-		ShadowOffset As NSSize
+		ShadowOffset As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

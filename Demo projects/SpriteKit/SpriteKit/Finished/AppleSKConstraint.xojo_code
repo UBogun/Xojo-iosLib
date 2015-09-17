@@ -17,13 +17,13 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Distance(aPoint As NSPoint, Node as AppleSKNode, Distance As AppleSKRange) As AppleSKConstraint
+		 Shared Function Distance(aPoint As FoundationFramework.NSPoint, Node as AppleSKNode, Distance As AppleSKRange) As AppleSKConstraint
 		  dim result as   AppleSKConstraint
 		  #if Target64Bit
-		    Declare function distanceToPointinNode lib SpriteKit selector "distance:ToPoint:inNode:" (id as ptr, distance as ptr,  aPoint as NSPoint, node as ptr) as ptr
+		    Declare function distanceToPointinNode lib SpriteKit selector "distance:ToPoint:inNode:" (id as ptr, distance as ptr,  aPoint as FoundationFramework.NSPoint, node as ptr) as ptr
 		    result =  new AppleSKConstraint  (distanceToPointinNode(ClassPtr, Distance.id, aPoint, node.id))
 		  #elseif Target32Bit
-		    Declare function distanceToPointinNode lib SpriteKit selector "distance:ToPoint:inNode:" (id as ptr, distance as ptr,  aPoint as NSPoint32Bit, node as ptr) as ptr
+		    Declare function distanceToPointinNode lib SpriteKit selector "distance:ToPoint:inNode:" (id as ptr, distance as ptr,  aPoint as FoundationFramework.NSPoint32Bit, node as ptr) as ptr
 		    result =  new AppleSKConstraint  (distanceToPointinNode(ClassPtr, Distance.id, aPoint.toNSPoint32, node.id))
 		  #endif
 		  result.RetainClassObject
@@ -32,13 +32,13 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function Distance(aPoint As NSPoint, Distance As AppleSKRange) As AppleSKConstraint
+		 Shared Function Distance(aPoint As FoundationFramework.NSPoint, Distance As AppleSKRange) As AppleSKConstraint
 		  dim result as   AppleSKConstraint
 		  #if Target64Bit
-		    Declare function distanceToPoint lib SpriteKit selector "distance:ToPoint:" (id as ptr, distance as ptr,  aPoint as NSPoint) as ptr
+		    Declare function distanceToPoint lib SpriteKit selector "distance:ToPoint:" (id as ptr, distance as ptr,  aPoint as FoundationFramework.NSPoint) as ptr
 		    result =  new AppleSKConstraint  (distanceToPoint(ClassPtr, Distance.id, aPoint))
 		  #elseif Target32Bit
-		    Declare function distanceToPoint lib SpriteKit selector "distance:ToPoint:" (id as ptr, distance as ptr,  aPoint as NSPoint32Bit) as ptr
+		    Declare function distanceToPoint lib SpriteKit selector "distance:ToPoint:" (id as ptr, distance as ptr,  aPoint as FoundationFramework.NSPoint32Bit) as ptr
 		    result =  new AppleSKConstraint  (distanceToPoint(ClassPtr, Distance.id, aPoint.toNSPoint32))
 		  #endif
 		  result.RetainClassObject
@@ -62,25 +62,25 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function OrientToPoint(aPoint As NSPoint) As AppleSKConstraint
+		 Shared Function OrientToPoint(aPoint As FoundationFramework.NSPoint) As AppleSKConstraint
 		  return OrientToPoint (aPoint, AppleSKRange.WithConstantValue(0))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function OrientToPoint(aPoint As NSPoint, Node as AppleSKNode) As AppleSKConstraint
+		 Shared Function OrientToPoint(aPoint As FoundationFramework.NSPoint, Node as AppleSKNode) As AppleSKConstraint
 		  return OrientToPoint (aPoint, Node, AppleSKRange.WithConstantValue(0))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function OrientToPoint(aPoint As NSPoint, Node as AppleSKNode, OffsetRadians As AppleSKRange) As AppleSKConstraint
+		 Shared Function OrientToPoint(aPoint As FoundationFramework.NSPoint, Node as AppleSKNode, OffsetRadians As AppleSKRange) As AppleSKConstraint
 		  dim result as   AppleSKConstraint
 		  #if Target64Bit
-		    Declare function orientToPointinNode lib SpriteKit selector "orientToPoint:inNode:offset:" (id as ptr, aPoint as NSPoint, node as ptr, offset as ptr) as ptr
+		    Declare function orientToPointinNode lib SpriteKit selector "orientToPoint:inNode:offset:" (id as ptr, aPoint as FoundationFramework.NSPoint, node as ptr, offset as ptr) as ptr
 		    result =  new AppleSKConstraint  (orientToPointinNode(ClassPtr, aPoint, node.id, OffsetRadians.id))
 		  #elseif Target32Bit
-		    Declare function orientToPointinNode lib SpriteKit selector "orientToPoint:inNode:offset:" (id as ptr, aPoint as NSPoint32Bit, node as ptr, offset as ptr) as ptr
+		    Declare function orientToPointinNode lib SpriteKit selector "orientToPoint:inNode:offset:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, node as ptr, offset as ptr) as ptr
 		    result =  new AppleSKConstraint  (orientToPointinNode(ClassPtr, aPoint.toNSPoint32, node.id, OffsetRadians.id))
 		  #endif
 		  result.RetainClassObject
@@ -89,13 +89,13 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function OrientToPoint(aPoint As NSPoint, OffsetRadians As AppleSKRange) As AppleSKConstraint
+		 Shared Function OrientToPoint(aPoint As FoundationFramework.NSPoint, OffsetRadians As AppleSKRange) As AppleSKConstraint
 		  dim result as   AppleSKConstraint
 		  #if Target64Bit
-		    Declare function orientToPoint lib SpriteKit selector "orientToPoint:offset:" (id as ptr, aPoint as NSPoint, offset as ptr) as ptr
+		    Declare function orientToPoint lib SpriteKit selector "orientToPoint:offset:" (id as ptr, aPoint as FoundationFramework.NSPoint, offset as ptr) as ptr
 		    result =  new AppleSKConstraint  (orientToPoint(ClassPtr, aPoint, OffsetRadians.id))
 		  #elseif Target32Bit
-		    Declare function orientToPoint lib SpriteKit selector "orientToPoint:offset:" (id as ptr, aPoint as NSPoint32Bit, offset as ptr) as ptr
+		    Declare function orientToPoint lib SpriteKit selector "orientToPoint:offset:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, offset as ptr) as ptr
 		    result =  new AppleSKConstraint  (orientToPoint(ClassPtr, aPoint.toNSPoint32, OffsetRadians.id))
 		  #endif
 		  result.RetainClassObject
@@ -146,7 +146,7 @@ Inherits AppleObject
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKConstraint")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKConstraint")
 			    end if
 			  end if
 			  return mClassPtr
@@ -190,7 +190,22 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Enabled"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -202,11 +217,26 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

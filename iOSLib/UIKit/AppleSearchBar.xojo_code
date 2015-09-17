@@ -29,13 +29,13 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aRect as NSRect)
+		Sub Constructor(aRect as FoundationFramework.NSRect)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleView
-		  // Constructor(aFrame As NSRect) -- From AppleView
-		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect, observer as AppleNSEventReceiver) -- From AppleView
 		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
@@ -48,7 +48,7 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame As NSRect, observer as AppleNSEventReceiver)
+		Sub Constructor(aFrame as FoundationFramework.NSRect, observer as AppleNSEventReceiver)
 		  Constructor (aFrame)
 		  RegisterObserver (observer)
 		  
@@ -181,7 +181,7 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Function impl_SearchBarShouldChangeText(pid as ptr, sel as ptr, searchbar as ptr, Range as NSRange, searchtext as cfstringref) As Boolean
+		Private Shared Function impl_SearchBarShouldChangeText(pid as ptr, sel as ptr, searchbar as ptr, Range as FoundationFramework.NSRange, searchtext as cfstringref) As Boolean
 		  dim ego as new AppleSearchBar (pid)
 		  return ego.informonShouldChangeText  (range, SearchText)
 		  
@@ -387,7 +387,7 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Function informonShouldChangeText(aRange as NSRange, SearchText as Text) As boolean
+		Attributes( hidden )  Function informonShouldChangeText(aRange as FoundationFramework.NSRange, SearchText as Text) As boolean
 		  if ConfirmChangesinEvents then
 		    If Observers.HasKey(id) then
 		      dim myarray as new AppleMutableArray(4)

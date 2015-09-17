@@ -3,7 +3,7 @@ Protected Class AppleAVAudioPlayer
 Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(aURL As APpleURL, Error As AppleError = nil)
-		  Declare function initWithContentsOfURL lib AVFoundationLib selector "initWithContentsOfURL:error:" (id as ptr, aURL as ptr, error as ptr)  as ptr
+		  Declare function initWithContentsOfURL lib AVFoundationLibName selector "initWithContentsOfURL:error:" (id as ptr, aURL as ptr, error as ptr)  as ptr
 		  
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -25,7 +25,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as ptr = NSClassFromString ("AVAudioPlayer")
+			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVAudioPlayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

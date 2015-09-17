@@ -2,12 +2,12 @@
 Protected Class AppleCGPathRect
 Inherits AppleCGPath
 	#tag Method, Flags = &h1
-		Protected Function CGPathCreateWithRect(ARect as NSRect) As Ptr
+		Protected Function CGPathCreateWithRect(ARect as FoundationFramework.NSRect) As Ptr
 		  #if Target64Bit
-		    Declare Function CGPathCreateWithRect lib CoreGraphicsLib (arect as NSRect, aTransform as Ptr) as ptr
+		    Declare Function CGPathCreateWithRect lib CoreGraphicsLibName (arect  as FoundationFramework.NSRect, aTransform as Ptr) as ptr
 		    return CGPathCreateWithRect (ARect, NIL)
 		  #elseif Target32Bit
-		    Declare Function CGPathCreateWithRect lib CoreGraphicsLib (arect as NSRect32Bit, aTransform as Ptr) as ptr
+		    Declare Function CGPathCreateWithRect lib CoreGraphicsLibName (arect as FoundationFramework.NSRect32Bit, aTransform as Ptr) as ptr
 		    return CGPathCreateWithRect (ARect.toNSRect32, NIL)
 		  #endif
 		  
@@ -15,7 +15,7 @@ Inherits AppleCGPath
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(ARect as NSRect)
+		Sub Constructor(ARect as FoundationFramework.NSRect)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:

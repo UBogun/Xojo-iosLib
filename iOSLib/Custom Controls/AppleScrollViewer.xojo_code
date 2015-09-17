@@ -14,7 +14,7 @@ Implements AppleNSEventReceiver
 
 	#tag Event
 		Function CreateView() As UInteger
-		  dim frame as  NSRect = nsrect (0,0,100,100)
+		  dim frame as  FoundationFrameWork.NSRect = FoundationFrameWork.NSMakeRect (0,0,100,100)
 		  viewobject = new AppleScrollView (frame, self)
 		  ViewObject.AutoRelease
 		  Return UInteger(viewobject.id)
@@ -167,7 +167,7 @@ Implements AppleNSEventReceiver
 
 	#tag Method, Flags = &h0
 		Sub ScrollToRect(X as Double, y as double, width as double, height as double)
-		  ViewObject.ScrollToRect nsrect (x,y,width, height)
+		  ViewObject.ScrollToRect FoundationFrameWork.NSMakeRect (x,y,width, height)
 		End Sub
 	#tag EndMethod
 
@@ -180,9 +180,9 @@ Implements AppleNSEventReceiver
 	#tag Method, Flags = &h0
 		Sub SetContentOffset(left as double, top as double, animated as boolean = true)
 		  if animated then
-		    ViewObject.AnimateContentOffset nspoint (left, top)
+		    ViewObject.AnimateContentOffset FoundationFrameWork.NSMakePoint (left, top)
 		  else
-		    ViewObject.ContentOffset =nspoint (left, top)
+		    ViewObject.ContentOffset =FoundationFrameWork.NSMakePoint (left, top)
 		  end if
 		End Sub
 	#tag EndMethod
@@ -229,13 +229,13 @@ Implements AppleNSEventReceiver
 		Private Sub StitchViews()
 		  dim currentY as double
 		  dim fullView as AppleView
-		  fullView = new AppleView(NSRect (0,0, me.Width, me.Height * (ViewArray.Ubound+1)))
+		  fullView = new AppleView(FoundationFrameWork.NSMakeRect (0,0, me.Width, me.Height * (ViewArray.Ubound+1)))
 		  fullView.BackgroundColor = new applecolor( &cffffffff)
 		  for i as integer=0 to UBound(ViewArray)
 		    dim theAppleView as new AppleView (ViewArray(i).ViewHandle)
 		    theAppleView.Frame = me.AppleView.Frame
 		    fullView.AddSubview theAppleView
-		    theAppleView.frame = NSRect(0, currentY, theAppleView.Frame.Size_.width, theAppleView.frame.Size_.height)
+		    theAppleView.frame = FoundationFrameWork.NSMakeRect(0, currentY, theAppleView.Frame.Size_.width, theAppleView.frame.Size_.height)
 		    currentY=currentY+  theAppleView.frame.Size_.height
 		  next
 		  me.AppleView.ContentView =  fullView
@@ -250,7 +250,7 @@ Implements AppleNSEventReceiver
 
 	#tag Method, Flags = &h0
 		Sub ZoomToRect(X as Double, y as double, width as double, height as double, animated as boolean = true)
-		  ViewObject.ZoomToRect nsrect(x,y,width, height), animated
+		  ViewObject.ZoomToRect FoundationFrameWork.NSMakeRect(x,y,width, height), animated
 		End Sub
 	#tag EndMethod
 
@@ -304,7 +304,7 @@ Implements AppleNSEventReceiver
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event DrawRect(Rect as NSRect)
+		Event DrawRect(Rect  as FoundationFramework.NSRect)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -590,7 +590,7 @@ Implements AppleNSEventReceiver
 	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
-		Private OrientationFrame As NSRect
+		Private OrientationFrame As FoundationFramework.NSRect
 	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0

@@ -3,7 +3,7 @@ Protected Class AppleURLRequest
 Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(aURL as AppleURL)
-		  Declare function initWithURL lib FoundationLib  selector "initWithURL:" (id as ptr, aURL as Ptr) as ptr
+		  Declare function initWithURL lib FoundationLibName  selector "initWithURL:" (id as ptr, aURL as Ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -24,7 +24,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSURLRequest")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSURLRequest")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

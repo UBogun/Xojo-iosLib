@@ -41,9 +41,9 @@ Inherits AppleObject
 		  dim d as new Dictionary // I'm using NotificationDict as a Tuple. d holds a constant so the receiving method can distribute the value to the appropriate event
 		  d.Value (kUpdateAtTime) = attime // left side is the constant, right side the value
 		  NotificationDict.Value(pid) = d // and now I attach it to the shared dictionary by its pid as key
-		  Declare sub performSelectorOnMainThread lib FoundationLib  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
+		  Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
 		  (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
-		  performSelectorOnMainThread pid, NSSelectorFromString("checkDict:"), pid, false // and have the change checked
+		  performSelectorOnMainThread pid, FoundationFramework.NSSelectorFromString("checkDict:"), pid, false // and have the change checked
 		  
 		  #Pragma Unused Sel
 		  #Pragma Unused renderer

@@ -9,7 +9,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(URL as AppleURL, MIMEType As CFStringRef, expectedContentLength as Integer, textEncodingName as CFStringRef)
-		  Declare function initWithURL lib FoundationLib  selector "initWithURL:MIMEType:expectedContentLength:textEncodingName:" _
+		  Declare function initWithURL lib FoundationLibName  selector "initWithURL:MIMEType:expectedContentLength:textEncodingName:" _
 		  (id as ptr, URL as ptr, MIMEType as CFStringRef, expectedContentLength as Integer, textEncodingName as CFStringRef) as Ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -32,7 +32,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSURLResponse")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSURLResponse")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -42,7 +42,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function expectedContentLength lib FoundationLib  selector "expectedContentLength" (id as ptr) as Int64
+			  Declare Function expectedContentLength lib FoundationLibName  selector "expectedContentLength" (id as ptr) as Int64
 			  return expectedContentLength (id)
 			End Get
 		#tag EndGetter
@@ -52,7 +52,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function MIMEType lib FoundationLib  selector "MIMEType" (id as ptr) as CFStringRef
+			  Declare Function MIMEType lib FoundationLibName  selector "MIMEType" (id as ptr) as CFStringRef
 			  return MIMEType (id)
 			End Get
 		#tag EndGetter
@@ -62,7 +62,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function suggestedFilename lib FoundationLib  selector "suggestedFilename" (id as ptr) as CFStringRef
+			  Declare Function suggestedFilename lib FoundationLibName  selector "suggestedFilename" (id as ptr) as CFStringRef
 			  return suggestedFilename (id)
 			End Get
 		#tag EndGetter
@@ -72,7 +72,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function textEncodingName lib FoundationLib  selector "textEncodingName" (id as ptr) as CFStringRef
+			  Declare Function textEncodingName lib FoundationLibName  selector "textEncodingName" (id as ptr) as CFStringRef
 			  return textEncodingName (id)
 			End Get
 		#tag EndGetter
@@ -82,7 +82,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function URL lib FoundationLib  selector "URL" (id as ptr) as Ptr
+			  Declare Function URL lib FoundationLibName  selector "URL" (id as ptr) as Ptr
 			  return appleurl.MakeFromPtr (url (id))
 			End Get
 		#tag EndGetter

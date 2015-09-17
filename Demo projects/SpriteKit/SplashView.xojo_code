@@ -71,7 +71,7 @@ End
 #tag WindowCode
 	#tag Method, Flags = &h0
 		Sub buttonmove()
-		  dim newrect as NSRect = Button1.AppleView.Frame
+		  dim newrect  as FoundationFramework.NSRect = Button1.AppleView.Frame
 		  newrect.Origin.y = ImageView1.AppleView.Frame.Size_.height +  ImageView1.AppleView.Frame.Size_.height /3
 		  dim options as new AppleViewAnimationOption
 		  options.AllowUserInteraction = true

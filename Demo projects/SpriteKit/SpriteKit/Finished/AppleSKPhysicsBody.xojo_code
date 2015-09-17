@@ -26,12 +26,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ApplyForce(Vector as CGVector, atPoint as NSPoint)
+		Sub ApplyForce(Vector as CGVector, atPoint as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub applyForceatPoint lib SpriteKit selector "applyForce:atPoint:" (id as ptr, force as CGVector, atPoint as NSPoint)
+		    Declare sub applyForceatPoint lib SpriteKit selector "applyForce:atPoint:" (id as ptr, force as CGVector, atPoint as FoundationFramework.NSPoint)
 		    applyForceatPoint id, Vector, atPoint
 		  #elseif Target32Bit
-		    Declare sub applyForceatPoint lib SpriteKit selector "applyForce:atPoint:" (id as ptr, force as CGVector32Bit, apoint as NSPoint32Bit)
+		    Declare sub applyForceatPoint lib SpriteKit selector "applyForce:atPoint:" (id as ptr, force as CGVector32Bit, apoint as FoundationFramework.NSPoint32Bit)
 		    applyForceatPoint id, Vector.toCGVector32, atPoint.toNSPoint32
 		  #endif
 		End Sub
@@ -50,12 +50,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ApplyImpulse(Vector as CGVector, atPoint as NSPoint)
+		Sub ApplyImpulse(Vector as CGVector, atPoint as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub applyImpulseatPoint lib SpriteKit selector "applyImpulse:atPoint:" (id as ptr, force as CGVector, apoint as NSPoint)
+		    Declare sub applyImpulseatPoint lib SpriteKit selector "applyImpulse:atPoint:" (id as ptr, force as CGVector, apoint as FoundationFramework.NSPoint)
 		    applyImpulseatPoint id, Vector, atPoint
 		  #elseif Target32Bit
-		    Declare sub applyImpulseatPoint lib SpriteKit selector "applyImpulse:atPoint:" (id as ptr, force as CGVector32Bit, atPoint as NSPoint32Bit)
+		    Declare sub applyImpulseatPoint lib SpriteKit selector "applyImpulse:atPoint:" (id as ptr, force as CGVector32Bit, atPoint as FoundationFramework.NSPoint32Bit)
 		    applyImpulseatPoint id, Vector.toCGVector32, atPoint.toNSPoint32
 		  #endif
 		End Sub
@@ -125,12 +125,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(Texture As AppleSKTexture, size as NSSize)
+		Sub Constructor(Texture As AppleSKTexture, size as FoundationFramework.NSSize)
 		  #if Target64Bit
-		    declare Function bodyWithTexture lib SpriteKit selector "bodyWithTexture:size:" (id as ptr,  Texture as Ptr, asize as NSSize) as ptr
+		    declare Function bodyWithTexture lib SpriteKit selector "bodyWithTexture:size:" (id as ptr,  Texture as Ptr, asize as FoundationFramework.NSSize) as ptr
 		    super.Constructor (bodyWithTexture (ClassPtr, texture.id, size))
 		  #elseif Target32Bit
-		    declare Function bodyWithTexture lib SpriteKit selector "bodyWithTexture:size:" (id as ptr,  Texture As Ptr, asize as NSSize32Bit) as ptr
+		    declare Function bodyWithTexture lib SpriteKit selector "bodyWithTexture:size:" (id as ptr,  Texture As Ptr, asize as FoundationFramework.NSSize32Bit) as ptr
 		    super.Constructor (bodyWithTexture (ClassPtr, texture.id, size.toNSSize32))
 		  #endif
 		  RetainClassObject
@@ -153,12 +153,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(Texture As AppleSKTexture, AlphaTreshold as single, size as NSSize)
+		Sub Constructor(Texture As AppleSKTexture, AlphaTreshold as single, size as FoundationFramework.NSSize)
 		  #if Target64Bit
-		    declare Function bodyWithTexturealphaThreshold lib SpriteKit selector "bodyWithTexture:alphaThreshold:size:" (id as ptr,  Texture as Ptr, alphaThreshold as single, asize as NSSize) as ptr
+		    declare Function bodyWithTexturealphaThreshold lib SpriteKit selector "bodyWithTexture:alphaThreshold:size:" (id as ptr,  Texture as Ptr, alphaThreshold as single, asize as FoundationFramework.NSSize) as ptr
 		    super.Constructor (bodyWithTexturealphaThreshold (ClassPtr, texture.id, AlphaTreshold, size))
 		  #elseif Target32Bit
-		    declare Function bodyWithTexturealphaThreshold lib SpriteKit selector "bodyWithTexture:alphaThreshold:size:" (id as ptr,  Texture As Ptr, alphaThreshold as single, asize as NSSize32Bit) as ptr
+		    declare Function bodyWithTexturealphaThreshold lib SpriteKit selector "bodyWithTexture:alphaThreshold:size:" (id as ptr,  Texture As Ptr, alphaThreshold as single, asize as FoundationFramework.NSSize32Bit) as ptr
 		    super.Constructor (bodyWithTexturealphaThreshold (ClassPtr, texture.id, AlphaTreshold, size.toNSSize32))
 		  #endif
 		  RetainClassObject
@@ -196,12 +196,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(Radius as Double, Center as NSPoint)
+		Sub Constructor(Radius as Double, Center as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    declare Function bodyWithCircleOfRadiusCenter lib SpriteKit selector "bodyWithCircleOfRadius:center:" (id as ptr,  asize as double, center as NSPoint) as ptr
+		    declare Function bodyWithCircleOfRadiusCenter lib SpriteKit selector "bodyWithCircleOfRadius:center:" (id as ptr,  asize as double, center as FoundationFramework.NSPoint) as ptr
 		    super.Constructor (bodyWithCircleOfRadiusCenter (ClassPtr, radius, center))
 		  #elseif Target32Bit
-		    declare Function bodyWithCircleOfRadiusCenter lib SpriteKit selector "bodyWithCircleOfRadius:center:" (id as ptr,  asize as single, center as NSPoint32Bit) as ptr
+		    declare Function bodyWithCircleOfRadiusCenter lib SpriteKit selector "bodyWithCircleOfRadius:center:" (id as ptr,  asize as single, center as FoundationFramework.NSPoint32Bit) as ptr
 		    super.Constructor (bodyWithCircleOfRadiusCenter (ClassPtr, radius, center.toNSPoint32))
 		  #endif
 		  RetainClassObject
@@ -218,12 +218,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aSize as nssize)
+		Sub Constructor(aSize as FoundationFramework.NSSize)
 		  #if Target64Bit
-		    declare Function bodyWithRectangleOfSize lib SpriteKit selector "bodyWithRectangleOfSize:" (id as ptr,  asize as nssize) as ptr
+		    declare Function bodyWithRectangleOfSize lib SpriteKit selector "bodyWithRectangleOfSize:" (id as ptr,  asize as FoundationFramework.NSSize) as ptr
 		    super.Constructor (bodyWithRectangleOfSize (ClassPtr, asize))
 		  #elseif Target32Bit
-		    declare Function bodyWithRectangleOfSize lib SpriteKit selector "bodyWithRectangleOfSize:" (id as ptr,  asize as NSSize32Bit) as ptr
+		    declare Function bodyWithRectangleOfSize lib SpriteKit selector "bodyWithRectangleOfSize:" (id as ptr,  asize as FoundationFramework.NSSize32Bit) as ptr
 		    super.Constructor (bodyWithRectangleOfSize (ClassPtr, asize.toNSSize32))
 		  #endif
 		  RetainClassObject
@@ -240,12 +240,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aSize as nssize, Center as NSPoint)
+		Sub Constructor(aSize as FoundationFramework.NSSize, Center as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    declare Function bodyWithRectangleOfSizeCenter lib SpriteKit selector "bodyWithRectangleOfSize:center:" (id as ptr,  asize as nssize, center as NSPoint) as ptr
+		    declare Function bodyWithRectangleOfSizeCenter lib SpriteKit selector "bodyWithRectangleOfSize:center:" (id as ptr,  asize as FoundationFramework.NSSize, center as FoundationFramework.NSPoint) as ptr
 		    super.Constructor (bodyWithRectangleOfSizeCenter (ClassPtr, asize, center))
 		  #elseif Target32Bit
-		    declare Function bodyWithRectangleOfSizeCenter lib SpriteKit selector "bodyWithRectangleOfSize:center:" (id as ptr,  asize as NSSize32Bit, center as NSPoint32Bit) as ptr
+		    declare Function bodyWithRectangleOfSizeCenter lib SpriteKit selector "bodyWithRectangleOfSize:center:" (id as ptr,  asize as FoundationFramework.NSSize32Bit, center as FoundationFramework.NSPoint32Bit) as ptr
 		    super.Constructor (bodyWithRectangleOfSizeCenter (ClassPtr, asize.toNSSize32, center.toNSPoint32))
 		  #endif
 		  RetainClassObject
@@ -298,13 +298,13 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function EdgeLoop(P1 as NSPoint, P2 as NSPoint) As AppleSKPhysicsBody
+		 Shared Function EdgeLoop(P1 as FoundationFramework.NSPoint, P2 as FoundationFramework.NSPoint) As AppleSKPhysicsBody
 		  dim result as AppleSKPhysicsBody
 		  #if Target64Bit
-		    declare Function bodyWithEdgeFromPoint lib SpriteKit selector "bodyWithEdgeFromPoint:toPoint:" (id as ptr,  P1 as NSPoint, P2 as NSPoint) as ptr
+		    declare Function bodyWithEdgeFromPoint lib SpriteKit selector "bodyWithEdgeFromPoint:toPoint:" (id as ptr,  P1 as FoundationFramework.NSPoint, P2 as FoundationFramework.NSPoint) as ptr
 		    result = new AppleSKPhysicsBody (bodyWithEdgeFromPoint (ClassPtr, P1, P2))
 		  #elseif Target32Bit
-		    declare Function bodyWithEdgeFromPoint lib SpriteKit selector "bodyWithEdgeFromPoint:toPoint:" (id as ptr,  P1 as NSPoint32Bit, P2 as NSPoint32Bit) as ptr
+		    declare Function bodyWithEdgeFromPoint lib SpriteKit selector "bodyWithEdgeFromPoint:toPoint:" (id as ptr,  P1 as FoundationFramework.NSPoint32Bit, P2 as FoundationFramework.NSPoint32Bit) as ptr
 		    result = new AppleSKPhysicsBody (bodyWithEdgeFromPoint (ClassPtr, P1.toNSPoint32, P2.toNSPoint32))
 		  #endif
 		  result.RetainClassObject
@@ -322,13 +322,13 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function EdgeLoop(aRect as NSRect) As AppleSKPhysicsBody
+		 Shared Function EdgeLoop(aRect as FoundationFramework.NSRect) As AppleSKPhysicsBody
 		  dim result as AppleSKPhysicsBody
 		  #if Target64Bit
-		    declare Function bodyWithEdgeLoopFromRect lib SpriteKit selector "bodyWithEdgeLoopFromRect:" (id as ptr,  asize as nsrect) as ptr
+		    declare Function bodyWithEdgeLoopFromRect lib SpriteKit selector "bodyWithEdgeLoopFromRect:" (id as ptr,  asize  as FoundationFramework.NSRect) as ptr
 		    result = new AppleSKPhysicsBody (bodyWithEdgeLoopFromRect (ClassPtr, arect))
 		  #elseif Target32Bit
-		    declare Function bodyWithEdgeLoopFromRect lib SpriteKit selector "bodyWithEdgeLoopFromRect:" (id as ptr,  asize as NSRect32Bit) as ptr
+		    declare Function bodyWithEdgeLoopFromRect lib SpriteKit selector "bodyWithEdgeLoopFromRect:" (id as ptr,  asize as FoundationFramework.NSRect32Bit) as ptr
 		    result = new AppleSKPhysicsBody (bodyWithEdgeLoopFromRect (ClassPtr, arect.toNSRect32))
 		  #endif
 		  result.RetainClassObject
@@ -517,7 +517,7 @@ Inherits AppleObject
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKPhysicsBody")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKPhysicsBody")
 			    end if
 			  end if
 			  return mClassPtr
@@ -853,9 +853,19 @@ Inherits AppleObject
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Density"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Dynamic"
@@ -868,11 +878,26 @@ Inherits AppleObject
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -890,6 +915,11 @@ Inherits AppleObject
 			Name="Mass"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

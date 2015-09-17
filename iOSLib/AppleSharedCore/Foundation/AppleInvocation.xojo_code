@@ -9,21 +9,21 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub GetArgument(argument as Applearray, Index as Integer)
-		  declare sub GetArgument lib FoundationLib  selector "getArgument:atIndex:" (id as ptr, agument as ptr, index as integer)
+		  declare sub GetArgument lib FoundationLibName  selector "getArgument:atIndex:" (id as ptr, agument as ptr, index as integer)
 		  GetArgument id, argument.id, Index
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub RetainArguments()
-		  declare sub retainArguments lib FoundationLib  selector "retainArguments:" (id as ptr)
+		  declare sub retainArguments lib FoundationLibName  selector "retainArguments:" (id as ptr)
 		  retainArguments id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetArgument(argument as Applearray, Index as Integer)
-		  declare sub setArgument lib FoundationLib  selector "setArgument:atIndex:" (id as ptr, agument as ptr, index as integer)
+		  declare sub setArgument lib FoundationLibName  selector "setArgument:atIndex:" (id as ptr, agument as ptr, index as integer)
 		  setArgument id, argument.id, Index
 		End Sub
 	#tag EndMethod
@@ -32,7 +32,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function argumentsRetained lib FoundationLib  selector "argumentsRetained" (id as ptr) as Boolean
+			  Declare function argumentsRetained lib FoundationLibName  selector "argumentsRetained" (id as ptr) as Boolean
 			  return argumentsRetained (id)
 			End Get
 		#tag EndGetter
@@ -42,7 +42,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as ptr = NSClassFromString ("NSInvocation")
+			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("NSInvocation")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -52,7 +52,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function methodSignature lib FoundationLib  selector "methodSignature" (id as ptr) as Ptr
+			  Declare function methodSignature lib FoundationLibName  selector "methodSignature" (id as ptr) as Ptr
 			  return ApplemethodSignature.makefromptr (methodSignature(id))
 			End Get
 		#tag EndGetter
@@ -62,13 +62,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function getSelector lib FoundationLib  selector "selector" (id as ptr) as ptr
+			  Declare function getSelector lib FoundationLibName  selector "selector" (id as ptr) as ptr
 			  return getSelector (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setSelector lib FoundationLib  selector "setSelector:" (id as ptr, value as ptr)
+			  Declare sub setSelector lib FoundationLibName  selector "setSelector:" (id as ptr, value as ptr)
 			  setSelector (id, value)
 			End Set
 		#tag EndSetter
@@ -78,7 +78,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return NSStringFromSelector (Selector)
+			  return FoundationFrameWork.NSStringFromSelector (Selector)
 			End Get
 		#tag EndGetter
 		SelectorName As Text
@@ -87,13 +87,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function target lib FoundationLib  selector "target" (id as ptr) as ptr
+			  Declare function target lib FoundationLibName  selector "target" (id as ptr) as ptr
 			  return target (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setTarget lib FoundationLib  selector "setTarget:" (id as ptr, value as ptr)
+			  Declare sub setTarget lib FoundationLibName  selector "setTarget:" (id as ptr, value as ptr)
 			  setTarget (id, value)
 			End Set
 		#tag EndSetter

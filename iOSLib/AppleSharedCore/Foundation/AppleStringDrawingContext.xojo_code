@@ -19,9 +19,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function actualScaleFactor lib FoundationLib  selector "actualScaleFactor" (id as ptr) as double
+			    declare function actualScaleFactor lib FoundationLibName  selector "actualScaleFactor" (id as ptr) as double
 			  #elseif Target32Bit
-			    declare function actualScaleFactor lib FoundationLib  selector "actualScaleFactor" (id as ptr) as single
+			    declare function actualScaleFactor lib FoundationLibName  selector "actualScaleFactor" (id as ptr) as single
 			  #endif
 			  return actualScaleFactor (id)
 			End Get
@@ -32,7 +32,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSStringDrawingContext")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSStringDrawingContext")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -43,9 +43,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function MinimumScaleFactor lib FoundationLib  selector "minimumScaleFactor" (id as ptr) as double
+			    declare function MinimumScaleFactor lib FoundationLibName  selector "minimumScaleFactor" (id as ptr) as double
 			  #elseif Target32Bit
-			    declare function MinimumScaleFactor lib FoundationLib  selector "minimumScaleFactor" (id as ptr) as single
+			    declare function MinimumScaleFactor lib FoundationLibName  selector "minimumScaleFactor" (id as ptr) as single
 			  #endif
 			  return MinimumScaleFactor (id)
 			End Get
@@ -53,9 +53,9 @@ Inherits AppleObject
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare Sub setMinimumScaleFactor lib FoundationLib  selector "setMinimumScaleFactor:" (id as ptr, value as double)
+			    declare Sub setMinimumScaleFactor lib FoundationLibName  selector "setMinimumScaleFactor:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    declare Sub setMinimumScaleFactor lib FoundationLib  selector "setMinimumScaleFactor:" (id as ptr, value as single)
+			    declare Sub setMinimumScaleFactor lib FoundationLibName  selector "setMinimumScaleFactor:" (id as ptr, value as single)
 			  #endif
 			  setMinimumScaleFactor (id, value)
 			End Set
@@ -67,16 +67,16 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function totalBounds lib FoundationLib  selector "totalBounds" (id as ptr) as nsrect
+			    declare function totalBounds lib FoundationLibName  selector "totalBounds" (id as ptr)  as FoundationFramework.NSRect
 			    return totalBounds (id)
 			  #elseif Target32Bit
-			    declare function totalBounds lib FoundationLib  selector "totalBounds" (id as ptr) as NSRect32Bit
+			    declare function totalBounds lib FoundationLibName  selector "totalBounds" (id as ptr) as FoundationFramework.NSRect32Bit
 			    return totalBounds(id).tonsrect
 			  #endif
 			  
 			End Get
 		#tag EndGetter
-		TotalBounds As NSRect
+		TotalBounds As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 

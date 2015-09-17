@@ -53,7 +53,7 @@ Implements AppleNSEventReceiver
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonDidChangeSize(OldSize as NSSize)
+		Attributes( hidden )  Sub informonDidChangeSize(OldSize as FoundationFramework.NSSize)
 		  RaiseEvent DidChangeSize (oldsize)
 		End Sub
 	#tag EndMethod
@@ -213,7 +213,7 @@ Implements AppleNSEventReceiver
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event DidChangeSize(OldSize as NSSize)
+		Event DidChangeSize(OldSize as FoundationFramework.NSSize)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0

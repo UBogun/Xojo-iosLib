@@ -37,7 +37,7 @@ Inherits AppleGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UILongPressGestureRecognizer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UILongPressGestureRecognizer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

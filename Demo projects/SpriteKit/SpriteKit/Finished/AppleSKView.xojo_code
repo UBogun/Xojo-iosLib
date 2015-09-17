@@ -8,7 +8,7 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame as NSRect)
+		Sub Constructor(aFrame as FoundationFramework.NSRect)
 		  Super.Constructor (DoInitWithFrame (alloc(ClassPtr), aFrame))
 		  mHasOwnership = true
 		  
@@ -16,25 +16,25 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointFromScene(aPoint as NSPoint, asCene as AppleSKScene) As NSPoint
+		Function ConvertPointFromScene(aPoint as FoundationFramework.NSPoint, asCene as AppleSKScene) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointfromScene lib spritekit selector "convertPoint:fromScene:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    declare Function convertPointfromScene lib spritekit selector "convertPoint:fromScene:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointfromScene (id, apoint, ascene.id)
 		  #elseif Target32Bit
-		    declare Function convertPointfromScene lib spritekit selector "convertPoint:fromScene:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
-		    return convertPointfromScene (id, apoint.toNSPoint32, ascene.id).tonspoint
+		    declare Function convertPointfromScene lib spritekit selector "convertPoint:fromScene:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointfromScene (id, apoint.toNSPoint32, ascene.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointToScene(aPoint as NSPoint, aScene as AppleSKScene) As NSPoint
+		Function ConvertPointToScene(aPoint as FoundationFramework.NSPoint, aScene as AppleSKScene) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointtoScene lib spritekit selector "convertPoint:toScene:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    declare Function convertPointtoScene lib spritekit selector "convertPoint:toScene:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointtoScene (id, apoint, ascene.id)
 		  #elseif Target32Bit
-		    declare Function convertPointtoScene lib spritekit selector "convertPoint:toScene:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
-		    return convertPointtoScene (id, apoint.toNSPoint32, ascene.id).tonspoint
+		    declare Function convertPointtoScene lib spritekit selector "convertPoint:toScene:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointtoScene (id, apoint.toNSPoint32, ascene.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
@@ -189,7 +189,7 @@ Inherits AppleView
 		 Shared Function SpriteKitEnabled() As Boolean
 		  static isenabled as Boolean
 		  if not isenabled then
-		    dim result as ptr =  NSClassFromString ("SKView")
+		    dim result as ptr =  FoundationFramework.NSClassFromString ("SKView")
 		    if result = nil then
 		      call AppleLibSystem.LoadFramework ("SpriteKit") // If something goes wrong, we have an expection here.
 		    end if
@@ -208,12 +208,12 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function TextureFromNode(aNode as AppleSKNode, crop as nsrect) As AppleSKTexture
+		Function TextureFromNode(aNode as AppleSKNode, crop as FoundationFramework.NSRect) As AppleSKTexture
 		  #if Target64Bit
-		    declare Function textureFromNodeCrop lib spritekit selector "textureFromNode:crop:" (id as ptr, aNode as Ptr, crop as NSRect) as Ptr
+		    declare Function textureFromNodeCrop lib spritekit selector "textureFromNode:crop:" (id as ptr, aNode as Ptr, crop  as FoundationFramework.NSRect) as Ptr
 		    return AppleSKTexture.MakefromPtr (textureFromNodeCrop (id, anode.id, crop))
 		  #elseif Target32Bit
-		    declare Function textureFromNodeCrop lib spritekit selector "textureFromNode:crop:" (id as ptr, aNode as Ptr, crop as NSRect32Bit) as Ptr
+		    declare Function textureFromNodeCrop lib spritekit selector "textureFromNode:crop:" (id as ptr, aNode as Ptr, crop as FoundationFramework.NSRect32Bit) as Ptr
 		    return AppleSKTexture.MakefromPtr( textureFromNodeCrop (id, anode.id, crop.toNSRect32))
 		  #endif
 		End Function
@@ -263,7 +263,7 @@ Inherits AppleView
 			  // static mClassPtr as Ptr
 			  // if SpriteKitEnabled then
 			  // if mClassPtr = nil then
-			  //  mClassPtr  =  NSClassFromString ("SKView")
+			  //  mClassPtr  =  FoundationFramework.NSClassFromString ("SKView")
 			  // end if
 			  // end if
 			  // return mClassPtr
@@ -485,7 +485,68 @@ Inherits AppleView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Asynchronous"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AutoresizesSubviews"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ClearsContextBeforeDrawing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ClipsToBounds"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentMode"
+			Group="Behavior"
+			Type="UIViewContentMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - ScaleToFill"
+				"1 - ScaleAspectFit"
+				"2 - ScaleAspectFill"
+				"3 - Redraw"
+				"4 - Center"
+				"5 - Top"
+				"6 - Bottom"
+				"7 - Left"
+				"8 - Right"
+				"9 - TopLeft"
+				"10 - TopRight"
+				"11 - BottomLeft"
+				"12 - BottomRight"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentScaleFactor"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExclusiveTouch"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -493,6 +554,26 @@ Inherits AppleView
 			Name="FrameInterval"
 			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasAmbiguousLayout"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hidden"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IgnoresSiblingOrder"
@@ -507,11 +588,36 @@ Inherits AppleView
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MultipleTouchEnabled"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -520,7 +626,17 @@ Inherits AppleView
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Opaque"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Paused"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="PreservesSuperviewLayoutMargins"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -566,11 +682,47 @@ Inherits AppleView
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Tag"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TintAdjustmentMode"
+			Group="Behavior"
+			Type="UIViewTintAdjustmentMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Automatic"
+				"1 - Normal"
+				"2 - Dimmed"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TranslatesAutoresizingMaskIntoConstraints"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UserInteractionEnabled"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

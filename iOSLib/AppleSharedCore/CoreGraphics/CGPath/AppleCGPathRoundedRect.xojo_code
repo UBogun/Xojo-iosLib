@@ -2,12 +2,12 @@
 Protected Class AppleCGPathRoundedRect
 Inherits AppleCGPath
 	#tag Method, Flags = &h1
-		Protected Function CGPathCreateWithRoundedRect(ARect as NSRect, CornerWidth as Double, CornerHeight as Double) As Ptr
+		Protected Function CGPathCreateWithRoundedRect(ARect as FoundationFramework.NSRect, CornerWidth as Double, CornerHeight as Double) As Ptr
 		  #if Target64Bit
-		    Declare Function CGPathCreateWithRoundedRect lib CoreGraphicsLib (arect as NSRect, cornerwidth as double, cornerHeight as Double, aTransform as ptr) as ptr
+		    Declare Function CGPathCreateWithRoundedRect lib CoreGraphicsLibName (arect  as FoundationFramework.NSRect, cornerwidth as double, cornerHeight as Double, aTransform as ptr) as ptr
 		    return CGPathCreateWithRoundedRect (ARect, cornerwidth, CornerHeight, nil)
 		  #elseif Target32Bit
-		    Declare Function CGPathCreateWithRoundedRect lib CoreGraphicsLib (arect as NSRect32Bit,  cornerwidth as Single, cornerHeight as Single,aTransform as ptr) as ptr
+		    Declare Function CGPathCreateWithRoundedRect lib CoreGraphicsLibName (arect as FoundationFramework.NSRect32Bit,  cornerwidth as Single, cornerHeight as Single,aTransform as ptr) as ptr
 		    return CGPathCreateWithRoundedRect (ARect.toNSRect32, CornerWidth, CornerHeight, nil)
 		  #endif
 		  
@@ -15,7 +15,7 @@ Inherits AppleCGPath
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(ARect as NSRect, CornerWidth as Double, CornerHeight as Double)
+		Sub Constructor(ARect as FoundationFramework.NSRect, CornerWidth as Double, CornerHeight as Double)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:

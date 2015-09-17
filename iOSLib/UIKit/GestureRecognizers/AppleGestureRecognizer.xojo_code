@@ -50,25 +50,25 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function LocationInView(aView as AppleView) As NSPoint
+		Function LocationInView(aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as NSPoint
+		    Declare function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
 		    return locationInView (id, aview.id)
 		  #elseif Target32Bit
-		    Declare function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as NSPoint32Bit
-		    return locationInView (id, aview.id).tonsPoint
+		    Declare function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
+		    return locationInView (id, aview.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function LocationOfTouchInView(TouchIndex As UInteger, aView as AppleView) As NSPoint
+		Function LocationOfTouchInView(TouchIndex As UInteger, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare function locationOfTouch lib UIKit selector "locationOfTouch:inView:" (id as ptr, touchindex as uinteger, view as ptr) as NSPoint
+		    Declare function locationOfTouch lib UIKit selector "locationOfTouch:inView:" (id as ptr, touchindex as uinteger, view as ptr) as FoundationFramework.NSPoint
 		    return locationOfTouch (id, TouchIndex, aview.id)
 		  #elseif Target32Bit
-		    Declare function locationOfTouch lib UIKit selector "locationOfTouch:inView:" (id as ptr, touchindex as uinteger, view as ptr) as NSPoint32Bit
-		    return locationOfTouch (id, TouchIndex, aview.id).tonsPoint
+		    Declare function locationOfTouch lib UIKit selector "locationOfTouch:inView:" (id as ptr, touchindex as uinteger, view as ptr) as FoundationFramework.NSPoint32Bit
+		    return locationOfTouch (id, TouchIndex, aview.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
@@ -147,7 +147,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIGestureRecognizer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIGestureRecognizer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

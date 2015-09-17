@@ -88,7 +88,7 @@ Implements AppleNSEventReceiver
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event DrawRect(Rect as NSRect)
+		Event DrawRect(Rect  as FoundationFramework.NSRect)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0

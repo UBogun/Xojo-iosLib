@@ -3,7 +3,7 @@ Protected Class AppleMethodSignature
 Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function ArgumentTypeAtIndex(index as UInteger) As cstring
-		  declare function getArgumentTypeAtIndex lib FoundationLib  selector "getArgumentTypeAtIndex:" (id as ptr, index as UInteger) as CString
+		  declare function getArgumentTypeAtIndex lib FoundationLibName  selector "getArgumentTypeAtIndex:" (id as ptr, index as UInteger) as CString
 		  return getArgumentTypeAtIndex (id, index)
 		  
 		End Function
@@ -17,7 +17,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Types as CString)
-		  Declare Function signatureWithObjCTypes lib FoundationLib  selector "signatureWithObjCTypes:" (id as ptr, types as cstring) As Ptr
+		  Declare Function signatureWithObjCTypes lib FoundationLibName  selector "signatureWithObjCTypes:" (id as ptr, types as cstring) As Ptr
 		  Super.Constructor (signatureWithObjCTypes (ClassPtr, Types))
 		  mhasOwnership = true
 		  
@@ -65,7 +65,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSMethodSignature")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSMethodSignature")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -76,7 +76,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if TargetMacOS
-			    declare function frameLength lib FoundationLib  selector "frameLength" (id as ptr) as UInteger
+			    declare function frameLength lib FoundationLibName  selector "frameLength" (id as ptr) as UInteger
 			    return frameLength (id)
 			  #endif
 			End Get
@@ -88,7 +88,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if TargetMacOS
-			    declare function isOneway lib FoundationLib  selector "isOneway" (id as ptr) as boolean
+			    declare function isOneway lib FoundationLibName  selector "isOneway" (id as ptr) as boolean
 			    return isOneway (id)
 			  #endif
 			End Get
@@ -100,7 +100,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if TargetMacOS
-			    declare function methodReturnLength lib FoundationLib  selector "methodReturnLength" (id as ptr) as UInteger
+			    declare function methodReturnLength lib FoundationLibName  selector "methodReturnLength" (id as ptr) as UInteger
 			    return methodReturnLength (id)
 			  #endif
 			End Get
@@ -112,7 +112,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if TargetMacOS
-			    declare function methodReturnType lib FoundationLib  selector "methodReturnType" (id as ptr) as CString
+			    declare function methodReturnType lib FoundationLibName  selector "methodReturnType" (id as ptr) as CString
 			    return methodReturnType (id)
 			  #endif
 			End Get
@@ -124,7 +124,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if TargetMacOS
-			    declare function numberOfArguments lib FoundationLib  selector "numberOfArguments" (id as ptr) as UInteger
+			    declare function numberOfArguments lib FoundationLibName  selector "numberOfArguments" (id as ptr) as UInteger
 			    return numberOfArguments (id)
 			  #endif
 			End Get

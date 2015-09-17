@@ -198,7 +198,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CIFilter")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CIFilter")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -478,7 +478,7 @@ Inherits AppleObject
 			  if InputKeys.ContainsText (kCIInputCenterKey) then setValueForKey (kCIInputCenterKey, value.toCIVector)
 			End Set
 		#tag EndSetter
-		InputCenter As NSPoint
+		InputCenter As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -571,7 +571,7 @@ Inherits AppleObject
 			  if InputKeys.ContainsText (kCIInputExtentKey) then setValueForKey (kCIInputExtentKey, value.toCIVector)
 			End Set
 		#tag EndSetter
-		InputExtent As NSRect
+		InputExtent As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1066,9 +1066,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  if OutputciImage <> nil then
-			    dim extent as NSRect = OutputCIImage.Extent
+			    dim extent  as FoundationFramework.NSRect = OutputCIImage.Extent
 			    if extent.Origin.x < -1000 then
-			      return new  AppleImage(OutputciImage.CropToRect(NSRect (0,0,600,600)))
+			      return new  AppleImage(OutputciImage.CropToRect(FoundationFrameWork.NSMakeRect (0,0,600,600)))
 			    else
 			      return new AppleImage(OutputciImage)
 			    end if

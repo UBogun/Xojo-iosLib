@@ -351,7 +351,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIColor")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIColor")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

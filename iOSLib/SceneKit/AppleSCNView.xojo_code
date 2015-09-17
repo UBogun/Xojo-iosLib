@@ -19,12 +19,12 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame as NSRect)
+		Sub Constructor(aFrame as FoundationFramework.NSRect)
 		  #if Target64Bit
-		    Declare function initWithFrameOptions lib SceneKitLib selector "initWithFrame:options:" (id as ptr, frame as nsrect, options as ptr) as ptr
+		    Declare function initWithFrameOptions lib SceneKitLib selector "initWithFrame:options:" (id as ptr, frame  as FoundationFramework.NSRect, options as ptr) as ptr
 		    super.Constructor ( initWithFrameOptions (alloc(ClassPtr), aframe, NIL))
 		  #elseif Target32Bit
-		    Declare function initWithFrameOptions lib SceneKitLib selector "initWithFrame:options:" (id as ptr, frame as NSRect32Bit, options as ptr) as ptr
+		    Declare function initWithFrameOptions lib SceneKitLib selector "initWithFrame:options:" (id as ptr, frame as FoundationFramework.NSRect32Bit, options as ptr) as ptr
 		    super.Constructor ( initWithFrameOptions (alloc(ClassPtr), aframe.toNSRect32, NIL))
 		  #endif
 		  // dim emptyDict as new AppleDictionary
@@ -41,7 +41,7 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame As NSRect, observer as AppleNSEventReceiver)
+		Sub Constructor(aFrame as FoundationFramework.NSRect, observer as AppleNSEventReceiver)
 		  Constructor (aFrame)
 		  RegisterObserver (observer)
 		  
@@ -100,12 +100,12 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function HitTest(aPoint as NSPoint, optional options as AppleDictionary) As AppleArray
+		Function HitTest(aPoint as FoundationFramework.NSPoint, optional options as AppleDictionary) As AppleArray
 		  #if Target64Bit
-		    Declare function hitTest lib SceneKitLib selector "hitTest:options:" (id as Ptr, aPoint as NSPoint, options as ptr) as ptr
+		    Declare function hitTest lib SceneKitLib selector "hitTest:options:" (id as Ptr, aPoint as FoundationFramework.NSPoint, options as ptr) as ptr
 		    return AppleArray.MakeFromPtr (hitTest(id, aPoint, if (options = nil, nil, options.id)))
 		  #elseif Target32Bit
-		    Declare function hitTest lib SceneKitLib selector "hitTest:options:" (id as Ptr, aPoint as NSPoint32Bit, options as ptr) as ptr
+		    Declare function hitTest lib SceneKitLib selector "hitTest:options:" (id as Ptr, aPoint as FoundationFramework.NSPoint32Bit, options as ptr) as ptr
 		    return AppleArray.MakeFromPtr (hitTest(id, aPoint.toNSPoint32, if (options = nil, nil, options.id)))
 		  #endif
 		  
@@ -121,9 +121,9 @@ Inherits AppleView
 		  if NotificationDict.HasKey(pid) then
 		    dim d as dictionary = NotificationDict.value (pid)
 		    d.Value (kdidApplyAnimationsAtTime) = attime // left side is the constant, right side the value
-		    Declare sub performSelectorOnMainThread lib FoundationLib  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
+		    Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
 		    (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
-		    performSelectorOnMainThread pid, NSSelectorFromString("checkAnimationsAtTime:"), pid, false // and have the change checked
+		    performSelectorOnMainThread pid, FoundationFramework.NSSelectorFromString("checkAnimationsAtTime:"), pid, false // and have the change checked
 		  end if
 		  
 		  #Pragma Unused Sel
@@ -143,9 +143,9 @@ Inherits AppleView
 		    dim d as dictionary = NotificationDict.value (pid)
 		    d.Value (kDidRenderScene) = attime // left side is the constant, right side the value
 		    d.Value (kRenderScene) = scene
-		    Declare sub performSelectorOnMainThread lib FoundationLib  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
+		    Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
 		    (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
-		    performSelectorOnMainThread pid, NSSelectorFromString("checkDidRenderSceneAtTime:"), pid, false // and have the change checked
+		    performSelectorOnMainThread pid, FoundationFramework.NSSelectorFromString("checkDidRenderSceneAtTime:"), pid, false // and have the change checked
 		  end if
 		  
 		  #Pragma Unused Sel
@@ -163,9 +163,9 @@ Inherits AppleView
 		  if NotificationDict.HasKey(pid) then
 		    dim d as dictionary = NotificationDict.value (pid)
 		    d.Value (kDidSimulatePhysics) = attime // left side is the constant, right side the value
-		    Declare sub performSelectorOnMainThread lib FoundationLib  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
+		    Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
 		    (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
-		    performSelectorOnMainThread pid, NSSelectorFromString("checkPhysicsAtTime:"), pid, false // and have the change checked
+		    performSelectorOnMainThread pid, FoundationFramework.NSSelectorFromString("checkPhysicsAtTime:"), pid, false // and have the change checked
 		  end if
 		  
 		  #Pragma Unused Sel
@@ -184,9 +184,9 @@ Inherits AppleView
 		  if NotificationDict.HasKey(pid) then
 		    dim d as dictionary = NotificationDict.value (pid)
 		    d.Value (kUpdateAtTime) = attime // left side is the constant, right side the value
-		    Declare sub performSelectorOnMainThread lib FoundationLib  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
+		    Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
 		    (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
-		    performSelectorOnMainThread pid, NSSelectorFromString("checkupdateAtTime:"), pid, false // and have the change checked
+		    performSelectorOnMainThread pid, FoundationFramework.NSSelectorFromString("checkupdateAtTime:"), pid, false // and have the change checked
 		  end if
 		  
 		  #Pragma Unused Sel
@@ -205,9 +205,9 @@ Inherits AppleView
 		    dim d as dictionary = NotificationDict.value (pid)
 		    d.Value (kWillRenderScene) = attime // left side is the constant, right side the value
 		    d.Value (kRenderScene) = scene
-		    Declare sub performSelectorOnMainThread lib FoundationLib  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
+		    Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
 		    (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
-		    performSelectorOnMainThread pid, NSSelectorFromString("checkWillRenderSceneAtTime:"), pid, false // and have the change checked
+		    performSelectorOnMainThread pid, FoundationFramework.NSSelectorFromString("checkWillRenderSceneAtTime:"), pid, false // and have the change checked
 		  end if
 		  
 		  #Pragma Unused Sel
@@ -227,7 +227,7 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0
 		Function NodesInsideFrustrum(PointofView as AppleSCNNode) As AppleArray
-		  if ObjectiveCRuntime.class_respondsToSelector (classptr, NSSelectorFromString ("nodesInsideFrustumWithPointOfView:")) then
+		  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString ("nodesInsideFrustumWithPointOfView:")) then
 		    
 		    Declare function nodesInsideFrustumWithPointOfView lib SceneKitLib selector "nodesInsideFrustumWithPointOfView:" (id as Ptr,  pointofView as ptr) as Ptr
 		    return AppleArray.MakeFromPtr (nodesInsideFrustumWithPointOfView (id,  pointofView.id))
@@ -710,22 +710,6 @@ Inherits AppleView
 			Name="ContentMode"
 			Group="Behavior"
 			Type="UIViewContentMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - ScaleToFill"
-				"1 - ScaleAspectFit"
-				"2 - ScaleAspectFill"
-				"3 - Redraw"
-				"4 - Center"
-				"5 - Top"
-				"6 - Bottom"
-				"7 - Left"
-				"8 - Right"
-				"9 - TopLeft"
-				"10 - TopRight"
-				"11 - BottomLeft"
-				"12 - BottomRight"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentScaleFactor"
@@ -872,12 +856,6 @@ Inherits AppleView
 			Name="TintAdjustmentMode"
 			Group="Behavior"
 			Type="UIViewTintAdjustmentMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Automatic"
-				"1 - Normal"
-				"2 - Dimmed"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

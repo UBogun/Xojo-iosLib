@@ -22,37 +22,37 @@ Inherits AppleGestureRecognizer
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function TranslationInView(aView as AppleView) As NSPoint
+		Function TranslationInView(aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare function translationInView lib UIKit selector "translationInView:" (id as ptr, view as ptr) as NSPoint
+		    Declare function translationInView lib UIKit selector "translationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
 		    return translationInView (id, aview.id)
 		  #elseif Target32Bit
-		    Declare function translationInView lib UIKit selector "translationInView:" (id as ptr, view as ptr) as NSPoint32Bit
-		    return translationInView (id, aview.id).tonsPoint
+		    Declare function translationInView lib UIKit selector "translationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
+		    return translationInView (id, aview.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TranslationInView(aView as AppleView, assigns value as nspoint)
+		Sub TranslationInView(aView as AppleView, assigns value as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub setTranslationInView lib UIKit selector "setTranslation:inView:" (id as ptr, value as nspoint, view as ptr)
+		    Declare sub setTranslationInView lib UIKit selector "setTranslation:inView:" (id as ptr, value as FoundationFramework.NSPoint, view as ptr)
 		    setTranslationInView (id, value, aview.id)
 		  #elseif Target32Bit
-		    Declare sub setTranslationInView lib UIKit selector "setTranslation:inView:" (id as ptr, value as NSPoint32Bit, view as ptr)
+		    Declare sub setTranslationInView lib UIKit selector "setTranslation:inView:" (id as ptr, value as FoundationFramework.NSPoint32Bit, view as ptr)
 		    setTranslationInView (id, value.toNSPoint32, aview.id)
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function VelocityInView(View as AppleView) As NSPoint
+		Function VelocityInView(View as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare function velocityInView lib UIKit selector "velocityInView:" (id as ptr, view as ptr) as NSPoint
+		    Declare function velocityInView lib UIKit selector "velocityInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
 		    return velocityInView (id, view.id)
 		  #elseif Target32Bit
-		    Declare function velocityInView lib UIKit selector "velocityInView:" (id as ptr, view as ptr) as NSPoint32Bit
-		    return velocityInView (id, view.id).tonsPoint
+		    Declare function velocityInView lib UIKit selector "velocityInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
+		    return velocityInView (id, view.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
@@ -61,7 +61,7 @@ Inherits AppleGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIPanGestureRecognizer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIPanGestureRecognizer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -111,7 +111,7 @@ Inherits AppleGestureRecognizer
 			  if view <> nil then TranslationInView (view) = value
 			End Set
 		#tag EndSetter
-		Translation As NSPoint
+		Translation As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -126,7 +126,7 @@ Inherits AppleGestureRecognizer
 			  
 			End Set
 		#tag EndSetter
-		Velocity As NSPoint
+		Velocity As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 

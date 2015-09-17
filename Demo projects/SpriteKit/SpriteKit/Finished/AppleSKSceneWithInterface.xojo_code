@@ -16,20 +16,20 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1021
-		Private Sub Constructor(asize as NSSize)
+		Private Sub Constructor(asize as FoundationFramework.NSSize)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(asize as NSSize, observer As AppleNSEventReceiver)
+		Sub Constructor(asize as FoundationFramework.NSSize, observer As AppleNSEventReceiver)
 		  RegisterObserver observer
 		  
 		  #if Target64bit
-		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as nssize) as ptr
+		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as FoundationFramework.NSSize) as ptr
 		    super.Constructor(initWithSize(alloc(ClassPtr), asize))
 		  #elseif Target32Bit
-		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as NSSize32Bit) as ptr
+		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as FoundationFramework.NSSize32Bit) as ptr
 		    super.Constructor(initWithSize(alloc(ClassPtr), asize.toNSSize32))
 		  #endif
 		  mHasOwnership = true
@@ -39,25 +39,25 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointFromView(aPoint as NSPoint, aView as AppleView) As NSPoint
+		Function ConvertPointFromView(aPoint as FoundationFramework.NSPoint, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointfromView lib spritekit selector "convertPoint:fromView:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    declare Function convertPointfromView lib spritekit selector "convertPoint:fromView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointfromView (id, apoint, aview.id)
 		  #elseif Target32Bit
-		    declare Function convertPointfromView lib spritekit selector "convertPoint:fromView:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
-		    return convertPointfromView (id, apoint.toNSPoint32, aview.id).tonspoint
+		    declare Function convertPointfromView lib spritekit selector "convertPoint:fromView:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointfromView (id, apoint.toNSPoint32, aview.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointToView(aPoint as NSPoint, aView as AppleView) As NSPoint
+		Function ConvertPointToView(aPoint as FoundationFramework.NSPoint, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointtoView lib spritekit selector "convertPoint:toView:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    declare Function convertPointtoView lib spritekit selector "convertPoint:toView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointtoView (id, apoint, aview.id)
 		  #elseif Target32Bit
-		    declare Function convertPointtoView lib spritekit selector "convertPoint:toView:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
-		    return convertPointtoView (id, apoint.toNSPoint32, aview.id).tonspoint
+		    declare Function convertPointtoView lib spritekit selector "convertPoint:toView:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointtoView (id, apoint.toNSPoint32, aview.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
@@ -104,7 +104,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidChangeSize32(pid as ptr, sel as ptr, size as NSSize32Bit)
+		Private Shared Sub impl_DidChangeSize32(pid as ptr, sel as ptr, size as FoundationFramework.NSSize32Bit)
 		  if GetView(pid) <> nil then
 		    if RetainDict.HasKey (pid) then  getview(pid).informondidChangesize (size.tonssize)
 		  end if
@@ -112,7 +112,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidChangeSize64(pid as ptr, sel as ptr, size as nssize)
+		Private Shared Sub impl_DidChangeSize64(pid as ptr, sel as ptr, size as FoundationFramework.NSSize)
 		  if GetView(pid) <> nil then
 		    if RetainDict.HasKey (pid) then getview(pid).informondidChangesize (size)
 		  end if
@@ -335,12 +335,27 @@ Implements AppleNSEventForwarder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="EnableEffects"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ExecutesActions"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -357,11 +372,31 @@ Implements AppleNSEventForwarder
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -401,6 +436,11 @@ Implements AppleNSEventForwarder
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

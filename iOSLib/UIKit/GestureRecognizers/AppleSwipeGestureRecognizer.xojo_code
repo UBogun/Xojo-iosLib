@@ -12,7 +12,7 @@ Inherits AppleGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UISwipeGestureRecognizer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UISwipeGestureRecognizer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -125,6 +125,15 @@ Inherits AppleGestureRecognizer
 			Name="State"
 			Group="Behavior"
 			Type="UIGestureRecognizerState"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Possible"
+				"1 - Began"
+				"2 - Changed"
+				"3 - Ended"
+				"4 - Cancelled"
+				"5 - Failed"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

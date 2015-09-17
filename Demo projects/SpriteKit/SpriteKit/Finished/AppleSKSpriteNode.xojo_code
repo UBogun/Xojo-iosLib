@@ -8,12 +8,12 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(acolor as AppleColor, aSize as nssize)
+		Sub Constructor(acolor as AppleColor, aSize as FoundationFramework.NSSize)
 		  #if Target64Bit
-		    declare Function initWithColor lib SpriteKit selector "initWithColor:size:" (id as ptr, acolor as ptr, asize as nssize) as ptr
+		    declare Function initWithColor lib SpriteKit selector "initWithColor:size:" (id as ptr, acolor as ptr, asize as FoundationFramework.NSSize) as ptr
 		    super.Constructor (initWithColor (Alloc(ClassPtr), acolor.id, asize))
 		  #elseif Target32Bit
-		    declare Function initWithColor lib SpriteKit selector "initWithColor:size:" (id as ptr, acolor as ptr, asize as NSSize32Bit) as ptr
+		    declare Function initWithColor lib SpriteKit selector "initWithColor:size:" (id as ptr, acolor as ptr, asize as FoundationFramework.NSSize32Bit) as ptr
 		    super.Constructor (initWithColor (Alloc(ClassPtr), acolor.id, asize.toNSSize32))
 		  #endif
 		  mhasownership = true
@@ -48,12 +48,12 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(texture as AppleSKTexture, aColor as AppleColor, size as NSSize)
+		Sub Constructor(texture as AppleSKTexture, aColor as AppleColor, size as FoundationFramework.NSSize)
 		  #if Target64Bit
-		    Declare function initWithTextureColorSize lib SpriteKit selector "initWithTexture:color:size:" (id as ptr, texture as Ptr, acolor as ptr, size as NSSize) as ptr
+		    Declare function initWithTextureColorSize lib SpriteKit selector "initWithTexture:color:size:" (id as ptr, texture as Ptr, acolor as ptr, size as FoundationFramework.NSSize) as ptr
 		    Super.Constructor (initWithTextureColorSize (alloc(classptr), texture.id, acolor.id, size))
 		  #elseif Target32Bit
-		    Declare function initWithTextureColorSize lib SpriteKit selector "initWithTexture:color:size:" (id as ptr, texture as Ptr, acolor as ptr, size as NSSize32Bit) as ptr
+		    Declare function initWithTextureColorSize lib SpriteKit selector "initWithTexture:color:size:" (id as ptr, texture as Ptr, acolor as ptr, size as FoundationFramework.NSSize32Bit) as ptr
 		    Super.Constructor (initWithTextureColorSize (alloc(classptr), texture.id, acolor.id, size.toNSSize32))
 		  #endif
 		  MHasOwnership = true
@@ -88,12 +88,12 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(texture as AppleSKTexture, size as NSSize)
+		Sub Constructor(texture as AppleSKTexture, size as FoundationFramework.NSSize)
 		  #if Target64Bit
-		    Declare function spriteNodeWithTextureSize lib SpriteKit selector "spriteNodeWithTexture:size:" (id as ptr, texture as Ptr, size as NSSize) as ptr
+		    Declare function spriteNodeWithTextureSize lib SpriteKit selector "spriteNodeWithTexture:size:" (id as ptr, texture as Ptr, size as FoundationFramework.NSSize) as ptr
 		    Super.Constructor (spriteNodeWithTextureSize (classptr, texture.id, size))
 		  #elseif Target32Bit
-		    Declare function spriteNodeWithTextureSize lib SpriteKit selector "spriteNodeWithTexture:size:" (id as ptr, texture as Ptr,  size as NSSize32Bit) as ptr
+		    Declare function spriteNodeWithTextureSize lib SpriteKit selector "spriteNodeWithTexture:size:" (id as ptr, texture as Ptr,  size as FoundationFramework.NSSize32Bit) as ptr
 		    Super.Constructor (spriteNodeWithTextureSize (classptr, texture.id, size.toNSSize32))
 		  #endif
 		  RetainClassObject
@@ -139,7 +139,7 @@ Inherits AppleSKNode
 			  setAnchorPoint value
 			End Set
 		#tag EndSetter
-		AnchorPoint As NSPoint
+		AnchorPoint As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -181,7 +181,7 @@ Inherits AppleSKNode
 			  setcenterrect value
 			End Set
 		#tag EndSetter
-		CenterRect As NSRect
+		CenterRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h1
@@ -190,7 +190,7 @@ Inherits AppleSKNode
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKSpriteNode")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKSpriteNode")
 			    end if
 			  end if
 			  return mClassPtr
@@ -309,7 +309,7 @@ Inherits AppleSKNode
 			  setSize value
 			End Set
 		#tag EndSetter
-		Size As NSSize
+		Size As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -351,7 +351,22 @@ Inherits AppleSKNode
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ExecutesActions"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -368,11 +383,31 @@ Inherits AppleSKNode
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -395,6 +430,11 @@ Inherits AppleSKNode
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

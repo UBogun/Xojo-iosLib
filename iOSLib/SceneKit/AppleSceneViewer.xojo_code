@@ -3,7 +3,7 @@ Protected Class AppleSceneViewer
 Inherits AppleViewControl
 	#tag Event
 		Function CreateView() As UInteger
-		  dim frame as  NSRect = nsrect (0,0,100,100)
+		  dim frame as  FoundationFrameWork.NSRect = FoundationFrameWork.NSMakeRect (0,0,100,100)
 		  viewobject = new AppleSCNView (frame, self)
 		  ViewObject.AutoRelease
 		  Return UInteger(viewobject.id)

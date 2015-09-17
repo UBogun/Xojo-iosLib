@@ -102,7 +102,7 @@ Inherits AppleCAMediaTimingObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CAEmitterCell")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CAEmitterCell")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

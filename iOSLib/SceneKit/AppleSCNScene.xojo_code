@@ -19,7 +19,7 @@ Inherits AppleSCNObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("SCNScene")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("SCNScene")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

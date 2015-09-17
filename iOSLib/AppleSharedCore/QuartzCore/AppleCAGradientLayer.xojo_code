@@ -100,7 +100,7 @@ Inherits AppleCALayer
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CAGradientLayer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CAGradientLayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -127,10 +127,10 @@ Inherits AppleCALayer
 		#tag Getter
 			Get
 			  #if target64bit
-			    declare function endPoint lib QuartzCoreLib selector "endPoint" (id as ptr) as NSPoint
+			    declare function endPoint lib QuartzCoreLib selector "endPoint" (id as ptr) as FoundationFramework.NSPoint
 			    return endPoint (id)
 			  #elseif Target32Bit
-			    declare function endPoint lib QuartzCoreLib selector "endPoint" (id as ptr) as NSPoint32Bit
+			    declare function endPoint lib QuartzCoreLib selector "endPoint" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return endPoint(id).toNSPoint
 			  #endif
 			End Get
@@ -138,15 +138,15 @@ Inherits AppleCALayer
 		#tag Setter
 			Set
 			  #if target64bit
-			    declare Sub setEndPoint lib QuartzCoreLib selector "setEndPoint:" (id as ptr, value as NSPoint)
+			    declare Sub setEndPoint lib QuartzCoreLib selector "setEndPoint:" (id as ptr, value as FoundationFramework.NSPoint)
 			    setEndPoint (id, value)
 			  #elseif Target32Bit
-			    declare Sub setEndPoint lib QuartzCoreLib selector "setEndPoint:" (id as ptr, value as NSPoint32Bit)
+			    declare Sub setEndPoint lib QuartzCoreLib selector "setEndPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setEndPoint (id, value.toNSPoint32)
 			  #endif
 			End Set
 		#tag EndSetter
-		EndPoint As NSPoint
+		EndPoint As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -169,10 +169,10 @@ Inherits AppleCALayer
 		#tag Getter
 			Get
 			  #if target64bit
-			    declare function startPoint lib QuartzCoreLib selector "startPoint" (id as ptr) as NSPoint
+			    declare function startPoint lib QuartzCoreLib selector "startPoint" (id as ptr) as FoundationFramework.NSPoint
 			    return startPoint (id)
 			  #elseif Target32Bit
-			    declare function startPoint lib QuartzCoreLib selector "startPoint" (id as ptr) as NSPoint32Bit
+			    declare function startPoint lib QuartzCoreLib selector "startPoint" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return startPoint(id).toNSPoint
 			  #endif
 			End Get
@@ -180,15 +180,15 @@ Inherits AppleCALayer
 		#tag Setter
 			Set
 			  #if target64bit
-			    declare Sub setStartPoint lib QuartzCoreLib selector "setStartPoint:" (id as ptr, value as NSPoint)
+			    declare Sub setStartPoint lib QuartzCoreLib selector "setStartPoint:" (id as ptr, value as FoundationFramework.NSPoint)
 			    setStartPoint (id, value)
 			  #elseif Target32Bit
-			    declare Sub setStartPoint lib QuartzCoreLib selector "setStartPoint:" (id as ptr, value as NSPoint32Bit)
+			    declare Sub setStartPoint lib QuartzCoreLib selector "setStartPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setStartPoint (id, value.toNSPoint32)
 			  #endif
 			End Set
 		#tag EndSetter
-		StartPoint As NSPoint
+		StartPoint As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 

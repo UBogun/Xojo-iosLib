@@ -23,7 +23,7 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_layerClassGradient(id as ptr, sel as ptr) As Ptr
-		  static mmyclass as ptr = NSClassFromString ("CAGradientLayer")
+		  static mmyclass as ptr = FoundationFramework.NSClassFromString ("CAGradientLayer")
 		  return mmyclass
 		  
 		  #Pragma Unused id

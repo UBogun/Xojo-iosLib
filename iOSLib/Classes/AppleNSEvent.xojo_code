@@ -47,7 +47,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIEvent")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIEvent")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

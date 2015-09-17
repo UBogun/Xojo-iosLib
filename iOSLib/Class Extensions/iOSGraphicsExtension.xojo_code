@@ -20,15 +20,15 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub AddEllipse(extends g as iosgraphics, x as double, y as double, width as double, height as double)
-		  g.CGContext.AddEllipse nsrect (x,y,width, height)
+		  g.CGContext.AddEllipse FoundationFrameWork.NSMakeRect (x,y,width, height)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub AddLines(extends g as iosgraphics, paramarray points() as double)
-		  dim resultarray() as NSPoint
+		  dim resultarray() as FoundationFramework.NSPoint
 		  for q as uinteger = 0 to points.Ubound-1 step 2
-		    resultarray.Append NSPoint (points(q), points(q+1))
+		    resultarray.Append FoundationFrameWork.NSMakePoint (points(q), points(q+1))
 		  next
 		  
 		  g.CGContext.Addlines resultarray
@@ -37,7 +37,7 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub AddLines(extends g as iosgraphics, points() as xojo.core.point)
-		  g.CGContext.Addlines points.tonspoint
+		  g.CGContext.Addlines points.toNSPoint
 		End Sub
 	#tag EndMethod
 
@@ -61,7 +61,7 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub AddRect(extends g as iosgraphics, x as double, y as double, width as double, height as double)
-		  g.CGContext.Addrect NSRect ( x, y, width, height)
+		  g.CGContext.Addrect FoundationFrameWork.NSMakeRect ( x, y, width, height)
 		End Sub
 	#tag EndMethod
 
@@ -103,7 +103,7 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub ClearRect(extends g as iosgraphics, x as double, y as double, width as double, height as double)
-		  g.CGContext.ClearRect  NSRect ( x, y, width, height)
+		  g.CGContext.ClearRect  FoundationFrameWork.NSMakeRect ( x, y, width, height)
 		End Sub
 	#tag EndMethod
 
@@ -133,31 +133,31 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub CurrentPoint(extends g as iOSGraphics, assigns value as xojo.core.point)
-		  g.CGContext.CurrentPoint = value.tonspoint
+		  g.CGContext.CurrentPoint = value.toNSPoint
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DrawLinearGradient(extends g as iosgraphics, Colors() As Color, locations() as double, Startx As double, StartY as Double, EndX As Double, EndY as Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
-		  g.CGContext.DrawLinearGradient colors, locations, nspoint (startx, starty), nspoint (endx, endy), DrawBeforeStart, DrawAfterEnd
+		  g.CGContext.DrawLinearGradient colors, locations, FoundationFrameWork.NSMakePoint (startx, starty), FoundationFrameWork.NSMakePoint (endx, endy), DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DrawLinearGradient(extends g as iosgraphics, Colors() As Color, Locations() as double, StartPoint as Xojo.core.point, EndPoint as Xojo.core.point, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
-		  g.CGContext.DrawLinearGradient colors, locations, StartPoint.tonspoint, endpoint.tonspoint, DrawBeforeStart, DrawAfterEnd
+		  g.CGContext.DrawLinearGradient colors, locations, StartPoint.toNSPoint, endpoint.toNSPoint, DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DrawLinearGradient(extends g as iosgraphics, Colors() As Color, Startx As double, StartY as Double, EndX As Double, EndY as Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
-		  g.CGContext.DrawLinearGradient colors, nspoint (startx, starty), nspoint (endx, endy), DrawBeforeStart, DrawAfterEnd
+		  g.CGContext.DrawLinearGradient colors, FoundationFrameWork.NSMakePoint (startx, starty), FoundationFrameWork.NSMakePoint (endx, endy), DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DrawLinearGradient(extends g as iosgraphics, Colors() As Color, StartPoint as Xojo.core.point, EndPoint as Xojo.core.point, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
-		  g.CGContext.DrawLinearGradient colors, StartPoint.tonspoint, endpoint.tonspoint, DrawBeforeStart, DrawAfterEnd
+		  g.CGContext.DrawLinearGradient colors, StartPoint.toNSPoint, endpoint.toNSPoint, DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
@@ -169,25 +169,25 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub DrawRadialGradient(extends g as iosgraphics, Colors() As color, Locations() As Double, StartX As Double, StartY as Double, StartRadius As Double, EndX as Double, EndY as Double, EndRadius As Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
-		  g.CGContext.DrawRadialGradient colors, locations, nspoint (startx, starty), StartRadius, nspoint (endx, endy), endradius, DrawBeforeStart, DrawAfterEnd
+		  g.CGContext.DrawRadialGradient colors, locations, FoundationFrameWork.NSMakePoint (startx, starty), StartRadius, FoundationFrameWork.NSMakePoint (endx, endy), endradius, DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DrawRadialGradient(extends g as iosgraphics, Colors() As color, Locations() As Double, StartCenter As xojo.core.point, StartRadius As Double, EndCenter As xojo.core.point, EndRadius As Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
-		  g.CGContext.DrawRadialGradient colors, locations, Startcenter.tonspoint, StartRadius, endcenter.tonspoint, endradius, DrawBeforeStart, DrawAfterEnd
+		  g.CGContext.DrawRadialGradient colors, locations, Startcenter.toNSPoint, StartRadius, endcenter.toNSPoint, endradius, DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DrawRadialGradient(extends g as iosgraphics, Colors() As color, StartX As Double, StartY as Double, StartRadius As Double, EndX as Double, EndY as Double, EndRadius As Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
-		  g.CGContext.DrawRadialGradient colors, nspoint (startx, starty), StartRadius, nspoint (endx, endy), endradius, DrawBeforeStart, DrawAfterEnd
+		  g.CGContext.DrawRadialGradient colors, FoundationFrameWork.NSMakePoint (startx, starty), StartRadius, FoundationFrameWork.NSMakePoint (endx, endy), endradius, DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DrawRadialGradient(extends g as iosgraphics, Colors() As color, StartCenter As xojo.core.point, StartRadius As Double, EndCenter As xojo.core.point, EndRadius As Double, DrawBeforeStart As Boolean = false, DrawAfterEnd As Boolean = false)
-		  g.CGContext.DrawRadialGradient colors, Startcenter.tonspoint, StartRadius, endcenter.tonspoint, endradius, DrawBeforeStart, DrawAfterEnd
+		  g.CGContext.DrawRadialGradient colors, Startcenter.toNSPoint, StartRadius, endcenter.toNSPoint, endradius, DrawBeforeStart, DrawAfterEnd
 		End Sub
 	#tag EndMethod
 
@@ -196,7 +196,7 @@ Protected Module iOSGraphicsExtension
 		  g.SaveState // saving the current state because the context needs to be flipped for the tiledimage call
 		  g.Translate (0, g.Height) // flip it
 		  g.Scale (1, -1)
-		  g.CGContext.DrawTiledImage nsrect (x,y,width, height), image.toAppleImage.toCGImage
+		  g.CGContext.DrawTiledImage FoundationFrameWork.NSMakeRect (x,y,width, height), image.toAppleImage.toCGImage
 		  g.RestoreState
 		End Function
 	#tag EndMethod
@@ -348,13 +348,13 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Function PathContainsPoint(extends g as iosgraphics, point as xojo.core.point, mode as CGPathDrawingMode = CGPathDrawingMode.Fill) As Boolean
-		  return g.CGContext.PathContainsPoint (point.tonspoint, mode)
+		  return g.CGContext.PathContainsPoint (point.toNSPoint, mode)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function PathContainsPoint1(extends g as iosgraphics, x as double, y as double, mode as CGPathDrawingMode = CGPathDrawingMode.Fill) As Boolean
-		  return g.CGContext.PathContainsPoint (nspoint(x,y), mode)
+		  return g.CGContext.PathContainsPoint (FoundationFrameWork.NSMakePoint(x,y), mode)
 		End Function
 	#tag EndMethod
 
@@ -384,9 +384,9 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub StrokeLines(extends g as iosgraphics, paramarray points() as double)
-		  dim resultarray() as NSPoint
+		  dim resultarray() as FoundationFramework.NSPoint
 		  for q as uinteger = 0 to points.Ubound-1 step 2
-		    resultarray.Append NSPoint (points(q), points(q+1))
+		    resultarray.Append FoundationFrameWork.NSMakePoint (points(q), points(q+1))
 		  next
 		  
 		  g.CGContext.StrokeLines resultarray
@@ -395,7 +395,7 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub StrokeLines(extends g as iosgraphics, points() as xojo.core.point)
-		  g.CGContext.StrokeLines points.tonspoint
+		  g.CGContext.StrokeLines points.toNSPoint
 		End Sub
 	#tag EndMethod
 
@@ -407,7 +407,7 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub StrokeRect(extends g as iosgraphics, x as double, y as double, width as double, height as double, LineWidth As Double)
-		  g.CGContext.StrokeRect NSRect ( x, y, width, height), LineWidth
+		  g.CGContext.StrokeRect FoundationFrameWork.NSMakeRect ( x, y, width, height), LineWidth
 		End Sub
 	#tag EndMethod
 

@@ -36,12 +36,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aTexture as AppleSKTexture, aRect as NSRect)
+		Sub Constructor(aTexture as AppleSKTexture, aRect as FoundationFramework.NSRect)
 		  #if Target64Bit
-		    Declare function textureWithRect lib SpriteKit selector "textureWithRect:inTexture:" (id as ptr, aRect as NSRect, texture as ptr) as ptr
+		    Declare function textureWithRect lib SpriteKit selector "textureWithRect:inTexture:" (id as ptr, aRect  as FoundationFramework.NSRect, texture as ptr) as ptr
 		    super.Constructor (textureWithRect (ClassPtr, arect, aTexture.id))
 		  #elseif Target32Bit
-		    Declare function textureWithRect lib SpriteKit selector "textureWithRect:inTexture:" (id as ptr, aRect as NSRect32Bit, texture as ptr) as ptr
+		    Declare function textureWithRect lib SpriteKit selector "textureWithRect:inTexture:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, texture as ptr) as ptr
 		    super.Constructor (textureWithRect (ClassPtr, arect.toNSRect32, aTexture.id))
 		  #endif
 		  
@@ -65,15 +65,15 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function NoiseTexture(Smoothness as Double, Size as NSSize, grayscale as boolean = false) As AppleSKTexture
+		 Shared Function NoiseTexture(Smoothness as Double, Size as FoundationFramework.NSSize, grayscale as boolean = false) As AppleSKTexture
 		  dim result as AppleSKTexture
 		  #if Target64Bit
 		    Declare function textureNoiseWithSmoothness lib SpriteKit selector "textureNoiseWithSmoothness:size:grayscale:" _
-		    (id as ptr, Smoothness as Double, size as NSSize, grayscale as boolean) as ptr
+		    (id as ptr, Smoothness as Double, size as FoundationFramework.NSSize, grayscale as boolean) as ptr
 		    result =  new AppleSKTexture (textureNoiseWithSmoothness (ClassPtr, Smoothness, Size, grayscale))
 		  #elseif Target32Bit
 		    Declare function textureNoiseWithSmoothness lib SpriteKit selector "textureNoiseWithSmoothness:size:grayscale:" _
-		    (id as ptr, Smoothness as Single, size as NSSize32Bit, grayscale as boolean) as ptr
+		    (id as ptr, Smoothness as Single, size as FoundationFramework.NSSize32Bit, grayscale as boolean) as ptr
 		    result =  new AppleSKTexture (textureNoiseWithSmoothness (ClassPtr, Smoothness, Size.toNSSize32, grayscale))
 		  #endif
 		  result.RetainClassObject
@@ -128,7 +128,7 @@ Inherits AppleObject
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKTexture")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKTexture")
 			    end if
 			  end if
 			  return mClassPtr
@@ -166,17 +166,17 @@ Inherits AppleObject
 			  setSize value
 			End Set
 		#tag EndSetter
-		Size As NSSize
+		Size As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare Function textureRect lib SpriteKit selector "textureRect" (id as ptr) as nsrect
+			    declare Function textureRect lib SpriteKit selector "textureRect" (id as ptr)  as FoundationFramework.NSRect
 			    return textureRect (id)
 			  #elseif Target32Bit
-			    Declare Function textureRect lib SpriteKit selector "textureRect" (id as ptr) as NSRect32Bit
+			    Declare Function textureRect lib SpriteKit selector "textureRect" (id as ptr) as FoundationFramework.NSRect32Bit
 			    return textureRect(id).toNSRect
 			  #endif
 			End Get
@@ -184,15 +184,15 @@ Inherits AppleObject
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare Sub setTextureRect lib SpriteKit selector "setTextureRect:" (id as ptr, value as nsrect)
+			    declare Sub setTextureRect lib SpriteKit selector "setTextureRect:" (id as ptr, value  as FoundationFramework.NSRect)
 			    setTextureRect id, value
 			  #elseif Target32Bit
-			    Declare Sub setTextureRect lib SpriteKit selector "setTextureRect:" (id as ptr, value as NSRect32Bit)
+			    Declare Sub setTextureRect lib SpriteKit selector "setTextureRect:" (id as ptr, value as FoundationFramework.NSRect32Bit)
 			    setTextureRect id, value.toNSRect32
 			  #endif
 			End Set
 		#tag EndSetter
-		TextureRect As NSRect
+		TextureRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -222,6 +222,16 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="FilteringMode"
 			Group="Behavior"
 			Type="SKTextureFilteringMode"
@@ -232,6 +242,11 @@ Inherits AppleObject
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -239,11 +254,26 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

@@ -8,12 +8,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function LocationInView(aView as AppleView) As NSPoint
+		Function LocationInView(aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare Function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as NSPoint
+		    Declare Function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
 		    return locationInView (id, aview.id)
 		  #elseif Target32Bit
-		    Declare Function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as NSPoint32Bit
+		    Declare Function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
 		    return locationInView(id, aview.id).toNSPoint
 		  #endif
 		End Function
@@ -29,7 +29,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UITouch")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UITouch")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -42,7 +42,7 @@ Inherits AppleObject
 			  return LocationInView (view)
 			End Get
 		#tag EndGetter
-		LocationInInitialView As NSPoint
+		LocationInInitialView As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

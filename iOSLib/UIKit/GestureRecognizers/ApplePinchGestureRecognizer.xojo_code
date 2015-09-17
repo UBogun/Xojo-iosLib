@@ -18,7 +18,7 @@ Inherits AppleGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIPinchGestureRecognizer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIPinchGestureRecognizer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

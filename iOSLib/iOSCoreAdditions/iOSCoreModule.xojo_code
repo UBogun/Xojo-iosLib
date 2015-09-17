@@ -24,7 +24,7 @@ Protected Module iOSCoreModule
 			  #Endif
 			  Declare Function mainScreen Lib "Foundation" Selector "mainScreen" (classRef As Ptr) As Ptr
 			  
-			  Return scale(mainScreen(NSClassFromString("UIScreen")))
+			  Return scale(mainScreen(FoundationFramework.NSClassFromString("UIScreen")))
 			  
 			End Get
 		#tag EndGetter

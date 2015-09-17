@@ -29,7 +29,7 @@ Inherits AppleSCNGeometry
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("SCNPlane")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("SCNPlane")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

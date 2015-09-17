@@ -3,7 +3,7 @@ Protected Class AppleAVPlayerControl
 Inherits Appleviewcontrol
 	#tag Event
 		Function CreateView() As UInteger
-		  ViewObject = new AppleView (NSrect (0,0,100,100), self)
+		  ViewObject = new AppleView (FoundationFrameWork.NSMakeRect (0,0,100,100), self)
 		  dim Player as new AppleAVPlayerLayer (new AppleAVPlayer("song18_0.mp3"))
 		  ViewObject.Layer.AddSubLayer player
 		  me.Player.Play

@@ -60,7 +60,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIControl")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIControl")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

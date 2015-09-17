@@ -218,13 +218,13 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MoveTo(aPoint as NSPoint, Duration As Double) As AppleSKAction
+		 Shared Function MoveTo(aPoint as FoundationFramework.NSPoint, Duration As Double) As AppleSKAction
 		  dim result as AppleSKAction
 		  #if Target64Bit
-		    Declare function moveTo lib SpriteKit selector "moveTo:duration:"(id as ptr, aPoint as NSPoint, duration as Double) as ptr
+		    Declare function moveTo lib SpriteKit selector "moveTo:duration:"(id as ptr, aPoint as FoundationFramework.NSPoint, duration as Double) as ptr
 		    result = new AppleSKAction (MoveTo (classptr, aPoint, Duration))
 		  #elseif Target32Bit
-		    Declare function moveTo lib SpriteKit selector "moveTo:duration:"(id as ptr, aPoint as NSPoint32Bit, duration as Double) as ptr
+		    Declare function moveTo lib SpriteKit selector "moveTo:duration:"(id as ptr, aPoint as FoundationFramework.NSPoint32Bit, duration as Double) as ptr
 		    result = new AppleSKAction (MoveTo (classptr, aPoint.toNSPoint32, Duration))
 		  #endif
 		  result.RetainClassObject
@@ -312,14 +312,14 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function ReachToPoint(aPoint as NSPoint, RootNode As AppleSKNode, Velocity As Double) As AppleSKAction
+		 Shared Function ReachToPoint(aPoint as FoundationFramework.NSPoint, RootNode As AppleSKNode, Velocity As Double) As AppleSKAction
 		  if iOS8Avaliable then
 		    dim result as AppleSKAction
 		    #if Target64Bit
-		      Declare function reachToRNV lib SpriteKit selector "reachTo:rootNode:velocity:"(id as ptr, aPoint as NSPoint, rootnode as ptr, velecoity as Double) as ptr
+		      Declare function reachToRNV lib SpriteKit selector "reachTo:rootNode:velocity:"(id as ptr, aPoint as FoundationFramework.NSPoint, rootnode as ptr, velecoity as Double) as ptr
 		      result = new AppleSKAction (reachToRNV (classptr, aPoint, RootNode.id, velocity))
 		    #elseif Target32Bit
-		      Declare function reachToRNV lib SpriteKit selector "reachTo:rootNode:velocity:"(id as ptr, aPoint as NSPoint32Bit, rootnode as ptr, velecoity as single) as ptr
+		      Declare function reachToRNV lib SpriteKit selector "reachTo:rootNode:velocity:"(id as ptr, aPoint as FoundationFramework.NSPoint32Bit, rootnode as ptr, velecoity as single) as ptr
 		      result = new AppleSKAction (reachToRNV (classptr, aPoint.toNSPoint32, RootNode.id, velocity))
 		    #endif
 		    result.RetainClassObject
@@ -655,7 +655,7 @@ Inherits AppleObject
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKAction")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKAction")
 			    end if
 			  end if
 			  return mClassPtr
@@ -685,7 +685,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h21
 		#tag Getter
 			Get
-			  static miOS8available as boolean = ObjectiveCRuntime.class_respondsToSelector (classptr, NSSelectorFromString("reachTo:rootNode:velocity:"))
+			  static miOS8available as boolean = ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString("reachTo:rootNode:velocity:"))
 			  return miOS8available
 			End Get
 		#tag EndGetter
@@ -765,9 +765,24 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Duration"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -777,11 +792,26 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

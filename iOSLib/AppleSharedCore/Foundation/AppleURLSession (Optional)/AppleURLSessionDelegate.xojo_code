@@ -3,7 +3,7 @@ Protected Class AppleURLSessionDelegate
 Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub CancelAuthenticationChallenge(challenge as AppleURLAuthenticationChallenge)
-		  Declare sub cancelAuthenticationChallenge lib FoundationLib  selector "cancelAuthenticationChallenge:" (id as ptr, challenge as ptr)
+		  Declare sub cancelAuthenticationChallenge lib FoundationLibName  selector "cancelAuthenticationChallenge:" (id as ptr, challenge as ptr)
 		  cancelAuthenticationChallenge id , challenge.id
 		End Sub
 	#tag EndMethod
@@ -23,7 +23,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub ContinueWithoutCredentialForAuthenticationChallenge(challenge as AppleURLAuthenticationChallenge)
-		  Declare sub continueWithoutCredentialForAuthenticationChallenge lib FoundationLib  selector "continueWithoutCredentialForAuthenticationChallenge:" (id as ptr, challenge as ptr)
+		  Declare sub continueWithoutCredentialForAuthenticationChallenge lib FoundationLibName  selector "continueWithoutCredentialForAuthenticationChallenge:" (id as ptr, challenge as ptr)
 		  continueWithoutCredentialForAuthenticationChallenge id , challenge.id
 		End Sub
 	#tag EndMethod
@@ -187,21 +187,21 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub PerformDefaultHandlingForAuthenticationChallenge(challenge as AppleURLAuthenticationChallenge)
-		  Declare sub performDefaultHandlingForAuthenticationChallenge lib FoundationLib  selector "performDefaultHandlingForAuthenticationChallenge:" (id as ptr, challenge as ptr)
+		  Declare sub performDefaultHandlingForAuthenticationChallenge lib FoundationLibName  selector "performDefaultHandlingForAuthenticationChallenge:" (id as ptr, challenge as ptr)
 		  performDefaultHandlingForAuthenticationChallenge id , challenge.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub RejectProtectionSpaceAndContinueWithChallenge(challenge as AppleURLAuthenticationChallenge)
-		  Declare sub rejectProtectionSpaceAndContinueWithChallenge lib FoundationLib  selector "rejectProtectionSpaceAndContinueWithChallenge:" (id as ptr, challenge as ptr)
+		  Declare sub rejectProtectionSpaceAndContinueWithChallenge lib FoundationLibName  selector "rejectProtectionSpaceAndContinueWithChallenge:" (id as ptr, challenge as ptr)
 		  rejectProtectionSpaceAndContinueWithChallenge id , challenge.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub UseCredential(Credential as appleurlcredential, challenge as AppleURLAuthenticationChallenge)
-		  Declare sub useCredential lib FoundationLib  selector "useCredential:forAuthenticationChallenge:" (id as ptr, credential as ptr, challenge as ptr)
+		  Declare sub useCredential lib FoundationLibName  selector "useCredential:forAuthenticationChallenge:" (id as ptr, credential as ptr, challenge as ptr)
 		  useCredential id , Credential.id, challenge.id
 		End Sub
 	#tag EndMethod

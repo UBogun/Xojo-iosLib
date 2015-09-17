@@ -11,7 +11,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("EAGLContext")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("EAGLContext")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

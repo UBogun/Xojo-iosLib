@@ -148,7 +148,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIButton")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIButton")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -428,13 +428,6 @@ Inherits AppleControl
 			Name="ContentHorizontalAlignment"
 			Group="Behavior"
 			Type="UIControlContentHorizontalAlignment"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Center"
-				"1 - Left"
-				"2 - Right"
-				"3 - Fill"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentMode"
@@ -466,13 +459,6 @@ Inherits AppleControl
 			Name="ContentVerticalAlignment"
 			Group="Behavior"
 			Type="UIControlContentVerticalAlignment"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Center"
-				"1 - Top"
-				"2 - Bottom"
-				"3 - Fill"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CurrentTitle"
@@ -598,15 +584,6 @@ Inherits AppleControl
 			Name="State"
 			Group="Behavior"
 			Type="UIControlState"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Normal"
-				"1 - Highlighted"
-				"2 - Disabled"
-				"3 - Selected"
-				"4 - Application"
-				"5 - Reserved"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

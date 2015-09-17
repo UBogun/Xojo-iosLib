@@ -42,48 +42,48 @@ Inherits AppleCAMediaTimingObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointFromLayer(aPoint as NSPoint, aLayer as AppleCALayer) As NSPoint
+		Function ConvertPointFromLayer(aPoint as FoundationFramework.NSPoint, aLayer as AppleCALayer) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointfromLayer lib QuartzCoreLib selector "convertPoint:fromLayer:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    declare Function convertPointfromLayer lib QuartzCoreLib selector "convertPoint:fromLayer:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointfromLayer (id, apoint, alayer.id)
 		  #elseif Target32Bit
-		    declare Function convertPointfromLayer lib QuartzCoreLib selector "convertPoint:fromLayer:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
-		    return convertPointfromLayer (id, apoint.toNSPoint32, alayer.id).tonspoint
+		    declare Function convertPointfromLayer lib QuartzCoreLib selector "convertPoint:fromLayer:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointfromLayer (id, apoint.toNSPoint32, alayer.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointToLayer(aPoint as NSPoint, aLayer as AppleCALayer) As NSPoint
+		Function ConvertPointToLayer(aPoint as FoundationFramework.NSPoint, aLayer as AppleCALayer) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointtoLayer lib QuartzCoreLib selector "convertPoint:toLayer:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    declare Function convertPointtoLayer lib QuartzCoreLib selector "convertPoint:toLayer:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointtoLayer (id, apoint, alayer.id)
 		  #elseif Target32Bit
-		    declare Function convertPointtoLayer lib QuartzCoreLib selector "convertPoint:toLayer:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
-		    return convertPointtoLayer (id, apoint.toNSPoint32, alayer.id).tonspoint
+		    declare Function convertPointtoLayer lib QuartzCoreLib selector "convertPoint:toLayer:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointtoLayer (id, apoint.toNSPoint32, alayer.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertRectFromLayer(aRect as NSRect, aLayer as AppleCALayer) As NSRect
+		Function ConvertRectFromLayer(aRect as FoundationFramework.NSRect, aLayer as AppleCALayer) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    declare Function ConvertRectFromLayer lib QuartzCoreLib selector "convertRect:fromLayer:" (id as ptr, aRect as NSRect, aview as ptr) as nsrect
+		    declare Function ConvertRectFromLayer lib QuartzCoreLib selector "convertRect:fromLayer:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
 		    return ConvertRectFromLayer (id, arect, alayer.id)
 		  #elseif Target32Bit
-		    declare Function ConvertRectFromLayer lib QuartzCoreLib selector "convertRect:fromLayer:" (id as ptr, aRect as NSRect32Bit, aview as ptr) as NSRect32Bit
+		    declare Function ConvertRectFromLayer lib QuartzCoreLib selector "convertRect:fromLayer:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, aview as ptr) as FoundationFramework.NSRect32Bit
 		    return ConvertRectFromLayer (id, arect.toNSRect32, alayer.id).tonsrect
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertRectToLayer(aRect as NSRect, aLayer as AppleCALayer) As NSRect
+		Function ConvertRectToLayer(aRect as FoundationFramework.NSRect, aLayer as AppleCALayer) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    declare Function ConvertRectToLayer lib QuartzCoreLib selector "convertRect:toLayer:" (id as ptr, aRect as NSRect, aview as ptr) as nsrect
+		    declare Function ConvertRectToLayer lib QuartzCoreLib selector "convertRect:toLayer:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
 		    return ConvertRectToLayer (id, arect, alayer.id)
 		  #elseif Target32Bit
-		    declare Function ConvertRectToLayer lib QuartzCoreLib selector "convertRect:toLayer:" (id as ptr, aRect as NSRect32Bit, aview as ptr) as NSRect32Bit
+		    declare Function ConvertRectToLayer lib QuartzCoreLib selector "convertRect:toLayer:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, aview as ptr) as FoundationFramework.NSRect32Bit
 		    return ConvertRectToLayer (id, arect.toNSRect32, alayer.id).tonsrect
 		  #endif
 		End Function
@@ -229,10 +229,10 @@ Inherits AppleCAMediaTimingObject
 		#tag Getter
 			Get
 			  #if target32bit
-			    DEclare Function anchorPoint lib QuartzCoreLib selector "anchorPoint" (id as ptr) as NSPoint32Bit
+			    DEclare Function anchorPoint lib QuartzCoreLib selector "anchorPoint" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return anchorPoint(id).toNSPoint
 			  #elseif Target64Bit
-			    DEclare Function anchorPoint lib QuartzCoreLib selector "anchorPoint" (id as ptr) as NSPoint
+			    DEclare Function anchorPoint lib QuartzCoreLib selector "anchorPoint" (id as ptr) as FoundationFramework.NSPoint
 			    return anchorPoint (id)
 			  #endif
 			End Get
@@ -240,16 +240,16 @@ Inherits AppleCAMediaTimingObject
 		#tag Setter
 			Set
 			  #if target32bit
-			    DEclare Sub setAnchorPoint lib QuartzCoreLib selector "setAnchorPoint:" (id as ptr, value as NSPoint32Bit)
+			    DEclare Sub setAnchorPoint lib QuartzCoreLib selector "setAnchorPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setAnchorPoint id, value.toNSPoint32
 			  #elseif Target64Bit
-			    DEclare Sub setAnchorPoint lib QuartzCoreLib selector "setAnchorPoint:" (id as ptr, value as NSPoint)
+			    DEclare Sub setAnchorPoint lib QuartzCoreLib selector "setAnchorPoint:" (id as ptr, value as FoundationFramework.NSPoint)
 			    setAnchorPoint id, value
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		AnchorPoint As NSPoint
+		AnchorPoint As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -360,13 +360,13 @@ Inherits AppleCAMediaTimingObject
 			  UIKitFramework.setBounds id, value
 			End Set
 		#tag EndSetter
-		Bounds As NSRect
+		Bounds As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CALayer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CALayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -393,10 +393,10 @@ Inherits AppleCAMediaTimingObject
 		#tag Getter
 			Get
 			  #if target32bit
-			    Declare Function contentsCenter lib QuartzCoreLib selector "contentsCenter" (id as ptr) as NSRect32Bit
+			    Declare Function contentsCenter lib QuartzCoreLib selector "contentsCenter" (id as ptr) as FoundationFramework.NSRect32Bit
 			    return contentsCenter(id).toNSRect
 			  #elseif Target64Bit
-			    Declare Function contentsCenter lib QuartzCoreLib selector "contentsCenter" (id as ptr) as NSRect
+			    Declare Function contentsCenter lib QuartzCoreLib selector "contentsCenter" (id as ptr)  as FoundationFramework.NSRect
 			    return contentsCenter (id)
 			  #endif
 			  
@@ -405,16 +405,16 @@ Inherits AppleCAMediaTimingObject
 		#tag Setter
 			Set
 			  #if target32bit
-			    DEclare Sub setContentsCenter lib QuartzCoreLib selector "setContentsCenter:" (id as ptr, value as NSRect32Bit)
+			    DEclare Sub setContentsCenter lib QuartzCoreLib selector "setContentsCenter:" (id as ptr, value as FoundationFramework.NSRect32Bit)
 			    setContentsCenter id, value.toNSRect32
 			  #elseif Target64Bit
-			    DEclare Sub setContentsCenter lib QuartzCoreLib selector "setContentsCenter:" (id as ptr, value as nsrect)
+			    DEclare Sub setContentsCenter lib QuartzCoreLib selector "setContentsCenter:" (id as ptr, value  as FoundationFramework.NSRect)
 			    setContentsCenter id, value
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		ContentsCenter As NSRect
+		ContentsCenter As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -666,7 +666,7 @@ Inherits AppleCAMediaTimingObject
 			  UIKitFramework.setFrame id, value
 			End Set
 		#tag EndSetter
-		Frame As NSRect
+		Frame As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -889,10 +889,10 @@ Inherits AppleCAMediaTimingObject
 		#tag Getter
 			Get
 			  #if target32bit
-			    DEclare Function position lib QuartzCoreLib selector "position" (id as ptr) as NSPoint32Bit
+			    DEclare Function position lib QuartzCoreLib selector "position" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return position(id).toNSPoint
 			  #elseif Target64Bit
-			    DEclare Function position lib QuartzCoreLib selector "position" (id as ptr) as NSPoint
+			    DEclare Function position lib QuartzCoreLib selector "position" (id as ptr) as FoundationFramework.NSPoint
 			    return position (id)
 			  #endif
 			End Get
@@ -900,32 +900,32 @@ Inherits AppleCAMediaTimingObject
 		#tag Setter
 			Set
 			  #if target32bit
-			    DEclare Sub setPosition lib QuartzCoreLib selector "setPosition:" (id as ptr, value as NSPoint32Bit)
+			    DEclare Sub setPosition lib QuartzCoreLib selector "setPosition:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setPosition id, value.toNSPoint32
 			  #elseif Target64Bit
-			    DEclare Sub setPosition lib QuartzCoreLib selector "setPosition:" (id as ptr, value as NSPoint)
+			    DEclare Sub setPosition lib QuartzCoreLib selector "setPosition:" (id as ptr, value as FoundationFramework.NSPoint)
 			    setPosition id, value
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		Position As NSPoint
+		Position As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
 			  #if target32bit
-			    DEclare Function preferredFrameSize lib QuartzCoreLib selector "preferredFrameSize" (id as ptr) as NSSize32Bit
+			    DEclare Function preferredFrameSize lib QuartzCoreLib selector "preferredFrameSize" (id as ptr) as FoundationFramework.NSSize32Bit
 			    return preferredFrameSize(id).toNSSize
 			  #elseif Target64Bit
-			    DEclare Function preferredFrameSize lib QuartzCoreLib selector "preferredFrameSize" (id as ptr) as NSSize
+			    DEclare Function preferredFrameSize lib QuartzCoreLib selector "preferredFrameSize" (id as ptr) as FoundationFramework.NSSize
 			    return preferredFrameSize (id)
 			  #endif
 			  
 			End Get
 		#tag EndGetter
-		PreferredFrameSize As NSSize
+		PreferredFrameSize As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -986,10 +986,10 @@ Inherits AppleCAMediaTimingObject
 		#tag Getter
 			Get
 			  #if target32bit
-			    DEclare Function shadowOffset lib QuartzCoreLib selector "shadowOffset" (id as ptr) as NSSize32Bit
+			    DEclare Function shadowOffset lib QuartzCoreLib selector "shadowOffset" (id as ptr) as FoundationFramework.NSSize32Bit
 			    return shadowOffset(id).toNSSize
 			  #elseif Target64Bit
-			    DEclare Function shadowOffset lib QuartzCoreLib selector "shadowOffset" (id as ptr) as NSSize
+			    DEclare Function shadowOffset lib QuartzCoreLib selector "shadowOffset" (id as ptr) as FoundationFramework.NSSize
 			    return shadowOffset (id)
 			  #endif
 			  
@@ -998,15 +998,15 @@ Inherits AppleCAMediaTimingObject
 		#tag Setter
 			Set
 			  #if target32bit
-			    DEclare Sub setShadowOffset lib QuartzCoreLib selector "setShadowOffset:" (id as ptr, value as NSSize32Bit)
+			    DEclare Sub setShadowOffset lib QuartzCoreLib selector "setShadowOffset:" (id as ptr, value as FoundationFramework.NSSize32Bit)
 			    setShadowOffset id, value.toNSSize32
 			  #elseif Target64Bit
-			    DEclare Sub setShadowOffset lib QuartzCoreLib selector "setShadowOffset:" (id as ptr, value as NSSize)
+			    DEclare Sub setShadowOffset lib QuartzCoreLib selector "setShadowOffset:" (id as ptr, value as FoundationFramework.NSSize)
 			    setShadowOffset id, value
 			  #endif
 			End Set
 		#tag EndSetter
-		ShadowOffset As NSSize
+		ShadowOffset As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

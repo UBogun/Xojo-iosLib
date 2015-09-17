@@ -11,7 +11,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSURLCredentialStorage")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSURLCredentialStorage")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

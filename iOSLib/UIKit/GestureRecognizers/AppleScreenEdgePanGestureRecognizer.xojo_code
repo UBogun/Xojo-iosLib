@@ -12,7 +12,7 @@ Inherits ApplePanGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIScreenEdgePanGestureRecognizer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIScreenEdgePanGestureRecognizer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

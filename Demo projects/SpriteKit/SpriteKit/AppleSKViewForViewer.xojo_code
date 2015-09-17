@@ -9,7 +9,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame as NSRect)
+		Sub Constructor(aFrame as FoundationFramework.NSRect)
 		  Super.Constructor (DoInitWithFrame (alloc(ClassPtr), aFrame))
 		  mHasOwnership = true
 		  
@@ -64,7 +64,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as NSRect32Bit)
+		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect32Bit)
 		  dim wr as WeakRef = RetainDict.value (pid)
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer (wr.Value)
 		  ego.informonDrawRect (rect.toNSRect)
@@ -75,7 +75,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as NSRect)
+		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect)
 		  dim wr as WeakRef = RetainDict.value (pid)
 		  dim ego as AppleSKViewForViewer = AppleSKViewForViewer(wr.Value)
 		  ego.informonDrawRect (rect)
@@ -221,7 +221,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonDrawRect(Rect as NSRect)
+		Attributes( hidden )  Sub informonDrawRect(Rect as FoundationFramework.NSRect)
 		  dim myarray as new AppleMutableArray(2)
 		  myarray.AddText  DrawRect
 		  myarray.Addobject new AppleValue( rect)
@@ -373,7 +373,7 @@ Implements AppleNSEventForwarder
 			  // static mClassPtr as Ptr
 			  // if SpriteKitEnabled then
 			  // if mClassPtr = nil then
-			  //  mClassPtr  =  NSClassFromString ("SKView")
+			  //  mClassPtr  =  FoundationFramework.NSClassFromString ("SKView")
 			  // end if
 			  // end if
 			  // return mClassPtr
@@ -432,7 +432,68 @@ Implements AppleNSEventForwarder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Alpha"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Asynchronous"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="AutoresizesSubviews"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ClearsContextBeforeDrawing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ClipsToBounds"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentMode"
+			Group="Behavior"
+			Type="UIViewContentMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - ScaleToFill"
+				"1 - ScaleAspectFit"
+				"2 - ScaleAspectFill"
+				"3 - Redraw"
+				"4 - Center"
+				"5 - Top"
+				"6 - Bottom"
+				"7 - Left"
+				"8 - Right"
+				"9 - TopLeft"
+				"10 - TopRight"
+				"11 - BottomLeft"
+				"12 - BottomRight"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContentScaleFactor"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExclusiveTouch"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -440,6 +501,26 @@ Implements AppleNSEventForwarder
 			Name="FrameInterval"
 			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasAmbiguousLayout"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Height"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hidden"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IgnoresSiblingOrder"
@@ -454,11 +535,36 @@ Implements AppleNSEventForwarder
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MultipleTouchEnabled"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -467,7 +573,17 @@ Implements AppleNSEventForwarder
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Opaque"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Paused"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="PreservesSuperviewLayoutMargins"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -513,11 +629,47 @@ Implements AppleNSEventForwarder
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Tag"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TintAdjustmentMode"
+			Group="Behavior"
+			Type="UIViewTintAdjustmentMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Automatic"
+				"1 - Normal"
+				"2 - Dimmed"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TranslatesAutoresizingMaskIntoConstraints"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UserInteractionEnabled"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Width"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -20,8 +20,8 @@ Inherits AppleView
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleView
-		  // Constructor(aFrame As NSRect) -- From AppleView
-		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect, observer as AppleNSEventReceiver) -- From AppleView
 		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
@@ -57,7 +57,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIActionSheet")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIActionSheet")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

@@ -1,29 +1,20 @@
 #tag Module
 Protected Module SizeExtension
 	#tag Method, Flags = &h0
-		Function NSSize(height as Double, width as double) As NSSize
-		  dim NS as NSSize
-		  ns.height = height
-		  ns.width = width
-		  return ns
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function toCoreSize(extends aSize64 as NSSize) As Xojo.Core.Size
+		Function toCoreSize(extends aSize64 as FoundationFramework.NSSize) As Xojo.Core.Size
 		  return new xojo.core.size ( aSize64.width, aSize64.height)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toCoreSize(extends aSize32 as NSSize32Bit) As Xojo.Core.Size
+		Function toCoreSize(extends aSize32 as FoundationFramework.NSSize32Bit) As Xojo.Core.Size
 		  return aSize32.toNSSize.toCoreSize
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSSize(extends aSize32 as NSSize32Bit) As NSSize
-		  dim result as NSSize
+		Function toNSSize(extends aSize32 as FoundationFramework.NSSize32Bit) As FoundationFramework.NSSize
+		  dim result as FoundationFramework.NSSize
 		  result.height = aSize32.height
 		  result.width= aSize32.width
 		  return result
@@ -31,8 +22,8 @@ Protected Module SizeExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSSize(extends s as xojo.core.size) As NSSize
-		  dim result as NSSize
+		Function toNSSize(extends s as xojo.core.size) As FoundationFramework.NSSize
+		  dim result as FoundationFramework.NSSize
 		  result.height =  s.Height
 		  result.width = s.Width
 		  return result
@@ -40,8 +31,8 @@ Protected Module SizeExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSSize32(extends aSize64 as NSSize) As NSSize32Bit
-		  dim result as NSSize32Bit
+		Function toNSSize32(extends aSize64 as FoundationFramework.NSSize) As FoundationFramework.NSSize32Bit
+		  dim result as FoundationFramework.NSSize32Bit
 		  result.height = aSize64.height
 		  result.width= aSize64.width
 		  return result
@@ -49,7 +40,7 @@ Protected Module SizeExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSSize32(extends aSize as Xojo.Core.Size) As NSSize32Bit
+		Function toNSSize32(extends aSize as Xojo.Core.Size) As FoundationFramework.NSSize32Bit
 		  return asize.tonssize.tonssize32
 		End Function
 	#tag EndMethod

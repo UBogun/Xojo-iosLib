@@ -3,7 +3,7 @@ Protected Class AppleOperationQueue
 Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub CancelAllOperations()
-		  Declare Sub cancelAllOperations lib FoundationLib  selector "cancelAllOperations" (id as ptr)
+		  Declare Sub cancelAllOperations lib FoundationLibName  selector "cancelAllOperations" (id as ptr)
 		  CancelAllOperations id
 		  
 		End Sub
@@ -23,7 +23,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub WaitUntilFinished()
-		  Declare Sub waitUntilAllOperationsAreFinished lib FoundationLib  selector "waitUntilAllOperationsAreFinished" (id as ptr)
+		  Declare Sub waitUntilAllOperationsAreFinished lib FoundationLibName  selector "waitUntilAllOperationsAreFinished" (id as ptr)
 		  waitUntilAllOperationsAreFinished id
 		  
 		End Sub
@@ -33,7 +33,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSOperationQueue")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSOperationQueue")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -43,7 +43,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentQueue lib FoundationLib  selector "currentQueue" (id as ptr) as ptr
+			  Declare function currentQueue lib FoundationLibName  selector "currentQueue" (id as ptr) as ptr
 			  dim result as new AppleOperationQueue (currentQueue(classptr))
 			  result.RetainClassObject
 			  return result
@@ -57,7 +57,7 @@ Inherits AppleObject
 			Get
 			  static mMainQueue as new AppleOperationQueue
 			  if mMainQueue = nil then
-			    Declare function mainQueue lib FoundationLib  selector "mainQueue" (id as ptr) as ptr
+			    Declare function mainQueue lib FoundationLibName  selector "mainQueue" (id as ptr) as ptr
 			    dim result as new AppleOperationQueue  (mainQueue (ClassPtr))
 			    result.RetainClassObject
 			    mMainQueue = result
@@ -71,14 +71,14 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function maxConcurrentOperationCount lib FoundationLib  selector "maxConcurrentOperationCount" (id as ptr) as Integer
+			  Declare function maxConcurrentOperationCount lib FoundationLibName  selector "maxConcurrentOperationCount" (id as ptr) as Integer
 			  return maxConcurrentOperationCount (id)
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMaxConcurrentOperationCount lib FoundationLib  selector "setMaxConcurrentOperationCount:" (id as ptr, value as integer)
+			  Declare Sub setMaxConcurrentOperationCount lib FoundationLibName  selector "setMaxConcurrentOperationCount:" (id as ptr, value as integer)
 			  setMaxConcurrentOperationCount (id, value)
 			End Set
 		#tag EndSetter
@@ -102,7 +102,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function operationCount lib FoundationLib  selector "operationCount" (id as ptr) as UInteger
+			  Declare function operationCount lib FoundationLibName  selector "operationCount" (id as ptr) as UInteger
 			  return operationCount (id)
 			  
 			End Get
@@ -113,7 +113,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function Operations lib FoundationLib  selector "operations" (id as ptr) as ptr
+			  Declare function Operations lib FoundationLibName  selector "operations" (id as ptr) as ptr
 			  return AppleArray.MakeFromPtr (Operations(id))
 			End Get
 		#tag EndGetter
@@ -123,14 +123,14 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function isSuspended lib FoundationLib  selector "isSuspended" (id as ptr) as Boolean
+			  Declare function isSuspended lib FoundationLibName  selector "isSuspended" (id as ptr) as Boolean
 			  return isSuspended (id)
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setSuspended lib FoundationLib  selector "setSuspended:" (id as ptr, value as Boolean)
+			  Declare Sub setSuspended lib FoundationLibName  selector "setSuspended:" (id as ptr, value as Boolean)
 			  setSuspended (id, value)
 			End Set
 		#tag EndSetter
@@ -140,13 +140,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function underlyingQueue lib FoundationLib  selector "underlyingQueue" (id as ptr) as ptr
+			  Declare function underlyingQueue lib FoundationLibName  selector "underlyingQueue" (id as ptr) as ptr
 			  return AppleObject.MakeFromPtr (underlyingQueue(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setUnderlyingQueue lib FoundationLib  selector "setUnderlyingQueue:" (id as ptr, value as Ptr)
+			  Declare Sub setUnderlyingQueue lib FoundationLibName  selector "setUnderlyingQueue:" (id as ptr, value as Ptr)
 			  setUnderlyingQueue (id, value.id)
 			End Set
 		#tag EndSetter

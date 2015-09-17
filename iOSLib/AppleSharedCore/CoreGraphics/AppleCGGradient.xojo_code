@@ -2,15 +2,15 @@
 Protected Class AppleCGGradient
 Inherits Applecfobject
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGGradientCreateWithColors Lib CoreGraphicsLib (colorspace as ptr, colors as ptr, locations as ptr) As ptr
+		Protected Declare Function CGGradientCreateWithColors Lib CoreGraphicsLibName (colorspace as ptr, colors as ptr, locations as ptr) As ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGGradientRelease Lib CoreGraphicsLib (id as ptr)
+		Protected Declare Sub CGGradientRelease Lib CoreGraphicsLibName (id as ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGGradientRetain Lib CoreGraphicsLib (id as ptr) As ptr
+		Protected Declare Function CGGradientRetain Lib CoreGraphicsLibName (id as ptr) As ptr
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h21

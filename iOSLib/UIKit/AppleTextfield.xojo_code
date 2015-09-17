@@ -2,12 +2,12 @@
 Protected Class AppleTextfield
 Inherits AppleControl
 	#tag Method, Flags = &h0
-		Function ClearButtonRectForBounds(Bounds as NSRect) As NSRect
+		Function ClearButtonRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function clearButtonRectForBounds lib UIKit selector "clearButtonRectForBounds:" (id as ptr, bounds as nsrect) as NSRect
+		    Declare Function clearButtonRectForBounds lib UIKit selector "clearButtonRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  clearButtonRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function clearButtonRectForBounds lib UIKit selector "clearButtonRectForBounds:" (id as ptr, bounds as NSRect32Bit) as NSRect32Bit
+		    Declare Function clearButtonRectForBounds lib UIKit selector "clearButtonRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  clearButtonRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -21,13 +21,13 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aframe as NSRect)
+		Sub Constructor(aframe as FoundationFramework.NSRect)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleView
-		  // Constructor(aFrame As NSRect) -- From AppleView
-		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect, observer as AppleNSEventReceiver) -- From AppleView
 		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
@@ -37,14 +37,14 @@ Inherits AppleControl
 		  if EventControlled = nil then EventControlled = new Dictionary
 		  EventControlled.Value (id) = false
 		  me.UserInteractionEnabled = true
-		  // me.AddGestureRecognizer new ApplePanGestureRecognizer (id, NSSelectorFromString ("panReceived"))
+		  // me.AddGestureRecognizer new ApplePanGestureRecognizer (id, FoundationFramework.NSSelectorFromString ("panReceived"))
 		  // me.setDelegate (id, id)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame As NSRect, observer as AppleNSEventReceiver)
+		Sub Constructor(aFrame as FoundationFramework.NSRect, observer as AppleNSEventReceiver)
 		  Constructor (aFrame)
 		  RegisterObserver (observer)
 		  
@@ -57,8 +57,8 @@ Inherits AppleControl
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleView
-		  // Constructor(aFrame As NSRect) -- From AppleView
-		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect, observer as AppleNSEventReceiver) -- From AppleView
 		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
@@ -81,12 +81,12 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function EditingRectForBounds(Bounds as NSRect) As NSRect
+		Function EditingRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function editingRectForBounds lib UIKit selector "editingRectForBounds:" (id as ptr, bounds as nsrect) as NSRect
+		    Declare Function editingRectForBounds lib UIKit selector "editingRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  editingRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function editingRectForBounds lib UIKit selector "editingRectForBounds:" (id as ptr, bounds as NSRect32Bit) as NSRect32Bit
+		    Declare Function editingRectForBounds lib UIKit selector "editingRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  editingRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -121,7 +121,7 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as NSRect32Bit)
+		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect32Bit)
 		  dim ego as new AppleTextfield (pid)
 		  ego.informonDrawRect (rect.toNSRect)
 		  
@@ -133,7 +133,7 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as NSRect)
+		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect)
 		  dim ego as new AppleTextfield (pid)
 		  ego.informonDrawRect (rect)
 		  
@@ -220,7 +220,7 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Function impl_textFieldshouldChangeCharactersInRange(pid as ptr, sel as ptr, textfield as ptr, range as NSRange, ReplacementString As CFStringRef) As Boolean
+		Private Shared Function impl_textFieldshouldChangeCharactersInRange(pid as ptr, sel as ptr, textfield as ptr, range as FoundationFramework.NSRange, ReplacementString As CFStringRef) As Boolean
 		  dim ego as new AppleTextfield (pid)
 		  return ego.informonShouldChangeCharactersInRange (range, ReplacementString)
 		  
@@ -368,7 +368,7 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Function informonShouldChangeCharactersInRange(Range as NSRange, Replacement as Text) As boolean
+		Attributes( hidden )  Function informonShouldChangeCharactersInRange(Range as FoundationFramework.NSRange, Replacement as Text) As boolean
 		  if UseChangeEvents then
 		    return RaiseEvent ShouldChangeCharactersInRange (range.location, range.length, replacement)
 		  else
@@ -436,12 +436,12 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function LeftViewRectForBounds(Bounds as NSRect) As NSRect
+		Function LeftViewRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function leftViewRectForBounds lib UIKit selector "leftViewRectForBounds:" (id as ptr, bounds as nsrect) as NSRect
+		    Declare Function leftViewRectForBounds lib UIKit selector "leftViewRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  leftViewRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function leftViewRectForBounds lib UIKit selector "leftViewRectForBounds:" (id as ptr, bounds as NSRect32Bit) as NSRect32Bit
+		    Declare Function leftViewRectForBounds lib UIKit selector "leftViewRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  leftViewRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -449,12 +449,12 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function PlaceholderRectForBounds(Bounds as NSRect) As NSRect
+		Function PlaceholderRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function placeholderRectForBounds lib UIKit selector "placeholderRectForBounds:" (id as ptr, bounds as nsrect) as NSRect
+		    Declare Function placeholderRectForBounds lib UIKit selector "placeholderRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  placeholderRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function placeholderRectForBounds lib UIKit selector "placeholderRectForBounds:" (id as ptr, bounds as nsrect) as NSRect32Bit
+		    Declare Function placeholderRectForBounds lib UIKit selector "placeholderRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect) as FoundationFramework.NSRect32Bit
 		    return  placeholderRectForBounds (id, bounds).toNSRect
 		  #endif
 		  
@@ -471,12 +471,12 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RightViewRectForBounds(Bounds as NSRect) As NSRect
+		Function RightViewRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function rightViewRectForBounds lib UIKit selector "rightViewRectForBounds:" (id as ptr, bounds as nsrect) as NSRect
+		    Declare Function rightViewRectForBounds lib UIKit selector "rightViewRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  rightViewRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function rightViewRectForBounds lib UIKit selector "rightViewRectForBounds:" (id as ptr, bounds as NSRect32Bit) as NSRect32Bit
+		    Declare Function rightViewRectForBounds lib UIKit selector "rightViewRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  rightViewRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -484,12 +484,12 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function TextRectForBounds(Bounds as NSRect) As NSRect
+		Function TextRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function textRectForBounds lib UIKit selector "textRectForBounds:" (id as ptr, bounds as nsrect) as NSRect
+		    Declare Function textRectForBounds lib UIKit selector "textRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  textRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function textRectForBounds lib UIKit selector "textRectForBounds:" (id as ptr, bounds as NSRect32Bit) as NSRect32Bit
+		    Declare Function textRectForBounds lib UIKit selector "textRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  textRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -644,7 +644,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static targetID as ptr = NSClassFromString ("UITextField")
+			  static targetID as ptr = FoundationFramework.NSClassFromString ("UITextField")
 			  // static targetID as ptr
 			  
 			  if targetID = Nil then
@@ -715,7 +715,7 @@ Inherits AppleControl
 			  Return ClearButtonRectForBounds (Bounds)
 			End Get
 		#tag EndGetter
-		ClearButtonRect As NSRect
+		ClearButtonRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -862,7 +862,7 @@ Inherits AppleControl
 			  Return LeftViewRectForBounds (Bounds)
 			End Get
 		#tag EndGetter
-		LeftViewRect As NSRect
+		LeftViewRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -910,7 +910,7 @@ Inherits AppleControl
 			  Return PlaceholderRectForBounds (Bounds)
 			End Get
 		#tag EndGetter
-		PlaceholderRect As NSRect
+		PlaceholderRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -951,7 +951,7 @@ Inherits AppleControl
 			  Return RightViewRectForBounds (Bounds)
 			End Get
 		#tag EndGetter
-		RightViewRect As NSRect
+		RightViewRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -974,7 +974,7 @@ Inherits AppleControl
 			  Return TextRectForBounds (Bounds)
 			End Get
 		#tag EndGetter
-		TextRect As NSRect
+		TextRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

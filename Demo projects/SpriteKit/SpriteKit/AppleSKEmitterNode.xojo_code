@@ -38,7 +38,7 @@ Inherits AppleSKNode
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKEmitterNode")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKEmitterNode")
 			    end if
 			  end if
 			  return mClassPtr
@@ -612,10 +612,10 @@ Inherits AppleSKNode
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function particlePosition lib spritekit selector "particlePosition" (id as ptr) as NSPoint
+			    declare function particlePosition lib spritekit selector "particlePosition" (id as ptr) as FoundationFramework.NSPoint
 			    return particlePosition (id)
 			  #elseif Target32Bit
-			    declare function particlePosition lib spritekit selector "particlePosition" (id as ptr) as NSPoint32Bit
+			    declare function particlePosition lib spritekit selector "particlePosition" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return particlePosition(id).toNSPoint
 			  #endif
 			  
@@ -624,16 +624,16 @@ Inherits AppleSKNode
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare sub setParticlePosition lib spritekit selector "setParticlePosition:" (id as ptr, value as NSPoint)
+			    declare sub setParticlePosition lib spritekit selector "setParticlePosition:" (id as ptr, value as FoundationFramework.NSPoint)
 			    setParticlePosition id, value
 			  #elseif Target32Bit
-			    declare sub setParticlePosition lib spritekit selector "setParticlePosition:" (id as ptr, value as NSPoint32Bit)
+			    declare sub setParticlePosition lib spritekit selector "setParticlePosition:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setParticlePosition id, value.toNSPoint32
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		ParticlePosition As NSPoint
+		ParticlePosition As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -824,10 +824,10 @@ Inherits AppleSKNode
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function particleSize lib spritekit selector "particleSize" (id as ptr) as NSSize
+			    declare function particleSize lib spritekit selector "particleSize" (id as ptr) as FoundationFramework.NSSize
 			    return particleSize (id)
 			  #elseif Target32Bit
-			    declare function particleSize lib spritekit selector "particleSize" (id as ptr) as NSSize32Bit
+			    declare function particleSize lib spritekit selector "particleSize" (id as ptr) as FoundationFramework.NSSize32Bit
 			    return particleSize(id).toNSSize
 			  #endif
 			  
@@ -836,16 +836,16 @@ Inherits AppleSKNode
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare sub setParticleSize lib spritekit selector "setParticleSize:" (id as ptr, value as NSSize)
+			    declare sub setParticleSize lib spritekit selector "setParticleSize:" (id as ptr, value as FoundationFramework.NSSize)
 			    setParticleSize id, value
 			  #elseif Target32Bit
-			    declare sub setParticleSize lib spritekit selector "setParticleSize:" (id as ptr, value as NSSize32Bit)
+			    declare sub setParticleSize lib spritekit selector "setParticleSize:" (id as ptr, value as FoundationFramework.NSSize32Bit)
 			    setParticleSize id, value.toNSSize32
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		ParticleSize As NSSize
+		ParticleSize As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1105,6 +1105,16 @@ Inherits AppleSKNode
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="EmissionAngle"
 			Group="Behavior"
 			Type="Double"
@@ -1116,6 +1126,11 @@ Inherits AppleSKNode
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ExecutesActions"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -1132,11 +1147,31 @@ Inherits AppleSKNode
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -1314,6 +1349,11 @@ Inherits AppleSKNode
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

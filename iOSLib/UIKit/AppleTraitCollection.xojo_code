@@ -79,7 +79,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UITraitCollection")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UITraitCollection")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

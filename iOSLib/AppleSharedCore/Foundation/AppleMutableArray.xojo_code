@@ -9,14 +9,14 @@ Inherits AppleArray
 
 	#tag Method, Flags = &h0
 		Sub AddPtr(anObject as Ptr)
-		  Declare Sub addObject lib FoundationLib  selector "addObject:" (id as ptr, value as ptr)
+		  Declare Sub addObject lib FoundationLibName  selector "addObject:" (id as ptr, value as ptr)
 		  addObject (id, anObject)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub AddText(aText as CFStringREf)
-		  Declare Sub addObject lib FoundationLib  selector "addObject:" (id as ptr, value as cfstringref)
+		  Declare Sub addObject lib FoundationLibName  selector "addObject:" (id as ptr, value as cfstringref)
 		  addObject (id, atext)
 		End Sub
 	#tag EndMethod
@@ -102,7 +102,7 @@ Inherits AppleArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function NSPointArray(Pointarray() as NSPOint) As AppleMutableArray
+		 Shared Function NSPointArray(Pointarray() as Foundationframework.NSPoint) As AppleMutableArray
 		  dim count as uinteger = pointarray.Ubound + 1
 		  dim myarray as new AppleMutableArray (count)
 		  for q as uinteger = 1 to count
@@ -126,7 +126,7 @@ Inherits AppleArray
 
 	#tag Method, Flags = &h0
 		Sub RemoveObjectAtIndex(Index as uinteger)
-		  Declare sub removeObjectAtIndex lib FoundationLib  selector "removeObjectAtIndex:" (id as ptr, index as uinteger)
+		  Declare sub removeObjectAtIndex lib FoundationLibName  selector "removeObjectAtIndex:" (id as ptr, index as uinteger)
 		  removeObjectAtIndex id, index
 		End Sub
 	#tag EndMethod
@@ -146,7 +146,7 @@ Inherits AppleArray
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSMutableArray")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSMutableArray")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

@@ -10,24 +10,24 @@ Inherits AppleCALayer
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ScrollToPoint(aPoint as NSPoint)
+		Sub ScrollToPoint(aPoint as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub scrollToPoint lib QuartzCoreLib selector "scrollToPoint:" (id as ptr, value as NSPoint)
+		    Declare sub scrollToPoint lib QuartzCoreLib selector "scrollToPoint:" (id as ptr, value as FoundationFramework.NSPoint)
 		    scrollToPoint id, aPoint
 		  #elseif Target32Bit
-		    Declare sub scrollToPoint lib QuartzCoreLib selector "scrollToPoint:" (id as ptr, value as NSPoint32Bit)
+		    Declare sub scrollToPoint lib QuartzCoreLib selector "scrollToPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 		    scrollToPoint id, aPoint.toNSPoint32
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ScrollToRect(aRect as NSRect)
+		Sub ScrollToRect(aRect as FoundationFramework.NSRect)
 		  #if Target64Bit
-		    Declare sub scrollToRect lib QuartzCoreLib selector "scrollToRect:" (id as ptr, value as NSRect)
+		    Declare sub scrollToRect lib QuartzCoreLib selector "scrollToRect:" (id as ptr, value  as FoundationFramework.NSRect)
 		    scrollToRect id, aRect
 		  #elseif Target32Bit
-		    Declare sub scrollToRect lib QuartzCoreLib selector "scrollToRect:" (id as ptr, value as NSRect32Bit)
+		    Declare sub scrollToRect lib QuartzCoreLib selector "scrollToRect:" (id as ptr, value as FoundationFramework.NSRect32Bit)
 		    scrollToRect id, aRect.toNSRect32
 		  #endif
 		End Sub
@@ -37,7 +37,7 @@ Inherits AppleCALayer
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CAScrollLayer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CAScrollLayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

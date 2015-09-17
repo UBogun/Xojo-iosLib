@@ -3,7 +3,7 @@ Protected Class AppleAVQueuePlayer
 Inherits AppleAVPlayer
 	#tag Method, Flags = &h0
 		Sub AdvanceToNextItem()
-		  Declare sub advanceToNextItem lib AVFoundationLib selector "advanceToNextItem:" (id as ptr)
+		  Declare sub advanceToNextItem lib AVFoundationLibName selector "advanceToNextItem:" (id as ptr)
 		  advanceToNextItem id
 		End Sub
 	#tag EndMethod
@@ -22,7 +22,7 @@ Inherits AppleAVPlayer
 
 	#tag Method, Flags = &h0
 		Function CanInsertItem(Item As AppleAVPlayerItem, AfterItem as AppleAVPlayerItem) As Boolean
-		  Declare function canInsertItem lib AVFoundationLib selector "canInsertItem:afterItem:" (id as ptr, item as ptr, afterItem as Ptr) as boolean
+		  Declare function canInsertItem lib AVFoundationLibName selector "canInsertItem:afterItem:" (id as ptr, item as ptr, afterItem as Ptr) as boolean
 		  return canInsertItem ( id, item.id, if (AfterItem = Nil, Nil, AfterItem.id))
 		End Function
 	#tag EndMethod
@@ -35,7 +35,7 @@ Inherits AppleAVPlayer
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(anArray as AppleArray)
-		  declare function initWithItems lib AVFoundationLib selector "initWithItems:" (id as ptr, items as ptr) as ptr
+		  declare function initWithItems lib AVFoundationLibName selector "initWithItems:" (id as ptr, items as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -58,21 +58,21 @@ Inherits AppleAVPlayer
 
 	#tag Method, Flags = &h0
 		Sub InsertItem(Item As AppleAVPlayerItem, AfterItem as AppleAVPlayerItem)
-		  Declare sub insertItem lib AVFoundationLib selector "insertItem:afterItem:" (id as ptr, item as ptr, afterItem as Ptr)
+		  Declare sub insertItem lib AVFoundationLibName selector "insertItem:afterItem:" (id as ptr, item as ptr, afterItem as Ptr)
 		  insertItem id, item.id, if (AfterItem = Nil, Nil, AfterItem.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub RemoveAllItems()
-		  Declare Sub removeAllItems lib AVFoundationLib selector "removeAllItems" (id as ptr)
+		  Declare Sub removeAllItems lib AVFoundationLibName selector "removeAllItems" (id as ptr)
 		  removeAllItems (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub RemoveItem(Item As AppleAVPlayerItem)
-		  Declare sub removeItem lib AVFoundationLib selector "removeItem:" (id as ptr, item as ptr)
+		  Declare sub removeItem lib AVFoundationLibName selector "removeItem:" (id as ptr, item as ptr)
 		  removeItem id, item.id
 		End Sub
 	#tag EndMethod
@@ -81,7 +81,7 @@ Inherits AppleAVPlayer
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("AVQueuePlayer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("AVQueuePlayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -91,7 +91,7 @@ Inherits AppleAVPlayer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function items lib AVFoundationLib selector "items" (id as ptr) as Ptr
+			  Declare function items lib AVFoundationLibName selector "items" (id as ptr) as Ptr
 			  return AppleArray.makefromPtr (items (id))
 			End Get
 		#tag EndGetter
@@ -145,6 +145,12 @@ Inherits AppleAVPlayer
 			Name="ExternalPlaybackVideoGravity"
 			Group="Behavior"
 			Type="AVLayerGravity"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Fill"
+				"1 - FitProportional"
+				"2 - FillProportional"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ExternalPlaybackWhileExternalScreenActive"

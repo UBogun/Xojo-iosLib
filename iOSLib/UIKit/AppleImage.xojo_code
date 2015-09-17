@@ -221,60 +221,60 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub DrawAsPatternInRect(Rect As NSRect)
+		Sub DrawAsPatternInRect(Rect as FoundationFramework.NSRect)
 		  #if Target64Bit
-		    Declare sub drawAsPatternInRect lib UIKit selector "drawAsPatternInRect:" (id as ptr, Rect as NSRect)
+		    Declare sub drawAsPatternInRect lib UIKit selector "drawAsPatternInRect:" (id as ptr, Rect  as FoundationFramework.NSRect)
 		    drawAsPatternInRect (id, rect)
 		  #elseif Target32Bit
-		    Declare sub drawAsPatternInRect lib UIKit selector "drawAsPatternInRect:" (id as ptr, Rect as NSRect32Bit)
+		    Declare sub drawAsPatternInRect lib UIKit selector "drawAsPatternInRect:" (id as ptr, Rect as FoundationFramework.NSRect32Bit)
 		    drawAsPatternInRect (id, rect.toNSRect32)
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub DrawAtPoint(Point As NSPoint)
+		Sub DrawAtPoint(Point As FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub drawAtPoint lib UIKit selector "drawAtPoint:" (id as ptr, point as NSPoint)
+		    Declare sub drawAtPoint lib UIKit selector "drawAtPoint:" (id as ptr, point as FoundationFramework.NSPoint)
 		    drawAtPoint (id, point)
 		  #elseif Target32Bit
-		    Declare sub drawAtPoint lib UIKit selector "drawAtPoint:" (id as ptr, point as NSPoint32Bit)
+		    Declare sub drawAtPoint lib UIKit selector "drawAtPoint:" (id as ptr, point as FoundationFramework.NSPoint32Bit)
 		    drawAtPoint (id, point.toNSPoint32)
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub DrawAtPoint(Point As NSPoint, BlendMode as CGBlendMode, Alpha as Double = 1)
+		Sub DrawAtPoint(Point As FoundationFramework.NSPoint, BlendMode as CGBlendMode, Alpha as Double = 1)
 		  #if Target64Bit
-		    Declare sub drawAtPointblendMode lib UIKit selector "drawAtPoint:blendMode:alpha:" (id as ptr, point as NSPoint, blendmode as CGBlendMode, alpha as double)
+		    Declare sub drawAtPointblendMode lib UIKit selector "drawAtPoint:blendMode:alpha:" (id as ptr, point as FoundationFramework.NSPoint, blendmode as CGBlendMode, alpha as double)
 		    drawAtPointblendMode (id, point, blendmode, alpha)
 		  #elseif Target32Bit
-		    Declare sub drawAtPointblendMode lib UIKit selector "drawAtPoint:blendMode:alpha:" (id as ptr, point as NSPoint32Bit,  blendmode as CGBlendMode, alpha as single)
+		    Declare sub drawAtPointblendMode lib UIKit selector "drawAtPoint:blendMode:alpha:" (id as ptr, point as FoundationFramework.NSPoint32Bit,  blendmode as CGBlendMode, alpha as single)
 		    drawAtPointblendMode (id, point.toNSPoint32, blendmode, alpha)
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub DrawInRect(Rect As NSRect)
+		Sub DrawInRect(Rect as FoundationFramework.NSRect)
 		  #if Target64Bit
-		    Declare sub drawInRect lib UIKit selector "drawInRect:" (id as ptr, Rect as NSRect)
+		    Declare sub drawInRect lib UIKit selector "drawInRect:" (id as ptr, Rect  as FoundationFramework.NSRect)
 		    drawInRect (id, rect)
 		  #elseif Target32Bit
-		    Declare sub drawInRect lib UIKit selector "drawInRect:" (id as ptr, Rect as NSRect32Bit)
+		    Declare sub drawInRect lib UIKit selector "drawInRect:" (id as ptr, Rect as FoundationFramework.NSRect32Bit)
 		    drawInRect (id, rect.toNSRect32)
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub DrawInRect(Rect As NSRect, BlendMode as CGBlendMode, Alpha as Double = 1)
+		Sub DrawInRect(Rect as FoundationFramework.NSRect, BlendMode as CGBlendMode, Alpha as Double = 1)
 		  #if Target64Bit
-		    Declare sub drawInRectBlendMode lib UIKit selector "drawInRect:blendMode:alpha:" (id as ptr, Rect as NSRect, blendmode as CGBlendMode, alpha as double)
+		    Declare sub drawInRectBlendMode lib UIKit selector "drawInRect:blendMode:alpha:" (id as ptr, Rect  as FoundationFramework.NSRect, blendmode as CGBlendMode, alpha as double)
 		    drawInRectBlendMode (id, rect, blendmode, alpha)
 		  #elseif Target32Bit
-		    Declare sub drawInRectBlendMode lib UIKit selector "drawInRect:blendMode:alpha:" (id as ptr, Rect as NSRect32Bit, blendmode as CGBlendMode, alpha as single)
+		    Declare sub drawInRectBlendMode lib UIKit selector "drawInRect:blendMode:alpha:" (id as ptr, Rect as FoundationFramework.NSRect32Bit, blendmode as CGBlendMode, alpha as single)
 		    drawInRectBlendMode (id, rect.toNSRect32, blendmode, alpha)
 		  #endif
 		End Sub
@@ -283,7 +283,7 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function FlipHorizontal() As AppleImage
 		  const SEL as text = "imageFlippedForRightToLeftLayoutDirection"
-		  if ObjectiveCRuntime.class_respondsToSelector (classptr, NSSelectorFromString (SEL)) then
+		  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString (SEL)) then
 		    Declare function imageFlippedForRightToLeftLayoutDirection lib UIKit selector "imageFlippedForRightToLeftLayoutDirection" (id as ptr) as ptr
 		    return new AppleImage (imageFlippedForRightToLeftLayoutDirection(id))
 		  end if
@@ -377,7 +377,7 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Resize(NewRect as NSRect) As AppleImage
+		Function Resize(NewRect as FoundationFramework.NSRect) As AppleImage
 		  dim scale as double = min (NewRect.Size_.width / Width, NewRect.Size_.height/Height)
 		  return Resize (scale)
 		End Function
@@ -415,7 +415,7 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub WriteToPhotoAlbum()
 		  dim myDelegate as new iOSLibImageDelegate
-		  UIImageWriteToSavedPhotosAlbum (id, myDelegate.id, NSSelectorFromString ("wroteToPhotoAlbum:error:context:"), nil)
+		  UIImageWriteToSavedPhotosAlbum (id, myDelegate.id, FoundationFramework.NSSelectorFromString ("wroteToPhotoAlbum:error:context:"), nil)
 		End Sub
 	#tag EndMethod
 
@@ -463,7 +463,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static targetID as ptr = NSClassFromString ("UIImage")
+			  static targetID as ptr = FoundationFramework.NSClassFromString ("UIImage")
 			  return targetID
 			  
 			End Get
@@ -485,7 +485,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  const SEL as text = "flipsForRightToLeftLayoutDirection"
-			  if ObjectiveCRuntime.class_respondsToSelector (classptr, NSSelectorFromString (SEL)) then
+			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString (SEL)) then
 			    Declare function flipsForRightToLeftLayoutDirection lib UIKit selector "flipsForRightToLeftLayoutDirection" (id as ptr) as Boolean
 			    return  (flipsForRightToLeftLayoutDirection(id))
 			  end if
@@ -589,7 +589,7 @@ Inherits AppleObject
 			  return getSize
 			End Get
 		#tag EndGetter
-		Size As NSSize
+		Size As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

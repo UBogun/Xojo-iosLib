@@ -11,7 +11,7 @@ Implements AppleNSEventReceiver
 
 	#tag Event
 		Function CreateView() As UInteger
-		  dim frame as  NSRect = nsrect (0,0,100,100)
+		  dim frame as  FoundationFrameWork.NSRect = FoundationFrameWork.NSMakeRect (0,0,100,100)
 		  viewobject = new AppleTextField1 (frame, self)
 		  ViewObject.AutoRelease
 		  Return UInteger(viewobject.id)
@@ -24,7 +24,7 @@ Implements AppleNSEventReceiver
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_layerClass(id as ptr, sel as ptr) As Ptr
-		  return NSClassFromString ("CATiledLayer")
+		  return FoundationFramework.NSClassFromString ("CATiledLayer")
 		  
 		  #Pragma Unused id
 		  #Pragma Unused  sel

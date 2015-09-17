@@ -9,36 +9,36 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function BodyAlongRay(startPoint as NSPoint, endPoint as NSPoint) As AppleSKPhysicsBody
+		Function BodyAlongRay(startPoint as FoundationFramework.NSPoint, endPoint as FoundationFramework.NSPoint) As AppleSKPhysicsBody
 		  #if Target64Bit
-		    Declare Function bodyAlongRay lib SpriteKit selector "bodyAlongRayStart:end:" (id as ptr, startPoint as NSPoint, endPoint as NSPoint) as Ptr
+		    Declare Function bodyAlongRay lib SpriteKit selector "bodyAlongRayStart:end:" (id as ptr, startPoint as FoundationFramework.NSPoint, endPoint as FoundationFramework.NSPoint) as Ptr
 		    return AppleSKPhysicsBody.MakeFromPtr (bodyAlongRay (id, startPoint, endPoint))
 		  #elseif Target32Bit
-		    Declare Function bodyAlongRay lib SpriteKit selector "bodyAlongRayStart:end:" (id as ptr, startPoint as NSPoint32Bit, endPoint as NSPoint32Bit) as Ptr
+		    Declare Function bodyAlongRay lib SpriteKit selector "bodyAlongRayStart:end:" (id as ptr, startPoint as FoundationFramework.NSPoint32Bit, endPoint as FoundationFramework.NSPoint32Bit) as Ptr
 		    return AppleSKPhysicsBody.MakeFromPtr (bodyAlongRay (id, startPoint.toNSPoint32, endPoint.toNSPoint32))
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function BodyAtPoint(aPoint as NSPoint) As AppleSKPhysicsBody
+		Function BodyAtPoint(aPoint as FoundationFramework.NSPoint) As AppleSKPhysicsBody
 		  #if Target64Bit
-		    Declare Function bodyAtPoint lib SpriteKit selector "bodyAtPoint:" (id as ptr, aPoint as NSPoint) as Ptr
+		    Declare Function bodyAtPoint lib SpriteKit selector "bodyAtPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint) as Ptr
 		    return AppleSKPhysicsBody.MakeFromPtr (bodyAtPoint (id, aPoint))
 		  #elseif Target32Bit
-		    Declare Function bodyAtPoint lib SpriteKit selector "bodyAtPoint:" (id as ptr, aPoint as NSPoint32Bit) as Ptr
+		    Declare Function bodyAtPoint lib SpriteKit selector "bodyAtPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit) as Ptr
 		    return AppleSKPhysicsBody.MakeFromPtr (bodyAtPoint (id, aPoint.toNSPoint32))
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function BodyInRect(aRect As NSRect) As AppleSKPhysicsBody
+		Function BodyInRect(aRect as FoundationFramework.NSRect) As AppleSKPhysicsBody
 		  #if Target64Bit
-		    Declare Function bodyInRect lib SpriteKit selector "bodyInRect:" (id as ptr, aRect as NSRect) as Ptr
+		    Declare Function bodyInRect lib SpriteKit selector "bodyInRect:" (id as ptr, aRect  as FoundationFramework.NSRect) as Ptr
 		    return AppleSKPhysicsBody.MakeFromPtr (bodyInRect (id, aRect))
 		  #elseif Target32Bit
-		    Declare Function bodyInRect lib SpriteKit selector "bodyInRect:" (id as ptr, aRect as NSRect32Bit) as Ptr
+		    Declare Function bodyInRect lib SpriteKit selector "bodyInRect:" (id as ptr, aRect as FoundationFramework.NSRect32Bit) as Ptr
 		    return AppleSKPhysicsBody.MakeFromPtr (bodyInRect (id, aRect.toNSRect32))
 		  #endif
 		End Function
@@ -59,42 +59,42 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RunBlockOnBodiesAlongRay(startPoint as NSPoint, endPoint as NSPoint, block as AppleBlock) As AppleSKPhysicsBody
+		Function RunBlockOnBodiesAlongRay(startPoint as FoundationFramework.NSPoint, endPoint as FoundationFramework.NSPoint, block as AppleBlock) As AppleSKPhysicsBody
 		  #if Target64Bit
 		    Declare Sub enumerateBodiesAlongRay lib SpriteKit selector "enumerateBodiesAlongRayStart:end:usingBlock:" _
-		    (id as ptr, startPoint as NSPoint, endPoint as NSPoint, block as ptr)
+		    (id as ptr, startPoint as FoundationFramework.NSPoint, endPoint as FoundationFramework.NSPoint, block as ptr)
 		    enumerateBodiesAlongRay (id, startPoint, endPoint, block.Handle)
 		  #elseif Target32Bit
 		    Declare Sub enumerateBodiesAlongRay lib SpriteKit selector "enumerateBodiesAlongRayStart:end:usingBlock:" _
-		    (id as ptr, startPoint as NSPoint32Bit, endPoint as NSPoint32Bit, block as ptr)
+		    (id as ptr, startPoint as FoundationFramework.NSPoint32Bit, endPoint as FoundationFramework.NSPoint32Bit, block as ptr)
 		    enumerateBodiesAlongRay (id, startPoint.toNSPoint32, endPoint.toNSPoint32, block.Handle)
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RunBlockOnBodiesAtPoint(aPoint as NSPoint, block as AppleBlock) As AppleSKPhysicsBody
+		Function RunBlockOnBodiesAtPoint(aPoint as FoundationFramework.NSPoint, block as AppleBlock) As AppleSKPhysicsBody
 		  #if Target64Bit
 		    Declare Sub enumerateBodiesAtPoint lib SpriteKit selector "enumerateBodiesAtPoint:usingBlock:" _
-		    (id as ptr, atPoint as NSPoint, block as ptr)
+		    (id as ptr, atPoint as FoundationFramework.NSPoint, block as ptr)
 		    enumerateBodiesAtPoint (id, aPoint, block.Handle)
 		  #elseif Target32Bit
 		    Declare Sub enumerateBodiesAtPoint lib SpriteKit selector "enumerateBodiesAtPoint:usingBlock:" _
-		    (id as ptr, aPoint as NSPoint32Bit,  block as ptr)
+		    (id as ptr, aPoint as FoundationFramework.NSPoint32Bit,  block as ptr)
 		    enumerateBodiesAtPoint (id, aPoint.toNSPoint32, block.Handle)
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RunBlockOnBodiesInRect(aRect as NSRect, block as AppleBlock) As AppleSKPhysicsBody
+		Function RunBlockOnBodiesInRect(aRect as FoundationFramework.NSRect, block as AppleBlock) As AppleSKPhysicsBody
 		  #if Target64Bit
 		    Declare Sub enumerateBodiesInRect lib SpriteKit selector "enumerateBodiesInRect:usingBlock:" _
-		    (id as ptr, aRect as NSRect, block as ptr)
+		    (id as ptr, aRect  as FoundationFramework.NSRect, block as ptr)
 		    enumerateBodiesInRect (id, aRect, block.Handle)
 		  #elseif Target32Bit
 		    Declare Sub enumerateBodiesInRect lib SpriteKit selector "enumerateBodiesInRect:usingBlock:" _
-		    (id as ptr, aRect as NSRect32Bit,  block as ptr)
+		    (id as ptr, aRect as FoundationFramework.NSRect32Bit,  block as ptr)
 		    enumerateBodiesInRect (id, aRect.toNSRect32, block.Handle)
 		  #endif
 		End Function
@@ -109,7 +109,7 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub RunBlockRayTemplate32Bit(Body as ptr, ContactPoint as NSPoint32Bit, Normal as CGVector32Bit, byref stop as Boolean)
+		Private Shared Sub RunBlockRayTemplate32Bit(Body as ptr, ContactPoint as FoundationFramework.NSPoint32Bit, Normal as CGVector32Bit, byref stop as Boolean)
 		  dim PhysicsBody as AppleSKPhysicsBody = AppleSKPhysicsBody.MakeFromPtr (body)
 		  // here you can evalue the point in screen coordinates where the ray hit and the distance from its startpoint to contactpoint
 		  // if you want to stop further body processing, set stop = True
@@ -117,7 +117,7 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub RunBlockRayTemplate64Bit(Body as ptr, ContactPoint as NSPoint, Normal as CGVector, byref stop as Boolean)
+		Private Shared Sub RunBlockRayTemplate64Bit(Body as ptr, ContactPoint as FoundationFramework.NSPoint, Normal as CGVector, byref stop as Boolean)
 		  dim PhysicsBody as AppleSKPhysicsBody = AppleSKPhysicsBody.MakeFromPtr (body)
 		  // here you can evalue the point in screen coordinates where the ray hit and the distance from its startpoint to contactpoint
 		  // if you want to stop further body processing, set stop = True
@@ -125,7 +125,7 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SampleFields(Position as NSPoint) As CGVector
+		Function SampleFields(Position as FoundationFramework.NSPoint) As CGVector
 		  dim Vector as  Vector_Float3
 		  Vector.x = Position.x
 		  Vector.y = Position.y
@@ -148,7 +148,7 @@ Inherits AppleObject
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKPhysicsWorld")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKPhysicsWorld")
 			    end if
 			  end if
 			  return mClassPtr
@@ -231,6 +231,21 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -238,11 +253,26 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

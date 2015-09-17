@@ -49,12 +49,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function CropToRect(aRect as NSRect) As AppleCIImage
+		Function CropToRect(aRect as FoundationFramework.NSRect) As AppleCIImage
 		  #if Target64Bit
-		    Declare function imageByCroppingToRect lib CoreImage selector "imageByCroppingToRect:" (id as ptr, aRect as NSRect) as ptr
+		    Declare function imageByCroppingToRect lib CoreImage selector "imageByCroppingToRect:" (id as ptr, aRect  as FoundationFramework.NSRect) as ptr
 		    return new AppleCIImage( imageByCroppingToRect (id, aRect))
 		  #elseif Target32Bit
-		    Declare function imageByCroppingToRect lib CoreImage selector "imageByCroppingToRect:" (id as ptr, aRect as NSRect32Bit) as ptr
+		    Declare function imageByCroppingToRect lib CoreImage selector "imageByCroppingToRect:" (id as ptr, aRect as FoundationFramework.NSRect32Bit) as ptr
 		    return new AppleCIImage( imageByCroppingToRect (id, aRect.toNSRect32))
 		  #endif
 		End Function
@@ -70,7 +70,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CIImage")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CIImage")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -81,15 +81,15 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function extent lib CoreImage selector "extent" (id as ptr) as NSRect
+			    declare function extent lib CoreImage selector "extent" (id as ptr)  as FoundationFramework.NSRect
 			    return extent (id)
 			  #elseif Target32Bit
-			    Declare function extent lib coreimage selector "extent" (id as ptr) as NSRect32Bit
+			    Declare function extent lib coreimage selector "extent" (id as ptr) as FoundationFramework.NSRect32Bit
 			    return extent(id).toNSRect
 			  #endif
 			End Get
 		#tag EndGetter
-		Extent As NSRect
+		Extent As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

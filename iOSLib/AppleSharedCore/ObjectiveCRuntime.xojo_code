@@ -3,13 +3,13 @@ Protected Module ObjectiveCRuntime
 	#tag Method, Flags = &h0
 		Function BuildTargetClass(superClassName as Text, newClassName as Text, methods() as TargetClassMethodHelper) As ptr
 		  dim result as Ptr
-		  dim superClassptr as ptr = NSClassFromString (superClassName)
+		  dim superClassptr as ptr = FoundationFramework.NSClassFromString (superClassName)
 		  dim classmethods() as TargetClassMethodHelper
 		  result = objc_allocateClassPair(superClassptr, newClassName.ToCString(StandardTextEncoding), 0)
 		  
 		  for i as Integer = 0 to methods.Ubound
 		    dim method as TargetClassMethodHelper = methods(i)
-		    dim SEL as Ptr = NSSelectorFromString (method.selName)
+		    dim SEL as Ptr = FoundationFramework.NSSelectorFromString (method.selName)
 		    if method.ReplaceMethod then
 		      if method.ClassMethod then
 		        classmethods.Append method
@@ -24,9 +24,9 @@ Protected Module ObjectiveCRuntime
 		      end if
 		      
 		    else
-		      if not class_addMethod(result,NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) then
+		      if not class_addMethod(result,FoundationFramework.NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) then
 		        // couldn't add, try to replace
-		        if  class_replaceMethod(result,NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) = NIL then
+		        if  class_replaceMethod(result,FoundationFramework.NSSelectorFromString(methods(i).selName), methods(i).impl, methods(i).charCode.ToCString(StandardTextEncoding)) = NIL then
 		          MakeException ( "unable to add or replace custom class method: "+Methods(i).selName)
 		        end if
 		      end if
@@ -40,7 +40,7 @@ Protected Module ObjectiveCRuntime
 		  if classmethods.Ubound > -1 then
 		    for q as uinteger = 0 to classmethods.Ubound
 		      dim method as TargetClassMethodHelper = classmethods (q)
-		      dim SEL as Ptr = NSSelectorFromString (method.selName)
+		      dim SEL as Ptr = FoundationFramework.NSSelectorFromString (method.selName)
 		      call ObjectiveCRuntime.class_addMethod (mymetaclassptr, SEL, method.impl, method.charCode.ToCString (StandardTextEncoding))
 		      // dim OriginalMethod as ptr =  ObjectiveCRuntime.class_getInstanceMethod (mymetaclassptr, SEL)
 		      // dim myclassmethod as ptr = ObjectiveCRuntime.class_getMethodImplementation (metaclassptr, sel)
@@ -65,7 +65,7 @@ Protected Module ObjectiveCRuntime
 		Function BuildTargetClass(superClassName as Text, newClassName as Text, methods() as TargetClassMethodHelper, Protocols() As Text) As ptr
 		  dim result as Ptr = BuildTargetClass (superClassName, newClassName, Methods)
 		  for q as uinteger= 0 to Protocols.Ubound
-		    if not class_addProtocol (result, NSProtocolFromString (Protocols(q))) then
+		    if not class_addProtocol (result, FoundationFramework.NSProtocolFromString (Protocols(q))) then
 		      AppleLibSystem.MakeException ( "Couldn't add protocol "+Protocols(q)+" to class "+newClassName)
 		    end if
 		  next

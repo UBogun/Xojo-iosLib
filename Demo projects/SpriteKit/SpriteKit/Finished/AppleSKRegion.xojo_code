@@ -25,12 +25,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(asize as NSSize)
+		Sub Constructor(asize as FoundationFramework.NSSize)
 		  #if Target64bit
-		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as nssize) as ptr
+		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as FoundationFramework.NSSize) as ptr
 		    super.Constructor(initWithSize(alloc(ClassPtr), asize))
 		  #elseif Target32Bit
-		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as NSSize32Bit) as ptr
+		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as FoundationFramework.NSSize32Bit) as ptr
 		    super.Constructor(initWithSize(alloc(ClassPtr), asize.toNSSize32))
 		  #endif
 		  mHasOwnership = true
@@ -48,12 +48,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ContainsPoint(aPoint as NSPoint) As Boolean
+		Function ContainsPoint(aPoint as FoundationFramework.NSPoint) As Boolean
 		  #if Target64Bit
-		    declare Function containsPoint lib SpriteKit selector "containsPoint:" (id as ptr, aPoint as NSPoint) as Boolean
+		    declare Function containsPoint lib SpriteKit selector "containsPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint) as Boolean
 		    return containsPoint (id, apoint)
 		  #elseif Target32Bit
-		    declare Function containsPoint lib SpriteKit selector "containsPoint:" (id as ptr, aPoint as NSPoint32Bit) as Boolean
+		    declare Function containsPoint lib SpriteKit selector "containsPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit) as Boolean
 		    return containsPoint (id, apoint.toNSPoint32)
 		  #endif
 		End Function
@@ -95,7 +95,7 @@ Inherits AppleObject
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKRegion")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKRegion")
 			    end if
 			  end if
 			  return mClassPtr
@@ -127,6 +127,21 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -134,11 +149,26 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

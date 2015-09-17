@@ -108,7 +108,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIViewController")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIViewController")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

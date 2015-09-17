@@ -64,7 +64,7 @@ Inherits AppleCAAnimation
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CAAnimationGroup")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CAAnimationGroup")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

@@ -91,48 +91,48 @@ Inherits AppleResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ContainsPoint(aPoint as NSPoint) As Boolean
+		Function ContainsPoint(aPoint as FoundationFramework.NSPoint) As Boolean
 		  #if Target64Bit
-		    declare Function containsPoint lib SpriteKit selector "containsPoint:" (id as ptr, aPoint as NSPoint) as Boolean
+		    declare Function containsPoint lib SpriteKit selector "containsPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint) as Boolean
 		    return containsPoint (id, apoint)
 		  #elseif Target32Bit
-		    declare Function containsPoint lib SpriteKit selector "containsPoint:" (id as ptr, aPoint as NSPoint32Bit) as Boolean
+		    declare Function containsPoint lib SpriteKit selector "containsPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit) as Boolean
 		    return containsPoint (id, apoint.toNSPoint32)
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointFromNode(aPoint as NSPoint, aNode as AppleSKNode) As NSPoint
+		Function ConvertPointFromNode(aPoint as FoundationFramework.NSPoint, aNode as AppleSKNode) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointfromNode lib SpriteKit selector "convertPoint:fromNode:" (id as ptr, aPoint as NSPoint, aNode as ptr) as NSPoint
+		    declare Function convertPointfromNode lib SpriteKit selector "convertPoint:fromNode:" (id as ptr, aPoint as FoundationFramework.NSPoint, aNode as ptr) as FoundationFramework.NSPoint
 		    return convertPointfromNode (id, apoint, aNode.id)
 		  #elseif Target32Bit
-		    declare Function convertPointfromNode lib SpriteKit selector "convertPoint:fromNode:" (id as ptr, aPoint as NSPoint32Bit, aNode as ptr) as NSPoint32Bit
-		    return convertPointfromNode (id, apoint.toNSPoint32, aNode.id).tonspoint
+		    declare Function convertPointfromNode lib SpriteKit selector "convertPoint:fromNode:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aNode as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointfromNode (id, apoint.toNSPoint32, aNode.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointToNode(aPoint as NSPoint, aNode as AppleSKNode) As NSPoint
+		Function ConvertPointToNode(aPoint as FoundationFramework.NSPoint, aNode as AppleSKNode) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointtoNode lib SpriteKit selector "convertPoint:toNode:" (id as ptr, aPoint as NSPoint, aNode as ptr) as NSPoint
+		    declare Function convertPointtoNode lib SpriteKit selector "convertPoint:toNode:" (id as ptr, aPoint as FoundationFramework.NSPoint, aNode as ptr) as FoundationFramework.NSPoint
 		    return convertPointtoNode (id, apoint, aNode.id)
 		  #elseif Target32Bit
-		    declare Function convertPointtoNode lib SpriteKit selector "convertPoint:toNode:" (id as ptr, aPoint as NSPoint32Bit, aNode as ptr) as NSPoint32Bit
-		    return convertPointtoNode (id, apoint.toNSPoint32, aNode.id).tonspoint
+		    declare Function convertPointtoNode lib SpriteKit selector "convertPoint:toNode:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aNode as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointtoNode (id, apoint.toNSPoint32, aNode.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getAnchorPoint() As NSPoint
+		Protected Function getAnchorPoint() As FoundationFramework.NSPoint
 		  #if target32bit
-		    DEclare Function anchorPoint lib SpriteKit selector "anchorPoint" (id as ptr) as NSPoint32Bit
+		    DEclare Function anchorPoint lib SpriteKit selector "anchorPoint" (id as ptr) as FoundationFramework.NSPoint32Bit
 		    return anchorPoint(id).toNSPoint
 		  #elseif Target64Bit
-		    DEclare Function anchorPoint lib SpriteKit selector "anchorPoint" (id as ptr) as NSPoint
+		    DEclare Function anchorPoint lib SpriteKit selector "anchorPoint" (id as ptr) as FoundationFramework.NSPoint
 		    return anchorPoint (id)
 		  #endif
 		End Function
@@ -153,12 +153,12 @@ Inherits AppleResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getCenterRect() As NSRect
+		Protected Function getCenterRect() As FoundationFramework.NSRect
 		  #if target32bit
-		    DEclare Function centerRect lib SpriteKit selector "centerRect" (id as ptr) as NSRect32Bit
+		    DEclare Function centerRect lib SpriteKit selector "centerRect" (id as ptr) as FoundationFramework.NSRect32Bit
 		    return centerRect(id).toNSRect
 		  #elseif Target64Bit
-		    DEclare Function centerRect lib SpriteKit selector "centerRect" (id as ptr) as NSRect
+		    DEclare Function centerRect lib SpriteKit selector "centerRect" (id as ptr)  as FoundationFramework.NSRect
 		    return centerRect (id)
 		  #endif
 		End Function
@@ -206,24 +206,24 @@ Inherits AppleResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function NodeAtPoint(aPoint as NSPoint) As AppleSKNode
+		Function NodeAtPoint(aPoint as FoundationFramework.NSPoint) As AppleSKNode
 		  #if Target64Bit
-		    declare Function nodeAtPoint lib SpriteKit selector "nodeAtPoint:" (id as ptr, aPoint as NSPoint) as Ptr
+		    declare Function nodeAtPoint lib SpriteKit selector "nodeAtPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint) as Ptr
 		    return AppleSKNode.MakeFromPtr (nodeAtPoint (id, apoint))
 		  #elseif Target32Bit
-		    declare Function nodeAtPoint lib SpriteKit selector "nodeAtPoint:" (id as ptr, aPoint as NSPoint32Bit) as Ptr
+		    declare Function nodeAtPoint lib SpriteKit selector "nodeAtPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit) as Ptr
 		    return AppleSKNode.MakeFromPtr ( nodeAtPoint (id, apoint.toNSPoint32))
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function NodesAtPoint(aPoint as NSPoint) As AppleArray
+		Function NodesAtPoint(aPoint as FoundationFramework.NSPoint) As AppleArray
 		  #if Target64Bit
-		    declare Function nodesAtPoint lib SpriteKit selector "nodesAtPoint:" (id as ptr, aPoint as NSPoint) as Ptr
+		    declare Function nodesAtPoint lib SpriteKit selector "nodesAtPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint) as Ptr
 		    return AppleArray.MakeFromPtr (nodesAtPoint (id, apoint))
 		  #elseif Target32Bit
-		    declare Function nodesAtPoint lib SpriteKit selector "nodesAtPoint:" (id as ptr, aPoint as NSPoint32Bit) as Ptr
+		    declare Function nodesAtPoint lib SpriteKit selector "nodesAtPoint:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit) as Ptr
 		    return AppleArray.MakeFromPtr ( nodesAtPoint (id, apoint.toNSPoint32))
 		  #endif
 		End Function
@@ -327,12 +327,12 @@ Inherits AppleResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setAnchorPoint(value as NSPoint)
+		Protected Sub setAnchorPoint(value as FoundationFramework.NSPoint)
 		  #if target32bit
-		    DEclare Sub setAnchorPoint lib SpriteKit selector "setAnchorPoint:" (id as ptr, value as NSPoint32Bit)
+		    DEclare Sub setAnchorPoint lib SpriteKit selector "setAnchorPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 		    setAnchorPoint id, value.toNSPoint32
 		  #elseif Target64Bit
-		    DEclare Sub setAnchorPoint lib SpriteKit selector "setAnchorPoint:" (id as ptr, value as NSPoint)
+		    DEclare Sub setAnchorPoint lib SpriteKit selector "setAnchorPoint:" (id as ptr, value as FoundationFramework.NSPoint)
 		    setAnchorPoint id, value
 		  #endif
 		  
@@ -354,12 +354,12 @@ Inherits AppleResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setCenterRect(value as NSRect)
+		Protected Sub setCenterRect(value as FoundationFramework.NSRect)
 		  #if target32bit
-		    DEclare Sub setCenterRect lib SpriteKit selector "setCenterRect:" (id as ptr, value as NSRect32Bit)
+		    DEclare Sub setCenterRect lib SpriteKit selector "setCenterRect:" (id as ptr, value as FoundationFramework.NSRect32Bit)
 		    setCenterRect id, value.toNSRect32
 		  #elseif Target64Bit
-		    DEclare Sub setCenterRect lib SpriteKit selector "setCenterRect:" (id as ptr, value as NSRect)
+		    DEclare Sub setCenterRect lib SpriteKit selector "setCenterRect:" (id as ptr, value  as FoundationFramework.NSRect)
 		    setCenterRect id, value
 		  #endif
 		  
@@ -399,16 +399,16 @@ Inherits AppleResponder
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function calculateAccumulatedFrame lib SpriteKit selector "calculateAccumulatedFrame" (id as ptr) as NSRect
+			    declare function calculateAccumulatedFrame lib SpriteKit selector "calculateAccumulatedFrame" (id as ptr)  as FoundationFramework.NSRect
 			    return calculateAccumulatedFrame (id)
 			  #elseif Target32Bit
-			    declare function calculateAccumulatedFrame lib SpriteKit selector "calculateAccumulatedFrame" (id as ptr) as NSRect32Bit
+			    declare function calculateAccumulatedFrame lib SpriteKit selector "calculateAccumulatedFrame" (id as ptr) as FoundationFramework.NSRect32Bit
 			    return calculateAccumulatedFrame(id).toNSRect
 			  #endif
 			  
 			End Get
 		#tag EndGetter
-		AccumulatedFrame As NSRect
+		AccumulatedFrame As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -427,7 +427,7 @@ Inherits AppleResponder
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKNode")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKNode")
 			    end if
 			  end if
 			  return mClassPtr
@@ -471,7 +471,7 @@ Inherits AppleResponder
 			  return UIKitFramework.getFrame (id)
 			End Get
 		#tag EndGetter
-		Frame As NSRect
+		Frame As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -550,10 +550,10 @@ Inherits AppleResponder
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function position lib SpriteKit selector "position" (id as ptr) as NSPoint
+			    declare function position lib SpriteKit selector "position" (id as ptr) as FoundationFramework.NSPoint
 			    return position (id)
 			  #elseif Target32Bit
-			    declare function position lib SpriteKit selector "position" (id as ptr) as NSPoint32Bit
+			    declare function position lib SpriteKit selector "position" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return position(id).toNSPoint
 			  #endif
 			  
@@ -562,16 +562,16 @@ Inherits AppleResponder
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare Sub setPosition lib SpriteKit selector "setPosition:" (id as ptr, value as NSPoint)
+			    declare Sub setPosition lib SpriteKit selector "setPosition:" (id as ptr, value as FoundationFramework.NSPoint)
 			    setPosition (id, value)
 			  #elseif Target32Bit
-			    declare sub setPosition lib SpriteKit selector "setPosition:" (id as ptr, value as NSPoint32Bit)
+			    declare sub setPosition lib SpriteKit selector "setPosition:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setPosition(id, value.toNSPoint32)
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		Position As NSPoint
+		Position As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -790,7 +790,22 @@ Inherits AppleResponder
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ExecutesActions"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -807,11 +822,31 @@ Inherits AppleResponder
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -834,6 +869,11 @@ Inherits AppleResponder
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

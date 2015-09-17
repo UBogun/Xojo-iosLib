@@ -86,14 +86,14 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSPoint() As NSPoint
-		  if count >=2 then return NSPoint (x, y)
+		Function toNSPoint() As FoundationFramework.NSPoint
+		  if count >=2 then return FoundationFrameWork.NSMakePoint (x, y)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSRect() As NSRect
-		  if count >=4 then return NSRect (x, y, z, w)
+		Function toNSRect() As FoundationFramework.NSRect
+		  if count >=4 then return FoundationFrameWork.NSMakeRect (x, y, z, w)
 		End Function
 	#tag EndMethod
 
@@ -101,7 +101,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CIVector")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CIVector")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

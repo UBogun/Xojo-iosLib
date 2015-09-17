@@ -60,7 +60,7 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(anObject as AppleObject, dontRetain as Boolean = false)
 		  if dontRetain then
-		    declare function valueWithNonretainedObject lib FoundationLib  selector "valueWithNonretainedObject:" (id as ptr, value as ptr) as ptr
+		    declare function valueWithNonretainedObject lib FoundationLibName  selector "valueWithNonretainedObject:" (id as ptr, value as ptr) as ptr
 		    super.Constructor (valueWithNonretainedObject (ClassPtr, anObject.id))
 		  else
 		    constructor ( anObject.id, true )
@@ -72,10 +72,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(T as CATransform3D)
 		  #if target32bit
-		    declare function valueWithCATransform3D lib FoundationLib  selector "valueWithCATransform3D:" (id as ptr, value as CATransform3D32Bit) as ptr
+		    declare function valueWithCATransform3D lib FoundationLibName  selector "valueWithCATransform3D:" (id as ptr, value as CATransform3D32Bit) as ptr
 		    super.Constructor (valueWithCATransform3D (ClassPtr, T.toCATransform3D32Bit))
 		  #elseif target64bit
-		    declare function valueWithCATransform3D lib FoundationLib  selector "valueWithCATransform3D:" (id as ptr, value as CATransform3D) as ptr
+		    declare function valueWithCATransform3D lib FoundationLibName  selector "valueWithCATransform3D:" (id as ptr, value as CATransform3D) as ptr
 		    super.Constructor (valueWithCATransform3D (ClassPtr, T))
 		  #endif
 		  me.RetainClassObject
@@ -96,21 +96,21 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(APoint As NSPoint)
+		Sub Constructor(APoint As FoundationFramework.NSPoint)
 		  #if TargetIOS
 		    #if target32bit
-		      declare function valueWithCGPoint lib UIKit  selector "valueWithCGPoint:" (id as ptr, value as NSPoint32Bit) as ptr
+		      declare function valueWithCGPoint lib UIKit  selector "valueWithCGPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit) as ptr
 		      super.Constructor (valueWithCGPoint (ClassPtr, apoint.toNSPoint32))
 		    #elseif target64bit
-		      declare function valueWithCGPoint lib UIKit  selector "valueWithCGPoint:" (id as ptr, value as NSPoint) as ptr
+		      declare function valueWithCGPoint lib UIKit  selector "valueWithCGPoint:" (id as ptr, value as FoundationFramework.NSPoint) as ptr
 		      super.Constructor (valueWithCGPoint (ClassPtr, apoint))
 		    #endif
 		  #elseif TargetMacOS
 		    #if target32bit
-		      declare function valueWithPoint lib FoundationLib  selector "valueWithPoint:" (id as ptr, value as NSPoint32Bit) as ptr
+		      declare function valueWithPoint lib FoundationLibName  selector "valueWithPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit) as ptr
 		      super.Constructor (valueWithPoint (ClassPtr, apoint.toNSPoint32))
 		    #elseif target64bit
-		      declare function valueWithPoint lib FoundationLib  selector "valueWithPoint:" (id as ptr, value as NSPoint) as ptr
+		      declare function valueWithPoint lib FoundationLibName  selector "valueWithPoint:" (id as ptr, value as FoundationFramework.NSPoint) as ptr
 		      super.Constructor (valueWithPoint (ClassPtr, apoint))
 		    #endif
 		  #endif
@@ -119,21 +119,21 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(ARect As NSRect)
+		Sub Constructor(ARect as FoundationFramework.NSRect)
 		  #if TargetIOS
 		    #if target32bit
-		      declare function valueWithCGRect lib UIKit  selector "valueWithCGRect:" (id as ptr, value as NSRect32Bit) as ptr
+		      declare function valueWithCGRect lib UIKit  selector "valueWithCGRect:" (id as ptr, value as FoundationFramework.NSRect32Bit) as ptr
 		      super.Constructor (valueWithCGRect (ClassPtr, aRect.toNSRect32))
 		    #elseif target64bit
-		      declare function valueWithCGRect lib UIKit  selector "valueWithCGRect:" (id as ptr, value as NSRect) as ptr
+		      declare function valueWithCGRect lib UIKit  selector "valueWithCGRect:" (id as ptr, value  as FoundationFramework.NSRect) as ptr
 		      super.Constructor (valueWithCGRect (ClassPtr, aRect))
 		    #endif
 		  #elseif TargetMacOS
 		    #if target32bit
-		      declare function valueWithRect lib FoundationLib  selector "valueWithRect:" (id as ptr, value as NSRect32Bit) as ptr
+		      declare function valueWithRect lib FoundationLibName  selector "valueWithRect:" (id as ptr, value as FoundationFramework.NSRect32Bit) as ptr
 		      super.Constructor (valueWithRect (ClassPtr, aRect.toNSRect32))
 		    #elseif target64bit
-		      declare function valueWithRect lib FoundationLib  selector "valueWithRect:" (id as ptr, value as NSRect) as ptr
+		      declare function valueWithRect lib FoundationLibName  selector "valueWithRect:" (id as ptr, value  as FoundationFramework.NSRect) as ptr
 		      super.Constructor (valueWithRect (ClassPtr, aRect))
 		    #endif
 		  #endif
@@ -142,21 +142,21 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(ASize As NSSize)
+		Sub Constructor(ASize as FoundationFramework.NSSize)
 		  #if targetios
 		    #if target32bit
-		      declare function valueWithCGSize lib UIKit  selector "valueWithCGSize:" (id as ptr, value as NSSize32Bit) as ptr
+		      declare function valueWithCGSize lib UIKit  selector "valueWithCGSize:" (id as ptr, value as FoundationFramework.NSSize32Bit) as ptr
 		      super.Constructor (valueWithCGSize (ClassPtr, aSize.toNSSize32))
 		    #elseif target64bit
-		      declare function valueWithCGSize lib UIKit  selector "valueWithCGSize:" (id as ptr, value as NSSize) as ptr
+		      declare function valueWithCGSize lib UIKit  selector "valueWithCGSize:" (id as ptr, value as FoundationFramework.NSSize) as ptr
 		      super.Constructor (valueWithCGSize (ClassPtr, aSize))
 		    #endif
 		  #elseif targetmacos
 		    #if target32bit
-		      declare function valueWithSize lib FoundationLib  selector "valueWithSize:" (id as ptr, value as NSSize32Bit) as ptr
+		      declare function valueWithSize lib FoundationLibName  selector "valueWithSize:" (id as ptr, value as FoundationFramework.NSSize32Bit) as ptr
 		      super.Constructor (valueWithSize (ClassPtr, aSize.toNSSize32))
 		    #elseif target64bit
-		      declare function valueWithSize lib FoundationLib  selector "valueWithSize:" (id as ptr, value as NSSize) as ptr
+		      declare function valueWithSize lib FoundationLibName  selector "valueWithSize:" (id as ptr, value as FoundationFramework.NSSize) as ptr
 		      super.Constructor (valueWithSize (ClassPtr, aSize))
 		    #endif
 		  #endif
@@ -167,7 +167,7 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub Constructor(anid as ptr, CreateValue As Boolean = False)
 		  if CreateValue then
-		    declare function valueWithPointer lib FoundationLib  selector "valueWithPointer:" (id as ptr, value as ptr) as ptr
+		    declare function valueWithPointer lib FoundationLibName  selector "valueWithPointer:" (id as ptr, value as ptr) as ptr
 		    super.Constructor (valueWithPointer (ClassPtr, anid))
 		  else
 		    super.constructor ( anid )
@@ -178,7 +178,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function Equals(anotherValue as AppleValue) As Boolean
-		  declare function isEqualToValue lib FoundationLib  selector "isEqualToValue:" (id as ptr, value as Ptr) as Boolean
+		  declare function isEqualToValue lib FoundationLibName  selector "isEqualToValue:" (id as ptr, value as Ptr) as Boolean
 		  return isEqualToValue (id, anotherValue.id)
 		  
 		End Function
@@ -192,7 +192,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Function ValueWithBytes(value as ptr, type as CString) As Ptr
-		  declare function valueWithBytes lib FoundationLib  selector "valueWithBytes:objCType:" (id as ptr, value as ptr, type as CString) as ptr
+		  declare function valueWithBytes lib FoundationLibName  selector "valueWithBytes:objCType:" (id as ptr, value as ptr, type as CString) as ptr
 		  return  valueWithBytes (ClassPtr, value, type)
 		  
 		End Function
@@ -229,10 +229,10 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if target32bit
-			    declare function CATransform3DValue lib FoundationLib  selector "CATransform3DValue" (id as ptr) as CATransform3D32Bit
+			    declare function CATransform3DValue lib FoundationLibName  selector "CATransform3DValue" (id as ptr) as CATransform3D32Bit
 			    return CATransform3DValue(id).toCATransform3D
 			  #elseif target64bit
-			    declare function CATransform3DValue lib FoundationLib  selector "CATransform3DValue" (id as ptr) as CATransform3D
+			    declare function CATransform3DValue lib FoundationLibName  selector "CATransform3DValue" (id as ptr) as CATransform3D
 			    return CATransform3DValue (id)
 			  #endif
 			  
@@ -244,7 +244,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSValue")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSValue")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -254,7 +254,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function nonretainedObjectValue lib FoundationLib  selector "nonretainedObjectValue" (id as ptr) as ptr
+			  declare function nonretainedObjectValue lib FoundationLibName  selector "nonretainedObjectValue" (id as ptr) as ptr
 			  return  AppleObject.MakeFromPtr (nonretainedObjectValue (id))
 			  
 			End Get
@@ -267,25 +267,25 @@ Inherits AppleObject
 			Get
 			  #if TargetIOS
 			    #if target32bit
-			      declare function CGPointValue lib UIKit  selector "CGPointValue" (id as ptr) as NSPoint32Bit
+			      declare function CGPointValue lib UIKit  selector "CGPointValue" (id as ptr) as FoundationFramework.NSPoint32Bit
 			      return CGPointValue (id).toNSPoint
 			    #elseif target64bit
-			      declare function CGPointValue lib UIKit  selector "CGPointValue" (id as ptr) as NSPoint
+			      declare function CGPointValue lib UIKit  selector "CGPointValue" (id as ptr) as FoundationFramework.NSPoint
 			      return CGPointValue (id)
 			    #endif
 			  #elseif Targetmacos
 			    #if target32bit
-			      declare function pointValue lib FoundationLib  selector "pointValue" (id as ptr) as NSPoint32Bit
+			      declare function pointValue lib FoundationLibName  selector "pointValue" (id as ptr) as FoundationFramework.NSPoint32Bit
 			      return pointValue (id).toNSPoint
 			    #elseif target64bit
-			      declare function pointValue lib FoundationLib  selector "pointValue" (id as ptr) as NSPoint
+			      declare function pointValue lib FoundationLibName  selector "pointValue" (id as ptr) as FoundationFramework.NSPoint
 			      return pointValue (id)
 			    #endif
 			  #endif
 			  
 			End Get
 		#tag EndGetter
-		NSPointValue As NSPoint
+		NSPointValue As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -293,25 +293,25 @@ Inherits AppleObject
 			Get
 			  #if TargetIOS
 			    #if target32bit
-			      declare function CGRectValue lib UIKit  selector "CGRectValue" (id as ptr) as NSRect32Bit
+			      declare function CGRectValue lib UIKit  selector "CGRectValue" (id as ptr) as FoundationFramework.NSRect32Bit
 			      return CGRectValue (id).tonsrect
 			    #elseif target64bit
-			      declare function CGRectValue lib UIKit  selector "CGRectValue" (id as ptr) as NSRect
+			      declare function CGRectValue lib UIKit  selector "CGRectValue" (id as ptr)  as FoundationFramework.NSRect
 			      return CGRectValue (id)
 			    #endif
 			  #elseif TargetMacOS
 			    #if target32bit
-			      declare function rectValue lib FoundationLib  selector "rectValue" (id as ptr) as NSRect32Bit
+			      declare function rectValue lib FoundationLibName  selector "rectValue" (id as ptr) as FoundationFramework.NSRect32Bit
 			      return rectValue (id).tonsrect
 			    #elseif target64bit
-			      declare function rectValue lib FoundationLib  selector "rectValue" (id as ptr) as NSRect
+			      declare function rectValue lib FoundationLibName  selector "rectValue" (id as ptr)  as FoundationFramework.NSRect
 			      return rectValue (id)
 			    #endif
 			  #endif
 			  
 			End Get
 		#tag EndGetter
-		NSRectValue As NSRect
+		NSRectValue As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -319,31 +319,31 @@ Inherits AppleObject
 			Get
 			  #if TargetIOS
 			    #if target32bit
-			      declare function CGSizeValue lib FoundationLib  selector "CGSizeValue" (id as ptr) as NSSize32Bit
+			      declare function CGSizeValue lib FoundationLibName  selector "CGSizeValue" (id as ptr) as FoundationFramework.NSSize32Bit
 			      return CGSizeValue (id).tonssize
 			    #elseif target64bit
-			      declare function CGSizeValue lib FoundationLib  selector "CGSizeValue" (id as ptr) as nssize
+			      declare function CGSizeValue lib FoundationLibName  selector "CGSizeValue" (id as ptr) as FoundationFramework.NSSize
 			      return CGSizeValue (id)
 			    #endif
 			  #Elseif TargetMacOS
 			    #if target32bit
-			      declare function sizeValue lib FoundationLib  selector "sizeValue" (id as ptr) as NSSize32Bit
+			      declare function sizeValue lib FoundationLibName  selector "sizeValue" (id as ptr) as FoundationFramework.NSSize32Bit
 			      return sizeValue (id).tonssize
 			    #elseif target64bit
-			      declare function sizeValue lib FoundationLib  selector "sizeValue" (id as ptr) as nssize
+			      declare function sizeValue lib FoundationLibName  selector "sizeValue" (id as ptr) as FoundationFramework.NSSize
 			      return sizeValue (id)
 			    #endif
 			  #endif
 			  
 			End Get
 		#tag EndGetter
-		NSSizeValue As NSSize
+		NSSizeValue As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function pointerValue lib FoundationLib  selector "pointerValue" (id as ptr) as ptr
+			  declare function pointerValue lib FoundationLibName  selector "pointerValue" (id as ptr) as ptr
 			  return pointerValue (id)
 			  
 			End Get

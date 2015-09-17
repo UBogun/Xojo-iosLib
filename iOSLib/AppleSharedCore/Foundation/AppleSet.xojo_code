@@ -17,7 +17,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(AnArray as AppleArray)
-		  Declare Function initWithArray lib FoundationLib  selector "initWithArray:" (id as ptr, anArray as Ptr) as Ptr
+		  Declare Function initWithArray lib FoundationLibName  selector "initWithArray:" (id as ptr, anArray as Ptr) as Ptr
 		  
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -32,7 +32,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Paramarray Objects() as AppleObject)
-		  Declare Function initWithObjects lib FoundationLib  selector "initWithObjects:" (id as ptr, anArray as Ptr) as Ptr
+		  Declare Function initWithObjects lib FoundationLibName  selector "initWithObjects:" (id as ptr, anArray as Ptr) as Ptr
 		  dim objCount as UInteger= objects.Ubound
 		  dim mb as new MutableMemoryBlock ((objCount + 2) * IntegerSize)
 		  for q as uinteger = 0 to objCount
@@ -50,7 +50,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function ContainsObject(anObject as AppleObject) As Boolean
-		  Declare Function containsObject lib FoundationLib  selector "containsObject:" (id as ptr, anobject as ptr) as Boolean
+		  Declare Function containsObject lib FoundationLibName  selector "containsObject:" (id as ptr, anobject as ptr) as Boolean
 		  Return containsObject (id, anObject.id)
 		End Function
 	#tag EndMethod
@@ -65,7 +65,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function allObjects lib FoundationLib  selector "allObjects" (id as ptr) as Ptr
+			  Declare Function allObjects lib FoundationLibName  selector "allObjects" (id as ptr) as Ptr
 			  Return AppleArray.MakeFromPtr (allObjects(id))
 			End Get
 		#tag EndGetter
@@ -75,7 +75,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function anyObject lib FoundationLib  selector "anyObject" (id as ptr) as Ptr
+			  Declare Function anyObject lib FoundationLibName  selector "anyObject" (id as ptr) as Ptr
 			  Return AppleObject.MakeFromPtr (anyObject(id))
 			End Get
 		#tag EndGetter
@@ -85,7 +85,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSSet")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSSet")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

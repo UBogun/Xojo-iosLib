@@ -8,12 +8,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function CGImage(ciimage as AppleCIImage, aRect as NSRect) As AppleCGImage
+		Function CGImage(ciimage as AppleCIImage, aRect as FoundationFramework.NSRect) As AppleCGImage
 		  #if Target64Bit
-		    declare function createCGImage lib QuartzCoreLib selector "createCGImage:fromRect:" (id as ptr, ciimage as ptr, aRect as NSRect) as ptr
+		    declare function createCGImage lib QuartzCoreLib selector "createCGImage:fromRect:" (id as ptr, ciimage as ptr, aRect  as FoundationFramework.NSRect) as ptr
 		    return new AppleCGImage (createCGImage (id, ciimage.Id, aRect))
 		  #elseif Target32Bit
-		    declare function createCGImage lib QuartzCoreLib selector "createCGImage:fromRect:" (id as ptr, ciimage as ptr, aRect as NSRect32Bit) as ptr
+		    declare function createCGImage lib QuartzCoreLib selector "createCGImage:fromRect:" (id as ptr, ciimage as ptr, aRect as FoundationFramework.NSRect32Bit) as ptr
 		    return new AppleCGImage (createCGImage (id, ciimage.Id, aRect.toNSRect32))
 		  #endif
 		  
@@ -37,7 +37,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CIContext")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CIContext")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

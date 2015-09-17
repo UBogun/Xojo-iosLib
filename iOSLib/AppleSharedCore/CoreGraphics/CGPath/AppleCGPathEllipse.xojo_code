@@ -2,12 +2,12 @@
 Protected Class AppleCGPathEllipse
 Inherits AppleCGPath
 	#tag Method, Flags = &h1
-		Protected Function CGPathCreateWithEllipseInRect(ARect as NSRect) As Ptr
+		Protected Function CGPathCreateWithEllipseInRect(ARect as FoundationFramework.NSRect) As Ptr
 		  #if Target64Bit
-		    Declare Function CGPathCreateWithEllipseInRect lib CoreGraphicsLib (arect as NSRect, aTransform as ptr) as ptr
+		    Declare Function CGPathCreateWithEllipseInRect lib CoreGraphicsLibName (arect  as FoundationFramework.NSRect, aTransform as ptr) as ptr
 		    return CGPathCreateWithEllipseInRect (ARect, NIL)
 		  #elseif Target32Bit
-		    Declare Function CGPathCreateWithEllipseInRect lib CoreGraphicsLib (arect as NSRect32Bit, aTransform as Ptr) as ptr
+		    Declare Function CGPathCreateWithEllipseInRect lib CoreGraphicsLibName (arect as FoundationFramework.NSRect32Bit, aTransform as Ptr) as ptr
 		    return CGPathCreateWithEllipseInRect (ARect.toNSRect32,NIL)
 		  #endif
 		  
@@ -22,12 +22,12 @@ Inherits AppleCGPath
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(radius as double)
-		  Constructor (nsrect (0,0,radius, radius))
+		  Constructor (FoundationFrameWork.NSMakeRect (0,0,radius, radius))
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(ARect as NSRect)
+		Sub Constructor(ARect as FoundationFramework.NSRect)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:

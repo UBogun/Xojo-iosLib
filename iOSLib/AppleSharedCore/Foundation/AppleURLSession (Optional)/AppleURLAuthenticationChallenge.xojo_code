@@ -17,7 +17,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSURLAuthenticationChallenge")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSURLAuthenticationChallenge")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -27,7 +27,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function error lib FoundationLib  selector "error" (id as ptr) as ptr
+			  Declare Function error lib FoundationLibName  selector "error" (id as ptr) as ptr
 			  return AppleError.MakeFromPtr (error (id))
 			End Get
 		#tag EndGetter
@@ -37,7 +37,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function failureResponse lib FoundationLib  selector "failureResponse" (id as ptr) as ptr
+			  Declare Function failureResponse lib FoundationLibName  selector "failureResponse" (id as ptr) as ptr
 			  return AppleURLResponse.MakeFromPtr (failureResponse (id))
 			End Get
 		#tag EndGetter
@@ -47,7 +47,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function previousFailureCount lib FoundationLib  selector "previousFailureCount" (id as ptr) as Integer
+			  Declare Function previousFailureCount lib FoundationLibName  selector "previousFailureCount" (id as ptr) as Integer
 			  return previousFailureCount (id)
 			End Get
 		#tag EndGetter
@@ -57,7 +57,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function proposedCredential lib FoundationLib  selector "proposedCredential" (id as ptr) as Ptr
+			  Declare Function proposedCredential lib FoundationLibName  selector "proposedCredential" (id as ptr) as Ptr
 			  return appleurlCredential.MakefromPtr ( proposedCredential (id))
 			End Get
 		#tag EndGetter
@@ -67,7 +67,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function protectionSpace lib FoundationLib  selector "protectionSpace" (id as ptr) as ptr
+			  Declare Function protectionSpace lib FoundationLibName  selector "protectionSpace" (id as ptr) as ptr
 			  return AppleURLProtectionSpace.MakeFromPtr (protectionSpace (id))
 			End Get
 		#tag EndGetter
@@ -77,7 +77,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function sender lib FoundationLib  selector "sender" (id as ptr) as ptr
+			  Declare Function sender lib FoundationLibName  selector "sender" (id as ptr) as ptr
 			  return AppleURLSessionDelegate.MakeFromPtr (sender (id))
 			End Get
 		#tag EndGetter

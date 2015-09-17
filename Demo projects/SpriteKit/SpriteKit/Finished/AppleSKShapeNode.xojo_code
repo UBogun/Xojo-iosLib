@@ -26,13 +26,13 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function Ellipse(aRect as NSRect) As AppleSKShapeNode
+		 Shared Function Ellipse(aRect as FoundationFramework.NSRect) As AppleSKShapeNode
 		  dim result as  AppleSKShapeNode
 		  #if Target64Bit
-		    declare Function shapeNodeWithEllipseInRect lib SpriteKit selector "shapeNodeWithEllipseInRect:" (id as ptr,  asize as nsrect) as ptr
+		    declare Function shapeNodeWithEllipseInRect lib SpriteKit selector "shapeNodeWithEllipseInRect:" (id as ptr,  asize  as FoundationFramework.NSRect) as ptr
 		    result = new AppleSKShapeNode (shapeNodeWithEllipseInRect (ClassPtr, arect))
 		  #elseif Target32Bit
-		    declare Function shapeNodeWithEllipseInRect lib SpriteKit selector "shapeNodeWithEllipseInRect:" (id as ptr,  asize as NSRect32Bit) as ptr
+		    declare Function shapeNodeWithEllipseInRect lib SpriteKit selector "shapeNodeWithEllipseInRect:" (id as ptr,  asize as FoundationFramework.NSRect32Bit) as ptr
 		    result = new AppleSKShapeNode (shapeNodeWithEllipseInRect (ClassPtr, arect.toNSRect32))
 		  #endif
 		  result.RetainClassObject
@@ -41,13 +41,13 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function Ellipse(aSize as NSSize) As AppleSKShapeNode
+		 Shared Function Ellipse(aSize as FoundationFramework.NSSize) As AppleSKShapeNode
 		  dim result as  AppleSKShapeNode
 		  #if Target64Bit
-		    declare Function shapeNodeWithEllipseOfSize lib SpriteKit selector "shapeNodeWithEllipseOfSize:" (id as ptr,  asize as nssize) as ptr
+		    declare Function shapeNodeWithEllipseOfSize lib SpriteKit selector "shapeNodeWithEllipseOfSize:" (id as ptr,  asize as FoundationFramework.NSSize) as ptr
 		    result = new AppleSKShapeNode  (shapeNodeWithEllipseOfSize (ClassPtr, aSize))
 		  #elseif Target32Bit
-		    declare Function shapeNodeWithEllipseOfSize lib SpriteKit selector "shapeNodeWithEllipseOfSize:" (id as ptr,  asize as NSSize32Bit) as ptr
+		    declare Function shapeNodeWithEllipseOfSize lib SpriteKit selector "shapeNodeWithEllipseOfSize:" (id as ptr,  asize as FoundationFramework.NSSize32Bit) as ptr
 		    result = new AppleSKShapeNode  (shapeNodeWithEllipseOfSize (ClassPtr, asize.toNSSize32))
 		  #endif
 		  result.RetainClassObject
@@ -67,7 +67,7 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function FromPoints(paramarray pointarray() as nspoint) As AppleSKShapeNode
+		 Shared Function FromPoints(paramarray pointarray() as FoundationFramework.NSPoint) As AppleSKShapeNode
 		  return FromPoints (AppleMutableArray.NSPointArray (pointarray))
 		End Function
 	#tag EndMethod
@@ -84,7 +84,7 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function FromSplinePoints(paramarray pointarray() as nspoint) As AppleSKShapeNode
+		 Shared Function FromSplinePoints(paramarray pointarray() as FoundationFramework.NSPoint) As AppleSKShapeNode
 		  return FromsplinePoints (AppleMutableArray.NSPointArray (pointarray))
 		End Function
 	#tag EndMethod
@@ -100,13 +100,13 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function Rect(aRect as NSRect) As AppleSKShapeNode
+		 Shared Function Rect(aRect as FoundationFramework.NSRect) As AppleSKShapeNode
 		  dim result as  AppleSKShapeNode
 		  #if Target64Bit
-		    declare Function shapeNodeWithRect lib SpriteKit selector "shapeNodeWithRect:" (id as ptr,  asize as nsrect) as ptr
+		    declare Function shapeNodeWithRect lib SpriteKit selector "shapeNodeWithRect:" (id as ptr,  asize  as FoundationFramework.NSRect) as ptr
 		    result = new AppleSKShapeNode (shapeNodeWithRect (ClassPtr, arect))
 		  #elseif Target32Bit
-		    declare Function shapeNodeWithRect lib SpriteKit selector "shapeNodeWithRect:" (id as ptr,  asize as NSRect32Bit) as ptr
+		    declare Function shapeNodeWithRect lib SpriteKit selector "shapeNodeWithRect:" (id as ptr,  asize as FoundationFramework.NSRect32Bit) as ptr
 		    result = new AppleSKShapeNode (shapeNodeWithRect (ClassPtr, arect.toNSRect32))
 		  #endif
 		  result.RetainClassObject
@@ -115,13 +115,13 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function Rect(aSize as NSSize) As AppleSKShapeNode
+		 Shared Function Rect(aSize as FoundationFramework.NSSize) As AppleSKShapeNode
 		  dim result as  AppleSKShapeNode
 		  #if Target64Bit
-		    declare Function shapeNodeWithRectOfSize lib SpriteKit selector "shapeNodeWithRectOfSize:" (id as ptr,  asize as nssize) as ptr
+		    declare Function shapeNodeWithRectOfSize lib SpriteKit selector "shapeNodeWithRectOfSize:" (id as ptr,  asize as FoundationFramework.NSSize) as ptr
 		    result = new AppleSKShapeNode  (shapeNodeWithRectOfSize (ClassPtr, aSize))
 		  #elseif Target32Bit
-		    declare Function shapeNodeWithRectOfSize lib SpriteKit selector "shapeNodeWithRectOfSize:" (id as ptr,  asize as NSSize32Bit) as ptr
+		    declare Function shapeNodeWithRectOfSize lib SpriteKit selector "shapeNodeWithRectOfSize:" (id as ptr,  asize as FoundationFramework.NSSize32Bit) as ptr
 		    result = new AppleSKShapeNode  (shapeNodeWithRectOfSize (ClassPtr, asize.toNSSize32))
 		  #endif
 		  result.RetainClassObject
@@ -130,13 +130,13 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function RoundRect(aRect as NSRect, Cornerradius as double) As AppleSKShapeNode
+		 Shared Function RoundRect(aRect as FoundationFramework.NSRect, Cornerradius as double) As AppleSKShapeNode
 		  dim result as  AppleSKShapeNode
 		  #if Target64Bit
-		    declare Function shapeNodeWithRectCorner lib SpriteKit selector "shapeNodeWithRect:cornerRadius:" (id as ptr,  asize as nsrect, radius as double) as ptr
+		    declare Function shapeNodeWithRectCorner lib SpriteKit selector "shapeNodeWithRect:cornerRadius:" (id as ptr,  asize  as FoundationFramework.NSRect, radius as double) as ptr
 		    result = new AppleSKShapeNode (shapeNodeWithRectCorner (ClassPtr, arect, Cornerradius))
 		  #elseif Target32Bit
-		    declare Function shapeNodeWithRectCorner lib SpriteKit selector "shapeNodeWithRect:cornerRadius:" (id as ptr,  asize as NSRect32Bit, radius as single) as ptr
+		    declare Function shapeNodeWithRectCorner lib SpriteKit selector "shapeNodeWithRect:cornerRadius:" (id as ptr,  asize as FoundationFramework.NSRect32Bit, radius as single) as ptr
 		    result = new AppleSKShapeNode (shapeNodeWithRectCorner (ClassPtr, arect.toNSRect32, Cornerradius))
 		  #endif
 		  result.RetainClassObject
@@ -145,13 +145,13 @@ Inherits AppleSKNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		 Shared Function RoundRect(aSize as NSSize, Cornerradius as double) As AppleSKShapeNode
+		 Shared Function RoundRect(aSize as FoundationFramework.NSSize, Cornerradius as double) As AppleSKShapeNode
 		  dim result as  AppleSKShapeNode
 		  #if Target64Bit
-		    declare Function shapeNodeWithRectofSizeCorner lib SpriteKit selector "shapeNodeWithRectOfSize:cornerRadius:" (id as ptr,  asize as nssize, radius as double) as ptr
+		    declare Function shapeNodeWithRectofSizeCorner lib SpriteKit selector "shapeNodeWithRectOfSize:cornerRadius:" (id as ptr,  asize as FoundationFramework.NSSize, radius as double) as ptr
 		    result = new AppleSKShapeNode ( shapeNodeWithRectofSizeCorner (ClassPtr, asize, Cornerradius))
 		  #elseif Target32Bit
-		    declare Function shapeNodeWithRectofSizeCorner lib SpriteKit selector "shapeNodeWithRectOfSize:cornerRadius:" (id as ptr,  asize as NSSize32Bit, radius as single) as ptr
+		    declare Function shapeNodeWithRectofSizeCorner lib SpriteKit selector "shapeNodeWithRectOfSize:cornerRadius:" (id as ptr,  asize as FoundationFramework.NSSize32Bit, radius as single) as ptr
 		    result = new AppleSKShapeNode (shapeNodeWithRectofSizeCorner (ClassPtr, asize.toNSSize32, Cornerradius))
 		  #endif
 		  result.RetainClassObject
@@ -196,7 +196,7 @@ Inherits AppleSKNode
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKShapeNode")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKShapeNode")
 			    end if
 			  end if
 			  return mClassPtr
@@ -480,6 +480,16 @@ Inherits AppleSKNode
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ExecutesActions"
 			Group="Behavior"
 			Type="Boolean"
@@ -488,6 +498,11 @@ Inherits AppleSKNode
 			Name="GlowWidth"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Height"
@@ -502,11 +517,48 @@ Inherits AppleSKNode
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="LineCap"
+			Group="Behavior"
+			Type="CGLineCap"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Butt"
+				"1 - Round"
+				"2 - Square"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="LineJoin"
+			Group="Behavior"
+			Type="CGLineJoin"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Miter"
+				"1 - Round"
+				"2 - Bevel"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LineLength"
@@ -517,6 +569,11 @@ Inherits AppleSKNode
 			Name="LineWidth"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MiterLimit"
@@ -544,6 +601,11 @@ Inherits AppleSKNode
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

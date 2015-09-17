@@ -33,7 +33,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UISlider")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UISlider")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -109,15 +109,15 @@ Inherits AppleControl
 		#tag Getter
 			Get
 			  #if target64bit
-			    declare Function minimumValueImageRectForBounds lib UIKit selector "minimumValueImageRectForBounds:" (id as ptr, mybounds as nsrect) as nsrect
+			    declare Function minimumValueImageRectForBounds lib UIKit selector "minimumValueImageRectForBounds:" (id as ptr, mybounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 			    return minimumValueImageRectForBounds (id, me.Bounds)
 			  #elseif Target32Bit
-			    declare Function minimumValueImageRectForBounds lib UIKit selector "minimumValueImageRectForBounds:" (id as ptr, mybounds as NSRect32Bit) as NSRect32Bit
+			    declare Function minimumValueImageRectForBounds lib UIKit selector "minimumValueImageRectForBounds:" (id as ptr, mybounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 			    return minimumValueImageRectForBounds(id, me.Bounds.toNSRect32).toNSRect
 			  #endif
 			End Get
 		#tag EndGetter
-		MinimumValueImageRect As NSRect
+		MinimumValueImageRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -125,16 +125,16 @@ Inherits AppleControl
 			Get
 			  #if target64bit
 			    declare Function thumbRectForBounds lib UIKit selector "thumbRectForBounds:trackRect:value:" _
-			    (id as ptr, mybounds as nsrect, trackrect as nsrect, value as single) as nsrect
+			    (id as ptr, mybounds  as FoundationFramework.NSRect, trackrect  as FoundationFramework.NSRect, value as single)  as FoundationFramework.NSRect
 			    return thumbRectForBounds (id, me.Bounds, me.TrackRect, me.AnimateValue)
 			  #elseif Target32Bit
 			    declare Function thumbRectForBounds lib UIKit selector "thumbRectForBounds:trackRect:value:" _
-			    (id as ptr, mybounds as NSRect32Bit, trackrect as NSRect32Bit, value as single) as NSRect32Bit
+			    (id as ptr, mybounds as FoundationFramework.NSRect32Bit, trackrect as FoundationFramework.NSRect32Bit, value as single) as FoundationFramework.NSRect32Bit
 			    return thumbRectForBounds(id, me.Bounds.toNSRect32, me.TrackRect.toNSRect32, me.AnimateValue).toNSRect
 			  #endif
 			End Get
 		#tag EndGetter
-		ThumbRect As NSRect
+		ThumbRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -157,15 +157,15 @@ Inherits AppleControl
 		#tag Getter
 			Get
 			  #if target64bit
-			    declare Function trackRectForBounds lib UIKit selector "trackRectForBounds:" (id as ptr, mybounds as nsrect) as nsrect
+			    declare Function trackRectForBounds lib UIKit selector "trackRectForBounds:" (id as ptr, mybounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 			    return trackRectForBounds (id, me.Bounds)
 			  #elseif Target32Bit
-			    declare Function trackRectForBounds lib UIKit selector "trackRectForBounds:" (id as ptr, mybounds as NSRect32Bit) as NSRect32Bit
+			    declare Function trackRectForBounds lib UIKit selector "trackRectForBounds:" (id as ptr, mybounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 			    return trackRectForBounds(id, me.Bounds.toNSRect32).toNSRect
 			  #endif
 			End Get
 		#tag EndGetter
-		TrackRect As NSRect
+		TrackRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

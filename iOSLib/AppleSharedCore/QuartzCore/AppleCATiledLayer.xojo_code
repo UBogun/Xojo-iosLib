@@ -13,7 +13,7 @@ Inherits AppleCALayer
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CATiledLayer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CATiledLayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -66,10 +66,10 @@ Inherits AppleCALayer
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare Function tileSize lib QuartzCoreLib selector "tileSize" (id as ptr) as nssize
+			    Declare Function tileSize lib QuartzCoreLib selector "tileSize" (id as ptr) as FoundationFramework.NSSize
 			    Return tileSize (id)
 			  #elseif Target32Bit
-			    Declare Function tileSize lib QuartzCoreLib selector "tileSize" (id as ptr) as NSSize32Bit
+			    Declare Function tileSize lib QuartzCoreLib selector "tileSize" (id as ptr) as FoundationFramework.NSSize32Bit
 			    Return tileSize (id).tonssize
 			  #endif
 			End Get
@@ -77,15 +77,15 @@ Inherits AppleCALayer
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setTileSize lib QuartzCoreLib selector "setTileSize:" (id as ptr, value as nssize)
+			    Declare Sub setTileSize lib QuartzCoreLib selector "setTileSize:" (id as ptr, value as FoundationFramework.NSSize)
 			    settileSize (id, value)
 			  #elseif Target32Bit
-			    Declare Sub setTileSize lib QuartzCoreLib selector "setTileSize:" (id as ptr, value as NSSize32Bit)
+			    Declare Sub setTileSize lib QuartzCoreLib selector "setTileSize:" (id as ptr, value as FoundationFramework.NSSize32Bit)
 			    settileSize (id, value.toNSSize32)
 			  #endif
 			End Set
 		#tag EndSetter
-		TileSize As NSSize
+		TileSize As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 

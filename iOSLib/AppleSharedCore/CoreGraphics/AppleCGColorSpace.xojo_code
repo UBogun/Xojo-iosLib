@@ -2,43 +2,43 @@
 Protected Class AppleCGColorSpace
 Inherits AppleCFObject
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGColorSpaceCopyName Lib CoreGraphicsLib (aCFTypeRef as Ptr) As CFStringRef
+		Protected Declare Function CGColorSpaceCopyName Lib CoreGraphicsLibName (aCFTypeRef as Ptr) As CFStringRef
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGColorSpaceCreateDeviceRGB Lib CoreGraphicsLib () As Ptr
+		Protected Declare Function CGColorSpaceCreateDeviceRGB Lib CoreGraphicsLibName () As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGColorSpaceCreateWithName Lib CoreGraphicsLib (aName as cfstringref) As Ptr
+		Protected Declare Function CGColorSpaceCreateWithName Lib CoreGraphicsLibName (aName as cfstringref) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGColorSpaceGetBaseColorSpace Lib CoreGraphicsLib (aCFTypeRef as Ptr) As Ptr
+		Protected Declare Function CGColorSpaceGetBaseColorSpace Lib CoreGraphicsLibName (aCFTypeRef as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGColorSpaceGetColorTableCount Lib CoreGraphicsLib (aCFTypeRef as Ptr) As UInteger
+		Protected Declare Function CGColorSpaceGetColorTableCount Lib CoreGraphicsLibName (aCFTypeRef as Ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGColorSpaceGetModel Lib CoreGraphicsLib (aCFTypeRef as Ptr) As CGColorSpaceModel
+		Protected Declare Function CGColorSpaceGetModel Lib CoreGraphicsLibName (aCFTypeRef as Ptr) As CGColorSpaceModel
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGColorSpaceGetNumberOfComponents Lib CoreGraphicsLib (aCFTypeRef as Ptr) As UInteger
+		Protected Declare Function CGColorSpaceGetNumberOfComponents Lib CoreGraphicsLibName (aCFTypeRef as Ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGColorSpaceGetTypeID Lib CoreGraphicsLib (aCFTypeRef as Ptr) As UInteger
+		Protected Declare Function CGColorSpaceGetTypeID Lib CoreGraphicsLibName (aCFTypeRef as Ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGColorSpaceRelease Lib CoreGraphicsLib (aCFTypeRef as Ptr)
+		Protected Declare Sub CGColorSpaceRelease Lib CoreGraphicsLibName (aCFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGColorSpaceRetain Lib CoreGraphicsLib (aCFTypeRef as Ptr) As Ptr
+		Protected Declare Function CGColorSpaceRetain Lib CoreGraphicsLibName (aCFTypeRef as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1000

@@ -28,7 +28,7 @@ Protected Class AppleMethodDescription
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return NSStringFromSelector (selector)
+			  return FoundationFrameWork.NSStringFromSelector (selector)
 			End Get
 		#tag EndGetter
 		SelectorName As cfstringref

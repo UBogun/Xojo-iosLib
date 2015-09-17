@@ -25,7 +25,7 @@ Protected Module AccelerateFramework
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
-		Function Vector_Square(aPoint as NSPoint) As NSPoint
+		Function Vector_Square(aPoint as FoundationFramework.NSPoint) As FoundationFramework.NSPoint
 		  #pragma DisableBackgroundTasks
 		  #pragma DisableBoundsChecking
 		  #Pragma NilObjectChecking false
@@ -39,7 +39,7 @@ Protected Module AccelerateFramework
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Vector_SquareSingle(aPoint as NSPoint) As NSPoint
+		Function Vector_SquareSingle(aPoint as FoundationFramework.NSPoint) As FoundationFramework.NSPoint
 		  #pragma DisableBackgroundTasks
 		  #pragma DisableBoundsChecking
 		  #Pragma NilObjectChecking false

@@ -4,7 +4,7 @@ Inherits iOSLibGestureRecognizer
 	#tag Method, Flags = &h0
 		Sub Constructor()
 		  myReceiver = new AppleGestureRecognizerReceiver (self)
-		  mmyRecognizer = new ApplePanGestureRecognizer (myReceiver, NSSelectorFromString ("gestureRecognized"))
+		  mmyRecognizer = new ApplePanGestureRecognizer (myReceiver, FoundationFramework.NSSelectorFromString ("gestureRecognized"))
 		End Sub
 	#tag EndMethod
 

@@ -25,7 +25,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("SCNCamera")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("SCNCamera")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

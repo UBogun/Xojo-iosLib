@@ -16,7 +16,7 @@ Inherits AppleMutableObjectInterface
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(anArray as AppleArray)
-		  Declare function arrayWithArray lib FoundationLib  selector "arrayWithArray:" (id as ptr, anarray as ptr) as ptr
+		  Declare function arrayWithArray lib FoundationLibName  selector "arrayWithArray:" (id as ptr, anarray as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -29,14 +29,14 @@ Inherits AppleMutableObjectInterface
 
 	#tag Method, Flags = &h0
 		Function ContainsObject(anObject as AppleGeneralObject) As Boolean
-		  Declare function containsObject lib FoundationLib  selector "containsObject:" (id as ptr, anObject as ptr) as Boolean
+		  Declare function containsObject lib FoundationLibName  selector "containsObject:" (id as ptr, anObject as ptr) as Boolean
 		  return containsObject (id, anObject.GeneralID)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ContainsText(SearchText as CFStringRef) As Boolean
-		  Declare function containsText lib FoundationLib  selector "containsObject:" (id as ptr, anObject as cfstringref) as Boolean
+		  Declare function containsText lib FoundationLibName  selector "containsObject:" (id as ptr, anObject as cfstringref) as Boolean
 		  return containsText (id, SearchText)
 		End Function
 	#tag EndMethod
@@ -56,7 +56,7 @@ Inherits AppleMutableObjectInterface
 
 	#tag Method, Flags = &h0
 		Function PtrAtIndex(Index as Uinteger) As Ptr
-		  declare function objectAtIndex lib FoundationLib  selector "objectAtIndex:" (id as ptr, index as uinteger) as Ptr
+		  declare function objectAtIndex lib FoundationLibName  selector "objectAtIndex:" (id as ptr, index as uinteger) as Ptr
 		  return objectAtIndex (id, index)
 		  
 		End Function
@@ -64,7 +64,7 @@ Inherits AppleMutableObjectInterface
 
 	#tag Method, Flags = &h0
 		Function TextAtIndex(Index as Uinteger) As cfstringref
-		  declare function objectAtIndex lib FoundationLib  selector "objectAtIndex:" (id as ptr, index as uinteger) as CFStringRef
+		  declare function objectAtIndex lib FoundationLibName  selector "objectAtIndex:" (id as ptr, index as uinteger) as CFStringRef
 		  return objectAtIndex (id, index)
 		  
 		End Function
@@ -94,7 +94,7 @@ Inherits AppleMutableObjectInterface
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSArray")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSArray")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

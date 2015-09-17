@@ -3,7 +3,7 @@ Protected Class AppleMutableDictionary
 Inherits AppleDictionary
 	#tag Method, Flags = &h0
 		Sub AddDictionary(aDictionary as AppleDictionary)
-		  declare sub addEntriesFromDictionary lib FoundationLib  selector "addEntriesFromDictionary:" (id as ptr, aDictionary as ptr)
+		  declare sub addEntriesFromDictionary lib FoundationLibName  selector "addEntriesFromDictionary:" (id as ptr, aDictionary as ptr)
 		  addEntriesFromDictionary id, aDictionary.id
 		End Sub
 	#tag EndMethod
@@ -28,7 +28,7 @@ Inherits AppleDictionary
 
 	#tag Method, Flags = &h0
 		Sub ObjectForKey(Key as cfstringref, assigns anObject as AppleGeneralObject)
-		  Declare sub setObjectForKeyString lib FoundationLib  selector "setObject:forKey:" (id as ptr, value  as ptr, key as cfstringref)
+		  Declare sub setObjectForKeyString lib FoundationLibName  selector "setObject:forKey:" (id as ptr, value  as ptr, key as cfstringref)
 		  setObjectForKeyString id, anObject.GeneralID, key
 		End Sub
 	#tag EndMethod
@@ -41,7 +41,7 @@ Inherits AppleDictionary
 
 	#tag Method, Flags = &h0
 		Sub SetDictionary(aDictionary as AppleDictionary)
-		  declare sub SetDictionary lib FoundationLib  selector "setDictionary:" (id as ptr, aDictionary as ptr)
+		  declare sub SetDictionary lib FoundationLibName  selector "setDictionary:" (id as ptr, aDictionary as ptr)
 		  SetDictionary id, aDictionary.id
 		End Sub
 	#tag EndMethod
@@ -54,7 +54,7 @@ Inherits AppleDictionary
 
 	#tag Method, Flags = &h0
 		Sub SetObjectForKey(Key as Ptr, anObject as Ptr)
-		  Declare sub setObjectForKey lib FoundationLib  selector "setObject:forKey:" (id as ptr, value  as ptr, key as ptr)
+		  Declare sub setObjectForKey lib FoundationLibName  selector "setObject:forKey:" (id as ptr, value  as ptr, key as ptr)
 		  setObjectForKey id, anObject, key
 		End Sub
 	#tag EndMethod
@@ -67,7 +67,7 @@ Inherits AppleDictionary
 
 	#tag Method, Flags = &h0
 		Sub ValueForKey(Key as CFstringRef, assigns value as cfstringref)
-		  Declare sub setValueForKey lib FoundationLib  selector "setValue:forKey:" (id as ptr, value as CFStringRef, key as CFStringRef)
+		  Declare sub setValueForKey lib FoundationLibName  selector "setValue:forKey:" (id as ptr, value as CFStringRef, key as CFStringRef)
 		  setValueForKey id, value, key
 		End Sub
 	#tag EndMethod
@@ -76,7 +76,7 @@ Inherits AppleDictionary
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSMutableDictionary")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSMutableDictionary")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

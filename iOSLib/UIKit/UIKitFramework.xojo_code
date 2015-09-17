@@ -1,12 +1,12 @@
 #tag Module
 Protected Module UIKitFramework
 	#tag Method, Flags = &h1
-		Protected Function getbounds(id as ptr) As NSRect
+		Protected Function getbounds(id as ptr) As FoundationFramework.NSRect
 		  #if Target64bit
-		    declare function bounds lib UIKit selector "bounds" (id as ptr) as NSRect
+		    declare function bounds lib UIKit selector "bounds" (id as ptr)  as FoundationFramework.NSRect
 		    return bounds (id)
 		  #elseif target32bit
-		    declare function bounds lib UIKit selector "bounds" (id as ptr) as NSRect32Bit
+		    declare function bounds lib UIKit selector "bounds" (id as ptr) as FoundationFramework.NSRect32Bit
 		    return bounds(id).toNSRect
 		  #endif
 		  
@@ -29,12 +29,12 @@ Protected Module UIKitFramework
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getFrame(id as ptr) As NSRect
+		Protected Function getFrame(id as ptr) As FoundationFramework.NSRect
 		  #if target32bit
-		    declare function getframe lib UIKit selector "frame" (id as Ptr) as NSRect32Bit
+		    declare function getframe lib UIKit selector "frame" (id as Ptr) as FoundationFramework.NSRect32Bit
 		    return getframe(id).toNSRect
 		  #elseif Target64Bit
-		    declare function getframe lib UIKit selector "frame" (id as Ptr) as NSRect
+		    declare function getframe lib UIKit selector "frame" (id as Ptr)  as FoundationFramework.NSRect
 		    return getframe (id)
 		  #endif
 		  
@@ -49,12 +49,12 @@ Protected Module UIKitFramework
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setBounds(id as ptr, value as NSRect)
+		Protected Sub setBounds(id as ptr, value as FoundationFramework.NSRect)
 		  #if Target64bit
-		    declare sub setbounds lib UIKit selector "setBounds:" (id as ptr, value as NSRect)
+		    declare sub setbounds lib UIKit selector "setBounds:" (id as ptr, value  as FoundationFramework.NSRect)
 		    setBounds id, value
 		  #elseif target32bit
-		    declare sub setBounds lib UIKit selector "setBounds:" (id as ptr, value as NSRect32Bit)
+		    declare sub setBounds lib UIKit selector "setBounds:" (id as ptr, value as FoundationFramework.NSRect32Bit)
 		    setBounds id, value.toNSRect32
 		  #endif
 		  
@@ -77,12 +77,12 @@ Protected Module UIKitFramework
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setFrame(id as ptr, value as NSRect)
+		Protected Sub setFrame(id as ptr, value as FoundationFramework.NSRect)
 		  #if target32bit
-		    declare sub setFrame lib UIKit selector "setFrame:" (id as Ptr, value as NSRect32Bit)
+		    declare sub setFrame lib UIKit selector "setFrame:" (id as Ptr, value as FoundationFramework.NSRect32Bit)
 		    setFrame id, value.toNSRect32
 		  #elseif target64bit
-		    declare sub setFrame lib UIKit selector "setFrame:" (id as Ptr, value as NSRect)
+		    declare sub setFrame lib UIKit selector "setFrame:" (id as Ptr, value  as FoundationFramework.NSRect)
 		    setFrame id, value
 		  #endif
 		  

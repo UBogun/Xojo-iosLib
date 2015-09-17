@@ -3,7 +3,7 @@ Protected Class AppleDictionary
 Inherits AppleMutableObjectInterface
 	#tag Method, Flags = &h0
 		Function allKeysForObject(anObject as AppleGeneralObject) As AppleArray
-		  declare Function allKeysForObject lib FoundationLib  selector "allKeysForObject:" (id as ptr, anobject as ptr) as ptr
+		  declare Function allKeysForObject lib FoundationLibName  selector "allKeysForObject:" (id as ptr, anobject as ptr) as ptr
 		  return AppleArray.MakeFromPtr( allKeysForObject (id, anObject.GeneralID))
 		End Function
 	#tag EndMethod
@@ -35,21 +35,21 @@ Inherits AppleMutableObjectInterface
 
 	#tag Method, Flags = &h0
 		Function PtrForKey(akey as cfstringref) As Ptr
-		  declare Function objectForKey lib FoundationLib  selector "objectForKey:" (id as ptr, key as cfstringref) as ptr
+		  declare Function objectForKey lib FoundationLibName  selector "objectForKey:" (id as ptr, key as cfstringref) as ptr
 		  return objectForKey (id, akey)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function PtrForKey(akey as Ptr) As Ptr
-		  declare Function objectForKey lib FoundationLib  selector "objectForKey:" (id as ptr, key as Ptr) as ptr
+		  declare Function objectForKey lib FoundationLibName  selector "objectForKey:" (id as ptr, key as Ptr) as ptr
 		  return objectForKey (id, akey)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function TextForKey(akey as cfstringref) As Text
-		  declare Function objectForKey lib FoundationLib  selector "objectForKey:" (id as ptr, key as cfstringref) as cfstringref
+		  declare Function objectForKey lib FoundationLibName  selector "objectForKey:" (id as ptr, key as cfstringref) as cfstringref
 		  return objectForKey (id, akey)
 		End Function
 	#tag EndMethod
@@ -62,7 +62,7 @@ Inherits AppleMutableObjectInterface
 
 	#tag Method, Flags = &h0
 		Function ValueForKey(Key as CFstringRef) As Ptr
-		  declare function valueForKey lib FoundationLib  selector "valueForKey:" (id as ptr, key as CFStringRef) as ptr
+		  declare function valueForKey lib FoundationLibName  selector "valueForKey:" (id as ptr, key as CFStringRef) as ptr
 		  return valueForKey (id, key)
 		  
 		End Function
@@ -72,7 +72,7 @@ Inherits AppleMutableObjectInterface
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function allKeys lib FoundationLib  Selector "allKeys"(id as ptr) as ptr
+			  declare function allKeys lib FoundationLibName  Selector "allKeys"(id as ptr) as ptr
 			  dim myptr as ptr = allKeys (id)
 			  return if (myptr <> NIL, new AppleArray (myptr), NIL)
 			  
@@ -84,7 +84,7 @@ Inherits AppleMutableObjectInterface
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function allValues lib FoundationLib  Selector "allValues"(id as ptr) as ptr
+			  declare function allValues lib FoundationLibName  Selector "allValues"(id as ptr) as ptr
 			  dim myptr as ptr = allValues (id)
 			  return if (myptr <> NIL, new AppleArray (myptr), NIL)
 			  
@@ -96,7 +96,7 @@ Inherits AppleMutableObjectInterface
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSDictionary")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSDictionary")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -115,7 +115,7 @@ Inherits AppleMutableObjectInterface
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function descriptionInStringsFileFormat lib FoundationLib  selector "descriptionInStringsFileFormat" (id as ptr) as CFStringRef
+			  Declare function descriptionInStringsFileFormat lib FoundationLibName  selector "descriptionInStringsFileFormat" (id as ptr) as CFStringRef
 			  return descriptionInStringsFileFormat (id)
 			End Get
 		#tag EndGetter

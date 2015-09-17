@@ -9,7 +9,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1021
 		Private Sub Constructor(Name As CFStringRef, SourceObject as AppleObject, Userinfo As AppleDictionary = Nil)
-		  declare function initWithName lib FoundationLib  selector "initWithName:object:userInfo:" (id as ptr, name as CFStringRef, Sourceobject as Ptr, userinfo as Ptr) As Ptr
+		  declare function initWithName lib FoundationLibName  selector "initWithName:object:userInfo:" (id as ptr, name as CFStringRef, Sourceobject as Ptr, userinfo as Ptr) As Ptr
 		  super.Constructor (initWithName(alloc(ClassPtr), name, SourceObject.Id, if (Userinfo <> NIL, Userinfo.id, NIL)))
 		End Sub
 	#tag EndMethod
@@ -18,7 +18,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSNotification")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSNotification")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -37,7 +37,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function object_ lib FoundationLib  selector "object" (id as ptr) as ptr
+			  Declare function object_ lib FoundationLibName  selector "object" (id as ptr) as ptr
 			  return new AppleObject (object_ (id))
 			End Get
 		#tag EndGetter
@@ -47,7 +47,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function userinfo lib FoundationLib  selector "userinfo" (id as ptr) as ptr
+			  Declare Function userinfo lib FoundationLibName  selector "userinfo" (id as ptr) as ptr
 			  return AppleDictionary.MakeFromPtr (userinfo(id))
 			End Get
 		#tag EndGetter

@@ -20,12 +20,12 @@ Inherits AppleSKEffectNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(asize as NSSize)
+		Sub Constructor(asize as FoundationFramework.NSSize)
 		  #if Target64bit
-		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as nssize) as ptr
+		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as FoundationFramework.NSSize) as ptr
 		    super.Constructor(initWithSize(alloc(ClassPtr), asize))
 		  #elseif Target32Bit
-		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as NSSize32Bit) as ptr
+		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as FoundationFramework.NSSize32Bit) as ptr
 		    super.Constructor(initWithSize(alloc(ClassPtr), asize.toNSSize32))
 		  #endif
 		  mHasOwnership = true
@@ -61,7 +61,7 @@ Inherits AppleSKEffectNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidChangeSize32(pid as ptr, sel as ptr, size as NSSize32Bit)
+		Private Shared Sub impl_DidChangeSize32(pid as ptr, sel as ptr, size as FoundationFramework.NSSize32Bit)
 		  dim ego as new AppleSKScene (pid)
 		  ego.informondidChangesize (size.tonssize)
 		  
@@ -71,7 +71,7 @@ Inherits AppleSKEffectNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidChangeSize64(pid as ptr, sel as ptr, size as nssize)
+		Private Shared Sub impl_DidChangeSize64(pid as ptr, sel as ptr, size as FoundationFramework.NSSize)
 		  dim ego as new AppleSKScene (pid)
 		  ego.informondidChangesize (size)
 		  
@@ -154,7 +154,7 @@ Inherits AppleSKEffectNode
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonDidChangeSize(OldSize as NSSize)
+		Attributes( hidden )  Sub informonDidChangeSize(OldSize as FoundationFramework.NSSize)
 		  RaiseEvent DidChangeSize (oldsize)
 		End Sub
 	#tag EndMethod
@@ -238,7 +238,7 @@ Inherits AppleSKEffectNode
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event DidChangeSize(OldSize as NSSize)
+		Event DidChangeSize(OldSize as FoundationFramework.NSSize)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -281,7 +281,7 @@ Inherits AppleSKEffectNode
 			  setAnchorPoint value
 			End Set
 		#tag EndSetter
-		AnchorPoint As NSPoint
+		AnchorPoint As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -385,7 +385,7 @@ Inherits AppleSKEffectNode
 			  setsize value
 			End Set
 		#tag EndSetter
-		Size As NSSize
+		Size As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -429,12 +429,27 @@ Inherits AppleSKEffectNode
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="EnableEffects"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ExecutesActions"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -451,11 +466,31 @@ Inherits AppleSKEffectNode
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -495,6 +530,11 @@ Inherits AppleSKEffectNode
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

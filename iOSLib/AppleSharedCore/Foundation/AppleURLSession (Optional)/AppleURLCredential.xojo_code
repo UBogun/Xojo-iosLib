@@ -9,7 +9,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Identity as AppleSecIdentity, Ceritificates as AppleArray, Persistence as NSURLCredentialPersistence)
-		  Declare function initWithIdentity lib FoundationLib  selector "initWithIdentity:certificates:persistence:" (id as ptr, identity as ptr, certificates as ptr, persistence as NSURLCredentialPersistence) as ptr
+		  Declare function initWithIdentity lib FoundationLibName  selector "initWithIdentity:certificates:persistence:" (id as ptr, identity as ptr, certificates as ptr, persistence as NSURLCredentialPersistence) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -24,7 +24,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Trust as AppleSecTrust)
-		  Declare function initWithTrust lib FoundationLib  selector "initWithTrust:" (id as ptr, trust as ptr) as ptr
+		  Declare function initWithTrust lib FoundationLibName  selector "initWithTrust:" (id as ptr, trust as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -38,7 +38,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(User as CFStringRef, Password as CFStringRef, persistence as NSURLCredentialPersistence)
-		  Declare function initWithUser lib FoundationLib  selector "initWithUser:password:persistence:" (id as ptr, User as CFStringRef, Password as CFStringRef, persistence as NSURLCredentialPersistence) as ptr
+		  Declare function initWithUser lib FoundationLibName  selector "initWithUser:password:persistence:" (id as ptr, User as CFStringRef, Password as CFStringRef, persistence as NSURLCredentialPersistence) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -60,13 +60,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function certificates lib FoundationLib  selector "certificates" (id as ptr) as Ptr
+			  Declare Function certificates lib FoundationLibName  selector "certificates" (id as ptr) as Ptr
 			  return AppleArray.MakeFromPtr (certificates(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setHTTPAdditionalHeaders lib FoundationLib  selector "setHTTPAdditionalHeaders:" (id as ptr, value as ptr)
+			  Declare Sub setHTTPAdditionalHeaders lib FoundationLibName  selector "setHTTPAdditionalHeaders:" (id as ptr, value as ptr)
 			  setHTTPAdditionalHeaders id, value.id
 			End Set
 		#tag EndSetter
@@ -76,7 +76,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSURLCredential")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSURLCredential")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -86,7 +86,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function hasPassword lib FoundationLib  selector "hasPassword" (id as ptr) as Boolean
+			  Declare Function hasPassword lib FoundationLibName  selector "hasPassword" (id as ptr) as Boolean
 			  return hasPassword (id)
 			End Get
 		#tag EndGetter
@@ -96,13 +96,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function identity lib FoundationLib  selector "identity" (id as ptr) as Ptr
+			  Declare Function identity lib FoundationLibName  selector "identity" (id as ptr) as Ptr
 			  return AppleSecIdentity.MakeFromPtr (identity(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setHTTPAdditionalHeaders lib FoundationLib  selector "setHTTPAdditionalHeaders:" (id as ptr, value as ptr)
+			  Declare Sub setHTTPAdditionalHeaders lib FoundationLibName  selector "setHTTPAdditionalHeaders:" (id as ptr, value as ptr)
 			  setHTTPAdditionalHeaders id, value.SecIdentityRef
 			End Set
 		#tag EndSetter
@@ -112,7 +112,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function password lib FoundationLib  selector "password" (id as ptr) as CFStringRef
+			  Declare Function password lib FoundationLibName  selector "password" (id as ptr) as CFStringRef
 			  return password (id)
 			End Get
 		#tag EndGetter
@@ -122,7 +122,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function persistence lib FoundationLib  selector "persistence" (id as ptr) as NSURLCredentialPersistence
+			  Declare Function persistence lib FoundationLibName  selector "persistence" (id as ptr) as NSURLCredentialPersistence
 			  return persistence (id)
 			End Get
 		#tag EndGetter
@@ -132,7 +132,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function user lib FoundationLib  selector "user" (id as ptr) as CFStringRef
+			  Declare Function user lib FoundationLibName  selector "user" (id as ptr) as CFStringRef
 			  return user (id)
 			End Get
 		#tag EndGetter

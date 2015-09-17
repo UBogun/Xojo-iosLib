@@ -3,7 +3,7 @@ Protected Class AppleURLSessionTask
 Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub Cancel()
-		  Declare sub cancel lib FoundationLib  selector "cancel" (id as ptr)
+		  Declare sub cancel lib FoundationLibName  selector "cancel" (id as ptr)
 		  cancel id
 		End Sub
 	#tag EndMethod
@@ -22,14 +22,14 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub Resume()
-		  Declare sub resume lib FoundationLib  selector "resume" (id as ptr)
+		  Declare sub resume lib FoundationLibName  selector "resume" (id as ptr)
 		  resume id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Suspend()
-		  Declare sub suspend lib FoundationLib  selector "suspend" (id as ptr)
+		  Declare sub suspend lib FoundationLibName  selector "suspend" (id as ptr)
 		  suspend id
 		End Sub
 	#tag EndMethod
@@ -38,7 +38,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function countOfBytesExpectedToReceive lib FoundationLib  selector "countOfBytesExpectedToReceive" (id as ptr) as Int64
+			  Declare Function countOfBytesExpectedToReceive lib FoundationLibName  selector "countOfBytesExpectedToReceive" (id as ptr) as Int64
 			  return countOfBytesExpectedToReceive (id)
 			End Get
 		#tag EndGetter
@@ -48,7 +48,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function countOfBytesExpectedToSend lib FoundationLib  selector "countOfBytesExpectedToSend" (id as ptr) as Int64
+			  Declare Function countOfBytesExpectedToSend lib FoundationLibName  selector "countOfBytesExpectedToSend" (id as ptr) as Int64
 			  return countOfBytesExpectedToSend (id)
 			End Get
 		#tag EndGetter
@@ -58,7 +58,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function countOfBytesReceived lib FoundationLib  selector "countOfBytesReceived" (id as ptr) as Int64
+			  Declare Function countOfBytesReceived lib FoundationLibName  selector "countOfBytesReceived" (id as ptr) as Int64
 			  return countOfBytesReceived (id)
 			End Get
 		#tag EndGetter
@@ -68,7 +68,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function countOfBytesSent lib FoundationLib  selector "countOfBytesSent" (id as ptr) as Int64
+			  Declare Function countOfBytesSent lib FoundationLibName  selector "countOfBytesSent" (id as ptr) as Int64
 			  return countOfBytesSent (id)
 			End Get
 		#tag EndGetter
@@ -78,7 +78,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSURLSessionTask")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSURLSessionTask")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -88,7 +88,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function currentRequest lib FoundationLib  selector "currentRequest" (id as ptr) as Ptr
+			  Declare Function currentRequest lib FoundationLibName  selector "currentRequest" (id as ptr) as Ptr
 			  return AppleURLRequest.MakeFromPtr (currentRequest(id))
 			End Get
 		#tag EndGetter
@@ -98,7 +98,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function error lib FoundationLib  selector "error" (id as ptr) as Ptr
+			  Declare Function error lib FoundationLibName  selector "error" (id as ptr) as Ptr
 			  return AppleError.MakefromPtr (error (id))
 			End Get
 		#tag EndGetter
@@ -108,7 +108,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function originalRequest lib FoundationLib  selector "originalRequest" (id as ptr) as Ptr
+			  Declare Function originalRequest lib FoundationLibName  selector "originalRequest" (id as ptr) as Ptr
 			  return AppleURLRequest.MakeFromPtr (originalRequest(id))
 			End Get
 		#tag EndGetter
@@ -118,7 +118,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function response lib FoundationLib  selector "response" (id as ptr) as Ptr
+			  Declare Function response lib FoundationLibName  selector "response" (id as ptr) as Ptr
 			  return AppleURLResponse.MakeFromPtr (response(id))
 			End Get
 		#tag EndGetter
@@ -128,7 +128,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function state lib FoundationLib  selector "state" (id as ptr) as NSURLSessionTaskState
+			  Declare Function state lib FoundationLibName  selector "state" (id as ptr) as NSURLSessionTaskState
 			  return state (id)
 			End Get
 		#tag EndGetter
@@ -138,7 +138,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function taskDescription lib FoundationLib  selector "taskDescription" (id as ptr) as CFStringRef
+			  Declare Function taskDescription lib FoundationLibName  selector "taskDescription" (id as ptr) as CFStringRef
 			  return taskDescription (id)
 			End Get
 		#tag EndGetter
@@ -148,7 +148,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function taskIdentifier lib FoundationLib  selector "taskIdentifier" (id as ptr) as UInteger
+			  Declare Function taskIdentifier lib FoundationLibName  selector "taskIdentifier" (id as ptr) as UInteger
 			  return taskIdentifier (id)
 			End Get
 		#tag EndGetter

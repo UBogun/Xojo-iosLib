@@ -2,15 +2,15 @@
 Protected Class AppleCGColor
 Inherits AppleCFObject
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CGColorCreateCopy Lib CoreGraphicsLib (id as ptr) As Ptr
+		Private Declare Function CGColorCreateCopy Lib CoreGraphicsLibName (id as ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h21
 		Private Function CGColorCreateCopyWithAlpha(acolor as ptr, alpha as double) As Ptr
 		  #if target32bit
-		    declare function CGColorCreateCopyWithAlpha lib CoreGraphicsLib (acolor as ptr, alpha as single) as Ptr
+		    declare function CGColorCreateCopyWithAlpha lib CoreGraphicsLibName (acolor as ptr, alpha as single) as Ptr
 		  #elseif target64bit
-		    declare function CGColorCreateCopyWithAlpha lib CoreGraphicsLib (acolor as ptr, alpha as double) as Ptr
+		    declare function CGColorCreateCopyWithAlpha lib CoreGraphicsLibName (acolor as ptr, alpha as double) as Ptr
 		  #endif
 		  return CGColorCreateCopyWithAlpha (acolor, alpha)
 		  
@@ -23,9 +23,9 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h21
 		Private Function CGColorCreateGenericCMYK(cyan as double, magenta as double, yellow as double, black as double, alpha as double) As Ptr
 		  #if target32bit
-		    declare function CGColorCreateGenericCMYK lib CoreGraphicsLib (cyan as single, magenta as single, yellow as Single, black as single, alpha as single) as Ptr
+		    declare function CGColorCreateGenericCMYK lib CoreGraphicsLibName (cyan as single, magenta as single, yellow as Single, black as single, alpha as single) as Ptr
 		  #elseif target64bit
-		    declare function CGColorCreateGenericCMYK lib CoreGraphicsLib (cyan as double, magenta as double, yellow as double, black as double, alpha as double) as Ptr
+		    declare function CGColorCreateGenericCMYK lib CoreGraphicsLibName (cyan as double, magenta as double, yellow as double, black as double, alpha as double) as Ptr
 		  #endif
 		  return CGColorCreateGenericCMYK (cyan, magenta, yellow, black, alpha)
 		  
@@ -38,9 +38,9 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h21
 		Private Function CGColorCreateGenericGray(gray as double, alpha as double) As Ptr
 		  #if target32bit
-		    declare function CGColorCreateGenericGray lib CoreGraphicsLib (gray as Single, alpha as single) as Ptr
+		    declare function CGColorCreateGenericGray lib CoreGraphicsLibName (gray as Single, alpha as single) as Ptr
 		  #elseif target64bit
-		    declare function CGColorCreateGenericGray lib CoreGraphicsLib (gray as double, alpha as double) as Ptr
+		    declare function CGColorCreateGenericGray lib CoreGraphicsLibName (gray as double, alpha as double) as Ptr
 		  #endif
 		  return CGColorCreateGenericGray (gray, alpha)
 		  
@@ -53,9 +53,9 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h21
 		Private Function CGColorCreateGenericRGB(red as double, green as double, blue as double, alpha as double) As Ptr
 		  #if target32bit
-		    declare function CGColorCreateGenericRGB lib CoreGraphicsLib (red as single, green as single, blue as Single, alpha as single) as Ptr
+		    declare function CGColorCreateGenericRGB lib CoreGraphicsLibName (red as single, green as single, blue as Single, alpha as single) as Ptr
 		  #elseif target64bit
-		    declare function CGColorCreateGenericRGB lib CoreGraphicsLib (red as double, green as double, blue as double, alpha as double) as Ptr
+		    declare function CGColorCreateGenericRGB lib CoreGraphicsLibName (red as double, green as double, blue as double, alpha as double) as Ptr
 		  #endif
 		  return CGColorCreateGenericRGB (red, green, blue, alpha)
 		  
@@ -66,35 +66,35 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CGColorEqualToColor Lib CoreGraphicsLib (id as ptr, anotherid as ptr) As boolean
+		Private Declare Function CGColorEqualToColor Lib CoreGraphicsLibName (id as ptr, anotherid as ptr) As boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CGColorGetColorSpace Lib CoreGraphicsLib (id as ptr) As Ptr
+		Private Declare Function CGColorGetColorSpace Lib CoreGraphicsLibName (id as ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CGColorGetComponents Lib CoreGraphicsLib (id as ptr) As Ptr
+		Private Declare Function CGColorGetComponents Lib CoreGraphicsLibName (id as ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CGColorGetConstantColor Lib CoreGraphicsLib (colorname as CFStringRef) As Ptr
+		Private Declare Function CGColorGetConstantColor Lib CoreGraphicsLibName (colorname as CFStringRef) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CGColorGetNumberOfComponents Lib CoreGraphicsLib (id as ptr) As UInteger
+		Private Declare Function CGColorGetNumberOfComponents Lib CoreGraphicsLibName (id as ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CGColorGetTypeID Lib CoreGraphicsLib (id as ptr) As UInteger
+		Private Declare Function CGColorGetTypeID Lib CoreGraphicsLibName (id as ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CGColorRelease Lib CoreGraphicsLib (id as ptr)
+		Private Declare Sub CGColorRelease Lib CoreGraphicsLibName (id as ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CGColorRetain Lib CoreGraphicsLib (id as ptr) As ptr
+		Private Declare Function CGColorRetain Lib CoreGraphicsLibName (id as ptr) As ptr
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -190,9 +190,9 @@ Inherits AppleCFObject
 		#tag Getter
 			Get
 			  #if target32bit
-			    declare function CGColorGetAlpha lib CoreGraphicsLib (id as ptr) as single
+			    declare function CGColorGetAlpha lib CoreGraphicsLibName (id as ptr) as single
 			  #elseif target64bit
-			    declare function CGColorGetAlpha lib CoreGraphicsLib (id as ptr) as double
+			    declare function CGColorGetAlpha lib CoreGraphicsLibName (id as ptr) as double
 			  #endif
 			  return CGColorGetAlpha (mCFTypeRef)
 			  

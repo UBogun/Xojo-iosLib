@@ -4,7 +4,7 @@ Inherits AppleCALayer
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CATextLayer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CATextLayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

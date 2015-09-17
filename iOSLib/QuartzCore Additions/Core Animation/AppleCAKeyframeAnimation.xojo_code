@@ -75,7 +75,7 @@ Inherits AppleCAPropertyAnimation
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CAKeyframeAnimation")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CAKeyframeAnimation")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

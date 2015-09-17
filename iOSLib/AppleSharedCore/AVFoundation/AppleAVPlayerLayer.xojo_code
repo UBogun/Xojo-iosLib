@@ -10,7 +10,7 @@ Inherits AppleCALayer
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Player As AppleAVPlayer)
-		  Declare function playerLayerWithPlayer lib AVFoundationLib selector "playerLayerWithPlayer:" (id as ptr, player as ptr) as ptr
+		  Declare function playerLayerWithPlayer lib AVFoundationLibName selector "playerLayerWithPlayer:" (id as ptr, player as ptr) as ptr
 		  super.Constructor (playerLayerWithPlayer (ClassPtr, player.id))
 		  RetainClassObject
 		End Sub
@@ -26,7 +26,7 @@ Inherits AppleCALayer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as ptr = NSClassFromString ("AVPlayerLayer")
+			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVPlayerLayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -36,13 +36,13 @@ Inherits AppleCALayer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function player lib AVFoundationLib selector "player" (id as ptr) as ptr
+			  Declare Function player lib AVFoundationLibName selector "player" (id as ptr) as ptr
 			  Return AppleAVPlayer.MakeFromPtr (player(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setPlayer lib AVFoundationLib selector "setPlayer:" (id as ptr, value as ptr)
+			  Declare Sub setPlayer lib AVFoundationLibName selector "setPlayer:" (id as ptr, value as ptr)
 			  setPlayer id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -52,7 +52,7 @@ Inherits AppleCALayer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function isReadyForDisplay lib AVFoundationLib selector "isReadyForDisplay" (id as ptr) as Boolean
+			  Declare Function isReadyForDisplay lib AVFoundationLibName selector "isReadyForDisplay" (id as ptr) as Boolean
 			  Return isReadyForDisplay (id)
 			End Get
 		#tag EndGetter
@@ -92,13 +92,13 @@ Inherits AppleCALayer
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  Declare function videoGravity lib AVFoundationLib selector "videoGravity" (id as ptr) as CFStringRef
+			  Declare function videoGravity lib AVFoundationLibName selector "videoGravity" (id as ptr) as CFStringRef
 			  return videoGravity (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setVideoGravity lib AVFoundationLib selector "setVideoGravity:" (id as ptr, value as CFStringRef)
+			  Declare Sub setVideoGravity lib AVFoundationLibName selector "setVideoGravity:" (id as ptr, value as CFStringRef)
 			  setVideoGravity id, value
 			End Set
 		#tag EndSetter
@@ -109,15 +109,15 @@ Inherits AppleCALayer
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function videoRect lib AVFoundationLib selector "videoRect" (id as ptr) as NSRect
+			    Declare function videoRect lib AVFoundationLibName selector "videoRect" (id as ptr)  as FoundationFramework.NSRect
 			    return videoRect (id)
 			  #elseif Target32Bit
-			    Declare function videoRect lib AVFoundationLib selector "videoRect" (id as ptr) as NSRect32Bit
+			    Declare function videoRect lib AVFoundationLibName selector "videoRect" (id as ptr) as FoundationFramework.NSRect32Bit
 			    return videoRect(id).toNSRect
 			  #endif
 			End Get
 		#tag EndGetter
-		VideoRect As NSRect
+		VideoRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 

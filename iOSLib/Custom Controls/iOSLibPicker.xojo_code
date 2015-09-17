@@ -57,7 +57,7 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_layerClass(id as ptr, sel as ptr) As Ptr
-		  return NSClassFromString ("CAGradientLayer")
+		  return FoundationFramework.NSClassFromString ("CAGradientLayer")
 		  #pragma unused id
 		  #pragma unused sel
 		End Function
@@ -104,12 +104,12 @@ Inherits iOSUserControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RowSizeForComponent(Component as integer) As NSSize
+		Function RowSizeForComponent(Component as integer) As FoundationFramework.NSSize
 		  #if Target64Bit
-		    Declare Function rowSizeForComponent lib UIKit selector "rowSizeForComponent:" (id as ptr, component as integer) as nssize
+		    Declare Function rowSizeForComponent lib UIKit selector "rowSizeForComponent:" (id as ptr, component as integer) as FoundationFramework.NSSize
 		    Return rowSizeForComponent (id, Component)
 		  #elseif Target32Bit
-		    Declare Function rowSizeForComponent lib UIKit selector "rowSizeForComponent:" (id as ptr, component as integer) as NSSize32Bit
+		    Declare Function rowSizeForComponent lib UIKit selector "rowSizeForComponent:" (id as ptr, component as integer) as FoundationFramework.NSSize32Bit
 		    Return rowSizeForComponent(id, Component).toNSSize
 		  #endif
 		End Function
@@ -150,7 +150,7 @@ Inherits iOSUserControl
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIPickerView")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIPickerView")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

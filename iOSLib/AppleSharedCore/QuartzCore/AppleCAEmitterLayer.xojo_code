@@ -42,7 +42,7 @@ Inherits AppleCALayer
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CAEmitterLayer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CAEmitterLayer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -201,10 +201,10 @@ Inherits AppleCALayer
 		#tag Getter
 			Get
 			  #if Target64bit
-			    Declare Function emitterSize lib QuartzCoreLib selector "emitterSize" (id as ptr) as NSSize
+			    Declare Function emitterSize lib QuartzCoreLib selector "emitterSize" (id as ptr) as FoundationFramework.NSSize
 			    return emitterSize (id)
 			  #elseif Target32Bit
-			    Declare Function emitterSize lib QuartzCoreLib selector "emitterSize" (id as ptr) as NSSize32Bit
+			    Declare Function emitterSize lib QuartzCoreLib selector "emitterSize" (id as ptr) as FoundationFramework.NSSize32Bit
 			    return emitterSize (id).toNSSize
 			  #endif
 			  
@@ -213,16 +213,16 @@ Inherits AppleCALayer
 		#tag Setter
 			Set
 			  #if Target64bit
-			    Declare Sub setEmitterSize lib QuartzCoreLib selector "setEmitterSize:" (id as ptr, value as nssize)
+			    Declare Sub setEmitterSize lib QuartzCoreLib selector "setEmitterSize:" (id as ptr, value as FoundationFramework.NSSize)
 			    setEmitterSize id, value
 			  #elseif Target32Bit
-			    Declare Sub setEmitterSize lib QuartzCoreLib selector "setEmitterSize:" (id as ptr, value as NSSize32Bit)
+			    Declare Sub setEmitterSize lib QuartzCoreLib selector "setEmitterSize:" (id as ptr, value as FoundationFramework.NSSize32Bit)
 			    setEmitterSize id, value.toNSSize32
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		EmitterSize As NSSize
+		EmitterSize As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

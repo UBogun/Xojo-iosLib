@@ -19,7 +19,7 @@ Inherits AppleSCNConstraint
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("SCNLookAtConstraint")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("SCNLookAtConstraint")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

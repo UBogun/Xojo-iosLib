@@ -18,7 +18,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSError")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSError")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -28,7 +28,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function code lib FoundationLib  selector "code" (id as ptr) as Integer
+			  Declare Function code lib FoundationLibName  selector "code" (id as ptr) as Integer
 			  return code (id)
 			End Get
 		#tag EndGetter
@@ -38,7 +38,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function domain lib FoundationLib  selector "domain" (id as ptr) as CFStringRef
+			  Declare Function domain lib FoundationLibName  selector "domain" (id as ptr) as CFStringRef
 			  return domain (id)
 			End Get
 		#tag EndGetter
@@ -48,7 +48,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function helpAnchor lib FoundationLib  selector "helpAnchor" (id as ptr) as CFStringRef
+			  Declare Function helpAnchor lib FoundationLibName  selector "helpAnchor" (id as ptr) as CFStringRef
 			  return helpAnchor (id)
 			End Get
 		#tag EndGetter
@@ -58,7 +58,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function localizedDescription lib FoundationLib  selector "localizedDescription" (id as ptr) as CFStringRef
+			  Declare Function localizedDescription lib FoundationLibName  selector "localizedDescription" (id as ptr) as CFStringRef
 			  return localizedDescription (id)
 			End Get
 		#tag EndGetter
@@ -68,7 +68,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function localizedFailureReason lib FoundationLib  selector "localizedFailureReason" (id as ptr) as CFStringRef
+			  Declare Function localizedFailureReason lib FoundationLibName  selector "localizedFailureReason" (id as ptr) as CFStringRef
 			  return localizedFailureReason (id)
 			End Get
 		#tag EndGetter
@@ -78,7 +78,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function localizedRecoveryOptions lib FoundationLib  selector "localizedRecoveryOptions" (id as ptr) as ptr
+			  Declare Function localizedRecoveryOptions lib FoundationLibName  selector "localizedRecoveryOptions" (id as ptr) as ptr
 			  return AppleArray.MakeFromPtr (localizedRecoveryOptions (id))
 			End Get
 		#tag EndGetter
@@ -88,7 +88,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function localizedRecoverySuggestion lib FoundationLib  selector "localizedRecoverySuggestion" (id as ptr) as CFStringRef
+			  Declare Function localizedRecoverySuggestion lib FoundationLibName  selector "localizedRecoverySuggestion" (id as ptr) as CFStringRef
 			  return localizedRecoverySuggestion (id)
 			End Get
 		#tag EndGetter
@@ -98,7 +98,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function recoveryAttempter lib FoundationLib  selector "recoveryAttempter" (id as ptr) as ptr
+			  Declare Function recoveryAttempter lib FoundationLibName  selector "recoveryAttempter" (id as ptr) as ptr
 			  return AppleObject.MakeFromPtr (recoveryAttempter (id))
 			End Get
 		#tag EndGetter
@@ -108,7 +108,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function userinfo lib FoundationLib  selector "unserInfo" (id as ptr) as ptr
+			  Declare Function userinfo lib FoundationLibName  selector "unserInfo" (id as ptr) as ptr
 			  return AppleDictionary.MakeFromPtr (userinfo (id))
 			End Get
 		#tag EndGetter

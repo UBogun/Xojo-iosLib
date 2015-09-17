@@ -3,7 +3,7 @@ Protected Class AppleMutableData
 Inherits AppleData
 	#tag Method, Flags = &h1000
 		Sub Constructor(Capacity as UInteger)
-		  declare function initWithCapacity lib FoundationLib  selector "initWithCapacity:" (id as ptr, capacity as uinteger) as ptr
+		  declare function initWithCapacity lib FoundationLibName  selector "initWithCapacity:" (id as ptr, capacity as uinteger) as ptr
 		  super.Constructor (initWithCapacity (alloc(ClassPtr), Capacity))
 		  mHasownership = true
 		  
@@ -14,7 +14,7 @@ Inherits AppleData
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSMutableData")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSMutableData")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

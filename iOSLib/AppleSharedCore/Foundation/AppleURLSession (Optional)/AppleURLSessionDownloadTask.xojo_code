@@ -3,7 +3,7 @@ Protected Class AppleURLSessionDownloadTask
 Inherits AppleURLSessionTask
 	#tag Method, Flags = &h0
 		Sub CancelByProducingResumeData(completionhandler as ptr)
-		  declare sub cancelByProducingResumeData lib FoundationLib  selector "cancelByProducingResumeData:" (id as ptr, completionhandler as ptr)
+		  declare sub cancelByProducingResumeData lib FoundationLibName  selector "cancelByProducingResumeData:" (id as ptr, completionhandler as ptr)
 		  cancelByProducingResumeData id, completionhandler
 		End Sub
 	#tag EndMethod
@@ -18,7 +18,7 @@ Inherits AppleURLSessionTask
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSURLSessionDownloadTask")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSURLSessionDownloadTask")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

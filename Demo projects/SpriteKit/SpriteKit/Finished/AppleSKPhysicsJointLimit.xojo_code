@@ -2,14 +2,14 @@
 Protected Class AppleSKPhysicsJointLimit
 Inherits AppleSKPhysicsJoint
 	#tag Method, Flags = &h1000
-		Sub Constructor(BodyA As AppleSKPhysicsBody, BodyB as AppleSKPhysicsBody, AnchorA as NSPoint, AnchorB as NSPoint)
+		Sub Constructor(BodyA As AppleSKPhysicsBody, BodyB as AppleSKPhysicsBody, AnchorA as FoundationFramework.NSPoint, AnchorB as FoundationFramework.NSPoint)
 		  #if Target64Bit
 		    declare function jointWithBodyA lib SpriteKit selector "jointWithBodyA:bodyB:anchorA:anchorB:" _
-		    (id as ptr, bodyA as ptr, bodyB as ptr, anchorA as nspoint, anchorB as nspoint) as ptr
+		    (id as ptr, bodyA as ptr, bodyB as ptr, anchorA as FoundationFramework.NSPoint, anchorB as FoundationFramework.NSPoint) as ptr
 		    super.Constructor (jointWithBodyA(ClassPtr, bodyA.id, Bodyb.id, AnchorA, anchorB))
 		  #elseif Target32Bit
 		    declare function jointWithBodyA lib SpriteKit selector "jointWithBodyA:bodyB:anchorA:anchorB:" _
-		    (id as ptr, bodyA as ptr, bodyB as ptr, anchorA as NSPoint32Bit, anchorB as NSPoint32Bit) as ptr
+		    (id as ptr, bodyA as ptr, bodyB as ptr, anchorA as FoundationFramework.NSPoint32Bit, anchorB as FoundationFramework.NSPoint32Bit) as ptr
 		    super.Constructor (jointWithBodyA(ClassPtr, bodyA.id, Bodyb.id, AnchorA.toNSPoint32, AnchorB.toNSPoint32))
 		  #endif
 		  RetainClassObject
@@ -24,7 +24,7 @@ Inherits AppleSKPhysicsJoint
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKPhysicsJointLimit")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKPhysicsJointLimit")
 			    end if
 			  end if
 			  return mClassPtr
@@ -62,11 +62,36 @@ Inherits AppleSKPhysicsJoint
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -79,6 +104,11 @@ Inherits AppleSKPhysicsJoint
 			Name="MaxLength"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

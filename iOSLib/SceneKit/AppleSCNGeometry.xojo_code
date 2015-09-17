@@ -4,7 +4,7 @@ Inherits AppleSCNObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("SCNGeometry")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("SCNGeometry")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

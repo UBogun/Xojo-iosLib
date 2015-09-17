@@ -110,7 +110,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIWebView")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIWebView")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

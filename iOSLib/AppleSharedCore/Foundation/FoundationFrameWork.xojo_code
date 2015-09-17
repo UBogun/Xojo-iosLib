@@ -1,55 +1,90 @@
 #tag Module
 Protected Module FoundationFrameWork
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFCopyDescription Lib FoundationLib (id as ptr) As cfstringref
+		Protected Declare Function CFCopyDescription Lib FoundationLibName (id as ptr) As cfstringref
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFCopyTypeIDDescription Lib FoundationLib (CFTypeId as uinteger) As cfstringref
+		Protected Declare Function CFCopyTypeIDDescription Lib FoundationLibName (CFTypeId as uinteger) As cfstringref
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFNumberGetValue Lib FoundationLib (Number as Ptr, Numbertype as CFNumberTypes, byref ValuePtr as Ptr) As Boolean
+		Protected Declare Function CFNumberGetValue Lib FoundationLibName (Number as Ptr, Numbertype as CFNumberTypes, byref ValuePtr as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CFRelease Lib FoundationLib (id as ptr)
+		Protected Declare Sub CFRelease Lib FoundationLibName (id as ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFStringCreateCopy Lib FoundationLib (aString as cfstringref) As cfstringref
+		Protected Declare Function CFStringCreateCopy Lib FoundationLibName (aString as cfstringref) As cfstringref
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFStringCreateWithCString Lib FoundationLib (aString as cstring, encoding as integer) As Ptr
+		Protected Declare Function CFStringCreateWithCString Lib FoundationLibName (aString as cstring, encoding as integer) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFStringGetCharactersPtr Lib FoundationLib (aString as cfstringref) As Ptr
+		Protected Declare Function CFStringGetCharactersPtr Lib FoundationLibName (aString as cfstringref) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFStringGetCStringPtr Lib FoundationLib (aString as cfstringref, anencoding as ptr) As Ptr
+		Protected Declare Function CFStringGetCStringPtr Lib FoundationLibName (aString as cfstringref, anencoding as ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CFStringGetFastestEncoding Lib FoundationLib (aString as cfstringref) As Ptr
+		Protected Declare Function CFStringGetFastestEncoding Lib FoundationLibName (aString as cfstringref) As Ptr
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h0
-		Declare Function NSClassFromString Lib FoundationLib (aClassName as CFStringRef) As Ptr
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function NSClassFromString Lib FoundationLibName (aClassName as CFStringRef) As Ptr
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h0
-		Declare Function NSProtocolFromString Lib FoundationLib (aProtocol as CFStringRef) As Ptr
+	#tag Method, Flags = &h1
+		Protected Function NSMakePoint(x as double, y as double) As FoundationFRamework.NSPoint
+		  #pragma DisableBackgroundTasks
+		  #pragma DisableBoundsChecking
+		  #Pragma NilObjectChecking false
+		  
+		  dim NP as foundationframework.NSPoint
+		  NP.x = x
+		  NP.y = y
+		  return np
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function NSMakeRect(x as double, y as double, w as double, h as double) As FoundationFramework.NSRect
+		  dim NP  as FoundationFramework.NSRect
+		  NP.Origin.x = x
+		  np.Origin.y = y
+		  NP.Size_.width = w
+		  np.Size_.height = h
+		  return np
+		  
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function NSMakeSize(height as Double, width as double) As FoundationFramework.NSSize
+		  dim NS as FoundationFramework.NSSize
+		  ns.height = height
+		  ns.width = width
+		  return ns
+		End Function
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function NSProtocolFromString Lib FoundationLibName (aProtocol as CFStringRef) As Ptr
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h0
-		Declare Function NSSelectorFromString Lib FoundationLib (aSelector as CFStringRef) As Ptr
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function NSSelectorFromString Lib FoundationLibName (aSelector as CFStringRef) As Ptr
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h0
-		Declare Function NSStringFromSelector Lib FoundationLib (aSelector as Ptr) As cfstringref
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function NSStringFromSelector Lib FoundationLibName (aSelector as Ptr) As cfstringref
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -77,7 +112,7 @@ Protected Module FoundationFrameWork
 	#tag Constant, Name = CoreFoundation, Type = Text, Dynamic = False, Default = \"CoreFoundation.framework", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = FoundationLib, Type = Text, Dynamic = False, Default = \"Foundation.framework", Scope = Public
+	#tag Constant, Name = FoundationLibName, Type = Text, Dynamic = False, Default = \"Foundation.framework", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = FoundationPath, Type = Text, Dynamic = False, Default = \"com.apple.Foundation", Scope = Public
@@ -94,37 +129,37 @@ Protected Module FoundationFrameWork
 		dy as single
 	#tag EndStructure
 
-	#tag Structure, Name = NSPoint, Flags = &h0
+	#tag Structure, Name = NSPoint, Flags = &h1
 		x as Double
 		y as Double
 	#tag EndStructure
 
-	#tag Structure, Name = NSPoint32Bit, Flags = &h0
+	#tag Structure, Name = NSPoint32Bit, Flags = &h1
 		x as single
 		y as single
 	#tag EndStructure
 
-	#tag Structure, Name = NSRange, Flags = &h0
+	#tag Structure, Name = NSRange, Flags = &h1
 		location as UInteger
 		length as uinteger
 	#tag EndStructure
 
-	#tag Structure, Name = NSRect, Flags = &h0
-		Origin as NSPoint
-		Size_ as NSSize
+	#tag Structure, Name = NSRect, Flags = &h1
+		Origin as FoundationFramework.NSPoint
+		Size_ as FoundationFramework.NSSize
 	#tag EndStructure
 
-	#tag Structure, Name = NSRect32Bit, Flags = &h0
-		Origin as NSPoint32Bit
-		Size_ as NSSize32Bit
+	#tag Structure, Name = NSRect32Bit, Flags = &h1
+		Origin as FoundationFramework.NSPoint32Bit
+		Size_ as FoundationFramework.NSSize32Bit
 	#tag EndStructure
 
-	#tag Structure, Name = NSSize, Flags = &h0
+	#tag Structure, Name = NSSize, Flags = &h1
 		width as Double
 		height as Double
 	#tag EndStructure
 
-	#tag Structure, Name = NSSize32Bit, Flags = &h0
+	#tag Structure, Name = NSSize32Bit, Flags = &h1
 		width as single
 		height as single
 	#tag EndStructure

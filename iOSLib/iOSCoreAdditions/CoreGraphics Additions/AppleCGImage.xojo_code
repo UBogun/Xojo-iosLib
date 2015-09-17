@@ -2,19 +2,19 @@
 Protected Class AppleCGImage
 Inherits AppleCFObject
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGImageGetHeight Lib CoreGraphicsLib (CFTypeRef as Ptr) As Integer
+		Protected Declare Function CGImageGetHeight Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Integer
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGImageGetWidth Lib CoreGraphicsLib (CFTypeRef as Ptr) As Integer
+		Protected Declare Function CGImageGetWidth Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Integer
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub CGImageRelease Lib CoreGraphicsLib (CFTypeRef as Ptr)
+		Protected Declare Sub CGImageRelease Lib CoreGraphicsLibName (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGImageRetain Lib CoreGraphicsLib (CFTypeRef as Ptr) As Ptr
+		Protected Declare Function CGImageRetain Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -48,10 +48,10 @@ Inherits AppleCFObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return NSSize (Width, height)
+			  return FoundationFrameWork.nsmakesize (Width, height)
 			End Get
 		#tag EndGetter
-		Size As NSSize
+		Size As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

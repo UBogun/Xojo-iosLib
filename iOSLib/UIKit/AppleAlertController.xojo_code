@@ -81,7 +81,7 @@ Inherits AppleViewController
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIAlertController")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIAlertController")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -243,30 +243,11 @@ Inherits AppleViewController
 			Name="ModalPresentationStyle"
 			Group="Behavior"
 			Type="UIViewModalPresentationStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - FullScreen"
-				"1 - PageSheet"
-				"2 - FormSheet"
-				"3 - CurrentContext"
-				"4 - Custom"
-				"5 - OverFullScreen"
-				"6 - OverCurrentContext"
-				"7 - PopOver"
-				"-1 - None"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ModalTransitonStyle"
 			Group="Behavior"
 			Type="UIModalTransitionStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - CoverVertical"
-				"1 - FlipHorizontal"
-				"2 - CrossDissolve"
-				"3 - PartialCurl"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

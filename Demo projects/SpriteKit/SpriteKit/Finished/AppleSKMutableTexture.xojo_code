@@ -2,12 +2,12 @@
 Protected Class AppleSKMutableTexture
 Inherits AppleSKTexture
 	#tag Method, Flags = &h1000
-		Sub Constructor(asize as NSSize)
+		Sub Constructor(asize as FoundationFramework.NSSize)
 		  #if Target64bit
-		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as nssize) as ptr
+		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as FoundationFramework.NSSize) as ptr
 		    super.Constructor(initWithSize(alloc(ClassPtr), asize))
 		  #elseif Target32Bit
-		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as NSSize32Bit) as ptr
+		    declare function initWithSize lib SpriteKit selector "initWithSize:" (id as ptr, size as FoundationFramework.NSSize32Bit) as ptr
 		    super.Constructor(initWithSize(alloc(ClassPtr), asize.toNSSize32))
 		  #endif
 		  mHasOwnership = true
@@ -16,7 +16,7 @@ Inherits AppleSKTexture
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(asize as NSSize, format as PixelFormat)
+		Sub Constructor(asize as FoundationFramework.NSSize, format as PixelFormat)
 		  dim formatvalue as integer
 		  select case format
 		  case PixelFormat.RGBA32
@@ -27,10 +27,10 @@ Inherits AppleSKTexture
 		    formatvalue = &h5247641  //RGfA
 		  end select
 		  #if Target64bit
-		    declare function initWithSizepixelFormat lib SpriteKit selector "initWithSize:pixelFormat:" (id as ptr, size as nssize, format as integer) as ptr
+		    declare function initWithSizepixelFormat lib SpriteKit selector "initWithSize:pixelFormat:" (id as ptr, size as FoundationFramework.NSSize, format as integer) as ptr
 		    super.Constructor(initWithSizepixelFormat(alloc(ClassPtr), asize, formatvalue))
 		  #elseif Target32Bit
-		    declare function initWithSizepixelFormat lib SpriteKit selector "initWithSize:pixelFormat:" (id as ptr, size as NSSize32Bit, format as integer) as ptr
+		    declare function initWithSizepixelFormat lib SpriteKit selector "initWithSize:pixelFormat:" (id as ptr, size as FoundationFramework.NSSize32Bit, format as integer) as ptr
 		    super.Constructor(initWithSizepixelFormat(alloc(ClassPtr), asize.toNSSize32, formatvalue))
 		  #endif
 		  mHasOwnership = true
@@ -69,7 +69,7 @@ Inherits AppleSKTexture
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
 			    if AppleSKView.SpriteKitEnabled then
-			      mClassPtr  =  NSClassFromString ("SKMutableTexture")
+			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKMutableTexture")
 			    end if
 			  end if
 			  return mClassPtr
@@ -88,6 +88,16 @@ Inherits AppleSKTexture
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="FilteringMode"
 			Group="Behavior"
 			Type="SKTextureFilteringMode"
@@ -98,6 +108,11 @@ Inherits AppleSKTexture
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -105,11 +120,26 @@ Inherits AppleSKTexture
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="isProxy"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

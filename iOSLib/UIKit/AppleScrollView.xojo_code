@@ -2,12 +2,12 @@
 Protected Class AppleScrollView
 Inherits AppleView
 	#tag Method, Flags = &h0
-		Sub AnimateContentOffset(value as NSPoint)
+		Sub AnimateContentOffset(value as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub setContentOffsetAnimated lib UIKit selector "setContentOffset:animated:" (id as ptr, value as NSPoint, animated as boolean)
+		    Declare sub setContentOffsetAnimated lib UIKit selector "setContentOffset:animated:" (id as ptr, value as FoundationFramework.NSPoint, animated as boolean)
 		    setContentOffsetAnimated (id, value, true)
 		  #elseif Target32Bit
-		    Declare sub setContentOffsetAnimated lib UIKit selector "setContentOffset:animated:" (id as ptr, value as NSPoint32Bit, animated as boolean)
+		    Declare sub setContentOffsetAnimated lib UIKit selector "setContentOffset:animated:" (id as ptr, value as FoundationFramework.NSPoint32Bit, animated as boolean)
 		    setContentOffsetAnimated (id, value.toNSPoint32, true)
 		  #endif
 		End Sub
@@ -18,8 +18,8 @@ Inherits AppleView
 		  // Courtesy of http://www.raywenderlich.com/10518/how-to-use-uiscrollview-to-scroll-and-zoom-content
 		  
 		  if me.ContentView <> nil then
-		    dim boundsSize as nssize = me.bounds.Size_
-		    dim contentsFrame as nsrect = me.contentView.frame
+		    dim boundsSize as FoundationFramework.NSSize = me.bounds.Size_
+		    dim contentsFrame  as FoundationFramework.NSRect = me.contentView.frame
 		    
 		    if (contentsFrame.size_.width < boundsSize.width) then
 		      contentsFrame.origin.x = (boundsSize.width - contentsFrame.size_.width) / 2.0
@@ -40,18 +40,18 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame As NSRect)
+		Sub Constructor(aFrame as FoundationFramework.NSRect)
 		  Super.Constructor (DoInitWithFrame (alloc(ClassPtr), aFrame))
 		  mHasOwnership = true
 		  if Observers = nil then Observers = new xojo.Core.Dictionary
 		  Delegate_ = self
 		  
-		  dim mDoubleTapRecognizer as new AppleTapGestureRecognizer (self, NSSelectorFromString(doubleTapReceived))
+		  dim mDoubleTapRecognizer as new AppleTapGestureRecognizer (self, FoundationFramework.NSSelectorFromString(doubleTapReceived))
 		  mDoubleTapRecognizer.NumberOfTapsRequired = 2
 		  mDoubleTapRecognizer.NumberOfTouchesRequired = 1
 		  AddGestureRecognizer mDoubleTapRecognizer
 		  
-		  dim mTwoFingerTapRecognizer as new AppleTapGestureRecognizer (self, NSSelectorFromString(twoFingerTapReceived))
+		  dim mTwoFingerTapRecognizer as new AppleTapGestureRecognizer (self, FoundationFramework.NSSelectorFromString(twoFingerTapReceived))
 		  mTwoFingerTapRecognizer.NumberOfTapsRequired = 1
 		  mTwoFingerTapRecognizer.NumberOfTouchesRequired = 2
 		  AddGestureRecognizer mTwoFingerTapRecognizer
@@ -59,7 +59,7 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame As NSRect, observer as AppleNSEventReceiver)
+		Sub Constructor(aFrame as FoundationFramework.NSRect, observer as AppleNSEventReceiver)
 		  Constructor (aFrame)
 		  RegisterObserver (observer)
 		  
@@ -193,18 +193,18 @@ Inherits AppleView
 		  
 		  dim ego as new AppleScrollView (pid)
 		  
-		  dim PointInView As NSPoint = ego.DoubleTapRecognizer.LocationOfTouchInView (0, ego.contentview)
+		  dim PointInView As FoundationFramework.NSPoint = ego.DoubleTapRecognizer.LocationOfTouchInView (0, ego.contentview)
 		  dim newZoomScale as double = ego.zoomScale * 1.5
 		  newZoomScale = MIN(newZoomScale, ego.maximumZoomScale)
 		  
-		  dim scrollViewSize as nssize = ego.bounds.size_
+		  dim scrollViewSize as FoundationFramework.NSSize = ego.bounds.size_
 		  
 		  dim w as double = scrollViewSize.width / newZoomScale
 		  dim h as double = scrollViewSize.height / newZoomScale
 		  dim x as double = pointInView.x - (w / 2.0)
 		  dim y as double = pointInView.y - (h / 2.0)
 		  
-		  dim rectToZoomTo as nsrect = NSREct(x, y, w, h)
+		  dim rectToZoomTo  as FoundationFramework.NSRect = FoundationFrameWork.NSMakeRect(x, y, w, h)
 		  ego.ZoomToRect rectToZoomTo
 		  ego.informonDoubleTap
 		  
@@ -213,7 +213,7 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as NSRect32Bit)
+		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect32Bit)
 		  dim ego as new AppleScrollView (pid)
 		  ego.informonDrawRect (rect.toNSRect)
 		  
@@ -225,7 +225,7 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as NSRect)
+		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect)
 		  dim ego as new AppleScrollView (pid)
 		  ego.informonDrawRect (rect)
 		  
@@ -379,16 +379,16 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_willEndDragging32(pid as ptr, sel as ptr, scroller as Ptr, velocity as NSPoint32Bit, TargetContentOffset as NSPoint32Bit)
+		Private Shared Sub impl_willEndDragging32(pid as ptr, sel as ptr, scroller as Ptr, velocity as FoundationFramework.NSPoint32Bit, TargetContentOffset as FoundationFramework.NSPoint32Bit)
 		  dim ego as new AppleScrollView (pid)
-		  ego.informonWillEndDrag (velocity.tonspoint, targetcontentOffset.toNSPoint)
+		  ego.informonWillEndDrag (velocity.toNSPoint, targetcontentOffset.toNSPoint)
 		  #Pragma Unused  sel
 		  #Pragma unused scroller
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_willEndDragging64(pid as ptr, sel as ptr, scroller as Ptr, velocity as NSPoint, TargetContentOffset as NSPoint)
+		Private Shared Sub impl_willEndDragging64(pid as ptr, sel as ptr, scroller as Ptr, velocity as FoundationFramework.NSPoint, TargetContentOffset as FoundationFramework.NSPoint)
 		  dim ego as new AppleScrollView (pid)
 		  ego.informonWillEndDrag (velocity, targetcontentOffset)
 		  #Pragma Unused  sel
@@ -603,7 +603,7 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Attributes( hidden = true ) Private Sub informonWillEndDrag(Velocity as NSPoint, TargetContentOffset as NSPoint)
+		Attributes( hidden = true ) Private Sub informonWillEndDrag(Velocity as FoundationFramework.NSPoint, TargetContentOffset as FoundationFramework.NSPoint)
 		  RaiseEvent WillEndDrag (Velocity, TargetContentOffset)
 		  
 		  If Observers.HasKey(id) then
@@ -656,12 +656,12 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ScrollToRect(value as NSRect)
+		Sub ScrollToRect(value as FoundationFramework.NSRect)
 		  #if Target64Bit
-		    Declare sub scrollRectToVisible lib UIKit selector "scrollRectToVisible:animated:" (id as ptr, value as NSRect, animated as boolean)
+		    Declare sub scrollRectToVisible lib UIKit selector "scrollRectToVisible:animated:" (id as ptr, value  as FoundationFramework.NSRect, animated as boolean)
 		    scrollRectToVisible (id, value, true)
 		  #elseif Target32Bit
-		    Declare sub scrollRectToVisible lib UIKit selector "scrollRectToVisible:animated:" (id as ptr, value as NSRect32Bit, animated as boolean)
+		    Declare sub scrollRectToVisible lib UIKit selector "scrollRectToVisible:animated:" (id as ptr, value as FoundationFramework.NSRect32Bit, animated as boolean)
 		    scrollRectToVisible (id, value.toNSRect32, true)
 		  #endif
 		End Sub
@@ -679,12 +679,12 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ZoomToRect(value as NSRect, animated as boolean = true)
+		Sub ZoomToRect(value as FoundationFramework.NSRect, animated as boolean = true)
 		  #if Target64Bit
-		    Declare sub zoomToRect lib UIKit selector "zoomToRect:animated:" (id as ptr, value as NSRect, animated as boolean)
+		    Declare sub zoomToRect lib UIKit selector "zoomToRect:animated:" (id as ptr, value  as FoundationFramework.NSRect, animated as boolean)
 		    zoomToRect (id, value, animated)
 		  #elseif Target32Bit
-		    Declare sub zoomToRect lib UIKit selector "zoomToRect:animated:" (id as ptr, value as NSRect32Bit, animated as boolean)
+		    Declare sub zoomToRect lib UIKit selector "zoomToRect:animated:" (id as ptr, value as FoundationFramework.NSRect32Bit, animated as boolean)
 		    zoomToRect (id, value.toNSRect32, animated)
 		  #endif
 		End Sub
@@ -736,7 +736,7 @@ Inherits AppleView
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event WillEndDrag(Velocity as NSPoint, TargetContentOffset as NSPoint)
+		Event WillEndDrag(Velocity as FoundationFramework.NSPoint, TargetContentOffset as FoundationFramework.NSPoint)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -929,10 +929,10 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function contentOffset lib UIKit selector "contentOffset" (id as ptr) as NSPoint
+			    Declare function contentOffset lib UIKit selector "contentOffset" (id as ptr) as FoundationFramework.NSPoint
 			    return contentOffset (id)
 			  #elseif Target32Bit
-			    Declare function contentOffset lib UIKit selector "contentOffset" (id as ptr) as NSPoint32Bit
+			    Declare function contentOffset lib UIKit selector "contentOffset" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return contentOffset(id).toNSPoint
 			  #endif
 			End Get
@@ -940,25 +940,25 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setContentOffset lib UIKit selector "setContentOffset:" (id as ptr, value as NSPoint)
+			    Declare sub setContentOffset lib UIKit selector "setContentOffset:" (id as ptr, value as FoundationFramework.NSPoint)
 			    setContentOffset (id, value)
 			  #elseif Target32Bit
-			    Declare sub setContentOffset lib UIKit selector "setContentOffset:" (id as ptr, value as NSPoint32Bit)
+			    Declare sub setContentOffset lib UIKit selector "setContentOffset:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setContentOffset (id, value.toNSPoint32)
 			  #endif
 			End Set
 		#tag EndSetter
-		ContentOffset As nspoint
+		ContentOffset As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function contentSize lib UIKit selector "contentSize" (id as ptr) as NSSize
+			    Declare function contentSize lib UIKit selector "contentSize" (id as ptr) as FoundationFramework.NSSize
 			    return contentSize (id)
 			  #elseif Target32Bit
-			    Declare function contentSize lib UIKit selector "contentSize" (id as ptr) as NSSize32Bit
+			    Declare function contentSize lib UIKit selector "contentSize" (id as ptr) as FoundationFramework.NSSize32Bit
 			    return contentSize(id).toNSSize
 			  #endif
 			End Get
@@ -966,15 +966,15 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setContentSize lib UIKit selector "setContentSize:" (id as ptr, value as NSSize)
+			    Declare sub setContentSize lib UIKit selector "setContentSize:" (id as ptr, value as FoundationFramework.NSSize)
 			    setcontentSize (id, value)
 			  #elseif Target32Bit
-			    Declare sub setContentSize lib UIKit selector "setContentSize:" (id as ptr, value as NSSize32Bit)
+			    Declare sub setContentSize lib UIKit selector "setContentSize:" (id as ptr, value as FoundationFramework.NSSize32Bit)
 			    setcontentSize (id, value.toNSSize32)
 			  #endif
 			End Set
 		#tag EndSetter
-		ContentSize As NSSize
+		ContentSize As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

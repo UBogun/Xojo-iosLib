@@ -3,77 +3,77 @@ Protected Class AppleURLSession
 Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function AddDataTask(URL as AppleURL) As AppleURLSessionTask
-		  Declare Function dataTaskWithURL lib FoundationLib  selector "dataTaskWithURL:" (id as ptr, url as ptr) as ptr
+		  Declare Function dataTaskWithURL lib FoundationLibName  selector "dataTaskWithURL:" (id as ptr, url as ptr) as ptr
 		  Return AppleURLSessionTask.MakefromPtr (dataTaskWithURL(id, url.Id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddDataTask(URL as AppleURL, completionHandler as ptr) As AppleURLSessionTask
-		  Declare Function dataTaskWithURLCompletion lib FoundationLib  selector "dataTaskWithURL:completionHandler:" (id as ptr, url as ptr, completionHandler as ptr) as ptr
+		  Declare Function dataTaskWithURLCompletion lib FoundationLibName  selector "dataTaskWithURL:completionHandler:" (id as ptr, url as ptr, completionHandler as ptr) as ptr
 		  Return AppleURLSessionTask.MakefromPtr (dataTaskWithURLCompletion(id, url.Id, completionHandler))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddDataTask(Request as AppleURLRequest) As AppleURLSessionTask
-		  Declare Function dataTaskWithRequest lib FoundationLib  selector "dataTaskWithRequest:" (id as ptr, request as ptr) as ptr
+		  Declare Function dataTaskWithRequest lib FoundationLibName  selector "dataTaskWithRequest:" (id as ptr, request as ptr) as ptr
 		  Return AppleURLSessionTask.MakefromPtr (dataTaskWithRequest(id, Request.Id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddDataTask(Request as AppleURLRequest, completionHandler as ptr) As AppleURLSessionTask
-		  Declare Function dataTaskWithRequestCompletion lib FoundationLib  selector "dataTaskWithRequest:completionHandler:" (id as ptr, request as ptr, completionHandler as ptr) as ptr
+		  Declare Function dataTaskWithRequestCompletion lib FoundationLibName  selector "dataTaskWithRequest:completionHandler:" (id as ptr, request as ptr, completionHandler as ptr) as ptr
 		  Return AppleURLSessionTask.MakefromPtr (dataTaskWithRequestCompletion(id, Request.Id, completionHandler))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddDownloadTask(ResumeData as Appledata) As AppleURLSessionDownloadTask
-		  Declare Function downloadTaskWithResumeData lib FoundationLib  selector "downloadTaskWithResumeData:" (id as ptr, url as ptr) as ptr
+		  Declare Function downloadTaskWithResumeData lib FoundationLibName  selector "downloadTaskWithResumeData:" (id as ptr, url as ptr) as ptr
 		  Return AppleURLSessionDownloadTask.MakefromPtr (downloadTaskWithResumeData(id, ResumeData.Id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddDownloadTask(ResumeData as Appledata, completionHandler as ptr) As AppleURLSessionDownloadTask
-		  Declare Function downloadTaskWithResumeDataCompletion lib FoundationLib  selector "downloadTaskWithResumeData:completionHandler:" (id as ptr, url as ptr, completionHandler as ptr) as ptr
+		  Declare Function downloadTaskWithResumeDataCompletion lib FoundationLibName  selector "downloadTaskWithResumeData:completionHandler:" (id as ptr, url as ptr, completionHandler as ptr) as ptr
 		  Return AppleURLSessionDownloadTask.MakefromPtr (downloadTaskWithResumeDataCompletion(id, ResumeData.Id, completionHandler))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddDownloadTask(URL as AppleURL) As AppleURLSessionDownloadTask
-		  Declare Function downloadTaskWithURL lib FoundationLib  selector "downloadTaskWithURL:" (id as ptr, url as ptr) as ptr
+		  Declare Function downloadTaskWithURL lib FoundationLibName  selector "downloadTaskWithURL:" (id as ptr, url as ptr) as ptr
 		  Return AppleURLSessionDownloadTask.MakefromPtr (downloadTaskWithURL(id, url.Id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddDownloadTask(URL as AppleURL, completionHandler as ptr) As AppleURLSessionDownloadTask
-		  Declare Function downloadTaskWithURLCompletion lib FoundationLib  selector "downloadTaskWithURL:completionHandler:" (id as ptr, url as ptr, completionHandler as ptr) as ptr
+		  Declare Function downloadTaskWithURLCompletion lib FoundationLibName  selector "downloadTaskWithURL:completionHandler:" (id as ptr, url as ptr, completionHandler as ptr) as ptr
 		  Return AppleURLSessionDownloadTask.MakefromPtr (downloadTaskWithURLCompletion(id, url.Id, completionHandler))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddDownloadTask(Request as AppleURLRequest) As AppleURLSessionDownloadTask
-		  Declare Function downloadTaskWithRequest lib FoundationLib  selector "downloadTaskWithRequest:" (id as ptr, url as ptr) as ptr
+		  Declare Function downloadTaskWithRequest lib FoundationLibName  selector "downloadTaskWithRequest:" (id as ptr, url as ptr) as ptr
 		  Return AppleURLSessionDownloadTask.MakefromPtr (downloadTaskWithRequest(id, Request.Id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddDownloadTask(Request as AppleURLRequest, completionHandler as ptr) As AppleURLSessionDownloadTask
-		  Declare Function downloadTaskWithRequestCompletion lib FoundationLib  selector "downloadTaskWithRequest:completionHandler:" (id as ptr, url as ptr, completionHandler as ptr) as ptr
+		  Declare Function downloadTaskWithRequestCompletion lib FoundationLibName  selector "downloadTaskWithRequest:completionHandler:" (id as ptr, url as ptr, completionHandler as ptr) as ptr
 		  Return AppleURLSessionDownloadTask.MakefromPtr (downloadTaskWithRequestCompletion(id, Request.Id, completionHandler))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AddUploadTask(Request as AppleURLRequest) As AppleURLSessionTask
-		  Declare Function uploadTaskWithStreamedRequest lib FoundationLib  selector "uploadTaskWithStreamedRequest:" _
+		  Declare Function uploadTaskWithStreamedRequest lib FoundationLibName  selector "uploadTaskWithStreamedRequest:" _
 		  (id as ptr, Request as ptr) as ptr
 		  Return AppleURLSessionTask.MakefromPtr (uploadTaskWithStreamedRequest(id, Request.Id))
 		End Function
@@ -81,7 +81,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function AddUploadTask(Request as AppleURLRequest, data as AppleData) As AppleURLSessionTask
-		  Declare Function uploadTaskWithRequest lib FoundationLib  selector "uploadTaskWithRequest:fromData:" _
+		  Declare Function uploadTaskWithRequest lib FoundationLibName  selector "uploadTaskWithRequest:fromData:" _
 		  (id as ptr, Request as ptr, data as ptr) as ptr
 		  Return AppleURLSessionTask.MakefromPtr (uploadTaskWithRequest(id, Request.Id, data.id))
 		End Function
@@ -89,7 +89,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function AddUploadTask(Request as AppleURLRequest, data as AppleData, completionHandler as ptr) As AppleURLSessionTask
-		  Declare Function uploadTaskWithRequestCompletion lib FoundationLib  selector "uploadTaskWithRequest:fromData:completionHandler:" _
+		  Declare Function uploadTaskWithRequestCompletion lib FoundationLibName  selector "uploadTaskWithRequest:fromData:completionHandler:" _
 		  (id as ptr, Request as ptr, data as ptr, completionHandler as ptr) as ptr
 		  Return AppleURLSessionTask.MakefromPtr (uploadTaskWithRequestCompletion(id, Request.Id, data.id, completionHandler))
 		End Function
@@ -97,7 +97,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function AddUploadTask(Request as AppleURLRequest, file as AppleURL) As AppleURLSessionTask
-		  Declare Function uploadTaskWithRequestFile lib FoundationLib  selector "uploadTaskWithRequest:fromFile:" _
+		  Declare Function uploadTaskWithRequestFile lib FoundationLibName  selector "uploadTaskWithRequest:fromFile:" _
 		  (id as ptr, Request as ptr, file as ptr) as ptr
 		  Return AppleURLSessionTask.MakefromPtr (uploadTaskWithRequestFile(id, Request.Id, file.id))
 		End Function
@@ -105,7 +105,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function AddUploadTask(Request as AppleURLRequest, file as AppleURL, completionHandler as ptr) As AppleURLSessionTask
-		  Declare Function uploadTaskWithRequestFileCompletion lib FoundationLib  selector "uploadTaskWithRequest:fromFile:completionHandler:" _
+		  Declare Function uploadTaskWithRequestFileCompletion lib FoundationLibName  selector "uploadTaskWithRequest:fromFile:completionHandler:" _
 		  (id as ptr, Request as ptr, file as ptr, completionHandler as ptr) as ptr
 		  Return AppleURLSessionTask.MakefromPtr (uploadTaskWithRequestFileCompletion(id, Request.Id, file.id, completionHandler))
 		End Function
@@ -113,7 +113,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub constructor()
-		  Declare Function sharedSession lib FoundationLib  selector "sharedSession" (id as ptr) as ptr
+		  Declare Function sharedSession lib FoundationLibName  selector "sharedSession" (id as ptr) as ptr
 		  
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -128,7 +128,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub constructor(Configuration as AppleURLSessionConfiguration)
-		  Declare Function sessionWithConfiguration lib FoundationLib  selector "sessionWithConfiguration:" (id as ptr, configuration as ptr) as ptr
+		  Declare Function sessionWithConfiguration lib FoundationLibName  selector "sessionWithConfiguration:" (id as ptr, configuration as ptr) as ptr
 		  
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -143,7 +143,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub constructor(Configuration as AppleURLSessionConfiguration, Sessiondelegate as AppleURLSessionDelegate, delegatequeue as AppleOperationQueue)
-		  Declare Function sessionWithConfigurationDelegate lib FoundationLib  selector "sessionWithConfiguration:delegate:delegateQueue:" _
+		  Declare Function sessionWithConfigurationDelegate lib FoundationLibName  selector "sessionWithConfiguration:delegate:delegateQueue:" _
 		  (id as ptr, configuration as ptr, Sessiondelegate as ptr, DelegateQueue as Ptr) as ptr
 		  
 		  // Calling the overridden superclass constructor.
@@ -159,14 +159,14 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub FinishTasksAndInvalidate()
-		  Declare sub finishTasksAndInvalidate lib FoundationLib  selector "finishTasksAndInvalidate" (id as ptr)
+		  Declare sub finishTasksAndInvalidate lib FoundationLibName  selector "finishTasksAndInvalidate" (id as ptr)
 		  finishTasksAndInvalidate id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Flush()
-		  Declare sub flushWithCompletionHandler lib FoundationLib  selector "flushWithCompletionHandler:" (id as ptr, completionHandler as ptr)
+		  Declare sub flushWithCompletionHandler lib FoundationLibName  selector "flushWithCompletionHandler:" (id as ptr, completionHandler as ptr)
 		  dim flushblock as new iOSBlock (AddressOf FlushCompletionBlock)
 		  flushWithCompletionHandler id, flushblock.Handle
 		End Sub
@@ -181,7 +181,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub GetTasks()
-		  Declare sub getTasksWithCompletionHandler lib FoundationLib  selector "getTasksWithCompletionHandler:" (id as ptr, completionHandler as ptr)
+		  Declare sub getTasksWithCompletionHandler lib FoundationLibName  selector "getTasksWithCompletionHandler:" (id as ptr, completionHandler as ptr)
 		  dim TaskBlock as new iOSBlock (AddressOf GetTasksBlock)
 		  getTasksWithCompletionHandler id, TaskBlock.Handle
 		End Sub
@@ -293,14 +293,14 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub InvalidateAndCancel()
-		  Declare sub invalidateAndCancel lib FoundationLib  selector "invalidateAndCancel" (id as ptr)
+		  Declare sub invalidateAndCancel lib FoundationLibName  selector "invalidateAndCancel" (id as ptr)
 		  invalidateAndCancel id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Reset()
-		  Declare sub resetWithCompletionHandler lib FoundationLib  selector "resetWithCompletionHandler:" (id as ptr, completionHandler as ptr)
+		  Declare sub resetWithCompletionHandler lib FoundationLibName  selector "resetWithCompletionHandler:" (id as ptr, completionHandler as ptr)
 		  dim flushblock as new iOSBlock (AddressOf ResetCompletionBlock)
 		  resetWithCompletionHandler id, flushblock.Handle
 		End Sub
@@ -386,7 +386,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSURLSession")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSURLSession")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -396,7 +396,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function configuration lib FoundationLib  selector "configuration" (id as ptr) as ptr
+			  Declare Function configuration lib FoundationLibName  selector "configuration" (id as ptr) as ptr
 			  return AppleURLSessionConfiguration.MakeFromPtr (configuration (id))
 			End Get
 		#tag EndGetter
@@ -406,7 +406,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function delegateQueue lib FoundationLib  selector "delegateQueue" (id as ptr) as ptr
+			  Declare Function delegateQueue lib FoundationLibName  selector "delegateQueue" (id as ptr) as ptr
 			  return AppleOperationQueue.MakeFromPtr (delegateQueue (id))
 			End Get
 		#tag EndGetter
@@ -416,7 +416,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function delegate_ lib FoundationLib  selector "delegate" (id as ptr) as Ptr
+			  Declare Function delegate_ lib FoundationLibName  selector "delegate" (id as ptr) as Ptr
 			  return AppleURLSessionDelegate.MakeFromPtr (delegate_ (id))
 			End Get
 		#tag EndGetter
@@ -426,7 +426,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function sessionDescription lib FoundationLib  selector "sessionDescription" (id as ptr) as CFStringRef
+			  Declare Function sessionDescription lib FoundationLibName  selector "sessionDescription" (id as ptr) as CFStringRef
 			  return sessionDescription (id)
 			End Get
 		#tag EndGetter

@@ -10,7 +10,7 @@ Inherits appleviewcontrol
 
 	#tag Event
 		Function CreateView() As UInteger
-		  ViewObject = new AppleSearchBar (NSrect (0,0,100,100), self)
+		  ViewObject = new AppleSearchBar (FoundationFrameWork.NSMakeRect (0,0,100,100), self)
 		  return UInteger(ViewObject.id)
 		End Function
 	#tag EndEvent

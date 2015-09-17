@@ -11,7 +11,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSHTTPCookieStorage")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSHTTPCookieStorage")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

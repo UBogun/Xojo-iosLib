@@ -4,7 +4,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mclassPtr as Ptr = NSClassFromString ("UINavigationBar")
+			  static mclassPtr as Ptr = FoundationFramework.NSClassFromString ("UINavigationBar")
 			  return mclassPtr
 			End Get
 		#tag EndGetter

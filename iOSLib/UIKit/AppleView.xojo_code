@@ -27,7 +27,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateBounds(newBounds as NSRect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		Sub AnimateBounds(newBounds as FoundationFramework.NSRect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
 		  TransformToBounds = NewBounds
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
 		  dim completion as new AppleBlock (AddressOf CompletionBlock)
@@ -37,7 +37,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateCenter(aCenter as NSPoint, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		Sub AnimateCenter(aCenter as FoundationFramework.NSPoint, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
 		  TransformToCenter = aCenter
 		  dim block as new AppleBlock (AddressOf TransformCenterBlock)
 		  dim completion as new AppleBlock (AddressOf CompletionBlock)
@@ -57,7 +57,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AnimateFrame(aFrame as NSRect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		Sub AnimateFrame(aFrame as FoundationFramework.NSRect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
 		  TransformToFrame = aFrame
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
 		  dim completion as new AppleBlock (AddressOf CompletionBlock)
@@ -131,7 +131,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame As NSRect)
+		Sub Constructor(aFrame as FoundationFramework.NSRect)
 		  Super.Constructor (DoInitWithFrame (alloc(ClassPtr), aFrame))
 		  mHasOwnership = true
 		  
@@ -139,7 +139,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame As NSRect, observer as AppleNSEventReceiver)
+		Sub Constructor(aFrame as FoundationFramework.NSRect, observer as AppleNSEventReceiver)
 		  Constructor (aFrame)
 		  RegisterObserver (observer)
 		  
@@ -147,48 +147,48 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointFromView(aPoint as NSPoint, aView as AppleView) As NSPoint
+		Function ConvertPointFromView(aPoint as FoundationFramework.NSPoint, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointfromView lib UIKit selector "convertPoint:fromView:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    declare Function convertPointfromView lib UIKit selector "convertPoint:fromView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointfromView (id, apoint, aview.id)
 		  #elseif Target32Bit
-		    declare Function convertPointfromView lib UIKit selector "convertPoint:fromView:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
-		    return convertPointfromView (id, apoint.toNSPoint32, aview.id).tonspoint
+		    declare Function convertPointfromView lib UIKit selector "convertPoint:fromView:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointfromView (id, apoint.toNSPoint32, aview.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertPointToView(aPoint as NSPoint, aView as AppleView) As NSPoint
+		Function ConvertPointToView(aPoint as FoundationFramework.NSPoint, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointtoView lib UIKit selector "convertPoint:toView:" (id as ptr, aPoint as NSPoint, aview as ptr) as NSPoint
+		    declare Function convertPointtoView lib UIKit selector "convertPoint:toView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointtoView (id, apoint, aview.id)
 		  #elseif Target32Bit
-		    declare Function convertPointtoView lib UIKit selector "convertPoint:toView:" (id as ptr, aPoint as NSPoint32Bit, aview as ptr) as NSPoint32Bit
-		    return convertPointtoView (id, apoint.toNSPoint32, aview.id).tonspoint
+		    declare Function convertPointtoView lib UIKit selector "convertPoint:toView:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    return convertPointtoView (id, apoint.toNSPoint32, aview.id).toNSPoint
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertRectFromView(aRect as NSRect, aView as AppleView) As NSRect
+		Function ConvertRectFromView(aRect as FoundationFramework.NSRect, aView as AppleView) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    declare Function ConvertRectFromView lib UIKit selector "convertRect:fromView:" (id as ptr, aRect as NSRect, aview as ptr) as nsrect
+		    declare Function ConvertRectFromView lib UIKit selector "convertRect:fromView:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
 		    return ConvertRectFromView (id, arect, aview.id)
 		  #elseif Target32Bit
-		    declare Function ConvertRectFromView lib UIKit selector "convertRect:fromView:" (id as ptr, aRect as NSRect32Bit, aview as ptr) as NSRect32Bit
+		    declare Function ConvertRectFromView lib UIKit selector "convertRect:fromView:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, aview as ptr) as FoundationFramework.NSRect32Bit
 		    return ConvertRectFromView (id, arect.toNSRect32, aview.id).tonsrect
 		  #endif
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ConvertRectToView(aRect as NSRect, aView as AppleView) As NSRect
+		Function ConvertRectToView(aRect as FoundationFramework.NSRect, aView as AppleView) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    declare Function ConvertRectToView lib UIKit selector "convertRect:toView:" (id as ptr, aRect as NSRect, aview as ptr) as nsrect
+		    declare Function ConvertRectToView lib UIKit selector "convertRect:toView:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
 		    return ConvertRectToView (id, arect, aview.id)
 		  #elseif Target32Bit
-		    declare Function ConvertRectToView lib UIKit selector "convertRect:toView:" (id as ptr, aRect as NSRect32Bit, aview as ptr) as NSRect32Bit
+		    declare Function ConvertRectToView lib UIKit selector "convertRect:toView:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, aview as ptr) as FoundationFramework.NSRect32Bit
 		    return ConvertRectToView (id, arect.toNSRect32, aview.id).tonsrect
 		  #endif
 		End Function
@@ -302,7 +302,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as NSRect32Bit)
+		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect32Bit)
 		  dim ego as new AppleView (pid)
 		  ego.informonDrawRect (rect.toNSRect)
 		  
@@ -314,7 +314,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as NSRect)
+		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect)
 		  dim ego as new AppleView (pid)
 		  ego.informonDrawRect (rect)
 		  
@@ -464,7 +464,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonDrawRect(Rect as NSRect)
+		Attributes( hidden )  Sub informonDrawRect(Rect as FoundationFramework.NSRect)
 		  RaiseEvent DrawRect (rect)
 		  
 		  If Observers.HasKey(id) then
@@ -879,7 +879,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateBounds(NewBounds As NSRect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		Sub SpringAnimateBounds(NewBounds as FoundationFramework.NSRect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
 		  TransformToBounds = newBounds
 		  dim block as new AppleBlock (AddressOf TransformBoundsBlock)
 		  dim completion as new AppleBlock (AddressOf CompletionBlock)
@@ -890,7 +890,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateCenter(NewCenter As NSPoint, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		Sub SpringAnimateCenter(NewCenter As FoundationFramework.NSPoint, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
 		  TransformToCenter = NewCenter
 		  dim block as new AppleBlock (AddressOf TransformCenterBlock)
 		  dim completion as new AppleBlock (AddressOf CompletionBlock)
@@ -912,7 +912,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateFrame(NewFrame As NSRect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+		Sub SpringAnimateFrame(NewFrame as FoundationFramework.NSRect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
 		  TransformToFrame = NewFrame
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
 		  dim completion as new AppleBlock (AddressOf CompletionBlock)
@@ -994,7 +994,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithBounds(newBounds as NSRect, transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
+		Sub TransitionWithBounds(newBounds as FoundationFramework.NSRect, transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
 		  TransformToBounds = NewBounds
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
 		  dim completion as new AppleBlock (AddressOf CompletionBlock)
@@ -1004,7 +1004,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithCenter(aCenter as NSPoint, Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
+		Sub TransitionWithCenter(aCenter as FoundationFramework.NSPoint, Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
 		  TransformToCenter = aCenter
 		  dim block as new AppleBlock (AddressOf TransformCenterBlock)
 		  dim completion as new AppleBlock (AddressOf CompletionBlock)
@@ -1035,7 +1035,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithFrame(aFrame as NSRect, Transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
+		Sub TransitionWithFrame(aFrame as FoundationFramework.NSRect, Transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
 		  TransformToFrame = aFrame
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
 		  dim completion as new AppleBlock (AddressOf CompletionBlock)
@@ -1085,7 +1085,7 @@ Implements AppleNSEventForwarder
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event DrawRect(Rect as NSRect)
+		Event DrawRect(Rect  as FoundationFramework.NSRect)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -1218,17 +1218,17 @@ Implements AppleNSEventForwarder
 			  UIKitFramework.setBounds id, value
 			End Set
 		#tag EndSetter
-		Bounds As NSRect
+		Bounds As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function center lib UIKit selector "center" (id as ptr) as NSPoint
+			    Declare function center lib UIKit selector "center" (id as ptr) as FoundationFramework.NSPoint
 			    return center (id)
 			  #elseif Target32Bit
-			    Declare function center lib UIKit selector "center" (id as ptr) as NSPoint32Bit
+			    Declare function center lib UIKit selector "center" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return center(id).toNSPoint
 			  #endif
 			End Get
@@ -1236,15 +1236,15 @@ Implements AppleNSEventForwarder
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setcenter lib UIKit selector "setCenter" (id as ptr, value as NSPoint)
+			    Declare sub setcenter lib UIKit selector "setCenter" (id as ptr, value as FoundationFramework.NSPoint)
 			    setcenter id, value
 			  #elseif Target32Bit
-			    Declare sub setcenter lib UIKit selector "setCenter" (id as ptr, value as NSPoint32Bit)
+			    Declare sub setcenter lib UIKit selector "setCenter" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setcenter id, value.toNSPoint32
 			  #endif
 			End Set
 		#tag EndSetter
-		Center As NSPoint
+		Center As FoundationFramework.NSPoint
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h1
@@ -1404,7 +1404,7 @@ Implements AppleNSEventForwarder
 			  UIKitFramework.setFrame id, value
 			End Set
 		#tag EndSetter
-		Frame As NSRect
+		Frame As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1441,7 +1441,7 @@ Implements AppleNSEventForwarder
 		#tag EndGetter
 		#tag Setter
 			Set
-			  me.frame = NSRect (me.left, me.top, me.Width, value)
+			  me.frame = FoundationFrameWork.NSMakeRect (me.left, me.top, me.Width, value)
 			End Set
 		#tag EndSetter
 		Height As Double
@@ -1532,7 +1532,7 @@ Implements AppleNSEventForwarder
 		#tag EndGetter
 		#tag Setter
 			Set
-			  me.frame = NSRect (value, me.top, me.Width, me.Height)
+			  me.frame = FoundationFrameWork.NSMakeRect (value, me.top, me.Width, me.Height)
 			End Set
 		#tag EndSetter
 		Left As Double
@@ -1542,7 +1542,7 @@ Implements AppleNSEventForwarder
 		#tag Getter
 			Get
 			  const SEL as text = "maskView"
-			  if ObjectiveCRuntime.class_respondsToSelector (classptr, NSSelectorFromString (SEL)) then
+			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString (SEL)) then
 			    Declare function maskView lib UIKit selector "maskView" (id as ptr) as ptr
 			    dim myPtr as Ptr = maskview(id)
 			    return if (myptr <> NIL,  new AppleView (maskView(id)), NIL)
@@ -1552,7 +1552,7 @@ Implements AppleNSEventForwarder
 		#tag Setter
 			Set
 			  const SEL as text = "setMaskView:"
-			  if ObjectiveCRuntime.class_respondsToSelector (classptr, NSSelectorFromString (SEL)) then
+			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString (SEL)) then
 			    Declare sub setMaskView lib UIKit selector "setMaskView:" (id as ptr, value as ptr)
 			    setMaskView id, value.id
 			  end if
@@ -1625,15 +1625,15 @@ Implements AppleNSEventForwarder
 		#tag Getter
 			Get
 			  #if Target32Bit
-			    Declare function sizethatfits lib UIKit selector "sizeThatFits:" (id as ptr, asize as NSSize32Bit) as NSSize32Bit
+			    Declare function sizethatfits lib UIKit selector "sizeThatFits:" (id as ptr, asize as FoundationFramework.NSSize32Bit) as FoundationFramework.NSSize32Bit
 			    return sizethatfits(id,Frame.Size_.toNSSize32).toNSSize
 			  #elseif Target64Bit
-			    Declare function sizethatfits lib UIKit selector "sizeThatFits" (id as ptr, asize as nssize) as NSSize
+			    Declare function sizethatfits lib UIKit selector "sizeThatFits" (id as ptr, asize as FoundationFramework.NSSize) as FoundationFramework.NSSize
 			    return sizethatfits (id, frame.size_)
 			  #endif
 			End Get
 		#tag EndGetter
-		SizeThatFits As NSSize
+		SizeThatFits As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1714,7 +1714,7 @@ Implements AppleNSEventForwarder
 		#tag EndGetter
 		#tag Setter
 			Set
-			  me.frame = NSRect (me.left, value, me.Width, me.Height)
+			  me.frame = FoundationFrameWork.NSMakeRect (me.left, value, me.Width, me.Height)
 			End Set
 		#tag EndSetter
 		Top As Double
@@ -1753,11 +1753,11 @@ Implements AppleNSEventForwarder
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private TransformToBounds As NSRect
+		Private TransformToBounds As FoundationFramework.NSRect
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private TransformToCenter As NSPoint
+		Private TransformToCenter As FoundationFramework.NSPoint
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -1765,7 +1765,7 @@ Implements AppleNSEventForwarder
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private TransformToFrame As NSRect
+		Private TransformToFrame As FoundationFramework.NSRect
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -1810,7 +1810,7 @@ Implements AppleNSEventForwarder
 		#tag EndGetter
 		#tag Setter
 			Set
-			  me.frame = NSRect (me.left, me.top, value, me.Height)
+			  me.frame = FoundationFrameWork.NSMakeRect (me.left, me.top, value, me.Height)
 			End Set
 		#tag EndSetter
 		Width As Double

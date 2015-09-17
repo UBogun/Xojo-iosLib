@@ -9,7 +9,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(aURL as AppleURL)
-		  Declare function initWithURL lib AVFoundationLib selector "initWithURL:" (id as ptr, url as ptr) as ptr
+		  Declare function initWithURL lib AVFoundationLibName selector "initWithURL:" (id as ptr, url as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -38,7 +38,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("AVPlayerItem")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("AVPlayerItem")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

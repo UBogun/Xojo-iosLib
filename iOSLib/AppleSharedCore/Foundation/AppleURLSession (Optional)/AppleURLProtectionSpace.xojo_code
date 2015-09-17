@@ -3,7 +3,7 @@ Protected Class AppleURLProtectionSpace
 Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(Host As CFStringRef, Port As Integer, Protocol as CFStringRef, Realm as CFStringRef, AuthenticationMethod as CFStringRef)
-		  Declare Function initWithHost lib FoundationLib  selector "initWithHost:port:protocol:realm:authenticationMethod:" _
+		  Declare Function initWithHost lib FoundationLibName  selector "initWithHost:port:protocol:realm:authenticationMethod:" _
 		  (id as ptr, host as CFStringRef, port as integer, Protocol as CFStringRef, realm as CFStringRef, AuthenticationMethod as CFStringRef) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -18,7 +18,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(ProxyHost As CFStringRef, Port As Integer, Type as CFStringRef, Realm as CFStringRef, AuthenticationMethod as CFStringRef, isProxy as Boolean)
-		  Declare Function initWithProxyHost lib FoundationLib  selector "initWithProxyHost:port:type:realm:authenticationMethod:" _
+		  Declare Function initWithProxyHost lib FoundationLibName  selector "initWithProxyHost:port:type:realm:authenticationMethod:" _
 		  (id as ptr, host as CFStringRef, port as integer, Protocol as CFStringRef, realm as CFStringRef, AuthenticationMethod as CFStringRef) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -45,7 +45,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function authenticationMethod lib FoundationLib  selector "authenticationMethod" (id as ptr) as CFStringRef
+			  Declare Function authenticationMethod lib FoundationLibName  selector "authenticationMethod" (id as ptr) as CFStringRef
 			  return authenticationMethod (id)
 			End Get
 		#tag EndGetter
@@ -55,7 +55,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSURLProtectionSpace")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSURLProtectionSpace")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -65,13 +65,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function distinguishedNames lib FoundationLib  selector "distinguishedNames" (id as ptr) as Ptr
+			  Declare Function distinguishedNames lib FoundationLibName  selector "distinguishedNames" (id as ptr) as Ptr
 			  return AppleArray.MakeFromPtr (distinguishedNames(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setHTTPAdditionalHeaders lib FoundationLib  selector "setHTTPAdditionalHeaders:" (id as ptr, value as ptr)
+			  Declare Sub setHTTPAdditionalHeaders lib FoundationLibName  selector "setHTTPAdditionalHeaders:" (id as ptr, value as ptr)
 			  setHTTPAdditionalHeaders id, value.id
 			End Set
 		#tag EndSetter
@@ -81,7 +81,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function host lib FoundationLib  selector "host" (id as ptr) as CFStringRef
+			  Declare Function host lib FoundationLibName  selector "host" (id as ptr) as CFStringRef
 			  return host (id)
 			End Get
 		#tag EndGetter
@@ -91,7 +91,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function isProxy lib FoundationLib  selector "isProxy" (id as ptr) as Boolean
+			  Declare Function isProxy lib FoundationLibName  selector "isProxy" (id as ptr) as Boolean
 			  return isProxy (id)
 			End Get
 		#tag EndGetter
@@ -101,7 +101,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function port lib FoundationLib  selector "port" (id as ptr) as Integer
+			  Declare Function port lib FoundationLibName  selector "port" (id as ptr) as Integer
 			  return port (id)
 			End Get
 		#tag EndGetter
@@ -111,7 +111,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function protocol lib FoundationLib  selector "protocol" (id as ptr) as CFStringRef
+			  Declare Function protocol lib FoundationLibName  selector "protocol" (id as ptr) as CFStringRef
 			  return protocol (id)
 			End Get
 		#tag EndGetter
@@ -121,7 +121,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function proxyType lib FoundationLib  selector "proxyType" (id as ptr) as CFStringRef
+			  Declare Function proxyType lib FoundationLibName  selector "proxyType" (id as ptr) as CFStringRef
 			  return proxyType (id)
 			End Get
 		#tag EndGetter
@@ -131,7 +131,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function realm lib FoundationLib  selector "realm" (id as ptr) as CFStringRef
+			  Declare Function realm lib FoundationLibName  selector "realm" (id as ptr) as CFStringRef
 			  return realm (id)
 			End Get
 		#tag EndGetter
@@ -141,7 +141,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function receivesCredentialSecurely lib FoundationLib  selector "receivesCredentialSecurely" (id as ptr) as Boolean
+			  Declare Function receivesCredentialSecurely lib FoundationLibName  selector "receivesCredentialSecurely" (id as ptr) as Boolean
 			  return receivesCredentialSecurely (id)
 			End Get
 		#tag EndGetter
@@ -151,7 +151,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function serverTrust lib FoundationLib  selector "serverTrust" (id as ptr) as Ptr
+			  Declare Function serverTrust lib FoundationLibName  selector "serverTrust" (id as ptr) as Ptr
 			  return AppleSecTrust.makefromPtr (serverTrust (id))
 			End Get
 		#tag EndGetter

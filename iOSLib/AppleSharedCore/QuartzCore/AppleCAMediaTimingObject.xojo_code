@@ -97,10 +97,10 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if target32bit
-			    DEclare Function contentsRect lib QuartzCoreLib selector "contentsRect" (id as ptr) as NSRect32Bit
+			    DEclare Function contentsRect lib QuartzCoreLib selector "contentsRect" (id as ptr) as FoundationFramework.NSRect32Bit
 			    return contentsRect(id).toNSRect
 			  #elseif Target64Bit
-			    DEclare Function contentsRect lib QuartzCoreLib selector "contentsRect" (id as ptr) as NSRect
+			    DEclare Function contentsRect lib QuartzCoreLib selector "contentsRect" (id as ptr)  as FoundationFramework.NSRect
 			    return contentsRect(id)
 			  #endif
 			  
@@ -109,16 +109,16 @@ Inherits AppleObject
 		#tag Setter
 			Set
 			  #if target32bit
-			    DEclare Sub setContentsRect lib QuartzCoreLib selector "setContentsRect:" (id as ptr, value as NSRect32Bit)
+			    DEclare Sub setContentsRect lib QuartzCoreLib selector "setContentsRect:" (id as ptr, value as FoundationFramework.NSRect32Bit)
 			    setContentsRect id, value.toNSRect32
 			  #elseif Target64Bit
-			    DEclare Sub setContentsRect lib QuartzCoreLib selector "setContentsRect:" (id as ptr, value as NSRect)
+			    DEclare Sub setContentsRect lib QuartzCoreLib selector "setContentsRect:" (id as ptr, value  as FoundationFramework.NSRect)
 			    setContentsRect id, value
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		ContentsRect As NSRect
+		ContentsRect As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0

@@ -68,7 +68,7 @@ Protected Module QuartzCoreFramework
 		    Declare function CATransform3DIsAffine lib QuartzCoreLib (t as CATransform3D32Bit) as Boolean
 		    return CATransform3DIsAffine (t.toCATransform3D32Bit)
 		  #elseif Target64Bit
-		    Declare function CATransform3DIsAffine lib CoreGraphicsLib (t as CATransform3D) as Boolean
+		    Declare function CATransform3DIsAffine lib CoreGraphicsLibName (t as CATransform3D) as Boolean
 		    return CATransform3DIsAffine (t)
 		  #endif
 		  

@@ -3,10 +3,10 @@ Protected Module CoreGraphicsFramework
 	#tag Method, Flags = &h0
 		Function CGAffineTransformConcat(T1 As CGAffineTransform, T2 As CGAffineTransform) As CGAffineTransform
 		  #if target32bit
-		    Declare function CGAffineTransformConcat lib CoreGraphicsLib (T1 As CGAffineTransform32Bit, T2 As CGAffineTransform32Bit) as CGAffineTransform32Bit
+		    Declare function CGAffineTransformConcat lib CoreGraphicsLibName (T1 As CGAffineTransform32Bit, T2 As CGAffineTransform32Bit) as CGAffineTransform32Bit
 		    return CGAffineTransformConcat (T1.toCGAffineTransform32Bit, T2.toCGAffineTransform32Bit).toCGAffineTransform
 		  #elseif Target64Bit
-		    Declare function CGAffineTransformConcat lib CoreGraphicsLib (T1 As CGAffineTransform, T2 As CGAffineTransform) as CGAffineTransform
+		    Declare function CGAffineTransformConcat lib CoreGraphicsLibName (T1 As CGAffineTransform, T2 As CGAffineTransform) as CGAffineTransform
 		    return CGAffineTransformConcat (T1, T2)
 		  #endif
 		  
@@ -24,10 +24,10 @@ Protected Module CoreGraphicsFramework
 	#tag Method, Flags = &h0
 		Function CGAffineTransformInvert(T As CGAffineTransform) As CGAffineTransform
 		  #if target32bit
-		    Declare function CGAffineTransformInvert lib CoreGraphicsLib (T As CGAffineTransform32Bit) as CGAffineTransform32Bit
+		    Declare function CGAffineTransformInvert lib CoreGraphicsLibName (T As CGAffineTransform32Bit) as CGAffineTransform32Bit
 		    return CGAffineTransformInvert (T.toCGAffineTransform32Bit).toCGAffineTransform
 		  #elseif Target64Bit
-		    Declare function CGAffineTransformInvert lib CoreGraphicsLib (T As CGAffineTransform) as CGAffineTransform
+		    Declare function CGAffineTransformInvert lib CoreGraphicsLibName (T As CGAffineTransform) as CGAffineTransform
 		    return CGAffineTransformInvert (T)
 		  #endif
 		  
@@ -37,10 +37,10 @@ Protected Module CoreGraphicsFramework
 	#tag Method, Flags = &h0
 		Function CGAffineTransformMake(a as Double, b as Double, c as Double, d as Double, tx as Double, ty as Double) As CGAffineTransform
 		  #if target32bit
-		    Declare function CGAffineTransformMake lib CoreGraphicsLib (a as Single, b as Single, c as Single, d as Single, tx as Single, ty as Single) as CGAffineTransform32Bit
+		    Declare function CGAffineTransformMake lib CoreGraphicsLibName (a as Single, b as Single, c as Single, d as Single, tx as Single, ty as Single) as CGAffineTransform32Bit
 		    return CGAffineTransformMake(a, b, c, d, tx, ty).toCGAffineTransform
 		  #elseif Target64Bit
-		    Declare function CGAffineTransformMake lib CoreGraphicsLib (a as Double, b as Double, c as Double, d as Double, tx as Double, ty as Double) as CGAffineTransform
+		    Declare function CGAffineTransformMake lib CoreGraphicsLibName (a as Double, b as Double, c as Double, d as Double, tx as Double, ty as Double) as CGAffineTransform
 		    return CGAffineTransformMake (a, b, c, d, tx, ty)
 		  #endif
 		  
@@ -50,10 +50,10 @@ Protected Module CoreGraphicsFramework
 	#tag Method, Flags = &h0
 		Function CGAffineTransformMakeRotation(angle as double) As CGAffineTransform
 		  #if target32bit
-		    Declare function CGAffineTransformMakeRotation lib CoreGraphicsLib (angle as single) as CGAffineTransform32Bit
+		    Declare function CGAffineTransformMakeRotation lib CoreGraphicsLibName (angle as single) as CGAffineTransform32Bit
 		    return CGAffineTransformMakeRotation(angle).toCGAffineTransform
 		  #elseif Target64Bit
-		    Declare function CGAffineTransformMakeRotation lib CoreGraphicsLib (angle as double) as CGAffineTransform
+		    Declare function CGAffineTransformMakeRotation lib CoreGraphicsLibName (angle as double) as CGAffineTransform
 		    return CGAffineTransformMakeRotation (angle)
 		  #endif
 		  
@@ -64,10 +64,10 @@ Protected Module CoreGraphicsFramework
 		Function CGAffineTransformMakeScale(scaleX as double, scaleY as Double = 0) As CGAffineTransform
 		  if scaleY = 0 then scaleY = scaleX // scale proportionally if only one value is supplied
 		  #if target32bit
-		    Declare function CGAffineTransformMakeScale lib CoreGraphicsLib (scaleX as single, ScaleY as Single) as CGAffineTransform32Bit
+		    Declare function CGAffineTransformMakeScale lib CoreGraphicsLibName (scaleX as single, ScaleY as Single) as CGAffineTransform32Bit
 		    return CGAffineTransformMakeScale(ScaleX, ScaleY).toCGAffineTransform
 		  #elseif Target64Bit
-		    Declare function CGAffineTransformMakeScale lib CoreGraphicsLib (scaleX as Double, ScaleY as Double) as CGAffineTransform
+		    Declare function CGAffineTransformMakeScale lib CoreGraphicsLibName (scaleX as Double, ScaleY as Double) as CGAffineTransform
 		    return CGAffineTransformMakeScale(ScaleX, ScaleY)
 		  #endif
 		  
@@ -77,10 +77,10 @@ Protected Module CoreGraphicsFramework
 	#tag Method, Flags = &h0
 		Function CGAffineTransformMakeTranslation(DeltaX as double, DeltaY as Double) As CGAffineTransform
 		  #if target32bit
-		    Declare function CGAffineTransformMakeTranslation lib CoreGraphicsLib (DeltaX as single, DeltaY as Single) as CGAffineTransform32Bit
+		    Declare function CGAffineTransformMakeTranslation lib CoreGraphicsLibName (DeltaX as single, DeltaY as Single) as CGAffineTransform32Bit
 		    return CGAffineTransformMakeTranslation(DeltaX, DeltaY).toCGAffineTransform
 		  #elseif Target64Bit
-		    Declare function CGAffineTransformMakeTranslation lib CoreGraphicsLib (DeltaX as Double, DeltaY as Double) as CGAffineTransform
+		    Declare function CGAffineTransformMakeTranslation lib CoreGraphicsLibName (DeltaX as Double, DeltaY as Double) as CGAffineTransform
 		    return CGAffineTransformMakeTranslation(DeltaX, DeltaY)
 		  #endif
 		  
@@ -90,10 +90,10 @@ Protected Module CoreGraphicsFramework
 	#tag Method, Flags = &h0
 		Function CGAffineTransformRotate(T As CGAffineTransform, angle as double) As CGAffineTransform
 		  #if target32bit
-		    Declare function CGAffineTransformRotate lib CoreGraphicsLib (T As CGAffineTransform32Bit, angle as single) as CGAffineTransform32Bit
+		    Declare function CGAffineTransformRotate lib CoreGraphicsLibName (T As CGAffineTransform32Bit, angle as single) as CGAffineTransform32Bit
 		    return CGAffineTransformRotate (T.toCGAffineTransform32Bit, angle).toCGAffineTransform
 		  #elseif Target64Bit
-		    Declare function CGAffineTransformRotate lib CoreGraphicsLib (T As CGAffineTransform, angle as double) as CGAffineTransform
+		    Declare function CGAffineTransformRotate lib CoreGraphicsLibName (T As CGAffineTransform, angle as double) as CGAffineTransform
 		    return CGAffineTransformRotate (T, angle)
 		  #endif
 		  
@@ -104,10 +104,10 @@ Protected Module CoreGraphicsFramework
 		Function CGAffineTransformScale(T as CGAffineTransform, scaleX as double, scaleY as Double = 0) As CGAffineTransform
 		  if scaleY = 0 then scaleY = scaleX // scale proportionally if only one value is supplied
 		  #if target32bit
-		    Declare function CGAffineTransformScale lib CoreGraphicsLib (T as CGAffineTransform32Bit, scaleX as single, ScaleY as Single) as CGAffineTransform32Bit
+		    Declare function CGAffineTransformScale lib CoreGraphicsLibName (T as CGAffineTransform32Bit, scaleX as single, ScaleY as Single) as CGAffineTransform32Bit
 		    return CGAffineTransformScale (t.toCGAffineTransform32Bit, ScaleX, ScaleY).toCGAffineTransform
 		  #elseif Target64Bit
-		    Declare function CGAffineTransformScale lib CoreGraphicsLib (T as CGAffineTransform, scaleX as Double, ScaleY as Double) as CGAffineTransform
+		    Declare function CGAffineTransformScale lib CoreGraphicsLibName (T as CGAffineTransform, scaleX as Double, ScaleY as Double) as CGAffineTransform
 		    return CGAffineTransformScale (T, ScaleX, ScaleY)
 		  #endif
 		  
@@ -117,10 +117,10 @@ Protected Module CoreGraphicsFramework
 	#tag Method, Flags = &h0
 		Function CGAffineTransformTranslate(T as CGAffineTransform, DeltaX as double, DeltaY as Double) As CGAffineTransform
 		  #if target32bit
-		    Declare function CGAffineTransformTranslate lib CoreGraphicsLib (T as CGAffineTransform32bit, DeltaX as single, DeltaY as Single) as CGAffineTransform32Bit
+		    Declare function CGAffineTransformTranslate lib CoreGraphicsLibName (T as CGAffineTransform32bit, DeltaX as single, DeltaY as Single) as CGAffineTransform32Bit
 		    return CGAffineTransformTranslate (t.toCGAffineTransform32Bit, DeltaX, DeltaY).toCGAffineTransform
 		  #elseif Target64Bit
-		    Declare function CGAffineTransformTranslate lib CoreGraphicsLib (T as CGAffineTransform, DeltaX as Double, DeltaY as Double) as CGAffineTransform
+		    Declare function CGAffineTransformTranslate lib CoreGraphicsLibName (T as CGAffineTransform, DeltaX as Double, DeltaY as Double) as CGAffineTransform
 		    return CGAffineTransformTranslate (T, DeltaX, DeltaY)
 		  #endif
 		  
@@ -138,7 +138,7 @@ Protected Module CoreGraphicsFramework
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = CoreGraphicsLib, Type = Text, Dynamic = False, Default = \"CoreGraphics.framework", Scope = Public
+	#tag Constant, Name = CoreGraphicsLibName, Type = Text, Dynamic = False, Default = \"CoreGraphics.framework", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = CoreGraphicsPath, Type = Text, Dynamic = False, Default = \"com.apple.CoreGraphics", Scope = Public

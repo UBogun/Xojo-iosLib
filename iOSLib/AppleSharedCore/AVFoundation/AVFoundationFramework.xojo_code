@@ -1,6 +1,6 @@
 #tag Module
 Protected Module AVFoundationFramework
-	#tag Constant, Name = AVFoundationLib, Type = Text, Dynamic = False, Default = \"AVFoundation.framework", Scope = Public
+	#tag Constant, Name = AVFoundationLibName, Type = Text, Dynamic = False, Default = \"AVFoundation.framework", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = AVLayerVideoGravityResize, Type = Text, Dynamic = False, Default = \"AVLayerVideoGravityResize", Scope = Public

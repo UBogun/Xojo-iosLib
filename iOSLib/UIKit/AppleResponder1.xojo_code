@@ -37,12 +37,12 @@ Inherits AppleCAMediaTimingObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function DoInitWithFrame(aClass as Ptr, aFRame as NSRect) As Ptr
+		 Shared Function DoInitWithFrame(aClass as Ptr, aFRame as FoundationFramework.NSRect) As Ptr
 		  #if target32bit
-		    declare function initWithFrame lib UIKit selector "initWithFrame:" (id as ptr, aFrame as NSRect32Bit) as ptr
+		    declare function initWithFrame lib UIKit selector "initWithFrame:" (id as ptr, aFrame as FoundationFramework.NSRect32Bit) as ptr
 		    return initWithFrame (aClass, Aframe.toNSRect32 )
 		  #elseif Target64Bit
-		    declare function initWithFrame lib UIKit selector "initWithFrame:" (id as ptr, aFrame as NSRect) as ptr
+		    declare function initWithFrame lib UIKit selector "initWithFrame:" (id as ptr, aFrame  as FoundationFramework.NSRect) as ptr
 		    return initWithFrame (aClass, Aframe)
 		  #endif
 		  
@@ -115,7 +115,7 @@ Inherits AppleCAMediaTimingObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UIResponder")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIResponder")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

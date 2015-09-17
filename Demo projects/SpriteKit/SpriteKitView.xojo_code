@@ -12,10 +12,10 @@ Begin iosView SpriteKitView
       AccessibilityLabel=   ""
       AllowsTransparency=   False
       Asynchronous    =   False
-      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       FrameInterval   =   0
       Height          =   407.0
       IgnoresSiblingOrder=   False
@@ -132,11 +132,11 @@ End
 		        if currentfighter <> nil then
 		          dim xpos as Double = currentfighter.Position.x + randomint (-100,100)
 		          dim ypos as double = ImageView1.Height - randomint (50, ImageView1.Height/2)
-		          dim location as NSPoint =NSPoint (xpos, ypos)
+		          dim location as FoundationFramework.NSPoint =FoundationFrameWork.NSMakePoint (xpos, ypos)
 		          
 		          dim fightervelocity as double = ImageView1.Width / 3.5
-		          // dim movedifference as nspoint = nspoint (location.x - bear.Position.x, location.y - bear.position.y)
-		          dim movedifference as nspoint = location.Vector_Subtract (Enemy.Position)
+		          // dim movedifference as FoundationFramework.NSPoint = FoundationFramework.NSPoint (location.x - bear.Position.x, location.y - bear.position.y)
+		          dim movedifference as FoundationFramework.NSPoint = location.Vector_Subtract (Enemy.Position)
 		          dim distance as double = sqrt (movedifference.x * movedifference.x + movedifference.y * movedifference.y)
 		          dim duration as double = distance / fightervelocity
 		          
@@ -172,7 +172,7 @@ End
 		    NewEnemy.PhysicsBody = enemybody
 		    
 		    // Place it on a random position slightly above the screen
-		    NewEnemy.Position = NSPoint (randomint (-20, ImageView1.Width+20), ImageView1.height + 50)
+		    NewEnemy.Position = FoundationFrameWork.NSMakePoint (randomint (-20, ImageView1.Width+20), ImageView1.height + 50)
 		    SpaceShooterScene.AddChild NewEnemy // attach it to the scene
 		    
 		    // Make it move downward
@@ -202,7 +202,7 @@ End
 		  
 		  FighterNormal = new AppleSKSpriteNode (FighterNormalTexture) // now create a Sprite with the normal image
 		  // FighterNormal.setScale  1/ImageView1.view.ContentScaleFactor // scale it so it matches the display resolution
-		  FighterNormal.Position = NSPoint (ImageView1.Width/2, FighterNormal.Frame.Size_.height * 2) // and place it in the middle just a bit above the bottom
+		  FighterNormal.Position = FoundationFrameWork.NSMakePoint (ImageView1.Width/2, FighterNormal.Frame.Size_.height * 2) // and place it in the middle just a bit above the bottom
 		  
 		  dim FighterBody as new AppleSKPhysicsBody (FighterNormal) // now add a rectangular physics body for collision detection
 		  FighterBody.CategoryBitMask = FighterCategory // and assign it the category
@@ -223,7 +223,7 @@ End
 		Private Function CreatePlanet(Texture as AppleSKTexture, Planetname as Text, PlanetGravity as Single = 0) As AppleSKSpriteNode
 		  //Setup for a Planet
 		  dim Planet as new AppleSKSpriteNode (Texture) //  create a Sprite with the  image texture
-		  Planet.Position = NSPoint (ImageView1.Width/2, Planet.Height) // and place it in the middle
+		  Planet.Position = FoundationFrameWork.NSMakePoint (ImageView1.Width/2, Planet.Height) // and place it in the middle
 		  
 		  
 		  dim Planetbody as new AppleSKPhysicsBody (Planet.Height / 2) // now add a circular physics body for collision detection
@@ -252,7 +252,7 @@ End
 		  dim Scoretext as new AppleSKLabelNode ("Score", "Noteworthy Bold") // a label showing the stage
 		  Scoretext.FontSize = 24
 		  Scoretext.HorizontalAlignment = AppleSKLabelNode.SKLabelHorizontalAlignmentMode.Right
-		  Scoretext.Position = nspoint (ImageView1.Width - Scoretext.Width, ImageView1.Height - 30)
+		  Scoretext.Position = FoundationFrameWork.NSMakePoint (ImageView1.Width - Scoretext.Width, ImageView1.Height - 30)
 		  Scoretext.name = "ScoreText"
 		  Scoretext.ZPosition = 10
 		  SpaceShooterScene.AddChild Scoretext
@@ -268,7 +268,7 @@ End
 		    // dim astar as AppleSKShapeNode = AppleSKShapeNode.Circle (randomint(1,10) / 10)
 		    // astar.FillColor = astar.StrokeColor
 		    // astar.GlowWidth = astar.Frame.Size_.width *( randomint (0,5)/10)
-		    // astar.Position = nspoint (randomint(0,ImageView1.Width), ImageView1.Height + 10)
+		    // astar.Position = FoundationFramework.NSPoint (randomint(0,ImageView1.Width), ImageView1.Height + 10)
 		    // SpaceShooterScene.ChildNode(SpaceLayerName).AddChild astar
 		    // astar.RunActionWithKey (starfall, StarFallName)
 		  case 95000 to 99000
@@ -293,7 +293,7 @@ End
 		  BackGroundnode.ZPosition = -10 // push it  layer from the Viewer
 		  
 		  BackGroundnode.ParticleTexture = new AppleSKTexture ("SmallSun") // load the sun picture
-		  BackGroundnode.ParticleSize = NSSize (3,3) // and make it small
+		  BackGroundnode.ParticleSize = FoundationFrameWork.nsmakesize (3,3) // and make it small
 		  BackGroundnode.ParticleScaleRange = 3 // but give it a variation in size
 		  
 		  BackGroundnode.ParticleColor = new AppleColor (&cFFFFFF00)
@@ -308,7 +308,7 @@ End
 		  BackGroundnode.ParticleBirthRate = 15 // Don't create  too many, 15 per second looks nice
 		  
 		  //Setting the Point the emitter emits from (Top line of view, in its center)
-		  BackGroundnode.ParticlePosition = nspoint (ImageView1.Width / 2, ImageView1.Height) // spawn them on top of the view
+		  BackGroundnode.ParticlePosition = FoundationFrameWork.NSMakePoint (ImageView1.Width / 2, ImageView1.Height) // spawn them on top of the view
 		  BackGroundnode.ParticlePositionRange = CGVector (ImageView1.Width, 0) //make it randomize over the full width
 		  BackGroundnode.ParticleSpeed = ImageView1.Height / BackgroundSpeedScrollDuration // make them drift nicely
 		  BackGroundnode.ParticleSpeedRange = (ImageView1.Height / BackgroundSpeedScrollDuration)/ 4 // with variance to add depth
@@ -350,7 +350,7 @@ End
 		        Redshotbody.PreciseCollisionDetection = true
 		        Enemybullet.PhysicsBody = Redshotbody
 		        
-		        Enemybullet.Position = nspoint (enemy.Position.x, enemy.Position.y - enemy.Frame.Size_.height / 2) // Place it beyond the ship
+		        Enemybullet.Position = FoundationFrameWork.NSMakePoint (enemy.Position.x, enemy.Position.y - enemy.Frame.Size_.height / 2) // Place it beyond the ship
 		        SpaceShooterScene.AddChild Enemybullet // make it appear
 		        enemybullet.RunAction enemyshot // and let it fly
 		      end if
@@ -386,7 +386,7 @@ End
 		    Greenshotbody.PreciseCollisionDetection = true
 		    FighterBullet.PhysicsBody = Greenshotbody
 		    
-		    FighterBullet.Position = nspoint (FighterNormal.Position.x, FighterNormal.Position.y + FighterNormal.Frame.Size_.height / 2)
+		    FighterBullet.Position = FoundationFramework.NSMakePoint (FighterNormal.Position.x, FighterNormal.Position.y + FighterNormal.Frame.Size_.height / 2)
 		    SpaceShooterScene.AddChild FighterBullet
 		    CanShoot = false
 		    dim block as new AppleBlock (AddressOf FighterReloadDelayBlock)
@@ -406,28 +406,28 @@ End
 		  // create a Background from a Noisetexture
 		  dim Background as  AppleSKTexture = AppleSKTexture.NoiseTexture (0.9, endscene.Size, true)
 		  dim BGsprite as new AppleSKSpriteNode (Background) // make a sprite from it
-		  BGsprite.Position = nspoint (ImageView1.Width/2, ImageView1.Height/2)
+		  BGsprite.Position = FoundationFramework.NSMakePoint (ImageView1.Width/2, ImageView1.Height/2)
 		  endscene.addchild BGsprite
 		  
 		  // and three labels.
 		  // the last one is being checked for in the TochesEnded Event, that's why it receives a name.
 		  dim GOText as new AppleSKLabelNode ("Game Over", "Noteworthy Bold")
 		  GOText.FontSize = 70
-		  GOText.Position = nspoint (ImageView1.Width/2, ImageView1.Height/2)
+		  GOText.Position = FoundationFramework.NSMakePoint (ImageView1.Width/2, ImageView1.Height/2)
 		  endscene.name = "GameOverScene"
 		  endscene.addchild GOText
 		  
 		  dim ScoreText as new AppleSKLabelNode ("Score: "+score.totext, "Noteworthy Bold")
 		  ScoreText.FontSize = 50
 		  ScoreText.FontColor = &c80004000
-		  ScoreText.Position = nspoint (ImageView1.Width/2, ImageView1.Height/2 - 100)
+		  ScoreText.Position = FoundationFramework.NSMakePoint (ImageView1.Width/2, ImageView1.Height/2 - 100)
 		  endscene.addchild ScoreText
 		  
 		  dim Restart as new AppleSKLabelNode ("Tap here to restart", "Noteworthy Bold")
 		  Restart.name = "Restart"
 		  Restart.FontSize = 50
 		  Restart.FontColor = &c80004000
-		  Restart.Position = nspoint (ImageView1.Width/2, ImageView1.Height/2 - 200)
+		  Restart.Position = FoundationFramework.NSMakePoint (ImageView1.Width/2, ImageView1.Height/2 - 200)
 		  endscene.addchild Restart
 		  
 		  ImageView1.PresentScene endscene, AppleSKTransition.FadeWithColor (new AppleColor (&c99999900), 2)
@@ -448,11 +448,11 @@ End
 		Private Sub ProcessSpaceShooterTouch(touchset as AppleSet, asnevent as AppleNSEvent)
 		  if CanSteer then
 		    dim touch as AppleSKTouch = AppleSKTouch.MakeFromPtr (touchset.AllObjects.PtrAtIndex(0)) // get the first touch item of the array
-		    dim location as NSPoint = touch.LocationInNode (SpaceShooterScene) // and convert its point to view points
+		    dim location as FoundationFramework.NSPoint = touch.LocationInNode (SpaceShooterScene) // and convert its point to view points
 		    
 		    if Location.y > FighterNormal.Frame.Size_.height * 6 then location.y = FighterNormal.Frame.Size_.height * 6 // limit the y position, don't get too close to the upper bounds
 		    dim FighterVelocity as double = ImageView1.Width / FighterSpeed // calculate the speed, standardly fighter takes 2 secons to cross the screen width
-		    dim movedifference as nspoint = location.Vector_Subtract( FighterNormal.Position)
+		    dim movedifference as FoundationFramework.NSPoint = location.Vector_Subtract( FighterNormal.Position)
 		    dim distance as double = sqrt (movedifference.x * movedifference.x + movedifference.y * movedifference.y)
 		    dim duration as double = distance / FighterVelocity
 		    //
@@ -481,7 +481,7 @@ End
 		    mynode.FontSize =  randomint (3,40)
 		    mynode.VerticalAlignment = AppleSKLabelNode.SKLabelVerticalAlignmentMode.Center
 		    myscene.AddChild mynode
-		    mynode.Position = NSPoint ( randomint (20, ImageView1.width - 20),  randomint (10, ImageView1.height- 100))
+		    mynode.Position = FoundationFramework.NSMakePoint ( randomint (20, ImageView1.width - 20),  randomint (10, ImageView1.height- 100))
 		    mynode.BlendColor = new AppleColor (&cff229933)
 		    mynode.ColorBlendFactor = 0.5
 		    
@@ -504,11 +504,11 @@ End
 		  
 		  // Bullet
 		  
-		  dim anothernode as new AppleSKSpriteNode (new AppleColor(&c99992222), NSSize (15,15))
+		  dim anothernode as new AppleSKSpriteNode (new AppleColor(&c99992222), FoundationFrameWork.nsmakesize (15,15))
 		  dim myaction as AppleSKAction = AppleSKAction.PlaySound ("scifi016.mp3", false)
 		  anothernode.RunActionWithEvent myaction
 		  myscene.AddChild anothernode
-		  myaction = AppleSKAction.MoveTo (NSPoint( ImageView1.AppleView.Frame.Size_.width/2 + 80, ImageView1.Height + anothernode.Frame.Size_.height * 2), 2)
+		  myaction = AppleSKAction.MoveTo (FoundationFrameWork.NSMakePoint( ImageView1.AppleView.Frame.Size_.width/2 + 80, ImageView1.Height + anothernode.Frame.Size_.height * 2), 2)
 		  
 		  
 		  dim mybody as new AppleSKPhysicsBody (anothernode.Frame.Size_)
@@ -523,7 +523,7 @@ End
 		  
 		  // Frame border
 		  
-		  dim myframe as NSRect = ImageView1.AppleView.Frame
+		  dim myframe  as FoundationFramework.NSRect = ImageView1.AppleView.Frame
 		  myframe.Size_.height = myframe.Size_.height - 10
 		  myframe.Size_.width = myframe.Size_.width - 10
 		  myframe.Origin.x = 5
@@ -916,7 +916,7 @@ End
 		    ProcessSpaceShooterTouch (Touchset, anEvent)
 		  case "GameOverScene"
 		    dim touch as AppleSKTouch = AppleSKTouch.MakeFromPtr (touchset.AllObjects.PtrAtIndex(0)) // get the first touch item of the array
-		    dim location as NSPoint = touch.LocationInNode (me.scene) // and convert its point to view points
+		    dim location as FoundationFramework.NSPoint = touch.LocationInNode (me.scene) // and convert its point to view points
 		    dim restart as AppleSKNode = me.scene.NodeAtPoint (location)
 		    if restart <> nil then
 		      if restart.Name = "Restart" then Spaceshooter

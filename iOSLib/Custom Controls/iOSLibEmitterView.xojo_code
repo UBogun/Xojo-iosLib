@@ -22,7 +22,7 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h21
 		Private Shared Function impl_layerClassEmitter(id as ptr, sel as ptr) As Ptr
-		  return NSClassFromString ("CAEmitterLayer")
+		  return FoundationFramework.NSClassFromString ("CAEmitterLayer")
 		  
 		  #Pragma Unused id
 		  #Pragma Unused  sel

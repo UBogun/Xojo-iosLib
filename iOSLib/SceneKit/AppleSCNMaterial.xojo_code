@@ -18,7 +18,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("SCNMaterial")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("SCNMaterial")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

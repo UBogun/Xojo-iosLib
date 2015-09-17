@@ -27,7 +27,7 @@ Protected Module MemoryBlockExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function fromNSPoint(aPoint as NSPoint) As xojo.Core.MutableMemoryblock
+		Function fromNSPoint(aPoint as FoundationFramework.NSPoint) As xojo.Core.MutableMemoryblock
 		  dim result as new xojo.Core.MutableMemoryBlock (16)
 		  result.DoubleValue(0) = aPoint.x
 		  result.DoubleValue(8) =aPoint.y
@@ -36,7 +36,7 @@ Protected Module MemoryBlockExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function fromNSPoint32(aPoint as NSPoint) As xojo.Core.MutableMemoryblock
+		Function fromNSPoint32(aPoint as FoundationFramework.NSPoint) As xojo.Core.MutableMemoryblock
 		  dim result as new xojo.Core.MutableMemoryBlock (8)
 		  result.SingleValue(0) = aPoint.x
 		  result.SingleValue(4) =aPoint.y
@@ -69,14 +69,14 @@ Protected Module MemoryBlockExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSPoint(extends mb as xojo.Core.MemoryBlock) As NSPoint
-		  return NSPoint (mb.DoubleValue(0), mb.DoubleValue(8))
+		Function toNSPoint(extends mb as xojo.Core.MemoryBlock) As FoundationFramework.NSPoint
+		  return FoundationFrameWork.NSMakePoint (mb.DoubleValue(0), mb.DoubleValue(8))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toNSPoint32(extends mb as xojo.Core.MemoryBlock) As NSPoint
-		  return NSPoint (mb.SingleValue(0), mb.SingleValue(4))
+		Function toNSPoint32(extends mb as xojo.Core.MemoryBlock) As FoundationFramework.NSPoint
+		  return FoundationFrameWork.NSMakePoint (mb.SingleValue(0), mb.SingleValue(4))
 		End Function
 	#tag EndMethod
 

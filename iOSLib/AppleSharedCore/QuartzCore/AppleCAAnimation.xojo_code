@@ -147,7 +147,7 @@ Inherits AppleCAMediaTimingObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CAAnimation")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CAAnimation")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

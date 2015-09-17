@@ -3,7 +3,7 @@ Protected Class AppleMutableObjectInterface
 Inherits AppleObject
 	#tag Method, Flags = &h1
 		Protected Function DoInitWithCapacity(ClassPtr as ptr, capacity as uinteger) As Ptr
-		  Declare Function initWithCapacity lib FoundationLib  selector "initWithCapacity:" (id as ptr, capacity as UINteger) as Ptr
+		  Declare Function initWithCapacity lib FoundationLibName  selector "initWithCapacity:" (id as ptr, capacity as UINteger) as Ptr
 		  return initWithCapacity (classptr, capacity)
 		  
 		End Function

@@ -8,13 +8,13 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(Frame as NSRect)
+		Sub Constructor(Frame as FoundationFramework.NSRect)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleView
-		  // Constructor(aFrame As NSRect) -- From AppleView
-		  // Constructor(aFrame As NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect, observer as AppleNSEventReceiver) -- From AppleView
 		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
@@ -38,7 +38,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UISwitch")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UISwitch")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

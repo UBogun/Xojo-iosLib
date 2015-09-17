@@ -3,7 +3,7 @@ Protected Class AppleNotificationCenter
 Inherits AppleObject
 	#tag Method, Flags = &h1
 		Protected Function addObserverForName(NotificationName as CFStringRef, Obj as ptr, queue as AppleOperationQueue, block as ptr) As Ptr
-		  declare function addObserverForName lib FoundationLib  selector "addObserverForName:object:queue:usingBlock:" _
+		  declare function addObserverForName lib FoundationLibName  selector "addObserverForName:object:queue:usingBlock:" _
 		  (id as ptr, NotificationName as CFStringRef, Obj as Ptr, queue as ptr, block as ptr) as ptr
 		  return addObserverForName (DefaultCenter, NotificationName, obj, Queue.id, block)
 		End Function
@@ -45,7 +45,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1
 		Protected Sub removeObserver(observer as AppleObject)
-		  declare sub removeObserver lib FoundationLib  selector "removeObserver:" (id as ptr, observer as ptr)
+		  declare sub removeObserver lib FoundationLibName  selector "removeObserver:" (id as ptr, observer as ptr)
 		  removeObserver DefaultCenter, observer.id
 		End Sub
 	#tag EndMethod
@@ -59,7 +59,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("NSNotificationCenter")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSNotificationCenter")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -69,7 +69,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function defaultCenter lib FoundationLib  selector "defaultCenter" (id as ptr) as ptr
+			  declare function defaultCenter lib FoundationLibName  selector "defaultCenter" (id as ptr) as ptr
 			  static mdefaultcenter as ptr = (defaultCenter(ClassPtr))
 			  return mdefaultcenter
 			End Get

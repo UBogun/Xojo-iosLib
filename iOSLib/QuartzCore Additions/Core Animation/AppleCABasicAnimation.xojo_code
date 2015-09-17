@@ -68,7 +68,7 @@ Inherits AppleCAPropertyAnimation
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(Key as Properties, fromPoint as NSPoint, toPoint as NSPoint)
+		Sub Constructor(Key as Properties, fromPoint as FoundationFramework.NSPoint, toPoint as FoundationFramework.NSPoint)
 		  MakeAnimation (key)
 		  
 		  fromvalue = new AppleValue (fromPoint)
@@ -79,7 +79,7 @@ Inherits AppleCAPropertyAnimation
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(Key as Properties, fromrect as nsrect, torect as nsrect)
+		Sub Constructor(Key as Properties, fromrect as FoundationFramework.NSRect, torect as FoundationFramework.NSRect)
 		  MakeAnimation (key)
 		  
 		  fromvalue = new AppleValue (fromrect)
@@ -90,7 +90,7 @@ Inherits AppleCAPropertyAnimation
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(Key as Properties, fromsize as nssize, tosize as nssize)
+		Sub Constructor(Key as Properties, fromsize as FoundationFramework.NSSize, tosize as FoundationFramework.NSSize)
 		  MakeAnimation (key)
 		  fromvalue = new AppleValue (fromsize)
 		  ToValue = new AppleValue (tosize)
@@ -131,7 +131,7 @@ Inherits AppleCAPropertyAnimation
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("CABasicAnimation")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CABasicAnimation")
 			  return mClassPtr
 			End Get
 		#tag EndGetter

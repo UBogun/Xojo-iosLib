@@ -24,7 +24,7 @@ Inherits AppleGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = NSClassFromString ("UITapGestureRecognizer")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UITapGestureRecognizer")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
