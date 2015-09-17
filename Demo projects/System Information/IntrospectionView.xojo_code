@@ -10,10 +10,10 @@ Begin iosView IntrospectionView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 3, AppleSearchBarControl1, 4, False, +1.00, 2, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 3, AppleSearchBarControl1, 4, False, +1.00, 2, 1, *kStdControlGapV, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   317.0
       Left            =   0
@@ -25,10 +25,10 @@ Begin iosView IntrospectionView
       Width           =   320.0
    End
    Begin AppleSearchBarControl AppleSearchBarControl1
-      AutoLayout      =   AppleSearchBarControl1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
-      AutoLayout      =   AppleSearchBarControl1, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   AppleSearchBarControl1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   AppleSearchBarControl1, 8, , 0, False, +1.00, 1, 1, 82, 
+      AutoLayout      =   AppleSearchBarControl1, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   AppleSearchBarControl1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
+      AutoLayout      =   AppleSearchBarControl1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Height          =   82.0
       Left            =   20.0
       LockedInPosition=   False

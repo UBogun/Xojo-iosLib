@@ -10,10 +10,10 @@ Begin iosView iOSGraphicsView
    Begin iOScanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 4, Label1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Canvas1, 4, Label1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Height          =   361.0
       Left            =   20
       LockedInPosition=   False
@@ -25,10 +25,10 @@ Begin iosView iOSGraphicsView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   Label1, 2, Canvas1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Label1, 2, Canvas1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -104,7 +104,7 @@ End
 		  g.SaveState // saving the current state because the context needs to be flipped for the tiledimage call
 		  g.Translate (0, me.Height) // flip it
 		  g.Scale (1, -1)
-		  ga.DrawtiledImage nsrect (0,0,20, 20), mypic.toCGImage
+		  ga.DrawtiledImage FoundationFrameWork.NSMakeRect (0,0,20, 20), mypic.toCGImage
 		  g.RestoreState // and restire it to normal
 		  ga.RemoveShadow // don't paint shadow anymore
 		  // g.LineColor = &c86676D00
@@ -113,7 +113,7 @@ End
 		  // ga.LineJoin = CGLineJoin.Round
 		  ga.BlendMode = CGBlendMode.Multiply // overlay the next graphcis
 		  //
-		  ga.DrawLinearGradient (array(&c435B9600,&cDA770000, &c07710000,  &cEAFBFE00, &cB0BBB100), nspoint (30,30), nspoint (me.width, me.Height), true)
+		  ga.DrawLinearGradient (array(&c435B9600,&cDA770000, &c07710000,  &cEAFBFE00, &cB0BBB100), FoundationFrameWork.NSMakePoint (30,30), FoundationFrameWork.NSMakePoint (me.width, me.Height), true)
 		  // g.DrawLine me.Width-10,5,5, me.Height-10
 		  // ga.TextDrawingMode = CGTextDrawingMode.Fill
 		  g.FillColor = &cFFFFFF00

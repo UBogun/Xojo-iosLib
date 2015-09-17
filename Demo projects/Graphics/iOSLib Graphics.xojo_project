@@ -1,5 +1,5 @@
 Type=iOS
-RBProjectVersion=2015.022
+RBProjectVersion=2015.024
 MinIDEVersion=20140300
 Class=CGAnimatedArctoPoint;Demo Classes/CGAnimatedArctoPoint.xojo_code;&h4AC5FFF;&h646D5FFF;false
 Class=CGAnimatedCurve;Demo Classes/CGAnimatedCurve.xojo_code;&h4CCB8FFF;&h646D5FFF;false
