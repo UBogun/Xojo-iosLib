@@ -3,14 +3,14 @@ Protected Class AppleViewController
 Inherits AppleResponder
 	#tag Method, Flags = &h0
 		 Shared Sub AttemptRotationToDeviceOrientation()
-		  Declare Sub attemptRotationToDeviceOrientation lib UIKit selector "attemptRotationToDeviceOrientation" (id as ptr)
+		  Declare Sub attemptRotationToDeviceOrientation lib UIKitLibname selector "attemptRotationToDeviceOrientation" (id as ptr)
 		  attemptRotationToDeviceOrientation classptr
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Dismiss(animated as boolean = false)
-		  declare sub dismissViewControllerAnimated lib UIKit selector "dismissViewControllerAnimated:completion:" _
+		  declare sub dismissViewControllerAnimated lib UIKitLibname selector "dismissViewControllerAnimated:completion:" _
 		  (id as ptr, animated as Boolean, completion as ptr)
 		  dim completion as new AppleBlock (AddressOf DismissCompletionBlock)
 		  dismissViewControllerAnimated id, animated, completion.Handle
@@ -26,7 +26,7 @@ Inherits AppleResponder
 
 	#tag Method, Flags = &h0
 		Sub LoadView()
-		  declare sub loadView lib UIKit selector "loadView:" (id as ptr)
+		  declare sub loadView lib UIKitLibname selector "loadView:" (id as ptr)
 		  loadview id
 		End Sub
 	#tag EndMethod
@@ -39,7 +39,7 @@ Inherits AppleResponder
 
 	#tag Method, Flags = &h0
 		Sub Present(newView as AppleViewcontroller, animated as boolean = false)
-		  declare sub presentViewController lib UIKit selector "presentViewController:animated:completion:" _
+		  declare sub presentViewController lib UIKitLibname selector "presentViewController:animated:completion:" _
 		  (id as ptr, newview as ptr, animated as Boolean, completion as ptr)
 		  dim completion as new AppleBlock (AddressOf PresentCompletionBlock)
 		  presentViewController id, newview.id, animated, completion.Handle
@@ -66,13 +66,13 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function view lib uikit selector "view" (id as ptr) as ptr
+			  declare function view lib UIKitLibname selector "view" (id as ptr) as ptr
 			  return appleview.MakeFromPtr (view(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare sub setView lib uikit selector "setView:" (id as ptr, value as ptr)
+			  declare sub setView lib UIKitLibname selector "setView:" (id as ptr, value as ptr)
 			  setView id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -82,13 +82,13 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function automaticallyAdjustsScrollViewInsets lib uikit selector "automaticallyAdjustsScrollViewInsets" (id as ptr) as Boolean
+			  Declare function automaticallyAdjustsScrollViewInsets lib UIKitLibname selector "automaticallyAdjustsScrollViewInsets" (id as ptr) as Boolean
 			  return automaticallyAdjustsScrollViewInsets (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setAutomaticallyAdjustsScrollViewInsets lib uikit selector "setAutomaticallyAdjustsScrollViewInsets:" (id as ptr, value as Boolean)
+			  Declare sub setAutomaticallyAdjustsScrollViewInsets lib UIKitLibname selector "setAutomaticallyAdjustsScrollViewInsets:" (id as ptr, value as Boolean)
 			  setAutomaticallyAdjustsScrollViewInsets id, value
 			End Set
 		#tag EndSetter
@@ -98,7 +98,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function shouldAutorotate lib uikit selector "shouldAutorotate" (id as ptr) as Boolean
+			  Declare function shouldAutorotate lib UIKitLibname selector "shouldAutorotate" (id as ptr) as Boolean
 			  return shouldAutorotate (id)
 			End Get
 		#tag EndGetter
@@ -118,13 +118,13 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function edgesForExtendedLayout lib uikit selector "edgesForExtendedLayout" (id as ptr) as uinteger
+			  Declare function edgesForExtendedLayout lib UIKitLibname selector "edgesForExtendedLayout" (id as ptr) as uinteger
 			  return new UIRectEdge (edgesForExtendedLayout (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setEdgesForExtendedLayout lib uikit selector "setEdgesForExtendedLayout:" (id as ptr, value as uinteger)
+			  Declare sub setEdgesForExtendedLayout lib UIKitLibname selector "setEdgesForExtendedLayout:" (id as ptr, value as uinteger)
 			  setEdgesForExtendedLayout id, value.id
 			End Set
 		#tag EndSetter
@@ -134,13 +134,13 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function extendedLayoutIncludesOpaqueBars lib uikit selector "extendedLayoutIncludesOpaqueBars" (id as ptr) as Boolean
+			  Declare function extendedLayoutIncludesOpaqueBars lib UIKitLibname selector "extendedLayoutIncludesOpaqueBars" (id as ptr) as Boolean
 			  return extendedLayoutIncludesOpaqueBars (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setExtendedLayoutIncludesOpaqueBars lib uikit selector "setExtendedLayoutIncludesOpaqueBars:" (id as ptr, value as Boolean)
+			  Declare sub setExtendedLayoutIncludesOpaqueBars lib UIKitLibname selector "setExtendedLayoutIncludesOpaqueBars:" (id as ptr, value as Boolean)
 			  setExtendedLayoutIncludesOpaqueBars id, value
 			End Set
 		#tag EndSetter
@@ -150,13 +150,13 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function isModalInPopover lib uikit selector "isModalInPopover" (id as ptr) as Boolean
+			  Declare function isModalInPopover lib UIKitLibname selector "isModalInPopover" (id as ptr) as Boolean
 			  return isModalInPopover (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setModalInPopover lib uikit selector "setModalInPopover:" (id as ptr, value as Boolean)
+			  Declare sub setModalInPopover lib UIKitLibname selector "setModalInPopover:" (id as ptr, value as Boolean)
 			  setModalInPopover id, value
 			End Set
 		#tag EndSetter
@@ -166,13 +166,13 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function modalPresentationStyle lib UIKit selector "modalPresentationStyle" (id as ptr) as UIViewModalPresentationStyle
+			  Declare Function modalPresentationStyle lib UIKitLibname selector "modalPresentationStyle" (id as ptr) as UIViewModalPresentationStyle
 			  Return modalPresentationStyle (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setModalPresentationStyle lib UIKit selector "setModalPresentationStyle:" (id as ptr, value as UIViewModalPresentationStyle)
+			  Declare Sub setModalPresentationStyle lib UIKitLibname selector "setModalPresentationStyle:" (id as ptr, value as UIViewModalPresentationStyle)
 			  setModalPresentationStyle id, value
 			End Set
 		#tag EndSetter
@@ -182,13 +182,13 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function modalTransitionStyle lib UIKit selector "modalTransitionStyle" (id as ptr) as UIModalTransitionStyle
+			  Declare Function modalTransitionStyle lib UIKitLibname selector "modalTransitionStyle" (id as ptr) as UIModalTransitionStyle
 			  Return modalTransitionStyle (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setModalTransitionStyle lib UIKit selector "setModalTransitionStyle:" (id as ptr, value as UIModalTransitionStyle)
+			  Declare Sub setModalTransitionStyle lib UIKitLibname selector "setModalTransitionStyle:" (id as ptr, value as UIModalTransitionStyle)
 			  setModalTransitionStyle id, value
 			End Set
 		#tag EndSetter
@@ -198,7 +198,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function navigationController lib uikit selector "navigationController" (id as ptr) as ptr
+			  Declare function navigationController lib UIKitLibname selector "navigationController" (id as ptr) as ptr
 			  return navigationController (id)
 			End Get
 		#tag EndGetter
@@ -208,7 +208,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function nibBundle lib uikit selector "nibBundle" (id as ptr) as Ptr
+			  Declare function nibBundle lib UIKitLibname selector "nibBundle" (id as ptr) as Ptr
 			  return AppleCFBundle.MakeFromCFTypeRef (nibBundle(id))
 			End Get
 		#tag EndGetter
@@ -218,7 +218,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function nibName lib uikit selector "nibName" (id as ptr) as CFStringRef
+			  Declare function nibName lib UIKitLibname selector "nibName" (id as ptr) as CFStringRef
 			  return nibName (id)
 			End Get
 		#tag EndGetter
@@ -228,7 +228,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function parentViewController lib uikit selector "parentViewController" (id as ptr) as ptr
+			  Declare function parentViewController lib UIKitLibname selector "parentViewController" (id as ptr) as ptr
 			  return appleviewcontroller.MakeFromPtr (parentViewController (id))
 			End Get
 		#tag EndGetter
@@ -238,7 +238,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function popoverPresentationController lib uikit selector "popoverPresentationController" (id as ptr) as ptr
+			  Declare function popoverPresentationController lib UIKitLibname selector "popoverPresentationController" (id as ptr) as ptr
 			  return popoverPresentationController (id)
 			End Get
 		#tag EndGetter
@@ -248,7 +248,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function presentationController lib uikit selector "presentationController" (id as ptr) as ptr
+			  Declare function presentationController lib UIKitLibname selector "presentationController" (id as ptr) as ptr
 			  return presentationController (id)
 			End Get
 		#tag EndGetter
@@ -258,7 +258,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function presentedViewController lib uikit selector "presentedViewController" (id as ptr) as ptr
+			  Declare function presentedViewController lib UIKitLibname selector "presentedViewController" (id as ptr) as ptr
 			  return appleviewcontroller.MakeFromPtr (presentedViewController (id))
 			End Get
 		#tag EndGetter
@@ -268,7 +268,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function presentingViewController lib uikit selector "presentingViewController" (id as ptr) as ptr
+			  Declare function presentingViewController lib UIKitLibname selector "presentingViewController" (id as ptr) as ptr
 			  return appleviewcontroller.MakeFromPtr (presentingViewController (id))
 			End Get
 		#tag EndGetter
@@ -278,7 +278,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function splitViewController lib uikit selector "splitViewController" (id as ptr) as ptr
+			  Declare function splitViewController lib UIKitLibname selector "splitViewController" (id as ptr) as ptr
 			  return splitViewController (id)
 			End Get
 		#tag EndGetter
@@ -288,7 +288,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function supportedInterfaceOrientations lib UIKit selector "supportedInterfaceOrientations" (id as ptr) as UInteger
+			  Declare Function supportedInterfaceOrientations lib UIKitLibname selector "supportedInterfaceOrientations" (id as ptr) as UInteger
 			  Return new AppleInterfaceOrientationMask (supportedInterfaceOrientations(id))
 			End Get
 		#tag EndGetter
@@ -298,7 +298,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function tabBarController lib uikit selector "tabBarController" (id as ptr) as ptr
+			  Declare function tabBarController lib UIKitLibname selector "tabBarController" (id as ptr) as ptr
 			  return tabBarController (id)
 			End Get
 		#tag EndGetter
@@ -322,7 +322,7 @@ Inherits AppleResponder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function isViewLoaded lib uikit selector "isViewLoaded" (id as ptr) as Boolean
+			  Declare function isViewLoaded lib UIKitLibname selector "isViewLoaded" (id as ptr) as Boolean
 			  return isViewLoaded (id)
 			End Get
 		#tag EndGetter

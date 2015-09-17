@@ -3,7 +3,7 @@ Protected Class AppleImage
 Inherits AppleObject
 	#tag Method, Flags = &h1000
 		 Shared Function Animatedimage(Images As AppleArray, duration as double) As AppleImage
-		  Declare function animatedImageWithImages lib UIKit selector "animatedImageWithImages:duration:" (id as ptr, images as Ptr, duration as double) as ptr
+		  Declare function animatedImageWithImages lib UIKitLibname selector "animatedImageWithImages:duration:" (id as ptr, images as Ptr, duration as double) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -17,7 +17,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		 Shared Function Animatedimage(imagename as cfstringref, duration as double) As AppleImage
-		  Declare function animatedImageNamed lib UIKit selector "animatedImageNamed:duration:" (id as ptr, imagename as cfstringref, duration as double) as ptr
+		  Declare function animatedImageNamed lib UIKitLibname selector "animatedImageNamed:duration:" (id as ptr, imagename as cfstringref, duration as double) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -32,10 +32,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		 Shared Function AnimatedStretchedResizableImage(imagename as cfstringref, capInsets as UIEdgeInsets, duration as double) As AppleImage
 		  #if Target64Bit
-		    Declare function animatedStretchedResizableImageNamed lib UIKit selector "animatedResizableImageNamed:capInsets:resizingMode:duration:" (id as ptr, imagename as cfstringref, capInsets as UIEdgeInsets, resizingMode as Integer, duration as double) as ptr
+		    Declare function animatedStretchedResizableImageNamed lib UIKitLibname selector "animatedResizableImageNamed:capInsets:resizingMode:duration:" (id as ptr, imagename as cfstringref, capInsets as UIEdgeInsets, resizingMode as Integer, duration as double) as ptr
 		    Dim Result as new AppleImage (animatedStretchedResizableImageNamed (classptr, imagename, capInsets, 1, duration))
 		  #Elseif Target32Bit
-		    Declare function animatedStretchedResizableImageNamed lib UIKit selector "animatedResizableImageNamed:capInsets:resizingMode:duration:" (id as ptr, imagename as cfstringref, capInsets as UIEdgeInsets32Bit, resizingMode as Integer, duration as double) as ptr
+		    Declare function animatedStretchedResizableImageNamed lib UIKitLibname selector "animatedResizableImageNamed:capInsets:resizingMode:duration:" (id as ptr, imagename as cfstringref, capInsets as UIEdgeInsets32Bit, resizingMode as Integer, duration as double) as ptr
 		    Dim Result as new AppleImage (animatedStretchedResizableImageNamed (classptr, imagename, capInsets.toUIEdgeInset32, 1, duration))
 		  #endif
 		  // Calling the overridden superclass constructor.
@@ -51,10 +51,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		 Shared Function AnimatedTiledResizableImage(imagename as cfstringref, capInsets as UIEdgeInsets, duration as double) As AppleImage
 		  #if Target64Bit
-		    Declare function animatedResizableImageNamed lib UIKit selector "animatedResizableImageNamed:capInsets:duration:" (id as ptr, imagename as cfstringref, capInsets as UIEdgeInsets, duration as double) as ptr
+		    Declare function animatedResizableImageNamed lib UIKitLibname selector "animatedResizableImageNamed:capInsets:duration:" (id as ptr, imagename as cfstringref, capInsets as UIEdgeInsets, duration as double) as ptr
 		    Dim Result as new AppleImage (animatedResizableImageNamed (classptr, imagename, capInsets, duration))
 		  #Elseif Target32Bit
-		    Declare function animatedResizableImageNamed lib UIKit selector "animatedResizableImageNamed:capInsets:duration:" (id as ptr, imagename as cfstringref, capInsets as UIEdgeInsets32Bit, duration as double) as ptr
+		    Declare function animatedResizableImageNamed lib UIKitLibname selector "animatedResizableImageNamed:capInsets:duration:" (id as ptr, imagename as cfstringref, capInsets as UIEdgeInsets32Bit, duration as double) as ptr
 		    Dim Result as new AppleImage (animatedResizableImageNamed (classptr, imagename, capInsets.toUIEdgeInset32, duration))
 		  #endif
 		  // Calling the overridden superclass constructor.
@@ -76,9 +76,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(animage as AppleCGImage)
 		  #if Target64Bit
-		    Declare function imageWithCGImage lib UIKit selector "imageWithCGImage:" (id as ptr, animage as ptr) as ptr
+		    Declare function imageWithCGImage lib UIKitLibname selector "imageWithCGImage:" (id as ptr, animage as ptr) as ptr
 		  #elseif Target32Bit
-		    Declare function imageWithCGImage lib UIKit selector "imageWithCGImage:" (id as ptr, animage as ptr) as ptr
+		    Declare function imageWithCGImage lib UIKitLibname selector "imageWithCGImage:" (id as ptr, animage as ptr) as ptr
 		  #endif
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -93,9 +93,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(animage as AppleCGImage, scale as double, orientation as UIImageOrientation = UIImageOrientation.normal)
 		  #if Target64Bit
-		    Declare function imageWithCGImage lib UIKit selector "imageWithCGImage:scale:orientation:" (id as ptr, animage as ptr, scale as double, orientation as UIImageOrientation) as ptr
+		    Declare function imageWithCGImage lib UIKitLibname selector "imageWithCGImage:scale:orientation:" (id as ptr, animage as ptr, scale as double, orientation as UIImageOrientation) as ptr
 		  #elseif Target32Bit
-		    Declare function imageWithCGImage lib UIKit selector "imageWithCGImage:scale:orientation:" (id as ptr, animage as ptr, scale as single, orientation as UIImageOrientation) as ptr
+		    Declare function imageWithCGImage lib UIKitLibname selector "imageWithCGImage:scale:orientation:" (id as ptr, animage as ptr, scale as single, orientation as UIImageOrientation) as ptr
 		  #endif
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -109,7 +109,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(animage as AppleCIImage)
-		  Declare function imageWithCIImage lib UIKit selector "imageWithCIImage:" (id as ptr, animage as ptr) as ptr
+		  Declare function imageWithCIImage lib UIKitLibname selector "imageWithCIImage:" (id as ptr, animage as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -123,9 +123,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(animage as AppleCIImage, scale as double, orientation as UIImageOrientation = UIImageOrientation.normal)
 		  #if Target64Bit
-		    Declare function imageWithCIImage lib UIKit selector "imageWithCIImage:scale:orientation:" (id as ptr, animage as ptr, scale as double, orientation as UIImageOrientation) as ptr
+		    Declare function imageWithCIImage lib UIKitLibname selector "imageWithCIImage:scale:orientation:" (id as ptr, animage as ptr, scale as double, orientation as UIImageOrientation) as ptr
 		  #elseif Target32Bit
-		    Declare function imageWithCIImage lib UIKit selector "imageWithCIImage:scale:orientation:" (id as ptr, animage as ptr, scale as single, orientation as UIImageOrientation) as ptr
+		    Declare function imageWithCIImage lib UIKitLibname selector "imageWithCIImage:scale:orientation:" (id as ptr, animage as ptr, scale as single, orientation as UIImageOrientation) as ptr
 		  #endif
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -139,7 +139,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(ImageData as AppleData)
-		  Declare function imageWithData lib UIKit selector "imageWithData:" (id as ptr, ImageData as Ptr) as ptr
+		  Declare function imageWithData lib UIKitLibname selector "imageWithData:" (id as ptr, ImageData as Ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -153,9 +153,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(ImageData as AppleData, Scale as Double)
 		  #if Target64Bit
-		    Declare function imageWithDataScale lib UIKit selector "imageWithData:scale:" (id as ptr, ImageData as Ptr, scale as double) as ptr
+		    Declare function imageWithDataScale lib UIKitLibname selector "imageWithData:scale:" (id as ptr, ImageData as Ptr, scale as double) as ptr
 		  #elseif Target32Bit
-		    Declare function imageWithDataScale lib UIKit selector "imageWithData:scale:" (id as ptr, ImageData as Ptr, scale as single) as ptr
+		    Declare function imageWithDataScale lib UIKitLibname selector "imageWithData:scale:" (id as ptr, ImageData as Ptr, scale as single) as ptr
 		  #endif
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -169,7 +169,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(imagename as cfstringref)
-		  Declare function imageNamed lib UIKit selector "imageNamed:" (id as ptr, imagename as cfstringref) as ptr
+		  Declare function imageNamed lib UIKitLibname selector "imageNamed:" (id as ptr, imagename as cfstringref) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -182,7 +182,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(imagename as cfstringref, Bundle as AppleCFBundle, traitcollection as AppleTraitCollection = nil)
-		  Declare function imageNamedinBundle lib UIKit selector "imageNamed:inBundle:compatibleWithTraitCollection:" _
+		  Declare function imageNamedinBundle lib UIKitLibname selector "imageNamed:inBundle:compatibleWithTraitCollection:" _
 		  (id as ptr, imagename as cfstringref, bundle as ptr, traitcollection as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -196,7 +196,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(imagePath as folderitem)
-		  Declare function imageWithContentsOfFile lib UIKit selector "imageWithContentsOfFile:" (id as ptr, Path as cfstringref) as ptr
+		  Declare function imageWithContentsOfFile lib UIKitLibname selector "imageWithContentsOfFile:" (id as ptr, Path as cfstringref) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -223,10 +223,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub DrawAsPatternInRect(Rect as FoundationFramework.NSRect)
 		  #if Target64Bit
-		    Declare sub drawAsPatternInRect lib UIKit selector "drawAsPatternInRect:" (id as ptr, Rect  as FoundationFramework.NSRect)
+		    Declare sub drawAsPatternInRect lib UIKitLibname selector "drawAsPatternInRect:" (id as ptr, Rect  as FoundationFramework.NSRect)
 		    drawAsPatternInRect (id, rect)
 		  #elseif Target32Bit
-		    Declare sub drawAsPatternInRect lib UIKit selector "drawAsPatternInRect:" (id as ptr, Rect as FoundationFramework.NSRect32Bit)
+		    Declare sub drawAsPatternInRect lib UIKitLibname selector "drawAsPatternInRect:" (id as ptr, Rect as FoundationFramework.NSRect32Bit)
 		    drawAsPatternInRect (id, rect.toNSRect32)
 		  #endif
 		End Sub
@@ -235,10 +235,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub DrawAtPoint(Point As FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub drawAtPoint lib UIKit selector "drawAtPoint:" (id as ptr, point as FoundationFramework.NSPoint)
+		    Declare sub drawAtPoint lib UIKitLibname selector "drawAtPoint:" (id as ptr, point as FoundationFramework.NSPoint)
 		    drawAtPoint (id, point)
 		  #elseif Target32Bit
-		    Declare sub drawAtPoint lib UIKit selector "drawAtPoint:" (id as ptr, point as FoundationFramework.NSPoint32Bit)
+		    Declare sub drawAtPoint lib UIKitLibname selector "drawAtPoint:" (id as ptr, point as FoundationFramework.NSPoint32Bit)
 		    drawAtPoint (id, point.toNSPoint32)
 		  #endif
 		End Sub
@@ -247,10 +247,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub DrawAtPoint(Point As FoundationFramework.NSPoint, BlendMode as CGBlendMode, Alpha as Double = 1)
 		  #if Target64Bit
-		    Declare sub drawAtPointblendMode lib UIKit selector "drawAtPoint:blendMode:alpha:" (id as ptr, point as FoundationFramework.NSPoint, blendmode as CGBlendMode, alpha as double)
+		    Declare sub drawAtPointblendMode lib UIKitLibname selector "drawAtPoint:blendMode:alpha:" (id as ptr, point as FoundationFramework.NSPoint, blendmode as CGBlendMode, alpha as double)
 		    drawAtPointblendMode (id, point, blendmode, alpha)
 		  #elseif Target32Bit
-		    Declare sub drawAtPointblendMode lib UIKit selector "drawAtPoint:blendMode:alpha:" (id as ptr, point as FoundationFramework.NSPoint32Bit,  blendmode as CGBlendMode, alpha as single)
+		    Declare sub drawAtPointblendMode lib UIKitLibname selector "drawAtPoint:blendMode:alpha:" (id as ptr, point as FoundationFramework.NSPoint32Bit,  blendmode as CGBlendMode, alpha as single)
 		    drawAtPointblendMode (id, point.toNSPoint32, blendmode, alpha)
 		  #endif
 		End Sub
@@ -259,10 +259,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub DrawInRect(Rect as FoundationFramework.NSRect)
 		  #if Target64Bit
-		    Declare sub drawInRect lib UIKit selector "drawInRect:" (id as ptr, Rect  as FoundationFramework.NSRect)
+		    Declare sub drawInRect lib UIKitLibname selector "drawInRect:" (id as ptr, Rect  as FoundationFramework.NSRect)
 		    drawInRect (id, rect)
 		  #elseif Target32Bit
-		    Declare sub drawInRect lib UIKit selector "drawInRect:" (id as ptr, Rect as FoundationFramework.NSRect32Bit)
+		    Declare sub drawInRect lib UIKitLibname selector "drawInRect:" (id as ptr, Rect as FoundationFramework.NSRect32Bit)
 		    drawInRect (id, rect.toNSRect32)
 		  #endif
 		End Sub
@@ -271,10 +271,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub DrawInRect(Rect as FoundationFramework.NSRect, BlendMode as CGBlendMode, Alpha as Double = 1)
 		  #if Target64Bit
-		    Declare sub drawInRectBlendMode lib UIKit selector "drawInRect:blendMode:alpha:" (id as ptr, Rect  as FoundationFramework.NSRect, blendmode as CGBlendMode, alpha as double)
+		    Declare sub drawInRectBlendMode lib UIKitLibname selector "drawInRect:blendMode:alpha:" (id as ptr, Rect  as FoundationFramework.NSRect, blendmode as CGBlendMode, alpha as double)
 		    drawInRectBlendMode (id, rect, blendmode, alpha)
 		  #elseif Target32Bit
-		    Declare sub drawInRectBlendMode lib UIKit selector "drawInRect:blendMode:alpha:" (id as ptr, Rect as FoundationFramework.NSRect32Bit, blendmode as CGBlendMode, alpha as single)
+		    Declare sub drawInRectBlendMode lib UIKitLibname selector "drawInRect:blendMode:alpha:" (id as ptr, Rect as FoundationFramework.NSRect32Bit, blendmode as CGBlendMode, alpha as single)
 		    drawInRectBlendMode (id, rect.toNSRect32, blendmode, alpha)
 		  #endif
 		End Sub
@@ -284,7 +284,7 @@ Inherits AppleObject
 		Function FlipHorizontal() As AppleImage
 		  const SEL as text = "imageFlippedForRightToLeftLayoutDirection"
 		  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString (SEL)) then
-		    Declare function imageFlippedForRightToLeftLayoutDirection lib UIKit selector "imageFlippedForRightToLeftLayoutDirection" (id as ptr) as ptr
+		    Declare function imageFlippedForRightToLeftLayoutDirection lib UIKitLibname selector "imageFlippedForRightToLeftLayoutDirection" (id as ptr) as ptr
 		    return new AppleImage (imageFlippedForRightToLeftLayoutDirection(id))
 		  end if
 		  
@@ -308,9 +308,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function JPEGData(compressionQuality as double) As AppleData
 		  #if Target64Bit
-		    Declare Function UIImageJPEGRepresentation lib UIKit (Image as ptr, quality as double) as ptr
+		    Declare Function UIImageJPEGRepresentation lib UIKitLibname (Image as ptr, quality as double) as ptr
 		  #elseif Target32Bit
-		    Declare Function UIImageJPEGRepresentation lib UIKit (Image as ptr, quality as single) as ptr
+		    Declare Function UIImageJPEGRepresentation lib UIKitLibname (Image as ptr, quality as single) as ptr
 		  #endif
 		  Return AppleData.MakefromPtr (UIImageJPEGRepresentation (id, compressionQuality))
 		  
@@ -343,10 +343,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function ResizableStretchedImage(CapInsets as UIEdgeInsets) As AppleImage
 		  #if Target64Bit
-		    Declare Function ResizableStretchedImage lib UIKit selector "resizableImageWithCapInsets:resizingMode:" (id as ptr, insets as UIEdgeInsets, resizingMode as integer) as ptr
+		    Declare Function ResizableStretchedImage lib UIKitLibname selector "resizableImageWithCapInsets:resizingMode:" (id as ptr, insets as UIEdgeInsets, resizingMode as integer) as ptr
 		    return new AppleImage (ResizableStretchedImage(id, CapInsets, 1))
 		  #elseif Target32Bit
-		    Declare Function ResizableStretchedImage lib UIKit selector "resizableImageWithCapInsets:resizingMode:" (id as ptr, insets as UIEdgeInsets32Bit, resizingMode as integer) as ptr
+		    Declare Function ResizableStretchedImage lib UIKitLibname selector "resizableImageWithCapInsets:resizingMode:" (id as ptr, insets as UIEdgeInsets32Bit, resizingMode as integer) as ptr
 		    return new AppleImage (ResizableStretchedImage(id, CapInsets.toUIEdgeInset32, 1))
 		  #endif
 		  
@@ -356,10 +356,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function ResizableTiledImage(CapInsets as UIEdgeInsets) As AppleImage
 		  #if Target64Bit
-		    Declare Function resizableImageWithCapInsets lib UIKit selector "resizableImageWithCapInsets:" (id as ptr, insets as UIEdgeInsets) as ptr
+		    Declare Function resizableImageWithCapInsets lib UIKitLibname selector "resizableImageWithCapInsets:" (id as ptr, insets as UIEdgeInsets) as ptr
 		    return new AppleImage (resizableImageWithCapInsets(id, CapInsets))
 		  #elseif Target32Bit
-		    Declare Function resizableImageWithCapInsets lib UIKit selector "resizableImageWithCapInsets:" (id as ptr, insets as UIEdgeInsets32Bit) as ptr
+		    Declare Function resizableImageWithCapInsets lib UIKitLibname selector "resizableImageWithCapInsets:" (id as ptr, insets as UIEdgeInsets32Bit) as ptr
 		    return new AppleImage (resizableImageWithCapInsets(id, CapInsets.toUIEdgeInset32))
 		  #endif
 		  
@@ -386,10 +386,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function SetAlignmentRect(Insets as UIEdgeInsets) As AppleImage
 		  #if Target64Bit
-		    Declare Function imageWithAlignmentRectInsets lib UIKit selector "imageWithAlignmentRectInsets:" (id as ptr, insets as UIEdgeInsets) as ptr
+		    Declare Function imageWithAlignmentRectInsets lib UIKitLibname selector "imageWithAlignmentRectInsets:" (id as ptr, insets as UIEdgeInsets) as ptr
 		    return new AppleImage (imageWithAlignmentRectInsets(id, Insets))
 		  #elseif Target32Bit
-		    Declare Function imageWithAlignmentRectInsets lib UIKit selector "imageWithAlignmentRectInsets:" (id as ptr, insets as UIEdgeInsets32Bit) as ptr
+		    Declare Function imageWithAlignmentRectInsets lib UIKitLibname selector "imageWithAlignmentRectInsets:" (id as ptr, insets as UIEdgeInsets32Bit) as ptr
 		    return new AppleImage (imageWithAlignmentRectInsets(id, Insets.toUIEdgeInset32))
 		  #endif
 		  
@@ -398,18 +398,18 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function SetRenderingMode(RenderingMode as UIImageRenderingMode) As AppleImage
-		  Declare Function imageWithRenderingMode lib UIKit selector "imageWithRenderingMode:" (id as ptr, RenderingMode as UIImageRenderingMode) as ptr
+		  Declare Function imageWithRenderingMode lib UIKitLibname selector "imageWithRenderingMode:" (id as ptr, RenderingMode as UIImageRenderingMode) as ptr
 		  return new AppleImage (imageWithRenderingMode(id, RenderingMode))
 		  
 		End Function
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function UIImagePNGRepresentation Lib UIKit (UIImage as Ptr) As Ptr
+		Protected Declare Function UIImagePNGRepresentation Lib UIKitLibname (UIImage as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub UIImageWriteToSavedPhotosAlbum Lib UIKit (UIImage as Ptr, completion as ptr, completionselector as ptr, contextinfo as ptr)
+		Protected Declare Sub UIImageWriteToSavedPhotosAlbum Lib UIKitLibname (UIImage as Ptr, completion as ptr, completionselector as ptr, contextinfo as ptr)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -433,10 +433,10 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function alignmentRectInsets lib UIKit selector "alignmentRectInsets" (id as ptr) as UIEdgeInsets
+			    Declare function alignmentRectInsets lib UIKitLibname selector "alignmentRectInsets" (id as ptr) as UIEdgeInsets
 			    return alignmentRectInsets (id)
 			  #elseif Target32Bit
-			    Declare function alignmentRectInsets lib UIKit selector "alignmentRectInsets" (id as ptr) as UIEdgeInsets32Bit
+			    Declare function alignmentRectInsets lib UIKitLibname selector "alignmentRectInsets" (id as ptr) as UIEdgeInsets32Bit
 			    return alignmentRectInsets(id).toUIEdgeInset
 			  #endif
 			End Get
@@ -448,10 +448,10 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #If Target64Bit
-			    Declare Function capInsets lib UIKit selector "capInsets" (id as ptr) as UIEdgeInsets
+			    Declare Function capInsets lib UIKitLibname selector "capInsets" (id as ptr) as UIEdgeInsets
 			    Return capInsets (id)
 			  #elseif Target32Bit
-			    Declare Function capInsets lib UIKit selector "capInsets" (id as ptr) as UIEdgeInsets32Bit
+			    Declare Function capInsets lib UIKitLibname selector "capInsets" (id as ptr) as UIEdgeInsets32Bit
 			    Return capInsets(id).toUIEdgeInset
 			  #endif
 			  
@@ -474,7 +474,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function duration lib UIKit selector "duration" (id as ptr) as Double
+			  Declare function duration lib UIKitLibname selector "duration" (id as ptr) as Double
 			  return  duration(id)
 			End Get
 		#tag EndGetter
@@ -486,7 +486,7 @@ Inherits AppleObject
 			Get
 			  const SEL as text = "flipsForRightToLeftLayoutDirection"
 			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString (SEL)) then
-			    Declare function flipsForRightToLeftLayoutDirection lib UIKit selector "flipsForRightToLeftLayoutDirection" (id as ptr) as Boolean
+			    Declare function flipsForRightToLeftLayoutDirection lib UIKitLibname selector "flipsForRightToLeftLayoutDirection" (id as ptr) as Boolean
 			    return  (flipsForRightToLeftLayoutDirection(id))
 			  end if
 			  
@@ -508,7 +508,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  if AppleImageAsset.ClassAvailable then
-			    Declare function imageAsset lib UIKit selector "imageAsset" (id as ptr) as ptr
+			    Declare function imageAsset lib UIKitLibname selector "imageAsset" (id as ptr) as ptr
 			    return AppleImageAsset.MakefromPtr (imageAsset(id))
 			  end if
 			End Get
@@ -519,7 +519,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function imageOrientation lib UIKit selector "imageOrientation" (id as ptr) as UIImageOrientation
+			  Declare Function imageOrientation lib UIKitLibname selector "imageOrientation" (id as ptr) as UIImageOrientation
 			  return imageOrientation (id)
 			  
 			End Get
@@ -530,7 +530,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function images lib UIKit selector "images" (id as ptr) as ptr
+			  Declare function images lib UIKitLibname selector "images" (id as ptr) as ptr
 			  return AppleArray.MakeFromPtr (images(id))
 			End Get
 		#tag EndGetter
@@ -549,7 +549,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function renderingMode lib UIKit selector "renderingMode" (id as ptr) as UIImageRenderingMode
+			  Declare Function renderingMode lib UIKitLibname selector "renderingMode" (id as ptr) as UIImageRenderingMode
 			  return renderingMode (id)
 			  
 			End Get
@@ -560,7 +560,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function resizingMode lib UIKit selector "resizingMode" (id as ptr) as UIImageResizingMode
+			  Declare Function resizingMode lib UIKitLibname selector "resizingMode" (id as ptr) as UIImageResizingMode
 			  return resizingMode (id)
 			  
 			End Get
@@ -572,9 +572,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #If Target64Bit
-			    Declare Function scale lib UIKit selector "scale" (id as ptr) as double
+			    Declare Function scale lib UIKitLibname selector "scale" (id as ptr) as double
 			  #elseif Target32Bit
-			    Declare Function scale lib UIKit selector "scale" (id as ptr) as single
+			    Declare Function scale lib UIKitLibname selector "scale" (id as ptr) as single
 			  #endif
 			  Return scale (id)
 			  
@@ -595,7 +595,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function CGImage lib UIKit selector "CGImage" (id as ptr) as ptr
+			  Declare function CGImage lib UIKitLibname selector "CGImage" (id as ptr) as ptr
 			  return  AppleCGImage.MakeFromCFTypeRef ( CGImage (id), false)
 			End Get
 		#tag EndGetter
@@ -605,7 +605,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function CIImage lib uikit selector "CIImage" (id as ptr) as ptr
+			  declare function CIImage lib UIKitLibname selector "CIImage" (id as ptr) as ptr
 			  return AppleCIImage.MakefromPtr (CIImage(id))
 			End Get
 		#tag EndGetter
@@ -625,7 +625,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  if AppleTraitCollection.ClassAvailable then
-			    Declare function traitCollection lib UIKit selector "traitCollection" (id as ptr) as ptr
+			    Declare function traitCollection lib UIKitLibname selector "traitCollection" (id as ptr) as ptr
 			    return AppleTraitCollection.MakefromPtr (traitCollection(id))
 			  end if
 			End Get
@@ -678,6 +678,17 @@ Inherits AppleObject
 			Name="ImageOrientation"
 			Group="Behavior"
 			Type="UIImageOrientation"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Normal"
+				"1 - HalfwayRound"
+				"2 - QuarterRight"
+				"3 - QuarerLeft"
+				"4 - UpMirrored"
+				"5 - DownMirrored"
+				"6 - LeftMirrored"
+				"7 - RightMirrored"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -718,11 +729,22 @@ Inherits AppleObject
 			Name="RenderingMode"
 			Group="Behavior"
 			Type="UIImageRenderingMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Automatic"
+				"1 - AlwaysOriginal"
+				"2 - AlwaysTemplate"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ResizingMode"
 			Group="Behavior"
 			Type="UIImageResizingMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Tiled"
+				"1 - Stretched"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Scale"

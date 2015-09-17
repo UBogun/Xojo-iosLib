@@ -28,7 +28,7 @@ Inherits AppleObject
 		  if ActionHandler = nil then
 		    ActionHandler = myHandler.Handle
 		  end if
-		  declare function actionWithTitle lib UIKit selector "actionWithTitle:style:handler:" (clsRef as ptr, title as CFStringRef, style as UIAlertActionStyle, UIAlertAction as ptr) as ptr
+		  declare function actionWithTitle lib UIKitLibname selector "actionWithTitle:style:handler:" (clsRef as ptr, title as CFStringRef, style as UIAlertActionStyle, UIAlertAction as ptr) as ptr
 		  
 		  Super.Constructor (actionWithTitle (ClassPtr, Title, style, ActionHandler))
 		  RetainClassObject
@@ -64,13 +64,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function enabled lib UIKit selector "isEnabled" (id as ptr) as Boolean
+			  Declare function enabled lib UIKitLibname selector "isEnabled" (id as ptr) as Boolean
 			  return enabled (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setEnabled lib UIKit selector "setEnabled:" (id as ptr, value as Boolean)
+			  Declare Sub setEnabled lib UIKitLibname selector "setEnabled:" (id as ptr, value as Boolean)
 			  setenabled (id, value)
 			End Set
 		#tag EndSetter
@@ -93,7 +93,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function style lib UIKit selector "style" (obj_id as ptr) as UIAlertActionStyle
+			  declare function style lib UIKitLibname selector "style" (obj_id as ptr) as UIAlertActionStyle
 			  return style (id)
 			End Get
 		#tag EndGetter
@@ -173,6 +173,12 @@ Inherits AppleObject
 			Name="Style"
 			Group="Behavior"
 			Type="UIALertActionStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Cancel"
+				"2 - Destructive"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

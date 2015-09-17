@@ -62,13 +62,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function baselineAdjustment lib UIKit selector "baselineAdjustment" (id as ptr) as UIBaselineAdjustment
+			  Declare function baselineAdjustment lib UIKitLibname selector "baselineAdjustment" (id as ptr) as UIBaselineAdjustment
 			  return baselineAdjustment (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setBaselineAdjustment lib UIKit selector "setBaselineAdjustment:" (id as ptr, value as UIBaselineAdjustment)
+			  Declare sub setBaselineAdjustment lib UIKitLibname selector "setBaselineAdjustment:" (id as ptr, value as UIBaselineAdjustment)
 			  setBaselineAdjustment id, value
 			End Set
 		#tag EndSetter
@@ -130,13 +130,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function isHighlighted lib UIKit selector "isHighlighted" (id as ptr) as Boolean
+			  Declare function isHighlighted lib UIKitLibname selector "isHighlighted" (id as ptr) as Boolean
 			  return isHighlighted (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setHighlighted lib UIKit selector "setHighlighted:" (id as ptr, value as Boolean)
+			  Declare sub setHighlighted lib UIKitLibname selector "setHighlighted:" (id as ptr, value as Boolean)
 			  setHighlighted id, value
 			End Set
 		#tag EndSetter
@@ -146,13 +146,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function highlightedTextColor lib UIKit selector "highlightedTextColor" (id as ptr) as ptr
+			  Declare function highlightedTextColor lib UIKitLibname selector "highlightedTextColor" (id as ptr) as ptr
 			  return AppleColor.MakeFromPtr (highlightedTextColor(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setHighlightedTextColor lib UIKit selector "setHighlightedTextColor:" (id as ptr, value as ptr)
+			  Declare sub setHighlightedTextColor lib UIKitLibname selector "setHighlightedTextColor:" (id as ptr, value as ptr)
 			  setHighlightedTextColor id, value.id
 			End Set
 		#tag EndSetter
@@ -162,13 +162,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function lineBreakMode lib UIKit selector "lineBreakMode" (id as ptr) as NSLineBreakMode
+			  Declare function lineBreakMode lib UIKitLibname selector "lineBreakMode" (id as ptr) as NSLineBreakMode
 			  return lineBreakMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setLineBreakMode lib UIKit selector "setLineBreakMode:" (id as ptr, value as NSLineBreakMode)
+			  Declare sub setLineBreakMode lib UIKitLibname selector "setLineBreakMode:" (id as ptr, value as NSLineBreakMode)
 			  setLineBreakMode id, value
 			End Set
 		#tag EndSetter
@@ -202,13 +202,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function numberOfLines lib UIKit selector "numberOfLines" (id as ptr) as Integer
+			  Declare function numberOfLines lib UIKitLibname selector "numberOfLines" (id as ptr) as Integer
 			  return numberOfLines (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setNumberOfLines lib UIKit selector "setNumberOfLines:" (id as ptr, value as integer)
+			  Declare sub setNumberOfLines lib UIKitLibname selector "setNumberOfLines:" (id as ptr, value as integer)
 			  setNumberOfLines id, value
 			End Set
 		#tag EndSetter
@@ -242,13 +242,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function shadowColor lib UIKit selector "shadowColor" (id as ptr) as ptr
+			  Declare function shadowColor lib UIKitLibname selector "shadowColor" (id as ptr) as ptr
 			  return  AppleColor.MakeFromPtr (shadowColor(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setShadowColor lib UIKit selector "setShadowColor:" (id as ptr, value as ptr)
+			  Declare sub setShadowColor lib UIKitLibname selector "setShadowColor:" (id as ptr, value as ptr)
 			  setShadowColor id, value.id
 			End Set
 		#tag EndSetter
@@ -259,10 +259,10 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if target32bit
-			    DEclare Function shadowOffset lib UIKit selector "shadowOffset" (id as ptr) as FoundationFramework.NSSize32Bit
+			    DEclare Function shadowOffset lib UIKitLibname selector "shadowOffset" (id as ptr) as FoundationFramework.NSSize32Bit
 			    return shadowOffset(id).toNSSize
 			  #elseif Target64Bit
-			    DEclare Function shadowOffset lib UIKit selector "shadowOffset" (id as ptr) as FoundationFramework.NSSize
+			    DEclare Function shadowOffset lib UIKitLibname selector "shadowOffset" (id as ptr) as FoundationFramework.NSSize
 			    return shadowOffset (id)
 			  #endif
 			  
@@ -271,10 +271,10 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if target32bit
-			    DEclare Sub setShadowOffset lib UIKit selector "setShadowOffset:" (id as ptr, value as FoundationFramework.NSSize32Bit)
+			    DEclare Sub setShadowOffset lib UIKitLibname selector "setShadowOffset:" (id as ptr, value as FoundationFramework.NSSize32Bit)
 			    setShadowOffset id, value.toNSSize32
 			  #elseif Target64Bit
-			    DEclare Sub setShadowOffset lib UIKit selector "setShadowOffset:" (id as ptr, value as FoundationFramework.NSSize)
+			    DEclare Sub setShadowOffset lib UIKitLibname selector "setShadowOffset:" (id as ptr, value as FoundationFramework.NSSize)
 			    setShadowOffset id, value
 			  #endif
 			End Set
@@ -539,6 +539,14 @@ Inherits AppleView
 			Name="TextAlignment"
 			Group="Behavior"
 			Type="NSTextAlignment"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Left"
+				"1 - Center"
+				"2 - Right"
+				"3 - Justified"
+				"4 - Natural"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextInputContextIdentifier"

@@ -108,14 +108,14 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function NumberOfRowsInComponentInPickerView1(PickerView as iOSLibPicker, Component as Integer) As Integer
-		  Declare Function numberOfRowsInComponent lib UIKit selector "pickerView:numberOfRowsInComponent:" (id as ptr, pv as ptr, component as integer) as Integer
+		  Declare Function numberOfRowsInComponent lib UIKitLibname selector "pickerView:numberOfRowsInComponent:" (id as ptr, pv as ptr, component as integer) as Integer
 		  Return numberOfRowsInComponent (id, PickerView.id, Component)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub Reload()
-		  Declare Sub reloadAllComponents lib UIKit selector "reloadAllComponents" (obj_ref As Ptr)
+		  Declare Sub reloadAllComponents lib UIKitLibname selector "reloadAllComponents" (obj_ref As Ptr)
 		  
 		  reloadAllComponents(myPicker.id)
 		End Sub
@@ -123,7 +123,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h21
 		Private Sub ReloadColumn(column as integer)
-		  Declare Sub reloadComponent lib UIKit selector "reloadComponent:" (id as ptr, component as integer)
+		  Declare Sub reloadComponent lib UIKitLibname selector "reloadComponent:" (id as ptr, component as integer)
 		  ReloadComponent (myPicker.id, column)
 		End Sub
 	#tag EndMethod
@@ -148,7 +148,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function SelectedRow(Column As integer) As integer
-		  Declare Function selectedRowInComponent lib UIKit selector "selectedRowInComponent:" (obj_ref As Ptr, component As Integer) As Integer
+		  Declare Function selectedRowInComponent lib UIKitLibname selector "selectedRowInComponent:" (obj_ref As Ptr, component As Integer) As Integer
 		  
 		  Return selectedRowInComponent(myPicker.id, Column)
 		End Function
@@ -156,7 +156,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub SelectedRow(column As Integer, Assigns value As Integer)
-		  Declare Sub selectRowinComponentanimated lib UIKit selector "selectRow:inComponent:animated:" (obj_ref As Ptr, row As Integer, component As Integer, animated As Boolean)
+		  Declare Sub selectRowinComponentanimated lib UIKitLibname selector "selectRow:inComponent:animated:" (obj_ref As Ptr, row As Integer, component As Integer, animated As Boolean)
 		  
 		  selectRowinComponentanimated(myPicker.id, value, column, true)
 		End Sub
@@ -187,7 +187,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function ViewForRow(Row as Integer, Component as integer, view as ptr) As ptr
-		  Declare Function viewForRow lib UIKit selector "viewForRow:forComponent:resuingView:" (id as ptr, row as integer, component as integer, view as ptr) as Ptr
+		  Declare Function viewForRow lib UIKitLibname selector "viewForRow:forComponent:resuingView:" (id as ptr, row as integer, component as integer, view as ptr) as Ptr
 		  return viewForRow (mypicker.id, Row, Component, view)
 		End Function
 	#tag EndMethod

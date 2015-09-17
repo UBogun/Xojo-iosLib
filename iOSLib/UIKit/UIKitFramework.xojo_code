@@ -3,10 +3,10 @@ Protected Module UIKitFramework
 	#tag Method, Flags = &h1
 		Protected Function getbounds(id as ptr) As FoundationFramework.NSRect
 		  #if Target64bit
-		    declare function bounds lib UIKit selector "bounds" (id as ptr)  as FoundationFramework.NSRect
+		    declare function bounds lib UIKitLibname selector "bounds" (id as ptr)  as FoundationFramework.NSRect
 		    return bounds (id)
 		  #elseif target32bit
-		    declare function bounds lib UIKit selector "bounds" (id as ptr) as FoundationFramework.NSRect32Bit
+		    declare function bounds lib UIKitLibname selector "bounds" (id as ptr) as FoundationFramework.NSRect32Bit
 		    return bounds(id).toNSRect
 		  #endif
 		  
@@ -15,7 +15,7 @@ Protected Module UIKitFramework
 
 	#tag Method, Flags = &h1
 		Protected Function getContents(id as ptr) As Ptr
-		  declare function contents lib uikit selector "contents" (id as Ptr) as ptr
+		  declare function contents lib UIKitLibname selector "contents" (id as Ptr) as ptr
 		  return contents(id)
 		  
 		End Function
@@ -23,7 +23,7 @@ Protected Module UIKitFramework
 
 	#tag Method, Flags = &h1
 		Protected Function getEnabled(id as ptr) As Boolean
-		  Declare function enabled lib UIKit selector "isEnabled" (id as ptr) as Boolean
+		  Declare function enabled lib UIKitLibname selector "isEnabled" (id as ptr) as Boolean
 		  return enabled (id)
 		End Function
 	#tag EndMethod
@@ -31,10 +31,10 @@ Protected Module UIKitFramework
 	#tag Method, Flags = &h1
 		Protected Function getFrame(id as ptr) As FoundationFramework.NSRect
 		  #if target32bit
-		    declare function getframe lib UIKit selector "frame" (id as Ptr) as FoundationFramework.NSRect32Bit
+		    declare function getframe lib UIKitLibname selector "frame" (id as Ptr) as FoundationFramework.NSRect32Bit
 		    return getframe(id).toNSRect
 		  #elseif Target64Bit
-		    declare function getframe lib UIKit selector "frame" (id as Ptr)  as FoundationFramework.NSRect
+		    declare function getframe lib UIKitLibname selector "frame" (id as Ptr)  as FoundationFramework.NSRect
 		    return getframe (id)
 		  #endif
 		  
@@ -43,7 +43,7 @@ Protected Module UIKitFramework
 
 	#tag Method, Flags = &h1
 		Protected Function getOpaque(id as ptr) As Boolean
-		  declare function opaque lib UIKit selector "isOpaque" (id as ptr) as Boolean
+		  declare function opaque lib UIKitLibname selector "isOpaque" (id as ptr) as Boolean
 		  return opaque (id)
 		End Function
 	#tag EndMethod
@@ -51,10 +51,10 @@ Protected Module UIKitFramework
 	#tag Method, Flags = &h1
 		Protected Sub setBounds(id as ptr, value as FoundationFramework.NSRect)
 		  #if Target64bit
-		    declare sub setbounds lib UIKit selector "setBounds:" (id as ptr, value  as FoundationFramework.NSRect)
+		    declare sub setbounds lib UIKitLibname selector "setBounds:" (id as ptr, value  as FoundationFramework.NSRect)
 		    setBounds id, value
 		  #elseif target32bit
-		    declare sub setBounds lib UIKit selector "setBounds:" (id as ptr, value as FoundationFramework.NSRect32Bit)
+		    declare sub setBounds lib UIKitLibname selector "setBounds:" (id as ptr, value as FoundationFramework.NSRect32Bit)
 		    setBounds id, value.toNSRect32
 		  #endif
 		  
@@ -63,7 +63,7 @@ Protected Module UIKitFramework
 
 	#tag Method, Flags = &h1
 		Protected Sub setContents(id as ptr, value as ptr)
-		  declare Sub setcontents lib uikit selector "setContents:" (id as Ptr, value as ptr)
+		  declare Sub setcontents lib UIKitLibname selector "setContents:" (id as Ptr, value as ptr)
 		  setcontents (id, value)
 		  
 		End Sub
@@ -71,7 +71,7 @@ Protected Module UIKitFramework
 
 	#tag Method, Flags = &h1
 		Protected Sub SetEnabled(id as ptr, value as Boolean)
-		  Declare Sub setEnabled lib UIKit selector "setEnabled:" (id as ptr, value as Boolean)
+		  Declare Sub setEnabled lib UIKitLibname selector "setEnabled:" (id as ptr, value as Boolean)
 		  setenabled (id, value)
 		End Sub
 	#tag EndMethod
@@ -79,10 +79,10 @@ Protected Module UIKitFramework
 	#tag Method, Flags = &h1
 		Protected Sub setFrame(id as ptr, value as FoundationFramework.NSRect)
 		  #if target32bit
-		    declare sub setFrame lib UIKit selector "setFrame:" (id as Ptr, value as FoundationFramework.NSRect32Bit)
+		    declare sub setFrame lib UIKitLibname selector "setFrame:" (id as Ptr, value as FoundationFramework.NSRect32Bit)
 		    setFrame id, value.toNSRect32
 		  #elseif target64bit
-		    declare sub setFrame lib UIKit selector "setFrame:" (id as Ptr, value  as FoundationFramework.NSRect)
+		    declare sub setFrame lib UIKitLibname selector "setFrame:" (id as Ptr, value  as FoundationFramework.NSRect)
 		    setFrame id, value
 		  #endif
 		  
@@ -91,14 +91,14 @@ Protected Module UIKitFramework
 
 	#tag Method, Flags = &h1
 		Protected Sub setOpaque(id as ptr, value as boolean)
-		  declare sub setOpaque lib UIKit selector "setOpaque:" (id as ptr, value as Boolean)
+		  declare sub setOpaque lib UIKitLibname selector "setOpaque:" (id as ptr, value as Boolean)
 		  setOpaque id, value
 		  
 		End Sub
 	#tag EndMethod
 
 
-	#tag Constant, Name = UIKit, Type = Text, Dynamic = False, Default = \"UIKit.framework", Scope = Public
+	#tag Constant, Name = UIKitLibName, Type = Text, Dynamic = False, Default = \"UIKit.framework", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = UIKitPath, Type = Text, Dynamic = False, Default = \"com.apple.UIKit", Scope = Public

@@ -4,14 +4,14 @@ Inherits AppleResponder
 Implements AppleNSEventForwarder
 	#tag Method, Flags = &h0
 		Sub AddGestureRecognizer(GestureRecognizer as AppleGestureRecognizer)
-		  declare sub addGestureRecognizer lib UIKit selector "addGestureRecognizer:" (id as ptr, GestureRecognizer as ptr)
+		  declare sub addGestureRecognizer lib UIKitLibname selector "addGestureRecognizer:" (id as ptr, GestureRecognizer as ptr)
 		  addGestureRecognizer id, GestureRecognizer.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub AddSubview(aView as AppleView)
-		  declare sub addSubview lib UIKit selector "addSubview:" (id as ptr, aview as ptr)
+		  declare sub addSubview lib UIKitLibname selector "addSubview:" (id as ptr, aview as ptr)
 		  addSubview id, aView.id
 		End Sub
 	#tag EndMethod
@@ -78,7 +78,7 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub animateWithDuration(duration as Double, animations as ptr, completion as ptr, delay as double = 0, options as uinteger = 0)
-		  Declare sub animateWithDuration_ lib UIKit selector "animateWithDuration:delay:options:animations:completion:" _
+		  Declare sub animateWithDuration_ lib UIKitLibname selector "animateWithDuration:delay:options:animations:completion:" _
 		  (id as ptr, duration as Double, delay as double, options as uinteger, animations as ptr, completion as ptr)
 		  animateWithDuration_ classptr, duration, delay, options, Animations, completion
 		  
@@ -93,14 +93,14 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub BeginAnimations(AnimationID as CFStringRef)
-		  Declare sub beginAnimations lib UIKit selector "beginAnimations:context:" (id as ptr, name as CFStringref, context as ptr)
+		  Declare sub beginAnimations lib UIKitLibname selector "beginAnimations:context:" (id as ptr, name as CFStringref, context as ptr)
 		  beginAnimations ClassPtr, animationID, nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub BringSubviewToFront(aView as AppleView)
-		  declare sub BringSubviewToFront lib UIKit selector "bringSubviewToFront:" (id as ptr, aview as ptr)
+		  declare sub BringSubviewToFront lib UIKitLibname selector "bringSubviewToFront:" (id as ptr, aview as ptr)
 		  BringSubviewToFront id, aView.id
 		End Sub
 	#tag EndMethod
@@ -113,7 +113,7 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub CommitAnimations()
-		  Declare sub commitAnimations lib UIKit selector "commitAnimations:" (id as ptr)
+		  Declare sub commitAnimations lib UIKitLibname selector "commitAnimations:" (id as ptr)
 		  commitAnimations ClassPtr
 		End Sub
 	#tag EndMethod
@@ -149,10 +149,10 @@ Implements AppleNSEventForwarder
 	#tag Method, Flags = &h0
 		Function ConvertPointFromView(aPoint as FoundationFramework.NSPoint, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointfromView lib UIKit selector "convertPoint:fromView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
+		    declare Function convertPointfromView lib UIKitLibname selector "convertPoint:fromView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointfromView (id, apoint, aview.id)
 		  #elseif Target32Bit
-		    declare Function convertPointfromView lib UIKit selector "convertPoint:fromView:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    declare Function convertPointfromView lib UIKitLibname selector "convertPoint:fromView:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
 		    return convertPointfromView (id, apoint.toNSPoint32, aview.id).toNSPoint
 		  #endif
 		End Function
@@ -161,10 +161,10 @@ Implements AppleNSEventForwarder
 	#tag Method, Flags = &h0
 		Function ConvertPointToView(aPoint as FoundationFramework.NSPoint, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    declare Function convertPointtoView lib UIKit selector "convertPoint:toView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
+		    declare Function convertPointtoView lib UIKitLibname selector "convertPoint:toView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
 		    return convertPointtoView (id, apoint, aview.id)
 		  #elseif Target32Bit
-		    declare Function convertPointtoView lib UIKit selector "convertPoint:toView:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
+		    declare Function convertPointtoView lib UIKitLibname selector "convertPoint:toView:" (id as ptr, aPoint as FoundationFramework.NSPoint32Bit, aview as ptr) as FoundationFramework.NSPoint32Bit
 		    return convertPointtoView (id, apoint.toNSPoint32, aview.id).toNSPoint
 		  #endif
 		End Function
@@ -173,10 +173,10 @@ Implements AppleNSEventForwarder
 	#tag Method, Flags = &h0
 		Function ConvertRectFromView(aRect as FoundationFramework.NSRect, aView as AppleView) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    declare Function ConvertRectFromView lib UIKit selector "convertRect:fromView:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
+		    declare Function ConvertRectFromView lib UIKitLibname selector "convertRect:fromView:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
 		    return ConvertRectFromView (id, arect, aview.id)
 		  #elseif Target32Bit
-		    declare Function ConvertRectFromView lib UIKit selector "convertRect:fromView:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, aview as ptr) as FoundationFramework.NSRect32Bit
+		    declare Function ConvertRectFromView lib UIKitLibname selector "convertRect:fromView:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, aview as ptr) as FoundationFramework.NSRect32Bit
 		    return ConvertRectFromView (id, arect.toNSRect32, aview.id).tonsrect
 		  #endif
 		End Function
@@ -185,10 +185,10 @@ Implements AppleNSEventForwarder
 	#tag Method, Flags = &h0
 		Function ConvertRectToView(aRect as FoundationFramework.NSRect, aView as AppleView) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    declare Function ConvertRectToView lib UIKit selector "convertRect:toView:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
+		    declare Function ConvertRectToView lib UIKitLibname selector "convertRect:toView:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
 		    return ConvertRectToView (id, arect, aview.id)
 		  #elseif Target32Bit
-		    declare Function ConvertRectToView lib UIKit selector "convertRect:toView:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, aview as ptr) as FoundationFramework.NSRect32Bit
+		    declare Function ConvertRectToView lib UIKitLibname selector "convertRect:toView:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, aview as ptr) as FoundationFramework.NSRect32Bit
 		    return ConvertRectToView (id, arect.toNSRect32, aview.id).tonsrect
 		  #endif
 		End Function
@@ -210,7 +210,7 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub ExchangeSubviewsAtIndices(index1 as Integer, Index2 As Integer)
-		  declare sub exchangeSubviewAtIndex lib UIKit selector "exchangeSubviewAtIndex:withSubviewAtIndex:" _
+		  declare sub exchangeSubviewAtIndex lib UIKitLibname selector "exchangeSubviewAtIndex:withSubviewAtIndex:" _
 		  (id as ptr, index1 as integer, index2 as integer)
 		  exchangeSubviewAtIndex id, index1, index2
 		End Sub
@@ -218,28 +218,28 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub ExerciseAmbiguityInLayout()
-		  Declare Sub exerciseAmbiguityInLayout lib UIKit selector "exerciseAmbiguityInLayout" (id as ptr)
+		  Declare Sub exerciseAmbiguityInLayout lib UIKitLibname selector "exerciseAmbiguityInLayout" (id as ptr)
 		  exerciseAmbiguityInLayout id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Function getAdjustsFontSizeToFitWidth() As Boolean
-		  Declare function adjustsFontSizeToFitWidth lib UIKit selector "adjustsFontSizeToFitWidth" (id as ptr) as Boolean
+		  Declare function adjustsFontSizeToFitWidth lib UIKitLibname selector "adjustsFontSizeToFitWidth" (id as ptr) as Boolean
 		  return adjustsFontSizeToFitWidth (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Function getAttributedText() As AppleAttributedString
-		  Declare function attributedText lib UIKit selector "attributedText" (id as ptr) as ptr
+		  Declare function attributedText lib UIKitLibname selector "attributedText" (id as ptr) as ptr
 		  return AppleAttributedString.MakeFromPtr (attributedText(id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Function getFont() As Applefont
-		  Declare function font lib UIKit selector "font" (id as ptr) as Ptr
+		  Declare function font lib UIKitLibname selector "font" (id as ptr) as Ptr
 		  return applefont.MakeFromPtr (font (id))
 		  
 		End Function
@@ -247,14 +247,14 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h1
 		Protected Function getPlaceHolder() As Text
-		  Declare Function placeholder lib UIKit selector "placeholder" (id as ptr) as CFStringRef
+		  Declare Function placeholder lib UIKitLibname selector "placeholder" (id as ptr) as CFStringRef
 		  Return placeholder (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Function getText() As Text
-		  Declare function Caption lib UIKit selector "text" (id as ptr) as CFStringRef
+		  Declare function Caption lib UIKitLibname selector "text" (id as ptr) as CFStringRef
 		  return Caption (id)
 		  
 		End Function
@@ -262,14 +262,14 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h1
 		Protected Function getTextAlignment() As NSTextAlignment
-		  Declare function textAlignment lib UIKit selector "textAlignment" (id as ptr) as NSTextAlignment
+		  Declare function textAlignment lib UIKitLibname selector "textAlignment" (id as ptr) as NSTextAlignment
 		  return textAlignment (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Function getTextColor() As AppleColor
-		  Declare function textcolor lib UIKit selector "textColor" (id as ptr) as ptr
+		  Declare function textcolor lib UIKitLibname selector "textColor" (id as ptr) as ptr
 		  return AppleColor.MakeFromPtr (textcolor(id))
 		End Function
 	#tag EndMethod
@@ -649,21 +649,21 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub InsertSubviewAbove(aView as AppleView, aboveView as AppleView)
-		  declare sub insertSubview lib UIKit selector "insertSubview:aboveSubview:" (id as ptr, aview as ptr, aboveView as ptr)
+		  declare sub insertSubview lib UIKitLibname selector "insertSubview:aboveSubview:" (id as ptr, aview as ptr, aboveView as ptr)
 		  insertSubview id, aView.id, aboveView.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub InsertSubviewAtIndex(aView as AppleView, index as integer)
-		  declare sub insertSubview lib UIKit selector "insertSubview:atIndex:" (id as ptr, aview as ptr, index as integer)
+		  declare sub insertSubview lib UIKitLibname selector "insertSubview:atIndex:" (id as ptr, aview as ptr, index as integer)
 		  insertSubview id, aView.id, index
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub InsertSubviewBelow(aView as AppleView, BelowView as AppleView)
-		  declare sub insertSubview lib UIKit selector "insertSubview:belowSubview:" (id as ptr, aview as ptr, belowView as ptr)
+		  declare sub insertSubview lib UIKitLibname selector "insertSubview:belowSubview:" (id as ptr, aview as ptr, belowView as ptr)
 		  insertSubview id, aView.id, belowView.id
 		End Sub
 	#tag EndMethod
@@ -676,7 +676,7 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Function IsDescendantOfView(aView As AppleView) As Boolean
-		  Declare Function IsDescendantOfView lib UIKit selector "isDescendantOfView:" (id as ptr, aview as ptr) as Boolean
+		  Declare Function IsDescendantOfView lib UIKitLibname selector "isDescendantOfView:" (id as ptr, aview as ptr) as Boolean
 		  Return IsDescendantOfView (id, aView.id)
 		End Function
 	#tag EndMethod
@@ -733,14 +733,14 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub RemoveFromSuperview()
-		  declare sub removeFromSuperview lib UIKit selector "removeFromSuperview" (id as ptr)
+		  declare sub removeFromSuperview lib UIKitLibname selector "removeFromSuperview" (id as ptr)
 		  removeFromSuperview id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub RemoveGestureRecognizer(GestureRecognizer as AppleGestureRecognizer)
-		  declare sub removeGestureRecognizer lib UIKit selector "removeGestureRecognizer:" (id as ptr, GestureRecognizer as ptr)
+		  declare sub removeGestureRecognizer lib UIKitLibname selector "removeGestureRecognizer:" (id as ptr, GestureRecognizer as ptr)
 		  removeGestureRecognizer id, GestureRecognizer.id
 		End Sub
 	#tag EndMethod
@@ -774,42 +774,42 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub SendSubviewToBack(aView as AppleView)
-		  declare sub sendSubviewToBack lib UIKit selector "sendSubviewToBack:" (id as ptr, aview as ptr)
+		  declare sub sendSubviewToBack lib UIKitLibname selector "sendSubviewToBack:" (id as ptr, aview as ptr)
 		  sendSubviewToBack id, aView.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Sub setAdjustsFontSizeToFitWidth(value as Boolean)
-		  Declare sub setAdjustsFontSizeToFitWidth lib UIKit selector "setAdjustsFontSizeToFitWidth:" (id as ptr, value as Boolean)
+		  Declare sub setAdjustsFontSizeToFitWidth lib UIKitLibname selector "setAdjustsFontSizeToFitWidth:" (id as ptr, value as Boolean)
 		  setAdjustsFontSizeToFitWidth id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Sub setAttributedText(value as AppleAttributedString)
-		  Declare sub setAttributedText lib UIKit selector "setAttributedText:" (id as ptr, value as Ptr)
+		  Declare sub setAttributedText lib UIKitLibname selector "setAttributedText:" (id as ptr, value as Ptr)
 		  setAttributedText id, value.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Sub setFont(font as applefont)
-		  Declare Sub setFont lib UIKit selector "setFont:" (id as ptr, value as Ptr)
+		  Declare Sub setFont lib UIKitLibname selector "setFont:" (id as ptr, value as Ptr)
 		  setFont id, if (font = nil, nil, font.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetNeedsLayout()
-		  Declare sub setNeedsLayout lib UIKit selector "setNeedsLayout" (id as ptr)
+		  Declare sub setNeedsLayout lib UIKitLibname selector "setNeedsLayout" (id as ptr)
 		  setNeedsLayout (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Sub SetPlaceHolder(value as cfstringRef)
-		  Declare Sub setPlaceholder lib UIKit selector "setPlaceholder:" (id as ptr, value as CFStringRef)
+		  Declare Sub setPlaceholder lib UIKitLibname selector "setPlaceholder:" (id as ptr, value as CFStringRef)
 		  setPlaceholder id, value
 		End Sub
 	#tag EndMethod
@@ -828,21 +828,21 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h1
 		Protected Sub setText(value as CFStringRef)
-		  Declare sub setCaption lib UIKit selector "setText:" (id as ptr, value as CFStringRef)
+		  Declare sub setCaption lib UIKitLibname selector "setText:" (id as ptr, value as CFStringRef)
 		  setCaption id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Sub setTextAlignment(value as NSTextAlignment)
-		  Declare sub setTextAlignment lib UIKit selector "setTextAlignment:" (id as ptr, value as NSTextAlignment)
+		  Declare sub setTextAlignment lib UIKitLibname selector "setTextAlignment:" (id as ptr, value as NSTextAlignment)
 		  setTextAlignment id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Sub setTextColor(value as AppleColor)
-		  Declare sub setTextColor lib UIKit selector "setTextColor:" (id as ptr, value as ptr)
+		  Declare sub setTextColor lib UIKitLibname selector "setTextColor:" (id as ptr, value as ptr)
 		  setTextColor id, value.id
 		End Sub
 	#tag EndMethod
@@ -855,14 +855,14 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Sub SizeToFit()
-		  Declare sub sizeToFit lib UIKit selector "sizeToFit" (id as ptr)
+		  Declare sub sizeToFit lib UIKitLibname selector "sizeToFit" (id as ptr)
 		  sizeToFit (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Snapshot(afterUpdates as Boolean = false) As AppleView
-		  Declare function snapshotViewAfterScreenUpdates lib UIKit selector "snapshotViewAfterScreenUpdates:" (id as ptr, afterupdate as boolean) as ptr
+		  Declare function snapshotViewAfterScreenUpdates lib UIKitLibname selector "snapshotViewAfterScreenUpdates:" (id as ptr, afterupdate as boolean) as ptr
 		  return new AppleView (snapshotViewAfterScreenUpdates (id, afterUpdates))
 		End Function
 	#tag EndMethod
@@ -936,10 +936,10 @@ Implements AppleNSEventForwarder
 	#tag Method, Flags = &h1
 		Protected Shared Sub SpringanimateWithDuration(duration as Double, animations as ptr, completion as ptr, delay as double = 0, options as uinteger = 0, DampingRatio as Double = 1, Velocity as Double = 0.5)
 		  #if Target64Bit
-		    Declare sub springanimateWithDuration_ lib UIKit selector "animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:" _
+		    Declare sub springanimateWithDuration_ lib UIKitLibname selector "animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:" _
 		    (id as ptr, duration as Double, delay as double, DampingRatio as Double, Velocity As Double, options as uinteger, animations as ptr, completion as ptr)
 		  #elseif Target32Bit
-		    Declare sub springanimateWithDuration_ lib UIKit selector "animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:" _
+		    Declare sub springanimateWithDuration_ lib UIKitLibname selector "animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:" _
 		    (id as ptr, duration as Double, delay as double, DampingRatio as Single, Velocity As Single, options as uinteger, animations as ptr, completion as ptr)
 		  #endif
 		  springanimateWithDuration_ classptr, duration, delay, DampingRatio, Velocity, options, Animations, completion
@@ -1025,7 +1025,7 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h1
 		Protected Shared Sub TransitionWithDuration(id as ptr, duration as Double, animations as ptr, completion as ptr, options as uinteger)
-		  Declare sub transitionWithView lib UIKit selector "transitionWithView:duration:options:animations:completion:" _
+		  Declare sub transitionWithView lib UIKitLibname selector "transitionWithView:duration:options:animations:completion:" _
 		  (id as ptr, view as ptr, duration as Double, options as uinteger, animations as ptr, completion as ptr)
 		  transitionWithView ClassPtr, id, duration, options,  animations, completion
 		  
@@ -1062,7 +1062,7 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Function ViewWithTag(Tag as Integer) As AppleView
-		  Declare function viewWithTag lib UIKit selector "viewWithTag:" (id as ptr, tag as integer) as ptr
+		  Declare function viewWithTag lib UIKitLibname selector "viewWithTag:" (id as ptr, tag as integer) as ptr
 		  return new AppleView (ViewWithTag (id, tag))
 		End Function
 	#tag EndMethod
@@ -1137,9 +1137,9 @@ Implements AppleNSEventForwarder
 		#tag Getter
 			Get
 			  #if Target64bit
-			    declare function alphaValue lib UIKit selector "alpha" (id as ptr) as Double
+			    declare function alphaValue lib UIKitLibname selector "alpha" (id as ptr) as Double
 			  #elseif target32bit
-			    declare function alphaValue lib UIKit selector "alpha" (id as ptr) as Single
+			    declare function alphaValue lib UIKitLibname selector "alpha" (id as ptr) as Single
 			  #endif
 			  return alphaValue (id)
 			  
@@ -1148,9 +1148,9 @@ Implements AppleNSEventForwarder
 		#tag Setter
 			Set
 			  #if Target64bit
-			    declare sub setAlphaValue lib UIKit selector "setAlpha:" (id as ptr, value as double)
+			    declare sub setAlphaValue lib UIKitLibname selector "setAlpha:" (id as ptr, value as double)
 			  #elseif target32bit
-			    declare sub setAlphaValue lib UIKit selector "setAlpha:" (id as ptr, value as Single)
+			    declare sub setAlphaValue lib UIKitLibname selector "setAlpha:" (id as ptr, value as Single)
 			  #endif
 			  setAlphaValue id, value
 			  
@@ -1162,13 +1162,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function autoresizesSubviews lib UIKit selector "autoresizesSubviews" (id as ptr) as Boolean
+			  Declare function autoresizesSubviews lib UIKitLibname selector "autoresizesSubviews" (id as ptr) as Boolean
 			  return autoresizesSubviews (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAutoresizesSubviews lib UIKit selector "setAutoresizesSubviews:" (id as ptr, value as Boolean)
+			  Declare Sub setAutoresizesSubviews lib UIKitLibname selector "setAutoresizesSubviews:" (id as ptr, value as Boolean)
 			  setautoresizesSubviews id, value
 			End Set
 		#tag EndSetter
@@ -1178,13 +1178,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function autoResizingMask lib UIKit selector "autoresizingMask" (id as ptr) as UInteger
+			  Declare function autoResizingMask lib UIKitLibname selector "autoresizingMask" (id as ptr) as UInteger
 			  return new AppleAutoresizingMask (autoResizingMask(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setAutoresizingMask lib UIKit selector "setAutoresizingMask:" (id as ptr, value as UInteger)
+			  Declare sub setAutoresizingMask lib UIKitLibname selector "setAutoresizingMask:" (id as ptr, value as UInteger)
 			  setAutoresizingMask id, value.ID
 			End Set
 		#tag EndSetter
@@ -1194,13 +1194,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function backgroundcolor lib UIKit selector "backgroundColor" (id as ptr) as ptr
+			  Declare function backgroundcolor lib UIKitLibname selector "backgroundColor" (id as ptr) as ptr
 			  return new AppleColor (backgroundcolor(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setbackgroundcolor lib UIKit selector "setBackgroundColor:" (id as ptr, value as ptr)
+			  Declare sub setbackgroundcolor lib UIKitLibname selector "setBackgroundColor:" (id as ptr, value as ptr)
 			  setbackgroundcolor id, value.id
 			End Set
 		#tag EndSetter
@@ -1225,10 +1225,10 @@ Implements AppleNSEventForwarder
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function center lib UIKit selector "center" (id as ptr) as FoundationFramework.NSPoint
+			    Declare function center lib UIKitLibname selector "center" (id as ptr) as FoundationFramework.NSPoint
 			    return center (id)
 			  #elseif Target32Bit
-			    Declare function center lib UIKit selector "center" (id as ptr) as FoundationFramework.NSPoint32Bit
+			    Declare function center lib UIKitLibname selector "center" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return center(id).toNSPoint
 			  #endif
 			End Get
@@ -1236,10 +1236,10 @@ Implements AppleNSEventForwarder
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setcenter lib UIKit selector "setCenter" (id as ptr, value as FoundationFramework.NSPoint)
+			    Declare sub setcenter lib UIKitLibname selector "setCenter" (id as ptr, value as FoundationFramework.NSPoint)
 			    setcenter id, value
 			  #elseif Target32Bit
-			    Declare sub setcenter lib UIKit selector "setCenter" (id as ptr, value as FoundationFramework.NSPoint32Bit)
+			    Declare sub setcenter lib UIKitLibname selector "setCenter" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setcenter id, value.toNSPoint32
 			  #endif
 			End Set
@@ -1290,13 +1290,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function clearsContextBeforeDrawing lib UIKit selector "clearsContextBeforeDrawing" (id as ptr) as Boolean
+			  Declare function clearsContextBeforeDrawing lib UIKitLibname selector "clearsContextBeforeDrawing" (id as ptr) as Boolean
 			  return clearsContextBeforeDrawing (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setClearsContextBeforeDrawing lib UIKit selector "setClearsContextBeforeDrawing:" (id as ptr, value as Boolean)
+			  Declare Sub setClearsContextBeforeDrawing lib UIKitLibname selector "setClearsContextBeforeDrawing:" (id as ptr, value as Boolean)
 			  setClearsContextBeforeDrawing id, value
 			End Set
 		#tag EndSetter
@@ -1306,13 +1306,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function clipsToBounds lib UIKit selector "clipsToBounds" (id as ptr) as Boolean
+			  Declare function clipsToBounds lib UIKitLibname selector "clipsToBounds" (id as ptr) as Boolean
 			  return clipsToBounds (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setclipsToBounds lib UIKit selector "setClipsToBounds:" (id as ptr, value as Boolean)
+			  Declare Sub setclipsToBounds lib UIKitLibname selector "setClipsToBounds:" (id as ptr, value as Boolean)
 			  setclipsToBounds id, value
 			End Set
 		#tag EndSetter
@@ -1322,13 +1322,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function ContentMode lib UIKit selector "contentMode" (id as ptr) as UIViewContentMode
+			  Declare function ContentMode lib UIKitLibname selector "contentMode" (id as ptr) as UIViewContentMode
 			  return ContentMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setContentMode lib UIKit selector "setContentMode:" (id as ptr, value as UIViewContentMode)
+			  Declare Sub setContentMode lib UIKitLibname selector "setContentMode:" (id as ptr, value as UIViewContentMode)
 			  setContentMode id, value
 			End Set
 		#tag EndSetter
@@ -1339,9 +1339,9 @@ Implements AppleNSEventForwarder
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function contentScaleFactor lib UIKit selector "contentScaleFactor" (id as ptr) as double
+			    declare function contentScaleFactor lib UIKitLibname selector "contentScaleFactor" (id as ptr) as double
 			  #elseif Target32Bit
-			    declare function contentScaleFactor lib UIKit selector "contentScaleFactor" (id as ptr) as Single
+			    declare function contentScaleFactor lib UIKitLibname selector "contentScaleFactor" (id as ptr) as Single
 			  #endif
 			  return ContentScaleFactor (id)
 			  
@@ -1350,9 +1350,9 @@ Implements AppleNSEventForwarder
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare sub setContentScaleFactor lib UIKit selector "setContentScaleFactor:" (id as ptr, value as double)
+			    declare sub setContentScaleFactor lib UIKitLibname selector "setContentScaleFactor:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    declare sub setContentScaleFactor lib UIKit selector "setContentScaleFactor:" (id as ptr, value as single)
+			    declare sub setContentScaleFactor lib UIKitLibname selector "setContentScaleFactor:" (id as ptr, value as single)
 			  #endif
 			  setContentScaleFactor (id, value)
 			  
@@ -1364,13 +1364,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function areAnimationsEnabled lib UIKit selector "areAnimationsEnabled" (id as ptr) as Boolean
+			  Declare Function areAnimationsEnabled lib UIKitLibname selector "areAnimationsEnabled" (id as ptr) as Boolean
 			  Return areAnimationsEnabled (classptr)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAnimationsEnabled lib UIKit selector "setAnimationsEnabled:" (id as ptr, value as Boolean)
+			  Declare Sub setAnimationsEnabled lib UIKitLibname selector "setAnimationsEnabled:" (id as ptr, value as Boolean)
 			  setAnimationsEnabled (classptr, value)
 			End Set
 		#tag EndSetter
@@ -1380,13 +1380,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function exclusiveTouch lib UIKit selector "isExclusiveTouch" (id as ptr) as Boolean
+			  Declare Function exclusiveTouch lib UIKitLibname selector "isExclusiveTouch" (id as ptr) as Boolean
 			  return exclusiveTouch (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setExclusiveTouch lib UIKit selector "setExclusiveTouch:" (id as ptr, value as Boolean)
+			  Declare sub setExclusiveTouch lib UIKitLibname selector "setExclusiveTouch:" (id as ptr, value as Boolean)
 			  setExclusiveTouch id, value
 			End Set
 		#tag EndSetter
@@ -1410,13 +1410,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function gestureRecognizers lib UIKit selector "gestureRecognizers" (id as ptr) as ptr
+			  Declare Function gestureRecognizers lib UIKitLibname selector "gestureRecognizers" (id as ptr) as ptr
 			  return AppleArray.MakeFromPtr (gestureRecognizers(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setGestureRecognizers lib UIKit selector "setGestureRecognizers:" (id as ptr, value as ptr)
+			  Declare sub setGestureRecognizers lib UIKitLibname selector "setGestureRecognizers:" (id as ptr, value as ptr)
 			  setGestureRecognizers id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -1426,7 +1426,7 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function hasAmbiguousLayout lib UIKit selector "hasAmbiguousLayout" (id as ptr) as Boolean
+			  Declare Function hasAmbiguousLayout lib UIKitLibname selector "hasAmbiguousLayout" (id as ptr) as Boolean
 			  return hasAmbiguousLayout (id)
 			End Get
 		#tag EndGetter
@@ -1450,13 +1450,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function hidden lib UIKit selector "isHidden" (id as ptr) as Boolean
+			  Declare Function hidden lib UIKitLibname selector "isHidden" (id as ptr) as Boolean
 			  return hidden (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setHidden lib UIKit selector "setHidden:" (id as ptr, value as Boolean)
+			  Declare sub setHidden lib UIKitLibname selector "setHidden:" (id as ptr, value as Boolean)
 			  setHidden id, value
 			End Set
 		#tag EndSetter
@@ -1466,7 +1466,7 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function layer lib UIKit selector "layer" (id as ptr) as Ptr
+			  Declare Function layer lib UIKitLibname selector "layer" (id as ptr) as Ptr
 			  Return new AppleCALayer (layer (id))
 			End Get
 		#tag EndGetter
@@ -1476,13 +1476,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function layerclass lib UIKit selector "layerClass" (id as ptr) as ptr
+			  Declare function layerclass lib UIKitLibname selector "layerClass" (id as ptr) as ptr
 			  return layerclass (classptr)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setLayerClass lib UIKit selector "setLayerClass:" (id as ptr, value as ptr)
+			  Declare sub setLayerClass lib UIKitLibname selector "setLayerClass:" (id as ptr, value as ptr)
 			  setLayerClass classptr, value
 			End Set
 		#tag EndSetter
@@ -1502,10 +1502,10 @@ Implements AppleNSEventForwarder
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function layoutMargins lib UIKit selector "layoutMargins" (id as ptr) as UIEdgeInsets
+			    Declare function layoutMargins lib UIKitLibname selector "layoutMargins" (id as ptr) as UIEdgeInsets
 			    return layoutMargins (id)
 			  #elseif Target32Bit
-			    Declare function layoutMargins lib UIKit selector "layoutMargins" (id as ptr) as UIEdgeInsets32Bit
+			    Declare function layoutMargins lib UIKitLibname selector "layoutMargins" (id as ptr) as UIEdgeInsets32Bit
 			    return layoutMargins(id).toUIEdgeInset
 			  #endif
 			End Get
@@ -1513,10 +1513,10 @@ Implements AppleNSEventForwarder
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setLayoutMargins lib UIKit selector "setLayoutMargins:" (id as ptr, value as UIEdgeInsets)
+			    Declare Sub setLayoutMargins lib UIKitLibname selector "setLayoutMargins:" (id as ptr, value as UIEdgeInsets)
 			    setLayoutMargins (id, value)
 			  #elseif Target32Bit
-			    Declare Sub setLayoutMargins lib UIKit selector "setLayoutMargins:" (id as ptr, value as UIEdgeInsets32Bit)
+			    Declare Sub setLayoutMargins lib UIKitLibname selector "setLayoutMargins:" (id as ptr, value as UIEdgeInsets32Bit)
 			    setLayoutMargins (id, value.toUIEdgeInset32)
 			  #endif
 			End Set
@@ -1543,7 +1543,7 @@ Implements AppleNSEventForwarder
 			Get
 			  const SEL as text = "maskView"
 			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString (SEL)) then
-			    Declare function maskView lib UIKit selector "maskView" (id as ptr) as ptr
+			    Declare function maskView lib UIKitLibname selector "maskView" (id as ptr) as ptr
 			    dim myPtr as Ptr = maskview(id)
 			    return if (myptr <> NIL,  new AppleView (maskView(id)), NIL)
 			  end if
@@ -1553,7 +1553,7 @@ Implements AppleNSEventForwarder
 			Set
 			  const SEL as text = "setMaskView:"
 			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString (SEL)) then
-			    Declare sub setMaskView lib UIKit selector "setMaskView:" (id as ptr, value as ptr)
+			    Declare sub setMaskView lib UIKitLibname selector "setMaskView:" (id as ptr, value as ptr)
 			    setMaskView id, value.id
 			  end if
 			End Set
@@ -1564,13 +1564,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function multipleTouchEnabled lib UIKit selector "isMultipleTouchEnabled" (id as ptr) as Boolean
+			  Declare Function multipleTouchEnabled lib UIKitLibname selector "isMultipleTouchEnabled" (id as ptr) as Boolean
 			  return multipleTouchEnabled (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setMultipleTouchEnabled lib UIKit selector "setMultipleTouchEnabled:" (id as ptr, value as Boolean)
+			  Declare sub setMultipleTouchEnabled lib UIKitLibname selector "setMultipleTouchEnabled:" (id as ptr, value as Boolean)
 			  setMultipleTouchEnabled id, value
 			End Set
 		#tag EndSetter
@@ -1598,13 +1598,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function preservesSuperviewLayoutMargins lib UIKit selector "preservesSuperviewLayoutMargins" (id as ptr) as Boolean
+			  Declare Function preservesSuperviewLayoutMargins lib UIKitLibname selector "preservesSuperviewLayoutMargins" (id as ptr) as Boolean
 			  return preservesSuperviewLayoutMargins (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setPreservesSuperviewLayoutMargins lib UIKit selector "setPreservesSuperviewLayoutMargins:" (id as ptr, value as Boolean)
+			  Declare sub setPreservesSuperviewLayoutMargins lib UIKitLibname selector "setPreservesSuperviewLayoutMargins:" (id as ptr, value as Boolean)
 			  setPreservesSuperviewLayoutMargins id, value
 			End Set
 		#tag EndSetter
@@ -1614,7 +1614,7 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function requiresConstraintBasedLayout lib UIKit selector "requiresConstraintBasedLayout" (id as ptr) as Boolean
+			  Declare Function requiresConstraintBasedLayout lib UIKitLibname selector "requiresConstraintBasedLayout" (id as ptr) as Boolean
 			  Return requiresConstraintBasedLayout (classptr)
 			End Get
 		#tag EndGetter
@@ -1625,10 +1625,10 @@ Implements AppleNSEventForwarder
 		#tag Getter
 			Get
 			  #if Target32Bit
-			    Declare function sizethatfits lib UIKit selector "sizeThatFits:" (id as ptr, asize as FoundationFramework.NSSize32Bit) as FoundationFramework.NSSize32Bit
+			    Declare function sizethatfits lib UIKitLibname selector "sizeThatFits:" (id as ptr, asize as FoundationFramework.NSSize32Bit) as FoundationFramework.NSSize32Bit
 			    return sizethatfits(id,Frame.Size_.toNSSize32).toNSSize
 			  #elseif Target64Bit
-			    Declare function sizethatfits lib UIKit selector "sizeThatFits" (id as ptr, asize as FoundationFramework.NSSize) as FoundationFramework.NSSize
+			    Declare function sizethatfits lib UIKitLibname selector "sizeThatFits" (id as ptr, asize as FoundationFramework.NSSize) as FoundationFramework.NSSize
 			    return sizethatfits (id, frame.size_)
 			  #endif
 			End Get
@@ -1639,7 +1639,7 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function subviews lib UIKit selector "subviews" (id as ptr) as ptr
+			  Declare function subviews lib UIKitLibname selector "subviews" (id as ptr) as ptr
 			  return AppleArray.MakeFromPtr (subviews(id))
 			End Get
 		#tag EndGetter
@@ -1649,7 +1649,7 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function superview lib UIKit selector "superview" (id as ptr) as ptr
+			  Declare function superview lib UIKitLibname selector "superview" (id as ptr) as ptr
 			  dim myptr as ptr = superview (id)
 			  return if (myptr <> NIL, new AppleView (superview(id)), NIL)
 			End Get
@@ -1660,13 +1660,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function tag lib UIKit selector "tag" (id as ptr) as integer
+			  Declare function tag lib UIKitLibname selector "tag" (id as ptr) as integer
 			  Return tag (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setTag lib UIKit selector "setTag:" (id as ptr, value as integer)
+			  Declare Sub setTag lib UIKitLibname selector "setTag:" (id as ptr, value as integer)
 			  setTag id, value
 			End Set
 		#tag EndSetter
@@ -1676,13 +1676,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function tintAdjustmentMode lib UIKit selector "tintAdjustmentMode" (id as ptr) as UIViewTintAdjustmentMode
+			  Declare function tintAdjustmentMode lib UIKitLibname selector "tintAdjustmentMode" (id as ptr) as UIViewTintAdjustmentMode
 			  return tintAdjustmentMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setTintAdjustmentMode lib UIKit selector "setTintAdjustmentMode:" (id as ptr, value as UIViewTintAdjustmentMode)
+			  Declare Sub setTintAdjustmentMode lib UIKitLibname selector "setTintAdjustmentMode:" (id as ptr, value as UIViewTintAdjustmentMode)
 			  setTintAdjustmentMode id, value
 			End Set
 		#tag EndSetter
@@ -1692,14 +1692,14 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function tintColor lib UIKit selector "tintColor" (id as ptr) as ptr
+			  Declare function tintColor lib UIKitLibname selector "tintColor" (id as ptr) as ptr
 			  dim myptr as ptr = tintColor (id)
 			  return if (myptr <> NIL, new AppleColor (tintColor(id)), NIL)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setTintColor lib UIKit selector "setTintColor:" (id as ptr, value as ptr)
+			  Declare sub setTintColor lib UIKitLibname selector "setTintColor:" (id as ptr, value as ptr)
 			  setTintColor id, value.id
 			End Set
 		#tag EndSetter
@@ -1724,10 +1724,10 @@ Implements AppleNSEventForwarder
 		#tag Getter
 			Get
 			  #if Target32Bit
-			    Declare function Transform lib UIKit selector "transform" (id as ptr) as CGAffineTransform32Bit
+			    Declare function Transform lib UIKitLibname selector "transform" (id as ptr) as CGAffineTransform32Bit
 			    return Transform(id).toCGAffineTransform
 			  #elseif Target64Bit
-			    Declare function Transform lib UIKit selector "transform" (id as ptr) as CGAffineTransform
+			    Declare function Transform lib UIKitLibname selector "transform" (id as ptr) as CGAffineTransform
 			    return Transform(id)
 			  #endif
 			  
@@ -1736,10 +1736,10 @@ Implements AppleNSEventForwarder
 		#tag Setter
 			Set
 			  #if Target32Bit
-			    Declare Sub setTransform lib UIKit selector "setTransform:" (id as ptr, value as CGAffineTransform32Bit)
+			    Declare Sub setTransform lib UIKitLibname selector "setTransform:" (id as ptr, value as CGAffineTransform32Bit)
 			    setTransform id, value.toCGAffineTransform32Bit
 			  #elseif Target64Bit
-			    Declare Sub setTransform lib UIKit selector "setTransform:" (id as ptr, value as CGAffineTransform)
+			    Declare Sub setTransform lib UIKitLibname selector "setTransform:" (id as ptr, value as CGAffineTransform)
 			    setTransform id, value
 			  #endif
 			  
@@ -1775,13 +1775,13 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function translatesAutoresizingMaskIntoConstraints lib UIKit selector "translatesAutoresizingMaskIntoConstraints" (id as ptr) as Boolean
+			  Declare Function translatesAutoresizingMaskIntoConstraints lib UIKitLibname selector "translatesAutoresizingMaskIntoConstraints" (id as ptr) as Boolean
 			  return translatesAutoresizingMaskIntoConstraints (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setTranslatesAutoresizingMaskIntoConstraints lib UIKit selector "setTranslatesAutoresizingMaskIntoConstraints:" (id as ptr, value as Boolean)
+			  Declare sub setTranslatesAutoresizingMaskIntoConstraints lib UIKitLibname selector "setTranslatesAutoresizingMaskIntoConstraints:" (id as ptr, value as Boolean)
 			  setTranslatesAutoresizingMaskIntoConstraints id, value
 			End Set
 		#tag EndSetter

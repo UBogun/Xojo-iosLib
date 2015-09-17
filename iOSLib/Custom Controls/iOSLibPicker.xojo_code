@@ -85,14 +85,14 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h0
 		Function NumberOfRowsInComponent(Component as integer) As Integer
-		  Declare Function numberOfRowsInComponent lib UIKit selector "numberOfRowsInComponent:" (id as ptr, component as integer) as Integer
+		  Declare Function numberOfRowsInComponent lib UIKitLibname selector "numberOfRowsInComponent:" (id as ptr, component as integer) as Integer
 		  Return numberOfRowsInComponent (id, Component)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ReloadAllComponents()
-		  Declare Sub reloadAllComponents lib UIKit selector "reloadAllComponents:" (id as ptr)
+		  Declare Sub reloadAllComponents lib UIKitLibname selector "reloadAllComponents:" (id as ptr)
 		  reloadAllComponents id
 		End Sub
 	#tag EndMethod
@@ -106,10 +106,10 @@ Inherits iOSUserControl
 	#tag Method, Flags = &h0
 		Function RowSizeForComponent(Component as integer) As FoundationFramework.NSSize
 		  #if Target64Bit
-		    Declare Function rowSizeForComponent lib UIKit selector "rowSizeForComponent:" (id as ptr, component as integer) as FoundationFramework.NSSize
+		    Declare Function rowSizeForComponent lib UIKitLibname selector "rowSizeForComponent:" (id as ptr, component as integer) as FoundationFramework.NSSize
 		    Return rowSizeForComponent (id, Component)
 		  #elseif Target32Bit
-		    Declare Function rowSizeForComponent lib UIKit selector "rowSizeForComponent:" (id as ptr, component as integer) as FoundationFramework.NSSize32Bit
+		    Declare Function rowSizeForComponent lib UIKitLibname selector "rowSizeForComponent:" (id as ptr, component as integer) as FoundationFramework.NSSize32Bit
 		    Return rowSizeForComponent(id, Component).toNSSize
 		  #endif
 		End Function
@@ -129,14 +129,14 @@ Inherits iOSUserControl
 
 	#tag Method, Flags = &h0
 		Sub SelectRow(Row as Integer, Component as integer, animated as boolean = false)
-		  Declare Sub selectRow lib UIKit selector "selectRow:inComponent:animated:" (id as ptr, row as integer, component as integer, animaed as boolean)
+		  Declare Sub selectRow lib UIKitLibname selector "selectRow:inComponent:animated:" (id as ptr, row as integer, component as integer, animaed as boolean)
 		  selectRow (id, Row, Component, animated)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ViewForRow(Row as Integer, Component as integer) As AppleView
-		  Declare Function viewForRow lib UIKit selector "viewForRow:forComponent:" (id as ptr, row as integer, component as integer) as Ptr
+		  Declare Function viewForRow lib UIKitLibname selector "viewForRow:forComponent:" (id as ptr, row as integer, component as integer) as Ptr
 		  return AppleView.MakeFromPtr (viewForRow (id, Row, Component))
 		End Function
 	#tag EndMethod
@@ -190,7 +190,7 @@ Inherits iOSUserControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function numberOfComponents lib UIKit selector "numberOfComponents" (id as ptr) as Integer
+			  Declare Function numberOfComponents lib UIKitLibname selector "numberOfComponents" (id as ptr) as Integer
 			  Return numberOfComponents (id)
 			End Get
 		#tag EndGetter

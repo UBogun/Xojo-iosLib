@@ -3,7 +3,7 @@ Protected Class AppleImageView
 Inherits AppleView
 	#tag Method, Flags = &h1000
 		Sub Constructor(animage as appleimage)
-		  Declare Function initWithImage lib UIKit selector "initWithImage:" (id as ptr, animage as ptr) as ptr
+		  Declare Function initWithImage lib UIKitLibname selector "initWithImage:" (id as ptr, animage as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:

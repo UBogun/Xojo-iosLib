@@ -48,13 +48,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function isOn lib UIKit selector "isOn" (id as ptr) as Boolean
+			  Declare Function isOn lib UIKitLibname selector "isOn" (id as ptr) as Boolean
 			  return ison (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setOn lib UIKit selector "setOn:" (id as ptr, value as Boolean)
+			  Declare Sub setOn lib UIKitLibname selector "setOn:" (id as ptr, value as Boolean)
 			  setOn id, value
 			End Set
 		#tag EndSetter
@@ -64,13 +64,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function onTintColor lib UIKit selector "onTintColor" (id as ptr) as Ptr
+			  Declare Function onTintColor lib UIKitLibname selector "onTintColor" (id as ptr) as Ptr
 			  return applecolor.MakeFromPtr (onTintColor (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setOnTintColor lib UIKit selector "setOnTintColor:" (id as ptr, value as Ptr)
+			  Declare Sub setOnTintColor lib UIKitLibname selector "setOnTintColor:" (id as ptr, value as Ptr)
 			  setOnTintColor id, value.id
 			End Set
 		#tag EndSetter
@@ -80,13 +80,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function thumbTintColor lib UIKit selector "thumbTintColor" (id as ptr) as Ptr
+			  Declare Function thumbTintColor lib UIKitLibname selector "thumbTintColor" (id as ptr) as Ptr
 			  return applecolor.MakeFromPtr (thumbTintColor (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setThumbTintColor lib UIKit selector "setThumbTintColor:" (id as ptr, value as Ptr)
+			  Declare Sub setThumbTintColor lib UIKitLibname selector "setThumbTintColor:" (id as ptr, value as Ptr)
 			  setThumbTintColor id, value.id
 			End Set
 		#tag EndSetter

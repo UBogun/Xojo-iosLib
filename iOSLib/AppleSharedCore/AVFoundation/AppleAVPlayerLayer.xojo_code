@@ -388,6 +388,12 @@ Inherits AppleCALayer
 			Name="VideoGravity"
 			Group="Behavior"
 			Type="AVLayerGravity"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Fill"
+				"1 - FitProportional"
+				"2 - FillProportional"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"

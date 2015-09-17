@@ -3,21 +3,21 @@ Protected Class AppleSearchBar
 Inherits AppleView
 	#tag Method, Flags = &h0
 		Sub AnimateCancelButton(value as boolean)
-		  Declare sub setShowsCancelButton lib UIKit selector "setShowsCancelButton:animated:" (id as ptr, value as boolean, animated as boolean)
+		  Declare sub setShowsCancelButton lib UIKitLibname selector "setShowsCancelButton:animated:" (id as ptr, value as boolean, animated as boolean)
 		  setShowsCancelButton id, value, true
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function BackgroundImage(BarPosition As UIBarPosition, BarMetrics As UIBarMetrics) As AppleImage
-		  Declare function backgroundImageForBarPosition lib uikit selector "backgroundImageForBarPosition:barMetrics:" (id as ptr, BarPosition as UIBarPosition, BarMetrics as UIBarMetrics) as ptr
+		  Declare function backgroundImageForBarPosition lib UIKitLibname selector "backgroundImageForBarPosition:barMetrics:" (id as ptr, BarPosition as UIBarPosition, BarMetrics as UIBarMetrics) as ptr
 		  return appleimage.MakeFromPtr(backgroundImageForBarPosition(id, BarPosition, BarMetrics))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub BackgroundImage(BarPosition As UIBarPosition, BarMetrics As UIBarMetrics, assigns value as appleimage)
-		  Declare sub setBackgroundImageForBarPosition lib uikit selector "setBackgroundImage:forBarPosition:barMetrics:" (id as ptr, value as ptr, BarPosition as UIBarPosition, BarMetrics as UIBarMetrics)
+		  Declare sub setBackgroundImageForBarPosition lib UIKitLibname selector "setBackgroundImage:forBarPosition:barMetrics:" (id as ptr, value as ptr, BarPosition as UIBarPosition, BarMetrics as UIBarMetrics)
 		  setbackgroundImageForBarPosition(id,  if (value = nil, nil, value.id), BarPosition, BarMetrics)
 		End Sub
 	#tag EndMethod
@@ -64,14 +64,14 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0
 		Function Image(Icon As UISearchBarIcon, state as UIControlState) As AppleImage
-		  Declare function imageForSearchBarIcon lib uikit selector "imageForSearchBarIcon:state:" (id as ptr, Icon As UISearchBarIcon, state as UIControlState) as ptr
+		  Declare function imageForSearchBarIcon lib UIKitLibname selector "imageForSearchBarIcon:state:" (id as ptr, Icon As UISearchBarIcon, state as UIControlState) as ptr
 		  return appleimage.MakeFromPtr(imageForSearchBarIcon(id, icon, state))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Image(Icon As UISearchBarIcon, state as UIControlState, assigns value as AppleImage)
-		  Declare Sub setimageForSearchBarIcon lib uikit selector "setImage:orSearchBarIcon:state:" (id as ptr, value as ptr, Icon As UISearchBarIcon, state as UIControlState)
+		  Declare Sub setimageForSearchBarIcon lib UIKitLibname selector "setImage:orSearchBarIcon:state:" (id as ptr, value as ptr, Icon As UISearchBarIcon, state as UIControlState)
 		  setimageForSearchBarIcon id, if (value = nil, nil, value.id), icon, state
 		End Sub
 	#tag EndMethod
@@ -468,10 +468,10 @@ Inherits AppleView
 	#tag Method, Flags = &h0
 		Function PositionAdjustment(Icon As UISearchBarIcon) As UIOffset
 		  #if Target64Bit
-		    Declare function positionAdjustmentForSearchBarIcon lib uikit selector "positionAdjustmentForSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon) as UIOffset
+		    Declare function positionAdjustmentForSearchBarIcon lib UIKitLibname selector "positionAdjustmentForSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon) as UIOffset
 		    return positionAdjustmentForSearchBarIcon (id, Icon)
 		  #elseif Target32Bit
-		    Declare function positionAdjustmentForSearchBarIcon lib uikit selector "positionAdjustmentForSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon) as UIOffset32Bit
+		    Declare function positionAdjustmentForSearchBarIcon lib UIKitLibname selector "positionAdjustmentForSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon) as UIOffset32Bit
 		    return positionAdjustmentForSearchBarIcon(id, Icon).toUIOffset
 		  #endif
 		End Function
@@ -480,10 +480,10 @@ Inherits AppleView
 	#tag Method, Flags = &h0
 		Sub PositionAdjustment(Icon As UISearchBarIcon, assigns value as uioffset)
 		  #if Target64Bit
-		    Declare Sub setPositionAdjustmentForSearchBarIcon lib uikit selector "setPositionAdjustment:forSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon, value as UIOffset)
+		    Declare Sub setPositionAdjustmentForSearchBarIcon lib UIKitLibname selector "setPositionAdjustment:forSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon, value as UIOffset)
 		    setpositionAdjustmentForSearchBarIcon (id, Icon, value)
 		  #elseif Target32Bit
-		    Declare Sub setPositionAdjustmentForSearchBarIcon lib uikit selector "setPositionAdjustment:forSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon, value as UIOffset32Bit)
+		    Declare Sub setPositionAdjustmentForSearchBarIcon lib UIKitLibname selector "setPositionAdjustment:forSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon, value as UIOffset32Bit)
 		    setpositionAdjustmentForSearchBarIcon (id, Icon, value.toUIOffset32)
 		  #endif
 		End Sub
@@ -491,42 +491,42 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0
 		Function ScopeBarButtonDividerImage(Leftstate as UIControlState, RightState as UIControlState) As AppleImage
-		  Declare function scopeBarButtonDividerImageForLeftSegmentState lib uikit selector "scopeBarButtonDividerImageForLeftSegmentState:rightSegmentState:" (id as ptr, Leftstate as UIControlState, RightState as UIControlState) as ptr
+		  Declare function scopeBarButtonDividerImageForLeftSegmentState lib UIKitLibname selector "scopeBarButtonDividerImageForLeftSegmentState:rightSegmentState:" (id as ptr, Leftstate as UIControlState, RightState as UIControlState) as ptr
 		  return appleimage.MakeFromPtr(scopeBarButtonDividerImageForLeftSegmentState(id, Leftstate, RightState))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ScopeBarButtonDividerImage(Leftstate as UIControlState, RightState as UIControlState, assigns value as appleimage)
-		  Declare Sub setScopeBarButtonDividerImageForLeftSegmentState lib uikit selector "setScopeBarButtonDividerImage:forLeftSegmentState:rightSegmentState:" (id as ptr, value as ptr, Leftstate as UIControlState, RightState as UIControlState)
+		  Declare Sub setScopeBarButtonDividerImageForLeftSegmentState lib UIKitLibname selector "setScopeBarButtonDividerImage:forLeftSegmentState:rightSegmentState:" (id as ptr, value as ptr, Leftstate as UIControlState, RightState as UIControlState)
 		  setScopeBarButtonDividerImageForLeftSegmentState (id, if (value = nil, nil, value.id), Leftstate, RightState)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ScopeBarButtonTitleTextAttributes(State as UIControlState) As ApplemutableDictionary
-		  Declare function scopeBarButtonTitleTextAttributesForState lib uikit selector "scopeBarButtonTitleTextAttributesForState:" (id as ptr, State as UIControlState) as ptr
+		  Declare function scopeBarButtonTitleTextAttributesForState lib UIKitLibname selector "scopeBarButtonTitleTextAttributesForState:" (id as ptr, State as UIControlState) as ptr
 		  return AppleMutableDictionary.MakeFromPtr(scopeBarButtonTitleTextAttributesForState(id, State))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ScopeBarButtonTitleTextAttributes(State as UIControlState, assigns value as AppleDictionary)
-		  Declare Sub setScopeBarButtonTitleTextAttributes lib uikit selector "setScopeBarButtonTitleTextAttributes:forState:" (id as ptr, value as ptr, State as UIControlState)
+		  Declare Sub setScopeBarButtonTitleTextAttributes lib UIKitLibname selector "setScopeBarButtonTitleTextAttributes:forState:" (id as ptr, value as ptr, State as UIControlState)
 		  setScopeBarButtonTitleTextAttributes id, if (value = nil, nil, value.id), state
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function SearchFieldBackgroundImage(state as UIControlState) As AppleImage
-		  Declare function searchFieldBackgroundImageForState lib uikit selector "searchFieldBackgroundImageForState:" (id as ptr, state as UIControlState) as ptr
+		  Declare function searchFieldBackgroundImageForState lib UIKitLibname selector "searchFieldBackgroundImageForState:" (id as ptr, state as UIControlState) as ptr
 		  return appleimage.MakeFromPtr(searchFieldBackgroundImageForState(id, state))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SearchFieldBackgroundImage(state as UIControlState, assigns value as AppleImage)
-		  Declare Sub setSearchFieldBackgroundImage lib uikit selector "setSearchFieldBackgroundImage:forState:" (id as ptr, value as ptr, state as UIControlState)
+		  Declare Sub setSearchFieldBackgroundImage lib UIKitLibname selector "setSearchFieldBackgroundImage:forState:" (id as ptr, value as ptr, state as UIControlState)
 		  setSearchFieldBackgroundImage id, if (value = nil, nil, value.id), state
 		End Sub
 	#tag EndMethod
@@ -577,13 +577,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function backgroundImage lib UIKit selector "backgroundImage" (id as ptr) as Ptr
+			  Declare Function backgroundImage lib UIKitLibname selector "backgroundImage" (id as ptr) as Ptr
 			  Return AppleImage.MakeFromPtr (backgroundImage (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setBackgroundImage lib UIKit selector "setBackgroundImage:" (id as ptr, value as Ptr)
+			  Declare Sub setBackgroundImage lib UIKitLibname selector "setBackgroundImage:" (id as ptr, value as Ptr)
 			  setBackgroundImage id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -593,13 +593,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function barStyle lib UIKit selector "barStyle" (id as ptr) as UIBarStyle
+			  Declare Function barStyle lib UIKitLibname selector "barStyle" (id as ptr) as UIBarStyle
 			  Return barStyle (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setBarStyle lib UIKit selector "setBarStyle:" (id as ptr, value as UIBarStyle)
+			  Declare Sub setBarStyle lib UIKitLibname selector "setBarStyle:" (id as ptr, value as UIBarStyle)
 			  setbarStyle id, value
 			End Set
 		#tag EndSetter
@@ -609,13 +609,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function barTintColor lib UIKit selector "barTintColor" (id as ptr) as Ptr
+			  Declare Function barTintColor lib UIKitLibname selector "barTintColor" (id as ptr) as Ptr
 			  Return AppleColor.MakeFromPtr (barTintColor (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setBarTintColor lib UIKit selector "setBarTintColor:" (id as ptr, value as Ptr)
+			  Declare Sub setBarTintColor lib UIKitLibname selector "setBarTintColor:" (id as ptr, value as Ptr)
 			  setBarTintColor id, value.Id
 			End Set
 		#tag EndSetter
@@ -718,13 +718,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function prompt lib UIKit selector "prompt" (id as ptr) as CFStringRef
+			  Declare Function prompt lib UIKitLibname selector "prompt" (id as ptr) as CFStringRef
 			  Return prompt (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setPrompt lib UIKit selector "setPrompt:" (id as ptr, value as CFStringRef)
+			  Declare Sub setPrompt lib UIKitLibname selector "setPrompt:" (id as ptr, value as CFStringRef)
 			  setPrompt id, value
 			End Set
 		#tag EndSetter
@@ -734,13 +734,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function scopeBarBackgroundImage lib UIKit selector "scopeBarBackgroundImage" (id as ptr) as Ptr
+			  Declare Function scopeBarBackgroundImage lib UIKitLibname selector "scopeBarBackgroundImage" (id as ptr) as Ptr
 			  Return AppleImage.MakeFromPtr (scopeBarBackgroundImage (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setScopeBarBackgroundImage lib UIKit selector "setScopeBarBackgroundImage:" (id as ptr, value as Ptr)
+			  Declare Sub setScopeBarBackgroundImage lib UIKitLibname selector "setScopeBarBackgroundImage:" (id as ptr, value as Ptr)
 			  setScopeBarBackgroundImage id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -750,13 +750,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function scopeButtonTitles lib UIKit selector "scopeButtonTitles" (id as ptr) as Ptr
+			  Declare Function scopeButtonTitles lib UIKitLibname selector "scopeButtonTitles" (id as ptr) as Ptr
 			  Return AppleArray.MakeFromPtr (scopeButtonTitles (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setScopeButtonTitles lib UIKit selector "setScopeButtonTitles:" (id as ptr, value as Ptr)
+			  Declare Sub setScopeButtonTitles lib UIKitLibname selector "setScopeButtonTitles:" (id as ptr, value as Ptr)
 			  setScopeButtonTitles id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -766,13 +766,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function searchbarStyle lib UIKit selector "searchbarStyle" (id as ptr) as UIsearchBarStyle
+			  Declare Function searchbarStyle lib UIKitLibname selector "searchbarStyle" (id as ptr) as UIsearchBarStyle
 			  Return searchbarStyle (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setSearchbarStyle lib UIKit selector "setSearchBarStyle:" (id as ptr, value as UIsearchBarStyle)
+			  Declare Sub setSearchbarStyle lib UIKitLibname selector "setSearchBarStyle:" (id as ptr, value as UIsearchBarStyle)
 			  setSearchbarStyle id, value
 			End Set
 		#tag EndSetter
@@ -783,10 +783,10 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function searchFieldBackgroundPositionAdjustment lib uikit selector "searchFieldBackgroundPositionAdjustment" (id as ptr) as UIOffset
+			    Declare function searchFieldBackgroundPositionAdjustment lib UIKitLibname selector "searchFieldBackgroundPositionAdjustment" (id as ptr) as UIOffset
 			    return searchFieldBackgroundPositionAdjustment (id)
 			  #elseif Target32Bit
-			    Declare function searchFieldBackgroundPositionAdjustment lib uikit selector "searchFieldBackgroundPositionAdjustment" (id as ptr) as UIOffset32Bit
+			    Declare function searchFieldBackgroundPositionAdjustment lib UIKitLibname selector "searchFieldBackgroundPositionAdjustment" (id as ptr) as UIOffset32Bit
 			    return searchFieldBackgroundPositionAdjustment(id).toUIOffset
 			  #endif
 			End Get
@@ -794,10 +794,10 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setSearchFieldBackgroundPositionAdjustment lib uikit selector "setSearchFieldBackgroundPositionAdjustment:" (id as ptr, value as UIOffset)
+			    Declare Sub setSearchFieldBackgroundPositionAdjustment lib UIKitLibname selector "setSearchFieldBackgroundPositionAdjustment:" (id as ptr, value as UIOffset)
 			    setSearchFieldBackgroundPositionAdjustment (id, value)
 			  #elseif Target32Bit
-			    Declare Sub setSearchFieldBackgroundPositionAdjustment lib uikit selector "setSearchFieldBackgroundPositionAdjustment:" (id as ptr, value as UIOffset32Bit)
+			    Declare Sub setSearchFieldBackgroundPositionAdjustment lib UIKitLibname selector "setSearchFieldBackgroundPositionAdjustment:" (id as ptr, value as UIOffset32Bit)
 			    setSearchFieldBackgroundPositionAdjustment (id,  value.toUIOffset32)
 			  #endif
 			End Set
@@ -808,13 +808,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function searchResultsButtonSelected lib UIKit selector "isSearchResultsButtonSelected" (id as ptr) as Boolean
+			  Declare Function searchResultsButtonSelected lib UIKitLibname selector "isSearchResultsButtonSelected" (id as ptr) as Boolean
 			  Return searchResultsButtonSelected (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setSearchResultsButtonSelected lib UIKit selector "setSearchResultsButtonSelected:" (id as ptr, value as boolean)
+			  Declare Sub setSearchResultsButtonSelected lib UIKitLibname selector "setSearchResultsButtonSelected:" (id as ptr, value as boolean)
 			  setSearchResultsButtonSelected id, value
 			End Set
 		#tag EndSetter
@@ -839,10 +839,10 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function searchTextPositionAdjustment lib uikit selector "searchTextPositionAdjustment" (id as ptr) as UIOffset
+			    Declare function searchTextPositionAdjustment lib UIKitLibname selector "searchTextPositionAdjustment" (id as ptr) as UIOffset
 			    return searchTextPositionAdjustment (id)
 			  #elseif Target32Bit
-			    Declare function searchTextPositionAdjustment lib uikit selector "searchTextPositionAdjustment" (id as ptr) as UIOffset32Bit
+			    Declare function searchTextPositionAdjustment lib UIKitLibname selector "searchTextPositionAdjustment" (id as ptr) as UIOffset32Bit
 			    return searchTextPositionAdjustment(id).toUIOffset
 			  #endif
 			End Get
@@ -850,10 +850,10 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setSearchTextPositionAdjustment lib uikit selector "setSearchTextPositionAdjustment:" (id as ptr, value as UIOffset)
+			    Declare Sub setSearchTextPositionAdjustment lib UIKitLibname selector "setSearchTextPositionAdjustment:" (id as ptr, value as UIOffset)
 			    setSearchTextPositionAdjustment (id, value)
 			  #elseif Target32Bit
-			    Declare Sub setSearchTextPositionAdjustment lib uikit selector "setSearchTextPositionAdjustment:" (id as ptr, value as UIOffset32Bit)
+			    Declare Sub setSearchTextPositionAdjustment lib UIKitLibname selector "setSearchTextPositionAdjustment:" (id as ptr, value as UIOffset32Bit)
 			    setSearchTextPositionAdjustment (id,  value.toUIOffset32)
 			  #endif
 			End Set
@@ -864,13 +864,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function selectedScopeButtonIndex lib UIKit selector "selectedScopeButtonIndex" (id as ptr) as Integer
+			  Declare Function selectedScopeButtonIndex lib UIKitLibname selector "selectedScopeButtonIndex" (id as ptr) as Integer
 			  Return selectedScopeButtonIndex (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setSelectedScopeButtonIndex lib UIKit selector "setSelectedScopeButtonIndex:" (id as ptr, value as integer)
+			  Declare Sub setSelectedScopeButtonIndex lib UIKitLibname selector "setSelectedScopeButtonIndex:" (id as ptr, value as integer)
 			  setSelectedScopeButtonIndex id, value
 			End Set
 		#tag EndSetter
@@ -880,13 +880,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function showsBookmarkButton lib UIKit selector "showsBookmarkButton" (id as ptr) as Boolean
+			  Declare Function showsBookmarkButton lib UIKitLibname selector "showsBookmarkButton" (id as ptr) as Boolean
 			  Return showsBookmarkButton (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setShowsBookmarkButton lib UIKit selector "setShowsBookmarkButton:" (id as ptr, value as boolean)
+			  Declare Sub setShowsBookmarkButton lib UIKitLibname selector "setShowsBookmarkButton:" (id as ptr, value as boolean)
 			  setShowsBookmarkButton id, value
 			End Set
 		#tag EndSetter
@@ -896,13 +896,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function showsCancelButton lib UIKit selector "showsCancelButton" (id as ptr) as Boolean
+			  Declare Function showsCancelButton lib UIKitLibname selector "showsCancelButton" (id as ptr) as Boolean
 			  Return showsCancelButton (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setShowsCancelButton lib UIKit selector "setShowsCancelButton:" (id as ptr, value as boolean)
+			  Declare Sub setShowsCancelButton lib UIKitLibname selector "setShowsCancelButton:" (id as ptr, value as boolean)
 			  setShowsCancelButton id, value
 			End Set
 		#tag EndSetter
@@ -912,13 +912,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function showsScopeBar lib UIKit selector "showsScopeBar" (id as ptr) as Boolean
+			  Declare Function showsScopeBar lib UIKitLibname selector "showsScopeBar" (id as ptr) as Boolean
 			  Return showsScopeBar (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setShowsScopeBar lib UIKit selector "setShowsScopeBar:" (id as ptr, value as boolean)
+			  Declare Sub setShowsScopeBar lib UIKitLibname selector "setShowsScopeBar:" (id as ptr, value as boolean)
 			  setShowsScopeBar id, value
 			End Set
 		#tag EndSetter
@@ -928,13 +928,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function showsSearchResultsButton lib UIKit selector "showsSearchResultsButton" (id as ptr) as Boolean
+			  Declare Function showsSearchResultsButton lib UIKitLibname selector "showsSearchResultsButton" (id as ptr) as Boolean
 			  Return showsSearchResultsButton (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setShowsSearchResultsButton lib UIKit selector "setShowsSearchResultsButton:" (id as ptr, value as boolean)
+			  Declare Sub setShowsSearchResultsButton lib UIKitLibname selector "setShowsSearchResultsButton:" (id as ptr, value as boolean)
 			  setShowsSearchResultsButton id, value
 			End Set
 		#tag EndSetter
@@ -944,13 +944,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function tintColor lib UIKit selector "tintColor" (id as ptr) as Ptr
+			  Declare Function tintColor lib UIKitLibname selector "tintColor" (id as ptr) as Ptr
 			  Return AppleColor.MakeFromPtr (tintColor (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setTintColor lib UIKit selector "setTintColor:" (id as ptr, value as Ptr)
+			  Declare Sub setTintColor lib UIKitLibname selector "setTintColor:" (id as ptr, value as Ptr)
 			  setTintColor id, value.Id
 			End Set
 		#tag EndSetter
@@ -960,13 +960,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function Translucent lib UIKit selector "isTranslucent" (id as ptr) as Boolean
+			  Declare Function Translucent lib UIKitLibname selector "isTranslucent" (id as ptr) as Boolean
 			  Return Translucent (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setTranslucent lib UIKit selector "setTranslucent:" (id as ptr, value as boolean)
+			  Declare Sub setTranslucent lib UIKitLibname selector "setTranslucent:" (id as ptr, value as boolean)
 			  setTranslucent id, value
 			End Set
 		#tag EndSetter
@@ -1023,6 +1023,11 @@ Inherits AppleView
 			Name="BarStyle"
 			Group="Behavior"
 			Type="UIBarStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Black"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsContextBeforeDrawing"
@@ -1169,6 +1174,12 @@ Inherits AppleView
 			Name="SearchBarStyle"
 			Group="Behavior"
 			Type="UIsearchBarStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Prominent"
+				"2 - Minimal"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SearchResultsButtonSelected"

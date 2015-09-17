@@ -15,14 +15,14 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function TouchesForView(View as AppleView) As AppleSet
-		  Declare function touchesForView lib UIKit selector "touchesForView:" (id as ptr, view as ptr) as ptr
+		  Declare function touchesForView lib UIKitLibname selector "touchesForView:" (id as ptr, view as ptr) as ptr
 		  return AppleSet.MakeFromPtr (touchesForView(id, view.id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function TouchesForWindow(Window as AppleWindow) As AppleSet
-		  Declare function touchesForWindow lib UIKit selector "touchesForWindow:" (id as ptr, view as ptr) as ptr
+		  Declare function touchesForWindow lib UIKitLibname selector "touchesForWindow:" (id as ptr, view as ptr) as ptr
 		  return AppleSet.MakeFromPtr (touchesForWindow(id, window.id))
 		End Function
 	#tag EndMethod
@@ -31,13 +31,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function allTouches lib UIKit selector "allTouches" (id as ptr) as ptr
+			  Declare function allTouches lib UIKitLibname selector "allTouches" (id as ptr) as ptr
 			  return AppleSet.MakeFromPtr (allTouches(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setAllTouches lib UIKit selector "setAllTouches:" (id as ptr, value as ptr)
+			  Declare sub setAllTouches lib UIKitLibname selector "setAllTouches:" (id as ptr, value as ptr)
 			  setAllTouches id, value.id
 			End Set
 		#tag EndSetter
@@ -57,7 +57,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function subtype lib UIKit selector "subtype" (id as ptr) as UIEventSubtype
+			  Declare function subtype lib UIKitLibname selector "subtype" (id as ptr) as UIEventSubtype
 			  return subtype (id)
 			End Get
 		#tag EndGetter
@@ -67,7 +67,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function timeStamp lib UIKit selector "timeStamp" (id as ptr) as double
+			  Declare function timeStamp lib UIKitLibname selector "timeStamp" (id as ptr) as double
 			  return timeStamp (id)
 			End Get
 		#tag EndGetter
@@ -77,7 +77,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function type lib UIKit selector "type" (id as ptr) as UIEventType
+			  Declare function type lib UIKitLibname selector "type" (id as ptr) as UIEventType
 			  return type (id)
 			End Get
 		#tag EndGetter

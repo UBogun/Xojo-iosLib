@@ -9,7 +9,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function Image(TraitCollection as AppleTraitCollection) As AppleImage
-		  Declare function imageWithTraitCollection lib UIKit selector "imageWithTraitCollection:" (id as ptr, TraitCollection as ptr) as ptr
+		  Declare function imageWithTraitCollection lib UIKitLibname selector "imageWithTraitCollection:" (id as ptr, TraitCollection as ptr) as ptr
 		  return AppleImage.MakeFromPtr (imageWithTraitCollection(id, TraitCollection.id))
 		End Function
 	#tag EndMethod
@@ -22,14 +22,14 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub RegisterImage(Image As AppleImage, TraitCollection as AppleTraitCollection)
-		  Declare sub registerImage lib UIKit selector "registerImage:withTraitCollection:" (id as ptr, image as ptr, TraitCollection as ptr)
+		  Declare sub registerImage lib UIKitLibname selector "registerImage:withTraitCollection:" (id as ptr, image as ptr, TraitCollection as ptr)
 		  registerImage (id, image.id, TraitCollection.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub UnregisterImage(TraitCollection as AppleTraitCollection)
-		  Declare sub unregisterImageWithTraitCollection lib UIKit selector "unregisterImageWithTraitCollection:" (id as ptr, TraitCollection as ptr)
+		  Declare sub unregisterImageWithTraitCollection lib UIKitLibname selector "unregisterImageWithTraitCollection:" (id as ptr, TraitCollection as ptr)
 		  unregisterImageWithTraitCollection (id, TraitCollection.id)
 		End Sub
 	#tag EndMethod

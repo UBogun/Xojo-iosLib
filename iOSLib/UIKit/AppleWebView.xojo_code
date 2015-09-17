@@ -9,35 +9,35 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0
 		Sub GoBack()
-		  Declare Sub goBack lib UIKit selector "goBack" (id as ptr)
+		  Declare Sub goBack lib UIKitLibname selector "goBack" (id as ptr)
 		  goBack (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub GoForward()
-		  Declare Sub goForward lib UIKit selector "goForward" (id as ptr)
+		  Declare Sub goForward lib UIKitLibname selector "goForward" (id as ptr)
 		  goForward (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub LoadData(Data as AppleData, MIMEType as CFStringRef, textEncoding As CFStringRef, baseURL as AppleURL)
-		  Declare Sub loadData lib UIKit selector "loadData:MIMEType:textEncodingName:baseURL:" (id as ptr, data as ptr, MIMEType as CFStringRef, textEncoding as CFStringRef, baseURL as Ptr)
+		  Declare Sub loadData lib UIKitLibname selector "loadData:MIMEType:textEncodingName:baseURL:" (id as ptr, data as ptr, MIMEType as CFStringRef, textEncoding as CFStringRef, baseURL as Ptr)
 		  loadData id, data.id, MIMEType, textEncoding, baseURL.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub LoadHTML(HTMLString as cfstringref, baseurl as AppleURL)
-		  Declare Sub loadHTMLString lib UIKit selector "loadHTMLString:baseURL:" (id as ptr, HTMLString as CFStringRef, baseurl as ptr)
+		  Declare Sub loadHTMLString lib UIKitLibname selector "loadHTMLString:baseURL:" (id as ptr, HTMLString as CFStringRef, baseurl as ptr)
 		  loadHTMLString id, HTMLString, baseurl.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub LoadRequest(aRequest as AppleURLRequest)
-		  Declare Sub loadrequest lib UIKit selector "loadRequest:" (id as ptr, request as ptr)
+		  Declare Sub loadrequest lib UIKitLibname selector "loadRequest:" (id as ptr, request as ptr)
 		  loadrequest id, aRequest.id
 		End Sub
 	#tag EndMethod
@@ -50,14 +50,14 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0
 		Sub Reload()
-		  Declare Sub reload lib UIKit selector "reload" (id as ptr)
+		  Declare Sub reload lib UIKitLibname selector "reload" (id as ptr)
 		  reload (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function RunJavaScript(aScript as CFStringRef) As Text
-		  declare function stringByEvaluatingJavaScriptFromString lib UIKit selector "stringByEvaluatingJavaScriptFromString:" _
+		  declare function stringByEvaluatingJavaScriptFromString lib UIKitLibname selector "stringByEvaluatingJavaScriptFromString:" _
 		  (id as ptr, value as CFStringRef) as CFStringRef
 		  return stringByEvaluatingJavaScriptFromString (id, aScript)
 		End Function
@@ -65,7 +65,7 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0
 		Sub StopLoading()
-		  Declare Sub stopLoading lib UIKit selector "stopLoading" (id as ptr)
+		  Declare Sub stopLoading lib UIKitLibname selector "stopLoading" (id as ptr)
 		  stopLoading (id)
 		End Sub
 	#tag EndMethod
@@ -74,13 +74,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function allowsInlineMediaPlayback lib UIKit selector "allowsInlineMediaPlayback" (id as ptr) as Boolean
+			  Declare Function allowsInlineMediaPlayback lib UIKitLibname selector "allowsInlineMediaPlayback" (id as ptr) as Boolean
 			  Return allowsInlineMediaPlayback (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAllowsInlineMediaPlayback lib UIKit selector "setAllowsInlineMediaPlayback:" (id as ptr, value as Boolean)
+			  Declare Sub setAllowsInlineMediaPlayback lib UIKitLibname selector "setAllowsInlineMediaPlayback:" (id as ptr, value as Boolean)
 			  setAllowsInlineMediaPlayback id, value
 			End Set
 		#tag EndSetter
@@ -90,7 +90,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function canGoBack lib UIKit selector "canGoBack" (id as ptr) as Boolean
+			  Declare Function canGoBack lib UIKitLibname selector "canGoBack" (id as ptr) as Boolean
 			  Return canGoBack (id)
 			End Get
 		#tag EndGetter
@@ -100,7 +100,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function canGoForward lib UIKit selector "canGoForward" (id as ptr) as Boolean
+			  Declare Function canGoForward lib UIKitLibname selector "canGoForward" (id as ptr) as Boolean
 			  Return canGoForward (id)
 			End Get
 		#tag EndGetter
@@ -120,13 +120,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function dataDetectorTypes lib UIKit selector "dataDetectorTypes" (id as ptr) as UInteger
+			  Declare function dataDetectorTypes lib UIKitLibname selector "dataDetectorTypes" (id as ptr) as UInteger
 			  return new AppleDataDetectorType (dataDetectorTypes (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setdataDetectorTypes lib UIKit selector "setDataDetectorTypes:" (id as ptr, value as UInteger)
+			  Declare sub setdataDetectorTypes lib UIKitLibname selector "setDataDetectorTypes:" (id as ptr, value as UInteger)
 			  setdataDetectorTypes (id, value.Id)
 			End Set
 		#tag EndSetter
@@ -152,9 +152,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare Function gapBetweenPages lib UIKit selector "gapBetweenPages" (id as ptr) as Double
+			    Declare Function gapBetweenPages lib UIKitLibname selector "gapBetweenPages" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare Function gapBetweenPages lib UIKit selector "gapBetweenPages" (id as ptr) as Single
+			    Declare Function gapBetweenPages lib UIKitLibname selector "gapBetweenPages" (id as ptr) as Single
 			  #endif
 			  Return gapBetweenPages (id)
 			End Get
@@ -162,9 +162,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setGapBetweenPages lib UIKit selector "setGapBetweenPages:" (id as ptr, value as Double)
+			    Declare Sub setGapBetweenPages lib UIKitLibname selector "setGapBetweenPages:" (id as ptr, value as Double)
 			  #elseif Target32Bit
-			    Declare Sub setGapBetweenPages lib UIKit selector "setGapBetweenPages:" (id as ptr, value as Single)
+			    Declare Sub setGapBetweenPages lib UIKitLibname selector "setGapBetweenPages:" (id as ptr, value as Single)
 			  #endif
 			  setGapBetweenPages id, value
 			End Set
@@ -175,7 +175,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function loading lib UIKit selector "isLoading" (id as ptr) as Boolean
+			  Declare Function loading lib UIKitLibname selector "isLoading" (id as ptr) as Boolean
 			  Return loading (id)
 			End Get
 		#tag EndGetter
@@ -185,13 +185,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function keyboardDisplayRequiresUserAction lib UIKit selector "keyboardDisplayRequiresUserAction" (id as ptr) as Boolean
+			  Declare Function keyboardDisplayRequiresUserAction lib UIKitLibname selector "keyboardDisplayRequiresUserAction" (id as ptr) as Boolean
 			  Return keyboardDisplayRequiresUserAction (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setKeyboardDisplayRequiresUserAction lib UIKit selector "setKeyboardDisplayRequiresUserAction:" (id as ptr, value as Boolean)
+			  Declare Sub setKeyboardDisplayRequiresUserAction lib UIKitLibname selector "setKeyboardDisplayRequiresUserAction:" (id as ptr, value as Boolean)
 			  setKeyboardDisplayRequiresUserAction id, value
 			End Set
 		#tag EndSetter
@@ -201,13 +201,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function mediaPlaybackAllowsAirPlay lib UIKit selector "mediaPlaybackAllowsAirPlay" (id as ptr) as Boolean
+			  Declare Function mediaPlaybackAllowsAirPlay lib UIKitLibname selector "mediaPlaybackAllowsAirPlay" (id as ptr) as Boolean
 			  Return mediaPlaybackAllowsAirPlay (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMediaPlaybackAllowsAirPlay lib UIKit selector "setMediaPlaybackAllowsAirPlay:" (id as ptr, value as Boolean)
+			  Declare Sub setMediaPlaybackAllowsAirPlay lib UIKitLibname selector "setMediaPlaybackAllowsAirPlay:" (id as ptr, value as Boolean)
 			  setMediaPlaybackAllowsAirPlay id, value
 			End Set
 		#tag EndSetter
@@ -217,13 +217,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function mediaPlaybackRequiresUserAction lib UIKit selector "mediaPlaybackRequiresUserAction" (id as ptr) as Boolean
+			  Declare Function mediaPlaybackRequiresUserAction lib UIKitLibname selector "mediaPlaybackRequiresUserAction" (id as ptr) as Boolean
 			  Return mediaPlaybackRequiresUserAction (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMediaPlaybackRequiresUserAction lib UIKit selector "setMediaPlaybackRequiresUserAction:" (id as ptr, value as Boolean)
+			  Declare Sub setMediaPlaybackRequiresUserAction lib UIKitLibname selector "setMediaPlaybackRequiresUserAction:" (id as ptr, value as Boolean)
 			  setMediaPlaybackRequiresUserAction id, value
 			End Set
 		#tag EndSetter
@@ -237,7 +237,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function pageCount lib UIKit selector "pageCount" (id as ptr) as Uinteger
+			  Declare Function pageCount lib UIKitLibname selector "pageCount" (id as ptr) as Uinteger
 			  Return pageCount (id)
 			End Get
 		#tag EndGetter
@@ -248,9 +248,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare Function pageLength lib UIKit selector "pageLength" (id as ptr) as Double
+			    Declare Function pageLength lib UIKitLibname selector "pageLength" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare Function pageLength lib UIKit selector "pageLength" (id as ptr) as Single
+			    Declare Function pageLength lib UIKitLibname selector "pageLength" (id as ptr) as Single
 			  #endif
 			  Return pageLength (id)
 			End Get
@@ -258,9 +258,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setPageLength lib UIKit selector "setPageLength:" (id as ptr, value as Double)
+			    Declare Sub setPageLength lib UIKitLibname selector "setPageLength:" (id as ptr, value as Double)
 			  #elseif Target32Bit
-			    Declare Sub setPageLength lib UIKit selector "setPageLength:" (id as ptr, value as Single)
+			    Declare Sub setPageLength lib UIKitLibname selector "setPageLength:" (id as ptr, value as Single)
 			  #endif
 			  setPageLength id, value
 			End Set
@@ -271,13 +271,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function paginationBreakingMode lib UIKit selector "paginationBreakingMode" (id as ptr) as UIWebPaginationBreakingMode
+			  Declare Function paginationBreakingMode lib UIKitLibname selector "paginationBreakingMode" (id as ptr) as UIWebPaginationBreakingMode
 			  Return paginationBreakingMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setPaginationBreakingMode lib UIKit selector "setPaginationBreakingMode:" (id as ptr, value as UIWebPaginationBreakingMode)
+			  Declare Sub setPaginationBreakingMode lib UIKitLibname selector "setPaginationBreakingMode:" (id as ptr, value as UIWebPaginationBreakingMode)
 			  setPaginationBreakingMode id, value
 			End Set
 		#tag EndSetter
@@ -287,13 +287,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function paginationMode lib UIKit selector "paginationMode" (id as ptr) as UIWebPaginationMode
+			  Declare Function paginationMode lib UIKitLibname selector "paginationMode" (id as ptr) as UIWebPaginationMode
 			  Return paginationMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setPaginationMode lib UIKit selector "setPaginationMode:" (id as ptr, value as UIWebPaginationMode)
+			  Declare Sub setPaginationMode lib UIKitLibname selector "setPaginationMode:" (id as ptr, value as UIWebPaginationMode)
 			  setPaginationMode id, value
 			End Set
 		#tag EndSetter
@@ -303,7 +303,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function request lib UIKit selector "request" (id as ptr) as ptr
+			  Declare function request lib UIKitLibname selector "request" (id as ptr) as ptr
 			  return AppleURLRequest.MakefromPtr (request(id))
 			End Get
 		#tag EndGetter
@@ -313,13 +313,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function scalesPageToFit lib UIKit selector "scalesPageToFit" (id as ptr) as Boolean
+			  Declare Function scalesPageToFit lib UIKitLibname selector "scalesPageToFit" (id as ptr) as Boolean
 			  Return scalesPageToFit (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setscalesPageToFit lib UIKit selector "setScalesPageToFit:" (id as ptr, value as Boolean)
+			  Declare Sub setscalesPageToFit lib UIKitLibname selector "setScalesPageToFit:" (id as ptr, value as Boolean)
 			  setscalesPageToFit id, value
 			End Set
 		#tag EndSetter
@@ -329,7 +329,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function scrollView lib UIKit selector "scrollView" (id as ptr) as ptr
+			  Declare function scrollView lib UIKitLibname selector "scrollView" (id as ptr) as ptr
 			  return AppleScrollView.MakefromPtr (scrollView(id))
 			End Get
 		#tag EndGetter
@@ -339,13 +339,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function suppressesIncrementalRendering lib UIKit selector "suppressesIncrementalRendering" (id as ptr) as Boolean
+			  Declare Function suppressesIncrementalRendering lib UIKitLibname selector "suppressesIncrementalRendering" (id as ptr) as Boolean
 			  Return suppressesIncrementalRendering (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setSuppressesIncrementalRendering lib UIKit selector "setSuppressesIncrementalRendering:" (id as ptr, value as Boolean)
+			  Declare Sub setSuppressesIncrementalRendering lib UIKitLibname selector "setSuppressesIncrementalRendering:" (id as ptr, value as Boolean)
 			  setSuppressesIncrementalRendering id, value
 			End Set
 		#tag EndSetter

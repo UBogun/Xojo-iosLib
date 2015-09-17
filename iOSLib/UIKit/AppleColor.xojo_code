@@ -4,9 +4,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function ChangeAlpha(alpha as double) As AppleColor
 		  #if Target64Bit
-		    Declare function colorWithAlphaComponent lib UIKit selector "colorWithAlphaComponent:" (id as ptr, alpha as double) as ptr
+		    Declare function colorWithAlphaComponent lib UIKitLibname selector "colorWithAlphaComponent:" (id as ptr, alpha as double) as ptr
 		  #elseif Target32Bit
-		    Declare function colorWithAlphaComponent lib UIKit selector "colorWithAlphaComponent:" (id as ptr, alpha as single) as ptr
+		    Declare function colorWithAlphaComponent lib UIKitLibname selector "colorWithAlphaComponent:" (id as ptr, alpha as single) as ptr
 		  #endif
 		  dim resultcolor as new AppleColor (colorWithAlphaComponent(id, alpha))
 		  resultcolor.RetainClassObject
@@ -16,7 +16,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function CiColor() As AppleCIColor
-		  declare function CIColor lib uikit selector "CIColor" (id as ptr) as ptr
+		  declare function CIColor lib UIKitLibname selector "CIColor" (id as ptr) as ptr
 		  return AppleCIColor.MakefromPtr (CIColor(id))
 		End Function
 	#tag EndMethod
@@ -34,7 +34,7 @@ Inherits AppleObject
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
-		  Declare function colorWithCGColor lib UIKit selector "colorWithCGColor:" (id as ptr, Cicolor as ptr) As Ptr
+		  Declare function colorWithCGColor lib UIKitLibname selector "colorWithCGColor:" (id as ptr, Cicolor as ptr) As Ptr
 		  super.Constructor (colorWithCGColor(classptr, aColor.CFTypeRef))
 		  RetainClassObject
 		  
@@ -48,7 +48,7 @@ Inherits AppleObject
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
-		  Declare function colorWithCIColor lib UIKit selector "colorWithCIColor:" (id as ptr, Cicolor as ptr) As Ptr
+		  Declare function colorWithCIColor lib UIKitLibname selector "colorWithCIColor:" (id as ptr, Cicolor as ptr) As Ptr
 		  super.Constructor (colorWithCIColor(classptr, aColor.id))
 		  RetainClassObject
 		  
@@ -57,7 +57,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(anImage as AppleImage)
-		  Declare function initWithPatternImage lib UIKit selector "initWithPatternImage:" (id as ptr, patternimage as ptr) as ptr
+		  Declare function initWithPatternImage lib UIKitLibname selector "initWithPatternImage:" (id as ptr, patternimage as ptr) as ptr
 		  super.Constructor initWithPatternImage(alloc(ClassPtr), anImage.id)
 		  mHasOwnership = true
 		End Sub
@@ -78,9 +78,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(red as Double, green as double, blue as double, alpha as double)
 		  #if Target32Bit
-		    declare function colorFromRGBA lib UIKit selector "initWithRed:green:blue:alpha:" (id as Ptr, red as Single, green as Single, blue as Single, alpha as Single) as Ptr
+		    declare function colorFromRGBA lib UIKitLibname selector "initWithRed:green:blue:alpha:" (id as Ptr, red as Single, green as Single, blue as Single, alpha as Single) as Ptr
 		  #elseif Target64Bit
-		    declare function colorFromRGBA lib UIKit selector "initWithRed:green:blue:alpha:" (id as Ptr, red as Double, green as Double, blue as Double, alpha as Double) as Ptr
+		    declare function colorFromRGBA lib UIKitLibname selector "initWithRed:green:blue:alpha:" (id as Ptr, red as Double, green as Double, blue as Double, alpha as Double) as Ptr
 		  #endif
 		  
 		  super.Constructor ( colorFromRGBA(alloc(ClassPtr), red, green, blue, alpha))
@@ -119,10 +119,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		 Shared Function FromGrayscale(White As Double, Alpha As Double) As AppleColor
 		  #if Target64Bit
-		    Declare function colorWithWhite lib UIKit selector "colorWithWhite:alpha:" _
+		    Declare function colorWithWhite lib UIKitLibname selector "colorWithWhite:alpha:" _
 		    (id as ptr, White as double, alpha as double) As Ptr
 		  #elseif Target32Bit
-		    Declare function colorWithWhite lib UIKit selector "colorWithWhite:alpha:" _
+		    Declare function colorWithWhite lib UIKitLibname selector "colorWithWhite:alpha:" _
 		    (id as ptr, White as single, alpha as single) As Ptr
 		  #endif
 		  Dim Result As New AppleColor (colorwithWhite(classptr, White, Alpha))
@@ -135,10 +135,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		 Shared Function FromHSBA(Hue As Double, Saturation As Double, Brightness as Double, Alpha As Double) As AppleColor
 		  #if Target64Bit
-		    Declare function colorWithHue lib UIKit selector "colorWithHue:saturation:brightness:alpha:" _
+		    Declare function colorWithHue lib UIKitLibname selector "colorWithHue:saturation:brightness:alpha:" _
 		    (id as ptr, hue as double, Saturation as double, Brightness as double, alpha as double) As Ptr
 		  #elseif Target32Bit
-		    Declare function colorWithHue lib UIKit selector "colorWithHue:saturation:brightness:alpha:" _
+		    Declare function colorWithHue lib UIKitLibname selector "colorWithHue:saturation:brightness:alpha:" _
 		    (id as ptr, hue as single, Saturation as single, Brightness as single, alpha as single) As Ptr
 		  #endif
 		  Dim Result As New AppleColor (colorwithHue(classptr, Hue, Saturation, Brightness, Alpha))
@@ -152,11 +152,11 @@ Inherits AppleObject
 		Protected Function GetHSBA() As Double()
 		  #if Target64Bit
 		    Dim Hue, Saturation, Brightness, Alpha As Double
-		    Declare function getHue lib UIKit selector "getHue:saturation:brightness:alpha:" _
+		    Declare function getHue lib UIKitLibname selector "getHue:saturation:brightness:alpha:" _
 		    (id as ptr,  byref hue as double, byref saturation as double, byref brightness as double, byref alpha as double) As Boolean
 		  #elseif Target32Bit
 		    Dim Hue, Saturation, Brightness, Alpha As single
-		    Declare function getHue lib UIKit selector "getHue:saturation:brightness:alpha:" _
+		    Declare function getHue lib UIKitLibname selector "getHue:saturation:brightness:alpha:" _
 		    (id as ptr, byref hue as single, byref saturation as single, byref brightness as single, byref alpha as single) As Boolean
 		  #endif
 		  if getHue (id, hue, Saturation, Brightness, Alpha) then
@@ -178,7 +178,7 @@ Inherits AppleObject
 		  dim result as Boolean
 		  #if Target32Bit
 		    dim r, g, b, a as single
-		    declare Function getColors Lib UIKit selector "getRed:green:blue:alpha:" _
+		    declare Function getColors Lib UIKitLibname selector "getRed:green:blue:alpha:" _
 		    (Id as ptr, byref red as Single, byref green as single, byref blue as single, byref alpha as single) as Boolean
 		    result = getColors (id, r,g,b,a)
 		    red = r
@@ -186,7 +186,7 @@ Inherits AppleObject
 		    blue = b
 		    alpha = a
 		  #elseif Target64Bit
-		    declare function getColors Lib UIKit selector "getRed:green:blue:alpha:" _
+		    declare function getColors Lib UIKitLibname selector "getRed:green:blue:alpha:" _
 		    (Id as ptr, byref red as Double, byref green as Double, byref blue as Double, byref alpha as Double) as boolean
 		    result = getcolors (id, red, green, blue, alpha)
 		  #endif
@@ -199,11 +199,11 @@ Inherits AppleObject
 		Protected Function GetWhite() As Double()
 		  #if Target64Bit
 		    Dim White, Alpha As Double
-		    Declare function getWhite lib UIKit selector "getWhite:alpha:" _
+		    Declare function getWhite lib UIKitLibname selector "getWhite:alpha:" _
 		    (id as ptr,  byref White as double, byref alpha as double) As Boolean
 		  #elseif Target32Bit
 		    Dim White, Alpha As Single
-		    Declare function getWhite lib UIKit selector "getWhite:alpha:" _
+		    Declare function getWhite lib UIKitLibname selector "getWhite:alpha:" _
 		    (id as ptr,  byref White as Single, byref alpha as Single) As Boolean
 		  #endif
 		  if getWhite (id, White, Alpha) then
@@ -232,21 +232,21 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub SetFill()
-		  declare Sub setFill lib uikit selector "setFill" (id as ptr)
+		  declare Sub setFill lib UIKitLibname selector "setFill" (id as ptr)
 		  setFill id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetStroke()
-		  declare Sub setStroke lib uikit selector "setStroke" (id as ptr)
+		  declare Sub setStroke lib UIKitLibname selector "setStroke" (id as ptr)
 		  setStroke id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetStrokeAndFill()
-		  declare Sub set lib uikit selector "set" (id as ptr)
+		  declare Sub set lib UIKitLibname selector "set" (id as ptr)
 		  set id
 		End Sub
 	#tag EndMethod
@@ -282,7 +282,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function BlackColor lib UIKit selector "blackColor" (id as ptr) as ptr
+			  Declare function BlackColor lib UIKitLibname selector "blackColor" (id as ptr) as ptr
 			  static mBlackColor as  applecolor = new applecolor (BlackColor(classptr))
 			  return mBlackColor
 			End Get
@@ -293,7 +293,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function blueColor lib UIKit selector "blueColor" (id as ptr) as ptr
+			  Declare function blueColor lib UIKitLibname selector "blueColor" (id as ptr) as ptr
 			  static mblueColor as  applecolor = new applecolor (blueColor(classptr))
 			  return mblueColor
 			End Get
@@ -330,7 +330,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function brownColor lib UIKit selector "brownColor" (id as ptr) as ptr
+			  Declare function brownColor lib UIKitLibname selector "brownColor" (id as ptr) as ptr
 			  static mbrownColor as  applecolor = new applecolor (brownColor(classptr))
 			  return mbrownColor
 			End Get
@@ -341,7 +341,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function CGColor lib UIKit selector "CGColor" (id as ptr) as ptr
+			  Declare Function CGColor lib UIKitLibname selector "CGColor" (id as ptr) as ptr
 			  return AppleCGColor.MakeFromCFTypeRef (CGColor(id))
 			End Get
 		#tag EndGetter
@@ -361,7 +361,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function clearColor lib UIKit selector "clearColor" (id as ptr) as ptr
+			  Declare function clearColor lib UIKitLibname selector "clearColor" (id as ptr) as ptr
 			  static mclearColor as  applecolor = new applecolor (clearColor(classptr))
 			  return mclearColor
 			End Get
@@ -406,7 +406,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function cyanColor lib UIKit selector "cyanColor" (id as ptr) as ptr
+			  Declare function cyanColor lib UIKitLibname selector "cyanColor" (id as ptr) as ptr
 			  static mcyanColor as  applecolor = new applecolor (cyanColor(classptr))
 			  return mcyanColor
 			End Get
@@ -417,7 +417,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function darkGrayColor lib UIKit selector "darkGrayColor" (id as ptr) as ptr
+			  Declare function darkGrayColor lib UIKitLibname selector "darkGrayColor" (id as ptr) as ptr
 			  static mdarkGrayColor as  applecolor = new applecolor (darkGrayColor(classptr))
 			  return mdarkGrayColor
 			End Get
@@ -428,7 +428,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function darkTextColor lib UIKit selector "darkTextColor" (id as ptr) as ptr
+			  Declare function darkTextColor lib UIKitLibname selector "darkTextColor" (id as ptr) as ptr
 			  static mdarkTextColor as  applecolor = new applecolor (darkTextColor(classptr))
 			  return mdarkTextColor
 			End Get
@@ -439,7 +439,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function grayColor lib UIKit selector "grayColor" (id as ptr) as ptr
+			  Declare function grayColor lib UIKitLibname selector "grayColor" (id as ptr) as ptr
 			  static mgrayColor as  applecolor = new applecolor (grayColor(classptr))
 			  return mgrayColor
 			End Get
@@ -450,7 +450,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function greenColor lib UIKit selector "greenColor" (id as ptr) as ptr
+			  Declare function greenColor lib UIKitLibname selector "greenColor" (id as ptr) as ptr
 			  static mgreenColor as  applecolor = new applecolor (greenColor(classptr))
 			  return mgreenColor
 			End Get
@@ -475,7 +475,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function groupTableViewBackgroundColor lib UIKit selector "groupTableViewBackgroundColor" (id as ptr) as ptr
+			  Declare function groupTableViewBackgroundColor lib UIKitLibname selector "groupTableViewBackgroundColor" (id as ptr) as ptr
 			  static mgroupTableViewBackgroundColor as  applecolor = new applecolor (groupTableViewBackgroundColor(classptr))
 			  return mgroupTableViewBackgroundColor
 			End Get
@@ -498,7 +498,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function lightGrayColor lib UIKit selector "lightGrayColor" (id as ptr) as ptr
+			  Declare function lightGrayColor lib UIKitLibname selector "lightGrayColor" (id as ptr) as ptr
 			  static mlightGrayColor as  applecolor = new applecolor (lightGrayColor(classptr))
 			  return mlightGrayColor
 			End Get
@@ -509,7 +509,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function lightTextColor lib UIKit selector "lightTextColor" (id as ptr) as ptr
+			  Declare function lightTextColor lib UIKitLibname selector "lightTextColor" (id as ptr) as ptr
 			  static mlightTextColor as  applecolor = new applecolor (lightTextColor(classptr))
 			  return mlightTextColor
 			End Get
@@ -520,7 +520,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function magentaColor lib UIKit selector "magentaColor" (id as ptr) as ptr
+			  Declare function magentaColor lib UIKitLibname selector "magentaColor" (id as ptr) as ptr
 			  static mmagentaColor as  applecolor = new applecolor (magentaColor(classptr))
 			  return mmagentaColor
 			End Get
@@ -531,7 +531,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function orangeColor lib UIKit selector "orangeColor" (id as ptr) as ptr
+			  Declare function orangeColor lib UIKitLibname selector "orangeColor" (id as ptr) as ptr
 			  static morangeColor as  applecolor = new applecolor (orangeColor(classptr))
 			  return morangeColor
 			End Get
@@ -542,7 +542,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function purpleColor lib UIKit selector "purpleColor" (id as ptr) as ptr
+			  Declare function purpleColor lib UIKitLibname selector "purpleColor" (id as ptr) as ptr
 			  static mpurpleColor as  applecolor = new applecolor (purpleColor(classptr))
 			  return mpurpleColor
 			End Get
@@ -553,7 +553,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function redColor lib UIKit selector "redColor" (id as ptr) as ptr
+			  Declare function redColor lib UIKitLibname selector "redColor" (id as ptr) as ptr
 			  static mredColor as  applecolor = new applecolor (redColor(classptr))
 			  return mredColor
 			End Get
@@ -606,7 +606,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function whiteColor lib UIKit selector "whiteColor" (id as ptr) as ptr
+			  Declare function whiteColor lib UIKitLibname selector "whiteColor" (id as ptr) as ptr
 			  static mwhiteColor as  applecolor = new applecolor (whiteColor(classptr))
 			  return mwhiteColor
 			End Get
@@ -629,7 +629,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function yellowColor lib UIKit selector "yellowColor" (id as ptr) as ptr
+			  Declare function yellowColor lib UIKitLibname selector "yellowColor" (id as ptr) as ptr
 			  static myellowColor as  applecolor = new applecolor (yellowColor(classptr))
 			  return myellowColor
 			End Get

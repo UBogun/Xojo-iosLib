@@ -23,9 +23,9 @@ Inherits AppleGestureRecognizer
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function rotation lib UIKit selector "rotation" (id as ptr) as double
+			    Declare function rotation lib UIKitLibname selector "rotation" (id as ptr) as double
 			  #elseif Target32Bit
-			    Declare function rotation lib UIKit selector "rotation" (id as ptr) as single
+			    Declare function rotation lib UIKitLibname selector "rotation" (id as ptr) as single
 			  #endif
 			  return Rotation (id)
 			End Get
@@ -33,9 +33,9 @@ Inherits AppleGestureRecognizer
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setRotation lib UIKit selector "setRotation:" (id as ptr, value as double)
+			    Declare Sub setRotation lib UIKitLibname selector "setRotation:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    Declare Sub setRotation lib UIKit selector "setRotation:" (id as ptr, value as single)
+			    Declare Sub setRotation lib UIKitLibname selector "setRotation:" (id as ptr, value as single)
 			  #endif
 			  setrotation id, value
 			End Set
@@ -47,9 +47,9 @@ Inherits AppleGestureRecognizer
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function velocity lib UIKit selector "velocity" (id as ptr) as Double
+			    Declare function velocity lib UIKitLibname selector "velocity" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare function velocity lib UIKit selector "velocity" (id as ptr) as single
+			    Declare function velocity lib UIKitLibname selector "velocity" (id as ptr) as single
 			  #endif
 			  return velocity (id)
 			  

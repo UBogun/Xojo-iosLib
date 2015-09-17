@@ -4,10 +4,10 @@ Inherits AppleControl
 	#tag Method, Flags = &h0
 		Function ClearButtonRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function clearButtonRectForBounds lib UIKit selector "clearButtonRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
+		    Declare Function clearButtonRectForBounds lib UIKitLibname selector "clearButtonRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  clearButtonRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function clearButtonRectForBounds lib UIKit selector "clearButtonRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
+		    Declare Function clearButtonRectForBounds lib UIKitLibname selector "clearButtonRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  clearButtonRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -83,10 +83,10 @@ Inherits AppleControl
 	#tag Method, Flags = &h0
 		Function EditingRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function editingRectForBounds lib UIKit selector "editingRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
+		    Declare Function editingRectForBounds lib UIKitLibname selector "editingRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  editingRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function editingRectForBounds lib UIKit selector "editingRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
+		    Declare Function editingRectForBounds lib UIKitLibname selector "editingRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  editingRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -452,10 +452,10 @@ Inherits AppleControl
 	#tag Method, Flags = &h0
 		Function LeftViewRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function leftViewRectForBounds lib UIKit selector "leftViewRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
+		    Declare Function leftViewRectForBounds lib UIKitLibname selector "leftViewRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  leftViewRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function leftViewRectForBounds lib UIKit selector "leftViewRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
+		    Declare Function leftViewRectForBounds lib UIKitLibname selector "leftViewRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  leftViewRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -465,10 +465,10 @@ Inherits AppleControl
 	#tag Method, Flags = &h0
 		Function PlaceholderRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function placeholderRectForBounds lib UIKit selector "placeholderRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
+		    Declare Function placeholderRectForBounds lib UIKitLibname selector "placeholderRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  placeholderRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function placeholderRectForBounds lib UIKit selector "placeholderRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect) as FoundationFramework.NSRect32Bit
+		    Declare Function placeholderRectForBounds lib UIKitLibname selector "placeholderRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect) as FoundationFramework.NSRect32Bit
 		    return  placeholderRectForBounds (id, bounds).toNSRect
 		  #endif
 		  
@@ -487,10 +487,10 @@ Inherits AppleControl
 	#tag Method, Flags = &h0
 		Function RightViewRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function rightViewRectForBounds lib UIKit selector "rightViewRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
+		    Declare Function rightViewRectForBounds lib UIKitLibname selector "rightViewRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  rightViewRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function rightViewRectForBounds lib UIKit selector "rightViewRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
+		    Declare Function rightViewRectForBounds lib UIKitLibname selector "rightViewRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  rightViewRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -500,10 +500,10 @@ Inherits AppleControl
 	#tag Method, Flags = &h0
 		Function TextRectForBounds(Bounds as FoundationFramework.NSRect) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare Function textRectForBounds lib UIKit selector "textRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
+		    Declare Function textRectForBounds lib UIKitLibname selector "textRectForBounds:" (id as ptr, bounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 		    return  textRectForBounds (id, bounds)
 		  #elseif Target32Bit
-		    Declare Function textRectForBounds lib UIKit selector "textRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
+		    Declare Function textRectForBounds lib UIKitLibname selector "textRectForBounds:" (id as ptr, bounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 		    return  textRectForBounds (id, bounds.toNSRect32).toNSRect
 		  #endif
 		  
@@ -557,13 +557,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function allowsEditingTextAttributes lib UIKit selector "allowsEditingTextAttributes" (id as ptr) as boolean
+			  Declare Function allowsEditingTextAttributes lib UIKitLibname selector "allowsEditingTextAttributes" (id as ptr) as boolean
 			  return allowsEditingTextAttributes (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare Sub setAllowsEditingTextAttributes lib UIKit selector "setAllowsEditingTextAttributes:" (id as ptr, value as boolean)
+			  declare Sub setAllowsEditingTextAttributes lib UIKitLibname selector "setAllowsEditingTextAttributes:" (id as ptr, value as boolean)
 			  setAllowsEditingTextAttributes id, value
 			End Set
 		#tag EndSetter
@@ -596,13 +596,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function attributedPlaceholder lib UIKit selector "attributedPlaceholder" (id as ptr) as Ptr
+			  Declare Function attributedPlaceholder lib UIKitLibname selector "attributedPlaceholder" (id as ptr) as Ptr
 			  Return AppleAttributedString.MakeFromPtr (attributedPlaceholder (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAttributedPlaceholder lib UIKit selector "setAttributedPlaceholder:" (id as ptr, value as Ptr)
+			  Declare Sub setAttributedPlaceholder lib UIKitLibname selector "setAttributedPlaceholder:" (id as ptr, value as Ptr)
 			  setAttributedPlaceholder id, if ( value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -612,13 +612,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function background lib UIKit selector "background" (id as ptr) as ptr
+			  Declare Function background lib UIKitLibname selector "background" (id as ptr) as ptr
 			  return AppleImage.MakeFromPtr (background(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setBackground lib UIKit selector "setBackground:" (id as ptr, value as ptr)
+			  Declare sub setBackground lib UIKitLibname selector "setBackground:" (id as ptr, value as ptr)
 			  setBackground id, value.id
 			End Set
 		#tag EndSetter
@@ -628,13 +628,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare Function borderStyle lib UIKit selector "borderStyle" (id as ptr) as UITextFieldBorderStyle
+			  declare Function borderStyle lib UIKitLibname selector "borderStyle" (id as ptr) as UITextFieldBorderStyle
 			  return borderStyle (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare Sub setBorderStyle lib UIKit selector "setBorderStyle:" (id as ptr, style as UITextFieldBorderStyle)
+			  declare Sub setBorderStyle lib UIKitLibname selector "setBorderStyle:" (id as ptr, style as UITextFieldBorderStyle)
 			  setBorderStyle id, value
 			End Set
 		#tag EndSetter
@@ -709,13 +709,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function clearButtonMode lib UIKit selector "clearButtonMode" (id as ptr) as UITextFieldViewMode
+			  Declare Function clearButtonMode lib UIKitLibname selector "clearButtonMode" (id as ptr) as UITextFieldViewMode
 			  return clearButtonMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare Sub setClearButtonMode lib UIKit selector "setClearButtonMode:" (id as ptr, value as UITextFieldViewMode)
+			  declare Sub setClearButtonMode lib UIKitLibname selector "setClearButtonMode:" (id as ptr, value as UITextFieldViewMode)
 			  setClearButtonMode id, value
 			End Set
 		#tag EndSetter
@@ -734,13 +734,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function clearsOnBeginEditing lib UIKit selector "clearsOnBeginEditing" (id as ptr) as boolean
+			  Declare Function clearsOnBeginEditing lib UIKitLibname selector "clearsOnBeginEditing" (id as ptr) as boolean
 			  return clearsOnBeginEditing (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare Sub setClearsOnBeginEditing lib UIKit selector "setClearsOnBeginEditing:" (id as ptr, value as boolean)
+			  declare Sub setClearsOnBeginEditing lib UIKitLibname selector "setClearsOnBeginEditing:" (id as ptr, value as boolean)
 			  setClearsOnBeginEditing id, value
 			End Set
 		#tag EndSetter
@@ -750,13 +750,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function clearsOnInsertion lib UIKit selector "clearsOnInsertion" (id as ptr) as boolean
+			  Declare Function clearsOnInsertion lib UIKitLibname selector "clearsOnInsertion" (id as ptr) as boolean
 			  return clearsOnInsertion (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare Sub setClearsOnInsertion lib UIKit selector "setClearsOnInsertion:" (id as ptr, value as boolean)
+			  declare Sub setClearsOnInsertion lib UIKitLibname selector "setClearsOnInsertion:" (id as ptr, value as boolean)
 			  setClearsOnInsertion id, value
 			End Set
 		#tag EndSetter
@@ -766,13 +766,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function defaultTextAttributes lib UIKit selector "defaultTextAttributes" (id as ptr) as Ptr
+			  Declare Function defaultTextAttributes lib UIKitLibname selector "defaultTextAttributes" (id as ptr) as Ptr
 			  Return AppleDictionary.MakeFromPtr( defaultTextAttributes (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setdefaultTextAttributes lib UIKit selector "setdefaultTextAttributes:" (id as ptr, value as Ptr)
+			  Declare Sub setdefaultTextAttributes lib UIKitLibname selector "setdefaultTextAttributes:" (id as ptr, value as Ptr)
 			  setdefaultTextAttributes id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -796,13 +796,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function disabledBackground lib UIKit selector "disabledBackground" (id as ptr) as ptr
+			  Declare Function disabledBackground lib UIKitLibname selector "disabledBackground" (id as ptr) as ptr
 			  return AppleImage.MakeFromPtr (disabledBackground(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setDisabledBackground lib UIKit selector "setDisabledBackground:" (id as ptr, value as ptr)
+			  Declare sub setDisabledBackground lib UIKitLibname selector "setDisabledBackground:" (id as ptr, value as ptr)
 			  setDisabledBackground id, value.id
 			End Set
 		#tag EndSetter
@@ -830,7 +830,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function isEditing lib UIKit selector "isEditing" (id as ptr) as boolean
+			  Declare Function isEditing lib UIKitLibname selector "isEditing" (id as ptr) as boolean
 			  return isEditing (id)
 			End Get
 		#tag EndGetter
@@ -840,13 +840,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function leftView lib UIKit selector "leftView" (id as ptr) as ptr
+			  Declare Function leftView lib UIKitLibname selector "leftView" (id as ptr) as ptr
 			  return AppleView.MakeFromPtr (leftView(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setLeftView lib UIKit selector "setLeftView:" (id as ptr, value as ptr)
+			  Declare sub setLeftView lib UIKitLibname selector "setLeftView:" (id as ptr, value as ptr)
 			  setLeftView id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -856,13 +856,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function leftViewMode lib UIKit selector "leftViewMode" (id as ptr) as UITextFieldViewMode
+			  Declare Function leftViewMode lib UIKitLibname selector "leftViewMode" (id as ptr) as UITextFieldViewMode
 			  return leftViewMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare Sub setLeftViewMode lib UIKit selector "setLeftViewMode:" (id as ptr, value as UITextFieldViewMode)
+			  declare Sub setLeftViewMode lib UIKitLibname selector "setLeftViewMode:" (id as ptr, value as UITextFieldViewMode)
 			  setLeftViewMode id, value
 			End Set
 		#tag EndSetter
@@ -882,9 +882,9 @@ Inherits AppleControl
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare Function minimumFontSize lib UIKit selector "minimumFontSize" (id as ptr) as double
+			    Declare Function minimumFontSize lib UIKitLibname selector "minimumFontSize" (id as ptr) as double
 			  #elseif Target32Bit
-			    Declare Function minimumFontSize lib UIKit selector "minimumFontSize" (id as ptr) as single
+			    Declare Function minimumFontSize lib UIKitLibname selector "minimumFontSize" (id as ptr) as single
 			  #endif
 			  return  minimumFontSize (id)
 			  
@@ -893,9 +893,9 @@ Inherits AppleControl
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setMinimumFontSize lib UIKit selector "setMinimumFontSize:" (id as ptr, value as double)
+			    Declare Sub setMinimumFontSize lib UIKitLibname selector "setMinimumFontSize:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    Declare Sub setMinimumFontSize lib UIKit selector "setMinimumFontSize:" (id as ptr, value as single)
+			    Declare Sub setMinimumFontSize lib UIKitLibname selector "setMinimumFontSize:" (id as ptr, value as single)
 			  #endif
 			  setMinimumFontSize id, value
 			End Set
@@ -906,13 +906,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function placeholder lib UIKit selector "placeholder" (id as ptr) as CFStringRef
+			  Declare Function placeholder lib UIKitLibname selector "placeholder" (id as ptr) as CFStringRef
 			  Return placeholder (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setPlaceholder lib UIKit selector "setPlaceholder:" (id as ptr, value as CFStringRef)
+			  Declare Sub setPlaceholder lib UIKitLibname selector "setPlaceholder:" (id as ptr, value as CFStringRef)
 			  setPlaceholder id, value
 			End Set
 		#tag EndSetter
@@ -931,13 +931,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function rightView lib UIKit selector "rightView" (id as ptr) as ptr
+			  Declare Function rightView lib UIKitLibname selector "rightView" (id as ptr) as ptr
 			  return AppleView.MakeFromPtr (rightView(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setRightView lib UIKit selector "setRightView:" (id as ptr, value as ptr)
+			  Declare sub setRightView lib UIKitLibname selector "setRightView:" (id as ptr, value as ptr)
 			  setRightView id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -947,13 +947,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function rightViewMode lib UIKit selector "rightViewMode" (id as ptr) as UITextFieldViewMode
+			  Declare Function rightViewMode lib UIKitLibname selector "rightViewMode" (id as ptr) as UITextFieldViewMode
 			  return rightViewMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  declare Sub setRightViewMode lib UIKit selector "setRightViewMode:" (id as ptr, value as UITextFieldViewMode)
+			  declare Sub setRightViewMode lib UIKitLibname selector "setRightViewMode:" (id as ptr, value as UITextFieldViewMode)
 			  setRightViewMode id, value
 			End Set
 		#tag EndSetter
@@ -995,13 +995,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function typingAttributes lib UIKit selector "typingAttributes" (id as ptr) as ptr
+			  Declare Function typingAttributes lib UIKitLibname selector "typingAttributes" (id as ptr) as ptr
 			  return AppleDictionary.MakeFromPtr (typingAttributes(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setTypingAttributes lib UIKit selector "setTypingAttributes:" (id as ptr, value as ptr)
+			  Declare Sub setTypingAttributes lib UIKitLibname selector "setTypingAttributes:" (id as ptr, value as ptr)
 			  setTypingAttributes id, value.id
 			End Set
 		#tag EndSetter
@@ -1071,6 +1071,13 @@ Inherits AppleControl
 			Name="BorderStyle"
 			Group="Behavior"
 			Type="UITextFieldBorderStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - None"
+				"1 - Line"
+				"2 - Bezel"
+				"3 - RoundedRect"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Caption"
@@ -1081,6 +1088,13 @@ Inherits AppleControl
 			Name="ClearButtonMode"
 			Group="Behavior"
 			Type="UITextFieldViewMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Never"
+				"1 - WhileEditing"
+				"2 - UnlessEditing"
+				"3 - Always"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsContextBeforeDrawing"
@@ -1235,6 +1249,13 @@ Inherits AppleControl
 			Name="LeftViewMode"
 			Group="Behavior"
 			Type="UITextFieldViewMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Never"
+				"1 - WhileEditing"
+				"2 - UnlessEditing"
+				"3 - Always"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mHasOwnership"
@@ -1276,6 +1297,13 @@ Inherits AppleControl
 			Name="RightViewMode"
 			Group="Behavior"
 			Type="UITextFieldViewMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Never"
+				"1 - WhileEditing"
+				"2 - UnlessEditing"
+				"3 - Always"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Selected"

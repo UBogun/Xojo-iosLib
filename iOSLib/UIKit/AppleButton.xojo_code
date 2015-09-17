@@ -3,14 +3,14 @@ Protected Class AppleButton
 Inherits AppleControl
 	#tag Method, Flags = &h0
 		Function AttributedTitleForState(state as UIControlState) As AppleAttributedString
-		  Declare Function attributedTitleForState lib UIKit selector "attributedTitleForState:" (id as ptr, state as UIControlState) as Ptr
+		  Declare Function attributedTitleForState lib UIKitLibname selector "attributedTitleForState:" (id as ptr, state as UIControlState) as Ptr
 		  return AppleAttributedString.MakeFromPtr (attributedTitleForState (id, state))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function BackgroundImageForState(state as UIControlState) As AppleImage
-		  Declare Function backgroundImageForState lib UIKit selector "backgroundImageForState:" (id as ptr, state as UIControlState) as Ptr
+		  Declare Function backgroundImageForState lib UIKitLibname selector "backgroundImageForState:" (id as ptr, state as UIControlState) as Ptr
 		  return AppleImage.MakeFromPtr ( backgroundImageForState (id, state))
 		End Function
 	#tag EndMethod
@@ -23,7 +23,7 @@ Inherits AppleControl
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Type as UIButtonType)
-		  declare Function buttonWithType lib UIKit selector "buttonWithType:" (id as ptr, type as UIButtonType) as ptr
+		  declare Function buttonWithType lib UIKitLibname selector "buttonWithType:" (id as ptr, type as UIButtonType) as ptr
 		  super.Constructor (buttonWithType(ClassPtr, type))
 		  RetainClassObject
 		End Sub
@@ -31,70 +31,70 @@ Inherits AppleControl
 
 	#tag Method, Flags = &h0
 		Function ImageForState(state as UIControlState) As AppleImage
-		  Declare Function imageForState lib UIKit selector "imageForState:" (id as ptr, state as UIControlState) as Ptr
+		  Declare Function imageForState lib UIKitLibname selector "imageForState:" (id as ptr, state as UIControlState) as Ptr
 		  return AppleImage.MakeFromPtr ( imageForState (id, state))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetAttributedTitleForState(Title as appleattributedstring, state as UIControlState)
-		  Declare Sub setAttributedTitle lib UIKit selector "setAttributedTitle:forState:" (id as ptr, title as ptr, state as UIControlState)
+		  Declare Sub setAttributedTitle lib UIKitLibname selector "setAttributedTitle:forState:" (id as ptr, title as ptr, state as UIControlState)
 		  setAttributedTitle (id, Title.id, state)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetBackgroundImageForState(Image as Appleimage, state as UIControlState)
-		  Declare Sub SetBackgroundImageForState lib UIKit selector "setBackgroundImage:forState:" (id as ptr, image as ptr, state as UIControlState)
+		  Declare Sub SetBackgroundImageForState lib UIKitLibname selector "setBackgroundImage:forState:" (id as ptr, image as ptr, state as UIControlState)
 		  SetBackgroundImageForState (id, if (image = nil, nil, image.id), state)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetImageForState(Image as Appleimage, state as UIControlState)
-		  Declare Sub setImageForState lib UIKit selector "setImage:forState:" (id as ptr, image as ptr, state as UIControlState)
+		  Declare Sub setImageForState lib UIKitLibname selector "setImage:forState:" (id as ptr, image as ptr, state as UIControlState)
 		  setImageForState (id, if (image = nil, nil,  image.id), state)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetTitleColorForState(TitleColor as applecolor, state as UIControlState)
-		  Declare Sub SetTitleColorForState lib UIKit selector "setTitleColor:forState:" (id as ptr, titlecolor as ptr, state as UIControlState)
+		  Declare Sub SetTitleColorForState lib UIKitLibname selector "setTitleColor:forState:" (id as ptr, titlecolor as ptr, state as UIControlState)
 		  setTitleColorForState (id, TitleColor.id, state)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetTitleForState(Title as cfstringref, state as UIControlState)
-		  Declare Sub setTitleForState lib UIKit selector "setTitle:forState:" (id as ptr, title as cfstringref, state as UIControlState)
+		  Declare Sub setTitleForState lib UIKitLibname selector "setTitle:forState:" (id as ptr, title as cfstringref, state as UIControlState)
 		  setTitleForState (id, Title, state)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetTitleShadowColorForState(ShadowColor as applecolor, state as UIControlState)
-		  Declare Sub SetTitleShadowColorForState lib UIKit selector "setTitleShadowColor:forState:" (id as ptr, ShadowColor as ptr, state as UIControlState)
+		  Declare Sub SetTitleShadowColorForState lib UIKitLibname selector "setTitleShadowColor:forState:" (id as ptr, ShadowColor as ptr, state as UIControlState)
 		  setTitleShadowColorForState (id, ShadowColor.id, state)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function TitleColorForState(state as UIControlState) As AppleColor
-		  Declare Function titleColorForState lib UIKit selector "titleColorForState:" (id as ptr, state as UIControlState) as ptr
+		  Declare Function titleColorForState lib UIKitLibname selector "titleColorForState:" (id as ptr, state as UIControlState) as ptr
 		  return new applecolor (titleColorForState (id, state))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function TitleForState(state as UIControlState) As text
-		  Declare Function titleForState lib UIKit selector "titleForState:" (id as ptr, state as UIControlState) as CFStringRef
+		  Declare Function titleForState lib UIKitLibname selector "titleForState:" (id as ptr, state as UIControlState) as CFStringRef
 		  return titleForState (id, state)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function TitleShadowColorForState(state as UIControlState) As AppleColor
-		  Declare Function titleShadowColorForState lib UIKit selector "titleShadowColorForState:" (id as ptr, state as UIControlState) as ptr
+		  Declare Function titleShadowColorForState lib UIKitLibname selector "titleShadowColorForState:" (id as ptr, state as UIControlState) as ptr
 		  return new applecolor (titleShadowColorForState (id, state))
 		End Function
 	#tag EndMethod
@@ -103,14 +103,14 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function adjustsImageWhenDisabled lib UIKit selector "adjustsImageWhenDisabled" (id as ptr) as Boolean
+			  Declare function adjustsImageWhenDisabled lib UIKitLibname selector "adjustsImageWhenDisabled" (id as ptr) as Boolean
 			  return adjustsImageWhenDisabled (id)
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setAdjustsImageWhenDisabled lib UIKit selector "setAdjustsImageWhenDisabled:" (id as ptr, value as Boolean)
+			  Declare sub setAdjustsImageWhenDisabled lib UIKitLibname selector "setAdjustsImageWhenDisabled:" (id as ptr, value as Boolean)
 			  setAdjustsImageWhenDisabled (id, value)
 			End Set
 		#tag EndSetter
@@ -120,14 +120,14 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function adjustsImageWhenHighlighted lib UIKit selector "adjustsImageWhenHighlighted" (id as ptr) as Boolean
+			  Declare function adjustsImageWhenHighlighted lib UIKitLibname selector "adjustsImageWhenHighlighted" (id as ptr) as Boolean
 			  return adjustsImageWhenHighlighted (id)
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setAdjustsImageWhenHighlighted lib UIKit selector "setAdjustsImageWhenHighlighted:" (id as ptr, value as Boolean)
+			  Declare sub setAdjustsImageWhenHighlighted lib UIKitLibname selector "setAdjustsImageWhenHighlighted:" (id as ptr, value as Boolean)
 			  setAdjustsImageWhenHighlighted (id, value)
 			End Set
 		#tag EndSetter
@@ -137,7 +137,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function buttonType lib UIKit selector "buttonType" (id as ptr) as UIButtonType
+			  Declare function buttonType lib UIKitLibname selector "buttonType" (id as ptr) as UIButtonType
 			  return buttonType (id)
 			  
 			End Get
@@ -159,10 +159,10 @@ Inherits AppleControl
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function contentEdgeInsets lib UIKit selector "contentEdgeInsets" (id as ptr) as UIEdgeInsets
+			    Declare function contentEdgeInsets lib UIKitLibname selector "contentEdgeInsets" (id as ptr) as UIEdgeInsets
 			    return contentEdgeInsets (id)
 			  #elseif Target32Bit
-			    Declare function contentEdgeInsets lib UIKit selector "contentEdgeInsets" (id as ptr) as UIEdgeInsets32Bit
+			    Declare function contentEdgeInsets lib UIKitLibname selector "contentEdgeInsets" (id as ptr) as UIEdgeInsets32Bit
 			    return contentEdgeInsets(id).toUIEdgeInset
 			  #endif
 			End Get
@@ -170,10 +170,10 @@ Inherits AppleControl
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setContentEdgeInsets lib UIKit selector "setContentEdgeInsets:" (id as ptr, value as UIEdgeInsets)
+			    Declare Sub setContentEdgeInsets lib UIKitLibname selector "setContentEdgeInsets:" (id as ptr, value as UIEdgeInsets)
 			    setContentEdgeInsets (id, value)
 			  #elseif Target32Bit
-			    Declare Sub setContentEdgeInsets lib UIKit selector "setContentEdgeInsets:" (id as ptr, value as UIEdgeInsets32Bit)
+			    Declare Sub setContentEdgeInsets lib UIKitLibname selector "setContentEdgeInsets:" (id as ptr, value as UIEdgeInsets32Bit)
 			    setContentEdgeInsets (id, value.toUIEdgeInset32)
 			  #endif
 			End Set
@@ -184,7 +184,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentAttributedTitle lib UIKit selector "currentAttributedTitle" (id as ptr) as Ptr
+			  Declare function currentAttributedTitle lib UIKitLibname selector "currentAttributedTitle" (id as ptr) as Ptr
 			  return AppleAttributedString.MakeFromPtr ( currentAttributedTitle (id))
 			  
 			End Get
@@ -195,7 +195,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentBackgroundImage lib UIKit selector "currentBackgroundImage" (id as ptr) as Ptr
+			  Declare function currentBackgroundImage lib UIKitLibname selector "currentBackgroundImage" (id as ptr) as Ptr
 			  return new AppleImage (currentBackgroundImage (id))
 			End Get
 		#tag EndGetter
@@ -205,7 +205,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentImage lib UIKit selector "currentImage" (id as ptr) as Ptr
+			  Declare function currentImage lib UIKitLibname selector "currentImage" (id as ptr) as Ptr
 			  return new AppleImage (currentImage (id))
 			End Get
 		#tag EndGetter
@@ -215,7 +215,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentTitle lib UIKit selector "currentTitle" (id as ptr) as CFStringRef
+			  Declare function currentTitle lib UIKitLibname selector "currentTitle" (id as ptr) as CFStringRef
 			  return currentTitle (id)
 			  
 			End Get
@@ -226,7 +226,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentTitleColor lib UIKit selector "currentTitleColor" (id as ptr) as Ptr
+			  Declare function currentTitleColor lib UIKitLibname selector "currentTitleColor" (id as ptr) as Ptr
 			  return new AppleColor (currentTitleColor (id))
 			End Get
 		#tag EndGetter
@@ -236,7 +236,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentTitleShadowColor lib UIKit selector "currentTitleShadowColor" (id as ptr) as Ptr
+			  Declare function currentTitleShadowColor lib UIKitLibname selector "currentTitleShadowColor" (id as ptr) as Ptr
 			  return new AppleColor (currentTitleShadowColor (id))
 			End Get
 		#tag EndGetter
@@ -247,10 +247,10 @@ Inherits AppleControl
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function imageEdgeInsets lib UIKit selector "imageEdgeInsets" (id as ptr) as UIEdgeInsets
+			    Declare function imageEdgeInsets lib UIKitLibname selector "imageEdgeInsets" (id as ptr) as UIEdgeInsets
 			    return imageEdgeInsets (id)
 			  #elseif Target32Bit
-			    Declare function imageEdgeInsets lib UIKit selector "imageEdgeInsets" (id as ptr) as UIEdgeInsets32Bit
+			    Declare function imageEdgeInsets lib UIKitLibname selector "imageEdgeInsets" (id as ptr) as UIEdgeInsets32Bit
 			    return imageEdgeInsets(id).toUIEdgeInset
 			  #endif
 			End Get
@@ -258,10 +258,10 @@ Inherits AppleControl
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setImageEdgeInsets lib UIKit selector "setImageEdgeInsets:" (id as ptr, value as UIEdgeInsets)
+			    Declare Sub setImageEdgeInsets lib UIKitLibname selector "setImageEdgeInsets:" (id as ptr, value as UIEdgeInsets)
 			    setImageEdgeInsets (id, value)
 			  #elseif Target32Bit
-			    Declare Sub setImageEdgeInsets lib UIKit selector "setImageEdgeInsets:" (id as ptr, value as UIEdgeInsets32Bit)
+			    Declare Sub setImageEdgeInsets lib UIKitLibname selector "setImageEdgeInsets:" (id as ptr, value as UIEdgeInsets32Bit)
 			    setImageEdgeInsets (id, value.toUIEdgeInset32)
 			  #endif
 			End Set
@@ -272,7 +272,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare Function imageView lib uikit selector "imageView" (id as ptr) as ptr
+			  declare Function imageView lib UIKitLibname selector "imageView" (id as ptr) as ptr
 			  return new AppleView (imageView (id))
 			End Get
 		#tag EndGetter
@@ -282,14 +282,14 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function reversesTitleShadowWhenHighlighted lib UIKit selector "reversesTitleShadowWhenHighlighted" (id as ptr) as Boolean
+			  Declare function reversesTitleShadowWhenHighlighted lib UIKitLibname selector "reversesTitleShadowWhenHighlighted" (id as ptr) as Boolean
 			  return reversesTitleShadowWhenHighlighted (id)
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setReversesTitleShadowWhenHighlighted lib UIKit selector "setReversesTitleShadowWhenHighlighted:" (id as ptr, value as Boolean)
+			  Declare sub setReversesTitleShadowWhenHighlighted lib UIKitLibname selector "setReversesTitleShadowWhenHighlighted:" (id as ptr, value as Boolean)
 			  setReversesTitleShadowWhenHighlighted (id, value)
 			End Set
 		#tag EndSetter
@@ -299,14 +299,14 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function showsTouchWhenHighlighted lib UIKit selector "showsTouchWhenHighlighted" (id as ptr) as Boolean
+			  Declare function showsTouchWhenHighlighted lib UIKitLibname selector "showsTouchWhenHighlighted" (id as ptr) as Boolean
 			  return showsTouchWhenHighlighted (id)
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setShowsTouchWhenHighlighted lib UIKit selector "setShowsTouchWhenHighlighted:" (id as ptr, value as Boolean)
+			  Declare sub setShowsTouchWhenHighlighted lib UIKitLibname selector "setShowsTouchWhenHighlighted:" (id as ptr, value as Boolean)
 			  setShowsTouchWhenHighlighted (id, value)
 			End Set
 		#tag EndSetter
@@ -316,14 +316,14 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function tintColor lib UIKit selector "tintColor" (id as ptr) as Ptr
+			  Declare function tintColor lib UIKitLibname selector "tintColor" (id as ptr) as Ptr
 			  return new applecolor (tintColor (id))
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setTintColor lib UIKit selector "setTintColor:" (id as ptr, value as Ptr)
+			  Declare sub setTintColor lib UIKitLibname selector "setTintColor:" (id as ptr, value as Ptr)
 			  setTintColor (id, value.id)
 			End Set
 		#tag EndSetter
@@ -334,10 +334,10 @@ Inherits AppleControl
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function titleEdgeInsets lib UIKit selector "titleEdgeInsets" (id as ptr) as UIEdgeInsets
+			    Declare function titleEdgeInsets lib UIKitLibname selector "titleEdgeInsets" (id as ptr) as UIEdgeInsets
 			    return titleEdgeInsets (id)
 			  #elseif Target32Bit
-			    Declare function titleEdgeInsets lib UIKit selector "titleEdgeInsets" (id as ptr) as UIEdgeInsets32Bit
+			    Declare function titleEdgeInsets lib UIKitLibname selector "titleEdgeInsets" (id as ptr) as UIEdgeInsets32Bit
 			    return titleEdgeInsets(id).toUIEdgeInset
 			  #endif
 			End Get
@@ -345,10 +345,10 @@ Inherits AppleControl
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setTitleEdgeInsets lib UIKit selector "setTitleEdgeInsets:" (id as ptr, value as UIEdgeInsets)
+			    Declare Sub setTitleEdgeInsets lib UIKitLibname selector "setTitleEdgeInsets:" (id as ptr, value as UIEdgeInsets)
 			    setTitleEdgeInsets (id, value)
 			  #elseif Target32Bit
-			    Declare Sub setTitleEdgeInsets lib UIKit selector "setTitleEdgeInsets:" (id as ptr, value as UIEdgeInsets32Bit)
+			    Declare Sub setTitleEdgeInsets lib UIKitLibname selector "setTitleEdgeInsets:" (id as ptr, value as UIEdgeInsets32Bit)
 			    setTitleEdgeInsets (id, value.toUIEdgeInset32)
 			  #endif
 			End Set
@@ -359,7 +359,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare Function titleLabel lib uikit selector "titleLabel" (id as ptr) as ptr
+			  declare Function titleLabel lib UIKitLibname selector "titleLabel" (id as ptr) as ptr
 			  return new AppleLabel (titleLabel (id))
 			End Get
 		#tag EndGetter
@@ -428,6 +428,7 @@ Inherits AppleControl
 			Name="ContentHorizontalAlignment"
 			Group="Behavior"
 			Type="UIControlContentHorizontalAlignment"
+			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentMode"
@@ -459,6 +460,7 @@ Inherits AppleControl
 			Name="ContentVerticalAlignment"
 			Group="Behavior"
 			Type="UIControlContentVerticalAlignment"
+			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CurrentTitle"
@@ -584,6 +586,7 @@ Inherits AppleControl
 			Name="State"
 			Group="Behavior"
 			Type="UIControlState"
+			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

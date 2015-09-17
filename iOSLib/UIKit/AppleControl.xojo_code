@@ -3,35 +3,35 @@ Protected Class AppleControl
 Inherits AppleView
 	#tag Method, Flags = &h0
 		Function Actions(Target as appleobject, Events as UIControlEvent) As AppleArray
-		  Declare function actionsForTarget lib UIKit selector "actionsForTarget:forControlEvents:" (id as ptr, target as ptr, events as UInteger) as ptr
+		  Declare function actionsForTarget lib UIKitLibname selector "actionsForTarget:forControlEvents:" (id as ptr, target as ptr, events as UInteger) as ptr
 		  return AppleArray.MakeFromPtr (actionsForTarget(id, Target.id, Events.id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub AddTarget(Target as appleobject, SEL as Ptr, Events as UIControlEvent)
-		  Declare Sub addTarget lib UIKit selector "addTarget:action:forControlEvents:" (id as ptr, target as ptr, SEL as ptr, events as UInteger)
+		  Declare Sub addTarget lib UIKitLibname selector "addTarget:action:forControlEvents:" (id as ptr, target as ptr, SEL as ptr, events as UInteger)
 		  addTarget id, target.id, sel, Events.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub RemoveTarget(Target as appleobject, SEL as Ptr, Events as UIControlEvent)
-		  Declare Sub removeTarget lib UIKit selector "removeTarget:action:forControlEvents:" (id as ptr, target as ptr, SEL as ptr, events as UInteger)
+		  Declare Sub removeTarget lib UIKitLibname selector "removeTarget:action:forControlEvents:" (id as ptr, target as ptr, SEL as ptr, events as UInteger)
 		  removeTarget id, target.id, sel, Events.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SendAction(SEL as Ptr, Target as AppleObject, UIEvent as AppleNSEvent)
-		  Declare Sub sendActionTo lib UIKit selector "sendAction:to:forEvent:" (id as ptr, SEL as ptr, Target as Ptr, UIEvent as ptr)
+		  Declare Sub sendActionTo lib UIKitLibname selector "sendAction:to:forEvent:" (id as ptr, SEL as ptr, Target as Ptr, UIEvent as ptr)
 		  SendActionTo id, SEL, Target.id, UIEvent.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SendActions(Events as UIControlEvent)
-		  Declare Sub sendActions lib UIKit selector "sendActionsForControlEvents:" (id as ptr, events as UInteger)
+		  Declare Sub sendActions lib UIKitLibname selector "sendActionsForControlEvents:" (id as ptr, events as UInteger)
 		  SendActions id, Events.id
 		End Sub
 	#tag EndMethod
@@ -40,7 +40,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function allControlEvents lib UIKit selector "allControlEvents" (id as ptr) as UInteger
+			  Declare function allControlEvents lib UIKitLibname selector "allControlEvents" (id as ptr) as UInteger
 			  return new UIControlEvent(allControlEvents(id))
 			End Get
 		#tag EndGetter
@@ -50,7 +50,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function allTargets lib UIKit selector "allTargets" (id as ptr) as ptr
+			  Declare function allTargets lib UIKitLibname selector "allTargets" (id as ptr) as ptr
 			  return appleset.MakeFromPtr (allTargets(id))
 			End Get
 		#tag EndGetter
@@ -70,13 +70,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function contentHorizontalAlignment lib UIKit selector "contentHorizontalAlignment" (id as ptr) as UIControlContentHorizontalAlignment
+			  Declare function contentHorizontalAlignment lib UIKitLibname selector "contentHorizontalAlignment" (id as ptr) as UIControlContentHorizontalAlignment
 			  return contentHorizontalAlignment (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setcontentHorizontalAlignment lib UIKit selector "contentHorizontalAlignment:" (id as ptr, value as UIControlContentHorizontalAlignment)
+			  Declare Sub setcontentHorizontalAlignment lib UIKitLibname selector "contentHorizontalAlignment:" (id as ptr, value as UIControlContentHorizontalAlignment)
 			  setcontentHorizontalAlignment id, value
 			End Set
 		#tag EndSetter
@@ -86,13 +86,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function contentVerticalAlignment lib UIKit selector "contentVerticalAlignment" (id as ptr) as UIControlContentVerticalAlignment
+			  Declare function contentVerticalAlignment lib UIKitLibname selector "contentVerticalAlignment" (id as ptr) as UIControlContentVerticalAlignment
 			  return contentVerticalAlignment (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setContentVerticalAlignment lib UIKit selector "setContentVerticalAlignment:" (id as ptr, value as UIControlContentVerticalAlignment)
+			  Declare Sub setContentVerticalAlignment lib UIKitLibname selector "setContentVerticalAlignment:" (id as ptr, value as UIControlContentVerticalAlignment)
 			  setContentVerticalAlignment id, value
 			End Set
 		#tag EndSetter
@@ -102,13 +102,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function enabled lib UIKit selector "isEnabled" (id as ptr) as Boolean
+			  Declare function enabled lib UIKitLibname selector "isEnabled" (id as ptr) as Boolean
 			  return enabled (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setEnabled lib UIKit selector "setEnabled:" (id as ptr, value as Boolean)
+			  Declare sub setEnabled lib UIKitLibname selector "setEnabled:" (id as ptr, value as Boolean)
 			  setenabled id, value
 			End Set
 		#tag EndSetter
@@ -118,13 +118,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function Highlighted lib UIKit selector "isHighlighted" (id as ptr) as Boolean
+			  Declare function Highlighted lib UIKitLibname selector "isHighlighted" (id as ptr) as Boolean
 			  return Highlighted (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setHighlighted lib UIKit selector "setHighlighted:" (id as ptr, value as Boolean)
+			  Declare sub setHighlighted lib UIKitLibname selector "setHighlighted:" (id as ptr, value as Boolean)
 			  setHighlighted id, value
 			End Set
 		#tag EndSetter
@@ -134,13 +134,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function selected lib UIKit selector "isSelected" (id as ptr) as Boolean
+			  Declare function selected lib UIKitLibname selector "isSelected" (id as ptr) as Boolean
 			  return selected (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setSelected lib UIKit selector "setSelected:" (id as ptr, value as Boolean)
+			  Declare sub setSelected lib UIKitLibname selector "setSelected:" (id as ptr, value as Boolean)
 			  setSelected id, value
 			End Set
 		#tag EndSetter
@@ -150,7 +150,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function state lib UIKit selector "state" (id as ptr) as UIControlState
+			  Declare function state lib UIKitLibname selector "state" (id as ptr) as UIControlState
 			  return state (id)
 			End Get
 		#tag EndGetter
@@ -160,7 +160,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function isTouchInside lib UIKit selector "isTouchInside" (id as ptr) as Boolean
+			  Declare function isTouchInside lib UIKitLibname selector "isTouchInside" (id as ptr) as Boolean
 			  return isTouchInside (id)
 			End Get
 		#tag EndGetter
@@ -170,7 +170,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function tracking lib UIKit selector "isTracking" (id as ptr) as Boolean
+			  Declare function tracking lib UIKitLibname selector "isTracking" (id as ptr) as Boolean
 			  return tracking (id)
 			End Get
 		#tag EndGetter

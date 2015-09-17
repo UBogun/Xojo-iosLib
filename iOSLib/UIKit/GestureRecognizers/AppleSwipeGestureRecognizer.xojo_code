@@ -22,13 +22,13 @@ Inherits AppleGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function direction lib UIKit selector "direction" (id as ptr) as uinteger
+			  Declare function direction lib UIKitLibname selector "direction" (id as ptr) as uinteger
 			  return new UISwipeGestureRecognizerDirection (direction (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setDirection lib UIKit selector "setDirection" (id as ptr, value as uinteger)
+			  Declare Sub setDirection lib UIKitLibname selector "setDirection" (id as ptr, value as uinteger)
 			  setDirection id, value.id
 			End Set
 		#tag EndSetter

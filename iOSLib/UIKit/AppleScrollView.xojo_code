@@ -4,10 +4,10 @@ Inherits AppleView
 	#tag Method, Flags = &h0
 		Sub AnimateContentOffset(value as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub setContentOffsetAnimated lib UIKit selector "setContentOffset:animated:" (id as ptr, value as FoundationFramework.NSPoint, animated as boolean)
+		    Declare sub setContentOffsetAnimated lib UIKitLibname selector "setContentOffset:animated:" (id as ptr, value as FoundationFramework.NSPoint, animated as boolean)
 		    setContentOffsetAnimated (id, value, true)
 		  #elseif Target32Bit
-		    Declare sub setContentOffsetAnimated lib UIKit selector "setContentOffset:animated:" (id as ptr, value as FoundationFramework.NSPoint32Bit, animated as boolean)
+		    Declare sub setContentOffsetAnimated lib UIKitLibname selector "setContentOffset:animated:" (id as ptr, value as FoundationFramework.NSPoint32Bit, animated as boolean)
 		    setContentOffsetAnimated (id, value.toNSPoint32, true)
 		  #endif
 		End Sub
@@ -78,7 +78,7 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0
 		Sub FlashScrollIndicators()
-		  Declare sub flashScrollIndicators lib UIKit selector "flashScrollIndicators" (id as ptr)
+		  Declare sub flashScrollIndicators lib UIKitLibname selector "flashScrollIndicators" (id as ptr)
 		  flashScrollIndicators id
 		End Sub
 	#tag EndMethod
@@ -658,10 +658,10 @@ Inherits AppleView
 	#tag Method, Flags = &h0
 		Sub ScrollToRect(value as FoundationFramework.NSRect)
 		  #if Target64Bit
-		    Declare sub scrollRectToVisible lib UIKit selector "scrollRectToVisible:animated:" (id as ptr, value  as FoundationFramework.NSRect, animated as boolean)
+		    Declare sub scrollRectToVisible lib UIKitLibname selector "scrollRectToVisible:animated:" (id as ptr, value  as FoundationFramework.NSRect, animated as boolean)
 		    scrollRectToVisible (id, value, true)
 		  #elseif Target32Bit
-		    Declare sub scrollRectToVisible lib UIKit selector "scrollRectToVisible:animated:" (id as ptr, value as FoundationFramework.NSRect32Bit, animated as boolean)
+		    Declare sub scrollRectToVisible lib UIKitLibname selector "scrollRectToVisible:animated:" (id as ptr, value as FoundationFramework.NSRect32Bit, animated as boolean)
 		    scrollRectToVisible (id, value.toNSRect32, true)
 		  #endif
 		End Sub
@@ -670,9 +670,9 @@ Inherits AppleView
 	#tag Method, Flags = &h0
 		Sub SetZoomScale(value as Double)
 		  #if Target64Bit
-		    Declare sub setZoomScale lib UIKit selector "setZoomScale:animated:" (id as ptr, value as double, animated as boolean)
+		    Declare sub setZoomScale lib UIKitLibname selector "setZoomScale:animated:" (id as ptr, value as double, animated as boolean)
 		  #elseif Target32Bit
-		    Declare sub setZoomScale lib UIKit selector "setZoomScale:animated:" (id as ptr, value as single, animated as boolean)
+		    Declare sub setZoomScale lib UIKitLibname selector "setZoomScale:animated:" (id as ptr, value as single, animated as boolean)
 		    setZoomScale (id, value, true)
 		  #endif
 		End Sub
@@ -681,10 +681,10 @@ Inherits AppleView
 	#tag Method, Flags = &h0
 		Sub ZoomToRect(value as FoundationFramework.NSRect, animated as boolean = true)
 		  #if Target64Bit
-		    Declare sub zoomToRect lib UIKit selector "zoomToRect:animated:" (id as ptr, value  as FoundationFramework.NSRect, animated as boolean)
+		    Declare sub zoomToRect lib UIKitLibname selector "zoomToRect:animated:" (id as ptr, value  as FoundationFramework.NSRect, animated as boolean)
 		    zoomToRect (id, value, animated)
 		  #elseif Target32Bit
-		    Declare sub zoomToRect lib UIKit selector "zoomToRect:animated:" (id as ptr, value as FoundationFramework.NSRect32Bit, animated as boolean)
+		    Declare sub zoomToRect lib UIKitLibname selector "zoomToRect:animated:" (id as ptr, value as FoundationFramework.NSRect32Bit, animated as boolean)
 		    zoomToRect (id, value.toNSRect32, animated)
 		  #endif
 		End Sub
@@ -751,13 +751,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function alwaysBounceHorizontal lib UIKit selector "alwaysBounceHorizontal" (id as ptr) as Boolean
+			  Declare Function alwaysBounceHorizontal lib UIKitLibname selector "alwaysBounceHorizontal" (id as ptr) as Boolean
 			  Return alwaysBounceHorizontal (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAlwaysBounceHorizontal lib UIKit selector "setAlwaysBounceHorizontal:" (id as ptr, value as Boolean)
+			  Declare Sub setAlwaysBounceHorizontal lib UIKitLibname selector "setAlwaysBounceHorizontal:" (id as ptr, value as Boolean)
 			  setAlwaysBounceHorizontal id, value
 			End Set
 		#tag EndSetter
@@ -767,13 +767,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function alwaysBounceVertical lib UIKit selector "alwaysBounceVertical" (id as ptr) as Boolean
+			  Declare Function alwaysBounceVertical lib UIKitLibname selector "alwaysBounceVertical" (id as ptr) as Boolean
 			  Return alwaysBounceVertical (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAlwaysBounceVertical lib UIKit selector "setAlwaysBounceVertical:" (id as ptr, value as Boolean)
+			  Declare Sub setAlwaysBounceVertical lib UIKitLibname selector "setAlwaysBounceVertical:" (id as ptr, value as Boolean)
 			  setAlwaysBounceVertical id, value
 			End Set
 		#tag EndSetter
@@ -783,13 +783,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function bounces lib UIKit selector "bounces" (id as ptr) as Boolean
+			  Declare Function bounces lib UIKitLibname selector "bounces" (id as ptr) as Boolean
 			  Return bounces (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setBounces lib UIKit selector "setBounces:" (id as ptr, value as Boolean)
+			  Declare Sub setBounces lib UIKitLibname selector "setBounces:" (id as ptr, value as Boolean)
 			  setBounces id, value
 			End Set
 		#tag EndSetter
@@ -799,13 +799,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function bouncesZoom lib UIKit selector "bouncesZoom" (id as ptr) as Boolean
+			  Declare Function bouncesZoom lib UIKitLibname selector "bouncesZoom" (id as ptr) as Boolean
 			  Return bouncesZoom (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setBouncesZoom lib UIKit selector "setBouncesZoom:" (id as ptr, value as Boolean)
+			  Declare Sub setBouncesZoom lib UIKitLibname selector "setBouncesZoom:" (id as ptr, value as Boolean)
 			  setBouncesZoom id, value
 			End Set
 		#tag EndSetter
@@ -815,13 +815,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function canCancelContentTouches lib UIKit selector "canCancelContentTouches" (id as ptr) as Boolean
+			  Declare Function canCancelContentTouches lib UIKitLibname selector "canCancelContentTouches" (id as ptr) as Boolean
 			  Return canCancelContentTouches (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setCanCancelContentTouches lib UIKit selector "setCanCancelContentTouches:" (id as ptr, value as Boolean)
+			  Declare Sub setCanCancelContentTouches lib UIKitLibname selector "setCanCancelContentTouches:" (id as ptr, value as Boolean)
 			  setCanCancelContentTouches id, value
 			End Set
 		#tag EndSetter
@@ -903,10 +903,10 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function contentInset lib UIKit selector "contentInset" (id as ptr) as UIEdgeInsets
+			    Declare function contentInset lib UIKitLibname selector "contentInset" (id as ptr) as UIEdgeInsets
 			    return contentInset (id)
 			  #elseif Target32Bit
-			    Declare function contentInset lib UIKit selector "contentInset" (id as ptr) as UIEdgeInsets32Bit
+			    Declare function contentInset lib UIKitLibname selector "contentInset" (id as ptr) as UIEdgeInsets32Bit
 			    return contentInset(id).toUIEdgeInset
 			  #endif
 			End Get
@@ -914,10 +914,10 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setContentInset lib UIKit selector "setContentInset:" (id as ptr, value as UIEdgeInsets)
+			    Declare Sub setContentInset lib UIKitLibname selector "setContentInset:" (id as ptr, value as UIEdgeInsets)
 			    setContentInset (id, value)
 			  #elseif Target32Bit
-			    Declare Sub setContentInset lib UIKit selector "setContentInset:" (id as ptr, value as UIEdgeInsets32Bit)
+			    Declare Sub setContentInset lib UIKitLibname selector "setContentInset:" (id as ptr, value as UIEdgeInsets32Bit)
 			    setContentInset (id, value.toUIEdgeInset32)
 			  #endif
 			End Set
@@ -929,10 +929,10 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function contentOffset lib UIKit selector "contentOffset" (id as ptr) as FoundationFramework.NSPoint
+			    Declare function contentOffset lib UIKitLibname selector "contentOffset" (id as ptr) as FoundationFramework.NSPoint
 			    return contentOffset (id)
 			  #elseif Target32Bit
-			    Declare function contentOffset lib UIKit selector "contentOffset" (id as ptr) as FoundationFramework.NSPoint32Bit
+			    Declare function contentOffset lib UIKitLibname selector "contentOffset" (id as ptr) as FoundationFramework.NSPoint32Bit
 			    return contentOffset(id).toNSPoint
 			  #endif
 			End Get
@@ -940,10 +940,10 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setContentOffset lib UIKit selector "setContentOffset:" (id as ptr, value as FoundationFramework.NSPoint)
+			    Declare sub setContentOffset lib UIKitLibname selector "setContentOffset:" (id as ptr, value as FoundationFramework.NSPoint)
 			    setContentOffset (id, value)
 			  #elseif Target32Bit
-			    Declare sub setContentOffset lib UIKit selector "setContentOffset:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
+			    Declare sub setContentOffset lib UIKitLibname selector "setContentOffset:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setContentOffset (id, value.toNSPoint32)
 			  #endif
 			End Set
@@ -955,10 +955,10 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function contentSize lib UIKit selector "contentSize" (id as ptr) as FoundationFramework.NSSize
+			    Declare function contentSize lib UIKitLibname selector "contentSize" (id as ptr) as FoundationFramework.NSSize
 			    return contentSize (id)
 			  #elseif Target32Bit
-			    Declare function contentSize lib UIKit selector "contentSize" (id as ptr) as FoundationFramework.NSSize32Bit
+			    Declare function contentSize lib UIKitLibname selector "contentSize" (id as ptr) as FoundationFramework.NSSize32Bit
 			    return contentSize(id).toNSSize
 			  #endif
 			End Get
@@ -966,10 +966,10 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setContentSize lib UIKit selector "setContentSize:" (id as ptr, value as FoundationFramework.NSSize)
+			    Declare sub setContentSize lib UIKitLibname selector "setContentSize:" (id as ptr, value as FoundationFramework.NSSize)
 			    setcontentSize (id, value)
 			  #elseif Target32Bit
-			    Declare sub setContentSize lib UIKit selector "setContentSize:" (id as ptr, value as FoundationFramework.NSSize32Bit)
+			    Declare sub setContentSize lib UIKitLibname selector "setContentSize:" (id as ptr, value as FoundationFramework.NSSize32Bit)
 			    setcontentSize (id, value.toNSSize32)
 			  #endif
 			End Set
@@ -1016,7 +1016,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function decelerating lib UIKit selector "isDecelerating" (id as ptr) as Boolean
+			  Declare Function decelerating lib UIKitLibname selector "isDecelerating" (id as ptr) as Boolean
 			  Return decelerating (id)
 			End Get
 		#tag EndGetter
@@ -1027,9 +1027,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function decelerationRate lib UIKit selector "decelerationRate" (id as ptr) as Double
+			    Declare function decelerationRate lib UIKitLibname selector "decelerationRate" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare function decelerationRate lib UIKit selector "decelerationRate" (id as ptr) as Single
+			    Declare function decelerationRate lib UIKitLibname selector "decelerationRate" (id as ptr) as Single
 			  #endif
 			  return decelerationRate (id)
 			  
@@ -1038,9 +1038,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setDecelerationRate lib UIKit selector "setDecelerationRate:" (id as ptr, value as double)
+			    Declare sub setDecelerationRate lib UIKitLibname selector "setDecelerationRate:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    Declare sub setDecelerationRate lib UIKit selector "setDecelerationRate:" (id as ptr, value as single)
+			    Declare sub setDecelerationRate lib UIKitLibname selector "setDecelerationRate:" (id as ptr, value as single)
 			  #endif
 			  setDecelerationRate (id, value)
 			  
@@ -1052,13 +1052,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function delaysContentTouches lib UIKit selector "delaysContentTouches" (id as ptr) as Boolean
+			  Declare Function delaysContentTouches lib UIKitLibname selector "delaysContentTouches" (id as ptr) as Boolean
 			  Return delaysContentTouches (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setDelaysContentTouches lib UIKit selector "setDelaysContentTouches:" (id as ptr, value as Boolean)
+			  Declare Sub setDelaysContentTouches lib UIKitLibname selector "setDelaysContentTouches:" (id as ptr, value as Boolean)
 			  setDelaysContentTouches id, value
 			End Set
 		#tag EndSetter
@@ -1082,13 +1082,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function directionalLockEnabled lib UIKit selector "isDirectionalLockEnabled" (id as ptr) as Boolean
+			  Declare Function directionalLockEnabled lib UIKitLibname selector "isDirectionalLockEnabled" (id as ptr) as Boolean
 			  Return directionalLockEnabled (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setDirectionalLockEnabled lib UIKit selector "setDirectionalLockEnabled:" (id as ptr, value as Boolean)
+			  Declare Sub setDirectionalLockEnabled lib UIKitLibname selector "setDirectionalLockEnabled:" (id as ptr, value as Boolean)
 			  setDirectionalLockEnabled id, value
 			End Set
 		#tag EndSetter
@@ -1109,7 +1109,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function dragging lib UIKit selector "isDragging" (id as ptr) as Boolean
+			  Declare Function dragging lib UIKitLibname selector "isDragging" (id as ptr) as Boolean
 			  Return dragging (id)
 			End Get
 		#tag EndGetter
@@ -1123,13 +1123,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function indicatorStyle lib UIKit selector "indicatorStyle" (id as ptr) as UIScrollViewIndicatorStyle
+			  Declare Function indicatorStyle lib UIKitLibname selector "indicatorStyle" (id as ptr) as UIScrollViewIndicatorStyle
 			  Return indicatorStyle (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setIndicatorStyle lib UIKit selector "setIndicatorStyle:" (id as ptr, value as UIScrollViewIndicatorStyle)
+			  Declare Sub setIndicatorStyle lib UIKitLibname selector "setIndicatorStyle:" (id as ptr, value as UIScrollViewIndicatorStyle)
 			  setIndicatorStyle id, value
 			End Set
 		#tag EndSetter
@@ -1139,13 +1139,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function keyboardDismissMode lib UIKit selector "keyboardDismissMode" (id as ptr) as UIScrollViewKeyboardDismissMode
+			  Declare Function keyboardDismissMode lib UIKitLibname selector "keyboardDismissMode" (id as ptr) as UIScrollViewKeyboardDismissMode
 			  Return keyboardDismissMode (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setKeyboardDismissMode lib UIKit selector "setKeyboardDismissMode:" (id as ptr, value as UIScrollViewKeyboardDismissMode)
+			  Declare Sub setKeyboardDismissMode lib UIKitLibname selector "setKeyboardDismissMode:" (id as ptr, value as UIScrollViewKeyboardDismissMode)
 			  setKeyboardDismissMode id, value
 			End Set
 		#tag EndSetter
@@ -1156,9 +1156,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function maximumZoomScale lib UIKit selector "maximumZoomScale" (id as ptr) as Double
+			    Declare function maximumZoomScale lib UIKitLibname selector "maximumZoomScale" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare function maximumZoomScale lib UIKit selector "maximumZoomScale" (id as ptr) as Single
+			    Declare function maximumZoomScale lib UIKitLibname selector "maximumZoomScale" (id as ptr) as Single
 			  #endif
 			  return maximumZoomScale (id)
 			  
@@ -1167,9 +1167,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setMaximumZoomScale lib UIKit selector "setMaximumZoomScale:" (id as ptr, value as double)
+			    Declare sub setMaximumZoomScale lib UIKitLibname selector "setMaximumZoomScale:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    Declare sub setMaximumZoomScale lib UIKit selector "setMaximumZoomScale:" (id as ptr, value as single)
+			    Declare sub setMaximumZoomScale lib UIKitLibname selector "setMaximumZoomScale:" (id as ptr, value as single)
 			  #endif
 			  setMaximumZoomScale (id, value)
 			  
@@ -1182,9 +1182,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function minimumZoomScale lib UIKit selector "minimumZoomScale" (id as ptr) as Double
+			    Declare function minimumZoomScale lib UIKitLibname selector "minimumZoomScale" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare function minimumZoomScale lib UIKit selector "minimumZoomScale" (id as ptr) as Single
+			    Declare function minimumZoomScale lib UIKitLibname selector "minimumZoomScale" (id as ptr) as Single
 			  #endif
 			  return minimumZoomScale (id)
 			  
@@ -1193,9 +1193,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setMinimumZoomScale lib UIKit selector "setMinimumZoomScale:" (id as ptr, value as double)
+			    Declare sub setMinimumZoomScale lib UIKitLibname selector "setMinimumZoomScale:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    Declare sub setMinimumZoomScale lib UIKit selector "setMinimumZoomScale:" (id as ptr, value as single)
+			    Declare sub setMinimumZoomScale lib UIKitLibname selector "setMinimumZoomScale:" (id as ptr, value as single)
 			  #endif
 			  setMinimumZoomScale (id, value)
 			  
@@ -1207,13 +1207,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function isPagingEnabled lib UIKit selector "isPagingEnabled" (id as ptr) as Boolean
+			  Declare Function isPagingEnabled lib UIKitLibname selector "isPagingEnabled" (id as ptr) as Boolean
 			  Return isPagingEnabled (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setPagingEnabled lib UIKit selector "setPagingEnabled:" (id as ptr, value as Boolean)
+			  Declare Sub setPagingEnabled lib UIKitLibname selector "setPagingEnabled:" (id as ptr, value as Boolean)
 			  setPagingEnabled id, value
 			End Set
 		#tag EndSetter
@@ -1223,7 +1223,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function panGestureRecognizer lib UIKit selector "panGestureRecognizer" (id as ptr) as Ptr
+			  Declare function panGestureRecognizer lib UIKitLibname selector "panGestureRecognizer" (id as ptr) as Ptr
 			  return ApplePanGestureRecognizer.MakeFromPtr (panGestureRecognizer (id))
 			  
 			End Get
@@ -1234,7 +1234,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function pinchGestureRecognizer lib UIKit selector "pinchGestureRecognizer" (id as ptr) as Ptr
+			  Declare function pinchGestureRecognizer lib UIKitLibname selector "pinchGestureRecognizer" (id as ptr) as Ptr
 			  return ApplePinchGestureRecognizer.MakeFromPtr (pinchGestureRecognizer (id))
 			  
 			End Get
@@ -1245,13 +1245,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function scrollEnabled lib UIKit selector "isScrollEnabled" (id as ptr) as Boolean
+			  Declare Function scrollEnabled lib UIKitLibname selector "isScrollEnabled" (id as ptr) as Boolean
 			  Return scrollEnabled (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setScrollEnabled lib UIKit selector "setScrollEnabled:" (id as ptr, value as Boolean)
+			  Declare Sub setScrollEnabled lib UIKitLibname selector "setScrollEnabled:" (id as ptr, value as Boolean)
 			  setScrollEnabled id, value
 			End Set
 		#tag EndSetter
@@ -1262,10 +1262,10 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function scrollIndicatorInsets lib UIKit selector "scrollIndicatorInsets" (id as ptr) as UIEdgeInsets
+			    Declare function scrollIndicatorInsets lib UIKitLibname selector "scrollIndicatorInsets" (id as ptr) as UIEdgeInsets
 			    return scrollIndicatorInsets (id)
 			  #elseif Target32Bit
-			    Declare function scrollIndicatorInsets lib UIKit selector "scrollIndicatorInsets" (id as ptr) as UIEdgeInsets32Bit
+			    Declare function scrollIndicatorInsets lib UIKitLibname selector "scrollIndicatorInsets" (id as ptr) as UIEdgeInsets32Bit
 			    return scrollIndicatorInsets(id).toUIEdgeInset
 			  #endif
 			End Get
@@ -1273,10 +1273,10 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setScrollIndicatorInsets lib UIKit selector "setScrollIndicatorInsets:" (id as ptr, value as UIEdgeInsets)
+			    Declare Sub setScrollIndicatorInsets lib UIKitLibname selector "setScrollIndicatorInsets:" (id as ptr, value as UIEdgeInsets)
 			    setScrollIndicatorInsets (id, value)
 			  #elseif Target32Bit
-			    Declare Sub setScrollIndicatorInsets lib UIKit selector "setScrollIndicatorInsets:" (id as ptr, value as UIEdgeInsets32Bit)
+			    Declare Sub setScrollIndicatorInsets lib UIKitLibname selector "setScrollIndicatorInsets:" (id as ptr, value as UIEdgeInsets32Bit)
 			    setScrollIndicatorInsets (id, value.toUIEdgeInset32)
 			  #endif
 			End Set
@@ -1287,13 +1287,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function scrollsToTop lib UIKit selector "scrollsToTop" (id as ptr) as Boolean
+			  Declare Function scrollsToTop lib UIKitLibname selector "scrollsToTop" (id as ptr) as Boolean
 			  Return scrollsToTop (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setScrollsToTop lib UIKit selector "setScrollsToTop:" (id as ptr, value as Boolean)
+			  Declare Sub setScrollsToTop lib UIKitLibname selector "setScrollsToTop:" (id as ptr, value as Boolean)
 			  setScrollsToTop id, value
 			End Set
 		#tag EndSetter
@@ -1303,13 +1303,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function showsHorizontalScrollIndicator lib UIKit selector "showsHorizontalScrollIndicator" (id as ptr) as Boolean
+			  Declare Function showsHorizontalScrollIndicator lib UIKitLibname selector "showsHorizontalScrollIndicator" (id as ptr) as Boolean
 			  Return showsHorizontalScrollIndicator (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setShowsHorizontalScrollIndicator lib UIKit selector "setShowsHorizontalScrollIndicator:" (id as ptr, value as Boolean)
+			  Declare Sub setShowsHorizontalScrollIndicator lib UIKitLibname selector "setShowsHorizontalScrollIndicator:" (id as ptr, value as Boolean)
 			  setShowsHorizontalScrollIndicator id, value
 			End Set
 		#tag EndSetter
@@ -1319,13 +1319,13 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function showsVerticalScrollIndicator lib UIKit selector "showsVerticalScrollIndicator" (id as ptr) as Boolean
+			  Declare Function showsVerticalScrollIndicator lib UIKitLibname selector "showsVerticalScrollIndicator" (id as ptr) as Boolean
 			  Return showsVerticalScrollIndicator (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setShowsVerticalScrollIndicator lib UIKit selector "setShowsVerticalScrollIndicator:" (id as ptr, value as Boolean)
+			  Declare Sub setShowsVerticalScrollIndicator lib UIKitLibname selector "setShowsVerticalScrollIndicator:" (id as ptr, value as Boolean)
 			  setShowsVerticalScrollIndicator id, value
 			End Set
 		#tag EndSetter
@@ -1335,7 +1335,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function tracking lib UIKit selector "isTracking" (id as ptr) as Boolean
+			  Declare Function tracking lib UIKitLibname selector "isTracking" (id as ptr) as Boolean
 			  Return tracking (id)
 			End Get
 		#tag EndGetter
@@ -1379,7 +1379,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function zoomBouncing lib UIKit selector "isZoomBouncing" (id as ptr) as Boolean
+			  Declare Function zoomBouncing lib UIKitLibname selector "isZoomBouncing" (id as ptr) as Boolean
 			  Return zoomBouncing (id)
 			End Get
 		#tag EndGetter
@@ -1389,7 +1389,7 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function isZooming lib UIKit selector "isZooming" (id as ptr) as Boolean
+			  Declare Function isZooming lib UIKitLibname selector "isZooming" (id as ptr) as Boolean
 			  Return isZooming (id)
 			End Get
 		#tag EndGetter
@@ -1415,9 +1415,9 @@ Inherits AppleView
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function zoomScale lib UIKit selector "zoomScale" (id as ptr) as Double
+			    Declare function zoomScale lib UIKitLibname selector "zoomScale" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare function zoomScale lib UIKit selector "zoomScale" (id as ptr) as Single
+			    Declare function zoomScale lib UIKitLibname selector "zoomScale" (id as ptr) as Single
 			  #endif
 			  return zoomScale (id)
 			  
@@ -1426,9 +1426,9 @@ Inherits AppleView
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setZoomScale lib UIKit selector "setZoomScale:" (id as ptr, value as double)
+			    Declare sub setZoomScale lib UIKitLibname selector "setZoomScale:" (id as ptr, value as double)
 			  #elseif Target32Bit
-			    Declare sub setZoomScale lib UIKit selector "setZoomScale:" (id as ptr, value as single)
+			    Declare sub setZoomScale lib UIKitLibname selector "setZoomScale:" (id as ptr, value as single)
 			  #endif
 			  setZoomScale (id, value)
 			  
@@ -1636,6 +1636,12 @@ Inherits AppleView
 			Name="IndicatorStyle"
 			Group="Behavior"
 			Type="UIScrollViewIndicatorStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Black"
+				"2 - White"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IsFirstResponder"
@@ -1656,6 +1662,12 @@ Inherits AppleView
 			Name="KeyboardDismissMode"
 			Group="Behavior"
 			Type="UIScrollViewKeyboardDismissMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - None"
+				"1 - OnDrag"
+				"2 - Interactive"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"

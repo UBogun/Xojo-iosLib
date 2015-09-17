@@ -3,7 +3,7 @@ Protected Class AppleGestureRecognizer
 Inherits AppleObject
 	#tag Method, Flags = &h0
 		Sub AddTarget(target as AppleObject, action as PTR)
-		  declare Sub addTarget lib UIKit Selector "addTarget:action:" (id as ptr, target as ptr, action as ptr)
+		  declare Sub addTarget lib UIKitLibname Selector "addTarget:action:" (id as ptr, target as ptr, action as ptr)
 		  addTarget id, Target.Id, action
 		End Sub
 	#tag EndMethod
@@ -23,7 +23,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1001
 		Protected Sub Constructor(aClass as ptr, target as Ptr, SEL as ptr)
-		  Declare function initWithTarget lib UIKit selector "initWithTarget:action:" (id as ptr, Target as ptr, action as ptr) as ptr
+		  Declare function initWithTarget lib UIKitLibname selector "initWithTarget:action:" (id as ptr, Target as ptr, action as ptr) as ptr
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
@@ -37,14 +37,14 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1
 		Protected Function GetNumberOfTapsRequired() As uinteger
-		  Declare function numberOfTapsRequired lib UIKit selector "numberOfTapsRequired" (id as ptr) as UInteger
+		  Declare function numberOfTapsRequired lib UIKitLibname selector "numberOfTapsRequired" (id as ptr) as UInteger
 		  return numberOfTapsRequired (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Function GetNumberOfTouchesRequired() As uinteger
-		  Declare function numberOfTouchesRequired lib UIKit selector "numberOfTouchesRequired" (id as ptr) as UInteger
+		  Declare function numberOfTouchesRequired lib UIKitLibname selector "numberOfTouchesRequired" (id as ptr) as UInteger
 		  return numberOfTouchesRequired (id)
 		End Function
 	#tag EndMethod
@@ -52,10 +52,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function LocationInView(aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
+		    Declare function locationInView lib UIKitLibname selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
 		    return locationInView (id, aview.id)
 		  #elseif Target32Bit
-		    Declare function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
+		    Declare function locationInView lib UIKitLibname selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
 		    return locationInView (id, aview.id).toNSPoint
 		  #endif
 		End Function
@@ -64,10 +64,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function LocationOfTouchInView(TouchIndex As UInteger, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare function locationOfTouch lib UIKit selector "locationOfTouch:inView:" (id as ptr, touchindex as uinteger, view as ptr) as FoundationFramework.NSPoint
+		    Declare function locationOfTouch lib UIKitLibname selector "locationOfTouch:inView:" (id as ptr, touchindex as uinteger, view as ptr) as FoundationFramework.NSPoint
 		    return locationOfTouch (id, TouchIndex, aview.id)
 		  #elseif Target32Bit
-		    Declare function locationOfTouch lib UIKit selector "locationOfTouch:inView:" (id as ptr, touchindex as uinteger, view as ptr) as FoundationFramework.NSPoint32Bit
+		    Declare function locationOfTouch lib UIKitLibname selector "locationOfTouch:inView:" (id as ptr, touchindex as uinteger, view as ptr) as FoundationFramework.NSPoint32Bit
 		    return locationOfTouch (id, TouchIndex, aview.id).toNSPoint
 		  #endif
 		End Function
@@ -81,28 +81,28 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub RemoveTarget(target as AppleObject, action as PTR)
-		  declare Sub removeTarget lib UIKit Selector "removeTarget:action:" (id as ptr, target as ptr, action as ptr)
+		  declare Sub removeTarget lib UIKitLibname Selector "removeTarget:action:" (id as ptr, target as ptr, action as ptr)
 		  removeTarget id, Target.Id, action
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub RequireGestureRecognizerToFail(anotherRecognizer as AppleGestureRecognizer)
-		  declare Sub requireGestureRecognizerToFail lib UIKit Selector "requireGestureRecognizerToFail:" (id as ptr, recognizer as ptr)
+		  declare Sub requireGestureRecognizerToFail lib UIKitLibname Selector "requireGestureRecognizerToFail:" (id as ptr, recognizer as ptr)
 		  requireGestureRecognizerToFail id, if (anotherRecognizer = NIL, NIL, anotherRecognizer.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Sub SetNumberOfTapsRequired(value as uinteger)
-		  Declare Sub setNumberOfTapsRequired lib UIKit selector "setNumberOfTapsRequired:" (id as ptr, value as UInteger)
+		  Declare Sub setNumberOfTapsRequired lib UIKitLibname selector "setNumberOfTapsRequired:" (id as ptr, value as UInteger)
 		  setNumberOfTapsRequired id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Sub SetNumberOfTouchesRequired(value as uinteger)
-		  Declare Sub setNumberOfTouchesRequired lib UIKit selector "setNumberOfTouchesRequired:" (id as ptr, value as UInteger)
+		  Declare Sub setNumberOfTouchesRequired lib UIKitLibname selector "setNumberOfTouchesRequired:" (id as ptr, value as UInteger)
 		  setNumberOfTouchesRequired id, value
 		End Sub
 	#tag EndMethod
@@ -112,7 +112,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if targetmacos
-			    Declare function action lib UIKit selector "action" (id as ptr) as ptr
+			    Declare function action lib UIKitLibname selector "action" (id as ptr) as ptr
 			    return action(id)
 			  #endif
 			End Get
@@ -120,7 +120,7 @@ Inherits AppleObject
 		#tag Setter
 			Set
 			  #if targetmacos
-			    Declare Sub setAction lib UIKit selector "setAction:" (id as ptr, value as ptr)
+			    Declare Sub setAction lib UIKitLibname selector "setAction:" (id as ptr, value as ptr)
 			    setAction id, value
 			  #endif
 			End Set
@@ -131,13 +131,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function cancelsTouchesInView lib UIKit selector "cancelsTouchesInView" (id as ptr) as Boolean
+			  Declare function cancelsTouchesInView lib UIKitLibname selector "cancelsTouchesInView" (id as ptr) as Boolean
 			  return cancelsTouchesInView (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setCancelsTouchesInView lib UIKit selector "setCancelsTouchesInView:" (id as ptr, value as Boolean)
+			  Declare Sub setCancelsTouchesInView lib UIKitLibname selector "setCancelsTouchesInView:" (id as ptr, value as Boolean)
 			  setCancelsTouchesInView id, value
 			End Set
 		#tag EndSetter
@@ -157,13 +157,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function delaysTouchesBegan lib UIKit selector "delaysTouchesBegan" (id as ptr) as Boolean
+			  Declare function delaysTouchesBegan lib UIKitLibname selector "delaysTouchesBegan" (id as ptr) as Boolean
 			  return delaysTouchesBegan (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setDelaysTouchesBegan lib UIKit selector "setDelaysTouchesBegan:" (id as ptr, value as Boolean)
+			  Declare Sub setDelaysTouchesBegan lib UIKitLibname selector "setDelaysTouchesBegan:" (id as ptr, value as Boolean)
 			  setDelaysTouchesBegan id, value
 			End Set
 		#tag EndSetter
@@ -173,13 +173,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function delaysTouchesEnded lib UIKit selector "delaysTouchesEnded" (id as ptr) as Boolean
+			  Declare function delaysTouchesEnded lib UIKitLibname selector "delaysTouchesEnded" (id as ptr) as Boolean
 			  return delaysTouchesEnded (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setDelaysTouchesEnded lib UIKit selector "setDelaysTouchesEnded:" (id as ptr, value as Boolean)
+			  Declare Sub setDelaysTouchesEnded lib UIKitLibname selector "setDelaysTouchesEnded:" (id as ptr, value as Boolean)
 			  setDelaysTouchesEnded id, value
 			End Set
 		#tag EndSetter
@@ -189,13 +189,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function enabled lib UIKit selector "isEnabled" (id as ptr) as Boolean
+			  Declare function enabled lib UIKitLibname selector "isEnabled" (id as ptr) as Boolean
 			  return enabled (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setEnabled lib UIKit selector "setEnabled:" (id as ptr, value as Boolean)
+			  Declare Sub setEnabled lib UIKitLibname selector "setEnabled:" (id as ptr, value as Boolean)
 			  setEnabled id, value
 			End Set
 		#tag EndSetter
@@ -205,13 +205,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function numberOfTouches lib UIKit selector "numberOfTouches" (id as ptr) as UInteger
+			  Declare function numberOfTouches lib UIKitLibname selector "numberOfTouches" (id as ptr) as UInteger
 			  return numberOfTouches (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setNumberOfTouches lib UIKit selector "setNumberOfTouches:" (id as ptr, value as UInteger)
+			  Declare Sub setNumberOfTouches lib UIKitLibname selector "setNumberOfTouches:" (id as ptr, value as UInteger)
 			  setNumberOfTouches id, value
 			End Set
 		#tag EndSetter
@@ -221,7 +221,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function state lib UIKit selector "state" (id as ptr) as UIGestureRecognizerState
+			  Declare function state lib UIKitLibname selector "state" (id as ptr) as UIGestureRecognizerState
 			  return state (id)
 			End Get
 		#tag EndGetter
@@ -232,7 +232,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if targetmacos
-			    Declare function target lib UIKit selector "target" (id as ptr) as ptr
+			    Declare function target lib UIKitLibname selector "target" (id as ptr) as ptr
 			    return AppleObject.MakeFromPtr(target(id))
 			  #endif
 			End Get
@@ -240,7 +240,7 @@ Inherits AppleObject
 		#tag Setter
 			Set
 			  #if targetmacos
-			    Declare Sub setTarget lib UIKit selector "setTarget:" (id as ptr, value as ptr)
+			    Declare Sub setTarget lib UIKitLibname selector "setTarget:" (id as ptr, value as ptr)
 			    setTarget id, value.id
 			  #endif
 			End Set
@@ -252,7 +252,7 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if targetmacos
-			    Declare function view lib UIKit selector "view" (id as ptr) as ptr
+			    Declare function view lib UIKitLibname selector "view" (id as ptr) as ptr
 			    return AppleView.MakeFromPtr(view(id))
 			  #endif
 			End Get

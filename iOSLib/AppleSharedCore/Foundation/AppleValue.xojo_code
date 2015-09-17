@@ -99,10 +99,10 @@ Inherits AppleObject
 		Sub Constructor(APoint As FoundationFramework.NSPoint)
 		  #if TargetIOS
 		    #if target32bit
-		      declare function valueWithCGPoint lib UIKit  selector "valueWithCGPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit) as ptr
+		      declare function valueWithCGPoint lib UIKitLibname  selector "valueWithCGPoint:" (id as ptr, value as FoundationFramework.NSPoint32Bit) as ptr
 		      super.Constructor (valueWithCGPoint (ClassPtr, apoint.toNSPoint32))
 		    #elseif target64bit
-		      declare function valueWithCGPoint lib UIKit  selector "valueWithCGPoint:" (id as ptr, value as FoundationFramework.NSPoint) as ptr
+		      declare function valueWithCGPoint lib UIKitLibname  selector "valueWithCGPoint:" (id as ptr, value as FoundationFramework.NSPoint) as ptr
 		      super.Constructor (valueWithCGPoint (ClassPtr, apoint))
 		    #endif
 		  #elseif TargetMacOS
@@ -122,10 +122,10 @@ Inherits AppleObject
 		Sub Constructor(ARect as FoundationFramework.NSRect)
 		  #if TargetIOS
 		    #if target32bit
-		      declare function valueWithCGRect lib UIKit  selector "valueWithCGRect:" (id as ptr, value as FoundationFramework.NSRect32Bit) as ptr
+		      declare function valueWithCGRect lib UIKitLibname  selector "valueWithCGRect:" (id as ptr, value as FoundationFramework.NSRect32Bit) as ptr
 		      super.Constructor (valueWithCGRect (ClassPtr, aRect.toNSRect32))
 		    #elseif target64bit
-		      declare function valueWithCGRect lib UIKit  selector "valueWithCGRect:" (id as ptr, value  as FoundationFramework.NSRect) as ptr
+		      declare function valueWithCGRect lib UIKitLibname  selector "valueWithCGRect:" (id as ptr, value  as FoundationFramework.NSRect) as ptr
 		      super.Constructor (valueWithCGRect (ClassPtr, aRect))
 		    #endif
 		  #elseif TargetMacOS
@@ -145,10 +145,10 @@ Inherits AppleObject
 		Sub Constructor(ASize as FoundationFramework.NSSize)
 		  #if targetios
 		    #if target32bit
-		      declare function valueWithCGSize lib UIKit  selector "valueWithCGSize:" (id as ptr, value as FoundationFramework.NSSize32Bit) as ptr
+		      declare function valueWithCGSize lib UIKitLibname  selector "valueWithCGSize:" (id as ptr, value as FoundationFramework.NSSize32Bit) as ptr
 		      super.Constructor (valueWithCGSize (ClassPtr, aSize.toNSSize32))
 		    #elseif target64bit
-		      declare function valueWithCGSize lib UIKit  selector "valueWithCGSize:" (id as ptr, value as FoundationFramework.NSSize) as ptr
+		      declare function valueWithCGSize lib UIKitLibname  selector "valueWithCGSize:" (id as ptr, value as FoundationFramework.NSSize) as ptr
 		      super.Constructor (valueWithCGSize (ClassPtr, aSize))
 		    #endif
 		  #elseif targetmacos
@@ -267,10 +267,10 @@ Inherits AppleObject
 			Get
 			  #if TargetIOS
 			    #if target32bit
-			      declare function CGPointValue lib UIKit  selector "CGPointValue" (id as ptr) as FoundationFramework.NSPoint32Bit
+			      declare function CGPointValue lib UIKitLibname  selector "CGPointValue" (id as ptr) as FoundationFramework.NSPoint32Bit
 			      return CGPointValue (id).toNSPoint
 			    #elseif target64bit
-			      declare function CGPointValue lib UIKit  selector "CGPointValue" (id as ptr) as FoundationFramework.NSPoint
+			      declare function CGPointValue lib UIKitLibname  selector "CGPointValue" (id as ptr) as FoundationFramework.NSPoint
 			      return CGPointValue (id)
 			    #endif
 			  #elseif Targetmacos
@@ -293,10 +293,10 @@ Inherits AppleObject
 			Get
 			  #if TargetIOS
 			    #if target32bit
-			      declare function CGRectValue lib UIKit  selector "CGRectValue" (id as ptr) as FoundationFramework.NSRect32Bit
+			      declare function CGRectValue lib UIKitLibname  selector "CGRectValue" (id as ptr) as FoundationFramework.NSRect32Bit
 			      return CGRectValue (id).tonsrect
 			    #elseif target64bit
-			      declare function CGRectValue lib UIKit  selector "CGRectValue" (id as ptr)  as FoundationFramework.NSRect
+			      declare function CGRectValue lib UIKitLibname  selector "CGRectValue" (id as ptr)  as FoundationFramework.NSRect
 			      return CGRectValue (id)
 			    #endif
 			  #elseif TargetMacOS

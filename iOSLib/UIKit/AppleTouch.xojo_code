@@ -10,10 +10,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function LocationInView(aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare Function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
+		    Declare Function locationInView lib UIKitLibname selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
 		    return locationInView (id, aview.id)
 		  #elseif Target32Bit
-		    Declare Function locationInView lib UIKit selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
+		    Declare Function locationInView lib UIKitLibname selector "locationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
 		    return locationInView(id, aview.id).toNSPoint
 		  #endif
 		End Function
@@ -48,7 +48,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function tapCount lib UIKit selector "tapCount" (id as ptr) as UInteger
+			  Declare Function tapCount lib UIKitLibname selector "tapCount" (id as ptr) as UInteger
 			  return tapCount (id)
 			  
 			End Get
@@ -59,7 +59,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function view lib UIKit selector "view" (id as ptr) as ptr
+			  Declare Function view lib UIKitLibname selector "view" (id as ptr) as ptr
 			  return AppleView.MakeFromPtr (view(id))
 			  
 			End Get

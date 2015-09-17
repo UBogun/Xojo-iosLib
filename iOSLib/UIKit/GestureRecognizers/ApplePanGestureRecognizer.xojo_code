@@ -24,10 +24,10 @@ Inherits AppleGestureRecognizer
 	#tag Method, Flags = &h0
 		Function TranslationInView(aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare function translationInView lib UIKit selector "translationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
+		    Declare function translationInView lib UIKitLibname selector "translationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
 		    return translationInView (id, aview.id)
 		  #elseif Target32Bit
-		    Declare function translationInView lib UIKit selector "translationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
+		    Declare function translationInView lib UIKitLibname selector "translationInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
 		    return translationInView (id, aview.id).toNSPoint
 		  #endif
 		End Function
@@ -36,10 +36,10 @@ Inherits AppleGestureRecognizer
 	#tag Method, Flags = &h0
 		Sub TranslationInView(aView as AppleView, assigns value as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub setTranslationInView lib UIKit selector "setTranslation:inView:" (id as ptr, value as FoundationFramework.NSPoint, view as ptr)
+		    Declare sub setTranslationInView lib UIKitLibname selector "setTranslation:inView:" (id as ptr, value as FoundationFramework.NSPoint, view as ptr)
 		    setTranslationInView (id, value, aview.id)
 		  #elseif Target32Bit
-		    Declare sub setTranslationInView lib UIKit selector "setTranslation:inView:" (id as ptr, value as FoundationFramework.NSPoint32Bit, view as ptr)
+		    Declare sub setTranslationInView lib UIKitLibname selector "setTranslation:inView:" (id as ptr, value as FoundationFramework.NSPoint32Bit, view as ptr)
 		    setTranslationInView (id, value.toNSPoint32, aview.id)
 		  #endif
 		End Sub
@@ -48,10 +48,10 @@ Inherits AppleGestureRecognizer
 	#tag Method, Flags = &h0
 		Function VelocityInView(View as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
-		    Declare function velocityInView lib UIKit selector "velocityInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
+		    Declare function velocityInView lib UIKitLibname selector "velocityInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint
 		    return velocityInView (id, view.id)
 		  #elseif Target32Bit
-		    Declare function velocityInView lib UIKit selector "velocityInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
+		    Declare function velocityInView lib UIKitLibname selector "velocityInView:" (id as ptr, view as ptr) as FoundationFramework.NSPoint32Bit
 		    return velocityInView (id, view.id).toNSPoint
 		  #endif
 		End Function
@@ -71,13 +71,13 @@ Inherits AppleGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function maximumNumberOfTouches lib UIKit selector "maximumNumberOfTouches" (id as ptr) as UInteger
+			  Declare function maximumNumberOfTouches lib UIKitLibname selector "maximumNumberOfTouches" (id as ptr) as UInteger
 			  return maximumNumberOfTouches (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMaximumNumberOfTouches lib UIKit selector "setMaximumNumberOfTouches:" (id as ptr, value as UInteger)
+			  Declare Sub setMaximumNumberOfTouches lib UIKitLibname selector "setMaximumNumberOfTouches:" (id as ptr, value as UInteger)
 			  setMaximumNumberOfTouches id, value
 			End Set
 		#tag EndSetter
@@ -87,13 +87,13 @@ Inherits AppleGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function minimumNumberOfTouches lib UIKit selector "minimumNumberOfTouches" (id as ptr) as UInteger
+			  Declare function minimumNumberOfTouches lib UIKitLibname selector "minimumNumberOfTouches" (id as ptr) as UInteger
 			  return minimumNumberOfTouches (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMinimumNumberOfTouches lib UIKit selector "setMinimumNumberOfTouches:" (id as ptr, value as UInteger)
+			  Declare Sub setMinimumNumberOfTouches lib UIKitLibname selector "setMinimumNumberOfTouches:" (id as ptr, value as UInteger)
 			  setMinimumNumberOfTouches id, value
 			End Set
 		#tag EndSetter

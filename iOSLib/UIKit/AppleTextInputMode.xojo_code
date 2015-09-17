@@ -11,7 +11,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function activeInputModes lib UIKit selector "activeInputModes" (id as ptr) as ptr
+			  Declare Function activeInputModes lib UIKitLibname selector "activeInputModes" (id as ptr) as ptr
 			  return AppleArray.MakeFromPtr (activeInputModes(classptr))
 			End Get
 		#tag EndGetter
@@ -31,7 +31,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare function PrimaryLanguage lib UIKit selector "PrimaryLanguage" (id as ptr) as CFStringRef
+			  declare function PrimaryLanguage lib UIKitLibname selector "PrimaryLanguage" (id as ptr) as CFStringRef
 			  return PrimaryLanguage (id)
 			End Get
 		#tag EndGetter

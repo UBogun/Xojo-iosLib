@@ -3,28 +3,28 @@ Protected Class AppleResponder
 Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function BecomeFirstResponder() As Boolean
-		  Declare function becomeFirstResponder lib UIKit selector "becomeFirstResponder" (id as ptr) as Boolean
+		  Declare function becomeFirstResponder lib UIKitLibname selector "becomeFirstResponder" (id as ptr) as Boolean
 		  return becomeFirstResponder (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function CanPerformAction(SEL as ptr, Sender as AppleGeneralObject) As Boolean
-		  Declare function canPerformAction lib UIKit selector "canPerformAction:withSender:" (id as ptr, SEL as ptr, sender as ptr) as Boolean
+		  Declare function canPerformAction lib UIKitLibname selector "canPerformAction:withSender:" (id as ptr, SEL as ptr, sender as ptr) as Boolean
 		  return canPerformAction (id, SEL, Sender.GeneralID)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function CanResignFirstResponder() As Boolean
-		  Declare function canResignFirstResponder lib UIKit selector "canResignFirstResponder" (id as ptr) as Boolean
+		  Declare function canResignFirstResponder lib UIKitLibname selector "canResignFirstResponder" (id as ptr) as Boolean
 		  return canResignFirstResponder (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		 Shared Sub ClearTextInputContextIdentifier(Identifier as CFStringRef)
-		  Declare sub clearTextInputContextIdentifier lib UIKit selector "clearTextInputContextIdentifier:" (id as ptr, identifier as CFStringRef)
+		  Declare sub clearTextInputContextIdentifier lib UIKitLibname selector "clearTextInputContextIdentifier:" (id as ptr, identifier as CFStringRef)
 		  clearTextInputContextIdentifier classptr, Identifier
 		End Sub
 	#tag EndMethod
@@ -39,10 +39,10 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		 Shared Function DoInitWithFrame(aClass as Ptr, aFRame as FoundationFramework.NSRect) As Ptr
 		  #if target32bit
-		    declare function initWithFrame lib UIKit selector "initWithFrame:" (id as ptr, aFrame as FoundationFramework.NSRect32Bit) as ptr
+		    declare function initWithFrame lib UIKitLibname selector "initWithFrame:" (id as ptr, aFrame as FoundationFramework.NSRect32Bit) as ptr
 		    return initWithFrame (aClass, Aframe.toNSRect32 )
 		  #elseif Target64Bit
-		    declare function initWithFrame lib UIKit selector "initWithFrame:" (id as ptr, aFrame  as FoundationFramework.NSRect) as ptr
+		    declare function initWithFrame lib UIKitLibname selector "initWithFrame:" (id as ptr, aFrame  as FoundationFramework.NSRect) as ptr
 		    return initWithFrame (aClass, Aframe)
 		  #endif
 		  
@@ -51,14 +51,14 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		 Shared Function getDelegate(id as ptr) As Ptr
-		  Declare Function getDelegate lib uikit selector "delegate" (id as ptr) as Ptr
+		  Declare Function getDelegate lib UIKitLibname selector "delegate" (id as ptr) as Ptr
 		  return getDelegate (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function getUserInteractionEnabled() As Boolean
-		  Declare Function userInteractionEnabled lib UIKit selector "isUserInteractionEnabled" (id as ptr) as Boolean
+		  Declare Function userInteractionEnabled lib UIKitLibname selector "isUserInteractionEnabled" (id as ptr) as Boolean
 		  return userInteractionEnabled (id)
 		End Function
 	#tag EndMethod
@@ -71,42 +71,42 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1
 		Protected Sub PerformLayoutIfNeeded()
-		  Declare sub layoutIfNeeded lib UIKit selector "layoutIfNeeded" (id as ptr)
+		  Declare sub layoutIfNeeded lib UIKitLibname selector "layoutIfNeeded" (id as ptr)
 		  layoutIfNeeded (id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ReloadInputViews() As Boolean
-		  Declare sub reloadInputViews lib UIKit selector "reloadInputViews" (id as ptr)
+		  Declare sub reloadInputViews lib UIKitLibname selector "reloadInputViews" (id as ptr)
 		  reloadInputViews id
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ResignFirstResponder() As Boolean
-		  Declare function resignFirstResponder lib UIKit selector "resignFirstResponder" (id as ptr) as Boolean
+		  Declare function resignFirstResponder lib UIKitLibname selector "resignFirstResponder" (id as ptr) as Boolean
 		  return resignFirstResponder (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		 Shared Sub setDelegate(anid as ptr, value as Ptr)
-		  Declare Sub setDelegate lib uikit selector "setDelegate:" (id as ptr, value as Ptr)
+		  Declare Sub setDelegate lib UIKitLibname selector "setDelegate:" (id as ptr, value as Ptr)
 		  setDelegate (anid, value)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub setUserInteractionEnabled(value as boolean)
-		  Declare sub setUserInteractionEnabled lib UIKit selector "setUserInteractionEnabled:" (id as ptr, value as Boolean)
+		  Declare sub setUserInteractionEnabled lib UIKitLibname selector "setUserInteractionEnabled:" (id as ptr, value as Boolean)
 		  setUserInteractionEnabled id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function TargetForAction(SEL as ptr, Sender as AppleObject) As AppleGeneralObject
-		  Declare function targetForAction lib UIKit selector "targetForAction:withSender:" (id as ptr, SEL as ptr, sender as ptr) as Ptr
+		  Declare function targetForAction lib UIKitLibname selector "targetForAction:withSender:" (id as ptr, SEL as ptr, sender as ptr) as Ptr
 		  return  AppleObject.MakeFromPtr (targetForAction(id, Sel, sender.GeneralID))
 		End Function
 	#tag EndMethod
@@ -125,13 +125,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function inputAccessoryView lib UIKit selector "inputAccessoryView" (id as ptr) as ptr
+			  Declare Function inputAccessoryView lib UIKitLibname selector "inputAccessoryView" (id as ptr) as ptr
 			  return AppleView.MakeFromPtr (inputAccessoryView(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setInputAccessoryView lib UIKit selector "setInputAccessoryView:" (id as ptr, value as ptr)
+			  Declare Sub setInputAccessoryView lib UIKitLibname selector "setInputAccessoryView:" (id as ptr, value as ptr)
 			  setInputAccessoryView id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -141,13 +141,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function inputView lib UIKit selector "inputView" (id as ptr) as ptr
+			  Declare Function inputView lib UIKitLibname selector "inputView" (id as ptr) as ptr
 			  return AppleView.MakeFromPtr (inputView(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setInputView lib UIKit selector "setInputView:" (id as ptr, value as ptr)
+			  Declare Sub setInputView lib UIKitLibname selector "setInputView:" (id as ptr, value as ptr)
 			  setInputView id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -157,7 +157,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function isFirstResponder lib UIKit selector "isFirstResponder" (id as ptr) as Boolean
+			  Declare function isFirstResponder lib UIKitLibname selector "isFirstResponder" (id as ptr) as Boolean
 			  return isFirstResponder(id)
 			End Get
 		#tag EndGetter
@@ -167,13 +167,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function keyCommands lib UIKit selector "keyCommands" (id as ptr) as ptr
+			  Declare Function keyCommands lib UIKitLibname selector "keyCommands" (id as ptr) as ptr
 			  return AppleArray.MakeFromPtr (keyCommands(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setInputAccessoryView lib UIKit selector "setInputAccessoryView:" (id as ptr, value as ptr)
+			  Declare Sub setInputAccessoryView lib UIKitLibname selector "setInputAccessoryView:" (id as ptr, value as ptr)
 			  setInputAccessoryView id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
@@ -183,7 +183,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function nextResponder lib UIKit selector "nextResponder" (id as ptr) as ptr
+			  Declare function nextResponder lib UIKitLibname selector "nextResponder" (id as ptr) as ptr
 			  return AppleResponder.MakeFromPtr (nextResponder(id))
 			End Get
 		#tag EndGetter
@@ -193,7 +193,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function textInputContextIdentifier lib UIKit selector "textInputContextIdentifier" (id as ptr) as CFStringRef
+			  Declare Function textInputContextIdentifier lib UIKitLibname selector "textInputContextIdentifier" (id as ptr) as CFStringRef
 			  return textInputContextIdentifier (id)
 			End Get
 		#tag EndGetter
@@ -203,13 +203,13 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function textInputMode lib UIKit selector "textInputMode" (id as ptr) as ptr
+			  Declare Function textInputMode lib UIKitLibname selector "textInputMode" (id as ptr) as ptr
 			  return AppleTextInputMode.MakeFromPtr (textInputMode(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setInputAccessoryView lib UIKit selector "setInputAccessoryView:" (id as ptr, value as ptr)
+			  Declare Sub setInputAccessoryView lib UIKitLibname selector "setInputAccessoryView:" (id as ptr, value as ptr)
 			  setInputAccessoryView id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter

@@ -9,7 +9,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(TraitCollections As AppleArray)
-		  Declare function traitCollectionWithTraitsFromCollections lib UIKit selector "traitCollectionWithTraitsFromCollections:" (id as ptr, Collections as ptr) as ptr
+		  Declare function traitCollectionWithTraitsFromCollections lib UIKitLibname selector "traitCollectionWithTraitsFromCollections:" (id as ptr, Collections as ptr) as ptr
 		  super.Constructor (traitCollectionWithTraitsFromCollections(classptr, TraitCollections.id))
 		  RetainClassObject
 		End Sub
@@ -18,9 +18,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(DisplayScale As Double)
 		  #if Target64Bit
-		    Declare function traitCollectionWithDisplayScale lib UIKit selector "traitCollectionWithDisplayScale:" (id as ptr, scale as double) as ptr
+		    Declare function traitCollectionWithDisplayScale lib UIKitLibname selector "traitCollectionWithDisplayScale:" (id as ptr, scale as double) as ptr
 		  #elseif Target32Bit
-		    Declare function traitCollectionWithDisplayScale lib UIKit selector "traitCollectionWithDisplayScale:" (id as ptr, scale as single) as ptr
+		    Declare function traitCollectionWithDisplayScale lib UIKitLibname selector "traitCollectionWithDisplayScale:" (id as ptr, scale as single) as ptr
 		  #endif
 		  super.Constructor (traitCollectionWithDisplayScale(classptr,  DisplayScale))
 		  RetainClassObject
@@ -29,7 +29,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(UserInterfaceIdiom as UIUserInterfaceIdiom)
-		  Declare function traitCollectionWithUserInterfaceIdiom lib UIKit selector "traitCollectionWithUserInterfaceIdiom:" (id as ptr, UserInterfaceIdiom as UIUserInterfaceIdiom) as ptr
+		  Declare function traitCollectionWithUserInterfaceIdiom lib UIKitLibname selector "traitCollectionWithUserInterfaceIdiom:" (id as ptr, UserInterfaceIdiom as UIUserInterfaceIdiom) as ptr
 		  super.Constructor (traitCollectionWithUserInterfaceIdiom(classptr, UserInterfaceIdiom))
 		  RetainClassObject
 		End Sub
@@ -37,14 +37,14 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Function ContainsTraitsInCollection(Collection as AppleTraitCollection) As Boolean
-		  Declare function containsTraitsInCollection lib UIKit selector "containsTraitsInCollection:" (id as ptr, collection as ptr) as Boolean
+		  Declare function containsTraitsInCollection lib UIKitLibname selector "containsTraitsInCollection:" (id as ptr, collection as ptr) as Boolean
 		  return containsTraitsInCollection (id, Collection.id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		 Shared Function HorizontalSizedClass(HorizontalClass As UIUserInterfaceSizeClass) As AppleTraitCollection
-		  Declare function traitCollectionWithHorizontalSizeClass lib UIKit selector "traitCollectionWithHorizontalSizeClass:" (id as ptr, HorizontalClass As UIUserInterfaceSizeClass) as ptr
+		  Declare function traitCollectionWithHorizontalSizeClass lib UIKitLibname selector "traitCollectionWithHorizontalSizeClass:" (id as ptr, HorizontalClass As UIUserInterfaceSizeClass) as ptr
 		  dim result as new AppleTraitCollection (traitCollectionWithHorizontalSizeClass(classptr, HorizontalClass))
 		  result.RetainClassObject
 		  return result
@@ -59,7 +59,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		 Shared Function VerticalSizedClass(VerticalClass As UIUserInterfaceSizeClass) As AppleTraitCollection
-		  Declare function traitCollectionWithVerticalSizeClass lib UIKit selector "traitCollectionWithVerticalSizeClass:" (id as ptr, VerticalClass As UIUserInterfaceSizeClass) as ptr
+		  Declare function traitCollectionWithVerticalSizeClass lib UIKitLibname selector "traitCollectionWithVerticalSizeClass:" (id as ptr, VerticalClass As UIUserInterfaceSizeClass) as ptr
 		  dim result as new AppleTraitCollection (traitCollectionWithVerticalSizeClass(classptr, VerticalClass))
 		  result.RetainClassObject
 		  return result
@@ -90,9 +90,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #If Target64Bit
-			    Declare Function displayScale lib UIKit selector "displayScale" (id as ptr) as double
+			    Declare Function displayScale lib UIKitLibname selector "displayScale" (id as ptr) as double
 			  #elseif Target32Bit
-			    Declare Function displayScale lib UIKit selector "displayScale" (id as ptr) as single
+			    Declare Function displayScale lib UIKitLibname selector "displayScale" (id as ptr) as single
 			  #endif
 			  Return displayScale (id)
 			  
@@ -104,7 +104,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function horizontalSizeClass lib UIKit selector "horizontalSizeClass" (id as ptr) as UIUserInterfaceSizeClass
+			  Declare Function horizontalSizeClass lib UIKitLibname selector "horizontalSizeClass" (id as ptr) as UIUserInterfaceSizeClass
 			  Return horizontalSizeClass (id)
 			  
 			End Get
@@ -115,7 +115,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function userInterfaceIdiom lib UIKit selector "userInterfaceIdiom" (id as ptr) as UIUserInterfaceIdiom
+			  Declare Function userInterfaceIdiom lib UIKitLibname selector "userInterfaceIdiom" (id as ptr) as UIUserInterfaceIdiom
 			  Return userInterfaceIdiom (id)
 			  
 			End Get
@@ -126,7 +126,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function verticalSizeClass lib UIKit selector "verticalSizeClass" (id as ptr) as UIUserInterfaceSizeClass
+			  Declare Function verticalSizeClass lib UIKitLibname selector "verticalSizeClass" (id as ptr) as UIUserInterfaceSizeClass
 			  Return verticalSizeClass (id)
 			  
 			End Get
@@ -160,6 +160,12 @@ Inherits AppleObject
 			Name="HorizontalSizeClass"
 			Group="Behavior"
 			Type="UIUserInterfaceSizeClass"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Unspecified"
+				"1 - Compact"
+				"2 - Regular"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -213,11 +219,23 @@ Inherits AppleObject
 			Name="UserInterfaceIdiom"
 			Group="Behavior"
 			Type="UIUserInterfaceIdiom"
+			EditorType="Enum"
+			#tag EnumValues
+				"-1 - Unspecified"
+				"0 - iPhone"
+				"1 - iPad"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="VerticalSizeClass"
 			Group="Behavior"
 			Type="UIUserInterfaceSizeClass"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Unspecified"
+				"1 - Compact"
+				"2 - Regular"
+			#tag EndEnumValues
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

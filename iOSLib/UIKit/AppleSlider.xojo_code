@@ -9,7 +9,7 @@ Inherits AppleControl
 
 	#tag Method, Flags = &h21
 		Private Sub setvalue(value as single, animated as boolean)
-		  Declare Sub setValue lib UIKit selector "setValue:animated:" (id as ptr, value as single, animated as boolean)
+		  Declare Sub setValue lib UIKitLibname selector "setValue:animated:" (id as ptr, value as single, animated as boolean)
 		  setValue id, value, animated
 		End Sub
 	#tag EndMethod
@@ -18,7 +18,7 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function value lib UIKit selector "value" (id as ptr) as single
+			  Declare Function value lib UIKitLibname selector "value" (id as ptr) as single
 			  Return value (id)
 			End Get
 		#tag EndGetter
@@ -43,13 +43,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function continuous lib UIKit selector "isContinuous" (id as ptr) as boolean
+			  Declare Function continuous lib UIKitLibname selector "isContinuous" (id as ptr) as boolean
 			  Return continuous (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setContinuous lib UIKit selector "setContinuous:" (id as ptr, value as boolean)
+			  Declare Sub setContinuous lib UIKitLibname selector "setContinuous:" (id as ptr, value as boolean)
 			  setContinuous id, value
 			End Set
 		#tag EndSetter
@@ -59,13 +59,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function minimumTrackTintColor lib UIKit selector "minimumTrackTintColor" (id as ptr) as ptr
+			  Declare Function minimumTrackTintColor lib UIKitLibname selector "minimumTrackTintColor" (id as ptr) as ptr
 			  Return new AppleColor (minimumTrackTintColor (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMinimumTrackTintColor lib UIKit selector "setMinimumTrackTintColor:" (id as ptr, value as ptr)
+			  Declare Sub setMinimumTrackTintColor lib UIKitLibname selector "setMinimumTrackTintColor:" (id as ptr, value as ptr)
 			  setMinimumTrackTintColor id, value.id
 			End Set
 		#tag EndSetter
@@ -75,13 +75,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function MaximumTrackTintColor lib UIKit selector "maximumTrackTintColor" (id as ptr) as ptr
+			  Declare Function MaximumTrackTintColor lib UIKitLibname selector "maximumTrackTintColor" (id as ptr) as ptr
 			  Return new AppleColor (MaximumTrackTintColor (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMaximumTrackTintColor lib UIKit selector "setMaximumTrackTintColor:" (id as ptr, value as ptr)
+			  Declare Sub setMaximumTrackTintColor lib UIKitLibname selector "setMaximumTrackTintColor:" (id as ptr, value as ptr)
 			  setMaximumTrackTintColor id, value.id
 			End Set
 		#tag EndSetter
@@ -91,14 +91,14 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  declare Function minimumValueImage lib UIKit selector "minimumValueImage" (id as ptr) as ptr
+			  declare Function minimumValueImage lib UIKitLibname selector "minimumValueImage" (id as ptr) as ptr
 			  return AppleImage.MakeFromPtr (minimumValueImage (id))
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMinimumValueImage lib UIKit selector "setMinimumValueImage:" (id as ptr, value as ptr)
+			  Declare Sub setMinimumValueImage lib UIKitLibname selector "setMinimumValueImage:" (id as ptr, value as ptr)
 			  setMinimumValueImage id, value.id
 			End Set
 		#tag EndSetter
@@ -109,10 +109,10 @@ Inherits AppleControl
 		#tag Getter
 			Get
 			  #if target64bit
-			    declare Function minimumValueImageRectForBounds lib UIKit selector "minimumValueImageRectForBounds:" (id as ptr, mybounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
+			    declare Function minimumValueImageRectForBounds lib UIKitLibname selector "minimumValueImageRectForBounds:" (id as ptr, mybounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 			    return minimumValueImageRectForBounds (id, me.Bounds)
 			  #elseif Target32Bit
-			    declare Function minimumValueImageRectForBounds lib UIKit selector "minimumValueImageRectForBounds:" (id as ptr, mybounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
+			    declare Function minimumValueImageRectForBounds lib UIKitLibname selector "minimumValueImageRectForBounds:" (id as ptr, mybounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 			    return minimumValueImageRectForBounds(id, me.Bounds.toNSRect32).toNSRect
 			  #endif
 			End Get
@@ -124,11 +124,11 @@ Inherits AppleControl
 		#tag Getter
 			Get
 			  #if target64bit
-			    declare Function thumbRectForBounds lib UIKit selector "thumbRectForBounds:trackRect:value:" _
+			    declare Function thumbRectForBounds lib UIKitLibname selector "thumbRectForBounds:trackRect:value:" _
 			    (id as ptr, mybounds  as FoundationFramework.NSRect, trackrect  as FoundationFramework.NSRect, value as single)  as FoundationFramework.NSRect
 			    return thumbRectForBounds (id, me.Bounds, me.TrackRect, me.AnimateValue)
 			  #elseif Target32Bit
-			    declare Function thumbRectForBounds lib UIKit selector "thumbRectForBounds:trackRect:value:" _
+			    declare Function thumbRectForBounds lib UIKitLibname selector "thumbRectForBounds:trackRect:value:" _
 			    (id as ptr, mybounds as FoundationFramework.NSRect32Bit, trackrect as FoundationFramework.NSRect32Bit, value as single) as FoundationFramework.NSRect32Bit
 			    return thumbRectForBounds(id, me.Bounds.toNSRect32, me.TrackRect.toNSRect32, me.AnimateValue).toNSRect
 			  #endif
@@ -140,13 +140,13 @@ Inherits AppleControl
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function thumbTintColor lib UIKit selector "thumbTintColor" (id as ptr) as ptr
+			  Declare Function thumbTintColor lib UIKitLibname selector "thumbTintColor" (id as ptr) as ptr
 			  Return new AppleColor (thumbTintColor (id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setThumbTintColor lib UIKit selector "setThumbTintColor:" (id as ptr, value as ptr)
+			  Declare Sub setThumbTintColor lib UIKitLibname selector "setThumbTintColor:" (id as ptr, value as ptr)
 			  setThumbTintColor id, value.id
 			End Set
 		#tag EndSetter
@@ -157,10 +157,10 @@ Inherits AppleControl
 		#tag Getter
 			Get
 			  #if target64bit
-			    declare Function trackRectForBounds lib UIKit selector "trackRectForBounds:" (id as ptr, mybounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
+			    declare Function trackRectForBounds lib UIKitLibname selector "trackRectForBounds:" (id as ptr, mybounds  as FoundationFramework.NSRect)  as FoundationFramework.NSRect
 			    return trackRectForBounds (id, me.Bounds)
 			  #elseif Target32Bit
-			    declare Function trackRectForBounds lib UIKit selector "trackRectForBounds:" (id as ptr, mybounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
+			    declare Function trackRectForBounds lib UIKitLibname selector "trackRectForBounds:" (id as ptr, mybounds as FoundationFramework.NSRect32Bit) as FoundationFramework.NSRect32Bit
 			    return trackRectForBounds(id, me.Bounds.toNSRect32).toNSRect
 			  #endif
 			End Get

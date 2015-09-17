@@ -29,9 +29,9 @@ Inherits AppleGestureRecognizer
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function scale lib UIKit selector "scale" (id as ptr) as Double
+			    Declare function scale lib UIKitLibname selector "scale" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare function scale lib UIKit selector "scale" (id as ptr) as single
+			    Declare function scale lib UIKitLibname selector "scale" (id as ptr) as single
 			  #endif
 			  return scale (id)
 			  
@@ -40,9 +40,9 @@ Inherits AppleGestureRecognizer
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setScale lib UIKit selector "setScale:" (id as ptr, value as Double)
+			    Declare Sub setScale lib UIKitLibname selector "setScale:" (id as ptr, value as Double)
 			  #elseif Target32Bit
-			    Declare Sub setScale lib UIKit selector "setScale:" (id as ptr, value as single)
+			    Declare Sub setScale lib UIKitLibname selector "setScale:" (id as ptr, value as single)
 			  #endif
 			  setScale id, value
 			End Set
@@ -54,9 +54,9 @@ Inherits AppleGestureRecognizer
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function velocity lib UIKit selector "velocity" (id as ptr) as Double
+			    Declare function velocity lib UIKitLibname selector "velocity" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare function velocity lib UIKit selector "velocity" (id as ptr) as single
+			    Declare function velocity lib UIKitLibname selector "velocity" (id as ptr) as single
 			  #endif
 			  return velocity (id)
 			  

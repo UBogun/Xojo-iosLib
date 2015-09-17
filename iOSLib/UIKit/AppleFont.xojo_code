@@ -10,9 +10,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor(FontName as CFStringRef, Size as Double)
 		  #if Target64Bit
-		    Declare function fontWithName lib UIKit selector "fontWithName:size:" (id as ptr, Fontname as CFStringRef, Size as double) as Ptr
+		    Declare function fontWithName lib UIKitLibname selector "fontWithName:size:" (id as ptr, Fontname as CFStringRef, Size as double) as Ptr
 		  #elseif Target32Bit
-		    Declare function fontWithName lib UIKit selector "fontWithName:size:" (id as ptr, Fontname as CFStringRef, Size as single) as Ptr
+		    Declare function fontWithName lib UIKitLibname selector "fontWithName:size:" (id as ptr, Fontname as CFStringRef, Size as single) as Ptr
 		  #endif
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -38,7 +38,7 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		 Shared Function FontNamesForFamilyName(FamilyName as CFStringRef) As AppleArray
-		  Declare function fontNamesForFamilyName lib UIKit selector "fontNamesForFamilyName:" (id as ptr, FamilyName as CFStringRef) as ptr
+		  Declare function fontNamesForFamilyName lib UIKitLibname selector "fontNamesForFamilyName:" (id as ptr, FamilyName as CFStringRef) as ptr
 		  Return AppleArray.MakeFromPtr (fontNamesForFamilyName (ClassPtr, FamilyName))
 		End Function
 	#tag EndMethod
@@ -46,9 +46,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		Function FontWithSize(Size as Double) As AppleFont
 		  #if Target64Bit
-		    Declare function fontWithSize lib UIKit selector "fontWithSize:" ( id as ptr, Size as double) as Ptr
+		    Declare function fontWithSize lib UIKitLibname selector "fontWithSize:" ( id as ptr, Size as double) as Ptr
 		  #elseif Target32Bit
-		    Declare function fontWithSize lib UIKit selector "fontWithSize:" ( id as ptr, Size as single) as Ptr
+		    Declare function fontWithSize lib UIKitLibname selector "fontWithSize:" ( id as ptr, Size as single) as Ptr
 		  #endif
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -75,9 +75,9 @@ Inherits AppleObject
 	#tag Method, Flags = &h0
 		 Shared Function SystemFont(FontSize as double = 0) As AppleFont
 		  #if Target64Bit
-		    Declare function systemFontOfSize lib UIKit selector "systemFontOfSize:" (id as ptr, Fontsize as double) as ptr
+		    Declare function systemFontOfSize lib UIKitLibname selector "systemFontOfSize:" (id as ptr, Fontsize as double) as ptr
 		  #elseif Target32Bit
-		    Declare function systemFontOfSize lib UIKit selector "systemFontOfSize:" (id as ptr, Fontsize as single) as ptr
+		    Declare function systemFontOfSize lib UIKitLibname selector "systemFontOfSize:" (id as ptr, Fontsize as single) as ptr
 		  #endif
 		  if Fontsize = 0 then FontsIze = SystemFontSize
 		  Dim Result as new applefont (systemFontOfSize (ClassPtr, fontsize))
@@ -97,9 +97,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare Function buttonFontSize lib UIKit selector "buttonFontSize" (id as ptr) as double
+			    Declare Function buttonFontSize lib UIKitLibname selector "buttonFontSize" (id as ptr) as double
 			  #elseif Target32Bit
-			    Declare Function buttonFontSize lib UIKit selector "buttonFontSize" (id as ptr) as single
+			    Declare Function buttonFontSize lib UIKitLibname selector "buttonFontSize" (id as ptr) as single
 			  #endif
 			  return  buttonFontSize (classptr)
 			  
@@ -121,7 +121,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function familyName lib UIKit selector "familyName" (id as ptr) as CFStringRef
+			  Declare Function familyName lib UIKitLibname selector "familyName" (id as ptr) as CFStringRef
 			  return familyName (id)
 			End Get
 		#tag EndGetter
@@ -131,7 +131,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function familyNames lib UIKit selector "familyNames" (id as ptr) as ptr
+			  Declare Function familyNames lib UIKitLibname selector "familyNames" (id as ptr) as ptr
 			  return AppleArray.MakeFromPtr (familyNames(ClassPtr))
 			End Get
 		#tag EndGetter
@@ -141,7 +141,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function fontName lib UIKit selector "fontName" (id as ptr) as CFStringRef
+			  Declare Function fontName lib UIKitLibname selector "fontName" (id as ptr) as CFStringRef
 			  return fontName (id)
 			End Get
 		#tag EndGetter
@@ -152,9 +152,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare Function labelFontSize lib UIKit selector "labelFontSize" (id as ptr) as double
+			    Declare Function labelFontSize lib UIKitLibname selector "labelFontSize" (id as ptr) as double
 			  #elseif Target32Bit
-			    Declare Function labelFontSize lib UIKit selector "labelFontSize" (id as ptr) as single
+			    Declare Function labelFontSize lib UIKitLibname selector "labelFontSize" (id as ptr) as single
 			  #endif
 			  return  LabelFontSize (classptr)
 			  
@@ -167,9 +167,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare Function pointSize lib UIKit selector "pointSize" (id as ptr) as double
+			    Declare Function pointSize lib UIKitLibname selector "pointSize" (id as ptr) as double
 			  #elseif Target32Bit
-			    Declare Function pointSize lib UIKit selector "pointSize" (id as ptr) as single
+			    Declare Function pointSize lib UIKitLibname selector "pointSize" (id as ptr) as single
 			  #endif
 			  
 			  return PointSize (id)
@@ -182,9 +182,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare Function smallSystemFontSize lib UIKit selector "smallSystemFontSize" (id as ptr) as double
+			    Declare Function smallSystemFontSize lib UIKitLibname selector "smallSystemFontSize" (id as ptr) as double
 			  #elseif Target32Bit
-			    Declare Function smallSystemFontSize lib UIKit selector "smallSystemFontSize" (id as ptr) as single
+			    Declare Function smallSystemFontSize lib UIKitLibname selector "smallSystemFontSize" (id as ptr) as single
 			  #endif
 			  return  smallSystemFontSize (classptr)
 			  
@@ -197,9 +197,9 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare Function systemFontSize lib UIKit selector "systemFontSize" (id as ptr) as double
+			    Declare Function systemFontSize lib UIKitLibname selector "systemFontSize" (id as ptr) as double
 			  #elseif Target32Bit
-			    Declare Function systemFontSize lib UIKit selector "systemFontSize" (id as ptr) as single
+			    Declare Function systemFontSize lib UIKitLibname selector "systemFontSize" (id as ptr) as single
 			  #endif
 			  return  systemFontSize (classptr)
 			  

@@ -3,7 +3,7 @@ Protected Class AppleActionSheet
 Inherits AppleView
 	#tag Method, Flags = &h0
 		Sub AddButton(ButtonTitle as CFStringRef)
-		  Declare sub addButtonWithTitle  lib uikit selector "addButtonWithTitle:" (id as ptr, title as CFStringRef)
+		  Declare sub addButtonWithTitle  lib UIKitLibname selector "addButtonWithTitle:" (id as ptr, title as CFStringRef)
 		  addButtonWithTitle id, ButtonTitle
 		End Sub
 	#tag EndMethod
@@ -29,7 +29,7 @@ Inherits AppleView
 		  // dim cancel as new AppleCFString(CancelButtonTitle)
 		  // dim desttruct as new AppleCFString (DestructiveButtonTitle)
 		  
-		  Declare Function initWithTitle lib UIKit selector "initWithTitle:delegate:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:" _
+		  Declare Function initWithTitle lib UIKitLibname selector "initWithTitle:delegate:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:" _
 		  (id as ptr, Title as cfstringref, delegate_ as ptr,  CancelButtonTitle as CFStringRef, DestructiveButtonTitle as CFStringRef, otherbuttonTitles as ptr) as ptr
 		  
 		  if CancelButtonTitle.Empty then
@@ -48,7 +48,7 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0
 		Sub ShowInView(view as AppleView)
-		  Declare sub showInView  lib uikit selector "showInView:" (id as ptr, view as ptr)
+		  Declare sub showInView  lib UIKitLibname selector "showInView:" (id as ptr, view as ptr)
 		  showInView id, view.id
 		End Sub
 	#tag EndMethod

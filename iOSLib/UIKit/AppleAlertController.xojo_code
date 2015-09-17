@@ -3,14 +3,14 @@ Protected Class AppleAlertController
 Inherits AppleViewController
 	#tag Method, Flags = &h0
 		Sub AddAction(Action as AppleAlertAction)
-		  declare sub addAction lib UIKit selector "addAction:" (obj_id as ptr, action as ptr)
+		  declare sub addAction lib UIKitLibname selector "addAction:" (obj_id as ptr, action as ptr)
 		  addAction id, action.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub AddTextField(TextField as AppleTextfield, configurationHandler as Ptr = nil)
-		  declare sub addTextFieldWithConfigurationHandler lib UIKit selector "addTextFieldWithConfigurationHandler:" (obj_id as ptr, confighandler as ptr)
+		  declare sub addTextFieldWithConfigurationHandler lib UIKitLibname selector "addTextFieldWithConfigurationHandler:" (obj_id as ptr, confighandler as ptr)
 		  addTextFieldWithConfigurationHandler id, configurationHandler
 		End Sub
 	#tag EndMethod
@@ -31,7 +31,7 @@ Inherits AppleViewController
 
 	#tag Method, Flags = &h1000
 		Sub Constructor(Title as CFStringRef, Message As CFStringRef = "", preferredStyle as UIAlertControllerStyle = UIAlertControllerStyle.alert)
-		  Declare Function alertControllerWithTitle lib UIKit selector "alertControllerWithTitle:message:preferredStyle:" (id as ptr, Title as CFStringRef, Message As CFStringRef, preferredStyle as UIAlertControllerStyle) as Ptr
+		  Declare Function alertControllerWithTitle lib UIKitLibname selector "alertControllerWithTitle:message:preferredStyle:" (id as ptr, Title as CFStringRef, Message As CFStringRef, preferredStyle as UIAlertControllerStyle) as Ptr
 		  
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -70,7 +70,7 @@ Inherits AppleViewController
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function actions lib UIKit selector "actions" (id as ptr) as ptr
+			  Declare Function actions lib UIKitLibname selector "actions" (id as ptr) as ptr
 			  Return AppleArray.MakeFromPtr (actions(id))
 			  
 			End Get
@@ -100,14 +100,14 @@ Inherits AppleViewController
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function message lib UIKit selector "message" (id as ptr) as CFStringRef
+			  Declare Function message lib UIKitLibname selector "message" (id as ptr) as CFStringRef
 			  Return message (id)
 			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMessage lib UIKit selector "setMessage:" (id as ptr, value as CFStringRef)
+			  Declare Sub setMessage lib UIKitLibname selector "setMessage:" (id as ptr, value as CFStringRef)
 			  setMessage id, value
 			End Set
 		#tag EndSetter
@@ -121,7 +121,7 @@ Inherits AppleViewController
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function preferredStyle lib UIKit selector "preferredStyle" (id as ptr) as UIAlertControllerStyle
+			  Declare Function preferredStyle lib UIKitLibname selector "preferredStyle" (id as ptr) as UIAlertControllerStyle
 			  Return preferredStyle (id)
 			  
 			End Get
@@ -141,7 +141,7 @@ Inherits AppleViewController
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function textFields lib UIKit selector "textFields" (id as ptr) as ptr
+			  Declare Function textFields lib UIKitLibname selector "textFields" (id as ptr) as ptr
 			  Return AppleArray.MakeFromPtr (textFields(id))
 			  
 			End Get
@@ -243,11 +243,13 @@ Inherits AppleViewController
 			Name="ModalPresentationStyle"
 			Group="Behavior"
 			Type="UIViewModalPresentationStyle"
+			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ModalTransitonStyle"
 			Group="Behavior"
 			Type="UIModalTransitionStyle"
+			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -264,6 +266,11 @@ Inherits AppleViewController
 			Name="PreferredStyle"
 			Group="Behavior"
 			Type="UIAlertControllerStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - ActionSheet"
+				"1 - Alert"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SelectedTitle"

@@ -13,7 +13,7 @@ Implements AppleGeneralObject
 		Attributes( "deprecated in iOS 9" )  Shared Function AppearanceWhenContainedIn(paramarray classes() as ptr) As AppleObject
 		  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString( "appearanceWhenContainedIn:")) then
 		    dim mb as MemoryBlock = classes.toNilTerminatedMemoryBlock
-		    Declare function appearanceWhenContainedIn lib UIKit selector "appearanceWhenContainedIn:" (id as ptr, classes as ptr) as ptr
+		    Declare function appearanceWhenContainedIn lib UIKitLibname selector "appearanceWhenContainedIn:" (id as ptr, classes as ptr) as ptr
 		    return new AppleObject(appearanceWhenContainedIn (classptr, mb.Data))
 		  end if
 		End Function
@@ -172,7 +172,7 @@ Implements AppleGeneralObject
 
 	#tag Method, Flags = &h1, CompatibilityFlags = (TargetIOS)
 		Protected Shared Function GetAppearance(classptr as ptr) As Ptr
-		  declare function appearance lib UIKit selector "appearance" (id as ptr) as ptr
+		  declare function appearance lib UIKitLibname selector "appearance" (id as ptr) as ptr
 		  return appearance (classptr)
 		End Function
 	#tag EndMethod

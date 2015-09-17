@@ -64,7 +64,7 @@ Protected Module iOSViewExtension
 
 	#tag Method, Flags = &h0
 		Function ViewHandle(extends v as iOSView) As Ptr
-		  declare function view lib UIKit selector "view" (id as ptr) as ptr
+		  declare function view lib UIKitLibname selector "view" (id as ptr) as ptr
 		  return view (v.Handle)
 		End Function
 	#tag EndMethod

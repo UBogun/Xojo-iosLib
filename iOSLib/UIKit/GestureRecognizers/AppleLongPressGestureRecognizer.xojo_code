@@ -13,9 +13,9 @@ Inherits AppleGestureRecognizer
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    Declare function allowableMovement lib UIKit selector "allowableMovement" (id as ptr) as Double
+			    Declare function allowableMovement lib UIKitLibname selector "allowableMovement" (id as ptr) as Double
 			  #elseif Target32Bit
-			    Declare function allowableMovement lib UIKit selector "allowableMovement" (id as ptr) as single
+			    Declare function allowableMovement lib UIKitLibname selector "allowableMovement" (id as ptr) as single
 			  #endif
 			  return AllowableMovement (id)
 			  
@@ -24,9 +24,9 @@ Inherits AppleGestureRecognizer
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare Sub setAllowableMovement lib UIKit selector "setAllowableMovement:" (id as ptr, value as Double)
+			    Declare Sub setAllowableMovement lib UIKitLibname selector "setAllowableMovement:" (id as ptr, value as Double)
 			  #elseif Target32Bit
-			    Declare Sub setAllowableMovement lib UIKit selector "setAllowableMovement:" (id as ptr, value as single)
+			    Declare Sub setAllowableMovement lib UIKitLibname selector "setAllowableMovement:" (id as ptr, value as single)
 			  #endif
 			  setAllowableMovement id, value
 			End Set
@@ -47,13 +47,13 @@ Inherits AppleGestureRecognizer
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function minimumPressDuration lib UIKit selector "minimumPressDuration" (id as ptr) as double
+			  Declare function minimumPressDuration lib UIKitLibname selector "minimumPressDuration" (id as ptr) as double
 			  return minimumPressDuration (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setMinimumPressDuration lib UIKit selector "setMinimumPressDuration:" (id as ptr, value as double)
+			  Declare Sub setMinimumPressDuration lib UIKitLibname selector "setMinimumPressDuration:" (id as ptr, value as double)
 			  setMinimumPressDuration id, value
 			End Set
 		#tag EndSetter
