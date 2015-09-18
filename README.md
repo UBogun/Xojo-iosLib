@@ -8,6 +8,9 @@ iOSLib tries to implement declared features completely transparent to Xojo, whic
 If you want to dig deeper into iOS, you can always address the API features on a class level and use all the bells and whistles.
 You are very welcome to send additions, declares or more convenience methods that create a native Xojo-like feeling for the declare routines.
 
+#Now Compatible with iOSKit
+You should now be able to use both iOSLib and https://github.com/kingj5/iOSKit together in one project. Therefore, I had to encapsulate a few structures like NSRect, NSSize … into FoundationFrameWork. The Wiki currently does not reflect that change.  
+
 #Very important – New, easier structure!
 As I was having troubles too often with th project not finding its external files anymore, I have included external files now. You will most probably only have to locate images and sounds once.
 **As a side effect, there is now one main project containing iOSLib and the splash screen. The demo views have moved to different separate projects in a Demo projects folder.**  
