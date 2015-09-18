@@ -1,17 +1,8 @@
 #tag Module
 Protected Module VectorExtension
 	#tag Method, Flags = &h0
-		Function CGVector(dx as double, dy as double) As CGVector
-		  dim v as CGVector
-		  v.dx = dx
-		  v.dy = dy
-		  return v
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function toCGVector(extends v as CGVector32Bit) As CGVector
-		  dim result as CGVector
+		Function toCGVector(extends v as FoundationFrameWork.CGVector32Bit) As FoundationFrameWork.CGVector
+		  dim result as FoundationFrameWork.CGVector
 		  result.dx = v.dx
 		  result.dy = v.dy
 		  return result
@@ -19,8 +10,8 @@ Protected Module VectorExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toCGVector32(extends v as CGVector) As CGVector32Bit
-		  dim result as CGVector32Bit
+		Function toCGVector32(extends v as FoundationFrameWork.CGVector) As FoundationFrameWork.CGVector32Bit
+		  dim result as FoundationFrameWork.CGVector32Bit
 		  result.dx = v.dx
 		  result.dy = v.dy
 		  return result

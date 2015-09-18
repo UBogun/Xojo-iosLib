@@ -10,10 +10,10 @@ Begin iosView SplashView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       ContentMode     =   "1"
       Height          =   240.0
       Image           =   "857282559"
@@ -27,10 +27,10 @@ Begin iosView SplashView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -48,10 +48,10 @@ Begin iosView SplashView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, -37, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       Caption         =   "Info"
       Enabled         =   True
       Height          =   30.0
@@ -65,6 +65,26 @@ Begin iosView SplashView
       Visible         =   True
       Width           =   100.0
    End
+   Begin iOSButton Button2
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 3.0e+1, 
+      AutoLayout      =   Button2, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 253, 
+      AutoLayout      =   Button2, 2, Label1, 2, False, +1.00, 1, 1, 0, 
+      Caption         =   "Coming soon: UIDynamics (klick me)"
+      Enabled         =   True
+      Height          =   30.0
+      Left            =   47.0
+      LockedInPosition=   False
+      PanelIndex      =   -1
+      Parent          =   "nil"
+      Scope           =   0
+      TextColor       =   &c007AFF00
+      TextFont        =   ""
+      TextSize        =   0
+      Top             =   20.0
+      Visible         =   True
+      Width           =   253.0
+   End
 End
 #tag EndIOSView
 
@@ -76,6 +96,7 @@ End
 		  dim options as new AppleViewAnimationOption
 		  options.AllowUserInteraction = true
 		  button1.AppleView.SpringAnimateFrame (newrect , options, 0.3, 10, 5)
+		  
 		  
 		End Sub
 	#tag EndMethod
@@ -121,6 +142,21 @@ End
 		  
 		  v2.AppleViewController.ModalPresentationStyle = UIKitFramework.UIViewModalPresentationStyle.PopOver
 		  self.PushToCover v2
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Button2
+	#tag Event
+		Sub Action()
+		  static animator as new AppleDynamicAnimator (self)
+		  dim gravity as new AppleGravityBehavior (me)
+		  gravity.AngleInDegrees = 95
+		  gravity.Magnitude = 0.65
+		  dim collision as new AppleCollisionBehavior (me)
+		  collision.TranslatesReferenceBoundsIntoBoundary = true
+		  animator.AddBehavior gravity
+		  animator.AddBehavior collision
 		  
 		End Sub
 	#tag EndEvent

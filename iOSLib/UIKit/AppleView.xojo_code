@@ -1322,6 +1322,26 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString( "collisionBoundsType")) then
+			    Declare function collisionBoundsType lib UIKitLibname selector "collisionBoundsType" (id as ptr) as UIKitFramework.UIDynamicItemCollisionBoundsType
+			    return collisionBoundsType (id)
+			  end if
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString( "setCollisionBoundsType:")) then
+			    Declare sub setCollisionBoundsType lib UIKitLibname selector "setCollisionBoundsType:" (id as ptr, value as UIKitFramework.UIDynamicItemCollisionBoundsType)
+			    setcollisionBoundsType (id, value)
+			  end if
+			End Set
+		#tag EndSetter
+		CollisionBoundsType As UIKitFramework.UIDynamicItemCollisionBoundsType
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  Declare function ContentMode lib UIKitLibname selector "contentMode" (id as ptr) as UIViewContentMode
 			  return ContentMode (id)
 			End Get

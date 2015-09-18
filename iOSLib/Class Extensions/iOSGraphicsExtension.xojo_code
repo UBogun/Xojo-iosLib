@@ -84,12 +84,6 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function BlendMode(extends g as iosgraphics) As CGBlendmode
-		  return g.CGContext.BlendMode
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub BlendMode(extends g as iosgraphics, assigns value as CGBlendmode)
 		  g.CGContext.BlendMode = value
 		End Sub
@@ -110,6 +104,48 @@ Protected Module iOSGraphicsExtension
 	#tag Method, Flags = &h0
 		Sub ClearRect(extends g as iosgraphics, rect as xojo.core.rect)
 		  g.CGContext.ClearRect rect.ToNSRect
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Clip(extends g as iosgraphics)
+		  g.CGContext.Clip
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ClipBoundingBox(extends g as iOSGraphics) As Xojo.core.rect
+		  return g.CGContext.ClipBoundingBox.toCoreRect
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ClipEO(extends g as iosgraphics)
+		  g.CGContext.ClipEO
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ClipToMask(extends g as iosgraphics, Mask as iOSImage)
+		  g.CGContext.ClipToMask (mask.toAppleImage.toCGImage)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ClipToRect(extends g as iosgraphics, x as double, y as double, width as double, height as double)
+		  g.CGContext.ClipToRect FoundationFrameWork.NSMakeRect ( x, y, width, height)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ClipToRect(extends g as iosgraphics, aRect as Xojo.core.rect)
+		  g.CGContext.ClipToRect arect.tonsrect
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ClipToRects(extends g as iosgraphics, Rects() as xojo.core.rect)
+		  g.CGContext.ClipToRects rects.tonsrect
 		End Sub
 	#tag EndMethod
 
@@ -224,12 +260,6 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function Flatness(extends g as iOSGraphics) As Double
-		  return g.CGContext.Flatness
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub Flatness(extends g as iOSGraphics, assigns value as Double)
 		  g.CGContext.Flatness = value
 		End Sub
@@ -242,12 +272,6 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function FontSmoothing(extends g as iOSGraphics) As Boolean
-		  return g.CGContext.AllowFontSmoothing and g.CGContext.ShouldSmoothFonts
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub FontSmoothing(extends g as iOSGraphics, assigns value as boolean)
 		  g.CGContext.AllowFontSmoothing = value
 		  g.CGContext.ShouldSmoothFonts = value
@@ -255,22 +279,10 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function FontSubpixelPositioning(extends g as iOSGraphics) As Boolean
-		  return g.CGContext.AllowFontSubpixelPositioning and g.CGContext.ShouldSubpixelPositionFonts
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub FontSubpixelPositioning(extends g as iOSGraphics, assigns value as boolean)
 		  g.CGContext.AllowFontSubpixelPositioning = value
 		  g.CGContext.ShouldSubpixelPositionFonts = value
 		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function FontSubpixelQuantization(extends g as iOSGraphics) As Boolean
-		  return g.CGContext.AllowFontSubpixelQuantization and g.CGContext.ShouldSubpixelQuantizeFonts
-		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -311,21 +323,9 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function LineJoin(extends g as iOSGraphics) As CGLineJoin
-		  return g.CGContext.LineJoin
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub LineJoin(extends g as iOSGraphics, assigns value as CGLineJoin)
 		  g.CGContext.LineJoin = value
 		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function MiterLimit(extends g as iOSGraphics) As Double
-		  return g.CGContext.MiterLimit
-		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -347,14 +347,14 @@ Protected Module iOSGraphicsExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function PathContainsPoint(extends g as iosgraphics, point as xojo.core.point, mode as CGPathDrawingMode = CGPathDrawingMode.Fill) As Boolean
-		  return g.CGContext.PathContainsPoint (point.toNSPoint, mode)
+		Function PathContainsPoint(extends g as iosgraphics, x as double, y as double, mode as CGPathDrawingMode = CGPathDrawingMode.Fill) As Boolean
+		  return g.CGContext.PathContainsPoint (FoundationFrameWork.NSMakePoint(x,y), mode)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function PathContainsPoint1(extends g as iosgraphics, x as double, y as double, mode as CGPathDrawingMode = CGPathDrawingMode.Fill) As Boolean
-		  return g.CGContext.PathContainsPoint (FoundationFrameWork.NSMakePoint(x,y), mode)
+		Function PathContainsPoint(extends g as iosgraphics, point as xojo.core.point, mode as CGPathDrawingMode = CGPathDrawingMode.Fill) As Boolean
+		  return g.CGContext.PathContainsPoint (point.toNSPoint, mode)
 		End Function
 	#tag EndMethod
 
@@ -415,12 +415,6 @@ Protected Module iOSGraphicsExtension
 		Sub StrokeRect(extends g as iosgraphics, aRect as xojo.core.rect, LineWidth As Double)
 		  g.CGContext.StrokeRect aRect.tonsrect, LineWidth
 		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function TextDrawingMode(extends g as iOSGraphics) As CGTextDrawingMode
-		  return g.CGContext.TextDrawingMode
-		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0

@@ -177,6 +177,12 @@ Protected Module UIKitFramework
 		Reserved
 	#tag EndEnum
 
+	#tag Enum, Name = UIDynamicItemCollisionBoundsType, Type = UInteger, Flags = &h0
+		Rectangle
+		  Ellipse
+		Path
+	#tag EndEnum
+
 	#tag Enum, Name = UIGestureRecognizerState, Type = Integer, Flags = &h0
 		Possible
 		  Began

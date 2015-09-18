@@ -127,6 +127,15 @@ Protected Module CoreGraphicsFramework
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h1
+		Protected Function CGMakeVector(dx as double, dy as double) As FoundationFrameWork.CGVector
+		  dim v as FoundationFrameWork.CGVector
+		  v.dx = dx
+		  v.dy = dy
+		  return v
+		End Function
+	#tag EndMethod
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter

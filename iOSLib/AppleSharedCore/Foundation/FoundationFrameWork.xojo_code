@@ -119,12 +119,12 @@ Protected Module FoundationFrameWork
 	#tag EndConstant
 
 
-	#tag Structure, Name = CGVector, Flags = &h0
+	#tag Structure, Name = CGVector, Flags = &h1
 		dx as double
 		dy as double
 	#tag EndStructure
 
-	#tag Structure, Name = CGVector32Bit, Flags = &h0
+	#tag Structure, Name = CGVector32Bit, Flags = &h1
 		dx as single
 		dy as single
 	#tag EndStructure

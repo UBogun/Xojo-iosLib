@@ -194,6 +194,31 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub CGContextClip Lib CoreGraphicsLibName (context as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub CGContextClipToMask Lib CoreGraphicsLibName (CFTypeRef as Ptr, Mask as Ptr)
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h1
+		Protected Shared Sub CGContextCliptoRect(APathRef as Ptr, aRect as FoundationFramework.NSRect)
+		  #if Target64Bit
+		    Declare Sub CGContextClipToRect lib CoreGraphicsLibName (id as ptr,  aRect  as FoundationFramework.NSRect)
+		    CGContextClipToRect (APathRef,  aRect)
+		  #elseif Target32Bit
+		    Declare Sub CGContextClipToRect lib CoreGraphicsLibName (id as ptr,  aRect as FoundationFramework.NSRect32Bit)
+		    CGContextClipToRect (APathRef,  aRect.toNSRect32)
+		  #endif
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub CGContextClipToRects Lib CoreGraphicsLibName (CFTypeRef as Ptr, Rects as Ptr, Count as Uinteger)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
 		Protected Declare Sub CGContextClosePath Lib CoreGraphicsLibName (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
@@ -260,6 +285,10 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub CGContextEOClip Lib CoreGraphicsLibName (context as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
 		Protected Declare Sub CGContextEOFillPath Lib CoreGraphicsLibName (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
@@ -275,55 +304,22 @@ Inherits AppleCFObject
 		Protected Declare Sub CGContextFlush Lib CoreGraphicsLibName (CFTypeRef as Ptr)
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetAllowsFontSmoothing Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Boolean
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetAllowsFontSubpixelPositioning Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Boolean
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetAllowsFontSubpixelQuantization Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Boolean
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetBlendMode Lib CoreGraphicsLibName (CFTypeRef as Ptr) As CGBlendMode
-	#tag EndExternalMethod
-
 	#tag Method, Flags = &h1
-		Protected Shared Function CGContextGetFlatness(id as ptr) As double
+		Protected Shared Function CGContextGetClipBoundingBox(context as Ptr) As FoundationFramework.NSRect
 		  #if Target64Bit
-		    Declare function CGContextGetFlatness lib CoreGraphicsLibName (id as ptr)  as double
+		    Declare function CGContextGetClipBoundingBox lib CoreGraphicsLibName (id as ptr)  as FoundationFramework.NSRect
+		    return CGContextGetClipBoundingBox (context)
 		  #elseif Target32Bit
-		    Declare function CGContextGetFlatness lib CoreGraphicsLibName (id as ptr)  as single
+		    Declare function CGContextGetClipBoundingBox lib CoreGraphicsLibName (id as ptr) as FoundationFramework.NSRect32Bit
+		    return CGContextGetClipBoundingBox(context).toNSRect
 		  #endif
-		  Return CGContextGetFlatness (id)
+		  
 		End Function
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function CGContextGetInterpolationQuality Lib CoreGraphicsLibName (CFTypeRef as Ptr) As CGInterpolationQuality
 	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetLineCap Lib CoreGraphicsLibName (CFTypeRef as Ptr) As CGLineCap
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetLineJoin Lib CoreGraphicsLibName (CFTypeRef as Ptr) As CGLineJoin
-	#tag EndExternalMethod
-
-	#tag Method, Flags = &h1
-		Protected Shared Function CGContextGetMiterLimit(id as ptr) As Double
-		  #if Target64Bit
-		    Declare function CGContextGetMiterLimit lib CoreGraphicsLibName (id as ptr) as double
-		  #elseif Target32Bit
-		    Declare function CGContextGetMiterLimit lib CoreGraphicsLibName (id as ptr) as single
-		  #endif
-		  return CGContextGetMiterLimit (id)
-		End Function
-	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Shared Function CGContextGetPathBoundingBox(context as Ptr) As FoundationFramework.NSRect
@@ -350,39 +346,6 @@ Inherits AppleCFObject
 		  
 		End Function
 	#tag EndMethod
-
-	#tag Method, Flags = &h1
-		Protected Shared Function CGContextGetPatternPhase(id as ptr) As FoundationFramework.NSSize
-		  #if Target64Bit
-		    Declare Function CGContextGetPatternPhase lib CoreGraphicsLibName (id as ptr) as FoundationFramework.NSSize
-		    return CGContextGetPatternPhase (id)
-		  #elseif Target32Bit
-		    Declare Function CGContextGetPatternPhase lib CoreGraphicsLibName (id as ptr) As FoundationFramework.NSSize32Bit
-		    return CGContextGetPatternPhase(id).tonssize
-		  #endif
-		  
-		End Function
-	#tag EndMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetRenderingIntent Lib CoreGraphicsLibName (CFTypeRef as Ptr) As CGColorRenderingIntent
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetShouldSmoothFonts Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Boolean
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetShouldSubpixelPositionFonts Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Boolean
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetShouldSubpixelQuantizeFonts Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Boolean
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function CGContextGetTextDrawingMode Lib CoreGraphicsLibName (CFTypeRef as Ptr) As CGTextDrawingMode
-	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function CGContextIsPathEmpty Lib CoreGraphicsLibName (CFTypeRef as Ptr) As Boolean
@@ -581,6 +544,37 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h0
 		Sub ClearRect(Rect as FoundationFramework.NSRect)
 		  CGContextClearRect mCFTypeRef, Rect
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Clip()
+		  CGContextClip mCFTypeRef
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ClipEO()
+		  CGContextEOClip mCFTypeRef
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ClipToMask(Mask as AppleCGImage)
+		  CGContextCliptoMask mCFTypeRef, Mask.CFTypeRef
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ClipToRect(Rect as FoundationFramework.NSRect)
+		  CGContextCliptoRect mCFTypeRef, Rect
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ClipToRects(Rects() as FoundationFramework.NSRect, Count as Uinteger = 0)
+		  if count = 0 then count = rects.Ubound + 1
+		  CGContextClipToRects mCFTypeRef, rects.toMemoryBlock.Data, count
 		End Sub
 	#tag EndMethod
 
@@ -823,11 +817,6 @@ Inherits AppleCFObject
 
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetAllowsFontSmoothing (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetAllowsFontSmoothing mCFTypeRef, value
@@ -838,11 +827,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetAllowsFontSubpixelPositioning (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetAllowsFontSubpixelPositioning mCFTypeRef, value
@@ -853,11 +837,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetAllowsFontSubpixelQuantization (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetAllowsFontSubpixelQuantization mCFTypeRef, value
@@ -868,17 +847,21 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetBlendMode (mcfTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetBlendMode mCFTypeRef, value
 			End Set
 		#tag EndSetter
 		BlendMode As CGBlendMode
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return CGContextGetClipBoundingBox (mcfTypeRef)
+			End Get
+		#tag EndGetter
+		ClipBoundingBox As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -905,11 +888,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Return CGContextGetFlatness (mcftyperef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetFlatness mCFTypeRef, value
@@ -933,11 +911,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetLineCap (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetLineCap mcftyperef, value
@@ -947,11 +920,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetLineJoin (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetLineJoin mcftyperef, value
@@ -961,11 +929,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Return CGContextGetMiterLimit (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetMiterLimit mCFTypeRef, value
@@ -993,11 +956,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetPatternPhase (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetPatternPhase mCFTypeRef, value
@@ -1007,11 +965,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetRenderingIntent (mcfTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetRenderingIntent mCFTypeRef, value
@@ -1021,11 +974,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetShouldSmoothFonts (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetShouldSmoothFonts mCFTypeRef, value
@@ -1035,11 +983,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetShouldSubpixelPositionFonts (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetShouldSubpixelPositionFonts mCFTypeRef, value
@@ -1049,11 +992,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return CGContextGetShouldSubpixelQuantizeFonts (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetShouldSubpixelQuantizeFonts mCFTypeRef, value
@@ -1063,11 +1001,6 @@ Inherits AppleCFObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Return CGContextGetTextDrawingMode (mCFTypeRef)
-			End Get
-		#tag EndGetter
 		#tag Setter
 			Set
 			  CGContextSetTextDrawingMode mCFTypeRef, value
