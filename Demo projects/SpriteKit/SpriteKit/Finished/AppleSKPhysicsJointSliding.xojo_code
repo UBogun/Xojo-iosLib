@@ -2,14 +2,14 @@
 Protected Class AppleSKPhysicsJointSliding
 Inherits AppleSKPhysicsJoint
 	#tag Method, Flags = &h1000
-		Sub Constructor(BodyA As AppleSKPhysicsBody, BodyB as AppleSKPhysicsBody, Anchor as FoundationFramework.NSPoint, Axis as CGVector)
+		Sub Constructor(BodyA As AppleSKPhysicsBody, BodyB as AppleSKPhysicsBody, Anchor as FoundationFramework.NSPoint, Axis as FoundationFramework.CGVector)
 		  #if Target64Bit
 		    declare function jointWithBodyA lib SpriteKit selector "jointWithBodyA:bodyB:anchor:axis:" _
-		    (id as ptr, bodyA as ptr, bodyB as ptr, anchor as FoundationFramework.NSPoint, axis as CGVector) as ptr
+		    (id as ptr, bodyA as ptr, bodyB as ptr, anchor as FoundationFramework.NSPoint, axis as FoundationFramework.CGVector) as ptr
 		    super.Constructor (jointWithBodyA(ClassPtr, bodyA.id, Bodyb.id, Anchor, axis))
 		  #elseif Target32Bit
 		    declare function jointWithBodyA lib SpriteKit selector "jointWithBodyA:bodyB:anchor:axis:" _
-		    (id as ptr, bodyA as ptr, bodyB as ptr, anchor as FoundationFramework.NSPoint32Bit, axis as CGVector32Bit) as ptr
+		    (id as ptr, bodyA as ptr, bodyB as ptr, anchor as FoundationFramework.NSPoint32Bit, axis as FoundationFramework.CGVector32Bit) as ptr
 		    super.Constructor (jointWithBodyA(ClassPtr, bodyA.id, Bodyb.id, Anchor.toNSPoint32, axis.toCGVector32))
 		  #endif
 		  RetainClassObject
@@ -104,22 +104,7 @@ Inherits AppleSKPhysicsJoint
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="EnableLimits"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -129,16 +114,6 @@ Inherits AppleSKPhysicsJoint
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -151,11 +126,6 @@ Inherits AppleSKPhysicsJoint
 			Name="LowerDistanceLimit"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

@@ -1,17 +1,6 @@
 Type=iOS
 RBProjectVersion=2015.024
 MinIDEVersion=20140300
-Class=AppleCAScrollLayer;AppleCAScrollLayer.xojo_code;&h5AD527FF;&h0;false
-Module=QuartzCoreFramework;QuartzCoreFramework.xojo_code;&hBF827FF;&h0;false
-Class=AppleCATiledLayer;AppleCATiledLayer.xojo_code;&h742277FF;&h0;false
-Class=AppleCATextLayer;AppleCATextLayer.xojo_code;&h117CFFF;&h0;false
-Class=AppleCAEmitterLayer;AppleCAEmitterLayer.xojo_code;&h63BA27FF;&h0;false
-Class=AppleCAEmitterCell;AppleCAEmitterCell.xojo_code;&h7942DFFF;&h0;false
-Class=AppleCAMediaTimingObject;AppleCAMediaTimingObject.xojo_code;&h7BE67FFF;&h0;false
-Class=AppleCAAnimation;AppleCAAnimation.xojo_code;&h2691FFF;&h0;false
-Class=AppleCAMediaTimingFunction;AppleCAMediaTimingFunction.xojo_code;&hFB317FF;&h0;false
-Class=AppleCAGradientLayer;AppleCAGradientLayer.xojo_code;&h231EC7FF;&h0;false
-Class=AppleCALayer;AppleCALayer.xojo_code;&h4A1C0FFF;&h0;false
 iOSView=MenuView;MenuView.xojo_code;&h1F0CEFFF;&h0;false
 iOSView=iosScrollView;iosScrollView.xojo_code;&h2DAB7FFF;&h0;false
 iOSView=TextFieldView;TextFieldView.xojo_code;&h698E1FFF;&h0;false

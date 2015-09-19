@@ -243,13 +243,11 @@ Inherits AppleViewController
 			Name="ModalPresentationStyle"
 			Group="Behavior"
 			Type="UIViewModalPresentationStyle"
-			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ModalTransitonStyle"
 			Group="Behavior"
 			Type="UIModalTransitionStyle"
-			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -266,11 +264,6 @@ Inherits AppleViewController
 			Name="PreferredStyle"
 			Group="Behavior"
 			Type="UIAlertControllerStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - ActionSheet"
-				"1 - Alert"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SelectedTitle"

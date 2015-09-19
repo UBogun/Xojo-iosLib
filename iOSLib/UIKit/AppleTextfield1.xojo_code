@@ -1071,13 +1071,6 @@ Inherits AppleControl
 			Name="BorderStyle"
 			Group="Behavior"
 			Type="UITextFieldBorderStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - None"
-				"1 - Line"
-				"2 - Bezel"
-				"3 - RoundedRect"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Caption"
@@ -1088,13 +1081,6 @@ Inherits AppleControl
 			Name="ClearButtonMode"
 			Group="Behavior"
 			Type="UITextFieldViewMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Never"
-				"1 - WhileEditing"
-				"2 - UnlessEditing"
-				"3 - Always"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsContextBeforeDrawing"
@@ -1115,6 +1101,17 @@ Inherits AppleControl
 			Name="ClipsToBounds"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CollisionBoundsType"
+			Group="Behavior"
+			Type="UIKitFramework.UIDynamicItemCollisionBoundsType"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Rectangle"
+				"1 - Ellipse"
+				"2 - Path"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentHorizontalAlignment"
@@ -1249,13 +1246,6 @@ Inherits AppleControl
 			Name="LeftViewMode"
 			Group="Behavior"
 			Type="UITextFieldViewMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Never"
-				"1 - WhileEditing"
-				"2 - UnlessEditing"
-				"3 - Always"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mHasOwnership"
@@ -1297,13 +1287,6 @@ Inherits AppleControl
 			Name="RightViewMode"
 			Group="Behavior"
 			Type="UITextFieldViewMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Never"
-				"1 - WhileEditing"
-				"2 - UnlessEditing"
-				"3 - Always"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Selected"

@@ -117,6 +117,12 @@ Protected Class Camera
 			Name="SourceType"
 			Group="Behavior"
 			Type="UIKit.UIImagePickerController.Source"
+			EditorType="Enum"
+			#tag EnumValues
+				"1 - Camera"
+				"0 - PhotoLibrary"
+				"2 - SavedPhotoAlbum"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

@@ -109,7 +109,7 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub RunBlockRayTemplate32Bit(Body as ptr, ContactPoint as FoundationFramework.NSPoint32Bit, Normal as CGVector32Bit, byref stop as Boolean)
+		Private Shared Sub RunBlockRayTemplate32Bit(Body as ptr, ContactPoint as FoundationFramework.NSPoint32Bit, Normal as FoundationFramework.CGVector32Bit, byref stop as Boolean)
 		  dim PhysicsBody as AppleSKPhysicsBody = AppleSKPhysicsBody.MakeFromPtr (body)
 		  // here you can evalue the point in screen coordinates where the ray hit and the distance from its startpoint to contactpoint
 		  // if you want to stop further body processing, set stop = True
@@ -117,7 +117,7 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Shared Sub RunBlockRayTemplate64Bit(Body as ptr, ContactPoint as FoundationFramework.NSPoint, Normal as CGVector, byref stop as Boolean)
+		Private Shared Sub RunBlockRayTemplate64Bit(Body as ptr, ContactPoint as FoundationFramework.NSPoint, Normal as FoundationFramework.CGVector, byref stop as Boolean)
 		  dim PhysicsBody as AppleSKPhysicsBody = AppleSKPhysicsBody.MakeFromPtr (body)
 		  // here you can evalue the point in screen coordinates where the ray hit and the distance from its startpoint to contactpoint
 		  // if you want to stop further body processing, set stop = True
@@ -125,12 +125,12 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function SampleFields(Position as FoundationFramework.NSPoint) As CGVector
+		Function SampleFields(Position as FoundationFramework.NSPoint) As FoundationFramework.CGVector
 		  dim Vector as  Vector_Float3
 		  Vector.x = Position.x
 		  Vector.y = Position.y
 		  dim result as  Vector_Float3 = SampleFields (vector)
-		  return CGVector (result.x, result.y)
+		  return CoreGraphicsFramework.CGMakeVector (result.x, result.y)
 		End Function
 	#tag EndMethod
 
@@ -178,10 +178,10 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare Function gravity lib SpriteKit selector "gravity" (id as ptr) as CGVector
+			    declare Function gravity lib SpriteKit selector "gravity" (id as ptr) as FoundationFramework.CGVector
 			    return gravity (id)
 			  #elseif Target32Bit
-			    declare Function gravity lib SpriteKit selector "gravity" (id as ptr) as CGVector32Bit
+			    declare Function gravity lib SpriteKit selector "gravity" (id as ptr) as FoundationFramework.CGVector32Bit
 			    return gravity(id).toCGVector
 			  #endif
 			  
@@ -190,16 +190,16 @@ Inherits AppleObject
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare sub setGravity lib SpriteKit selector "setGravity:" (id as ptr, value as CGVector)
+			    declare sub setGravity lib SpriteKit selector "setGravity:" (id as ptr, value as FoundationFramework.CGVector)
 			    setGravity id, value
 			  #elseif Target32Bit
-			    declare sub setGravity lib SpriteKit selector "setGravity:" (id as ptr, value as CGVector32Bit)
+			    declare sub setGravity lib SpriteKit selector "setGravity:" (id as ptr, value as FoundationFramework.CGVector32Bit)
 			    setGravity id, value.toCGVector32
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		Gravity As CGVector
+		Gravity As FoundationFrameWork.cgvector
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -231,21 +231,6 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -253,26 +238,11 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

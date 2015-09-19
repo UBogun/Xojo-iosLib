@@ -8,10 +8,10 @@ Begin iosView SearchFieldView
    Title           =   ""
    Top             =   0
    Begin AppleSearchBarControl AppleSearchBarControl1
-      AutoLayout      =   AppleSearchBarControl1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   AppleSearchBarControl1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   AppleSearchBarControl1, 8, , 0, False, +1.00, 1, 1, 70, 
+      AutoLayout      =   AppleSearchBarControl1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   AppleSearchBarControl1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   AppleSearchBarControl1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Height          =   70.0
       Left            =   20.0
       LockedInPosition=   False
@@ -19,10 +19,10 @@ Begin iosView SearchFieldView
       Width           =   280.0
    End
    Begin AppleSearchBarControl AppleSearchBarControl2
-      AutoLayout      =   AppleSearchBarControl2, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   AppleSearchBarControl2, 3, AppleSearchBarControl1, 4, False, +1.00, 1, 1, 30, 
       AutoLayout      =   AppleSearchBarControl2, 8, , 0, False, +1.00, 1, 1, 112, 
+      AutoLayout      =   AppleSearchBarControl2, 3, AppleSearchBarControl1, 4, False, +1.00, 1, 1, 30, 
       AutoLayout      =   AppleSearchBarControl2, 7, AppleSearchBarControl1, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AppleSearchBarControl2, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       Height          =   112.0
       Left            =   20.0
       LockedInPosition=   False
@@ -32,10 +32,10 @@ Begin iosView SearchFieldView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, AppleSearchBarControl2, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 2, AppleSearchBarControl2, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Label1, 2, AppleSearchBarControl2, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 3, AppleSearchBarControl2, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label1, 1, AppleSearchBarControl2, 1, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   179.0
       Left            =   20

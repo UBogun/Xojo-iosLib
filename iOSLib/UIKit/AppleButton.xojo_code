@@ -425,10 +425,20 @@ Inherits AppleControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="CollisionBoundsType"
+			Group="Behavior"
+			Type="UIKitFramework.UIDynamicItemCollisionBoundsType"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Rectangle"
+				"1 - Ellipse"
+				"2 - Path"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ContentHorizontalAlignment"
 			Group="Behavior"
 			Type="UIControlContentHorizontalAlignment"
-			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentMode"
@@ -460,7 +470,6 @@ Inherits AppleControl
 			Name="ContentVerticalAlignment"
 			Group="Behavior"
 			Type="UIControlContentVerticalAlignment"
-			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CurrentTitle"
@@ -586,7 +595,6 @@ Inherits AppleControl
 			Name="State"
 			Group="Behavior"
 			Type="UIControlState"
-			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

@@ -8,10 +8,10 @@ Begin iosView iosScrollView
    Title           =   ""
    Top             =   0
    Begin AppleScrollViewer AppleScrollViewControl1
-      AutoLayout      =   AppleScrollViewControl1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   AppleScrollViewControl1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AppleScrollViewControl1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   AppleScrollViewControl1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   AppleScrollViewControl1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   AppleScrollViewControl1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       Height          =   415.0
       Left            =   0.0
       LockedInPosition=   False

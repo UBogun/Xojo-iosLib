@@ -640,10 +640,10 @@ Inherits AppleSKNode
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare function particlePositionRange lib spritekit selector "particlePositionRange" (id as ptr) as CGVector
+			    declare function particlePositionRange lib spritekit selector "particlePositionRange" (id as ptr) as FoundationFramework.CGVector
 			    return particlePositionRange (id)
 			  #elseif Target32Bit
-			    declare function particlePositionRange lib spritekit selector "particlePositionRange" (id as ptr) as CGVector32Bit
+			    declare function particlePositionRange lib spritekit selector "particlePositionRange" (id as ptr) as FoundationFramework.CGVector32Bit
 			    return particlePositionRange(id).toCGVector
 			  #endif
 			  
@@ -652,16 +652,16 @@ Inherits AppleSKNode
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare sub setParticlePositionRange lib spritekit selector "setParticlePositionRange:" (id as ptr, value as CGVector)
+			    declare sub setParticlePositionRange lib spritekit selector "setParticlePositionRange:" (id as ptr, value as FoundationFramework.CGVector)
 			    setParticlePositionRange id, value
 			  #elseif Target32Bit
-			    declare sub setParticlePositionRange lib spritekit selector "setParticlePositionRange:" (id as ptr, value as CGVector32Bit)
+			    declare sub setParticlePositionRange lib spritekit selector "setParticlePositionRange:" (id as ptr, value as FoundationFramework.CGVector32Bit)
 			    setParticlePositionRange id, value.toCGVector32
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		ParticlePositionRange As CGVector
+		ParticlePositionRange As FoundationFramework.CGVector
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1105,16 +1105,6 @@ Inherits AppleSKNode
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="EmissionAngle"
 			Group="Behavior"
 			Type="Double"
@@ -1126,11 +1116,6 @@ Inherits AppleSKNode
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ExecutesActions"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -1147,31 +1132,11 @@ Inherits AppleSKNode
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsFirstResponder"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -1349,11 +1314,6 @@ Inherits AppleSKNode
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TextInputContextIdentifier"
-			Group="Behavior"
-			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

@@ -12,10 +12,10 @@ Begin iosView SpriteKitView
       AccessibilityLabel=   ""
       AllowsTransparency=   False
       Asynchronous    =   False
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
       FrameInterval   =   0
       Height          =   407.0
       IgnoresSiblingOrder=   False
@@ -309,7 +309,7 @@ End
 		  
 		  //Setting the Point the emitter emits from (Top line of view, in its center)
 		  BackGroundnode.ParticlePosition = FoundationFrameWork.NSMakePoint (ImageView1.Width / 2, ImageView1.Height) // spawn them on top of the view
-		  BackGroundnode.ParticlePositionRange = CGVector (ImageView1.Width, 0) //make it randomize over the full width
+		  BackGroundnode.ParticlePositionRange = CoreGraphicsFramework.CGMakeVector (ImageView1.Width, 0) //make it randomize over the full width
 		  BackGroundnode.ParticleSpeed = ImageView1.Height / BackgroundSpeedScrollDuration // make them drift nicely
 		  BackGroundnode.ParticleSpeedRange = (ImageView1.Height / BackgroundSpeedScrollDuration)/ 4 // with variance to add depth
 		  BackGroundnode.ParticleLifetime = BackgroundSpeedScrollDuration * 1.25 // kill them when they left the stage
@@ -471,7 +471,7 @@ End
 	#tag Method, Flags = &h21
 		Private Sub ShootWorld()
 		  dim myscene as new AppleSKSceneWithInterface (ImageView1.View.frame.Size_, ImageView1)
-		  myscene.PhysicsWorld.Gravity = CGVector (0,-0.05)
+		  myscene.PhysicsWorld.Gravity = CoreGraphicsFramework.CGMakeVector (0,-0.05)
 		  ImageView1.PresentScene (myscene, AppleSKTransition.Doorway (2))
 		  
 		  
@@ -497,7 +497,7 @@ End
 		    firstbody.Dynamic = true
 		    firstbody.AffectedByGravity = true
 		    mynode.PhysicsBody = firstbody
-		    firstbody.ApplyImpulse (CGVector(randomint (-1000, 1000), randomint (-1000, 1000)))
+		    firstbody.ApplyImpulse (CoreGraphicsFramework.CGMakeVector(randomint (-1000, 1000), randomint (-1000, 1000)))
 		    
 		  next
 		  
@@ -581,7 +581,7 @@ End
 		  if SpaceShooterScene = nil then // do we have to create a new scene or does one still exist?
 		    SpaceShooterScene = new AppleSKSceneWithInterface (ImageView1) // Dim a new Scene the size of the view
 		    SpaceShooterScene.name = "SpaceShooter" //and give it a name..
-		    SpaceShooterScene.PhysicsWorld.Gravity = CGVector (0,0) // No gravity in space
+		    SpaceShooterScene.PhysicsWorld.Gravity = CoreGraphicsFramework.CGMakeVector (0,0) // No gravity in space
 		    // Now prepare the images and sprites:
 		    createStarBackground // install the falling stars in the background
 		    CanSteer = False // Dont let the user control the fighter

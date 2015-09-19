@@ -10,10 +10,10 @@ Begin iosView CGGraphicsView
    Begin iOScanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Canvas1, 4, ArcSW, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
-      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Canvas1, 4, ArcSW, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
+      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Height          =   338.0
       Left            =   20
       LockedInPosition=   False
@@ -36,10 +36,10 @@ Begin iosView CGGraphicsView
    Begin iOSSwitch ArcSW
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ArcSW, 1, Canvas1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ArcSW, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -30, 
-      AutoLayout      =   ArcSW, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   ArcSW, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   ArcSW, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -30, 
+      AutoLayout      =   ArcSW, 1, Canvas1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ArcSW, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       Left            =   20
@@ -53,10 +53,10 @@ Begin iosView CGGraphicsView
    Begin iOSSwitch ArctoPointSW
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ArctoPointSW, 3, ArcSW, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ArctoPointSW, 9, Canvas1, 2, False, +0.37, 2, 1, 0, 
-      AutoLayout      =   ArctoPointSW, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   ArctoPointSW, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   ArctoPointSW, 9, Canvas1, 2, False, +0.37, 2, 1, 0, 
+      AutoLayout      =   ArctoPointSW, 3, ArcSW, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ArctoPointSW, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       Left            =   85
@@ -70,10 +70,10 @@ Begin iosView CGGraphicsView
    Begin iOSSwitch CurveSW
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   CurveSW, 3, ArcSW, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   CurveSW, 9, Canvas1, 2, False, +0.65, 2, 1, 0, 
-      AutoLayout      =   CurveSW, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   CurveSW, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   CurveSW, 9, Canvas1, 2, False, +0.65, 2, 1, 0, 
+      AutoLayout      =   CurveSW, 3, ArcSW, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   CurveSW, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       Left            =   169
@@ -87,10 +87,10 @@ Begin iosView CGGraphicsView
    Begin iOSSwitch QuadCurveSW
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   QuadCurveSW, 3, ArcSW, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   QuadCurveSW, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   QuadCurveSW, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   QuadCurveSW, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   QuadCurveSW, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   QuadCurveSW, 3, ArcSW, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   QuadCurveSW, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   31.0
       Left            =   249
@@ -104,10 +104,10 @@ Begin iosView CGGraphicsView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Label1, 4, Label2, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label1, 2, ArcSW, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 4, Label2, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -125,10 +125,10 @@ Begin iosView CGGraphicsView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 3, Label4, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label2, 9, ArctoPointSW, 9, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 82, 
+      AutoLayout      =   Label2, 9, ArctoPointSW, 9, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Label2, 3, Label4, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   70
@@ -146,10 +146,10 @@ Begin iosView CGGraphicsView
    Begin iOSLabel Label3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label3, 3, Label4, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label3, 9, CurveSW, 9, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 66, 
+      AutoLayout      =   Label3, 9, CurveSW, 9, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Label3, 3, Label4, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   162
@@ -167,10 +167,10 @@ Begin iosView CGGraphicsView
    Begin iOSLabel Label4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label4, 7, , 0, False, +1.00, 1, 1, 83, 
-      AutoLayout      =   Label4, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label4, 9, QuadCurveSW, 9, False, +1.00, 2, 1, -5, 
+      AutoLayout      =   Label4, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Label4, 7, , 0, False, +1.00, 1, 1, 83, 
+      AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   228

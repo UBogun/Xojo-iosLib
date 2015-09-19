@@ -480,16 +480,6 @@ Inherits AppleSKNode
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="ExecutesActions"
 			Group="Behavior"
 			Type="Boolean"
@@ -498,11 +488,6 @@ Inherits AppleSKNode
 			Name="GlowWidth"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Height"
@@ -517,48 +502,11 @@ Inherits AppleSKNode
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsFirstResponder"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="LineCap"
-			Group="Behavior"
-			Type="CGLineCap"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Butt"
-				"1 - Round"
-				"2 - Square"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="LineJoin"
-			Group="Behavior"
-			Type="CGLineJoin"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Miter"
-				"1 - Round"
-				"2 - Bevel"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LineLength"
@@ -569,11 +517,6 @@ Inherits AppleSKNode
 			Name="LineWidth"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MiterLimit"
@@ -601,11 +544,6 @@ Inherits AppleSKNode
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TextInputContextIdentifier"
-			Group="Behavior"
-			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

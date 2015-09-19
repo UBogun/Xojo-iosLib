@@ -189,21 +189,6 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MoveBy(Delta As CGVector, Duration As Double) As AppleSKAction
-		  #if Target64Bit
-		    Declare function moveByVector lib SpriteKit selector "moveBy:duration:" (id as ptr, Delta as CGVector, duration as Double) as ptr
-		    dim result as new AppleSKAction (moveByVector (classptr, Delta, Duration))
-		  #elseif Target32Bit
-		    Declare function moveByVector lib SpriteKit selector "moveBy:duration:" (id as ptr, Delta as CGVector32Bit, duration as Double) as ptr
-		    dim result as new AppleSKAction (moveByVector (classptr, Delta.toCGVector32, Duration))
-		  #endif
-		  
-		  result.RetainClassObject
-		  return result
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		 Shared Function MoveBy(x as Double, y as Double, Duration As Double) As AppleSKAction
 		  #if Target64Bit
 		    Declare function moveBy lib SpriteKit selector "moveByX:y:duration:" (id as ptr, x as double, y as double, duration as Double) as ptr
@@ -212,6 +197,21 @@ Inherits AppleObject
 		  #endif
 		  
 		  dim result as new AppleSKAction (Moveby (classptr, x, y, Duration))
+		  result.RetainClassObject
+		  return result
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MoveBy(Delta As FoundationFramework.CGVector, Duration As Double) As AppleSKAction
+		  #if Target64Bit
+		    Declare function moveByVector lib SpriteKit selector "moveBy:duration:" (id as ptr, Delta as FoundationFramework.CGVector, duration as Double) as ptr
+		    dim result as new AppleSKAction (moveByVector (classptr, Delta, Duration))
+		  #elseif Target32Bit
+		    Declare function moveByVector lib SpriteKit selector "moveBy:duration:" (id as ptr, Delta as FoundationFramework.CGVector32Bit, duration as Double) as ptr
+		    dim result as new AppleSKAction (moveByVector (classptr, Delta.toCGVector32, Duration))
+		  #endif
+		  
 		  result.RetainClassObject
 		  return result
 		End Function
@@ -765,24 +765,9 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Duration"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -792,26 +777,11 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

@@ -685,12 +685,6 @@ Inherits AppleView
 			Name="AntialiasingMode"
 			Group="Behavior"
 			Type="SCNAntialiasingMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - None"
-				"1 - Multi2X"
-				"2 - Multi4X"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutoenablesDefaultLighting"
@@ -713,10 +707,14 @@ Inherits AppleView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="CollisionBoundsType"
+			Group="Behavior"
+			Type="UIKitFramework.UIDynamicItemCollisionBoundsType"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
 			Type="UIViewContentMode"
-			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentScaleFactor"
@@ -863,7 +861,6 @@ Inherits AppleView
 			Name="TintAdjustmentMode"
 			Group="Behavior"
 			Type="UIViewTintAdjustmentMode"
-			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

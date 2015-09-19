@@ -6,6 +6,7 @@ Class=CGAnimatedCurve;Demo Classes/CGAnimatedCurve.xojo_code;&h4CCB8FFF;&h646D5F
 Class=CGAnimatedArc;Demo Classes/CGAnimatedArc.xojo_code;&h5537FFF;&h646D5FFF;false
 Class=CGAnimatedQuadcurve;Demo Classes/CGAnimatedQuadcurve.xojo_code;&h5C0387FF;&h646D5FFF;false
 iOSView=MenuView;MenuView.xojo_code;&h699D57FF;&h0;false
+iOSView=BezierPathView;BezierPathView.xojo_code;&h3317CFFF;&h0;false
 iOSView=CGGraphicsDrawLinesView;CGGraphicsDrawLinesView.xojo_code;&h5650FFFF;&h0;false
 iOSView=CGGraphicsDrawRectsView;CGGraphicsDrawRectsView.xojo_code;&h41A0EFFF;&h0;false
 Folder=Demo Classes;Demo Classes;&h646D5FFF;&h0;false

@@ -14,48 +14,48 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ApplyForce(Vector as CGVector)
+		Sub ApplyForce(Vector as FoundationFramework.CGVector)
 		  #if Target64Bit
-		    Declare sub applyForce lib SpriteKit selector "applyForce:" (id as ptr, force as CGVector)
+		    Declare sub applyForce lib SpriteKit selector "applyForce:" (id as ptr, force as FoundationFramework.CGVector)
 		    ApplyForce id, Vector
 		  #elseif Target32Bit
-		    Declare sub applyForce lib SpriteKit selector "applyForce:" (id as ptr, force as CGVector32Bit)
+		    Declare sub applyForce lib SpriteKit selector "applyForce:" (id as ptr, force as FoundationFramework.CGVector32Bit)
 		    ApplyForce id, Vector.toCGVector32
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ApplyForce(Vector as CGVector, atPoint as FoundationFramework.NSPoint)
+		Sub ApplyForce(Vector as FoundationFramework.CGVector, atPoint as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub applyForceatPoint lib SpriteKit selector "applyForce:atPoint:" (id as ptr, force as CGVector, atPoint as FoundationFramework.NSPoint)
+		    Declare sub applyForceatPoint lib SpriteKit selector "applyForce:atPoint:" (id as ptr, force as FoundationFramework.CGVector, atPoint as FoundationFramework.NSPoint)
 		    applyForceatPoint id, Vector, atPoint
 		  #elseif Target32Bit
-		    Declare sub applyForceatPoint lib SpriteKit selector "applyForce:atPoint:" (id as ptr, force as CGVector32Bit, apoint as FoundationFramework.NSPoint32Bit)
+		    Declare sub applyForceatPoint lib SpriteKit selector "applyForce:atPoint:" (id as ptr, force as FoundationFramework.CGVector32Bit, apoint as FoundationFramework.NSPoint32Bit)
 		    applyForceatPoint id, Vector.toCGVector32, atPoint.toNSPoint32
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ApplyImpulse(Vector as CGVector)
+		Sub ApplyImpulse(Vector as FoundationFramework.CGVector)
 		  #if Target64Bit
-		    Declare sub applyImpulse lib SpriteKit selector "applyImpulse:" (id as ptr, force as CGVector)
+		    Declare sub applyImpulse lib SpriteKit selector "applyImpulse:" (id as ptr, force as FoundationFramework.CGVector)
 		    applyImpulse id, Vector
 		  #elseif Target32Bit
-		    Declare sub applyImpulse lib SpriteKit selector "applyImpulse:" (id as ptr, force as CGVector32Bit)
+		    Declare sub applyImpulse lib SpriteKit selector "applyImpulse:" (id as ptr, force as FoundationFramework.CGVector32Bit)
 		    applyImpulse id, Vector.toCGVector32
 		  #endif
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ApplyImpulse(Vector as CGVector, atPoint as FoundationFramework.NSPoint)
+		Sub ApplyImpulse(Vector as FoundationFramework.CGVector, atPoint as FoundationFramework.NSPoint)
 		  #if Target64Bit
-		    Declare sub applyImpulseatPoint lib SpriteKit selector "applyImpulse:atPoint:" (id as ptr, force as CGVector, apoint as FoundationFramework.NSPoint)
+		    Declare sub applyImpulseatPoint lib SpriteKit selector "applyImpulse:atPoint:" (id as ptr, force as FoundationFramework.CGVector, apoint as FoundationFramework.NSPoint)
 		    applyImpulseatPoint id, Vector, atPoint
 		  #elseif Target32Bit
-		    Declare sub applyImpulseatPoint lib SpriteKit selector "applyImpulse:atPoint:" (id as ptr, force as CGVector32Bit, atPoint as FoundationFramework.NSPoint32Bit)
+		    Declare sub applyImpulseatPoint lib SpriteKit selector "applyImpulse:atPoint:" (id as ptr, force as FoundationFramework.CGVector32Bit, atPoint as FoundationFramework.NSPoint32Bit)
 		    applyImpulseatPoint id, Vector.toCGVector32, atPoint.toNSPoint32
 		  #endif
 		End Sub
@@ -796,10 +796,10 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  #if Target64Bit
-			    declare Function velocity lib SpriteKit selector "velocity" (id as ptr) as CGVector
+			    declare Function velocity lib SpriteKit selector "velocity" (id as ptr) as FoundationFramework.CGVector
 			    return velocity (id)
 			  #elseif Target32Bit
-			    declare Function velocity lib SpriteKit selector "velocity" (id as ptr) as CGVector32Bit
+			    declare Function velocity lib SpriteKit selector "velocity" (id as ptr) as FoundationFramework.CGVector32Bit
 			    return velocity(id).toCGVector
 			  #endif
 			  
@@ -808,16 +808,16 @@ Inherits AppleObject
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    declare sub setVelocity lib SpriteKit selector "setVelocity:" (id as ptr, value as CGVector)
+			    declare sub setVelocity lib SpriteKit selector "setVelocity:" (id as ptr, value as FoundationFramework.CGVector)
 			    setVelocity id, value
 			  #elseif Target32Bit
-			    declare sub setVelocity lib SpriteKit selector "setVelocity:" (id as ptr, value as CGVector32Bit)
+			    declare sub setVelocity lib SpriteKit selector "setVelocity:" (id as ptr, value as FoundationFramework.CGVector32Bit)
 			    setVelocity id, value.toCGVector32
 			  #endif
 			  
 			End Set
 		#tag EndSetter
-		Velocity As CGVector
+		Velocity As FoundationFrameWork.cgvector
 	#tag EndComputedProperty
 
 
@@ -853,19 +853,9 @@ Inherits AppleObject
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Density"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Dynamic"
@@ -878,26 +868,11 @@ Inherits AppleObject
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -915,11 +890,6 @@ Inherits AppleObject
 			Name="Mass"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

@@ -47,6 +47,17 @@ Inherits AppleView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="CollisionBoundsType"
+			Group="Behavior"
+			Type="UIKitFramework.UIDynamicItemCollisionBoundsType"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Rectangle"
+				"1 - Ellipse"
+				"2 - Path"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
 			Type="UIViewContentMode"
