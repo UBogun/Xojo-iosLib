@@ -8,28 +8,30 @@ Begin iosView BezierPathView
    Title           =   "AppleBezierPath"
    Top             =   0
    Begin iOSCanvas Canvas1
-      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   Canvas1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       Height          =   415.0
-      Left            =   0.0
+      Left            =   0
       LockedInPosition=   False
       Scope           =   0
-      Top             =   65.0
+      Top             =   65
       Visible         =   True
       Width           =   320.0
    End
    Begin xojo.Core.Timer Timer1
-      Height          =   32
       Left            =   80
       LockedInPosition=   False
       Mode            =   "2"
+      PanelIndex      =   -1
+      Parent          =   ""
       Period          =   4000
       Scope           =   0
       Tolerance       =   0
       Top             =   80
-      Width           =   32
    End
 End
 #tag EndIOSView
@@ -48,7 +50,7 @@ End
 	#tag Event
 		Sub ToolbarPressed(button As iOSToolButton)
 		  dim help as new InfoView ("AppleBezierPath (UIBezierPath by its native name) is what you already know as iOSPath. It would ne nice to be able to add the missing features to the Xojo class, but this lacks a handle property, so here is the full class as iOS object instead." +_
-		  endofline + endofline+ "This demo only draws sone basic forms with a blendmode multiply and uses a transformation matrix to rotate them a bit-"+endofline +_ 
+		  endofline + endofline+ "This demo only draws sone basic forms with a blendmode multiply and uses a transformation matrix to rotate them a bit-"+endofline +_
 		  "You can of course add path segments too—from a variety of shapes—,  test for hits inside them, and a few things more.")
 		  self.PushToCurl help
 		  #pragma unused button
