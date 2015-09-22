@@ -787,10 +787,10 @@ Inherits AppleCFObject
 		Protected Shared Sub UIGraphicsBeginImageContext(asize as FoundationFramework.NSSize)
 		  #if TargetIOS
 		    #if Target64Bit
-		      declare sub UIGraphicsBeginImageContext lib CoreGraphicsLibName (asize as FoundationFramework.NSSize)
+		      declare sub UIGraphicsBeginImageContext lib UIKitLibName (asize as FoundationFramework.NSSize)
 		      UIGraphicsBeginImageContext (asize)
 		    #elseif Target32Bit
-		      declare sub UIGraphicsBeginImageContext lib CoreGraphicsLibName (asize as FoundationFramework.NSSize32Bit)
+		      declare sub UIGraphicsBeginImageContext lib UIKitLibName (asize as FoundationFramework.NSSize32Bit)
 		      UIGraphicsBeginImageContext (asize.toNSSize32)
 		    #endif
 		  #endif
@@ -800,7 +800,7 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Sub UIGraphicsEndImageContext()
 		  #if TargetIOS
-		    Declare sub UIGraphicsEndImageContext lib CoreGraphicsLibName
+		    Declare sub UIGraphicsEndImageContext lib UIKitLibName
 		    UIGraphicsEndImageContext
 		  #endif
 		End Sub
@@ -809,7 +809,7 @@ Inherits AppleCFObject
 	#tag Method, Flags = &h1
 		Protected Shared Function UIGraphicsGetCurrentContext() As ptr
 		  #if TargetIOS
-		    Declare function UIGraphicsGetCurrentContext lib CoreGraphicsLibName as ptr
+		    Declare function UIGraphicsGetCurrentContext lib UIKitLibName as ptr
 		    return UIGraphicsGetCurrentContext
 		  #endif
 		End Function
@@ -1030,6 +1030,37 @@ Inherits AppleCFObject
 			Name="BlendMode"
 			Group="Behavior"
 			Type="CGBlendMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Normal"
+				"1 - Multiply"
+				"2 - Screen"
+				"3 - Overlay"
+				"4 - Darken"
+				"5 - Lighten"
+				"6 - ColorDodge"
+				"7 - ColorBurn"
+				"8 - SoftLight"
+				"9 - HardLight"
+				"10 - Difference"
+				"11 - Exclusion"
+				"12 - Hue"
+				"13 - Saturation"
+				"14 - Color"
+				"15 - Luminosity"
+				"16 - Clear"
+				"17 - Copy"
+				"18 - SourceIn"
+				"19 - SourceOut"
+				"20 - SourceAtop"
+				"21 - DestinationOver"
+				"22 - DestinationIn"
+				"23 - DestinationOut"
+				"24 - DestinationAtop"
+				"25 - ModeXOR"
+				"26 - PlusDarker"
+				"27 - PlusLighter"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CFTypeDescription"
@@ -1062,6 +1093,14 @@ Inherits AppleCFObject
 			Name="InterpolationQuality"
 			Group="Behavior"
 			Type="CGInterpolationQuality"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - None"
+				"2 - Low"
+				"4 - Medium"
+				"3 - High"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="isNIL"
@@ -1079,11 +1118,23 @@ Inherits AppleCFObject
 			Name="LineCap"
 			Group="Behavior"
 			Type="CGLineCap"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Butt"
+				"1 - Round"
+				"2 - Square"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LineJoin"
 			Group="Behavior"
 			Type="CGLineJoin"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Miter"
+				"1 - Round"
+				"2 - Bevel"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mHasOwnership"
@@ -1110,6 +1161,14 @@ Inherits AppleCFObject
 			Name="RenderingIntent"
 			Group="Behavior"
 			Type="CGColorRenderingIntent"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - AbsoluteColorimetric"
+				"2 - RelativeColorimetric"
+				"3 - Perceptual"
+				"4 - Saturation"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RetainCount"
@@ -1141,6 +1200,17 @@ Inherits AppleCFObject
 			Name="TextDrawingMode"
 			Group="Behavior"
 			Type="CGTextDrawingMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Fill"
+				"1 - Stroke"
+				"2 - FillStroke"
+				"3 - Invisible"
+				"4 - FillClip"
+				"5 - StrokeClip"
+				"6 - FillStrokeClip"
+				"7 - Clip"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
