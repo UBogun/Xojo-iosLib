@@ -138,6 +138,11 @@ Protected Class CGAnimatedArctoPoint
 
 	#tag ViewBehavior
 		#tag ViewProperty
+			Name="cap"
+			Group="Behavior"
+			Type="CGLineCap"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="CW"
 			Group="Behavior"
 			Type="boolean"

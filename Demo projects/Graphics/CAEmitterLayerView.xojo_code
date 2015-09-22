@@ -8,14 +8,18 @@ Begin iosView CAEmitterLayerView
    Title           =   "AppleCAEmitterLayer"
    Top             =   0
    Begin ioslibemitterview testview
-      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
       AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       Height          =   415.0
-      Left            =   0.0
+      Left            =   0
       LockedInPosition=   False
-      Top             =   65.0
+      Scope           =   0
+      Top             =   65
+      Visible         =   True
       Width           =   320.0
    End
 End

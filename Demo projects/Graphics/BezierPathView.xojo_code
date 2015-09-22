@@ -10,10 +10,10 @@ Begin iosView BezierPathView
    Begin iOSCanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 3, False, +1.00, 1, 1, 0, 
       Height          =   415.0
       Left            =   0
       LockedInPosition=   False
