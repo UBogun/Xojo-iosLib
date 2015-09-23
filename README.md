@@ -1,7 +1,11 @@
 Xojo-iOSLib Unified
 ===========
 #Please note you have to copy the iOSLib folder from the main project into the demo projects. Else they will not run!  
-
+If you should still encounter problems running the demos, you could be victim of a renaming problem that appears for some users when they drag the library into a demo project. If the main project does run, try saving the library into a fresh project first and import it from there. If this still doesn't help (and you don't want to use the library as an external module), send me a line and I'll give a a download link to a prepared demo project.  
+Sorry for that inconvenience, but sadly I cannot reconstruct the error – when I download a fresh copy myself, everything is working as expected.  
+  
+    
+    
 A library extending Xojo's iOS features by adding extension modules and classes.
 This is a restart of the iOSLib project, now 64bit compatible and started from scratch. 
 iOSLib tries to implement declared features completely transparent to Xojo, which means you can use many of the extended features by just copying the lib to your project and using the extension modules, only handling Xojo classes.
