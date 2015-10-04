@@ -9,8 +9,9 @@ You are very welcome to send additions, declares or more convenience methods tha
   
 ==
 
-##Please note you have to copy the iOSLib folder from the main project into the demo projects. Else they will not run!  
-If you should still encounter problems running the demos, you could be victim of a renaming problem that appears for some users when they drag the library into a demo project. If the main project does run, try saving the library into a fresh project first and import it from there. If this still doesn't help (and you don't want to use the library as an external module), send me a line and I'll give a a download link to a prepared demo project.  
+##Please note you have to <i>copy</i> the iOSLib folder from the main project into the demo projects. Else they will not run!    
+It appears that there is a longstanding bug in Xojo that can under some circumstances rename the contents of a folder dragged from a project into another project's navigator. If you dragged the iOSLib folder into a demo and encounter a lot of errors, it's probably becuase of that. Please try to copy the iOSLib folder from the main project into a demo project instead, using the clipboard.  
+If this still doesn't help (and you don't want to use the library as an external module), send me a line and I'll give a a download link to a prepared demo project.  
 Sorry for that inconvenience, but sadly I cannot reconstruct the error – when I download a fresh copy myself, everything is working as expected.  
   
 ==
