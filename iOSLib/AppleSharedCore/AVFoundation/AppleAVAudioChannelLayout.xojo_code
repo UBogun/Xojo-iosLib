@@ -1,89 +1,79 @@
 #tag Class
-Protected Class AppleGestureRecognizerReceiver
+Protected Class AppleAVAudioChannelLayout
 Inherits AppleObject
-Implements AppleNSEventForwarder
-	#tag Method, Flags = &h1000
-		Sub Constructor(receiver as AppleNSEventReceiver)
+	#tag Method, Flags = &h21
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(Layout as AudioChannelLayout)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
-		  Super.Constructor (init(Alloc(classptr)))
+		  Super.Constructor (initWithLayout(alloc(classptr), Layout))
 		  MHasOwnership = true
-		  if Observers = nil then Observers = new Dictionary
-		  RegisterObserver (receiver)
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub Destructor()
-		  if mhasownership then RemoveObserver
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_GestureRecognized(pid as ptr, sel as ptr)
-		  dim ego as new AppleGestureRecognizerReceiver (pid)
-		  if not ego.IsNIL then
-		    ego.NotifyObservers (Nil)
-		  end if
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub NotifyObservers(EventProperties As AppleArray)
-		  // Part of the AppleNSEventForwarder interface.
-		  
-		  if Observers.HasKey(id) then
-		    dim wr as WeakRef = WeakRef(Observers.Value(id))
-		    if wr.Value <> nil then
-		      dim myParent as iOSLibGestureRecognizer = iOSLibGestureRecognizer(wr.Value)
-		      myParent.GestureRecognized
-		    end if
-		  end if
+		Sub Constructor(LayoutTag as AudioChannelLayoutTag)
+		  Super.Constructor (initWithLayoutTag(alloc(classptr), LayoutTag))
+		  MHasOwnership = true
 		End Sub
 	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function getlayoutTag Lib AVFoundationLibname Selector "layout" (id as ptr) As AudioChannelLayoutTag
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function initWithLayout Lib AVFoundationLibname Selector "initWithLayout:" (id as ptr, layout as AudioChannelLayout) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function initWithLayoutTag Lib AVFoundationLibname Selector "initWithLayoutTag:" (id as ptr, layout as AudioChannelLayoutTag) As Ptr
+	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
-		Sub RegisterObserver(observer As AppleNSEventReceiver)
-		  // Part of the AppleNSEventForwarder interface.
-		  
-		  observers.Value (id) = weakref.create(observer)
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub RemoveObserver()
-		  // Part of the AppleNSEventForwarder interface.
-		  
-		  if Observers.HasKey(id) then Observers.Remove id
-		End Sub
+		Function isEqual(anObject as AppleGeneralObject) As Boolean
+		  return AVFoundationFramework.isEqual (id, anObject.GeneralID)
+		End Function
 	#tag EndMethod
 
 
-	#tag ComputedProperty, Flags = &h1
+	#tag Property, Flags = &h0
+		#tag Note
+			return AVFoundationFramework.getChannelCount (id)
+		#tag EndNote
+		ChannelCount As UInt32
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		#tag Note
+			return AVFoundationFramework.getlayout(id)
+		#tag EndNote
+		ChannelLayout As AudioChannelLayout
+	#tag EndProperty
+
+	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static targetID as ptr
-			  if targetID = Nil then
-			    if Observers = nil then Observers = new Dictionary
-			    dim methods() as TargetClassMethodHelper
-			    
-			    methods.Append new TargetClassMethodHelper("gestureRecognized", AddressOf impl_GestureRecognized, "v@:")
-			    
-			    targetID = BuildTargetClass ("NSObject", "iOSLibGestureRecognizerReceiver",methods)
-			  end if
-			  Return targetID
+			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVAudioChannelLayout")
+			  return mClassPtr
 			End Get
 		#tag EndGetter
-		Protected Shared ClassPtr As Ptr
+		Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
-	#tag Property, Flags = &h1
-		Protected Shared Observers As Dictionary
+	#tag Property, Flags = &h0
+		#tag Note
+			return getlayouttag(id)
+		#tag EndNote
+		LayoutTag As AudioChannelLayoutTag
 	#tag EndProperty
 
 

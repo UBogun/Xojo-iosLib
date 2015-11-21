@@ -1081,6 +1081,13 @@ Inherits AppleControl
 			Name="ClearButtonMode"
 			Group="Behavior"
 			Type="UITextFieldViewMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Never"
+				"1 - WhileEditing"
+				"2 - UnlessEditing"
+				"3 - Always"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsContextBeforeDrawing"
@@ -1189,6 +1196,11 @@ Inherits AppleControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -1246,6 +1258,13 @@ Inherits AppleControl
 			Name="LeftViewMode"
 			Group="Behavior"
 			Type="UITextFieldViewMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Never"
+				"1 - WhileEditing"
+				"2 - UnlessEditing"
+				"3 - Always"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="mHasOwnership"
@@ -1284,9 +1303,21 @@ Inherits AppleControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="RightViewMode"
 			Group="Behavior"
 			Type="UITextFieldViewMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Never"
+				"1 - WhileEditing"
+				"2 - UnlessEditing"
+				"3 - Always"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Selected"

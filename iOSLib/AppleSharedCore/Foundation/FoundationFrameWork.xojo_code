@@ -209,6 +209,11 @@ Protected Module FoundationFrameWork
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IntegerSize"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"

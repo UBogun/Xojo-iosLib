@@ -159,7 +159,7 @@ Inherits AppleObject
 		    Declare Sub fillWithBlendMode lib UIKitLibName selector "fillWithBlendMode:alpha:" (id as ptr, blendmode as CoreGraphicsFramework.CGBlendMode, Alpha as single)
 		  #endif
 		  
-		   fillWithBlendMode id, blendmode, alpha
+		  fillWithBlendMode id, blendmode, alpha
 		  
 		End Sub
 	#tag EndMethod
@@ -300,7 +300,7 @@ Inherits AppleObject
 		    dim result as new AppleBezierPath (bezierPathWithRoundedRectbyRoundingCorners (classptr, aRect, rectcorner, CornerRadii))
 		  #elseif Target32Bit
 		    declare function bezierPathWithRoundedRectbyRoundingCorners lib UIKitLibName selector "bezierPathWithRoundedRect:byRoundingCorners:cornerRadii:" _
-		     (id as ptr, aRect as FoundationFrameWork.NSRect32Bit, RectCorner as UInteger, radii as FoundationFrameWork.NSSize32Bit) as ptr
+		    (id as ptr, aRect as FoundationFrameWork.NSRect32Bit, RectCorner as UInteger, radii as FoundationFrameWork.NSSize32Bit) as ptr
 		    dim result as new AppleBezierPath (bezierPathWithRoundedRectbyRoundingCorners (classptr, aRect.toNSRect32, RectCorner, CornerRadii.toNSSize32))
 		  #endif
 		  result.retainclassobject
@@ -350,7 +350,7 @@ Inherits AppleObject
 		    Declare Sub strokeWithBlendMode lib UIKitLibName selector "strokeWithBlendMode:alpha:" (id as ptr, blendmode as CoreGraphicsFramework.CGBlendMode, Alpha as single)
 		  #endif
 		  
-		   strokeWithBlendMode id, blendmode, alpha
+		  strokeWithBlendMode id, blendmode, alpha
 		  
 		End Sub
 	#tag EndMethod
@@ -559,6 +559,11 @@ Inherits AppleObject
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -591,11 +596,23 @@ Inherits AppleObject
 			Name="LineCapStyle"
 			Group="Behavior"
 			Type="CoreGraphicsFramework.CGLineCap"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Butt"
+				"1 - Round"
+				"2 - Square"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LineJoinStyle"
 			Group="Behavior"
 			Type="CoreGraphicsFramework.CGLineJoin"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Miter"
+				"1 - Round"
+				"2 - Bevel"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LineWidth"
@@ -617,6 +634,11 @@ Inherits AppleObject
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"

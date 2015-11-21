@@ -325,6 +325,11 @@ Inherits AppleValue
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -335,6 +340,26 @@ Inherits AppleValue
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Int16Value"
+			Group="Behavior"
+			Type="Int16"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Int32Value"
+			Group="Behavior"
+			Type="Int32"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Int64Value"
+			Group="Behavior"
+			Type="Int64"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Int8Value"
+			Group="Behavior"
+			Type="Int8"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="IntegerValue"
@@ -378,6 +403,31 @@ Inherits AppleValue
 			Name="NumberType"
 			Group="Behavior"
 			Type="CFNumberTypes"
+			EditorType="Enum"
+			#tag EnumValues
+				"1 - Int8"
+				"2 - Int16"
+				"3 - Int32"
+				"4 - Int64"
+				"5 - Float32"
+				"6 - Float64"
+				"7 - Char"
+				"8 - Short"
+				"9 - Int"
+				"10 - Long"
+				"11 - LongLong"
+				"12 - Float"
+				"13 - Double"
+				"14 - CFIndex"
+				"15 - NSInteger"
+				"16 - CGFloat"
+				"16 - Max"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SingleValue"
@@ -401,6 +451,31 @@ Inherits AppleValue
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UInt16Value"
+			Group="Behavior"
+			Type="UInt16"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UInt32Value"
+			Group="Behavior"
+			Type="UInt32"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UInt64Value"
+			Group="Behavior"
+			Type="UInt64"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UInt8Value"
+			Group="Behavior"
+			Type="UInt8"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="UIntegerValue"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
