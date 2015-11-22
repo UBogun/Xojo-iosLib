@@ -31,6 +31,10 @@ Inherits AppleObject
 		Private Declare Function getNameForOutBus Lib AVFoundationLibname Selector "nameForOutputBus:" (id as ptr, Bus as UInteger) As CFStringRef
 	#tag EndExternalMethod
 
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getnextAvailableInputBus Lib AVFoundationLibname Selector "nextAvailableInputBus" (id as ptr) As UInteger
+	#tag EndExternalMethod
+
 	#tag ExternalMethod, Flags = &h21
 		Private Declare Function getnumberOfInputs Lib AVFoundationLibname Selector "numberOfInputs" (id as ptr) As UInteger
 	#tag EndExternalMethod
@@ -39,8 +43,40 @@ Inherits AppleObject
 		Private Declare Function getnumberOfOutputs Lib AVFoundationLibname Selector "numberOfOutputs" (id as ptr) As UInteger
 	#tag EndExternalMethod
 
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getobstruction Lib AVFoundationLibname Selector "obstruction" (id as ptr) As single
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getOcclusion Lib AVFoundationLibname Selector "occlusion" (id as ptr) As single
+	#tag EndExternalMethod
+
 	#tag ExternalMethod, Flags = &h21
 		Private Declare Function getoutputFormat Lib AVFoundationLibname Selector "outputFormatForBus:" (id as ptr, Bus as UInteger) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getPan Lib AVFoundationLibname Selector "pan" (id as ptr) As single
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getPosition Lib AVFoundationLibname Selector "position" (id as ptr) As AVAudio3DPoint
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getrate Lib AVFoundationLibname Selector "rate" (id as ptr) As single
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getrenderingAlgorithm Lib AVFoundationLibname Selector "renderingAlgorithm" (id as ptr) As AVAudio3DMixingRenderingAlgorithm
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getreverbBlend Lib AVFoundationLibname Selector "reverbBlend" (id as ptr) As single
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getvolume Lib AVFoundationLibname Selector "volume" (id as ptr) As single
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -133,8 +169,36 @@ Inherits AppleObject
 		Private Declare Sub setNameForOutputBus Lib AVFoundationLibname Selector "setName:forOutputBus:" (id as ptr, Bus as UInteger, value as CFStringRef)
 	#tag EndExternalMethod
 
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setobstruction Lib AVFoundationLibname Selector "setObstruction:" (id as ptr, value as single)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setOcclusion Lib AVFoundationLibname Selector "setOcclusion:" (id as ptr, value as Single)
+	#tag EndExternalMethod
+
 	#tag ExternalMethod, Flags = &h21
 		Private Declare Sub setoutputFormat Lib AVFoundationLibname Selector "setInputFormat:forBus:" (id as ptr, Bus as UInteger, value as Ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setPan Lib AVFoundationLibname Selector "setPan:" (id as ptr, value as single)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setPosition Lib AVFoundationLibname Selector "setPosition:" (id as ptr, value as AVAudio3DPoint)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setrate Lib AVFoundationLibname Selector "setRate:" (id as ptr, value as single)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setrenderingAlgorithm Lib AVFoundationLibname Selector "setRenderingAlgorithm:" (id as ptr, value as AVAudio3DMixingRenderingAlgorithm)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setreverbBlend Lib AVFoundationLibname Selector "setReverbBlend:" (id as ptr, value as single)
 	#tag EndExternalMethod
 
 
@@ -183,6 +247,15 @@ Inherits AppleObject
 		#tag EndGetter
 		NumberOfOutputs As UInteger
 	#tag EndComputedProperty
+
+
+	#tag Enum, Name = AVAudio3DMixingRenderingAlgorithm, Flags = &h0
+		EqualPowerPanning = 0
+		  SphericalHead = 1
+		  HRTF = 2
+		  SoundField = 3
+		StereoPassThrough = 5
+	#tag EndEnum
 
 
 	#tag ViewBehavior
@@ -240,6 +313,16 @@ Inherits AppleObject
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="NumberOfInputs"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="NumberOfOutputs"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RetainCount"

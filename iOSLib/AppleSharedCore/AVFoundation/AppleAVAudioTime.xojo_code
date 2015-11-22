@@ -114,6 +114,10 @@ Inherits AppleObject
 		Private Declare Function initWithSampleTime Lib AVFoundationLibname Selector "initWithSampleTime:atRate:" (id as ptr, SampleTime As UInt64, sampleRate As Double) As Ptr
 	#tag EndExternalMethod
 
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function initWithSampleTime1 Lib AVFoundationLibname Selector "initWithSampleTime:atRate:" (id as ptr, SampleTime As UInt64, sampleRate As Double) As Ptr
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function MakefromPtr(aPtr as Ptr) As AppleAVAudioTime
 		  return if (aptr = nil, nil, new AppleAVAudioTime(aptr))

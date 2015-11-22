@@ -82,6 +82,23 @@ Protected Module AVFoundationFramework
 		Frames As Int16
 	#tag EndStructure
 
+	#tag Structure, Name = AVAudio3DAngularOrientation, Flags = &h0
+		Yaw as single
+		  Pitch As Single
+		Roll As Single
+	#tag EndStructure
+
+	#tag Structure, Name = AVAudio3DPoint, Flags = &h0
+		x as single
+		  y as single
+		z as single
+	#tag EndStructure
+
+	#tag Structure, Name = AVAudio3DVectorOrientation, Flags = &h0
+		Forward As AVAudio3DPoint
+		Up As AVAudio3DPoint
+	#tag EndStructure
+
 
 	#tag Enum, Name = AudioChannelCoordinates, Flags = &h0
 		LeftRight = 0
