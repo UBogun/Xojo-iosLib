@@ -1,33 +1,40 @@
 #tag Class
-Protected Class AppleAVAudioOutputNode
-Inherits AppleAVAudioNode
-	#tag Method, Flags = &h21
-		Private Sub Constructor()
-		  
-		End Sub
-	#tag EndMethod
+Protected Class AppleAVAudioMix
+Inherits AppleObject
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function getinputParameters Lib AVFoundationLibname Selector "inputParameters" (id as ptr) As Ptr
+	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function MakefromPtr(aPtr as Ptr) As AppleAVAudioOutputNode
-		  return if (aptr = nil, nil, new AppleAVAudioOutputNode(aptr))
+		 Shared Function makeFromPtr(aPtr as Ptr) As AppleAVAudioMix
+		  return if (aptr = nil, nil, new AppleAVAudioMix(aptr))
 		End Function
 	#tag EndMethod
 
 
 	#tag Note, Name = Status
-		fully done – has no properties or methods yet, overrides superclass' thingies.
 		
+		Complete, untested
 	#tag EndNote
 
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVAudioOutputNode")
+			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVAudioMix")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
 		Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return AppleArray.MakeFromPtr(getinputParameters(id))
+			End Get
+		#tag EndGetter
+		InputParameters As AppleArray
 	#tag EndComputedProperty
 
 
@@ -86,16 +93,6 @@ Inherits AppleAVAudioNode
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="NumberOfInputs"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="NumberOfOutputs"
-			Group="Behavior"
-			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RetainCount"

@@ -23,13 +23,9 @@ Inherits AppleAVAudioNode
 
 	#tag Method, Flags = &h0
 		Sub Pause()
-		  pause(id)
+		  AVFoundationFramework.pause(id)
 		End Sub
 	#tag EndMethod
-
-	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub Pause Lib AVFoundationLibname Selector "pause" (id as ptr)
-	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
 		Sub Play()
@@ -113,13 +109,9 @@ Inherits AppleAVAudioNode
 
 	#tag Method, Flags = &h0
 		Sub Stop()
-		  stop(id)
+		  AVFoundationFramework.stop(id)
 		End Sub
 	#tag EndMethod
-
-	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub Stop Lib AVFoundationLibname Selector "stop" (id as ptr)
-	#tag EndExternalMethod
 
 
 	#tag Note, Name = Status
@@ -330,19 +322,27 @@ Inherits AppleAVAudioNode
 			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="OutputVolume"
-			Group="Behavior"
-			Type="Single"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Pan"
 			Group="Behavior"
 			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Playing"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="RenderingAlgorithms"
 			Group="Behavior"
 			Type="AVAudio3DMixingRenderingAlgorithm"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - EqualPowerPanning"
+				"1 - SphericalHead"
+				"2 - HRTF"
+				"3 - SoundField"
+				"5 - StereoPassThrough"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RetainCount"
@@ -366,11 +366,6 @@ Inherits AppleAVAudioNode
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Volume"
-			Group="Behavior"
-			Type="Single"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

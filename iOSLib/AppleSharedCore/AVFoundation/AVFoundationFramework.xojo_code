@@ -5,6 +5,14 @@ Protected Module AVFoundationFramework
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getcurrentTime Lib AVFoundationLibname Selector "currentTime" (id as ptr) As CMTime
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function geterror Lib AVFoundationLibname Selector "error" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function getlayout Lib AVFoundationLibname Selector "channelLayout" (id as ptr) As AudioChannelLayout
 	#tag EndExternalMethod
 
@@ -14,6 +22,30 @@ Protected Module AVFoundationFramework
 
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function isEqual Lib AVFoundationLibname Selector "isEqual:" (id as ptr, anObject as ptr) As Boolean
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub Pause Lib AVFoundationLibname Selector "pause" (id as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub reset Lib AVFoundationLibname Selector "reset" (id as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub seekToTime Lib AVFoundationLibname Selector "seekToTime:completionHandler:" (id as ptr, time as CMTime, block as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub seekToTimeTolerance Lib AVFoundationLibname Selector "seekToTime:toleranceBefore:toleranceAfter:completionHandler:" (id as ptr, time as CMTime, ToleranceBefore as CMTime, ToleranceAfter as CMTime, block as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setCurrentTime Lib AVFoundationLibname Selector "setCurrentTime:" (id as ptr, value as cmtime)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub Stop Lib AVFoundationLibname Selector "stop" (id as ptr)
 	#tag EndExternalMethod
 
 
@@ -58,6 +90,14 @@ Protected Module AVFoundationFramework
 		ChannelDecriptions as Ptr
 	#tag EndStructure
 
+	#tag Structure, Name = AudioComponentDescription, Flags = &h0
+		ComponentType as OSType
+		  ComponentSubtype as OSType
+		  ComponentManufacturer As OSType
+		  ComponentFlags As uint32
+		ComponentFlagsMask As UInt32
+	#tag EndStructure
+
 	#tag Structure, Name = AudioStreamBasicDescription, Flags = &h0
 		SampleRate as Double
 		  FormatID as UInt32
@@ -97,6 +137,13 @@ Protected Module AVFoundationFramework
 	#tag Structure, Name = AVAudio3DVectorOrientation, Flags = &h0
 		Forward As AVAudio3DPoint
 		Up As AVAudio3DPoint
+	#tag EndStructure
+
+	#tag Structure, Name = CMTime, Flags = &h0
+		TimeValue As Int64
+		  TimeScale As Int32
+		  TimeFlags As UInt32
+		TimeEpoch As Int64
 	#tag EndStructure
 
 

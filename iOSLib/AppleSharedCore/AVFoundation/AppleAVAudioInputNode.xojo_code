@@ -7,6 +7,12 @@ Inherits AppleAVAudioIONode
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function makefromPtr(aPtr as Ptr) As AppleAVAudioInputNode
+		  return if (aptr = nil, nil, new AppleAVAudioInputNode(aptr))
+		End Function
+	#tag EndMethod
+
 
 	#tag Note, Name = Status
 		
@@ -122,6 +128,11 @@ Inherits AppleAVAudioIONode
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Volume"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -2,6 +2,36 @@
 Protected Class AppleAVAudioEngine
 Inherits AppleObject
 	#tag Method, Flags = &h0
+		Sub AttachNode(Node as AppleAVAudioNode)
+		  attachNode id, node.id
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub attachNode Lib AVFoundationLibname Selector "attachNode:" (id as ptr, node as ptr)
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		Sub ConnectNodes(Node as appleavaudionode, SecondNode as appleavaudionode, format as AppleAVAudioFormat = nil)
+		  connectto id, Node.id, SecondNode.id, if (format = nil, nil, format.id)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ConnectNodes(Node as appleavaudionode, SecondNode as appleavaudionode, FromBus as UInteger, ToBus As UInteger, format as AppleAVAudioFormat = nil)
+		  connecttobus id, Node.id, SecondNode.id, FromBus, ToBus, if (format = nil, nil, format.id)
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub connectto Lib AVFoundationLibname Selector "connect:to:format:" (id as ptr, node as ptr, anothernode as ptr, format as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub connecttobus Lib AVFoundationLibname Selector "connect:to:fromBus:toBus:format:" (id as ptr, node as ptr, anothernode as ptr, frombus as uinteger, toBus as uinteger, format as ptr)
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor()
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -11,13 +41,106 @@ Inherits AppleObject
 		  Super.Constructor (Init(Alloc(classptr)))
 		  MHasOwnership = true
 		  
+		  // Install self as observer for ConfigurationChanged Notifications.
+		  dim block as new AppleBlock (AddressOf NotificationBlock)
+		  call AppleNotificationCenter.DefaultCenter.addObserverForName kAVAudioEngineConfigurationChangeNotification, me.Id, AppleOperationQueue.MainQueue, block.Handle
+		  
+		  
 		End Sub
 	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub destructor()
+		  AppleNotificationCenter.DefaultCenter.removeObserver (me)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub DetachNode(Node as AppleAVAudioNode)
+		  detachNode id, node.id
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub detachNode Lib AVFoundationLibname Selector "detachNode:" (id as ptr, node as ptr)
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		Sub DisconnectNodeInput(Node As AppleAVAudioNode)
+		  disconnectNodeInput id, node.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub DisconnectNodeInput(Node As AppleAVAudioNode, bus as uinteger)
+		  disconnectNodeInputBus id, node.id, bus
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub disconnectNodeInput Lib AVFoundationLibname Selector "disconnectNodeInput:" (id as ptr, node as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub disconnectNodeInputBus Lib AVFoundationLibname Selector "disconnectNodeInput:bus:" (id as ptr, node as ptr, bus as uinteger)
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		Sub DisconnectNodeOutput(Node As AppleAVAudioNode)
+		  disconnectNodeoutput id, node.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub DisconnectNodeOutput(Node As AppleAVAudioNode, bus as uinteger)
+		  disconnectNodeoutputBus id, node.id, bus
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub disconnectNodeOutput Lib AVFoundationLibname Selector "disconnectNodeOutput:" (id as ptr, node as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub disconnectNodeOutputBus Lib AVFoundationLibname Selector "disconnectNodeOutput:bus:" (id as ptr, node as ptr, bus as uinteger)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getinputNode Lib AVFoundationLibname Selector "inputNode" (id as ptr) As ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getmainMixerNode Lib AVFoundationLibname Selector "mainMixerNode" (id as ptr) As ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getmusicSequence Lib AVFoundationLibname Selector "musicSequence" (id as ptr) As ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getoutputNode Lib AVFoundationLibname Selector "outputNode" (id as ptr) As ptr
+	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
 		 Shared Function MakefromPtr(aPtr as Ptr) As AppleAVAudioEngine
 		  return if (aptr = nil, nil, new AppleAVAudioEngine(aptr))
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub NotificationBlock(NotificationPtr as Ptr)
+		  // if self <> NIL then RaiseEvent ReceivedNotification (new NSNotification (notificationptr))
+		  if self <> nil then
+		    RaiseEvent ConfigurationChanged
+		  end if
+		  #pragma unused NotificationPtr
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Pause()
+		  AVFoundationFramework.pause(id)
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -27,7 +150,7 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub Prepare Lib AVFoundationLibname Selector "prepare" (id as ptr)
+		Attributes( hidden ) Private Declare Sub Prepare Lib AVFoundationLibname Selector "prepare" (id as ptr)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -37,8 +160,25 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function startAndReturnError Lib AVFoundationLibname Selector "startAndReturnError" (id as ptr, anError as ptr) As Boolean
+		Attributes( hidden ) Private Declare Function startAndReturnError Lib AVFoundationLibname Selector "startAndReturnError" (id as ptr, anError as ptr) As Boolean
 	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		Sub Stop()
+		  AVFoundationFramework.stop(id)
+		End Sub
+	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event ConfigurationChanged()
+	#tag EndHook
+
+
+	#tag Note, Name = Status
+		
+		completed, untested
+	#tag EndNote
 
 
 	#tag ComputedProperty, Flags = &h0
@@ -50,6 +190,46 @@ Inherits AppleObject
 		#tag EndGetter
 		Shared ClassPtr As Ptr
 	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return AppleAVAudioInputNode.MakeFromPtr (getinputNode(id))
+			End Get
+		#tag EndGetter
+		InputNode As AppleAVAudioInputNode
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return AppleAVAudioMixerNode(AppleAVAudioMixerNode.MakeFromPtr (getmainMixerNode(id)))
+			End Get
+		#tag EndGetter
+		MainMixerNode As AppleAVAudioMixerNode
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getmusicSequence (id)
+			End Get
+		#tag EndGetter
+		MusicSequenceRef As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return AppleAVAudioOutputNode.MakeFromPtr (getoutputNode(id))
+			End Get
+		#tag EndGetter
+		OutputNode As AppleAVAudioOutputNode
+	#tag EndComputedProperty
+
+
+	#tag Constant, Name = kAVAudioEngineConfigurationChangeNotification, Type = Text, Dynamic = False, Default = \"AVAudioEngineConfigurationChangeNotification", Scope = Protected
+	#tag EndConstant
 
 
 	#tag ViewBehavior

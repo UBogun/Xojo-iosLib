@@ -1,10 +1,51 @@
 #tag Class
-Protected Class AppleAVPlayer
+ Attributes ( incomplete = "needs NSDate" ) Protected Class AppleAVPlayer
 Inherits AppleObject
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function addBoundaryTimeObserverForTimes Lib AVFoundationLibname Selector "addBoundaryTimeObserverForTimes:queue:usingBlock:" (id as ptr, times as ptr, queue as ptr, Block as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function addPeriodicTimeObserverForInterval Lib AVFoundationLibname Selector "addPeriodicTimeObserverForInterval:queue:usingBlock:" (id as ptr, interval as CMTime, queue as ptr, Block as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		Function AddTimeObserver(times as applearray, block as AppleBlock, queue as ptr = nil) As Ptr
+		  return addBoundaryTimeObserverForTimes (id, times.id, queue, block.Handle)
+		  
+		  // use the return value for removeTimeObserver!
+		  // The necessary Observer method for this observer takes no input parameters and returns nothing.
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function AddTimeObserver(Interval as cmtime, block as AppleBlock, queue as ptr = nil) As Ptr
+		  return addPeriodicTimeObserverForInterval (id, Interval, queue, block.Handle)
+		  
+		  // use the return value for removeTimeObserver!
+		  // see TimeObserverTemplate for the structure of the block method
+		  
+		  
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub CancelPrerolls()
 		  Declare sub cancelPendingPrerolls lib AVFoundationLibName selector "cancelPendingPrerolls" (id as ptr)
 		  cancelPendingPrerolls (id)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(PlayerItem As AppleAVPlayerItem)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (initWithPlayerItem(alloc(Classptr), PlayerItem.id))
+		  mhasownership = true
+		  
 		End Sub
 	#tag EndMethod
 
@@ -36,11 +77,43 @@ Inherits AppleObject
 		End Sub
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function getappliesMediaSelectionCriteriaAutomatically Lib AVFoundationLibname Selector "appliesMediaSelectionCriteriaAutomatically" (id as ptr) As Boolean
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function getmasterClock Lib AVFoundationLibname Selector "masterClock" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function getmediaSelectionCriteriaForMediaCharacteristic Lib AVFoundationLibname Selector "mediaSelectionCriteriaForMediaCharacteristic" (id as ptr, characteristic as CFStringRef) As CFStringRef
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function initWithPlayerItem Lib AVFoundationLibname Selector "initWithPlayerItem:" (id as ptr, playerItem As Ptr) As Ptr
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function MakefromPtr(aPtr as Ptr) As AppleAVPlayer
 		  return if (aptr = nil, nil, new AppleAVPlayer(aptr))
 		End Function
 	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function MediaSeelctionCriteria(characteristic as cfstringref) As text
+		  return getmediaSelectionCriteriaForMediaCharacteristic (id, characteristic)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub MediaSeelctionCriteria(characteristic as cfstringref, value as text)
+		  setmediaSelectionCriteriaForMediaCharacteristic (id, characteristic, value)
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function outputObscuredDueToInsufficientExternalProtection Lib AVFoundationLibname Selector "outputObscuredDueToInsufficientExternalProtection" (id as ptr) As Boolean
+	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
 		Sub Pause()
@@ -57,33 +130,53 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub PreRoll(Rate As Single)
+		Sub PreRoll(Rate As Single, Completionblock as AppleBlock = nil)
 		  Declare sub prerollAtRate lib AVFoundationLibName selector "prerollAtRate:completionHandler:" (id as ptr, rate as single, Block as ptr)
-		  dim Block as new AppleBlock (AddressOf PrerollCompletionBlock)
-		  prerollAtRate id, rate, block.Handle
+		  if Completionblock = nil then 
+		    Completionblock = new AppleBlock  (AddressOf PrerollCompletionBlock)
+		  end if
+		  prerollAtRate id, rate,Completionblock.Handle
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub PrerollCompletionBlock(Succesful as Boolean)
-		  if me <> nil then RaiseEvent PrerollFinished (Succesful)
+		Private Sub PrerollCompletionBlock(Successfull as Boolean)
+		  if me <> nil then RaiseEvent PrerollFinished (Successfull)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub RemoveTimeObserver(ObserverPtr as Ptr)
+		  removeTimeObserver (id, ObserverPtr)
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Sub removeTimeObserver Lib AVFoundationLibname Selector "removeTimeObserver:" (id as ptr, observer as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Sub replaceCurrentItemWithPlayerItem Lib AVFoundationLibname Selector "replaceCurrentItemWithPlayerItem:" (id as ptr, playerItem As Ptr)
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		Sub ReplaceItem(PlayerItem As AppleAVPlayerItem)
+		  replaceCurrentItemWithPlayerItem (id, PlayerItem.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SeekToTime(Time as CMTime)
-		  Declare sub seekToTime lib AVFoundationLibName selector "seekToTime:completionHandler:" (id as ptr, time as CMTime, block as ptr)
 		  dim block as new AppleBlock (AddressOf SeekToTimeCompletionBlock)
-		  seekToTime id, time, block.Handle
+		  AVFoundationFramework.seekToTime id, time, block.Handle
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SeekToTime(Time as CMTime, ToleranceBefore As CMTime, ToleranceAfter as CMTime)
-		  Declare sub seekToTimeTolerance lib AVFoundationLibName selector "seekToTime:toleranceBefore:toleranceAfter:completionHandler:" _
-		  (id as ptr, time as CMTime, ToleranceBefore as CMTime, ToleranceAfter as CMTime, block as ptr)
 		  dim block as new AppleBlock (AddressOf SeekToTimeCompletionBlock)
-		  seekToTimeTolerance id, time, ToleranceBefore, ToleranceAfter, block.Handle
+		  AVFoundationFramework.seekToTimeTolerance id, time, ToleranceBefore, ToleranceAfter, block.Handle
 		End Sub
 	#tag EndMethod
 
@@ -93,10 +186,41 @@ Inherits AppleObject
 		End Sub
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Sub setappliesMediaSelectionCriteriaAutomatically Lib AVFoundationLibname Selector "setAppliesMediaSelectionCriteriaAutomatically:" (id as ptr, value as Boolean)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Sub setmasterClock Lib AVFoundationLibname Selector "setMasterClock:" (id as ptr, clock as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Sub setmediaSelectionCriteriaForMediaCharacteristic Lib AVFoundationLibname Selector "setMediaSelectionCriteria:forMediaCharacteristic:" (id as ptr, characteristic as cfstringref, value as cfstringref)
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		Sub SetRate(rate as single, itemTime as CMTime, HostClockTime as CMTime)
+		  setRatetime (id, rate, itemTime, HostClockTime)
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Sub setRateTime Lib AVFoundationLibname Selector "setRate:time:atHostTime:" (id as ptr, rate As single, itemTime as CMTime, HostClockTime as CMTime)
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h0
 		Sub Synchronize(Rate as single, itemTime as CMTime, Hosttime as CMTime)
 		  Declare sub setRate lib AVFoundationLibName selector "setRate:time:atHostTime:" (id as ptr, rate as single, itemTime as CMTime, Hosttime as CMTime)
 		  setRate id, rate, itemTime, Hosttime
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub TimeObserverTemplate(Time as CMTIme)
+		  // This is a template for addTimeObserver
+		  // uncomment the following:
+		  
+		  #pragma unused time
 		End Sub
 	#tag EndMethod
 
@@ -108,6 +232,13 @@ Inherits AppleObject
 	#tag Hook, Flags = &h0
 		Event TimeFound(Finished as Boolean)
 	#tag EndHook
+
+
+	#tag Note, Name = Status
+		
+		seektoDate missing, no NSDate class yet
+		Enumeration MediaCharateristics needs a conversion ti its text constant in order to be useful
+	#tag EndNote
 
 
 	#tag ComputedProperty, Flags = &h0
@@ -145,13 +276,11 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function appliesMediaSelectionCriteriaAutomatically lib AVFoundationLibName selector "appliesMediaSelectionCriteriaAutomatically" (id as ptr) as Boolean
-			  return appliesMediaSelectionCriteriaAutomatically (id)
+			  return getappliesMediaSelectionCriteriaAutomatically (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setAppliesMediaSelectionCriteriaAutomatically lib AVFoundationLibName selector "setAppliesMediaSelectionCriteriaAutomatically:" (id as ptr, value as Boolean)
 			  setAppliesMediaSelectionCriteriaAutomatically id, value
 			End Set
 		#tag EndSetter
@@ -197,17 +326,24 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare function currentTime lib AVFoundationLibName selector "currentTime" (id as ptr) as CMTime
-			  return currentTime (id)
+			  return AVFoundationFramework.getcurrentTime (id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setCurrentTime lib AVFoundationLibName selector "setCurrentTime:" (id as ptr, value as CMTime)
-			  setCurrentTime id, value
+			  AVFoundationFramework.setCurrentTime id, value
 			End Set
 		#tag EndSetter
 		currentTime As CMTime
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return AppleError.MakefromPtr (AVFoundationFramework.geterror(id))
+			End Get
+		#tag EndGetter
+		Error As AppleError
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -283,6 +419,23 @@ Inherits AppleObject
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
+		#tag Note
+			// Here should follow a CMClockRef class!
+		#tag EndNote
+		#tag Getter
+			Get
+			  return getmasterClock (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setmasterClock (id, value)
+			End Set
+		#tag EndSetter
+		MasterClock As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
 			  Declare function isMuted lib AVFoundationLibName selector "isMuted" (id as ptr) as Boolean
@@ -296,6 +449,15 @@ Inherits AppleObject
 			End Set
 		#tag EndSetter
 		Muted As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return outputObscuredDueToInsufficientExternalProtection (id)
+			End Get
+		#tag EndGetter
+		OutputObscured As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -341,12 +503,17 @@ Inherits AppleObject
 	#tag EndComputedProperty
 
 
-	#tag Structure, Name = CMTime, Flags = &h0
-		TimeValue As Int64
-		  TimeScale As Int32
-		  TimeFlags As UInt32
-		TimeEpoch As Int64
-	#tag EndStructure
+	#tag Constant, Name = AVMediaCharacteristicAudible, Type = Text, Dynamic = False, Default = \"AVMediaCharacteristicAudible", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = AVMediaCharacteristicFrameBased, Type = Text, Dynamic = False, Default = \"AVMediaCharacteristicFrameBased", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = AVMediaCharacteristicLegible, Type = Text, Dynamic = False, Default = \"AVMediaCharacteristicLegible", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = AVMediaCharacteristicVisual, Type = Text, Dynamic = False, Default = \"AVMediaCharacteristicVisual", Scope = Private
+	#tag EndConstant
 
 
 	#tag Enum, Name = AVPlayerActionAtItemEnd, Type = Integer, Flags = &h0
@@ -359,6 +526,13 @@ Inherits AppleObject
 		Unknown
 		  ReadyToPlay
 		Failed
+	#tag EndEnum
+
+	#tag Enum, Name = MediaCharacteristics, Type = Integer, Flags = &h0
+		Visual
+		  Audible
+		  Legible
+		FrameBased
 	#tag EndEnum
 
 
@@ -469,6 +643,11 @@ Inherits AppleObject
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="OutputObscured"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Rate"

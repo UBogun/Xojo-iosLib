@@ -1,33 +1,48 @@
 #tag Class
-Protected Class AppleAVAudioOutputNode
-Inherits AppleAVAudioNode
+ Attributes ( incomplete = "AVAssettrack missing" ) Protected Class AppleAVPlayerItemTrack
+Inherits AppleObject
 	#tag Method, Flags = &h21
 		Private Sub Constructor()
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		 Shared Function MakefromPtr(aPtr as Ptr) As AppleAVAudioOutputNode
-		  return if (aptr = nil, nil, new AppleAVAudioOutputNode(aptr))
-		End Function
-	#tag EndMethod
-
-
-	#tag Note, Name = Status
-		fully done – has no properties or methods yet, overrides superclass' thingies.
-		
-	#tag EndNote
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function getcurrentVideoFrameRate Lib AVFoundationLibname Selector "currentVideoFrameRate" (id as ptr) As single
+	#tag EndExternalMethod
 
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVAudioOutputNode")
+			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVPlayerItemTrack")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
 		Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return UIKitFramework.getEnabled (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  UIKitFramework.SetEnabled (id, value)
+			End Set
+		#tag EndSetter
+		Enabled As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getcurrentVideoFrameRate(id)
+			End Get
+		#tag EndGetter
+		VideoFramerate As Single
 	#tag EndComputedProperty
 
 
@@ -86,16 +101,6 @@ Inherits AppleAVAudioNode
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="NumberOfInputs"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="NumberOfOutputs"
-			Group="Behavior"
-			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RetainCount"

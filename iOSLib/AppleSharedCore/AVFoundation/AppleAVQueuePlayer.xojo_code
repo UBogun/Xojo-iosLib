@@ -78,6 +78,12 @@ Inherits AppleAVPlayer
 	#tag EndMethod
 
 
+	#tag Note, Name = Status
+		Completed, untested
+		
+	#tag EndNote
+
+
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
@@ -158,6 +164,11 @@ Inherits AppleAVPlayer
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="HasOwnership"
 			Group="Behavior"
 			Type="Boolean"
@@ -206,6 +217,11 @@ Inherits AppleAVPlayer
 			Name="Rate"
 			Group="Behavior"
 			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Status"

@@ -1,26 +1,16 @@
 #tag Class
 Protected Class AppleNotificationCenter
 Inherits AppleObject
-	#tag Method, Flags = &h1
-		Protected Function addObserverForName(NotificationName as CFStringRef, Obj as ptr, queue as AppleOperationQueue, block as ptr) As Ptr
+	#tag Method, Flags = &h0
+		Function addObserverForName(NotificationName as CFStringRef, Obj as ptr, queue as AppleOperationQueue, block as ptr) As Ptr
 		  declare function addObserverForName lib FoundationLibName  selector "addObserverForName:object:queue:usingBlock:" _
 		  (id as ptr, NotificationName as CFStringRef, Obj as Ptr, queue as ptr, block as ptr) as ptr
-		  return addObserverForName (DefaultCenter, NotificationName, obj, Queue.id, block)
+		  return addObserverForName (DefaultCenter.id, NotificationName, obj, Queue.id, block)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1021
 		Private Sub Constructor()
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub Constructor(NotificationName as CFStringRef, Obj as AppleObject)
-		  // dim block as new AppleBlock (AddressOf NotificationBlock)
-		  // dim queue as AppleOperationQueue = AppleOperationQueue.MainQueue
-		  // super.Constructor( addObserverForName (NotificationName, if (obj <> NIL, obj.id, NIL), queue, block.handle))
-		  // mHasOwnership = true
 		  
 		End Sub
 	#tag EndMethod
@@ -43,10 +33,10 @@ Inherits AppleObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Sub removeObserver(observer as AppleObject)
+	#tag Method, Flags = &h0
+		Sub removeObserver(observer as AppleObject)
 		  declare sub removeObserver lib FoundationLibName  selector "removeObserver:" (id as ptr, observer as ptr)
-		  removeObserver DefaultCenter, observer.id
+		  removeObserver DefaultCenter.Id, observer.id
 		End Sub
 	#tag EndMethod
 
@@ -70,11 +60,11 @@ Inherits AppleObject
 		#tag Getter
 			Get
 			  declare function defaultCenter lib FoundationLibName  selector "defaultCenter" (id as ptr) as ptr
-			  static mdefaultcenter as ptr = (defaultCenter(ClassPtr))
+			  static mdefaultcenter as AppleNotificationCenter =new AppleNotificationCenter (defaultCenter(ClassPtr))
 			  return mdefaultcenter
 			End Get
 		#tag EndGetter
-		DefaultCenter As Ptr
+		Shared DefaultCenter As AppleNotificationCenter
 	#tag EndComputedProperty
 
 

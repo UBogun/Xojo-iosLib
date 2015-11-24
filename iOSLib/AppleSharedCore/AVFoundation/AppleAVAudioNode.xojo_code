@@ -1,26 +1,29 @@
 #tag Class
 Protected Class AppleAVAudioNode
 Inherits AppleObject
-	#tag Method, Flags = &h0
-		Sub AVAudioNodeTapBlockTemplate(BufferPtr as ptr, AVAudioTime as Ptr)
+	#tag Method, Flags = &h1
+		Protected Sub AVAudioNodeTapBlockTemplate(BufferPtr as ptr, AVAudioTime as Ptr)
 		  // A Template for A TapBlock to be used with AppleAVAudioNodes.
 		  dim Buffer as new AppleAVAudioPCMBuffer (bufferptr)
-		  //Time needs to be converted too
+		  dim time as new AppleAVAudioTime (AVAudioTime)
+		  
+		  // Now do something here!
+		  
 		  
 		  // Please note this block may be called on a different than the main thread. You should not manipulate the UI from here therefore.
 		End Sub
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function getEngine Lib AVFoundationLibname Selector "engine" (id as ptr) As Ptr
+		Attributes( hidden ) Private Declare Function getEngine Lib AVFoundationLibname Selector "engine" (id as ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function getinputFormat Lib AVFoundationLibname Selector "inputFormatForBus:" (id as ptr, Bus as UInteger) As Ptr
+		Attributes( hidden ) Private Declare Function getinputFormat Lib AVFoundationLibname Selector "inputFormatForBus:" (id as ptr, Bus as UInteger) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function getlastRenderTime Lib AVFoundationLibname Selector "lastRenderTime" (id as ptr) As Ptr
+		Attributes( hidden ) Private Declare Function getlastRenderTime Lib AVFoundationLibname Selector "lastRenderTime" (id as ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
@@ -32,7 +35,7 @@ Inherits AppleObject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Function getnextAvailableInputBus Lib AVFoundationLibname Selector "nextAvailableInputBus" (id as ptr) As UInteger
+		Attributes( hidden ) Protected Declare Function getnextAvailableInputBus Lib AVFoundationLibname Selector "nextAvailableInputBus" (id as ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
@@ -105,12 +108,12 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0, Description = 4F6E6C79206F6E6520746170206D617920626520696E7374616C6C6564206F6E20616E79206275732E2054617073206D617920626520736166656C7920696E7374616C6C656420616E642072656D6F766564207768696C652074686520656E67696E652069732072756E6E696E672E
 		Sub InstallTap(Bus As UInteger, BufferSize As UInt32, Format As AppleAVAudioFormat, CallBackBlock As AppleBlock)
-		  installTapOnBus (id, Bus, BufferSize, format.id, CallBackBlock.Handle)
+		  installTapOnBus (id, Bus, BufferSize, if (format = nil, nil,  format.id), CallBackBlock.Handle)
 		End Sub
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub installTapOnBus Lib AVFoundationLibname Selector "installTapOnBus:bufferSize:format:block:" (id as ptr, Bus as UInteger, BufferSize as UInt32, Format as Ptr, Block as Ptr)
+		Attributes( hidden ) Private Declare Sub installTapOnBus Lib AVFoundationLibname Selector "installTapOnBus:bufferSize:format:block:" (id as ptr, Bus as UInteger, BufferSize as UInt32, Format as Ptr, Block as Ptr)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -149,13 +152,9 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h0
 		Sub Reset()
-		  reset id
+		  AVFoundationFramework.reset id
 		End Sub
 	#tag EndMethod
-
-	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub reset Lib AVFoundationLibname Selector "reset" (id as ptr)
-	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
 		Private Declare Sub setinputFormat Lib AVFoundationLibname Selector "setInputFormat:forBus:" (id as ptr, Bus as UInteger, value as Ptr)
