@@ -1,27 +1,37 @@
 #tag Class
-Protected Class AppleAVAudioMix
-Inherits AppleObject
+Protected Class AppleAVAudioSessionRouteDescription
+Inherits appleObject
+	#tag Method, Flags = &h21
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag ExternalMethod, Flags = &h21
-		Attributes( hidden ) Private Declare Function getinputParameters Lib AVFoundationLibname Selector "inputParameters" (id as ptr) As Ptr
+		Attributes( hidden ) Private Declare Function getinputs Lib AVFoundationLibname Selector "inputs" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getoutputs Lib AVFoundationLibname Selector "outputs" (id as ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function makeFromPtr(aPtr as Ptr) As AppleAVAudioMix
-		  return if (aptr = nil, nil, new AppleAVAudioMix(aptr))
+		 Shared Function MakeFromPtr(aPtr as Ptr) As AppleAVAudioSessionRouteDescription
+		  return if (aptr = nil, nil, new AppleAVAudioSessionRouteDescription (aptr))
 		End Function
 	#tag EndMethod
 
 
 	#tag Note, Name = Status
 		
-		Complete, untested
+		completed, tested
 	#tag EndNote
 
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVAudioMix")
+			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVAudioSessionRouteDescription")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -31,10 +41,21 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return AppleArray.MakeFromPtr(getinputParameters(id))
+			  return applearray.MakeFromPtr(getinputs (id))
+			  
 			End Get
 		#tag EndGetter
-		InputParameters As AppleArray
+		Inputs As AppleArray
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return applearray.MakeFromPtr(getoutputs (id))
+			  
+			End Get
+		#tag EndGetter
+		Outputs As AppleArray
 	#tag EndComputedProperty
 
 

@@ -1,40 +1,27 @@
 #tag Class
-Protected Class AppleAVAudioMix
+ Attributes ( incomplete = "has no properties yet" ) Protected Class AppleAVAudioSessionDataSourceDescription
 Inherits AppleObject
-	#tag ExternalMethod, Flags = &h21
-		Attributes( hidden ) Private Declare Function getinputParameters Lib AVFoundationLibname Selector "inputParameters" (id as ptr) As Ptr
-	#tag EndExternalMethod
+	#tag Method, Flags = &h21
+		Private Sub constructor()
+		  
+		End Sub
+	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function makeFromPtr(aPtr as Ptr) As AppleAVAudioMix
-		  return if (aptr = nil, nil, new AppleAVAudioMix(aptr))
+		 Shared Function MakefromPtr(aPtr as Ptr) As AppleAVAudioSessionDataSourceDescription
+		  return if (aptr = nil, nil, new AppleAVAudioSessionDataSourceDescription(aptr))
 		End Function
 	#tag EndMethod
 
 
-	#tag Note, Name = Status
-		
-		Complete, untested
-	#tag EndNote
-
-
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVAudioMix")
+			  static mClassPtr as ptr = FoundationFramework.NSClassFromString ("AVAudioSessionDataSourceDescription")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
 		Shared ClassPtr As Ptr
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return AppleArray.MakeFromPtr(getinputParameters(id))
-			End Get
-		#tag EndGetter
-		InputParameters As AppleArray
 	#tag EndComputedProperty
 
 

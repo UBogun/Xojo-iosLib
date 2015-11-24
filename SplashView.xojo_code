@@ -99,10 +99,21 @@ End
 		  button1.AppleView.SpringAnimateFrame (newrect , options, 0.3, 10, 5)
 		  Button2.FadeIn (5)
 		  
-		  // static m as new AppleAVAudioEngine
-		  // dim i as AppleAVAudioInputNode = m.InputNode
-		  // i.InstallTap (1, 32000, Nil, new appleblock(AddressOf i.AVAudioNodeTapBlockTemplate))
-		  // m.DisconnectNodeInput (i)
+		  
+		  // dim session as new AppleAVAudioSession
+		  // dim result as boolean = session.Setcategory (AppleAVAudioSession.kAVAudioSessionCategoryPlayAndRecord)
+		  // dim result2 as boolean = session.SetMode (AppleAVAudioSession.kAVAudioSessionModeDefault)
+		  // 
+		  // session.RequestRecordPermission
+		  // // session.PreferredSampleRate = 48000.0
+		  // // session.PreferredIOBufferDuration = 0.35
+		  // dim result3 as boolean = session.OverrideOutputAudioPort (AppleAVAudioSession.AVAudioSessionPortOverride.Speaker)
+		  // dim result4 as Boolean = session.SetPreferredInputNumberOfChannels (5)
+		  // // session.PreferredOutputNumberOfChannels = 5
+		  // // static m as new AppleAVAudioEngine
+		  // // dim i as AppleAVAudioInputNode = m.InputNode
+		  // // i.InstallTap (1, 32000, Nil, new appleblock(AddressOf i.AVAudioNodeTapBlockTemplate))
+		  // // m.DisconnectNodeInput (i)
 		  // break
 		  
 		End Sub
