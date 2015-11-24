@@ -86,12 +86,12 @@ Inherits AppleObject
 		Private Declare Function getloadedTimeRanges Lib AVFoundationLibname Selector "loadedTimeRanges" (id as ptr) As Ptr
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target64Bit))
+	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Private Declare Function getpresentationSize Lib AVFoundationLibname Selector "presentationSize" (id as ptr) As FoundationFrameWork.nssize
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit))
-		Private Declare Function getpresentationSize Lib AVFoundationLibname Selector "presentationSize" (id as ptr) As FoundationFrameWork.nssize32Bit
+	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Private Declare Function getpresentationSize32 Lib AVFoundationLibname Selector "presentationSize" (id as ptr) As FoundationFrameWork.nssize32Bit
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
@@ -402,7 +402,7 @@ Inherits AppleObject
 			  #if Target64Bit
 			    return getpresentationSize (id)
 			  #elseif Target32Bit
-			    return getpresentationSize(id).tonssize
+			    return getpresentationSize32(id).tonssize
 			  #endif
 			End Get
 		#tag EndGetter
