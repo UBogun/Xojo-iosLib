@@ -5,6 +5,12 @@ Inherits AppleAVAudioNode
 		Private Declare Function getoutputVolume Lib AVFoundationLibname Selector "outputVolume" (id as ptr) As single
 	#tag EndExternalMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function makefromPtr(aPtr as Ptr) As AppleAVAudioMixerNode
+		  return if (aptr = nil, nil, new AppleAVAudioMixerNode(aptr))
+		End Function
+	#tag EndMethod
+
 	#tag ExternalMethod, Flags = &h21
 		Private Declare Sub setoutputVolume Lib AVFoundationLibname Selector "setOutputVolume:" (id as ptr, value as single)
 	#tag EndExternalMethod
@@ -200,6 +206,11 @@ Inherits AppleAVAudioNode
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="NextAvailableInputBus"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="NumberOfInputs"
 			Group="Behavior"
 			Type="UInteger"
@@ -210,9 +221,39 @@ Inherits AppleAVAudioNode
 			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Obstruction"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Occlusion"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="OutputVolume"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Pan"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RenderingAlgorithms"
+			Group="Behavior"
+			Type="AVAudio3DMixingRenderingAlgorithm"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="RetainCount"
 			Group="Behavior"
 			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ReverbBlend"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
@@ -226,6 +267,11 @@ Inherits AppleAVAudioNode
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Volume"
+			Group="Behavior"
+			Type="Single"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

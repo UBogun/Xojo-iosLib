@@ -3,12 +3,21 @@ Protected Class AppleAVAudioNode
 Inherits AppleObject
 	#tag Method, Flags = &h1
 		Protected Sub AVAudioNodeTapBlockTemplate(BufferPtr as ptr, AVAudioTime as Ptr)
+		  #pragma StackOverflowChecking false
+		  #pragma BreakOnExceptions false
+		  #pragma backgroundtasks false
+		  #pragma NilObjectChecking false
+		  
 		  // A Template for A TapBlock to be used with AppleAVAudioNodes.
-		  dim Buffer as new AppleAVAudioPCMBuffer (bufferptr)
-		  dim time as new AppleAVAudioTime (AVAudioTime)
 		  
-		  // Now do something here!
 		  
+		  // You should just foward both ptrs to app properties and start the analyze on the main thread.
+		  // You convert the properties with:
+		  // dim Buffer as new AppleAVAudioPCMBuffer (bufferptr)
+		  // dim time as new AppleAVAudioTime (AVAudioTime)
+		  
+		  #pragma unused bufferptr
+		  #pragma unused AVAudioTime
 		  
 		  // Please note this block may be called on a different than the main thread. You should not manipulate the UI from here therefore.
 		End Sub

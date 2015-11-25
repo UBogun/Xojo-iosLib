@@ -322,6 +322,7 @@ Class=AppleAVAudioSessionCategoryOptions;iOSLib/AppleSharedCore/AVFoundation/App
 Class=AppleAVAudioSessionRouteDescription;iOSLib/AppleSharedCore/AVFoundation/AppleAVAudioSessionRouteDescription.xojo_code;&h550797FF;&h5B3B27FF;false
 Class=AppleAVAudioSessionPortDescription;iOSLib/AppleSharedCore/AVFoundation/AppleAVAudioSessionPortDescription.xojo_code;&h2EAEAFFF;&h5B3B27FF;false
 Class=AppleAVAudioSessionDataSourceDescription;iOSLib/AppleSharedCore/AVFoundation/AppleAVAudioSessionDataSourceDescription.xojo_code;&h65D127FF;&h5B3B27FF;false
+iOSView=AVAudioView;AVAudioView.xojo_code;&h4C7E77FF;&h0;false
 DefaultScreen=iPhoneScreen
 DefaultTabletScreen=iPadScreen
 MajorVersion=1

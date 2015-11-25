@@ -160,7 +160,7 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Attributes( hidden ) Private Declare Function startAndReturnError Lib AVFoundationLibname Selector "startAndReturnError" (id as ptr, anError as ptr) As Boolean
+		Attributes( hidden ) Private Declare Function startAndReturnError Lib AVFoundationLibname Selector "startAndReturnError:" (id as ptr, anError as ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -203,7 +203,7 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return AppleAVAudioMixerNode(AppleAVAudioMixerNode.MakeFromPtr (getmainMixerNode(id)))
+			  return AppleAVAudioMixerNode.MakeFromPtr (getmainMixerNode(id))
 			End Get
 		#tag EndGetter
 		MainMixerNode As AppleAVAudioMixerNode
