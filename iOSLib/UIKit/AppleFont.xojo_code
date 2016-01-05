@@ -7,7 +7,7 @@ Inherits AppleObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1000
+	#tag Method, Flags = &h1000, Description = 4372656174657320616E642072657475726E73206120666F6E74206F626A65637420666F72207468652073706563696669656420666F6E74206E616D6520616E642073697A652E
 		Sub Constructor(FontName as CFStringRef, Size as Double)
 		  #if Target64Bit
 		    Declare function fontWithName lib UIKitLibname selector "fontWithName:size:" (id as ptr, Fontname as CFStringRef, Size as double) as Ptr
@@ -43,7 +43,7 @@ Inherits AppleObject
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 52657475726E73207468652073616D6520666F6E742077697468206120646966666572656E742073697A652E
 		Function FontWithSize(Size as Double) As AppleFont
 		  #if Target64Bit
 		    Declare function fontWithSize lib UIKitLibname selector "fontWithSize:" ( id as ptr, Size as double) as Ptr
@@ -66,13 +66,32 @@ Inherits AppleObject
 		End Function
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function getpreferredFontForTextStyle Lib UikitLibname Selector "preferredFontForTextStyle:" (id as ptr, textStyle as cfstringref) As Ptr
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function MakefromPtr(aPtr as Ptr) As AppleFont
 		  return if (aptr = nil, nil, new AppleFont(aptr))
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 52657475726E7320616E20696E7374616E6365206F662074686520666F6E74206173736F6369617465642077697468207468652074657874207374796C6520616E64207363616C656420617070726F7072696174656C7920666F7220746865207573657227732073656C656374656420636F6E74656E742073697A652063617465676F72792E
+		 Shared Function PreferredFontForTextStyle(style as UIFontTextStyle) As AppleFont
+		  dim result as applefont = new AppleFont(getpreferredFontForTextStyle(classptr, TextStyleconstant(style)))
+		  result.retainclassobject
+		  return result
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 52657475726E732074686520666F6E74206F626A656374207573656420666F72207374616E6461726420696E74657266616365206974656D7320696E20746865207370656369666965642073697A652E
+		 Shared Function SmallSystemFont() As AppleFont
+		  return SystemFont(SmallSystemFontSize)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 52657475726E732074686520666F6E74206F626A656374207573656420666F72207374616E6461726420696E74657266616365206974656D7320696E20746865207370656369666965642073697A652E
 		 Shared Function SystemFont(FontSize as double = 0) As AppleFont
 		  #if Target64Bit
 		    Declare function systemFontOfSize lib UIKitLibname selector "systemFontOfSize:" (id as ptr, Fontsize as double) as ptr
@@ -83,6 +102,33 @@ Inherits AppleObject
 		  Dim Result as new applefont (systemFontOfSize (ClassPtr, fontsize))
 		  result.RetainClassObject
 		  return result
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function TextStyleconstant(style as UIFontTextStyle) As text
+		  Select case style
+		  case UIFontTextStyle.Body
+		    return UIFontTextStyleBody
+		  case UIFontTextStyle.Callout
+		    return UIFontTextStyleCallout
+		  case UIFontTextStyle.Caption1
+		    return UIFontTextStyleCaption1
+		  case UIFontTextStyle.Caption2
+		    return UIFontTextStyleCaption2
+		  case UIFontTextStyle.Footnote
+		    return UIFontTextStyleFootnote
+		  case UIFontTextStyle.Headline
+		    return UIFontTextStyleHeadline
+		  case UIFontTextStyle.SubHeadline
+		    return UIFontTextStyleSubHeadline
+		  case UIFontTextStyle.Title1
+		    return UIFontTextStyleTitle1
+		  case UIFontTextStyle.Title2
+		    return UIFontTextStyleTitle2
+		  case UIFontTextStyle.Title3
+		    return UIFontTextStyleTitle3
+		  End Select
 		End Function
 	#tag EndMethod
 
@@ -151,6 +197,19 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  #if target64bit
+			    return SystemConstantDouble (UIKitPath, "UIFontWeightRegular")
+			  #elseif Target32Bit
+			    return SystemConstantSingle (UIKitPath, "UIFontWeightRegular")
+			  #endif
+			End Get
+		#tag EndGetter
+		Shared kUIFontWeightUltraLight As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
 			  #if Target64Bit
 			    Declare Function labelFontSize lib UIKitLibname selector "labelFontSize" (id as ptr) as double
 			  #elseif Target32Bit
@@ -209,17 +268,64 @@ Inherits AppleObject
 	#tag EndComputedProperty
 
 
+	#tag Constant, Name = UIFontTextStyleBody, Type = Text, Dynamic = False, Default = \"UIFontTextStyleBody", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = UIFontTextStyleCallout, Type = Text, Dynamic = False, Default = \"UIFontTextStyleCallout", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = UIFontTextStyleCaption1, Type = Text, Dynamic = False, Default = \"UIFontTextStyleCaption1", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = UIFontTextStyleCaption2, Type = Text, Dynamic = False, Default = \"UIFontTextStyleCaption2", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = UIFontTextStyleFootnote, Type = Text, Dynamic = False, Default = \"UIFontTextStyleFootnote", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = UIFontTextStyleHeadline, Type = Text, Dynamic = False, Default = \"UIFontTextStyleHeadline", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = UIFontTextStyleSubheadline, Type = Text, Dynamic = False, Default = \"UIFontTextStyleSubheadline", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = UIFontTextStyleTitle1, Type = Text, Dynamic = False, Default = \"UIFontTextStyleTitle1", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = UIFontTextStyleTitle2, Type = Text, Dynamic = False, Default = \"UIFontTextStyleTitle2", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = UIFontTextStyleTitle3, Type = Text, Dynamic = False, Default = \"UIFontTextStyleTitle3", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+
+	#tag Enum, Name = UIFontTextStyle, Type = Integer, Flags = &h0
+		Title1
+		  Title2
+		  Title3
+		  Headline
+		  SubHeadline
+		  Body
+		  Footnote
+		  Caption1
+		  Caption2
+		Callout
+	#tag EndEnum
+
+	#tag Enum, Name = UIFontWeight, Type = Integer, Flags = &h0
+		UltraLight
+		  Thin
+		  Light
+		  Regular
+		  Medium
+		  Semibold
+		  Bold
+		  Heavy
+		Black
+	#tag EndEnum
+
+
 	#tag ViewBehavior
-		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
 		#tag ViewProperty
 			Name="FamilyName"
 			Group="Behavior"
@@ -231,11 +337,6 @@ Inherits AppleObject
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -243,26 +344,11 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

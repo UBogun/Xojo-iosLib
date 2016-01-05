@@ -10,10 +10,10 @@ Begin iosView iOSGraphicsView
    Begin iOScanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Canvas1, 4, Label1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       Height          =   361.0
       Left            =   20
       LockedInPosition=   False
@@ -25,13 +25,14 @@ Begin iosView iOSGraphicsView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Label1, 2, Canvas1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Label1, 2, Canvas1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Untitled"
@@ -104,7 +105,7 @@ End
 		  g.SaveState // saving the current state because the context needs to be flipped for the tiledimage call
 		  g.Translate (0, me.Height) // flip it
 		  g.Scale (1, -1)
-		  ga.DrawtiledImage FoundationFrameWork.NSMakeRect (0,0,20, 20), mypic.toCGImage
+		  ga.DrawtiledImage FoundationFrameWork.NSMakeRect (0,0,20, 20), mypic.CGImage
 		  g.RestoreState // and restire it to normal
 		  ga.RemoveShadow // don't paint shadow anymore
 		  // g.LineColor = &c86676D00
@@ -120,8 +121,8 @@ End
 		  ga.BlendMode = CGBlendMode.Normal // overlay the next graphcis
 		  ga.SetShadow 1,1,1, &c06001C00 // paints a shadow for the following graphics
 		  
-		  g.DrawTextBlock "iOSGraphicsExtension and the class AppleCGContext give you access to a lot more graphics routines than you are used to." +endofline + _
-		  "Here you see the DrawTiledImage method with a shadow applied and a multiplied gradient. This text itself carries another shadow. "+endofline + endofline + _
+		  g.DrawTextBlock "iOSGraphicsExtension and the class AppleCGContext give you access to a lot more graphics routines than you are used to." +eol + _
+		  "Here you see the DrawTiledImage method with a shadow applied and a multiplied gradient. This text itself carries another shadow. "+eol + eol + _
 		  "For other methods, select one below.", 10, 80, me.Width - 20
 		  // g.FillColor = &cDA770000
 		  g.LineWidth = 10

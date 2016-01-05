@@ -126,11 +126,6 @@ Protected Class CGAnimatedQuadcurve
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="cap"
-			Group="Behavior"
-			Type="CGLineCap"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="CPX"
 			Group="Behavior"
 			Type="Double"

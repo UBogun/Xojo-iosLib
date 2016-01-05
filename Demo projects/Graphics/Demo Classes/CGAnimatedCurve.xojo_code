@@ -148,11 +148,6 @@ Protected Class CGAnimatedCurve
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="cap"
-			Group="Behavior"
-			Type="CGLineCap"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="CP1X"
 			Group="Behavior"
 			Type="Double"

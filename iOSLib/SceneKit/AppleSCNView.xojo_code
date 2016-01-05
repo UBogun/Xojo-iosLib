@@ -6,7 +6,6 @@ Inherits AppleView
 		  dim myarray as new AppleMutableArray(2)
 		  myarray.AddText SceneKitFrameWork.kBlockPreparationEnded
 		  myarray.Addobject new applenumber(success)
-		  NotifyObservers (myarray)
 		  RaiseEvent BlocksPreparationEnded (success)
 		  
 		End Sub
@@ -37,14 +36,6 @@ Inherits AppleView
 		  if NotificationDict = nil then NotificationDict = new Dictionary
 		  dim d as new dictionary // This is the subdictionary for notification parameters
 		  NotificationDict.value(id) = d // Attach it so we can use it without check in the impl_ methods
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame as FoundationFramework.NSRect, observer as AppleNSEventReceiver)
-		  Constructor (aFrame)
-		  RegisterObserver (observer)
-		  
 		End Sub
 	#tag EndMethod
 
@@ -237,20 +228,6 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub NotifyObservers(EventProperties As AppleArray)
-		  // Part of the AppleNSEventForwarder interface.
-		  if Observers.HasKey (id)  then
-		    dim wr as weakref = Observers.Value (id)
-		    if wr <> NIL then
-		      dim myControl as  AppleSceneViewer = AppleSceneViewer(wr.Value)
-		      myControl.ReceivedEvent EventProperties
-		    end if
-		  end if
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub Pause()
 		  Declare sub pause lib SceneKitLib selector "pause:" (id as Ptr, sender as ptr)
 		  pause id, nil
@@ -295,7 +272,6 @@ Inherits AppleView
 		  RaiseEvent DidAnimate (time)
 		  myArray.addtext kdidApplyAnimationsAtTime
 		  myArray.Addobject new AppleNumber (time)
-		  NotifyObservers (myArray)
 		  
 		End Sub
 	#tag EndMethod
@@ -311,7 +287,6 @@ Inherits AppleView
 		  myArray.addtext kDidRenderScene
 		  myArray.Addobject scene
 		  myArray.Addobject new AppleNumber (time)
-		  NotifyObservers (myArray)
 		  
 		End Sub
 	#tag EndMethod
@@ -325,7 +300,6 @@ Inherits AppleView
 		  RaiseEvent DidSimulatePhysics (time)
 		  myArray.addtext kDidSimulatePhysics
 		  myArray.Addobject new AppleNumber (time)
-		  NotifyObservers (myArray)
 		  
 		End Sub
 	#tag EndMethod
@@ -339,7 +313,6 @@ Inherits AppleView
 		  RaiseEvent WillUpdate (time)
 		  myArray.addtext kUpdateAtTime
 		  myArray.Addobject new AppleNumber (time)
-		  NotifyObservers (myArray)
 		  
 		End Sub
 	#tag EndMethod
@@ -355,7 +328,6 @@ Inherits AppleView
 		  myArray.addtext kWillRenderScene
 		  myArray.Addobject scene
 		  myArray.Addobject new AppleNumber (time)
-		  NotifyObservers (myArray)
 		  
 		End Sub
 	#tag EndMethod
@@ -677,82 +649,7 @@ Inherits AppleView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Alpha"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AntialiasingMode"
-			Group="Behavior"
-			Type="SCNAntialiasingMode"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="AutoenablesDefaultLighting"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AutoresizesSubviews"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ClearsContextBeforeDrawing"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ClipsToBounds"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="CollisionBoundsType"
-			Group="Behavior"
-			Type="UIKitFramework.UIDynamicItemCollisionBoundsType"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ContentMode"
-			Group="Behavior"
-			Type="UIViewContentMode"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ContentScaleFactor"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ExclusiveTouch"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasAmbiguousLayout"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Height"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Hidden"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -762,21 +659,6 @@ Inherits AppleView
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsFirstResponder"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="JitteringEnabled"
@@ -796,25 +678,10 @@ Inherits AppleView
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="MultipleTouchEnabled"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Opaque"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Playing"
@@ -825,11 +692,6 @@ Inherits AppleView
 			Name="PreferredFramesPerSecond"
 			Group="Behavior"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="PreservesSuperviewLayoutMargins"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SceneTime"
@@ -848,41 +710,11 @@ Inherits AppleView
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Tag"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TextInputContextIdentifier"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TintAdjustmentMode"
-			Group="Behavior"
-			Type="UIViewTintAdjustmentMode"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TranslatesAutoresizingMaskIntoConstraints"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="UserInteractionEnabled"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Width"
-			Group="Behavior"
-			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

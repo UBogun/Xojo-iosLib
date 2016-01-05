@@ -14,6 +14,10 @@ Inherits AppleObject
 		End Sub
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h0
+		Attributes( hidden ) Declare Function getURL Lib FoundationLibName Selector "URL" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function MakefromPtr(aPtr as Ptr) As AppleURLRequest
 		  return if (aptr= nil, nil, new AppleURLRequest(aptr))
@@ -29,6 +33,15 @@ Inherits AppleObject
 			End Get
 		#tag EndGetter
 		Protected Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return appleurl.MakefromPtr(geturl(id))
+			End Get
+		#tag EndGetter
+		URL As AppleURL
 	#tag EndComputedProperty
 
 
@@ -52,21 +65,6 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -74,26 +72,11 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

@@ -516,7 +516,7 @@ Inherits AppleObject
 			Get
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
-			    if AppleSKView.SpriteKitEnabled then
+			    if AppleSKView.classavailable then
 			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKPhysicsBody")
 			    end if
 			  end if
@@ -848,9 +848,24 @@ Inherits AppleObject
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="CategoryBitMask"
+			Group="Behavior"
+			Type="UInt32"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Charge"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CollisionBitMask"
+			Group="Behavior"
+			Type="UInt32"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ContactTestBitMask"
+			Group="Behavior"
+			Type="UInt32"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Density"
@@ -861,6 +876,11 @@ Inherits AppleObject
 			Name="Dynamic"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="FieldBitMask"
+			Group="Behavior"
+			Type="UInt32"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Friction"

@@ -3,10 +3,20 @@ Protected Class AppleError
 Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor()
-		  super.Constructor(init(alloc(Classptr)))
+		  Constructor (kNSCocoaErrorDomain, 0, nil)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(domain as cfstringRef, Code as Integer, userdict as AppleDictionary = nil)
+		  super.Constructor(InitWithDomain(alloc(Classptr), domain, code, if (userdict = nil, nil, userdict.id)))
 		  MHasOwnership = true
 		End Sub
 	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h0
+		Attributes( hidden ) Declare Function InitWithDomain Lib FoundationLibName Selector "initWithDomain:code:userInfo:" (id as ptr, domain as CFStringRef, code as Integer, userDict as Ptr) As Ptr
+	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
 		 Shared Function MakefromPtr(aPtr as Ptr) As AppleError
@@ -108,12 +118,25 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Declare Function userinfo lib FoundationLibName  selector "unserInfo" (id as ptr) as ptr
+			  Declare Function userinfo lib FoundationLibName  selector "userInfo" (id as ptr) as ptr
 			  return AppleDictionary.MakeFromPtr (userinfo (id))
 			End Get
 		#tag EndGetter
 		UserInfo As AppleDictionary
 	#tag EndComputedProperty
+
+
+	#tag Constant, Name = kNSCocoaErrorDomain, Type = Text, Dynamic = False, Default = \"NSCocoaErrorDomain", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kNSMachErrorDomain, Type = Text, Dynamic = False, Default = \"NSMachErrorDomain", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kNSOSStatusErrorDomain, Type = Text, Dynamic = False, Default = \"NSOSStatusErrorDomain", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kNSPOSIXErrorDomain, Type = Text, Dynamic = False, Default = \"NSPOSIXErrorDomain", Scope = Public
+	#tag EndConstant
 
 
 	#tag ViewBehavior
@@ -123,24 +146,9 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Domain"
 			Group="Behavior"
 			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HelpAnchor"
@@ -153,16 +161,6 @@ Inherits AppleObject
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -185,11 +183,6 @@ Inherits AppleObject
 			Name="LocalizedRecoverySuggestion"
 			Group="Behavior"
 			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

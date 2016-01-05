@@ -35,7 +35,7 @@ Inherits AppleSKEffectNode
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  if mhasownership then
+		  if mhasownership  and retaincount = 1 then
 		    me.RemoveAllActions
 		    me.RemoveAllChildren
 		  end if
@@ -44,16 +44,18 @@ Inherits AppleSKEffectNode
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didApplyConstraintsForScene(pid as ptr, sel as ptr, Scene as Ptr)
-		  dim ego as new AppleSKScene (pid)
+		  dim ego as new appleskscene (pid)
 		  ego.informonDidApplyConstraints
+		  #pragma unused sel
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_DidBeginContact(pid as ptr, sel as ptr, contact as Ptr)
-		  dim ego as new AppleSKScene (pid)
+		  dim ego as new appleskscene (pid)
 		  ego.informonDidBeginContact (Contact)
+		  #pragma unused sel
 		  
 		  
 		  
@@ -62,8 +64,9 @@ Inherits AppleSKEffectNode
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_DidChangeSize32(pid as ptr, sel as ptr, size as FoundationFramework.NSSize32Bit)
-		  dim ego as new AppleSKScene (pid)
+		  dim ego as new appleskscene (pid)
 		  ego.informondidChangesize (size.tonssize)
+		  #pragma unused sel
 		  
 		  
 		  
@@ -74,6 +77,7 @@ Inherits AppleSKEffectNode
 		Private Shared Sub impl_DidChangeSize64(pid as ptr, sel as ptr, size as FoundationFramework.NSSize)
 		  dim ego as new AppleSKScene (pid)
 		  ego.informondidChangesize (size)
+		  #pragma unused sel
 		  
 		  
 		  
@@ -82,8 +86,9 @@ Inherits AppleSKEffectNode
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_DidEndContact(pid as ptr, sel as ptr, contact as Ptr)
-		  dim ego as new AppleSKScene (pid)
+		  dim ego as new appleskscene (pid)
 		  ego.informonDidEndContact (Contact)
+		  #pragma unused sel
 		  
 		  
 		  
@@ -92,16 +97,19 @@ Inherits AppleSKEffectNode
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didEvaluateActionsForScene(pid as ptr, sel as ptr, Scene as Ptr)
-		  dim ego as new AppleSKScene (pid)
+		  dim ego as new appleskscene (pid)
 		  ego.informonDidEvaluteActions
-		  
+		  #pragma unused sel
+		  #pragma unused scene
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didFinishUpdateForScene(pid as ptr, sel as ptr, Scene as Ptr)
-		  dim ego as new AppleSKScene (pid)
-		  ego.informonDidFinishUpdate
+		  dim ego as new appleskscene (pid)
+		  ego.informonDidFinishUpdate 
+		  #pragma unused sel
+		  #pragma unused Scene
 		  
 		End Sub
 	#tag EndMethod
@@ -110,6 +118,7 @@ Inherits AppleSKEffectNode
 		Private Shared Sub impl_didMoveToView(pid as ptr, sel as ptr, view as Ptr)
 		  dim ego as new AppleSKScene (pid)
 		  ego.informondidMoveToView (view)
+		  #pragma unused sel
 		  
 		  
 		  
@@ -118,86 +127,141 @@ Inherits AppleSKEffectNode
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_didsimulatephysics(pid as ptr, sel as ptr, Scene as Ptr)
-		  dim ego as new AppleSKScene (pid)
+		  dim ego as new appleskscene (pid)
 		  ego.informonDidSimulatePhysics
+		  #pragma unused sel
+		  #pragma unused scene
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_updateforscene(pid as ptr, sel as ptr, CurrentTime as double, Scene as Ptr)
-		  dim ego as new AppleSKScene (pid)
+		  dim ego as new appleskscene (pid)
 		  ego.informonSceneUpdate (CurrentTime)
+		  #pragma unused sel
+		  #pragma unused scene
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_willMoveFromView(pid as ptr, sel as ptr, view as Ptr)
-		  dim ego as new AppleSKScene (pid)
+		  dim ego as new appleskscene (pid)
 		  ego.informonwillMoveFromView (view)
-		  
+		  #pragma unused sel
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidApplyConstraints()
-		  RaiseEvent DidApplyConstraints
+		  if view <> nil then
+		    view.informonDidApplyConstraints(id)
+		  else
+		    RaiseEvent DidApplyConstraints
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidBeginContact(Contact as Ptr)
-		  RaiseEvent DidBeginContact (new AppleSKPhysicsContact (contact))
+		  if view <> nil then
+		    view.informonDidBeginContact(id, contact)
+		  else
+		    RaiseEvent DidBeginContact (new AppleSKPhysicsContact (contact))
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidChangeSize(OldSize as FoundationFramework.NSSize)
-		  RaiseEvent DidChangeSize (oldsize)
+		  if view <> nil then
+		    view.informonDidChangeSize(id, oldsize)
+		  else
+		    RaiseEvent DidChangeSize (oldsize)
+		  end if
+		  
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidEndContact(Contact as Ptr)
-		  RaiseEvent DidEndContact (new AppleSKPhysicsContact (contact))
+		  if view <> nil then
+		    view.informonDidEndContact(id, contact)
+		  else
+		    RaiseEvent DidEndContact (new AppleSKPhysicsContact (contact))
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidEvaluteActions()
-		  RaiseEvent DidEvaluateActions
+		  if view <> nil then
+		    view.informonDidEvaluteActions(id)
+		  else
+		    RaiseEvent DidEvaluateActions
+		  end if
+		  
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidFinishUpdate()
-		  RaiseEvent DidFinishUpdate
+		  if view <> nil then
+		    view.informonDidFinishUpdate(id)
+		  else
+		    RaiseEvent DidFinishUpdate
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informondidMoveToView(view as Ptr)
-		  RaiseEvent didMoveToView (AppleSKview.makefromptr( view))
+		  if view <> nil then
+		    appleskview.makefromptr(view).informondidMoveToView(id)
+		  else
+		    RaiseEvent didMoveToView (AppleSKview.makefromptr( view))
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidSimulatePhysics()
-		  RaiseEvent DidSimulatePhysics
+		  if view <> nil then
+		    view.informonDidSimulatePhysics(id)
+		  else
+		    RaiseEvent DidSimulatePhysics
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub InformOnSceneUpdate(CurrentTime as double)
-		  RaiseEvent UpdateForScene (currenttime)
+		  if view <> nil then
+		    view.informonSceneUpdate(id, currenttime)
+		  else
+		    RaiseEvent UpdateForScene (currenttime)
+		  end if
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonwillMoveFromView(view as Ptr)
-		  RaiseEvent WillMoveFromView (AppleSKview.makefromptr( view))
+		Attributes( hidden )  Sub informonwillMoveFromView(view as ptr)
+		  if view <> nil then
+		     appleskview.makefromptr(view).informonWillMoveFromView(id)
+		  else
+		    RaiseEvent WillMoveFromView (appleskview.makefromptr(view))
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
@@ -242,7 +306,7 @@ Inherits AppleSKEffectNode
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event DidEndContact(Contact as AppleSKPhysicsContact)
+		Event DidEndContact(Contact as appleSKPhysicsContact)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -262,7 +326,7 @@ Inherits AppleSKEffectNode
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event UpdateForScene(time as Double)
+		Event UpdateForScene(CurrentTime as Double)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -304,18 +368,20 @@ Inherits AppleSKEffectNode
 		#tag Getter
 			Get
 			  static targetID as ptr
-			  if AppleSKView.SpriteKitEnabled then
-			    if targetID = Nil then
+			  if AppleSKView.ClassAvailable then
+			    
+			    if targetid = nil then
 			      dim methods() as TargetClassMethodHelper
-			      //delegate methods
-			      methods.Append new TargetClassMethodHelper("didBeginContact:", AddressOf impl_DidBeginContact, "v@:@")
-			      methods.Append new TargetClassMethodHelper("didEndContact:", AddressOf impl_DidEndContact, "v@:@")
 			      
+			      // SKScene delegate methods:
 			      methods.Append new TargetClassMethodHelper("update:forScene:", AddressOf impl_updateforscene, "v@:d@")
 			      methods.Append new TargetClassMethodHelper("didEvaluateActionsForScene:", AddressOf impl_didEvaluateActionsForScene, "v@:@")
 			      methods.Append new TargetClassMethodHelper("didSimulatePhysicsForScene:", AddressOf impl_didsimulatephysics, "v@:@")
 			      methods.Append new TargetClassMethodHelper("didApplyConstraintsForScene:", AddressOf impl_didApplyConstraintsForScene, "v@:@")
 			      methods.Append new TargetClassMethodHelper("didFinishUpdateForScene:", AddressOf impl_didFinishUpdateForScene, "v@:@")
+			      
+			      methods.Append new TargetClassMethodHelper("didBeginContact:", AddressOf impl_DidBeginContact, "v@:@")
+			      methods.Append new TargetClassMethodHelper("didEndContact:", AddressOf impl_DidEndContact, "v@:@")
 			      
 			      methods.Append new TargetClassMethodHelper("willMoveFromView:", AddressOf impl_willMoveFromView, "v@:@")
 			      methods.Append new TargetClassMethodHelper("didMoveToView:", AddressOf impl_didMoveToView, "v@:@")
@@ -325,7 +391,8 @@ Inherits AppleSKEffectNode
 			      #elseif Target32Bit
 			        methods.Append new TargetClassMethodHelper ("didChangeSize:", AddressOf impl_DidChangeSize32, "v@:{CGSize}")
 			      #endif
-			      targetID = BuildTargetClass ("SKScene", "AppleSKScene",methods)
+			      
+			      targetID = BuildTargetClass ("SKScene", "iOSLibSKScene",methods)
 			    end if
 			  end if
 			  Return targetID

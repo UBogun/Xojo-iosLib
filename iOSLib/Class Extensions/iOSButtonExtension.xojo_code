@@ -56,61 +56,61 @@ Protected Module iOSButtonExtension
 
 	#tag Method, Flags = &h0
 		Function DisabledBackgroundImage(extends c as iOSButton) As iOSImage
-		  return c.AppleButton.BackgroundImageForState(UIKitFramework.UIControlState.Disabled).toiOSImage
+		  return c.AppleButton.BackgroundImageForState(applecontrolstate.Disabled).toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DisabledBackgroundImage(extends c as iOSButton, assigns Image as iOSImage)
-		  c.AppleButton.SetBackgroundImageForState (Image.toAppleImage, UIKitFramework.UIControlState.Disabled)
+		  c.AppleButton.SetBackgroundImageForState (Image.toAppleImage, AppleControlState.Disabled)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function DisabledCaption(extends c as iOSButton) As Text
-		  return c.AppleButton.TitleForState ( UIKitFramework.UIControlState.Disabled)
+		  return c.AppleButton.TitleForState ( AppleControlState.Disabled)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DisabledCaption(extends c as iOSButton, assigns Caption as CFStringRef)
-		  c.AppleButton.SetTitleForState (Caption, UIKitFramework.UIControlState.Disabled)
+		  c.AppleButton.SetTitleForState (Caption, AppleControlState.Disabled)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function DisabledImage(extends c as iOSButton) As iOSImage
-		  return c.AppleButton.ImageForState(UIKitFramework.UIControlState.Disabled).toiOSImage
+		  return c.AppleButton.ImageForState(AppleControlState.Disabled).toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DisabledImage(extends c as iOSButton, assigns Image as iOSImage)
-		  c.AppleButton.SetImageForState (Image.toAppleImage, UIKitFramework.UIControlState.Disabled)
+		  c.AppleButton.SetImageForState (Image.toAppleImage, AppleControlState.Disabled)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function DisabledTextColor(extends c as iOSButton) As Color
-		  return c.AppleButton.TitleColorForState(UIKitFramework.UIControlState.Disabled).toColor
+		  return c.AppleButton.TitleColorForState(AppleControlState.Disabled).toColor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DisabledTextColor(extends c as iOSButton, assigns NewColor as color)
-		  c.AppleButton.SetTitleColorForState (newcolor.toapplecolor, UIKitFramework.UIControlState.Disabled)
+		  c.AppleButton.SetTitleColorForState (newcolor.toapplecolor, AppleControlState.Disabled)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function DisabledTextShadowColor(extends c as iOSButton) As Color
-		  return c.AppleButton.TitleShadowColorForState (UIKitFramework.UIControlState.Disabled).tocolor
+		  return c.AppleButton.TitleShadowColorForState (AppleControlState.Disabled).tocolor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DisabledTextShadowColor(extends c as iOSButton, assigns NewColor as color)
-		  c.AppleButton.SetTitleShadowColorForState (newcolor.toapplecolor, UIKitFramework.UIControlState.Disabled)
+		  c.AppleButton.SetTitleShadowColorForState (newcolor.toapplecolor, AppleControlState.Disabled)
 		End Sub
 	#tag EndMethod
 
@@ -129,61 +129,61 @@ Protected Module iOSButtonExtension
 
 	#tag Method, Flags = &h0
 		Function HighlightedBackgroundImage(extends c as iOSButton) As iOSImage
-		  return c.AppleButton.BackgroundImageForState(UIKitFramework.UIControlState.Highlighted).toiOSImage
+		  return c.AppleButton.BackgroundImageForState(AppleControlState.Highlighted).toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub HighlightedBackgroundImage(extends c as iOSButton, assigns Image as iOSImage)
-		  c.AppleButton.SetBackgroundImageForState (Image.toAppleImage, UIKitFramework.UIControlState.Highlighted)
+		  c.AppleButton.SetBackgroundImageForState (Image.toAppleImage, AppleControlState.Highlighted)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function HighlightedCaption(extends c as iOSButton) As Text
-		  return c.AppleButton.TitleForState ( UIKitFramework.UIControlState.Highlighted)
+		  return c.AppleButton.TitleForState ( AppleControlState.Highlighted)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub HighlightedCaption(extends c as iOSButton, assigns Caption as CFStringRef)
-		  c.AppleButton.SetTitleForState (Caption, UIKitFramework.UIControlState.Highlighted)
+		  c.AppleButton.SetTitleForState (Caption, AppleControlState.Highlighted)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function HighlightedImage(extends c as iOSButton) As iOSImage
-		  return c.AppleButton.ImageForState(UIKitFramework.UIControlState.Highlighted).toiOSImage
+		  return c.AppleButton.ImageForState(AppleControlState.Highlighted).toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub HighlightedImage(extends c as iOSButton, assigns Image as iOSImage)
-		  c.AppleButton.SetImageForState (Image.toAppleImage, UIKitFramework.UIControlState.Highlighted)
+		  c.AppleButton.SetImageForState (Image.toAppleImage, AppleControlState.Highlighted)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function HighlightedTextColor(extends c as iOSButton) As Color
-		  return c.AppleButton.TitleColorForState(UIKitFramework.UIControlState.Highlighted).toColor
+		  return c.AppleButton.TitleColorForState(AppleControlState.Highlighted).toColor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub HighlightedTextColor(extends c as iOSButton, assigns NewColor as color)
-		  c.AppleButton.SetTitleColorForState (newcolor.toapplecolor, UIKitFramework.UIControlState.Highlighted)
+		  c.AppleButton.SetTitleColorForState (newcolor.toapplecolor, AppleControlState.Highlighted)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function HighlightedTextShadowColor(extends c as iOSButton) As Color
-		  return c.AppleButton.TitleShadowColorForState (UIKitFramework.UIControlState.Highlighted).tocolor
+		  return c.AppleButton.TitleShadowColorForState (AppleControlState.Highlighted).tocolor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub HighlightedTextShadowColor(extends c as iOSButton, assigns NewColor as color)
-		  c.AppleButton.SetTitleShadowColorForState (newcolor.toapplecolor, UIKitFramework.UIControlState.Highlighted)
+		  c.AppleButton.SetTitleShadowColorForState (newcolor.toapplecolor, AppleControlState.Highlighted)
 		End Sub
 	#tag EndMethod
 
@@ -195,61 +195,61 @@ Protected Module iOSButtonExtension
 
 	#tag Method, Flags = &h0
 		Function NormalBackgroundImage(extends c as iOSButton) As iOSImage
-		  return c.AppleButton.BackgroundImageForState(UIKitFramework.UIControlState.Normal).toiOSImage
+		  return c.AppleButton.BackgroundImageForState(AppleControlState.Normal).toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub NormalBackgroundImage(extends c as iOSButton, assigns Image as iOSImage)
-		  c.AppleButton.SetBackgroundImageForState (Image.toAppleImage, UIKitFramework.UIControlState.Normal)
+		  c.AppleButton.SetBackgroundImageForState (Image.toAppleImage, AppleControlState.Normal)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function NormalCaption(extends c as iOSButton) As Text
-		  return c.AppleButton.TitleForState ( UIKitFramework.UIControlState.Normal)
+		  return c.AppleButton.TitleForState ( AppleControlState.Normal)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub NormalCaption(extends c as iOSButton, assigns Caption as CFStringRef)
-		  c.AppleButton.SetTitleForState (Caption, UIKitFramework.UIControlState.Normal)
+		  c.AppleButton.SetTitleForState (Caption, AppleControlState.Normal)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function NormalImage(extends c as iOSButton) As iOSImage
-		  return c.AppleButton.ImageForState(UIKitFramework.UIControlState.Normal).toiOSImage
+		  return c.AppleButton.ImageForState(AppleControlState.Normal).toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub NormalImage(extends c as iOSButton, assigns Image as iOSImage)
-		  c.AppleButton.SetImageForState (Image.toAppleImage, UIKitFramework.UIControlState.Normal)
+		  c.AppleButton.SetImageForState (Image.toAppleImage, AppleControlState.Normal)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function NormalTextColor(extends c as iOSButton) As Color
-		  return c.AppleButton.TitleColorForState(UIKitFramework.UIControlState.Normal).toColor
+		  return c.AppleButton.TitleColorForState(AppleControlState.Normal).toColor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub NormalTextColor(extends c as iOSButton, assigns NewColor as color)
-		  c.AppleButton.SetTitleColorForState (newcolor.toapplecolor, UIKitFramework.UIControlState.Normal)
+		  c.AppleButton.SetTitleColorForState (newcolor.toapplecolor, AppleControlState.Normal)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function NormalTextShadowColor(extends c as iOSButton) As Color
-		  return c.AppleButton.TitleShadowColorForState (UIKitFramework.UIControlState.Normal).tocolor
+		  return c.AppleButton.TitleShadowColorForState (AppleControlState.Normal).tocolor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub NormalTextShadowColor(extends c as iOSButton, assigns NewColor as color)
-		  c.AppleButton.SetTitleShadowColorForState (newcolor.toapplecolor, UIKitFramework.UIControlState.Normal)
+		  c.AppleButton.SetTitleShadowColorForState (newcolor.toapplecolor, AppleControlState.Normal)
 		End Sub
 	#tag EndMethod
 
@@ -267,61 +267,61 @@ Protected Module iOSButtonExtension
 
 	#tag Method, Flags = &h0
 		Function SelectedBackgroundImage(extends c as iOSButton) As iOSImage
-		  return c.AppleButton.BackgroundImageForState(UIKitFramework.UIControlState.Selected).toiOSImage
+		  return c.AppleButton.BackgroundImageForState(AppleControlState.Selected).toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SelectedBackgroundImage(extends c as iOSButton, assigns Image as iOSImage)
-		  c.AppleButton.SetBackgroundImageForState (Image.toAppleImage, UIKitFramework.UIControlState.Selected)
+		  c.AppleButton.SetBackgroundImageForState (Image.toAppleImage, AppleControlState.Selected)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function SelectedCaption(extends c as iOSButton) As Text
-		  return c.AppleButton.TitleForState ( UIKitFramework.UIControlState.Selected)
+		  return c.AppleButton.TitleForState ( AppleControlState.Selected)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SelectedCaption(extends c as iOSButton, assigns Caption as CFStringRef)
-		  c.AppleButton.SetTitleForState (Caption, UIKitFramework.UIControlState.Selected)
+		  c.AppleButton.SetTitleForState (Caption, AppleControlState.Selected)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function SelectedImage(extends c as iOSButton) As iOSImage
-		  return c.AppleButton.ImageForState(UIKitFramework.UIControlState.Selected).toiOSImage
+		  return c.AppleButton.ImageForState(AppleControlState.Selected).toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SelectedImage(extends c as iOSButton, assigns Image as iOSImage)
-		  c.AppleButton.SetImageForState (Image.toAppleImage, UIKitFramework.UIControlState.Selected)
+		  c.AppleButton.SetImageForState (Image.toAppleImage, AppleControlState.Selected)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function SelectedTextColor(extends c as iOSButton) As Color
-		  return c.AppleButton.TitleColorForState(UIKitFramework.UIControlState.Selected).toColor
+		  return c.AppleButton.TitleColorForState(AppleControlState.Selected).toColor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SelectedTextColor(extends c as iOSButton, assigns NewColor as color)
-		  c.AppleButton.SetTitleColorForState (newcolor.toapplecolor, UIKitFramework.UIControlState.Selected)
+		  c.AppleButton.SetTitleColorForState (newcolor.toapplecolor, AppleControlState.Selected)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function SelectedTextShadowColor(extends c as iOSButton) As Color
-		  return c.AppleButton.TitleShadowColorForState (UIKitFramework.UIControlState.Selected).tocolor
+		  return c.AppleButton.TitleShadowColorForState (AppleControlState.Selected).tocolor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SelectedTextShadowColor(extends c as iOSButton, assigns NewColor as color)
-		  c.AppleButton.SetTitleShadowColorForState (newcolor.toapplecolor, UIKitFramework.UIControlState.Selected)
+		  c.AppleButton.SetTitleShadowColorForState (newcolor.toapplecolor, AppleControlState.Selected)
 		End Sub
 	#tag EndMethod
 

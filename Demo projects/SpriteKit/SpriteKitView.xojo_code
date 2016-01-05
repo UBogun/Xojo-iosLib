@@ -7,30 +7,30 @@ Begin iosView SpriteKitView
    TabTitle        =   ""
    Title           =   ""
    Top             =   0
-   Begin AppleSKViewer ImageView1
+   Begin ioslibskview ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AllowsTransparency=   False
-      Asynchronous    =   False
-      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      Alpha           =   1.0
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      FrameInterval   =   0
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoresizesSubviews=   True
+      BackgroundColor =   &cFFFFFF00
+      ClearsContextBeforeDrawing=   False
+      ClipsToBounds   =   True
+      ContentScaleFactor=   1.0
+      ExclusiveTouch  =   False
       Height          =   407.0
-      IgnoresSiblingOrder=   False
-      Left            =   0
+      Hidden          =   False
+      Left            =   0.0
       LockedInPosition=   False
-      Paused          =   False
+      MultipleTouchEnabled=   False
+      Opaque          =   False
       Scope           =   0
-      ShouldCullNonVisibleNodes=   False
-      ShowsDrawCount  =   False
-      ShowsFields     =   False
-      ShowsFPS        =   False
-      ShowsNodeCount  =   False
-      ShowsPhysics    =   False
-      ShowsQuadCount  =   False
-      Top             =   73
+      Tag             =   0
+      Top             =   73.0
+      UserInteractionEnabled=   True
       Visible         =   True
       Width           =   320.0
    End
@@ -401,7 +401,7 @@ End
 		  // When Spaceshooter Fighter dies, we replace the SpaceshooterScene with this one and delete SpaceShooterScene to make sure everything is reset.
 		  // We wouldn't have to, but this is just a demo, not a Game Design demo, so let me use a quick & dirty way ;)
 		  
-		  dim endscene as new AppleSKSceneWithInterface (ImageView1)
+		  dim endscene as new AppleSKScene (ImageView1.Bounds.Size.tonssize)
 		  
 		  // create a Background from a Noisetexture
 		  dim Background as  AppleSKTexture = AppleSKTexture.NoiseTexture (0.9, endscene.Size, true)
@@ -445,9 +445,9 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub ProcessSpaceShooterTouch(touchset as AppleSet, asnevent as AppleNSEvent)
+		Private Sub ProcessSpaceShooterTouch(touchset() as applesktouch, asnevent as AppleNSEvent)
 		  if CanSteer then
-		    dim touch as AppleSKTouch = AppleSKTouch.MakeFromPtr (touchset.AllObjects.PtrAtIndex(0)) // get the first touch item of the array
+		    dim touch as AppleSKTouch =  (touchset(0)) // get the first touch item of the array
 		    dim location as FoundationFramework.NSPoint = touch.LocationInNode (SpaceShooterScene) // and convert its point to view points
 		    
 		    if Location.y > FighterNormal.Frame.Size_.height * 6 then location.y = FighterNormal.Frame.Size_.height * 6 // limit the y position, don't get too close to the upper bounds
@@ -470,9 +470,10 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShootWorld()
-		  dim myscene as new AppleSKSceneWithInterface (ImageView1.View.frame.Size_, ImageView1)
+		  SpaceShooterScene = nil
+		  dim myscene as new AppleSKScene (ImageView1.View.frame.Size_)
 		  myscene.PhysicsWorld.Gravity = CoreGraphicsFramework.CGMakeVector (0,-0.05)
-		  ImageView1.PresentScene (myscene, AppleSKTransition.Doorway (2))
+		  ImageView1.PresentScene (myscene)
 		  
 		  
 		  // Labelnode
@@ -508,7 +509,7 @@ End
 		  dim myaction as AppleSKAction = AppleSKAction.PlaySound ("scifi016.mp3", false)
 		  anothernode.RunActionWithEvent myaction
 		  myscene.AddChild anothernode
-		  myaction = AppleSKAction.MoveTo (FoundationFrameWork.NSMakePoint( ImageView1.AppleView.Frame.Size_.width/2 + 80, ImageView1.Height + anothernode.Frame.Size_.height * 2), 2)
+		  myaction = AppleSKAction.MoveTo (FoundationFrameWork.NSMakePoint( ImageView1.view.Frame.Size_.width/2 + 80, ImageView1.Height + anothernode.Frame.Size_.height * 2), 2)
 		  
 		  
 		  dim mybody as new AppleSKPhysicsBody (anothernode.Frame.Size_)
@@ -523,7 +524,7 @@ End
 		  
 		  // Frame border
 		  
-		  dim myframe  as FoundationFramework.NSRect = ImageView1.AppleView.Frame
+		  dim myframe  as FoundationFramework.NSRect = ImageView1.view.Frame
 		  myframe.Size_.height = myframe.Size_.height - 10
 		  myframe.Size_.width = myframe.Size_.width - 10
 		  myframe.Origin.x = 5
@@ -579,7 +580,7 @@ End
 		  // Setup for SpaceShooter, in case it exists simply show the scene
 		  
 		  if SpaceShooterScene = nil then // do we have to create a new scene or does one still exist?
-		    SpaceShooterScene = new AppleSKSceneWithInterface (ImageView1) // Dim a new Scene the size of the view
+		    SpaceShooterScene = new AppleSKScene (ImageView1.view.Bounds.Size_) // Dim a new Scene the size of the view
 		    SpaceShooterScene.name = "SpaceShooter" //and give it a name..
 		    SpaceShooterScene.PhysicsWorld.Gravity = CoreGraphicsFramework.CGMakeVector (0,0) // No gravity in space
 		    // Now prepare the images and sprites:
@@ -845,7 +846,7 @@ End
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private SpaceShooterScene As AppleSKSceneWithInterface
+		Private SpaceShooterScene As AppleSKScene
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -910,12 +911,12 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub TouchesEnded(Touchset as AppleSet, anEvent as AppleNSEvent)
+		Sub TouchesEnded(Touches() as AppleSKTouch, anEvent as AppleNSEvent)
 		  select case me.scene.name
 		  case "SpaceShooter"
-		    ProcessSpaceShooterTouch (Touchset, anEvent)
+		    ProcessSpaceShooterTouch (touches, anEvent)
 		  case "GameOverScene"
-		    dim touch as AppleSKTouch = AppleSKTouch.MakeFromPtr (touchset.AllObjects.PtrAtIndex(0)) // get the first touch item of the array
+		    dim touch as AppleSKTouch = AppleSKTouch (touches(0)) // get the first touch item of the array
 		    dim location as FoundationFramework.NSPoint = touch.LocationInNode (me.scene) // and convert its point to view points
 		    dim restart as AppleSKNode = me.scene.NodeAtPoint (location)
 		    if restart <> nil then
@@ -925,30 +926,30 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub LayoutSubviews()
-		  if SpaceShooterScene = nil then ShootWorld
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub UpdateForScene(time as Double)
+		Sub UpdateForScene(Scene as AppleSKScene, CurrentTime as Double)
 		  if me.Scene.name = "SpaceShooter" then CreateStar
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub DidBeginContact(Contact as AppleSKPhysicsContact)
+		Sub DidBeginContact(Scene as appleSKScene, Contact as appleSKPhysicsContact)
 		  //DidBeginContact catches the collision of two sprites.
 		  if ImageView1.Scene.Name = "SpaceShooter" then analyzeCollision(contact)
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub WillMoveToWindow(window as ptr)
+		Sub WillShow(window as applewindow)
 		  if window = nil then
 		    me.Scene.RemoveAllActions
 		    me.Scene.RemoveAllChildren
-		    dim emptyscene as new AppleSKSceneWithInterface (me)
+		    dim emptyscene as new appleskscene( FoundationFrameWork.nsmakesize(100,100))
 		    me.PresentScene  emptyscene
 		  end if
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Resized()
+		  if SpaceShooterScene = nil then ShootWorld
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -983,6 +984,11 @@ End
 		Name="NavigationBarVisible"
 		Group="Behavior"
 		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Score"
+		Group="Behavior"
+		Type="UInteger"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"

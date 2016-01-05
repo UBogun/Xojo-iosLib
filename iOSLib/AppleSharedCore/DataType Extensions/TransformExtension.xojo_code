@@ -128,6 +128,12 @@ Protected Module TransformExtension
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Combine(transform as CGAffineTransform, anothertransform as CGAffineTransform) As CGAffineTransform
+		  return CGAffineTransformConcat (transform, anothertransform)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Invert(extends t as CGAffineTransform) As CGAffineTransform
 		  return CGAffineTransformInvert (T)
 		End Function

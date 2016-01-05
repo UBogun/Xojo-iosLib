@@ -1,5 +1,5 @@
 Type=iOS
-RBProjectVersion=2015.024
+RBProjectVersion=2015.04
 MinIDEVersion=20140300
 iOSView=MenuView;MenuView.xojo_code;&h1F0CEFFF;&h0;false
 iOSView=IntrospectionView;IntrospectionView.xojo_code;&h149497FF;&h0;false
@@ -77,3 +77,4 @@ iOSName=iOSLib Unified
 iOSProvisioningProfile=0
 GenerateGlobalUsingClauses=True
 EnvironmentVariables=
+Capabilities={"AppGroups":{"Enabled":false,"Groups":{}},"ApplePay":{"Enabled":false,"Merchants":{}},"AssociatedDomains":{"Enabled":false,"Domains":{}},"BackgroundModes":{"Enabled":false,"Modes":{}},"iCloud":{"Enabled":false,"Containers":{}},"KeyChainSharing":{"Enabled":false,"Groups":{}},"Maps":{"Enabled":false,"MapDirections":{}},"Passbook":{"Enabled":false,"Passes":{}}}

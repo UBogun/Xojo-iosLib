@@ -1,83 +1,90 @@
 #tag Class
-Protected Class AppleView
+ Attributes ( incomplete ) Protected Class AppleView
 Inherits AppleResponder
-Implements AppleNSEventForwarder
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 417474616368657320612067657374757265207265636F676E697A657220746F2074686520766965772E
 		Sub AddGestureRecognizer(GestureRecognizer as AppleGestureRecognizer)
 		  declare sub addGestureRecognizer lib UIKitLibname selector "addGestureRecognizer:" (id as ptr, GestureRecognizer as ptr)
 		  addGestureRecognizer id, GestureRecognizer.id
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 416464732061207669657720746F2074686520656E64206F662074686520766965772773206C697374206F662073756276696577732E
 		Sub AddSubview(aView as AppleView)
 		  declare sub addSubview lib UIKitLibname selector "addSubview:" (id as ptr, aview as ptr)
 		  addSubview id, aView.id
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub AnimateAlpha(alpha as Double, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F2074686520616C7068612070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
+		Sub AnimateAlpha(alpha as Double, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  TransformToAlpha = alpha
 		  dim block as new appleblock (AddressOf TransformAlphaBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  animateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub AnimateBounds(newBounds as FoundationFramework.NSRect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 537461727473206120637573746F6D206D6574686F642066726F6D206120626C6F636B20776869636820796F752063616E2075736520746F206368616E676520646966666572656E742070726F70657274696573206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
+		Sub AnimateBlock(ChangeBlock as AppleBlock, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
+		  animateWithDuration ( seconds, changeblock.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F2074686520626F756E64732070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
+		Sub AnimateBounds(newBounds as FoundationFramework.NSRect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
 		  TransformToBounds = NewBounds
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  animateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub AnimateCenter(aCenter as FoundationFramework.NSPoint, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F207468652063656E7465722070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
+		Sub AnimateCenter(aCenter as FoundationFramework.NSPoint, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
 		  TransformToCenter = aCenter
 		  dim block as new AppleBlock (AddressOf TransformCenterBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  animateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.none))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub AnimateColor(newColor as AppleColor, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F20746865206261636B67726F756E64636F6C6F722070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
+		Sub AnimateColor(newColor as AppleColor, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
 		  TransformToColor = newColor
 		  dim block as new AppleBlock (AddressOf TransformColorBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  animateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub AnimateFrame(aFrame as FoundationFramework.NSRect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F20746865206672616D652070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
+		Sub AnimateFrame(aFrame as FoundationFramework.NSRect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
 		  TransformToFrame = aFrame
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  animateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub AnimateTransform(aTransform as CGAffineTransform, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F20746865207472616E73666F726D2070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
+		Sub AnimateTransform(aTransform as CGAffineTransform, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut,  delay as double = 0 , completion as appleblock = nil)
 		  TransformToTransform = aTransform
 		  dim block as new AppleBlock (AddressOf TransformTransformBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
-		  animateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None))
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
+		  animateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.none))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Shared Sub animateWithDuration(duration as Double, animations as ptr, completion as ptr, delay as double = 0, options as uinteger = 0)
+	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F206F6E65206F72206D6F7265207669657773207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E
+		 Shared Sub AnimateWithDuration(duration as Double, animations as ptr, completion as ptr, delay as double = 0, options as uinteger = 0)
 		  Declare sub animateWithDuration_ lib UIKitLibname selector "animateWithDuration:delay:options:animations:completion:" _
 		  (id as ptr, duration as Double, delay as double, options as uinteger, animations as ptr, completion as ptr)
 		  animateWithDuration_ classptr, duration, delay, options, Animations, completion
@@ -85,9 +92,15 @@ Implements AppleNSEventForwarder
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Function AnimationOption(Option as AppleViewAnimationOption, curve as UIVIewAnimationCurve, transition as UIVIewAnimationTransition) As UInteger
+	#tag Method, Flags = &h0
+		 Shared Function AnimationOption(Option as AppleViewAnimationOption, curve as UIVIewAnimationCurve, transition as UIVIewAnimationTransition) As UInteger
 		  return UInteger(transition).ShiftLeft(20)+UInteger(curve).ShiftLeft(16)+uinteger(Option.Option)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 52657475726E732074686520617070656172616E63652070726F787920666F7220746865207265636569766572207468617420686173207468652070617373656420747261697420636F6C6C656374696F6E2E
+		 Shared Function Appearance(Collection as AppleTraitCollection) As AppleView
+		  return appleview.MakeFromPtr (getappearanceForTrait(classptr, collection))
 		End Function
 	#tag EndMethod
 
@@ -98,14 +111,14 @@ Implements AppleNSEventForwarder
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 4D6F7665732074686520737065636966696564207375627669657720736F20746861742069742061707065617273206F6E20746F70206F6620697473207369626C696E67732E
 		Sub BringSubviewToFront(aView as AppleView)
 		  declare sub BringSubviewToFront lib UIKitLibname selector "bringSubviewToFront:" (id as ptr, aview as ptr)
 		  BringSubviewToFront id, aView.id
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 412073686F727463757420666F72204347416666696E655472616E73666F726D436F6E636174
 		Sub CombineTransformations(Transform1 as CGAffineTransform, transform2 as CGAffineTransform)
 		  Transform = TransformExtension.CGAffineTransformConcat (Transform1, transform2)
 		End Sub
@@ -118,9 +131,19 @@ Implements AppleNSEventForwarder
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub CompletionBlock(animationCompleted as Boolean)
-		  if self <> NIL then RaiseEvent AnimationFinished (animationCompleted)
+	#tag Method, Flags = &h21, Description = 5468652064656661756C7420626C6F636B207573656420666F7220626C6F636B20616E696D6174696F6E202246696E697368656422204576656E7473
+		Attributes( hidden ) Private Sub CompletionBlock(animationCompleted as Boolean)
+		  if ParentControl <> nil then
+		    ParentControl.informonAnimationFinished ( animationCompleted)
+		  else
+		    RaiseEvent AnimationFinished (animationCompleted)
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21, Description = 5468652064656661756C7420626C6F636B207573656420666F7220626C6F636B20616E696D6174696F6E202246696E697368656422204576656E7473
+		Attributes( hidden ) Private Shared Sub CompletionClassBlock(animationCompleted as Boolean)
+		  #pragma unused AnimationCompleted
 		End Sub
 	#tag EndMethod
 
@@ -130,23 +153,23 @@ Implements AppleNSEventForwarder
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1000
+	#tag Method, Flags = &h1000, Description = 496E697469616C697A65732061206E65772076696577207769746820746865206672616D652064696D656E73696F6E732E
 		Sub Constructor(aFrame as FoundationFramework.NSRect)
 		  Super.Constructor (DoInitWithFrame (alloc(ClassPtr), aFrame))
 		  mHasOwnership = true
+		  me.BackgroundColor = AppleColor.ClearColor
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000
-		Sub Constructor(aFrame as FoundationFramework.NSRect, observer as AppleNSEventReceiver)
-		  Constructor (aFrame)
-		  RegisterObserver (observer)
-		  
+		Sub Constructor(anID as Ptr)
+		  if me.ClassPtr <> nil then super.Constructor (anid)
+		  // just to make sure the custom class is initialized before creating an object.
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 436F6E7665727473206120706F696E742066726F6D207468652073706563696669656420636F6F7264696E61746520737061636520746F2074686520636F6F7264696E617465207370616365206F66207468652063757272656E7420766965772E
 		Function ConvertPointFromView(aPoint as FoundationFramework.NSPoint, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
 		    declare Function convertPointfromView lib UIKitLibname selector "convertPoint:fromView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
@@ -158,7 +181,7 @@ Implements AppleNSEventForwarder
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 436F6E7665727473206120706F696E742066726F6D2074686520636F6F7264696E617465207370616365206F66207468652063757272656E74207669657720746F207468652073706563696669656420636F6F7264696E6174652073706163652E
 		Function ConvertPointToView(aPoint as FoundationFramework.NSPoint, aView as AppleView) As FoundationFramework.NSPoint
 		  #if Target64Bit
 		    declare Function convertPointtoView lib UIKitLibname selector "convertPoint:toView:" (id as ptr, aPoint as FoundationFramework.NSPoint, aview as ptr) as FoundationFramework.NSPoint
@@ -170,7 +193,7 @@ Implements AppleNSEventForwarder
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 436F6E766572747320612072656374616E676C652066726F6D207468652073706563696669656420636F6F7264696E61746520737061636520746F2074686520636F6F7264696E617465207370616365206F66207468652063757272656E7420766965772E
 		Function ConvertRectFromView(aRect as FoundationFramework.NSRect, aView as AppleView) As FoundationFramework.NSRect
 		  #if Target64Bit
 		    declare Function ConvertRectFromView lib UIKitLibname selector "convertRect:fromView:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
@@ -182,7 +205,7 @@ Implements AppleNSEventForwarder
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 436F6E766572747320612072656374616E676C652066726F6D2074686520636F6F7264696E617465207370616365206F66207468652063757272656E74207669657720746F207468652073706563696669656420636F6F7264696E6174652073706163652E
 		Function ConvertRectToView(aRect as FoundationFramework.NSRect, aView as AppleView) As FoundationFramework.NSRect
 		  #if Target64Bit
 		    declare Function ConvertRectToView lib UIKitLibname selector "convertRect:toView:" (id as ptr, aRect  as FoundationFramework.NSRect, aview as ptr)  as FoundationFramework.NSRect
@@ -194,21 +217,39 @@ Implements AppleNSEventForwarder
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 52657475726E73206120636F7079206F662074686520766965772E
 		Function Copy() As AppleView
 		  return new AppleView (ObjectiveCRuntime.object_copy (id, 0))
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub Destructor()
-		  if mhasownership and retaincount = 1 then
-		    RemoveObserver
-		  end if
-		End Sub
+	#tag Method, Flags = &h0, Description = 436F6E766572747320612072656374616E676C652066726F6D2074686520636F6F7264696E617465207370616365206F66207468652063757272656E74207669657720746F207468652073706563696669656420636F6F7264696E6174652073706163652E
+		Function DrawViewHierarchy(aRect as FoundationFramework.NSRect, afterscreenupdates as boolean = False) As boolean
+		  #if Target64Bit
+		    declare Function drawViewHierarchyInRect lib UIKitLibname selector "drawViewHierarchyInRect:afterScreenUpdates:" (id as ptr, aRect  as FoundationFramework.NSRect, afterscreenupdates as boolean)  as Boolean
+		    return DrawViewHierarchyinRect (id, aRect, afterscreenupdates)
+		  #elseif Target32Bit
+		    declare Function drawViewHierarchyInRect lib UIKitLibname selector "drawViewHierarchyInRect:afterScreenUpdates:" (id as ptr, aRect as FoundationFramework.NSRect32Bit, afterscreenupdates as boolean) as Boolean
+		    return DrawViewHierarchyinRect (id, aRect.toNSRect32, afterscreenupdates)
+		  #endif
+		  
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Attributes( hidden )  Shared Sub EmptyBlock()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 43617573657320746865207669657720286F72206F6E65206F662069747320656D6265646465642074657874206669656C64732920746F2072657369676E2074686520666972737420726573706F6E646572207374617475732E20496620656E666F726365642C207265676172646C657373206F6620776861742074686520766965772063757272656E746C7920697320646F696E672E
+		Sub EndEditing(Enforce as Boolean = false)
+		  Declare sub endEditing lib UIKitLibname selector "endEditing:" (id as ptr, enforce as Boolean)
+		  endEditing id, enforce
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 45786368616E67657320746865207375627669657773206174207468652073706563696669656420696E64696365732E0A0A
 		Sub ExchangeSubviewsAtIndices(index1 as Integer, Index2 As Integer)
 		  declare sub exchangeSubviewAtIndex lib UIKitLibname selector "exchangeSubviewAtIndex:withSubviewAtIndex:" _
 		  (id as ptr, index1 as integer, index2 as integer)
@@ -216,7 +257,7 @@ Implements AppleNSEventForwarder
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 52616E646F6D6C79206368616E67657320746865206672616D65206F6620612076696577207769746820616E20616D626967756F7573206C61796F7574206265747765656E2074686520646966666572656E742076616C69642076616C7565732E
 		Sub ExerciseAmbiguityInLayout()
 		  Declare Sub exerciseAmbiguityInLayout lib UIKitLibname selector "exerciseAmbiguityInLayout" (id as ptr)
 		  exerciseAmbiguityInLayout id
@@ -224,21 +265,28 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getAdjustsFontSizeToFitWidth() As Boolean
+		Attributes( hidden ) Protected Function getAdjustsFontSizeToFitWidth() As Boolean
 		  Declare function adjustsFontSizeToFitWidth lib UIKitLibname selector "adjustsFontSizeToFitWidth" (id as ptr) as Boolean
 		  return adjustsFontSizeToFitWidth (id)
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0, Description = 52657475726E732074686520617070656172616E63652070726F787920666F7220746865207265636569766572207468617420686173207468652070617373656420747261697420636F6C6C656374696F6E2E
+		Attributes( hidden )  Shared Function getAppearanceforTrait(classptr as ptr, Collection as AppleTraitCollection) As ptr
+		  declare function appearanceForTraitCollection lib UIKitLibname selector "appearanceForTraitCollection:" (id as ptr, Collection as ptr) as ptr
+		  return appearanceForTraitCollection(classptr, if (collection = nil, nil, collection.id))
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
-		Protected Function getAttributedText() As AppleAttributedString
+		Attributes( hidden ) Protected Function getAttributedText() As AppleAttributedString
 		  Declare function attributedText lib UIKitLibname selector "attributedText" (id as ptr) as ptr
 		  return AppleAttributedString.MakeFromPtr (attributedText(id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getFont() As Applefont
+		Attributes( hidden ) Protected Function getFont() As Applefont
 		  Declare function font lib UIKitLibname selector "font" (id as ptr) as Ptr
 		  return applefont.MakeFromPtr (font (id))
 		  
@@ -246,14 +294,14 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getPlaceHolder() As Text
+		Attributes( hidden ) Protected Function getPlaceHolder() As Text
 		  Declare Function placeholder lib UIKitLibname selector "placeholder" (id as ptr) as CFStringRef
 		  Return placeholder (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getText() As Text
+		Attributes( hidden ) Protected Function getText() As Text
 		  Declare function Caption lib UIKitLibname selector "text" (id as ptr) as CFStringRef
 		  return Caption (id)
 		  
@@ -261,162 +309,136 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getTextAlignment() As NSTextAlignment
-		  Declare function textAlignment lib UIKitLibname selector "textAlignment" (id as ptr) as NSTextAlignment
+		Attributes( hidden ) Protected Function getTextAlignment() As appletextfield.NSTextAlignment
+		  Declare function textAlignment lib UIKitLibname selector "textAlignment" (id as ptr) as appletextfield.NSTextAlignment
 		  return textAlignment (id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function getTextColor() As AppleColor
+		Attributes( hidden ) Protected Function getTextColor() As AppleColor
 		  Declare function textcolor lib UIKitLibname selector "textColor" (id as ptr) as ptr
 		  return AppleColor.MakeFromPtr (textcolor(id))
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
+	#tag Method, Flags = &h0, Description = 52657475726E73207468652066617274686573742064657363656E64616E74206F662074686520726563656976657220696E207468652076696577206869657261726368792028696E636C7564696E6720697473656C6629207468617420636F6E7461696E7320612073706563696669656420706F696E742E
+		Function HitTest(point as FoundationFrameWork.nspoint, anEvent as AppleNSEvent) As AppleView
+		  #if Target64Bit
+		    Declare function hitTest lib UIKitLibname selector "hitTest:withEvent:" (id as ptr, point as FoundationFrameWork.nspoint, anEvent as ptr) as ptr
+		    return AppleView.MakeFromPtr (HitTest(id, point, if (anEvent = nil, nil, anEvent.id)))
+		  #elseif Target32Bit
+		    Declare function hitTest lib UIKitLibname selector "hitTest:withEvent:" (id as ptr, point as FoundationFrameWork.nspoint32bit, anEvent as ptr) as ptr
+		    return AppleView.MakeFromPtr (HitTest(id, point.toNSPoint32, if (anEvent = nil, nil, anEvent.id)))
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
 		  dim ego as new AppleView (pid)
-		  ego.informonDidAddSubview  (view)
+		  if not ego.isnil then ego.informonDidAddSubview  (view)
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidMoveToSuperview(pid as ptr, sel as ptr)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_DidMoveToSuperview(pid as ptr, sel as ptr)
 		  dim ego as new AppleView (pid)
-		  ego.informonDidMoveToSuperview
+		  if not ego.isnil then ego.informonDidMoveToSuperview
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidMoveToWindow(pid as ptr, sel as ptr)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_DidMoveToWindow(pid as ptr, sel as ptr)
 		  dim ego as new AppleView (pid)
-		  ego.informonDidMoveToWindow
+		  if not ego.isnil then ego.informonDidMoveToWindow
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect32Bit)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_DrawRect32(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect32Bit)
 		  dim ego as new AppleView (pid)
-		  ego.informonDrawRect (rect.toNSRect)
+		  if not ego.isnil then ego.informonDrawRect (rect.toNSRect)
 		  
 		  
-		  
-		  
-		  #Pragma Unused  sel
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect)
-		  dim ego as new AppleView (pid)
-		  ego.informonDrawRect (rect)
 		  
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_LayoutSubviews(pid as ptr, sel as ptr)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_DrawRect64(pid as ptr, sel as ptr, rect as FoundationFramework.NSRect)
 		  dim ego as new AppleView (pid)
-		  ego.informonlayoutSubviews
+		  if not ego.isnil then ego.informonDrawRect (rect)
+		  
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionBeganWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Function impl_layerclass(pid as ptr, sel as ptr) As Ptr
+		  return if (customLayerClass = nil, LayerClass, customLayerClass)
+		  #Pragma Unused  sel
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_LayoutSubviews(pid as ptr, sel as ptr)
 		  dim ego as new AppleView (pid)
-		  ego.informonMotionBeganwithEvent  (type, anEvent)
+		  if not ego.isnil then ego.informonlayoutSubviews
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionCancelledWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_tintColorDidChange(pid as ptr, sel as ptr)
 		  dim ego as new AppleView (pid)
-		  ego.informonMotionCancelledwithEvent  (type, anEvent)
+		  if not ego.isnil then ego.informontintColorDidChange
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionEndedWithEvent(pid as ptr, sel as ptr, Type as AppleNSEvent.UIEventSubtype, anEvent as Ptr)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_traitCollectionDidChange(pid as ptr, sel as ptr, PreviousCollection As Ptr)
 		  dim ego as new AppleView (pid)
-		  ego.informonMotionEndedwithEvent  (type, anEvent)
+		  if not ego.isnil then ego.informontraitCollectionDidChange (AppleTraitCollection.MakefromPtr(previouscollection))
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_TouchesBeganWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_willMoveToSuperview(pid as ptr, sel as ptr, view as Ptr)
 		  dim ego as new AppleView (pid)
-		  ego.informonTouchesBeganwithEvent  (Touchset, anEvent)
+		  if not ego.isnil then ego.informonwillMoveToSuperview  (view)
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_TouchesCancelledWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_willMoveToWindow(pid as ptr, sel as ptr, window as Ptr)
 		  dim ego as new AppleView (pid)
-		  ego.informonTouchesCancelledwithEvent  (Touchset, anEvent)
+		  if not ego.isnil then ego.informonwillMoveToWindow (window)
 		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_TouchesEndedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
+	#tag Method, Flags = &h1
+		Attributes( hidden ) Protected Shared Sub impl_willRemoveSubview(pid as ptr, sel as ptr, view as Ptr)
 		  dim ego as new AppleView (pid)
-		  ego.informonTouchesEndedwithEvent  (Touchset, anEvent)
-		  
-		  #Pragma Unused  sel
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_TouchesMovedWithEvent(pid as ptr, sel as ptr, Touchset as ptr, anEvent as Ptr)
-		  dim ego as new AppleView (pid)
-		  ego.informonTouchesMovedwithEvent  (Touchset, anEvent)
-		  
-		  #Pragma Unused  sel
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_willMoveToSuperview(pid as ptr, sel as ptr, view as Ptr)
-		  dim ego as new AppleView (pid)
-		  ego.informonwillMoveToSuperview  (view)
-		  
-		  #Pragma Unused  sel
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_willMoveToWindow(pid as ptr, sel as ptr, window as Ptr)
-		  dim ego as new AppleView (pid)
-		  ego.informonwillMoveToWindow (window)
-		  
-		  #Pragma Unused  sel
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_willRemoveSubview(pid as ptr, sel as ptr, view as Ptr)
-		  dim ego as new AppleView (pid)
-		  ego.informonwillRemoveSubview  (view)
+		  if not ego.isnil then ego.informonwillRemoveSubview  (view)
 		  
 		  #Pragma Unused  sel
 		End Sub
@@ -424,264 +446,164 @@ Implements AppleNSEventForwarder
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidAddSubview(view as ptr)
-		  RaiseEvent DidAddSubview ( AppleView.makefromptr( view))
+		  if ParentControl <> nil then
+		    ParentControl.informonDidAddSubview ( AppleView.makefromptr( view))
+		  else
+		    RaiseEvent DidAddSubview ( AppleView.makefromptr( view))
+		  end if
 		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(2)
-		    myarray.AddText  DidAddSubview
-		    myarray.addptr view
-		    NotifyObservers (myarray)
-		  End If
+		  
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidMoveToSuperView()
-		  RaiseEvent DidMoveToSuperview
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(1)
-		    myarray.AddText  DidMoveToSuperview
-		    NotifyObservers (myarray)
-		  End If
+		  me.hasinited = true
+		  if ParentControl <> nil then
+		    ParentControl.informondidmoveToSuperview 
+		  else
+		    RaiseEvent DidMoveToSuperview 
+		  end if
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDidMoveToWindow()
-		  RaiseEvent DidMoveToWindow
+		  if ParentControl <> nil then
+		    ParentControl.informonDidMoveToWindow
+		  else
+		    RaiseEvent DidMoveToWindow
+		  end if 
 		  
 		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(1)
-		    myarray.AddText  DidMoveToWindow
-		    NotifyObservers (myarray)
-		  End If
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonDrawRect(Rect as FoundationFramework.NSRect)
-		  RaiseEvent DrawRect (rect)
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(2)
-		    myarray.AddText  DrawRect
-		    myarray.Addobject new AppleNumber (rect)
-		    NotifyObservers (myarray)
-		  End If
+		  if ParentControl <> nil then
+		    ParentControl.informonDrawRect (rect)
+		  else
+		    RaiseEvent DrawRect (rect)
+		  end if
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonlayoutSubviews()
-		  RaiseEvent layoutSubviews
+		  if ParentControl <> nil then
+		    ParentControl.informonlayoutSubviews
+		  else
+		    RaiseEvent layoutSubviews
+		  end if
 		  
 		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(1)
-		    myarray.AddText  LayoutSubviews
-		    NotifyObservers (myarray)
-		  End If
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonMotionBeganwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as ptr)
-		  RaiseEvent MotionBeganwithEvent ( type, AppleNSEvent.makefromptr (anevent))
-		  
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(3)
-		    myarray.AddText  MotionBegan
-		    myarray.Addobject new AppleNumber (integer(type))
-		    myarray.addPtr anevent
-		    NotifyObservers (myarray)
-		  End If
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonMotionCancelledwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as ptr)
-		  RaiseEvent MotionCancelledwithEvent ( type, AppleNSEvent.makefromptr (anevent))
-		  
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(3)
-		    myarray.AddText  MotionCancelled
-		    myarray.Addobject new AppleNumber (integer(type))
-		    myarray.addPtr anevent
-		    NotifyObservers (myarray)
-		  End If
+		Attributes( hidden )  Sub informontintColorDidChange()
+		  if ParentControl <> nil then
+		    ParentControl.informontintColorDidChange
+		  else
+		    RaiseEvent tintColorDidChange 
+		  end if
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonMotionEndedwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as ptr)
-		  RaiseEvent MotionEndedwithEvent ( type, AppleNSEvent.makefromptr (anevent))
+		Attributes( hidden )  Sub informontraitCollectionDidChange(PreviousCollection As AppleTraitCollection)
+		  if ParentControl <> nil then
+		    ParentControl.informontraitCollectionDidChange (PreviousCollection)
+		  else
+		    RaiseEvent TraitCollectionDidChange (PreviousCollection)
+		  end if
 		  
 		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(3)
-		    myarray.AddText  MotionEnded
-		    myarray.Addobject new AppleNumber (integer(type))
-		    myarray.addPtr anevent
-		    NotifyObservers (myarray)
-		  End If
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonTouchesBeganwithEvent(Touchset as ptr, anEvent as ptr)
-		  RaiseEvent TouchesBeganwithEvent ( AppleSet.makefromptr( touchset), AppleNSEvent.makefromptr (anevent))
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(3)
-		    myarray.AddText  TouchesBegan
-		    myarray.AddPtr touchset
-		    myarray.AddPtr anevent
-		    NotifyObservers (myarray)
-		  End If
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonTouchesCancelledwithEvent(Touchset as ptr, anEvent as ptr)
-		  RaiseEvent TouchesCancelledwithEvent ( AppleSet.makefromptr( touchset), AppleNSEvent.makefromptr (anevent))
-		  
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(3)
-		    myarray.AddText  TouchesCancelled
-		    myarray.AddPtr touchset
-		    myarray.AddPtr anevent
-		    NotifyObservers (myarray)
-		  End If
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonTouchesEndedwithEvent(Touchset as ptr, anEvent as ptr)
-		  RaiseEvent TouchesBeganwithEvent ( AppleSet.makefromptr( touchset), AppleNSEvent.makefromptr (anevent))
-		  
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(3)
-		    myarray.AddText  TouchesEnded
-		    myarray.AddPtr touchset
-		    myarray.AddPtr anevent
-		    NotifyObservers (myarray)
-		  End If
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonTouchesMovedwithEvent(Touchset as ptr, anEvent as ptr)
-		  RaiseEvent TouchesMovedwithEvent ( AppleSet.makefromptr( touchset), AppleNSEvent.makefromptr (anevent))
-		  
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(3)
-		    myarray.AddText  TouchesMoved
-		    myarray.AddPtr touchset
-		    myarray.AddPtr anevent
-		    NotifyObservers (myarray)
-		  End If
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonwillMoveToSuperView(view as ptr)
-		  RaiseEvent WillMoveToSuperview ( AppleView.makefromptr( view))
+		  if ParentControl <> nil then
+		    ParentControl.informonwillmoveToSuperview  ( AppleView.makefromptr( view))
+		  else
+		    RaiseEvent WillMoveToSuperview ( AppleView.makefromptr( view))
+		  end if
 		  
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(2)
-		    myarray.AddText  WillMoveToSuperview
-		    if view <> nil then myarray.AddPtr view
-		    NotifyObservers (myarray)
-		  End If
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonwillMoveToWindow(window as Ptr)
-		  RaiseEvent WillMoveToWindow ( window)
+		  if ParentControl <> nil then
+		    ParentControl.informonWillMoveToWindow ( applewindow.MakefromPtr(window))
+		  else
+		    RaiseEvent WillMoveToWindow ( applewindow.MakefromPtr(window))
+		  end if
 		  
 		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(2)
-		    myarray.AddText  kWillMoveToWindow
-		    if window <> nil then myarray.AddPtr Window
-		    NotifyObservers (myarray)
-		  End If
+		  
+		  
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonWillRemoveSubview(view as ptr)
-		  RaiseEvent WillRemoveSubview ( AppleView.makefromptr( view))
+		  if ParentControl <> nil then
+		    ParentControl.informonWillRemoveSubview ( AppleView.makefromptr( view))
+		  else
+		    RaiseEvent WillRemoveSubview ( AppleView.makefromptr( view))
+		  end if
 		  
-		  
-		  If Observers.HasKey(id) then
-		    dim myarray as new AppleMutableArray(2)
-		    myarray.AddText  WillRemoveSubview
-		    myarray.AddPtr view
-		    NotifyObservers (myarray)
-		  End If
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 496E7365727473206120766965772061626F766520616E6F74686572207669657720696E207468652076696577206869657261726368792E
 		Sub InsertSubviewAbove(aView as AppleView, aboveView as AppleView)
 		  declare sub insertSubview lib UIKitLibname selector "insertSubview:aboveSubview:" (id as ptr, aview as ptr, aboveView as ptr)
 		  insertSubview id, aView.id, aboveView.id
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 496E736572747320612073756276696577206174207468652073706563696669656420696E6465782E
 		Sub InsertSubviewAtIndex(aView as AppleView, index as integer)
 		  declare sub insertSubview lib UIKitLibname selector "insertSubview:atIndex:" (id as ptr, aview as ptr, index as integer)
 		  insertSubview id, aView.id, index
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 496E7365727473206120766965772062656C6F7720616E6F74686572207669657720696E207468652076696577206869657261726368792E
 		Sub InsertSubviewBelow(aView as AppleView, BelowView as AppleView)
 		  declare sub insertSubview lib UIKitLibname selector "insertSubview:belowSubview:" (id as ptr, aview as ptr, belowView as ptr)
 		  insertSubview id, aView.id, belowView.id
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 496E7665727473207468652063757272656E74207472616E736F66726D2070726F70657274792E
 		Sub InvertTransform()
 		  Transform = TransformExtension.CGAffineTransformInvert (Transform)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 52657475726E73206120426F6F6C65616E2076616C756520696E6469636174696E6720776865746865722074686520726563656976657220697320612073756276696577206F66206120676976656E2076696577206F72206964656E746963616C20746F207468617420766965772E
 		Function IsDescendantOfView(aView As AppleView) As Boolean
 		  Declare Function IsDescendantOfView lib UIKitLibname selector "isDescendantOfView:" (id as ptr, aview as ptr) as Boolean
 		  Return IsDescendantOfView (id, aView.id)
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 4C617973206F75742074686520737562766965777320696D6D6564696174656C792E
 		Sub LayoutIfNeeded()
 		  performLayoutIfNeeded
 		End Sub
@@ -693,28 +615,12 @@ Implements AppleNSEventForwarder
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub NotifyObservers(EventProperties As AppleArray)
-		  // Part of the AppleNSEventForwarder interface.
-		  if Observers.HasKey (id)  then
-		    dim wr as weakref = Observers.Value (id)
+	#tag Method, Flags = &h0, Description = 496E7465726E616C3A2054686520694F5375736572636F6E74726F6C20737562636C61737320696620636F6E7461696E656420696E20737563682E
+		Attributes( hidden )  Function ParentControl() As iOSLibCanvas
+		  if xojocontrols <> nil and XojoControls.HasKey (id)  then
+		    dim wr as weakref = XojoControls.Value (id)
 		    if wr <> NIL then
-		      dim myControl as  AppleViewControl = appleviewcontrol(wr.Value)
-		      myControl.ReceivedEvent EventProperties
-		    end if
-		  end if
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function NotifyObserversBoolean(EventProperties As AppleArray) As Boolean
-		  // Part of the AppleNSEventForwarder interface.
-		  if Observers.HasKey (id)  then
-		    dim wr as weakref = Observers.Value (id)
-		    if wr <> NIL then
-		      dim myControl as  AppleViewControl = appleviewcontrol(wr.Value)
-		      return myControl.ReceivedReturnEvent (EventProperties)
+		      return iOSLIbCanvas(wr.Value)
 		    end if
 		  end if
 		  
@@ -722,57 +628,85 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RegisterObserver(observer As AppleNSEventReceiver)
-		  // Part of the AppleNSEventForwarder interface.
-		  if observers = nil then observers = new Dictionary
-		  observers.Value (id) = weakref.create(observer)
+		 Shared Sub PerformSystemAnimation(animation as UISystemAnimation, views as applearray, options as uinteger, animations as appleblock = nil, completion as appleblock = nil)
+		  Declare sub performSystemAnimation lib UIKitLibname selector "performSystemAnimation:onViews:options:animations:completion:" _
+		  (id as ptr, views as ptr, options as uinteger, animations as ptr, completion as ptr)
+		  if animations = nil then animations = new AppleBlock(AddressOf EmptyBlock)
+		  performSystemAnimation classptr, views.id, options,  animations.Handle, if (completion = nil, nil, completion.handle)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 52657475726E73206120426F6F6C65616E2076616C756520696E6469636174696E67207768657468657220746865207669657720636F6E7461696E73207468652073706563696669656420706F696E742E
+		Function PointInside(point as FoundationFrameWork.nspoint, anEvent as AppleNSEvent) As Boolean
+		  #if Target64Bit
+		    Declare function pointInside lib UIKitLibname selector "pointInside:withEvent:" (id as ptr, point as FoundationFrameWork.nspoint, anEvent as ptr) as Boolean
+		    return pointInside (id, point, if (anEvent = nil, nil, anEvent.id))
+		  #elseif Target32Bit
+		    Declare function pointInside lib UIKitLibname selector "pointInside:withEvent:" (id as ptr, point as FoundationFrameWork.nspoint32bit, anEvent as ptr) as Boolean
+		    return pointInside (id, point.tonsPoint32, if (anEvent = nil, nil, anEvent.id))
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 496E7465726E616C20666F72207265676973746572696E6720746865206D616E746C6520694F5355736572436F6E74726F6C2E
+		Attributes( hidden )  Sub RegisterControl(ParentControl as iOSLibCanvas)
+		  if XojoControls = nil then XojoControls = new Dictionary
+		  XojoControls.Value (id) = weakref.create(parentcontrol)
 		  
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub RemoveAnimated(options as AppleVIewAnimationoption, curve as UIVIewAnimationCurve = uiviewanimationcurve.easeineaseout, transition as UIVIewAnimationTransition = uiviewanimationtransition.None, parallelAnimations as AppleBlock = nil, Completion as Appleblock = nil)
+		  dim myarray as new AppleMutableArray
+		  myarray.Addobject me
+		  PerformSystemAnimation (UISystemAnimation.Delete, myarray, AnimationOption (options,curve, transition), parallelAnimations, Completion)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 496E7465726E616C20666F72207265676973746572696E6720746865206D616E746C6520694F5355736572436F6E74726F6C2E
+		Attributes( hidden )  Sub RemoveControl()
+		  if XojoControls <> nil then
+		    if XojoControls.HasKey(id) then XojoControls.Remove id
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 556E6C696E6B732074686520766965772066726F6D206974732073757065727669657720616E64206974732077696E646F772C20616E642072656D6F7665732069742066726F6D2074686520726573706F6E64657220636861696E2E
 		Sub RemoveFromSuperview()
 		  declare sub removeFromSuperview lib UIKitLibname selector "removeFromSuperview" (id as ptr)
 		  removeFromSuperview id
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 446574616368657320612067657374757265207265636F676E697A65722066726F6D2074686520726563656976696E6720766965772E
 		Sub RemoveGestureRecognizer(GestureRecognizer as AppleGestureRecognizer)
 		  declare sub removeGestureRecognizer lib UIKitLibname selector "removeGestureRecognizer:" (id as ptr, GestureRecognizer as ptr)
 		  removeGestureRecognizer id, GestureRecognizer.id
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub RemoveObserver()
-		  // Part of the AppleNSEventForwarder interface.
-		  if Observers <> nil then
-		    if Observers.HasKey(id) then observers.Remove id
-		  end if
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 52657365747320746865207472616E73666F726D2070726F706572747920746F204964656E746974792E
 		Sub ResetTransform()
 		  Transform = TransformExtension.CGAffineTransformIdentity
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 4368616E67657320746865207472616E73666F726D2070726F7065727479206279206120726F746174696F6E20696E2072616469616E732E
 		Sub Rotate(Radians as double)
 		  Transform = TransformExtension.CGAffineTransformRotate (Transform, radians)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 4368616E67657320746865207472616E73666F726D70726F7065727479206279206E657720666163746F72732E2050617373206F6E6C79206F6E6520746F206B65657020746865206368616E67652070726F706F7274696F6E616C2E
 		Sub Scale(Xfactor as Double, YFactor as Double = 0)
 		  Transform = TransformExtension.CGAffineTransformScale (Transform, Xfactor, YFactor)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 4D6F7665732074686520737065636966696564207375627669657720736F2074686174206974206170706561727320626568696E6420697473207369626C696E67732E
 		Sub SendSubviewToBack(aView as AppleView)
 		  declare sub sendSubviewToBack lib UIKitLibname selector "sendSubviewToBack:" (id as ptr, aview as ptr)
 		  sendSubviewToBack id, aView.id
@@ -780,27 +714,55 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setAdjustsFontSizeToFitWidth(value as Boolean)
+		Attributes( hidden ) Protected Sub setAdjustsFontSizeToFitWidth(value as Boolean)
 		  Declare sub setAdjustsFontSizeToFitWidth lib UIKitLibname selector "setAdjustsFontSizeToFitWidth:" (id as ptr, value as Boolean)
 		  setAdjustsFontSizeToFitWidth id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setAttributedText(value as AppleAttributedString)
+		Attributes( hidden ) Protected Sub setAttributedText(value as AppleAttributedString)
 		  Declare sub setAttributedText lib UIKitLibname selector "setAttributedText:" (id as ptr, value as Ptr)
 		  setAttributedText id, value.id
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setFont(font as applefont)
+		Attributes( hidden ) Protected Sub setFont(font as applefont)
 		  Declare Sub setFont lib UIKitLibname selector "setFont:" (id as ptr, value as Ptr)
 		  setFont id, if (font = nil, nil, font.id)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 4D61726B7320746865207265636569766572E280997320656E7469726520626F756E64732072656374616E676C65206173206E656564696E6720746F206265207265647261776E2E
+		Sub SetNeedsDisplay()
+		  Declare sub setNeedsDisplay lib UIKitLibname selector "setNeedsDisplay" (id as ptr)
+		  setNeedsDisplay (id)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 4D61726B7320746865207265636569766572E2809973207370656369666965642072656374616E676C65206173206E656564696E6720746F206265207265647261776E2E
+		Sub SetNeedsDisplay(aRect as FoundationFrameWork.nsrect)
+		  #if Target64Bit
+		    Declare sub setNeedsDisplayInRect lib UIKitLibname selector "setNeedsDisplayInRect:" (id as ptr, rect as FoundationFrameWork.nsrect)
+		    setNeedsDisplayInRect (id, arect)
+		  #elseif Target32Bit
+		    Declare sub setNeedsDisplayInRect lib UIKitLibname selector "setNeedsDisplayInRect:" (id as ptr, rect as FoundationFrameWork.nsrect32bit)
+		    setNeedsDisplayInRect (id, arect.tonsrect32)
+		  #endif
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 5375626D6974732061207265717565737420746F2074686520666F63757320656E67696E6520666F72206120666F6375732075706461746520696E207468697320656E7669726F6E6D656E742E20417661696C61626C652073696E636520694F5320392E312E
+		Sub SetNeedsFocusUpdate()
+		  if RespondsToSelector (classptr, "setNeedsFocusUpdate") then
+		    declare sub setNeedsFocusUpdate lib UIKitLibname selector "setNeedsFocusUpdate" (id as ptr)
+		    setNeedsFocusUpdate id
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 496E76616C696461746573207468652063757272656E74206C61796F7574206F662074686520726563656976657220616E642074726967676572732061206C61796F75742075706461746520647572696E6720746865206E65787420757064617465206379636C652E
 		Sub SetNeedsLayout()
 		  Declare sub setNeedsLayout lib UIKitLibname selector "setNeedsLayout" (id as ptr)
 		  setNeedsLayout (id)
@@ -808,114 +770,149 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub SetPlaceHolder(value as cfstringRef)
+		Attributes( hidden ) Protected Sub SetPlaceHolder(value as cfstringRef)
 		  Declare Sub setPlaceholder lib UIKitLibname selector "setPlaceholder:" (id as ptr, value as CFStringRef)
 		  setPlaceholder id, value
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 5365747320746865207472616E73666F726D2070726F706572747920746F2074686174206F662061202872616469616E732920726F746174696F6E2E
 		Sub SetRotation(Radians as double)
 		  Transform = TransformExtension.CGAffineTransformMakeRotation (radians)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 5365747320746865207472616E73666F726D2070726F706572747920746F20746865207363616C6520666163746F722873292E
 		Sub SetScale(Xfactor as Double, YFactor as Double = 0)
 		  Transform = TransformExtension.CGAffineTransformMakeScale ( Xfactor, YFactor)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setText(value as CFStringRef)
+		Attributes( hidden ) Protected Sub setText(value as CFStringRef)
 		  Declare sub setCaption lib UIKitLibname selector "setText:" (id as ptr, value as CFStringRef)
 		  setCaption id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setTextAlignment(value as NSTextAlignment)
-		  Declare sub setTextAlignment lib UIKitLibname selector "setTextAlignment:" (id as ptr, value as NSTextAlignment)
+		Attributes( hidden ) Protected Sub setTextAlignment(value as appletextfield.NSTextAlignment)
+		  Declare sub setTextAlignment lib UIKitLibname selector "setTextAlignment:" (id as ptr, value as appletextfield.NSTextAlignment)
 		  setTextAlignment id, value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub setTextColor(value as AppleColor)
+		Attributes( hidden ) Protected Sub setTextColor(value as AppleColor)
 		  Declare sub setTextColor lib UIKitLibname selector "setTextColor:" (id as ptr, value as ptr)
 		  setTextColor id, value.id
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 5365747320746865207472616E73666F726D2070726F706572747920746F2074686174206F662061207472616E736C6174696F6E2E
 		Sub SetTranslation(DeltaX as Double, DeltaY as Double)
 		  Transform = TransformExtension.CGAffineTransformMakeTranslation (DeltaX, deltaY)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 41736B7320746865207669657720746F2063616C63756C61746520616E642072657475726E207468652073697A6520746861742062657374206669747320746865207370656369666965642073697A652E
+		Function SizeThatFits(aSize As FoundationFrameWork.nssize) As FoundationFrameWork.nssize
+		  #if Target64Bit
+		    Declare function sizeThatFits lib UIKitLibname selector "sizeThatFits:" (id as ptr, asize as FoundationFrameWork.nssize) as FoundationFrameWork.nssize
+		    return sizeThatFits (id, asize)
+		  #elseif Target32Bit
+		    Declare function sizeThatFits lib UIKitLibname selector "sizeThatFits:" (id as ptr, asize as FoundationFrameWork.nssize32bit) as FoundationFrameWork.nssize32bit
+		    return sizeThatFits(id, asize.toNSSize32).toNSSize
+		  #endif
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 526573697A657320616E64206D6F76657320746865207265636569766572207669657720736F206974206A75737420656E636C6F736573206974732073756276696577732E
 		Sub SizeToFit()
 		  Declare sub sizeToFit lib UIKitLibname selector "sizeToFit" (id as ptr)
 		  sizeToFit (id)
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 52657475726E73206120736E617073686F742076696577206261736564206F6E207468652063757272656E74207669657720636F6E74656E74732E
 		Function Snapshot(afterUpdates as Boolean = false) As AppleView
 		  Declare function snapshotViewAfterScreenUpdates lib UIKitLibname selector "snapshotViewAfterScreenUpdates:" (id as ptr, afterupdate as boolean) as ptr
-		  return new AppleView (snapshotViewAfterScreenUpdates (id, afterUpdates))
+		  dim result as new AppleView (snapshotViewAfterScreenUpdates (id, afterUpdates))
+		  result.Retain
+		  Return result
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub SpringAnimateAlpha(alpha as Double, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E2074686520616C7068612070726F7065727479206F662074686520766965772E
+		Sub SpringAnimateAlpha(alpha as Double, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  TransformToAlpha = alpha
 		  dim block as new AppleBlock (AddressOf TransformAlphaBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub SpringAnimateBounds(NewBounds as FoundationFramework.NSRect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 506572666F726D73206120737072696E6720616E696D6174696F6E206F6E206120637573746F6D20626C6F636B20746861742072756E73206F6E20636C617373206C6576656C2C20736F2069742063616E206368616E67652074686520616E696D617461626C652070726F70657274696573206F66207365766572616C207669657773206174206F6E63652E
+		Sub SpringAnimateBlock(Changeblock as Appleblock, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		  if completion = nil then  completion = new AppleBlock (AddressOf CompletionBlock)
+		  SpringanimateWithDuration ( seconds, changeblock.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E2074686520626F756E64732070726F7065727479206F662074686520766965772E
+		Sub SpringAnimateBounds(NewBounds as FoundationFramework.NSRect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  TransformToBounds = newBounds
 		  dim block as new AppleBlock (AddressOf TransformBoundsBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then  completion = new AppleBlock (AddressOf CompletionBlock)
 		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub SpringAnimateCenter(NewCenter As FoundationFramework.NSPoint, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E207468652043656E7465722070726F7065727479206F662074686520766965772E
+		Sub SpringAnimateCenter(NewCenter As FoundationFramework.NSPoint, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  TransformToCenter = NewCenter
 		  dim block as new AppleBlock (AddressOf TransformCenterBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub SpringAnimateColor(NewColor As AppleColor, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E20746865206261636B67726F756E64636F6C6F722070726F7065727479206F662074686520766965772E
+		Sub SpringAnimateColor(NewColor As AppleColor, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  TransformToColor = NewColor
 		  dim block as new AppleBlock (AddressOf TransformColorBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub SpringAnimateFrame(NewFrame as FoundationFramework.NSRect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
+	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E20746865206672616D652070726F7065727479206F662074686520766965772E
+		Sub SpringAnimateFrame(NewFrame as FoundationFramework.NSRect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  TransformToFrame = NewFrame
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
+		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E20746865207472616E73666F726D2070726F7065727479206F662074686520766965772E
+		Sub SpringAnimateTransform(NewTransform As CGAffineTransform, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as AppleBlock = nil)
+		  TransformToTransform = NewTransform
+		  dim block as new AppleBlock (AddressOf TransformTransformBlock)
+		  if completion = nil then  completion = new AppleBlock (AddressOf CompletionBlock)
 		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
 		  
 		  
@@ -923,18 +920,7 @@ Implements AppleNSEventForwarder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SpringAnimateTransform(NewTransform As CGAffineTransform, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0)
-		  TransformToTransform = NewTransform
-		  dim block as new AppleBlock (AddressOf TransformTransformBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
-		  SpringanimateWithDuration ( seconds, block.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None), DampingRatio, velocity)
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h1
-		Protected Shared Sub SpringanimateWithDuration(duration as Double, animations as ptr, completion as ptr, delay as double = 0, options as uinteger = 0, DampingRatio as Double = 1, Velocity as Double = 0.5)
+		 Shared Sub SpringanimateWithDuration(duration as Double, animations as ptr, completion as ptr, delay as double = 0, options as uinteger = 0, DampingRatio as Double = 1, Velocity as Double = 0.5)
 		  #if Target64Bit
 		    Declare sub springanimateWithDuration_ lib UIKitLibname selector "animateWithDuration:delay:usingSpringWithDamping:initialSpringVelocity:options:animations:completion:" _
 		    (id as ptr, duration as Double, delay as double, DampingRatio as Double, Velocity As Double, options as uinteger, animations as ptr, completion as ptr)
@@ -947,84 +933,124 @@ Implements AppleNSEventForwarder
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function toImage() As Appleimage
+		  AppleCGContext.BeginImageContext (me.Bounds.Size_, false)
+		  dim context as AppleCGContext = AppleCGContext.CurrentContext
+		  dim success as boolean = DrawViewHierarchy(me.bounds, true)
+		  dim img as   AppleImage 
+		  if success then img = Context.toImage
+		  AppleCGContext.EndImageContext
+		  return img
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
-		Private Sub TransformAlphaBlock()
+		Attributes( hidden ) Private Sub TransformAlphaBlock()
 		  alpha = TransformToAlpha
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub TransformBoundsBlock()
+		Attributes( hidden ) Private Sub TransformBoundsBlock()
 		  Bounds = TransformToBounds
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub TransformCenterBlock()
+		Attributes( hidden ) Private Sub TransformCenterBlock()
 		  Center = TransformToCenter
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub TransformColorBlock()
+		Attributes( hidden ) Private Sub TransformColorBlock()
 		  BackgroundColor = TransformToColor
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub TransformFrameBlock()
+		Attributes( hidden ) Private Sub TransformFrameBlock()
 		  Frame = TransformToFrame
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub TransformTransformBlock()
+	#tag Method, Flags = &h21, Description = 437265617465732061207472616E736974696F6E20616E696D6174696F6E206265747765656E2074686520737065636966696564207669657773207573696E672074686520676976656E20706172616D65746572732E
+		Attributes( hidden ) Private Sub TransformTransformBlock()
 		  Transform = TransformToTransform
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithAlpha(alpha as Double, Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
-		  TransformToAlpha = alpha
-		  dim block as new AppleBlock (AddressOf TransformAlphaBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		Sub Transition(Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		  dim block as new AppleBlock (AddressOf EmptyBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  TransitionWithDuration ( id, seconds, block.handle, completion.Handle,  AnimationOption (options, curve, Transition))
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithBounds(newBounds as FoundationFramework.NSRect, transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
+		 Shared Sub TransitionFromView(id as ptr, toView as appleview, duration as Double, completion as ptr, options as uinteger)
+		  Declare sub transitionFromView lib UIKitLibname selector "transitionFromView:toView:duration:options:completion:" _
+		  (id as ptr, fromview as ptr, toView as ptr, duration as Double, options as uinteger, completion as ptr)
+		  transitionfromView ClassPtr, id, toView.id, duration, options,  completion
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 4372656174657320616E205F416C7068615F207472616E736974696F6E20616E696D6174696F6E20666F722074686520766965772E
+		Sub TransitionWithAlpha(alpha as Double, Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		  TransformToAlpha = alpha
+		  dim block as new AppleBlock (AddressOf TransformAlphaBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
+		  TransitionWithDuration ( id, seconds, block.handle, completion.Handle,  AnimationOption (options, curve, Transition))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 437265617465732061207472616E736974696F6E20616E696D6174696F6E20666F72207468652073706563696669656420636F6E7461696E657220766965772E
+		Sub TransitionWithBlock(animation as appleblock, Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
+		  TransitionWithDuration ( id, seconds, animation.handle, completion.Handle,  AnimationOption (options, curve, Transition))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 437265617465732061205F426F756E64735F207472616E736974696F6E20616E696D6174696F6E20666F722074686520766965772E
+		Sub TransitionWithBounds(newBounds as FoundationFramework.NSRect, transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
 		  TransformToBounds = NewBounds
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  TransitionWithDuration ( id, seconds, block.handle, completion.Handle, AnimationOption (options, curve, Transition))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub TransitionWithCenter(aCenter as FoundationFramework.NSPoint, Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
+	#tag Method, Flags = &h0, Description = 437265617465732061205F43656E7465725F207472616E736974696F6E20616E696D6174696F6E20666F722074686520766965772E
+		Sub TransitionWithCenter(aCenter as FoundationFramework.NSPoint, Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
 		  TransformToCenter = aCenter
 		  dim block as new AppleBlock (AddressOf TransformCenterBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  TransitionWithDuration ( id, seconds, block.handle, completion.Handle,  AnimationOption (options, curve, Transition))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub TransitionWithColor(newColor as AppleColor, Transition As UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
+	#tag Method, Flags = &h0, Description = 437265617465732061205F4261636B67726F756E64436F6C6F725F207472616E736974696F6E20616E696D6174696F6E20666F722074686520766965772E202020
+		Sub TransitionWithColor(newColor as AppleColor, Transition As UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
 		  TransformToColor = newColor
 		  dim block as new AppleBlock (AddressOf TransformColorBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  TransitionWithDuration (id,  seconds, block.handle, completion.Handle, AnimationOption (options, curve, transition))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
-		Protected Shared Sub TransitionWithDuration(id as ptr, duration as Double, animations as ptr, completion as ptr, options as uinteger)
+	#tag Method, Flags = &h0
+		 Shared Sub TransitionWithDuration(id as ptr, duration as Double, animations as ptr, completion as ptr, options as uinteger)
 		  Declare sub transitionWithView lib UIKitLibname selector "transitionWithView:duration:options:animations:completion:" _
 		  (id as ptr, view as ptr, duration as Double, options as uinteger, animations as ptr, completion as ptr)
 		  transitionWithView ClassPtr, id, duration, options,  animations, completion
@@ -1034,21 +1060,21 @@ Implements AppleNSEventForwarder
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub TransitionWithFrame(aFrame as FoundationFramework.NSRect, Transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
+	#tag Method, Flags = &h0, Description = 437265617465732061205F4672616D655F207472616E736974696F6E20616E696D6174696F6E20666F722074686520766965772E
+		Sub TransitionWithFrame(aFrame as FoundationFramework.NSRect, Transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
 		  TransformToFrame = aFrame
 		  dim block as new AppleBlock (AddressOf TransformFrameBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  TransitionWithDuration ( id, seconds, block.handle, completion.Handle,  AnimationOption (options, curve, Transition))
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub TransitionWithTransform(aTransform as CGAffineTransform, Transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut)
+	#tag Method, Flags = &h0, Description = 437265617465732061205F5472616E73666F726D5F207472616E736974696F6E20616E696D6174696F6E2E20
+		Sub TransitionWithTransform(aTransform as CGAffineTransform, Transition as uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
 		  TransformToTransform = aTransform
 		  dim block as new AppleBlock (AddressOf TransformTransformBlock)
-		  dim completion as new AppleBlock (AddressOf CompletionBlock)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  TransitionWithDuration ( id, seconds, block.handle, completion.Handle,  AnimationOption (options, curve, Transition))
 		  
 		End Sub
@@ -1060,10 +1086,34 @@ Implements AppleNSEventForwarder
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0, Description = 54656C6C732074686520666F63757320656E67696E6520746F20666F726365206120666F6375732075706461746520696D6D6564696174656C792E20417661696C61626C652073696E636520694F5320392E312E
+		Sub UpdateFocusIfNeeded()
+		  if RespondsToSelector (classptr, "updateFocusIfNeeded") then
+		    declare sub updateFocusIfNeeded lib UIKitLibname selector "updateFocusIfNeeded" (id as ptr)
+		    updateFocusIfNeeded id
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 437265617465732061207472616E736974696F6E20616E696D6174696F6E206265747765656E2074686520737065636966696564207669657773207573696E672074686520676976656E20706172616D65746572732E
+		Sub ViewTransition(fromview as appleview, toView as Appleview, Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
+		  TransitionFromView (fromview.id, toview, seconds,  completion.Handle,  AnimationOption (options, curve, Transition))
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 437265617465732061207472616E736974696F6E20616E696D6174696F6E206265747765656E2074686520737065636966696564207669657773207573696E672074686520676976656E20706172616D65746572732E
+		 Shared Sub ViewTransition(toView as Appleview, Transition as UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, completion as appleblock)
+		  TransitionFromView ( toview.id, toview, seconds,  completion.Handle,  AnimationOption (options, curve, Transition))
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Function ViewWithTag(Tag as Integer) As AppleView
 		  Declare function viewWithTag lib UIKitLibname selector "viewWithTag:" (id as ptr, tag as integer) as ptr
-		  return new AppleView (ViewWithTag (id, tag))
+		  return  AppleView.MakeFromPtr (ViewWithTag (id, tag))
 		End Function
 	#tag EndMethod
 
@@ -1072,68 +1122,57 @@ Implements AppleNSEventForwarder
 		Event AnimationFinished(animationCompleted as boolean)
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E206120737562766965772077617320616464656420746F2074686520766965772E
 		Event DidAddSubview(view as AppleView)
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E20766965772077617320617474616368656420746F206120737570657276696577206173206120737562766965772E
 		Event DidMoveToSuperview()
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E2074686520766965772061707065617273206F6E2073637265656E2E
 		Event DidMoveToWindow()
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E207468652072656374616E676C6520286F722077686F6C65206172656129206F662074686520766965772067657473207265647261776E
 		Event DrawRect(Rect  as FoundationFramework.NSRect)
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E20746865207669657720686173206368616E6765642073697A65206C696B6520616674657220616E206F7269656E746174696F6E206368616E67652E
 		Event LayoutSubviews()
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
-		Event MotionBeganwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E207468652074696E74636F6C6F72206368616E6765642E
+		Event TintColorDidChange()
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
-		Event MotionCancelledwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E2074686520747261697420636F6C6C656374696F6E20686173206368616E6765642C206C696B65207768656E2074686520646576696365206F7269656E746174696F6E206368616E6765642E
+		Event TraitCollectionDidChange(PreviousCollection As AppleTraitCollection)
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
-		Event MotionEndedwithEvent(type as AppleNSEvent.UIEventSubtype, anEvent as AppleNSEvent)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event TouchesBeganwithEvent(Touchset as AppleSet, anEvent as AppleNSEvent)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event TouchesCancelledwithEvent(Touchset as AppleSet, anEvent as AppleNSEvent)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event TouchesEndedwithEvent(Touchset as AppleSet, anEvent as AppleNSEvent)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event TouchesMovedwithEvent(Touchset as AppleSet, anEvent as AppleNSEvent)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E2074686520766965772077696C6C2062652061646465642061732061207375627669657720746F2061207375706572766965772E
 		Event WillMoveToSuperview(view as AppleView)
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
-		Event WillMoveToWindow(window as ptr)
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E2074686520766965772077696C6C2062652073686F776E206F6E2073637265656E2E
+		Event WillMoveToWindow(window as applewindow)
 	#tag EndHook
 
-	#tag Hook, Flags = &h0
+	#tag Hook, Flags = &h0, Description = 4669726573207768656E2074686520766965772077696C6C206C6F7365206120737562766965772E
 		Event WillRemoveSubview(view as AppleView)
 	#tag EndHook
 
 
-	#tag ComputedProperty, Flags = &h0
+	#tag Note, Name = Status incomplete
+		
+		Constraint, Anchor & Layoutguide features missing
+		Viewprintformatter missing
+		UIFocus incomplete, classes and events missing
+		
+	#tag EndNote
+
+
+	#tag ComputedProperty, Flags = &h0, Description = 5468652076696577E280997320616C7068612076616C75652E
 		#tag Getter
 			Get
 			  #if Target64bit
@@ -1159,7 +1198,17 @@ Implements AppleNSEventForwarder
 		Alpha As Double
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 54686520617070656172616E6365206F626A65637420776869636820796F752063616E206D6F6469667920746F20696E666C75656E636520746865206C6F6F6B73206F66206576657279207669657720696E20796F75722070726F6A6563742E2028726561642D6F6E6C7929
+		#tag Getter
+			Get
+			  return appleview.MakeFromPtr(getappearance (classptr))
+			  
+			End Get
+		#tag EndGetter
+		Shared Appearance As AppleView
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C756520746861742064657465726D696E6573207768657468657220746865207265636569766572206175746F6D61746963616C6C7920726573697A657320697473207375627669657773207768656E2069747320626F756E6473206368616E67652E
 		#tag Getter
 			Get
 			  Declare function autoresizesSubviews lib UIKitLibname selector "autoresizesSubviews" (id as ptr) as Boolean
@@ -1175,7 +1224,7 @@ Implements AppleNSEventForwarder
 		AutoresizesSubviews As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 416E20696E746567657220626974206D61736B20746861742064657465726D696E657320686F772074686520726563656976657220726573697A657320697473656C66207768656E2069747320737570657276696577E280997320626F756E6473206368616E67652E
 		#tag Getter
 			Get
 			  Declare function autoResizingMask lib UIKitLibname selector "autoresizingMask" (id as ptr) as UInteger
@@ -1191,7 +1240,7 @@ Implements AppleNSEventForwarder
 		AutoresizingMask As AppleAutoresizingMask
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 5468652076696577E2809973206261636B67726F756E6420636F6C6F722E
 		#tag Getter
 			Get
 			  Declare function backgroundcolor lib UIKitLibname selector "backgroundColor" (id as ptr) as ptr
@@ -1207,7 +1256,7 @@ Implements AppleNSEventForwarder
 		BackgroundColor As AppleColor
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 54686520626F756E64732072656374616E676C652C20776869636820646573637269626573207468652076696577E2809973206C6F636174696F6E20616E642073697A6520696E20697473206F776E20636F6F7264696E6174652073797374656D2E
 		#tag Getter
 			Get
 			  return UIKitFramework.getbounds (id)
@@ -1221,7 +1270,19 @@ Implements AppleNSEventForwarder
 		Bounds As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 41736B7320746865207669657720776865746865722069742069732063757272656E746C792063617061626C65206F66206265696E6720666F63757365642E2028726561642D6F6E6C792920417661696C61626C652073696E636520694F5320392E30
+		#tag Getter
+			Get
+			  if me.respondstoselector (classptr, "canBecomeFocused") then
+			    Declare function canBecomeFocused lib UIKitLibname selector "canBecomeFocused" (id as ptr) as Boolean
+			    return canBecomeFocused (id)
+			  end if
+			End Get
+		#tag EndGetter
+		CanBecomeFocused As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 5468652063656E746572206F6620746865206672616D652E
 		#tag Getter
 			Get
 			  #if Target64Bit
@@ -1236,10 +1297,10 @@ Implements AppleNSEventForwarder
 		#tag Setter
 			Set
 			  #if Target64Bit
-			    Declare sub setcenter lib UIKitLibname selector "setCenter" (id as ptr, value as FoundationFramework.NSPoint)
+			    Declare sub setcenter lib UIKitLibname selector "setCenter:" (id as ptr, value as FoundationFramework.NSPoint)
 			    setcenter id, value
 			  #elseif Target32Bit
-			    Declare sub setcenter lib UIKitLibname selector "setCenter" (id as ptr, value as FoundationFramework.NSPoint32Bit)
+			    Declare sub setcenter lib UIKitLibname selector "setCenter:" (id as ptr, value as FoundationFramework.NSPoint32Bit)
 			    setcenter id, value.toNSPoint32
 			  #endif
 			End Set
@@ -1252,7 +1313,6 @@ Implements AppleNSEventForwarder
 			Get
 			  static targetID as ptr
 			  if targetID = Nil then
-			    if Observers = nil then Observers = new Dictionary
 			    dim methods() as TargetClassMethodHelper
 			    //override UIView methods
 			    methods.Append new TargetClassMethodHelper("willMoveToWindow:", AddressOf impl_willMoveToWindow, "v@:@")
@@ -1262,7 +1322,20 @@ Implements AppleNSEventForwarder
 			    methods.Append new TargetClassMethodHelper("willRemoveSubview:", AddressOf impl_willRemoveSubview, "v@:@")
 			    methods.Append new TargetClassMethodHelper("didAddSubview:", AddressOf impl_DidAddSubview, "v@:@")
 			    methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
+			    // methods.Append new TargetClassMethodHelper("layerClass", AddressOf impl_layerclass, "@@:", true, true)
+			    methods.Append new TargetClassMethodHelper("tintColorDidChange", AddressOf impl_tintColorDidChange, "v@:")
 			    
+			    #if Target64Bit
+			      methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")
+			    #elseif Target32Bit
+			      methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect32, "v@:{CGRect}")
+			    #endif
+			    
+			    //TraitEnvironment Protocol
+			    methods.Append new TargetClassMethodHelper("traitCollectionDidChange:", AddressOf impl_traitCollectionDidChange, "v@:@")
+			    
+			    
+			    //Add UIResponder methods too
 			    methods.Append new TargetClassMethodHelper("touchesBegan:withEvent:", AddressOf impl_TouchesBeganWithEvent, "v@:@@")
 			    methods.Append new TargetClassMethodHelper("touchesEnded:withEvent:", AddressOf impl_TouchesEndedWithEvent, "v@:@@")
 			    methods.Append new TargetClassMethodHelper("touchesMoved:withEvent:", AddressOf impl_TouchesMovedWithEvent, "v@:@@")
@@ -1272,14 +1345,17 @@ Implements AppleNSEventForwarder
 			    methods.Append new TargetClassMethodHelper("motionEnded:withEvent:", AddressOf impl_MotionEndedWithEvent, "v@:i@")
 			    methods.Append new TargetClassMethodHelper("motionCancelled:withEvent:", AddressOf impl_MotionCancelledWithEvent, "v@:i@")
 			    
+			    methods.Append new TargetClassMethodHelper("touchesEstimatedPropertiesUpdated:", AddressOf impl_touchesEstimatedPropertiesUpdated, "v@:@")
+			    methods.Append new TargetClassMethodHelper("remoteControlReceivedWithEvent:", AddressOf impl_remoteControlReceivedWithEvent, "v@:@")
 			    
-			    #if Target64Bit
-			      methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")
-			    #elseif Target32Bit
-			      methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect32, "v@:{CGRect}")
-			    #endif
+			    if ApplePress.ClassAvailable then
+			      methods.Append new TargetClassMethodHelper("pressesBegan:withEvent:", AddressOf impl_pressesBeganWithEvent, "v@:@@")
+			      methods.Append new TargetClassMethodHelper("pressesCancelled:withEvent:", AddressOf impl_pressesCancelledWithEvent, "v@:@@")
+			      methods.Append new TargetClassMethodHelper("pressesChanged:withEvent:", AddressOf impl_pressesChangedWithEvent, "v@:@@")
+			      methods.Append new TargetClassMethodHelper("pressesEnded:withEvent:", AddressOf impl_pressesEndedWithEvent, "v@:@@")
+			    end if
 			    
-			    targetID = BuildTargetClass ("UIView", "iOSLibUIView",methods)
+			    targetID = BuildTargetClass ("UIView", "iOSLibView",methods)
 			  end if
 			  Return targetID
 			End Get
@@ -1287,7 +1363,7 @@ Implements AppleNSEventForwarder
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C756520746861742064657465726D696E65732077686574686572207468652076696577E280997320626F756E64732073686F756C64206265206175746F6D61746963616C6C7920636C6561726564206265666F72652064726177696E672E
 		#tag Getter
 			Get
 			  Declare function clearsContextBeforeDrawing lib UIKitLibname selector "clearsContextBeforeDrawing" (id as ptr) as Boolean
@@ -1303,7 +1379,7 @@ Implements AppleNSEventForwarder
 		ClearsContextBeforeDrawing As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C756520746861742064657465726D696E657320776865746865722073756276696577732061726520636F6E66696E656420746F2074686520626F756E6473206F662074686520766965772E
 		#tag Getter
 			Get
 			  Declare function clipsToBounds lib UIKitLibname selector "clipsToBounds" (id as ptr) as Boolean
@@ -1319,11 +1395,31 @@ Implements AppleNSEventForwarder
 		ClipsToBounds As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 54686520706174682D626173656420736861706520746F2075736520666F722074686520636F6C6C6973696F6E20626F756E64732E2028726561642D6F6E6C7929
+		#tag Getter
+			Get
+			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString( "collisionBoundingPath")) then
+			    Declare function collisionBoundingPath lib UIKitLibname selector "collisionBoundingPath" (id as ptr) as ptr
+			    return AppleBezierPath.MakefromPtr (collisionBoundingPath (id))
+			  end if
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString( "setcollisionBoundingPath:")) then
+			    Declare sub setcollisionBoundingPath lib UIKitLibname selector "setcollisionBoundingPath:" (id as ptr, value as ptr)
+			    setcollisionBoundingPath (id, if (value = nil, nil, value.id))
+			  end if
+			End Set
+		#tag EndSetter
+		CollisionBoundingPath As AppleBezierPath
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 5468652074797065206F6620636F6C6C6973696F6E20626F756E6473206173736F636961746564207769746820746865206974656D2E2028726561642D6F6E6C792920417661696C61626C652073696E636520694F5320392E302E
 		#tag Getter
 			Get
 			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString( "collisionBoundsType")) then
-			    Declare function collisionBoundsType lib UIKitLibname selector "collisionBoundsType" (id as ptr) as UIKitFramework.UIDynamicItemCollisionBoundsType
+			    Declare function collisionBoundsType lib UIKitLibname selector "collisionBoundsType" (id as ptr) as UIDynamicItemCollisionBoundsType
 			    return collisionBoundsType (id)
 			  end if
 			End Get
@@ -1331,15 +1427,15 @@ Implements AppleNSEventForwarder
 		#tag Setter
 			Set
 			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString( "setCollisionBoundsType:")) then
-			    Declare sub setCollisionBoundsType lib UIKitLibname selector "setCollisionBoundsType:" (id as ptr, value as UIKitFramework.UIDynamicItemCollisionBoundsType)
+			    Declare sub setCollisionBoundsType lib UIKitLibname selector "setCollisionBoundsType:" (id as ptr, value as UIDynamicItemCollisionBoundsType)
 			    setcollisionBoundsType (id, value)
 			  end if
 			End Set
 		#tag EndSetter
-		CollisionBoundsType As UIKitFramework.UIDynamicItemCollisionBoundsType
+		CollisionBoundsType As UIDynamicItemCollisionBoundsType
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120666C6167207573656420746F2064657465726D696E6520686F7720612076696577206C617973206F75742069747320636F6E74656E74207768656E2069747320626F756E6473206368616E67652E
 		#tag Getter
 			Get
 			  Declare function ContentMode lib UIKitLibname selector "contentMode" (id as ptr) as UIViewContentMode
@@ -1355,7 +1451,7 @@ Implements AppleNSEventForwarder
 		ContentMode As UIViewContentMode
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 546865207363616C6520666163746F72206170706C69656420746F2074686520766965772E
 		#tag Getter
 			Get
 			  #if Target64Bit
@@ -1381,6 +1477,10 @@ Implements AppleNSEventForwarder
 		ContentScaleFactor As Double
 	#tag EndComputedProperty
 
+	#tag Property, Flags = &h0
+		Shared CustomLayerClass As Ptr
+	#tag EndProperty
+
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
@@ -1397,7 +1497,7 @@ Implements AppleNSEventForwarder
 		Shared EnableAnimations As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C7565207468617420696E646963617465732077686574686572207468652072656365697665722068616E646C657320746F756368206576656E7473206578636C75736976656C792E
 		#tag Getter
 			Get
 			  Declare Function exclusiveTouch lib UIKitLibname selector "isExclusiveTouch" (id as ptr) as Boolean
@@ -1413,7 +1513,28 @@ Implements AppleNSEventForwarder
 		ExclusiveTouch As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C7565207468617420696E64696361746573207768657468657220746865206974656D2069732063757272656E746C7920666F63757365642E20417661696C61626C652073696E636520694F5320392E302E205468652073657474657220697320617661696C61626C652062656C6F772028466F637573656420697473656C66206973206120726561642D6F6E6C792070726F706572747929
+		#tag Getter
+			Get
+			  if me.respondstoselector (classptr, "isFocused") then
+			    Declare function isFocused lib UIKitLibname selector "isFocused" (id as ptr) as Boolean
+			    return isFocused (id)
+			  end if
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  if value then
+			    call BecomeFirstResponder
+			  else
+			    EndEditing
+			  end if
+			End Set
+		#tag EndSetter
+		Focused As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 546865206672616D652072656374616E676C652C20776869636820646573637269626573207468652076696577E2809973206C6F636174696F6E20616E642073697A6520696E2069747320737570657276696577E280997320636F6F7264696E6174652073797374656D2E
 		#tag Getter
 			Get
 			  return UIKitFramework.getFrame (id)
@@ -1427,23 +1548,21 @@ Implements AppleNSEventForwarder
 		Frame As FoundationFramework.NSRect
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 54686520676573747572652D7265636F676E697A6572206F626A656374732063757272656E746C7920617474616368656420746F2074686520766965772E
 		#tag Getter
 			Get
-			  Declare Function gestureRecognizers lib UIKitLibname selector "gestureRecognizers" (id as ptr) as ptr
-			  return AppleArray.MakeFromPtr (gestureRecognizers(id))
+			  return AppleArray.MakeFromPtr (UIKitFramework.getgestureRecognizers(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare sub setGestureRecognizers lib UIKitLibname selector "setGestureRecognizers:" (id as ptr, value as ptr)
-			  setGestureRecognizers id, if (value = nil, nil, value.id)
+			  UIKitFramework.setGestureRecognizers id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
 		GestureRecognizers As AppleArray
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C756520746861742064657465726D696E657320776865746865722074686520636F6E73747261696E747320696D70616374696E6720746865206C61796F7574206F6620746865207669657720696E636F6D706C6574656C79207370656369667920746865206C6F636174696F6E206F662074686520766965772E2028726561642D6F6E6C7929
 		#tag Getter
 			Get
 			  Declare Function hasAmbiguousLayout lib UIKitLibname selector "hasAmbiguousLayout" (id as ptr) as Boolean
@@ -1456,18 +1575,18 @@ Implements AppleNSEventForwarder
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return me.Frame.size_.height
+			  return me.bounds.Size_.height
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  me.frame = FoundationFrameWork.NSMakeRect (me.left, me.top, me.Width, value)
+			  me.bounds = FoundationFrameWork.NSMakerect (0,0, me.Width, value)
 			End Set
 		#tag EndSetter
 		Height As Double
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C756520746861742064657465726D696E657320776865746865722074686520766965772069732068696464656E2E
 		#tag Getter
 			Get
 			  Declare Function hidden lib UIKitLibname selector "isHidden" (id as ptr) as Boolean
@@ -1483,7 +1602,19 @@ Implements AppleNSEventForwarder
 		Hidden As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 52657475726E732074686520696E68657269746564206475726174696F6E206F66207468652063757272656E7420616E696D6174696F6E2E204F6E6C7920776F726B732077697468696E2055495669657720616E696D6174696F6E20626C6F636B732E2028726561642D6F6E79292E20417661696C61626C652073696E636520694F5320392E302E
+		#tag Getter
+			Get
+			  if RespondsToSelector(classptr, "inheritedAnimationDuration") then
+			    Declare Function inheritedAnimationDuration lib UIKitLibname selector "inheritedAnimationDuration" (id as ptr) as double
+			    Return inheritedAnimationDuration (classptr)
+			  end if
+			End Get
+		#tag EndGetter
+		Shared InheritedAnimationDuration As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 5468652076696577E280997320436F726520416E696D6174696F6E206C61796572207573656420666F722072656E646572696E672E2028726561642D6F6E6C7929
 		#tag Getter
 			Get
 			  Declare Function layer lib UIKitLibname selector "layer" (id as ptr) as Ptr
@@ -1500,22 +1631,16 @@ Implements AppleNSEventForwarder
 			  return layerclass (classptr)
 			End Get
 		#tag EndGetter
-		#tag Setter
-			Set
-			  Declare sub setLayerClass lib UIKitLibname selector "setLayerClass:" (id as ptr, value as ptr)
-			  setLayerClass classptr, value
-			End Set
-		#tag EndSetter
-		LayerClass As Ptr
+		Shared LayerClass As Ptr
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 52657475726E732074686520636C617373207573656420746F2063726561746520746865206C6179657220666F7220696E7374616E636573206F66207468697320636C6173732E
 		#tag Getter
 			Get
 			  return ObjectiveCRuntime.class_getName (LayerClass)
 			End Get
 		#tag EndGetter
-		LayerClassName As CString
+		Shared LayerClassName As CString
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1558,7 +1683,7 @@ Implements AppleNSEventForwarder
 		Left As Double
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 416E206F7074696F6E616C20766965772077686F736520616C706861206368616E6E656C206973207573656420746F206D61736B20612076696577E280997320636F6E74656E742E
 		#tag Getter
 			Get
 			  const SEL as text = "maskView"
@@ -1574,14 +1699,14 @@ Implements AppleNSEventForwarder
 			  const SEL as text = "setMaskView:"
 			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString (SEL)) then
 			    Declare sub setMaskView lib UIKitLibname selector "setMaskView:" (id as ptr, value as ptr)
-			    setMaskView id, value.id
+			    setMaskView id, if (value = nil, nil, value.id)
 			  end if
 			End Set
 		#tag EndSetter
 		Mask As AppleView
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C7565207468617420696E646963617465732077686574686572207468652072656365697665722068616E646C6573206D756C74692D746F756368206576656E74732E
 		#tag Getter
 			Get
 			  Declare Function multipleTouchEnabled lib UIKitLibname selector "isMultipleTouchEnabled" (id as ptr) as Boolean
@@ -1597,11 +1722,7 @@ Implements AppleNSEventForwarder
 		MultipleTouchEnabled As Boolean
 	#tag EndComputedProperty
 
-	#tag Property, Flags = &h1
-		Protected Shared Observers As Dictionary
-	#tag EndProperty
-
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C756520746861742064657465726D696E65732077686574686572207468652076696577206973206F70617175652E
 		#tag Getter
 			Get
 			  return getOpaque
@@ -1613,6 +1734,26 @@ Implements AppleNSEventForwarder
 			End Set
 		#tag EndSetter
 		Opaque As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 53706563696669657320746865207669657720746861742073686F756C6420626520666F6375736564206966207468697320656E7669726F6E6D656E7420697320666F63757365642E2028726561642D6F6E6C792920417661696C61626C652073696E636520694F7320392E312E
+		#tag Getter
+			Get
+			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString( "preferredFocusedView")) then
+			    Declare function preferredFocusedView lib UIKitLibname selector "preferredFocusedView" (id as ptr) as ptr
+			    return appleview.MakefromPtr (preferredFocusedView (id))
+			  end if
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  if ObjectiveCRuntime.class_respondsToSelector (classptr, FoundationFramework.NSSelectorFromString( "setcollisionBoundingPath:")) then
+			    Declare sub setcollisionBoundingPath lib UIKitLibname selector "setcollisionBoundingPath:" (id as ptr, value as ptr)
+			    setcollisionBoundingPath (id, if (value = nil, nil, value.id))
+			  end if
+			End Set
+		#tag EndSetter
+		PreferredFocusedView As AppleView
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -1631,7 +1772,7 @@ Implements AppleNSEventForwarder
 		PreservesSuperviewLayoutMargins As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C7565207468617420696E6469636174657320776865746865722074686520726563656976657220646570656E6473206F6E2074686520636F6E73747261696E742D6261736564206C61796F75742073797374656D2E
 		#tag Getter
 			Get
 			  Declare Function requiresConstraintBasedLayout lib UIKitLibname selector "requiresConstraintBasedLayout" (id as ptr) as Boolean
@@ -1641,7 +1782,23 @@ Implements AppleNSEventForwarder
 		Shared RequiresConstraintBasedLayout As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 546865206964656E74696669657220746861742064657465726D696E6573207768657468657220746865207669657720737570706F72747320737461746520726573746F726174696F6E2E
+		#tag Getter
+			Get
+			  Declare function restorationIdentifier lib UIKitLibname selector "restorationIdentifier" (id as ptr) as CFStringRef
+			  Return restorationIdentifier (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setRestorationIdentifier lib UIKitLibname selector "setRestorationIdentifier:" (id as ptr, value as CFStringRef)
+			  setRestorationIdentifier id, value
+			End Set
+		#tag EndSetter
+		RestorationIdentifier As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 5468652063616C63756C617465642073697A652074686174206973206E656564656420746F20646973706C6179207468652066756C6C20636F6E74656E74206F662074686520766965772E2020536565205F53697A65546F4669742E5F202028726561642D6F6E6C7929
 		#tag Getter
 			Get
 			  #if Target32Bit
@@ -1656,7 +1813,7 @@ Implements AppleNSEventForwarder
 		SizeThatFits As FoundationFramework.NSSize
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 546865207265636569766572E280997320696D6D6564696174652073756276696577732E2028726561642D6F6E6C79292E20557365204164647375627669657720616E642052656D6F76655375627669657720746F206D6F646966792E
 		#tag Getter
 			Get
 			  Declare function subviews lib UIKitLibname selector "subviews" (id as ptr) as ptr
@@ -1666,7 +1823,7 @@ Implements AppleNSEventForwarder
 		SubViews As AppleArray
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 5468652076696577E2809973207375706572766965772C206F72206E696C20696620697420686173206E6F6E652E2028726561642D6F6E6C7929
 		#tag Getter
 			Get
 			  Declare function superview lib UIKitLibname selector "superview" (id as ptr) as ptr
@@ -1693,7 +1850,7 @@ Implements AppleNSEventForwarder
 		Tag As Integer
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 546865206669727374206E6F6E2D64656661756C742074696E742061646A7573746D656E74206D6F64652076616C756520696E207468652076696577E2809973206869657261726368792C20617363656E64696E672066726F6D20616E64207374617274696E67207769746820746865207669657720697473656C662E
 		#tag Getter
 			Get
 			  Declare function tintAdjustmentMode lib UIKitLibname selector "tintAdjustmentMode" (id as ptr) as UIViewTintAdjustmentMode
@@ -1709,7 +1866,7 @@ Implements AppleNSEventForwarder
 		TintAdjustmentMode As UIViewTintAdjustmentMode
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 546865206669727374206E6F6E64656661756C742074696E7420636F6C6F722076616C756520696E207468652076696577E2809973206869657261726368792C20617363656E64696E672066726F6D20616E64207374617274696E67207769746820746865207669657720697473656C662E
 		#tag Getter
 			Get
 			  Declare function tintColor lib UIKitLibname selector "tintColor" (id as ptr) as ptr
@@ -1740,7 +1897,23 @@ Implements AppleNSEventForwarder
 		Top As Double
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 546865206669727374206E6F6E64656661756C742074696E7420636F6C6F722076616C756520696E207468652076696577E2809973206869657261726368792C20617363656E64696E672066726F6D20616E64207374617274696E67207769746820746865207669657720697473656C662E
+		#tag Getter
+			Get
+			  Declare function traitCollection lib UIKitLibname selector "traitCollection" (id as ptr) as ptr
+			  return AppleTraitCollection.MakefromPtr(traitCollection(id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare sub setTintColor lib UIKitLibname selector "setTintColor:" (id as ptr, value as ptr)
+			  setTintColor id, value.id
+			End Set
+		#tag EndSetter
+		TraitCollection As AppleTraitCollection
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 53706563696669657320746865207472616E73666F726D206170706C69656420746F207468652072656365697665722C2072656C617469766520746F207468652063656E746572206F662069747320626F756E64732E
 		#tag Getter
 			Get
 			  #if Target32Bit
@@ -1769,30 +1942,30 @@ Implements AppleNSEventForwarder
 	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
-		Private TransformToAlpha As Double = 1.0
+		Attributes( hidden ) Private TransformToAlpha As Double = 1.0
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private TransformToBounds As FoundationFramework.NSRect
+		Attributes( hidden ) Private TransformToBounds As FoundationFramework.NSRect
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private TransformToCenter As FoundationFramework.NSPoint
+		Attributes( hidden ) Private TransformToCenter As FoundationFramework.NSPoint
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private TransformToColor As AppleColor
+		Attributes( hidden ) Private TransformToColor As AppleColor
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private TransformToFrame As FoundationFramework.NSRect
+		Attributes( hidden ) Private TransformToFrame As FoundationFramework.NSRect
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private TransformToTransform As CGAffineTransform
+		Attributes( hidden ) Private TransformToTransform As CGAffineTransform
 	#tag EndProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C756520746861742064657465726D696E65732077686574686572207468652076696577E2809973206175746F726573697A696E67206D61736B206973207472616E736C6174656420696E746F204175746F204C61796F757420636F6E73747261696E74732E
 		#tag Getter
 			Get
 			  Declare Function translatesAutoresizingMaskIntoConstraints lib UIKitLibname selector "translatesAutoresizingMaskIntoConstraints" (id as ptr) as Boolean
@@ -1808,7 +1981,7 @@ Implements AppleNSEventForwarder
 		TranslatesAutoresizingMaskIntoConstraints As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C756520746861742064657465726D696E657320776865746865722075736572206576656E7473206172652069676E6F72656420616E642072656D6F7665642066726F6D20746865206576656E742071756575652E
 		#tag Getter
 			Get
 			  return getUserInteractionEnabled
@@ -1834,6 +2007,15 @@ Implements AppleNSEventForwarder
 			End Set
 		#tag EndSetter
 		Width As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 546865207265636569766572E28099732077696E646F77206F626A6563742C206F72206E696C20696620697420686173206E6F6E652E2028726561642D6F6E6C7929
+		#tag Getter
+			Get
+			  return AppleWindow.MakefromPtr (UIKitFramework.getWindow(id))
+			End Get
+		#tag EndGetter
+		Window As AppleWindow
 	#tag EndComputedProperty
 
 
@@ -1883,6 +2065,70 @@ Implements AppleNSEventForwarder
 	#tag EndConstant
 
 
+	#tag Enum, Name = UIDynamicItemCollisionBoundsType, Flags = &h0
+		Rectangle
+		  Ellipse
+		Path
+	#tag EndEnum
+
+	#tag Enum, Name = UISystemAnimation, Type = Integer, Flags = &h0
+		Delete
+	#tag EndEnum
+
+	#tag Enum, Name = UIVIewAnimationCurve, Flags = &h0
+		EaseInEaseOut
+		  EaseIn
+		  EaseOut
+		  Linear
+		Keyboard = 7
+	#tag EndEnum
+
+	#tag Enum, Name = UIVIewAnimationTransition, Flags = &h0
+		None
+		  FlipFromLeft
+		  FlipFromRight
+		  CurlUp
+		  CurlDown
+		  CrossDissolve
+		  FlipFromTop
+		FlipFromBottom
+	#tag EndEnum
+
+	#tag Enum, Name = UIViewContentMode, Flags = &h0
+		ScaleToFill
+		  ScaleAspectFit
+		  ScaleAspectFill
+		  Redraw
+		  Center
+		  Top
+		  Bottom
+		  Left
+		  Right
+		  TopLeft
+		  TopRight
+		  BottomLeft
+		BottomRight
+	#tag EndEnum
+
+	#tag Enum, Name = UIViewModalPresentationStyle, Flags = &h0
+		FullScreen = 0
+		  PageSheet
+		  FormSheet
+		  CurrentContext
+		  Custom
+		  OverFullScreen
+		  OverCurrentContext
+		  PopOver
+		None = -1
+	#tag EndEnum
+
+	#tag Enum, Name = UIViewTintAdjustmentMode, Flags = &h0
+		Automatic
+		  Normal
+		Dimmed
+	#tag EndEnum
+
+
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Alpha"
@@ -1891,6 +2137,11 @@ Implements AppleNSEventForwarder
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutoresizesSubviews"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CanBecomeFocused"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -1907,7 +2158,7 @@ Implements AppleNSEventForwarder
 		#tag ViewProperty
 			Name="CollisionBoundsType"
 			Group="Behavior"
-			Type="UIKitFramework.UIDynamicItemCollisionBoundsType"
+			Type="UIDynamicItemCollisionBoundsType"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Rectangle"
@@ -1942,27 +2193,17 @@ Implements AppleNSEventForwarder
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="ExclusiveTouch"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="HasAmbiguousLayout"
+			Name="Focused"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="HasOwnership"
+			Name="HasAmbiguousLayout"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -1984,31 +2225,11 @@ Implements AppleNSEventForwarder
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsFirstResponder"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MultipleTouchEnabled"
@@ -2032,6 +2253,11 @@ Implements AppleNSEventForwarder
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="RestorationIdentifier"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
@@ -2041,11 +2267,6 @@ Implements AppleNSEventForwarder
 			Name="Tag"
 			Group="Behavior"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TextInputContextIdentifier"
-			Group="Behavior"
-			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TintAdjustmentMode"

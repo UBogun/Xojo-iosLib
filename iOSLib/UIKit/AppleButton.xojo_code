@@ -2,16 +2,16 @@
 Protected Class AppleButton
 Inherits AppleControl
 	#tag Method, Flags = &h0
-		Function AttributedTitleForState(state as UIControlState) As AppleAttributedString
-		  Declare Function attributedTitleForState lib UIKitLibname selector "attributedTitleForState:" (id as ptr, state as UIControlState) as Ptr
-		  return AppleAttributedString.MakeFromPtr (attributedTitleForState (id, state))
+		Function AttributedTitleForState(state as AppleControlState) As AppleAttributedString
+		  Declare Function attributedTitleForState lib UIKitLibname selector "attributedTitleForState:" (id as ptr, state as uinteger) as Ptr
+		  return AppleAttributedString.MakeFromPtr (attributedTitleForState (id, state.id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function BackgroundImageForState(state as UIControlState) As AppleImage
-		  Declare Function backgroundImageForState lib UIKitLibname selector "backgroundImageForState:" (id as ptr, state as UIControlState) as Ptr
-		  return AppleImage.MakeFromPtr ( backgroundImageForState (id, state))
+		Function BackgroundImageForState(state as AppleControlState) As AppleImage
+		  Declare Function backgroundImageForState lib UIKitLibname selector "backgroundImageForState:" (id as ptr, state as uinteger) as Ptr
+		  return AppleImage.MakeFromPtr ( backgroundImageForState (id, state.id))
 		End Function
 	#tag EndMethod
 
@@ -30,72 +30,72 @@ Inherits AppleControl
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ImageForState(state as UIControlState) As AppleImage
-		  Declare Function imageForState lib UIKitLibname selector "imageForState:" (id as ptr, state as UIControlState) as Ptr
-		  return AppleImage.MakeFromPtr ( imageForState (id, state))
+		Function ImageForState(state as AppleControlState) As AppleImage
+		  Declare Function imageForState lib UIKitLibname selector "imageForState:" (id as ptr, state as uinteger) as Ptr
+		  return AppleImage.MakeFromPtr ( imageForState (id, state.id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetAttributedTitleForState(Title as appleattributedstring, state as UIControlState)
-		  Declare Sub setAttributedTitle lib UIKitLibname selector "setAttributedTitle:forState:" (id as ptr, title as ptr, state as UIControlState)
-		  setAttributedTitle (id, Title.id, state)
+		Sub SetAttributedTitleForState(Title as appleattributedstring, state as AppleControlState)
+		  Declare Sub setAttributedTitle lib UIKitLibname selector "setAttributedTitle:forState:" (id as ptr, title as ptr, state as uinteger)
+		  setAttributedTitle (id, Title.id, state.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetBackgroundImageForState(Image as Appleimage, state as UIControlState)
-		  Declare Sub SetBackgroundImageForState lib UIKitLibname selector "setBackgroundImage:forState:" (id as ptr, image as ptr, state as UIControlState)
-		  SetBackgroundImageForState (id, if (image = nil, nil, image.id), state)
+		Sub SetBackgroundImageForState(Image as Appleimage, state as AppleControlState)
+		  Declare Sub SetBackgroundImageForState lib UIKitLibname selector "setBackgroundImage:forState:" (id as ptr, image as ptr, state as uinteger)
+		  SetBackgroundImageForState (id, if (image = nil, nil, image.id), state.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetImageForState(Image as Appleimage, state as UIControlState)
-		  Declare Sub setImageForState lib UIKitLibname selector "setImage:forState:" (id as ptr, image as ptr, state as UIControlState)
-		  setImageForState (id, if (image = nil, nil,  image.id), state)
+		Sub SetImageForState(Image as Appleimage, state as AppleControlState)
+		  Declare Sub setImageForState lib UIKitLibname selector "setImage:forState:" (id as ptr, image as ptr, state as uinteger)
+		  setImageForState (id, if (image = nil, nil,  image.id), state.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetTitleColorForState(TitleColor as applecolor, state as UIControlState)
-		  Declare Sub SetTitleColorForState lib UIKitLibname selector "setTitleColor:forState:" (id as ptr, titlecolor as ptr, state as UIControlState)
-		  setTitleColorForState (id, TitleColor.id, state)
+		Sub SetTitleColorForState(TitleColor as applecolor, state as AppleControlState)
+		  Declare Sub SetTitleColorForState lib UIKitLibname selector "setTitleColor:forState:" (id as ptr, titlecolor as ptr, state as uinteger)
+		  setTitleColorForState (id, TitleColor.id, state.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetTitleForState(Title as cfstringref, state as UIControlState)
-		  Declare Sub setTitleForState lib UIKitLibname selector "setTitle:forState:" (id as ptr, title as cfstringref, state as UIControlState)
-		  setTitleForState (id, Title, state)
+		Sub SetTitleForState(Title as cfstringref, state as AppleControlState)
+		  Declare Sub setTitleForState lib UIKitLibname selector "setTitle:forState:" (id as ptr, title as cfstringref, state as uinteger)
+		  setTitleForState (id, Title, state.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SetTitleShadowColorForState(ShadowColor as applecolor, state as UIControlState)
-		  Declare Sub SetTitleShadowColorForState lib UIKitLibname selector "setTitleShadowColor:forState:" (id as ptr, ShadowColor as ptr, state as UIControlState)
-		  setTitleShadowColorForState (id, ShadowColor.id, state)
+		Sub SetTitleShadowColorForState(ShadowColor as applecolor, state as AppleControlState)
+		  Declare Sub SetTitleShadowColorForState lib UIKitLibname selector "setTitleShadowColor:forState:" (id as ptr, ShadowColor as ptr, state as uinteger)
+		  setTitleShadowColorForState (id, ShadowColor.id, state.id)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function TitleColorForState(state as UIControlState) As AppleColor
-		  Declare Function titleColorForState lib UIKitLibname selector "titleColorForState:" (id as ptr, state as UIControlState) as ptr
-		  return new applecolor (titleColorForState (id, state))
+		Function TitleColorForState(state as AppleControlState) As AppleColor
+		  Declare Function titleColorForState lib UIKitLibname selector "titleColorForState:" (id as ptr, state as uinteger) as ptr
+		  return new applecolor (titleColorForState (id, state.id))
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function TitleForState(state as UIControlState) As text
-		  Declare Function titleForState lib UIKitLibname selector "titleForState:" (id as ptr, state as UIControlState) as CFStringRef
-		  return titleForState (id, state)
+		Function TitleForState(state as AppleControlState) As text
+		  Declare Function titleForState lib UIKitLibname selector "titleForState:" (id as ptr, state as uinteger) as CFStringRef
+		  return titleForState (id, state.id)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function TitleShadowColorForState(state as UIControlState) As AppleColor
-		  Declare Function titleShadowColorForState lib UIKitLibname selector "titleShadowColorForState:" (id as ptr, state as UIControlState) as ptr
-		  return new applecolor (titleShadowColorForState (id, state))
+		Function TitleShadowColorForState(state as AppleControlState) As AppleColor
+		  Declare Function titleShadowColorForState lib UIKitLibname selector "titleShadowColorForState:" (id as ptr, state as uinteger) as ptr
+		  return new applecolor (titleShadowColorForState (id, state.id))
 		End Function
 	#tag EndMethod
 
@@ -390,16 +390,6 @@ Inherits AppleControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Alpha"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AutoresizesSubviews"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="ButtonType"
 			Group="Behavior"
 			Type="UIButtonType"
@@ -415,111 +405,9 @@ Inherits AppleControl
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="ClearsContextBeforeDrawing"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ClipsToBounds"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="CollisionBoundsType"
-			Group="Behavior"
-			Type="UIKitFramework.UIDynamicItemCollisionBoundsType"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Rectangle"
-				"1 - Ellipse"
-				"2 - Path"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ContentHorizontalAlignment"
-			Group="Behavior"
-			Type="UIControlContentHorizontalAlignment"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ContentMode"
-			Group="Behavior"
-			Type="UIViewContentMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - ScaleToFill"
-				"1 - ScaleAspectFit"
-				"2 - ScaleAspectFill"
-				"3 - Redraw"
-				"4 - Center"
-				"5 - Top"
-				"6 - Bottom"
-				"7 - Left"
-				"8 - Right"
-				"9 - TopLeft"
-				"10 - TopRight"
-				"11 - BottomLeft"
-				"12 - BottomRight"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ContentScaleFactor"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ContentVerticalAlignment"
-			Group="Behavior"
-			Type="UIControlContentVerticalAlignment"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="CurrentTitle"
 			Group="Behavior"
 			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Enabled"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ExclusiveTouch"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasAmbiguousLayout"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Height"
-			Group="Behavior"
-			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Hidden"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Highlighted"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -529,36 +417,11 @@ Inherits AppleControl
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsFirstResponder"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="MultipleTouchEnabled"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
@@ -567,22 +430,7 @@ Inherits AppleControl
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Opaque"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="PreservesSuperviewLayoutMargins"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="ReversesTitleShadowWhenHighlighted"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Selected"
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -592,36 +440,10 @@ Inherits AppleControl
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="State"
-			Group="Behavior"
-			Type="UIControlState"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Tag"
-			Group="Behavior"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TextInputContextIdentifier"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TintAdjustmentMode"
-			Group="Behavior"
-			Type="UIViewTintAdjustmentMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Automatic"
-				"1 - Normal"
-				"2 - Dimmed"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -629,31 +451,6 @@ Inherits AppleControl
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TouchInside"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Tracking"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TranslatesAutoresizingMaskIntoConstraints"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="UserInteractionEnabled"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Width"
-			Group="Behavior"
-			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

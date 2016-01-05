@@ -25,10 +25,10 @@ Begin iosView UIdynamicsView
    Begin iOSCanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 7, , 0, False, +1.00, 2, 1, 29, 
-      AutoLayout      =   Canvas1, 3, <Parent>, 3, False, +1.00, 1, 1, 315, 
       AutoLayout      =   Canvas1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 3, <Parent>, 3, False, +1.00, 1, 1, 315, 
       AutoLayout      =   Canvas1, 8, , 0, False, +1.00, 1, 1, 24, 
+      AutoLayout      =   Canvas1, 7, , 0, False, +1.00, 2, 1, 29, 
       Height          =   24.0
       Left            =   0
       LockedInPosition=   False
@@ -38,11 +38,19 @@ Begin iosView UIdynamicsView
       Width           =   29.0
    End
    Begin AppleDynamicsEventDelegate AppleDynamicsEventDelegate1
-      Height          =   0.0
-      Left            =   0.0
+      DebugDescription=   ""
+      Description     =   ""
+      Hash            =   ""
+      HasOwnership    =   False
+      IsNIL           =   False
+      Left            =   0
       LockedInPosition=   False
-      Top             =   0.0
-      Width           =   0.0
+      mHasOwnership   =   False
+      PanelIndex      =   -1
+      Parent          =   ""
+      RetainCount     =   ""
+      Scope           =   0
+      Top             =   0
    End
 End
 #tag EndIOSView
@@ -60,11 +68,11 @@ End
 
 	#tag Event
 		Sub ToolbarPressed(button As iOSToolButton)
-		  dim help as new InfoView ("AppleDynamics (aka UIDynamics) is an optional framework part of UIKit. It gives you full physics simulation features for every view (= every control)."+EndOfline+EndOfline+ _
-		  "Short Introduction:"+EndOfline+"The base object is an AppleDynamicAnimator. As long as the animator lives, it can perform its attached behaviors. You instantiate it with a view as reference object."+EndOfline + _
-		  "If you want to use the events, you should use an AppleDynamicsEventDelegate like in this demo. Assign it to the Animator’s EventDelegate property right after instantiation, so it will tweak AppleCollisionBehaviors’ delegates to this custom delegate when you add them." + EndOfline+ _
-		  "If you don’t, you can always create your own behavior subclasses. Without an EventDelegate the behaviors fire events themselves."+EndOfline+EndOfline+ _
-		  "Next you should add different behaviors to controls. You are better off to remove their autolayout constraints or they could interfere with the animation, so a better way is to create them programmatically and add them to a view as a layer."+EndOfline + EndOfline+ _
+		  dim help as new InfoView ("AppleDynamics (aka UIDynamics) is an optional framework part of UIKit. It gives you full physics simulation features for every view (= every control)."+eol+eol+ _
+		  "Short Introduction:"+eol+"The base object is an AppleDynamicAnimator. As long as the animator lives, it can perform its attached behaviors. You instantiate it with a view as reference object."+eol + _
+		  "If you want to use the events, you should use an AppleDynamicsEventDelegate like in this demo. Assign it to the Animator’s EventDelegate property right after instantiation, so it will tweak AppleCollisionBehaviors’ delegates to this custom delegate when you add them." + eol+ _
+		  "If you don’t, you can always create your own behavior subclasses. Without an EventDelegate the behaviors fire events themselves."+eol+eol+ _
+		  "Next you should add different behaviors to controls. You are better off to remove their autolayout constraints or they could interfere with the animation, so a better way is to create them programmatically and add them to a view as a layer."+eol + eol+ _
 		  "Finally add the behaviors to the animator and off you go!")
 		  self.PushToCurl help
 		  
@@ -82,7 +90,7 @@ End
 		  
 		  dim collision as new AppleCollisionBehavior (ImageView1)
 		  collision.TranslatesReferenceBoundsIntoBoundary = true
-		  collision.AddBoundary ("barrier", new AppleBezierPath(Canvas1.AppleView.Frame))
+		  collision.AddBoundary ("barrier", new AppleBezierPath(Canvas1.view.Frame))
 		  collision.CollisionBehavior = AppleCollisionBehavior.UICollisionBehaviorMode.Everything
 		  
 		  dim Behavior as new AppleDynamicItemBehavior (ImageView1)

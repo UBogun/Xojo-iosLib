@@ -67,7 +67,7 @@ Protected Module FoundationFrameWork
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function NSMakeSize(height as Double, width as double) As FoundationFramework.NSSize
+		Protected Function NSMakeSize(width as Double, height as double) As FoundationFramework.NSSize
 		  dim NS as FoundationFramework.NSSize
 		  ns.height = height
 		  ns.width = width
@@ -108,9 +108,6 @@ Protected Module FoundationFrameWork
 		IntegerSize As UInteger
 	#tag EndComputedProperty
 
-
-	#tag Constant, Name = CoreFoundation, Type = Text, Dynamic = False, Default = \"CoreFoundation.framework", Scope = Public
-	#tag EndConstant
 
 	#tag Constant, Name = FoundationLibName, Type = Text, Dynamic = False, Default = \"Foundation.framework", Scope = Public
 	#tag EndConstant
@@ -197,6 +194,12 @@ Protected Module FoundationFrameWork
 		  NSInteger = 15
 		  CGFloat = 16
 		Max = 16
+	#tag EndEnum
+
+	#tag Enum, Name = NSComparisonResult, Type = Integer, Flags = &h0
+		Ascending = -1
+		  Same
+		Descending
 	#tag EndEnum
 
 

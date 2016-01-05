@@ -10,16 +10,16 @@ Begin iosView CAEmitterLayerView
    Begin ioslibemitterview testview
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       Height          =   415.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   0
       Top             =   65
-      Visible         =   True
+      Visible         =   False
       Width           =   320.0
    End
 End
@@ -52,18 +52,18 @@ End
 	#tag Event
 		Sub ToolbarPressed(button As iOSToolButton)
 		  if button.Caption = "Help" then
-		    dim help as new InfoView ("AppleCAEmitterLayer is another subclass of CALayers. Again, you can add one as a sublayer or use the custom control that takes care of autoresizing the layer's bounds."+endofline + _
-		    "CAEmitterLayer is not complete without at least one CAEmitterCell (you can attach as many as you like, the property is an array)."+ endofline + _
-		    "In this case, I have only created a simple demo with no parameters to influence. But I would encourage you to experiment with it and would be glad if you could add another playground demo view to the project." + endofline + _
+		    dim help as new InfoView ("AppleCAEmitterLayer is another subclass of CALayers. Again, you can add one as a sublayer or use the custom control that takes care of autoresizing the layer's bounds."+eol + _
+		    "CAEmitterLayer is not complete without at least one CAEmitterCell (you can attach as many as you like, the property is an array)."+ eol + _
+		    "In this case, I have only created a simple demo with no parameters to influence. But I would encourage you to experiment with it and would be glad if you could add another playground demo view to the project." + eol + _
 		    "Many properties of the EmitterLayer and the Cell are animatable too, they will follow.")
 		    self.PushToCurl help
 		  elseif button.Caption = "Animate" then
 		    MakeEmitter
 		    // iOSLibTextView1.Layer.MasksToBounds = true
 		  else
-		    // dim myvalue as AppleNumber = AppleNumber.MakeFromPtr (testview.AppleView.ValueForKeyPath ("layer.self"))
-		    // testview.AppleView.setValueForKeyPath ("layer.sublayers.%@.emitterCells.%@.enabled", new AppleNumber (fALSE))
-		    // testview.AppleView.setValueForKeyPath ("layer.Emitterlayer.zPosition", new AppleNumber (-2))
+		    // dim myvalue as AppleNumber = AppleNumber.MakeFromPtr (testview.view.ValueForKeyPath ("layer.self"))
+		    // testview.view.setValueForKeyPath ("layer.sublayers.%@.emitterCells.%@.enabled", new AppleNumber (fALSE))
+		    // testview.view.setValueForKeyPath ("layer.Emitterlayer.zPosition", new AppleNumber (-2))
 		    testview.EmitterLayer.DisableEmitters
 		    
 		  end if
@@ -74,7 +74,7 @@ End
 	#tag Method, Flags = &h0
 		Sub MakeEmitter()
 		  // dim  mylayer as new AppleCAEmitterLayer
-		  // mylayer.bounds = testview.AppleView.Bounds
+		  // mylayer.bounds = testview.view.Bounds
 		  // myLayer.Frame = myLayer.bounds
 		  // myLayer.MasksToBounds = true
 		  // myLayer.name = "EmitterLayer"
@@ -83,9 +83,9 @@ End
 		  
 		  // mylayer.ContentsPositioning = AppleCALayer.CaLayerContentPosition.Center
 		  // mylayer.LevelsOfDetail = 1
-		  // testview.AppleView.Layer.AddSubLayer mylayer
+		  // testview.view.Layer.AddSubLayer mylayer
 		  // mylayer.Seed = 1394639
-		  // testview.AppleView.layer.Contents =new AppleObject ( myimage.toCGImage)
+		  // testview.view.layer.Contents =new AppleObject ( myimage.toCGImage)
 		  
 		  
 		  dim  myEmitterCell as new AppleCAEmitterCell
@@ -94,7 +94,7 @@ End
 		  testview.EmitterLayer.EmitterCells = mylib
 		  dim myimage as new AppleImage (Birnebuntklein)
 		  
-		  myEmitterCell.Contents =myimage.toCGImage
+		  myEmitterCell.Contents =myimage.CGImage
 		  myEmitterCell.Name = "iOSLibLogoCell"
 		  
 		  myEmitterCell.LifeTime = 100

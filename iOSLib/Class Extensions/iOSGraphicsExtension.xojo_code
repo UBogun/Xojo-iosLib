@@ -127,7 +127,7 @@ Protected Module iOSGraphicsExtension
 
 	#tag Method, Flags = &h0
 		Sub ClipToMask(extends g as iosgraphics, Mask as iOSImage)
-		  g.CGContext.ClipToMask (mask.toAppleImage.toCGImage)
+		  g.CGContext.ClipToMask (mask.toAppleImage.CGImage)
 		End Sub
 	#tag EndMethod
 
@@ -232,7 +232,7 @@ Protected Module iOSGraphicsExtension
 		  g.SaveState // saving the current state because the context needs to be flipped for the tiledimage call
 		  g.Translate (0, g.Height) // flip it
 		  g.Scale (1, -1)
-		  g.CGContext.DrawTiledImage FoundationFrameWork.NSMakeRect (x,y,width, height), image.toAppleImage.toCGImage
+		  g.CGContext.DrawTiledImage FoundationFrameWork.NSMakeRect (x,y,width, height), image.toAppleImage.CGImage
 		  g.RestoreState
 		End Function
 	#tag EndMethod
@@ -242,7 +242,7 @@ Protected Module iOSGraphicsExtension
 		  g.SaveState // saving the current state because the context needs to be flipped for the tiledimage call
 		  g.Translate (0, g.Height) // flip it
 		  g.Scale (1, -1)
-		  g.CGContext.DrawTiledImage TileSize.tonsrect, image.toAppleImage.toCGImage
+		  g.CGContext.DrawTiledImage TileSize.tonsrect, image.toAppleImage.CGImage
 		  g.RestoreState
 		End Function
 	#tag EndMethod

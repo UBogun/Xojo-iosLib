@@ -427,7 +427,7 @@ Inherits AppleObject
 		#tag EndGetter
 		#tag Setter
 			Set
-			  if InputKeys.ContainsText (kCIInputBackgroundImageKey) then InputBackgroundCIImage = new AppleCIImage(value.toCGImage)
+			  if InputKeys.ContainsText (kCIInputBackgroundImageKey) then InputBackgroundCIImage = new AppleCIImage(value.CGImage)
 			End Set
 		#tag EndSetter
 		InputBackgoundImage As AppleImage
@@ -582,7 +582,7 @@ Inherits AppleObject
 		#tag EndGetter
 		#tag Setter
 			Set
-			  InputCIImage = new AppleCIImage(value.toCGImage)
+			  InputCIImage = new AppleCIImage(value.CGImage)
 			End Set
 		#tag EndSetter
 		InputImage As AppleImage
@@ -637,7 +637,7 @@ Inherits AppleObject
 		#tag EndGetter
 		#tag Setter
 			Set
-			  if InputKeys.ContainsText (kCIInputBackgroundImageKey) then InputBackgroundCIImage = new AppleCIImage(value.toCGImage)
+			  if InputKeys.ContainsText (kCIInputBackgroundImageKey) then InputBackgroundCIImage = new AppleCIImage(value.CGImage)
 			End Set
 		#tag EndSetter
 		InputMaskImage As AppleImage
@@ -733,7 +733,7 @@ Inherits AppleObject
 		#tag EndGetter
 		#tag Setter
 			Set
-			  if InputKeys.ContainsText (kCIInputBackgroundImageKey) then InputBackgroundCIImage = new AppleCIImage(value.toCGImage)
+			  if InputKeys.ContainsText (kCIInputBackgroundImageKey) then InputBackgroundCIImage = new AppleCIImage(value.CGImage)
 			End Set
 		#tag EndSetter
 		InputTargetImage As AppleImage
@@ -1144,21 +1144,6 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -1231,26 +1216,11 @@ Inherits AppleObject
 			Type="double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

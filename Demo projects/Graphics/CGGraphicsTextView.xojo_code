@@ -10,10 +10,10 @@ Begin iosView CGGraphicsTextView
    Begin iOScanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Canvas1, 4, AFontSmoothSW, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Canvas1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Height          =   251.0
       Left            =   20
       LockedInPosition=   False
@@ -25,10 +25,10 @@ Begin iosView CGGraphicsTextView
    Begin iOSSwitch AFontSmoothSW
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   AFontSmoothSW, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   AFontSmoothSW, 1, Canvas1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   AFontSmoothSW, 4, AFontSPixPosSW, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   AFontSmoothSW, 7, , 0, True, +1.00, 1, 1, 51, 
+      AutoLayout      =   AFontSmoothSW, 1, Canvas1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AFontSmoothSW, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   AFontSmoothSW, 4, AFontSPixPosSW, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Enabled         =   True
       Height          =   31.0
       Left            =   20
@@ -42,13 +42,14 @@ Begin iosView CGGraphicsTextView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 3, AFontSmoothSW, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 86, 
       AutoLayout      =   Label1, 2, Canvas1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 3, AFontSmoothSW, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 86, 
       Enabled         =   True
       Height          =   30.0
       Left            =   86
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Font Smoothing"
@@ -63,10 +64,10 @@ Begin iosView CGGraphicsTextView
    Begin iOSSwitch AFontSPixPosSW
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   AFontSPixPosSW, 1, AFontSmoothSW, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   AFontSPixPosSW, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   AFontSPixPosSW, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   AFontSPixPosSW, 4, AFontSPixQSW, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
+      AutoLayout      =   AFontSPixPosSW, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   AFontSPixPosSW, 1, AFontSmoothSW, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AFontSPixPosSW, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   20
@@ -80,10 +81,10 @@ Begin iosView CGGraphicsTextView
    Begin iOSSlider SizeSlider
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   SizeSlider, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   SizeSlider, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   SizeSlider, 7, , 0, False, +1.00, 1, 1, 280, 
       AutoLayout      =   SizeSlider, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   SizeSlider, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   SizeSlider, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   SizeSlider, 7, , 0, False, +1.00, 1, 1, 280, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -99,13 +100,14 @@ Begin iosView CGGraphicsTextView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 3, AFontSPixPosSW, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 214, 
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label2, 1, Label1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 214, 
+      AutoLayout      =   Label2, 3, AFontSPixPosSW, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   86
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Font SubPixel Positioning"
@@ -120,13 +122,14 @@ Begin iosView CGGraphicsTextView
    Begin iOSLabel Label3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label3, 3, AFontSPixPosSW, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 214, 
-      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label3, 1, Label2, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 214, 
+      AutoLayout      =   Label3, 3, AFontSPixPosSW, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   86
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Font SubPixel Quantization"
@@ -141,10 +144,10 @@ Begin iosView CGGraphicsTextView
    Begin iOSSwitch AFontSPixQSW
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   AFontSPixQSW, 1, SizeSlider, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   AFontSPixQSW, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   AFontSPixQSW, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   AFontSPixQSW, 4, SizeSlider, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   AFontSPixQSW, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   AFontSPixQSW, 1, SizeSlider, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AFontSPixQSW, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   20

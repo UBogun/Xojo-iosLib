@@ -1,5 +1,5 @@
 #tag Class
-Protected Class AppleSet
+ Attributes ( incomplete ) Protected Class AppleSet
 Inherits AppleObject
 	#tag Method, Flags = &h1000
 		Sub Constructor()
@@ -61,6 +61,26 @@ Inherits AppleObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function toPressCoreArray() As ApplePress()
+		  dim result() as ApplePress
+		  for q as integer = 1 to me.Count
+		    result.Append applepress(me.AllObjects.ObjectAtIndex(q-1))
+		  next
+		  return result
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function toTouchCoreArray() As AppleTouch()
+		  dim result() as AppleTouch
+		  for q as integer = 1 to me.Count
+		    result.Append appletouch.MakefromPtr(me.AllObjects.ptratindex(q-1))
+		  next
+		  return result
+		End Function
+	#tag EndMethod
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
@@ -108,19 +128,9 @@ Inherits AppleObject
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="DebugDescription"
+			Name="Count"
 			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -130,26 +140,11 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"

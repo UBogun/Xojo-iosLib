@@ -1,6 +1,20 @@
 #tag Class
 Protected Class AppleSKView
 Inherits AppleView
+	#tag Method, Flags = &h0
+		 Shared Function ClassAvailable() As Boolean
+		  static isenabled as Boolean
+		  if not isenabled then
+		    dim result as ptr =  FoundationFramework.NSClassFromString ("SKView")
+		    if result = nil then
+		      call AppleLibSystem.LoadFramework ("SpriteKit") // If something goes wrong, we have an expection here.
+		    end if
+		    isenabled = true
+		  end if
+		  return isenabled
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1021
 		Private Sub Constructor()
 		  
@@ -39,127 +53,120 @@ Inherits AppleView
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidAddSubview(pid as ptr, sel as ptr, view as Ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informonDidAddSubview  (view)
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidApplyConstraints(scene as ptr)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidApplyConstraints (scene)
+		  else
+		    RaiseEvent DidApplyConstraints(appleskscene.makefromptr (scene))
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidBeginContact(scene as ptr, Contact as Ptr)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidBeginContact (scene, contact)
+		  else
+		    RaiseEvent DidBeginContact (appleskscene.makefromptr(scene), new AppleSKPhysicsContact (contact))
+		  end if
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidMoveToSuperview(pid as ptr, sel as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informonDidMoveToSuperview
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidChangeSize(scene as ptr, OldSize as FoundationFramework.NSSize)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidChangeSize (scene, oldsize)
+		  else
+		    RaiseEvent DidChangeSize (appleskscene.makefromptr (scene),oldsize)
+		  end if
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_DidMoveToWindow(pid as ptr, sel as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informonDidMoveToWindow
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidEndContact(scene as ptr, Contact as Ptr)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidEndContact (scene, contact)
+		  else
+		    RaiseEvent DidEndContact (appleskscene.makefromptr(scene), new AppleSKPhysicsContact (contact))
+		  end if
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_layoutSubviews(pid as ptr, sel as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informonLayoutSubviews
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidEvaluteActions(scene as ptr)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidEvaluteActions (scene)
+		  else
+		    RaiseEvent DidEvaluateActions(appleskscene.makefromptr (scene))
+		  end if
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionBeganwithEvent(pid as ptr, sel as ptr, type as AppleNSEvent.UIEventSubtype, anevent as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informOnMotionBeganwithEvent  (type, anevent)
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidFinishUpdate(scene as ptr)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidFinishUpdate (scene)
+		  else
+		    RaiseEvent DidFinishUpdate (appleskscene.makefromptr (scene))
+		  end if
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionCancelledwithEvent(pid as ptr, sel as ptr, type as AppleNSEvent.UIEventSubtype, anevent as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informOnMotionCancelledwithEvent  (type, anevent)
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informondidMoveToView(scene as Ptr)
+		  if ParentControl <> nil then
+		    ParentControl.informondidMoveToView (scene)
+		  else
+		    RaiseEvent didMoveToView (appleskscene.makefromptr( scene))
+		  end if
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_MotionEndedwithEvent(pid as ptr, sel as ptr, type as AppleNSEvent.UIEventSubtype, anevent as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informOnMotionEndedwithEvent  (type, anevent)
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonDidSimulatePhysics(scene as ptr)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidSimulatePhysics (scene)
+		  else
+		    RaiseEvent DidSimulatePhysics (appleskscene.makefromptr(scene))
+		  end if
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_TouchesBeganwithEvent(pid as ptr, sel as ptr, touchset as Ptr, anevent as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informOnTouchesBeganwithEvent  (touchset, anevent)
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub InformOnSceneUpdate(scene as ptr, CurrentTime as double)
+		  if ParentControl <> nil then
+		    ParentControl.InformOnSceneUpdate (scene, currenttime)
+		  else
+		    RaiseEvent UpdateForScene (appleskscene.makefromptr(scene), currenttime)
+		  end if
 		  
 		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_TouchesCancelledwithEvent(pid as ptr, sel as ptr, touchset as Ptr, anevent as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informOnTouchesCancelledwithEvent  (touchset, anevent)
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_TouchesEndedwithEvent(pid as ptr, sel as ptr, touchset as Ptr, anevent as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informOnTouchesEndedwithEvent  (touchset, anevent)
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_TouchesMovedwithEvent(pid as ptr, sel as ptr, touchset as Ptr, anevent as ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informOnTouchesMovedwithEvent  (touchset, anevent)
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_willMoveToSuperview(pid as ptr, sel as ptr, view as Ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informonwillMoveToSuperview  (view)
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_willMoveToWindow(pid as ptr, sel as ptr, window as Ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informonwillMoveToWindow (window)
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub impl_willRemoveSubview(pid as ptr, sel as ptr, view as Ptr)
-		  dim ego as new AppleSKView (pid)
-		  ego.informonwillRemoveSubview  (view)
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonwillMoveFromView(scene as ptr)
+		  if ParentControl <> nil then
+		    ParentControl.informonwillMoveFromView (scene)
+		  else
+		    RaiseEvent SceneWillMoveFromView (appleskscene.makefromptr(scene))
+		  end if
 		  
 		  
 		End Sub
@@ -168,6 +175,18 @@ Inherits AppleView
 	#tag Method, Flags = &h0
 		 Shared Function MakeFromPtr(aPtr as Ptr) As AppleSKView
 		  Return if (aptr = NIL, NIL, new AppleSKView (aptr))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 496E7465726E616C3A2054686520694F5375736572636F6E74726F6C20737562636C61737320696620636F6E7461696E656420696E20737563682E
+		Attributes( hidden )  Function ParentControl() As ioslibskview
+		  if xojocontrols <> nil and XojoControls.HasKey (id)  then
+		    dim wr as weakref = XojoControls.Value (id)
+		    if wr <> NIL then
+		      return ioslibskview(wr.Value)
+		    end if
+		  end if
+		  
 		End Function
 	#tag EndMethod
 
@@ -183,20 +202,6 @@ Inherits AppleView
 		  Declare Sub presentScenetransition lib SpriteKit selector "presentScene:transition:" (id as ptr, aScene as ptr, transition as ptr)
 		  presentScenetransition id, aScene.id, Transition.id
 		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		 Shared Function SpriteKitEnabled() As Boolean
-		  static isenabled as Boolean
-		  if not isenabled then
-		    dim result as ptr =  FoundationFramework.NSClassFromString ("SKView")
-		    if result = nil then
-		      call AppleLibSystem.LoadFramework ("SpriteKit") // If something goes wrong, we have an expection here.
-		    end if
-		    isenabled = true
-		  end if
-		  return isenabled
-		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -221,7 +226,43 @@ Inherits AppleView
 
 
 	#tag Hook, Flags = &h0
-		Event DidMoveToView(view as AppleSKView)
+		Event DidApplyConstraints(Scene as AppleSKScene)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DidBeginContact(Scene as appleSKScene, Contact as appleSKPhysicsContact)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DidChangeSize(Scene as AppleSKScene, OldSize As FoundationFramework.NSSize)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DidEndContact(Scene as AppleSKScene, Contact as AppleSKPhysicsContact)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DidEvaluateActions(Scene as AppleSKScene)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DidFinishUpdate(Scene as AppleSKScene)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DidMoveToView(scene as AppleSKScene)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event DidSimulatePhysics(scene as AppleSKScene)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event SceneWillMoveFromView(scene as AppleSKScene)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event UpdateForScene(Scene as AppleSKScene, CurrentTime as Double)
 	#tag EndHook
 
 
@@ -260,28 +301,33 @@ Inherits AppleView
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  // static mClassPtr as Ptr
-			  // if SpriteKitEnabled then
-			  // if mClassPtr = nil then
-			  //  mClassPtr  =  FoundationFramework.NSClassFromString ("SKView")
-			  // end if
-			  // end if
-			  // return mClassPtr
-			  
-			  
 			  static targetID as ptr
-			  if AppleSKView.SpriteKitEnabled then
+			  if AppleSKView.ClassAvailable then
 			    if targetID = Nil then
 			      dim methods() as TargetClassMethodHelper
+			      //override UIView methods
 			      //override UIView methods
 			      methods.Append new TargetClassMethodHelper("willMoveToWindow:", AddressOf impl_willMoveToWindow, "v@:@")
 			      methods.Append new TargetClassMethodHelper("didMoveToWindow", AddressOf impl_DidMoveToWindow, "v@:")
 			      methods.Append new TargetClassMethodHelper("willMoveToSuperview:", AddressOf impl_willMoveToSuperview, "v@:@")
 			      methods.Append new TargetClassMethodHelper("didMoveToSuperview", AddressOf impl_DidMoveToSuperview, "v@:")
 			      methods.Append new TargetClassMethodHelper("willRemoveSubview:", AddressOf impl_willRemoveSubview, "v@:@")
-			      methods.Append new TargetClassMethodHelper("didAddSubview:", AddressOf impl_DidAddSubview, "v@:@")
+			      // methods.Append new TargetClassMethodHelper("didAddSubview:", AddressOf impl_DidAddSubview, "v@:@")
 			      methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
+			      // methods.Append new TargetClassMethodHelper("layerClass", AddressOf impl_layerclass, "@@:", true, true)
+			      // methods.Append new TargetClassMethodHelper("tintColorDidChange", AddressOf impl_tintColorDidChange, "v@:")
 			      
+			      // #if Target64Bit
+			      // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")
+			      // #elseif Target32Bit
+			      // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect32, "v@:{CGRect}")
+			      // #endif
+			      
+			      //TraitEnvironment Protocol
+			      methods.Append new TargetClassMethodHelper("traitCollectionDidChange:", AddressOf impl_traitCollectionDidChange, "v@:@")
+			      
+			      
+			      //Add UIResponder methods too
 			      methods.Append new TargetClassMethodHelper("touchesBegan:withEvent:", AddressOf impl_TouchesBeganWithEvent, "v@:@@")
 			      methods.Append new TargetClassMethodHelper("touchesEnded:withEvent:", AddressOf impl_TouchesEndedWithEvent, "v@:@@")
 			      methods.Append new TargetClassMethodHelper("touchesMoved:withEvent:", AddressOf impl_TouchesMovedWithEvent, "v@:@@")
@@ -291,14 +337,19 @@ Inherits AppleView
 			      methods.Append new TargetClassMethodHelper("motionEnded:withEvent:", AddressOf impl_MotionEndedWithEvent, "v@:i@")
 			      methods.Append new TargetClassMethodHelper("motionCancelled:withEvent:", AddressOf impl_MotionCancelledWithEvent, "v@:i@")
 			      
+			      methods.Append new TargetClassMethodHelper("touchesEstimatedPropertiesUpdated:", AddressOf impl_touchesEstimatedPropertiesUpdated, "v@:@")
+			      methods.Append new TargetClassMethodHelper("remoteControlReceivedWithEvent:", AddressOf impl_remoteControlReceivedWithEvent, "v@:@")
 			      
-			      // #if Target64Bit
-			      // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")
-			      // #elseif Target32Bit
-			      // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect32, "v@:{CGRect}")
-			      // #endif
+			      if ApplePress.ClassAvailable then
+			        methods.Append new TargetClassMethodHelper("pressesBegan:withEvent:", AddressOf impl_pressesBeganWithEvent, "v@:@@")
+			        methods.Append new TargetClassMethodHelper("pressesCancelled:withEvent:", AddressOf impl_pressesCancelledWithEvent, "v@:@@")
+			        methods.Append new TargetClassMethodHelper("pressesChanged:withEvent:", AddressOf impl_pressesChangedWithEvent, "v@:@@")
+			        methods.Append new TargetClassMethodHelper("pressesEnded:withEvent:", AddressOf impl_pressesEndedWithEvent, "v@:@@")
+			      end if
 			      
-			      targetID = BuildTargetClass ("SKView", "AppleSKView",methods)
+			      
+			      
+			      targetID = BuildTargetClass ("SKView", "iOSLibSKView",methods)
 			    end if
 			  end if
 			  Return targetID

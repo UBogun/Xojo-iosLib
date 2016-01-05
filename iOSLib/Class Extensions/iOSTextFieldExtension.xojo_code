@@ -2,153 +2,147 @@
 Protected Module iOSTextFieldExtension
 	#tag Method, Flags = &h0
 		Function AdjustTextSize(extends f as iOSTextField) As Boolean
-		  return f.AppleTextField.AdjustsFontSizeToFitWidth
+		  return f.view.AdjustsFontSizeToFitWidth
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub AdjustTextSize(extends f as iOSTextField, assigns value as Boolean)
-		  f.AppleTextField.AdjustsFontSizeToFitWidth = value
+		  f.view.AdjustsFontSizeToFitWidth = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AllowsStyledText(extends f as iOSTextField) As Boolean
-		  return f.AppleTextField.AllowsEditingTextAttributes
+		  return f.view.AllowsEditingTextAttributes
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub AllowsStyledText(extends f as iOSTextField, assigns value as Boolean)
-		  f.AppleTextField.AllowsEditingTextAttributes = value
+		  f.view.AllowsEditingTextAttributes = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function AppleTextField(extends f as iOSTextField) As AppleTextfield
-		  return new AppleTextfield (f.Handle)
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Function BackgroundImage(extends f as iOSTextField) As iOSImage
-		  return f.AppleTextField.BackgroundImage.toiOSImage
+		  return f.view.BackgroundImage.toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub BackgroundImage(extends f as iOSTextField, assigns value as iOSImage)
-		  f.AppleTextField.BackgroundImage = value.toAppleImage
+		  f.view.BackgroundImage = value.toAppleImage
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function BorderStyle(extends f as iOSTextField) As AppleTextfield.UITextFieldBorderStyle
-		  return f.AppleTextField.BorderStyle
+		  return f.view.BorderStyle
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub BorderStyle(extends f as iOSTextField, assigns value as AppleTextfield.UITextFieldBorderStyle)
-		  f.AppleTextField.BorderStyle = value
+		  f.view.BorderStyle = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ClearBackgroundimage(extends f as iOSTextField)
-		  f.AppleTextField.BackgroundImage = Nil
+		  f.view.BackgroundImage = Nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ClearButtonMode(extends f as iOSTextField) As uikitframework.UITextFieldViewMode
-		  return f.AppleTextField.ClearButtonMode
+		Function ClearButtonMode(extends f as iOSTextField) As appletextfield.UITextFieldViewMode
+		  return f.view.ClearButtonMode
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub ClearButtonMode(extends f as iOSTextField, assigns value as uikitframework.UITextFieldViewMode)
-		  f.AppleTextField.ClearButtonMode = value
+		Sub ClearButtonMode(extends f as iOSTextField, assigns value as appletextfield.UITextFieldViewMode)
+		  f.view.ClearButtonMode = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ClearDisabledBackgroundimage(extends f as iOSTextField)
-		  f.AppleTextField.DisabledBackgroundImage = Nil
+		  f.view.DisabledBackgroundImage = Nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ClearInputAccessoryView(extends f as iOSTextField)
-		  f.AppleTextField.InputAccessoryView = Nil
+		  f.view.InputAccessoryView = Nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ClearLeftImage(extends f as iOSTextField)
-		  f.AppleTextField.LeftView = Nil
+		  f.view.LeftView = Nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ClearRightImage(extends f as iOSTextField)
-		  f.AppleTextField.RightView = Nil
+		  f.view.RightView = Nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ClearsOnEditBegin(extends f as iOSTextField) As Boolean
-		  return f.AppleTextField.ClearsOnEditBegin
+		  return f.view.ClearsOnEditBegin
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ClearsOnEditBegin(extends f as iOSTextField, assigns value as Boolean)
-		  f.AppleTextField.ClearsOnEditBegin = value
+		  f.view.ClearsOnEditBegin = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function ClearsOnInsertion(extends f as iOSTextField) As Boolean
-		  return f.AppleTextField.ClearsOnInsertion
+		  return f.view.ClearsOnInsertion
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub ClearsOnInsertion(extends f as iOSTextField, assigns value as Boolean)
-		  f.AppleTextField.ClearsOnInsertion = value
+		  f.view.ClearsOnInsertion = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function DisabledBackgroundImage(extends f as iOSTextField) As iOSImage
-		  return f.AppleTextField.DisabledBackgroundImage.toiOSImage
+		  return f.view.DisabledBackgroundImage.toiOSImage
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DisabledBackgroundImage(extends f as iOSTextField, assigns value as iOSImage)
-		  f.AppleTextField.DisabledBackgroundImage = value.toAppleImage
+		  f.view.DisabledBackgroundImage = value.toAppleImage
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Editing(extends f as iOSTextField) As Boolean
+		  return f.view.Editing
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub InputAccessoryView(extends f as iOSTextField, assigns value as iOSControl)
-		  f.AppleTextField.InputAccessoryView = new AppleView (value.Handle)
+		  f.view.InputAccessoryView = new AppleView (value.Handle)
 		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function isEditing(extends f as iOSTextField) As Boolean
-		  return f.AppleTextField.isEditing
-		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub LeftImage(extends f as iOSTextField, assigns value as iOSImage)
 		  dim newImage as new AppleImage(value)
-		  dim Scaledimage as AppleImage = newImage.Resize (newImage.Height / f.Height)
-		  f.AppleTextField.LeftView = new AppleimageView(scaledimage)
+		  dim Scaledimage as AppleImage = newImage.Resize ( f.Height / newImage.Height)
+		  f.view.LeftView = new AppleimageView(scaledimage)
 		  
 		End Sub
 	#tag EndMethod
@@ -156,40 +150,40 @@ Protected Module iOSTextFieldExtension
 	#tag Method, Flags = &h0
 		Sub LeftImageNoScale(extends f as iOSTextField, assigns value as iOSImage)
 		  dim newImage as new AppleImage(value)
-		  f.AppleTextField.LeftView = new AppleimageView(newImage)
+		  f.view.LeftView = new AppleimageView(newImage)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function LeftViewMode(extends f as iOSTextField) As uikitframework.UITextFieldViewMode
-		  return f.AppleTextField.LeftViewMode
+		Function LeftViewMode(extends f as iOSTextField) As appletextfield.UITextFieldViewMode
+		  return f.view.LeftViewMode
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub LeftViewMode(extends f as iOSTextField, assigns value as uikitframework.UITextFieldViewMode)
-		  f.AppleTextField.LeftViewMode = value
+		Sub LeftViewMode(extends f as iOSTextField, assigns value as appletextfield.UITextFieldViewMode)
+		  f.view.LeftViewMode = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function MinimumFontSize(extends f as iOSTextField) As Double
-		  return f.AppleTextField.MinimumFontSize
+		  return f.view.MinimumFontSize
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub MinimumFontSize(extends f as iOSTextField, assigns value as Double)
-		  f.AppleTextField.MinimumFontSize = value
+		  f.view.MinimumFontSize = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub RightImage(extends f as iOSTextField, assigns value as iOSImage)
 		  dim newImage as new AppleImage(value)
-		  dim Scaledimage as AppleImage = newImage.Resize (newImage.Height / f.Height)
-		  f.AppleTextField.RightView = new AppleimageView(scaledimage)
+		  dim Scaledimage as AppleImage = newImage.Resize( f.Height / newImage.Height)
+		  f.view.RightView = new AppleimageView(scaledimage)
 		  
 		End Sub
 	#tag EndMethod
@@ -197,21 +191,27 @@ Protected Module iOSTextFieldExtension
 	#tag Method, Flags = &h0
 		Sub RightImageNoScale(extends f as iOSTextField, assigns value as iOSImage)
 		  dim newImage as new AppleImage(value)
-		  f.AppleTextField.RightView = new AppleimageView(newImage)
+		  f.view.RightView = new AppleimageView(newImage)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RightViewMode(extends f as iOSTextField) As uikitframework.UITextFieldViewMode
-		  return f.AppleTextField.RightViewMode
+		Function RightViewMode(extends f as iOSTextField) As appletextfield.UITextFieldViewMode
+		  return f.view.RightViewMode
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub RightViewMode(extends f as iOSTextField, assigns value as uikitframework.UITextFieldViewMode)
-		  f.AppleTextField.RightViewMode = value
+		Sub RightViewMode(extends f as iOSTextField, assigns value as appletextfield.UITextFieldViewMode)
+		  f.view.RightViewMode = value
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function view(extends f as iOSTextField) As AppleTextfield
+		  return new AppleTextfield (f.Handle)
+		End Function
 	#tag EndMethod
 
 

@@ -1,0 +1,612 @@
+#tag Class
+Protected Class AppleWindow
+Inherits AppleView
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub AttachNotificationCenter()
+		  if NotificationObjects = nil then 
+		    NotificationObjects = new Dictionary
+		    dim result as iOSLibNotificationObject
+		    dim VisibleBlock as new AppleBlock (addressof BecameVisibleBlock)
+		    result = AppleNotificationCenter.DefaultCenter.addObserverForName (kUIWindowDidBecomeVisibleNotification, id, AppleOperationQueue.MainQueue, VisibleBlock.Handle)
+		    NotificationObjects.Value(result) = result
+		    dim HiddenBlock as new AppleBlock (addressof BecameHiddenBlock)
+		    result =   AppleNotificationCenter.DefaultCenter.addObserverForName (kUIWindowDidBecomeHiddenNotification, id, AppleOperationQueue.MainQueue, hiddenblock.Handle)
+		    NotificationObjects.Value(result) = result
+		    dim KeyBlock as new AppleBlock (addressof BecameKeyBlock)
+		    result =   AppleNotificationCenter.DefaultCenter.addObserverForName (kUIWindowDidBecomeKeyNotification, id, AppleOperationQueue.MainQueue, KeyBlock.Handle)
+		    NotificationObjects.Value(result) = result
+		    dim ResignBlock as new AppleBlock (addressof ResignedKeyBlock)
+		    result =   AppleNotificationCenter.DefaultCenter.addObserverForName (kUIWindowDidResignKeyNotification, id, AppleOperationQueue.MainQueue, resignblock.Handle)
+		    NotificationObjects.Value(result) = result
+		    dim WillShowBlock as new AppleBlock (addressof WillShowNotificationBlock)
+		    result =   AppleNotificationCenter.DefaultCenter.addObserverForName (kUIKeyboardWillShowNotification, nil, AppleOperationQueue.MainQueue, WillShowBlock.Handle)
+		    NotificationObjects.Value(result) = result
+		    dim DidShowBlock as new AppleBlock (addressof DidShowNotificationBlock)
+		    result =   AppleNotificationCenter.DefaultCenter.addObserverForName (kUIKeyboardDidShowNotification, nil, AppleOperationQueue.MainQueue, DidShowBlock.Handle)
+		    NotificationObjects.Value(result) = result
+		    dim WillHideBlock as new AppleBlock (addressof WillHideKeyboardBlock)
+		    result =   AppleNotificationCenter.DefaultCenter.addObserverForName (kUIKeyboardWillHideNotification, nil, AppleOperationQueue.MainQueue, WillHideBlock.Handle)
+		    NotificationObjects.Value(result) = result
+		    dim DidHideBlock as new AppleBlock (addressof DidHideKeyboardBlock)
+		    result =   AppleNotificationCenter.DefaultCenter.addObserverForName (kUIKeyboardDidHideNotification, nil, AppleOperationQueue.MainQueue, DidHideBlock.Handle)
+		    NotificationObjects.Value(result) = result
+		    dim WillChangeBlock as new AppleBlock (addressof WillChangeKeyboardBlock)
+		    result =   AppleNotificationCenter.DefaultCenter.addObserverForName (kUIKeyboardWillChangeFrameNotification, nil, AppleOperationQueue.MainQueue, WillChangeBlock.Handle)
+		    NotificationObjects.Value(result) = result
+		    dim DidChangeBlock as new AppleBlock (addressof DidChangeKeyboardBlock)
+		    result =  AppleNotificationCenter.DefaultCenter.addObserverForName (kUIKeyboardDidChangeFrameNotification, nil, AppleOperationQueue.MainQueue, DidChangeBlock.Handle)
+		    NotificationObjects.Value(result) = result
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Shared Sub BecameHiddenBlock(notification as Ptr)
+		  dim notificationobject as new AppleNotification (notification)
+		  dim ego as  AppleWindow = AppleWindow.MakefromPtr(notificationobject.NotificationObject.id)
+		  if ego <> nil then ego.informonHidden
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Shared Sub BecameKeyBlock(Notification as Ptr)
+		  dim notificationobject as new AppleNotification (notification)
+		  dim ego as  AppleWindow = AppleWindow.MakefromPtr(notificationobject.NotificationObject.id)
+		  if ego <> nil then ego.informonBecameKey
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Shared Sub BecameVisibleBlock(Notification as ptr)
+		  dim notificationobject as new AppleNotification (notification)
+		  dim ego as  AppleWindow = AppleWindow.MakefromPtr(notificationobject.NotificationObject.id)
+		  if ego <> nil then ego.informonshown
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1021
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 506173732074686520626F756E6473206F6620616E206164646974696F6E616C2053637265656E20746F2063726561746520612077696E646F7720666F722069742E
+		Sub Constructor(Frame as FoundationFrameWork.nsrect)
+		  super.Constructor(doinitwithframe(alloc(classptr), frame))
+		  MHasownership = true
+		  AttachNotificationCenter
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(aptr as ptr)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleView
+		  // Constructor(aFrame as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(anID as Ptr) -- From AppleView
+		  // Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (aptr)
+		  AttachNotificationCenter
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 436F6E7665727473206120706F696E742066726F6D2074686520636F6F7264696E6174652073797374656D206F66206120676976656E2077696E646F7720746F2074686174206F66207468652063757272656E742077696E646F772E
+		Function ConvertPointFromWindow(point as FoundationFrameWork.nspoint, window as AppleWindow) As FoundationFrameWork.nspoint
+		  #if Target64Bit
+		    return ConvertPointfromWindow (id, point, window.id)
+		  #elseif target32bit
+		    return ConvertPointfromWindow32 (id, point.tonspoint32, window.id).tonspoint
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function convertPointFromWindow Lib UIKitLibname Selector "convertPoint:fromWindow:" (id as ptr, point as FoundationFrameWork . nspoint, window as ptr) As FoundationFrameWork.nspoint
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function convertPointfromWindow32 Lib UIKitLibname Selector "convertPoint:fromWindow:" (id as ptr, point as FoundationFrameWork . nspoint32bit, window as ptr) As FoundationFrameWork.nspoint32bit
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0, Description = 436F6E7665727473206120706F696E742066726F6D207468652077696E646F77E280997320636F6F7264696E6174652073797374656D20746F2074686174206F6620616E6F746865722077696E646F772E
+		Function ConvertPointToWindow(point as FoundationFrameWork.nspoint, window as AppleWindow) As FoundationFrameWork.nspoint
+		  #if Target64Bit
+		    return ConvertPointToWindow (id, point, window.id)
+		  #elseif target32bit
+		    return ConvertPointToWindow32 (id, point.tonspoint32, window.id).tonspoint
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function convertPointtoWindow Lib UIKitLibname Selector "convertPoint:toWindow:" (id as ptr, point as FoundationFrameWork . nspoint, window as ptr) As FoundationFrameWork.nspoint
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function convertPointtoWindow32 Lib UIKitLibname Selector "convertPoint:toWindow:" (id as ptr, point as FoundationFrameWork . nspoint32bit, window as ptr) As FoundationFrameWork.nspoint32bit
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0, Description = 436F6E766572747320612072656374616E676C652066726F6D2074686520636F6F7264696E6174652073797374656D206F6620616E6F746865722077696E646F7720746F2074686174206F66207468652063757272656E742077696E646F772E
+		Function ConvertRectFromWindow(rect as FoundationFrameWork.nsrect, window as AppleWindow) As FoundationFrameWork.nsrect
+		  #if Target64Bit
+		    return ConvertRectFromWindow (id, rect, window.id)
+		  #elseif target32bit
+		    return ConvertRectFromWindow32 (id, rect.tonsrect32, window.id).tonsrect
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function convertRectFromWindow Lib UIKitLibname Selector "convertRect:fromWindow:" (id as ptr, rect as FoundationFrameWork . nsrect, window as ptr) As FoundationFrameWork.nsrect
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function convertRectFromWindow32 Lib UIKitLibname Selector "convertRect:fromWindow:" (id as ptr, rect as FoundationFrameWork . nsrect32Bit, window as ptr) As FoundationFrameWork.nsrect32bit
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0, Description = 436F6E766572747320612072656374616E676C652066726F6D207468652077696E646F77E280997320636F6F7264696E6174652073797374656D20746F2074686174206F6620616E6F746865722077696E646F772E
+		Function ConvertRectToWindow(rect as FoundationFrameWork.nsrect, window as AppleWindow) As FoundationFrameWork.nsrect
+		  #if Target64Bit
+		    return ConvertRectToWindow (id, rect, window.id)
+		  #elseif target32bit
+		    return ConvertRectToWindow32 (id, rect.tonsrect32, window.id).tonsrect
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function convertRecttoWindow Lib UIKitLibname Selector "convertRect:toWindow:" (id as ptr, rect as FoundationFrameWork . nsrect, window as ptr) As FoundationFrameWork.nsrect
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function convertRecttoWindow32 Lib UIKitLibname Selector "convertRect:toWindow:" (id as ptr, rect as FoundationFrameWork . nsrect32Bit, window as ptr) As FoundationFrameWork.nsrect32bit
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h21
+		Private Sub destructor()
+		  if NotificationObjects <> nil and me.RetainCount = 1 then 
+		    for each e as DictionaryEntry in NotificationObjects
+		      AppleNotificationCenter.removeObserver (e.Value)
+		      NotificationObjects.Remove  e.value
+		    next
+		    NotificationObjects = nil
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub DidChangeKeyboardBlock(Notification as ptr)
+		  if me <> nil then 
+		    dim notificationobject as new AppleNotification (notification)
+		    dim userDict as  iOSLibKeyboardEventDictionary = iOSLibKeyboardEventDictionary.MakeFromPtr(notificationobject.UserInfo.id)
+		    RaiseEvent DidChangeKeyboardFrame (userdict)
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub DidHideKeyboardBlock(Notification as ptr)
+		  if me <> nil then 
+		    dim notificationobject as new AppleNotification (notification)
+		    dim userDict as  iOSLibKeyboardEventDictionary = iOSLibKeyboardEventDictionary.MakeFromPtr(notificationobject.UserInfo.id)
+		    RaiseEvent DidHideKeyboard (userdict)
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub DidShowNotificationBlock(Notification as ptr)
+		  if me <> nil then 
+		    dim notificationobject as new AppleNotification (notification)
+		    dim userDict as  iOSLibKeyboardEventDictionary = iOSLibKeyboardEventDictionary.MakeFromPtr(notificationobject.UserInfo.id)
+		    RaiseEvent DidShowKeyboard (userdict)
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getrootViewController Lib UIKitLibname Selector "rootViewController" (id as ptr) As ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getScreen Lib UIKitLibname Selector "screen" (id as ptr) As ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getWindowLevel Lib UIKitLibname Selector "windowLevel" (id as ptr) As double
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getWindowLevel32 Lib UIKitLibname Selector "windowLevel" (id as ptr) As single
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub informOnBecameKey()
+		  raiseevent BecameKeywindow
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub informOnHidden()
+		  raiseevent hidden
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub informOnResignedKey()
+		  raiseevent ResignedKeywindow
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub informOnShown()
+		  raiseevent shown
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function isKeyWindow Lib UIKitLibname Selector "isKeyWindow" (id as ptr) As Boolean
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MakefromPtr(aPtr as Ptr) As AppleWindow
+		  return if (aptr = nil, nil, new AppleWindow (aptr))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 4D616B6573207468652077696E646F7720746865206B65792077696E646F7720616E642076697369626C652E
+		Sub MakeKeyAndVisible()
+		  setmakeKeyAndVisible id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Shared Sub ResignedKeyBlock(Notification as ptr)
+		  dim notificationobject as new AppleNotification (notification)
+		  dim ego as  AppleWindow = AppleWindow.MakefromPtr(notificationobject.NotificationObject.id)
+		  if ego <> nil  then ego.informonResignedKey
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 44697370617463686573206576656E74732073656E7420746F20746865207265636569766572206279207468652055494170706C69636174696F6E206F626A65637420746F206974732076696577732E20596F752077696C6C206D6F73742070726F6261626C79206E6F74206E65656420746F2063616C6C2074686973206D6574686F642062757420696E73746561642072656C79206F6E207468652064656675616C742066756E6374696F6E732E
+		Sub SendEvent(anEvent as AppleNSEvent)
+		  SendEvent id, anEvent.id
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub sendEvent Lib UIKitLibname Selector "sendEvent:" (id as ptr, anEvent as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub setmakeKeyAndVisible Lib UIKitLibname Selector "makeKeyAndVisible" (id as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub setmakeKeyWindow Lib UIKitLibname Selector "makeKeyWindow" (id as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub setrootViewController Lib UIKitLibname Selector "setRootViewController:" (id as ptr, value as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub setScreen Lib UIKitLibname Selector "setScreen:" (id as ptr, value as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub setWindowLevel Lib UIKitLibname Selector "setWindowLevel:" (id as ptr, value as double)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub setWindowLevel32 Lib UIKitLibname Selector "setWindowLevel:" (id as ptr, value as single)
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub WillChangeKeyboardBlock(Notification as ptr)
+		  if me <> nil then 
+		    dim notificationobject as new AppleNotification (notification)
+		    dim userDict as  iOSLibKeyboardEventDictionary = iOSLibKeyboardEventDictionary.MakeFromPtr(notificationobject.UserInfo.id)
+		    RaiseEvent WillChangeKeyboardFrame (userdict)
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub WillHideKeyboardBlock(Notification as ptr)
+		  if me <> nil then 
+		    dim notificationobject as new AppleNotification (notification)
+		    dim userDict as  iOSLibKeyboardEventDictionary = iOSLibKeyboardEventDictionary.MakeFromPtr(notificationobject.UserInfo.id)
+		    RaiseEvent WillHideKeyboard (userdict)
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Attributes( hidden ) Private Sub WillShowNotificationBlock(Notification as ptr)
+		  if me <> nil then 
+		    dim notificationobject as new AppleNotification (notification)
+		    dim userDict as  iOSLibKeyboardEventDictionary = iOSLibKeyboardEventDictionary.MakeFromPtr(notificationobject.UserInfo.id)
+		    RaiseEvent WillShowKeyboard (userdict)
+		  end if
+		End Sub
+	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0, Description = 5468652057696E646F7720626563616D6520746865206B65792077696E646F772E
+		Event BecameKeyWindow()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0, Description = 546865206B6579626F6172642773206672616D65206368616E6765642E
+		Event DidChangeKeyboardFrame(UserDict as iOSLibKeyboardEventDictionary)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0, Description = 546865206B6579626F617264207761732068696464656E2E
+		Event DidHideKeyboard(UserDict as iOSLibKeyboardEventDictionary)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0, Description = 546865206B6579626F617264207761732073686F776E2E
+		Event DidShowKeyboard(UserDict as iOSLibKeyboardEventDictionary)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0, Description = 5468652057696E646F7720626563616D652068696464656E2E
+		Event Hidden()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0, Description = 5468652057696E646F77206C6F737420697473206B65792077696E646F772073746174652E
+		Event ResignedKeyWindow()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0, Description = 5468652057696E646F7720626563616D652076697369626C652E
+		Event Shown()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0, Description = 546865206B6579626F617264206672616D652077696C6C206368616E67652E
+		Event WillChangeKeyboardFrame(UserDict as iOSLibKeyboardEventDictionary)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0, Description = 546865206170702077696C6C206869646520746865206B6579626F6172642E
+		Event WillHideKeyboard(UserDict as iOSLibKeyboardEventDictionary)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0, Description = 546865206170702077696C6C2073686F772061206B6579626F6172642E
+		Event WillShowKeyboard(UserDict as iOSLibKeyboardEventDictionary)
+	#tag EndHook
+
+
+	#tag Note, Name = Status completed & documented
+		
+		ios 9.2, without UIView event handling.
+	#tag EndNote
+
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIWindow")
+			  return mClassPtr
+			End Get
+		#tag EndGetter
+		Protected Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 57686574686572207468652077696E646F7720697320746865206B65792077696E646F7720666F7220746865206170706C69636174696F6E2E
+		#tag Getter
+			Get
+			  return isKeyWindow (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  if value then setmakeKeyWindow id
+			End Set
+		#tag EndSetter
+		KeyWindow As Boolean
+	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private Shared NotificationObjects As xojo.core.dictionary
+	#tag EndProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 54686520726F6F74207669657720636F6E74726F6C6C657220666F72207468652077696E646F772E
+		#tag Getter
+			Get
+			  return AppleViewController.MakeFromPtr (getrootViewController(id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setrootViewController id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		RootViewController As AppleViewController
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 5468652073637265656E206F6E207768696368207468652077696E646F772069732063757272656E746C7920646973706C617965642E
+		#tag Getter
+			Get
+			  return applescreen.MakeFromPtr (getscreen(id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setScreen id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		Screen As AppleScreen
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static  kConst as double
+			  #if Target64Bit
+			    kConst = SystemConstantDouble ("UIWindowLevelAlert", UIKitPath)
+			  #elseif Target32Bit
+			    kConst = SystemConstantSingle ("UIWindowLevelAlert", UIKitPath)
+			  #endif
+			  return kConst
+			  
+			End Get
+		#tag EndGetter
+		Shared UIWindowLevelAlert As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static  kConst as double
+			  #if Target64Bit
+			    kConst = SystemConstantDouble ("UIWindowLevelNormal", UIKitPath)
+			  #elseif Target32Bit
+			    kConst = SystemConstantSingle ("UIWindowLevelNormal", UIKitPath)
+			  #endif
+			  return kConst
+			  
+			End Get
+		#tag EndGetter
+		Shared UIWindowLevelNormal As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static  kConst as double
+			  #if Target64Bit
+			    kConst = SystemConstantDouble ("UIWindowLevelStatusBar", UIKitPath)
+			  #elseif Target32Bit
+			    kConst = SystemConstantSingle ("UIWindowLevelStatusBar", UIKitPath)
+			  #endif
+			  return kConst
+			  
+			End Get
+		#tag EndGetter
+		Shared UIWindowLevelStatusBar As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 5468652077696E646F77206C6576656C2E20526566657220746F2074686520746872656520554957696E646F774C6576656C20636C61737320636F6E7374616E747320666F72207479706963616C2076616C7565732E
+		#tag Getter
+			Get
+			  #if Target64Bit
+			    Return getWindowLevel (id)
+			  #elseif Target32Bit
+			    return getWindowLevel32(id)
+			  #endif
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    setWindowLevel (id, value)
+			  #elseif Target32Bit
+			    setWindowLevel32(id, value)
+			  #endif
+			End Set
+		#tag EndSetter
+		WindowLevel As Double
+	#tag EndComputedProperty
+
+
+	#tag Constant, Name = kUIKeyboardDidChangeFrameNotification, Type = Text, Dynamic = False, Default = \"UIKeyboardDidChangeFrameNotification", Scope = Public, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = kUIKeyboardDidHideNotification, Type = Text, Dynamic = False, Default = \"UIKeyboardDidHideNotification", Scope = Public, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = kUIKeyboardDidShowNotification, Type = Text, Dynamic = False, Default = \"UIKeyboardDidShowNotification", Scope = Public, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = kUIKeyboardWillChangeFrameNotification, Type = Text, Dynamic = False, Default = \"UIKeyboardWillChangeFrameNotification", Scope = Public, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = kUIKeyboardWillHideNotification, Type = Text, Dynamic = False, Default = \"UIKeyboardWillHideNotification", Scope = Public, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = kUIKeyboardWillShowNotification, Type = Text, Dynamic = False, Default = \"UIKeyboardWillShowNotification", Scope = Public, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = kUIWindowDidBecomeHiddenNotification, Type = Text, Dynamic = False, Default = \"UIWindowDidBecomeHiddenNotification", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = kUIWindowDidBecomeKeyNotification, Type = Text, Dynamic = False, Default = \"UIWindowDidBecomeKeyNotification", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = kUIWindowDidBecomeVisibleNotification, Type = Text, Dynamic = False, Default = \"UIWindowDidBecomeVisibleNotification", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = kUIWindowDidResignKeyNotification, Type = Text, Dynamic = False, Default = \"UIWindowDidResignKeyNotification", Scope = Private, Attributes = \"hidden"
+	#tag EndConstant
+
+	#tag Constant, Name = NotificationAnimationCurveKey, Type = Text, Dynamic = False, Default = \"UIKeyboardAnimationCurveUserInfoKey", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = NotificationAnimationDurationKey, Type = Text, Dynamic = False, Default = \"UIKeyboardAnimationDurationUserInfoKey", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = NotificationFrameBeginKey, Type = Text, Dynamic = False, Default = \"UIKeyboardFrameBeginUserInfoKey", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = NotificationFrameEndKey, Type = Text, Dynamic = False, Default = \"UIKeyboardFrameEndUserInfoKey", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = NotificationLocalKeyboardKey, Type = Text, Dynamic = False, Default = \"UIKeyboardIsLocalUserInfoKey", Scope = Public
+	#tag EndConstant
+
+
+	#tag Enum, Name = Untitled, Flags = &h0
+	#tag EndEnum
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="KeyWindow"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="WindowLevel"
+			Group="Behavior"
+			Type="Double"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass

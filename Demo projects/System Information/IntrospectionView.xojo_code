@@ -10,10 +10,10 @@ Begin iosView IntrospectionView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
-      AutoLayout      =   Table1, 3, AppleSearchBarControl1, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
+      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, AppleSearchBarControl1, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       Format          =   "0"
       Height          =   317.0
       Left            =   0
@@ -24,15 +24,40 @@ Begin iosView IntrospectionView
       Visible         =   True
       Width           =   320.0
    End
-   Begin AppleSearchBarControl AppleSearchBarControl1
+   Begin ioslibsearchbar AppleSearchBarControl1
+      Alpha           =   1.0
+      AutoLayout      =   AppleSearchBarControl1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       AutoLayout      =   AppleSearchBarControl1, 8, , 0, False, +1.00, 1, 1, 82, 
       AutoLayout      =   AppleSearchBarControl1, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   AppleSearchBarControl1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
       AutoLayout      =   AppleSearchBarControl1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoresizesSubviews=   True
+      BackgroundColor =   &cFFFFFF00
+      BookmarkButton  =   False
+      CancelButton    =   False
+      ClearsContextBeforeDrawing=   False
+      ClipsToBounds   =   True
+      ContentScaleFactor=   1.0
+      ExclusiveTouch  =   False
       Height          =   82.0
+      Hidden          =   False
       Left            =   20.0
       LockedInPosition=   False
+      MultipleTouchEnabled=   False
+      Opaque          =   False
+      Placeholder     =   ""
+      Prompt          =   ""
+      Scope           =   0
+      ScopeButtonTitles=   ""
+      SearchResultsButton=   False
+      SearchText      =   ""
+      SelectedButton  =   0
+      ShowsScopeBar   =   False
+      Tag             =   0
+      TintColor       =   &c00000000
       Top             =   73.0
+      Translucent     =   False
+      UserInteractionEnabled=   True
+      Visible         =   False
       Width           =   280.0
    End
 End
@@ -110,14 +135,14 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub TextDidChange(SearchText As Text)
-		  showClasses (SearchText)
+		Sub ScopeButtonSelectionChanged(index as integer)
+		  showClasses (me.SearchText)
+		  #pragma unused index
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub ScopeButtonSelectionChanged(ButtonIndex as Integer)
-		  showClasses (me.SearchText)
-		  #pragma unused ButtonIndex
+		Sub TextChanged(searchtext as text)
+		  showClasses (SearchText)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

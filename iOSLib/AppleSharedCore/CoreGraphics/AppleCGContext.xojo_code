@@ -64,6 +64,12 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Sub BeginImageContext(aSize as FoundationFrameWork.nssize, opaque as Boolean, scale as double = 0)
+		  UIGraphicsBeginImageContextWithOptions (asize, opaque, scale)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub BeginPath()
 		  CGContextBeginPath mCFTypeRef
 		End Sub
@@ -599,6 +605,13 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Function CurrentContext() As AppleCGContext
+		  dim result as ptr = UIGraphicsGetCurrentContext
+		  return if (result = nil, nil, new AppleCGContext(result))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub DrawImage(Rect as FoundationFramework.NSRect, image as AppleCGImage)
 		  CGContextDrawImage mCFTypeRef, Rect, image
 		End Sub
@@ -657,6 +670,12 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Sub EndImageContext()
+		  UIGraphicsEndImageContext 
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub FillPath(EvenOdd as Boolean = false)
 		  if EvenOdd then
 		    CGContextEOFillPath mCFTypeRef
@@ -680,6 +699,13 @@ Inherits AppleCFObject
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Function Getimage() As AppleImage
+		  dim result as AppleImage = AppleImage.MakeFromPtr(UIGraphicsGetImageFromCurrentImageContext)
+		  return result
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub MoveToPoint(x as double, y as double)
 		  CGContextMoveToPoint mCFTypeRef, x, y
 		End Sub
@@ -689,6 +715,18 @@ Inherits AppleCFObject
 		Function PathContainsPoint(Point as FoundationFramework.NSPoint, mode as CGPathDrawingMode = CGPathDrawingMode.Fill) As boolean
 		  return CGContextPathContainsPoint (mcftyperef, point, mode)
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Sub PopContext()
+		  UIGraphicsPopContext
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub PushContext()
+		  UIGraphicsPushContext (mcftyperef)
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
@@ -783,6 +821,12 @@ Inherits AppleCFObject
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function toImage() As AppleImage
+		  return AppleImage.MakeFromPtr (UIGraphicsGetImageFromCurrentImageContext)
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Protected Shared Sub UIGraphicsBeginImageContext(asize as FoundationFramework.NSSize)
 		  #if TargetIOS
@@ -792,6 +836,20 @@ Inherits AppleCFObject
 		    #elseif Target32Bit
 		      declare sub UIGraphicsBeginImageContext lib UIKitLibName (asize as FoundationFramework.NSSize32Bit)
 		      UIGraphicsBeginImageContext (asize.toNSSize32)
+		    #endif
+		  #endif
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Shared Sub UIGraphicsBeginImageContextWithOptions(asize as FoundationFramework.NSSize, opaque as boolean, scale as double)
+		  #if TargetIOS
+		    #if Target64Bit
+		      declare sub UIGraphicsBeginImageContextWithOptions lib UIKitLibName (asize as FoundationFramework.NSSize, opaque as boolean, scale as double)
+		      UIGraphicsBeginImageContextWithOptions (asize, opaque, scale)
+		    #elseif Target32Bit
+		      declare sub UIGraphicsBeginImageContextWithOptions lib UIKitLibName (asize as FoundationFramework.NSSize32Bit, opaque as boolean, scale as single)
+		      UIGraphicsBeginImageContextWithOptions (asize.toNSSize32, opaque, scale)
 		    #endif
 		  #endif
 		End Sub
@@ -813,6 +871,33 @@ Inherits AppleCFObject
 		    return UIGraphicsGetCurrentContext
 		  #endif
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1, Description = 52657475726E7320616E20696D616765206261736564206F6E2074686520636F6E74656E7473206F66207468652063757272656E74206269746D61702D626173656420677261706869637320636F6E746578742E0A596F752073686F756C642063616C6C20746869732066756E6374696F6E206F6E6C79207768656E2061206269746D61702D626173656420677261706869637320636F6E74657874206973207468652063757272656E7420677261706869637320636F6E746578742E204966207468652063757272656E7420636F6E74657874206973206E696C206F7220776173206E6F74206372656174656420627920612063616C6C20746F2055494772617068696373426567696E496D616765436F6E746578742C20746869732066756E6374696F6E2072657475726E73206E696C2E
+		Protected Shared Function UIGraphicsGetImageFromCurrentImageContext() As ptr
+		  #if TargetIOS
+		    Declare function UIGraphicsGetImageFromCurrentImageContext lib UIKitLibName as ptr
+		    return UIGraphicsGetImageFromCurrentImageContext
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Shared Sub UIGraphicsPopContext()
+		  #if TargetIOS
+		    declare sub UIGraphicsPopContext lib UIKitLibName
+		    UIGraphicsPopContext
+		  #endif
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Shared Sub UIGraphicsPushContext(id as ptr)
+		  #if TargetIOS
+		    declare sub UIGraphicsPushContext lib UIKitLibName (id as ptr)
+		    UIGraphicsPushContext (id)
+		  #endif
+		End Sub
 	#tag EndMethod
 
 
@@ -1027,65 +1112,9 @@ Inherits AppleCFObject
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="BlendMode"
-			Group="Behavior"
-			Type="CGBlendMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Normal"
-				"1 - Multiply"
-				"2 - Screen"
-				"3 - Overlay"
-				"4 - Darken"
-				"5 - Lighten"
-				"6 - ColorDodge"
-				"7 - ColorBurn"
-				"8 - SoftLight"
-				"9 - HardLight"
-				"10 - Difference"
-				"11 - Exclusion"
-				"12 - Hue"
-				"13 - Saturation"
-				"14 - Color"
-				"15 - Luminosity"
-				"16 - Clear"
-				"17 - Copy"
-				"18 - SourceIn"
-				"19 - SourceOut"
-				"20 - SourceAtop"
-				"21 - DestinationOver"
-				"22 - DestinationIn"
-				"23 - DestinationOut"
-				"24 - DestinationAtop"
-				"25 - ModeXOR"
-				"26 - PlusDarker"
-				"27 - PlusLighter"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="CFTypeDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Flatness"
 			Group="Behavior"
 			Type="Double"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Hash"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -1095,56 +1124,11 @@ Inherits AppleCFObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="InterpolationQuality"
-			Group="Behavior"
-			Type="CGInterpolationQuality"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - None"
-				"2 - Low"
-				"4 - Medium"
-				"3 - High"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="LineCap"
-			Group="Behavior"
-			Type="CGLineCap"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Butt"
-				"1 - Round"
-				"2 - Square"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="LineJoin"
-			Group="Behavior"
-			Type="CGLineJoin"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Miter"
-				"1 - Round"
-				"2 - Bevel"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MiterLimit"
@@ -1161,24 +1145,6 @@ Inherits AppleCFObject
 			Name="PathIsEmpty"
 			Group="Behavior"
 			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="RenderingIntent"
-			Group="Behavior"
-			Type="CGColorRenderingIntent"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - AbsoluteColorimetric"
-				"2 - RelativeColorimetric"
-				"3 - Perceptual"
-				"4 - Saturation"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="RetainCount"
-			Group="Behavior"
-			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ShouldSmoothFonts"
@@ -1202,32 +1168,11 @@ Inherits AppleCFObject
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="TextDrawingMode"
-			Group="Behavior"
-			Type="CGTextDrawingMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Fill"
-				"1 - Stroke"
-				"2 - FillStroke"
-				"3 - Invisible"
-				"4 - FillClip"
-				"5 - StrokeClip"
-				"6 - FillStrokeClip"
-				"7 - Clip"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Top"
 			Visible=true
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TypeID"
-			Group="Behavior"
-			Type="UInteger"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -1,5 +1,13 @@
 #tag Module
 Protected Module UIKitFramework
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getbackgroundColor Lib UIKitLibName Selector "backgroundColor" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getbackgroundView Lib UIKitLibName Selector "backgroundView" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h1
 		Protected Function getbounds(id as ptr) As FoundationFramework.NSRect
 		  #if Target64bit
@@ -21,6 +29,18 @@ Protected Module UIKitFramework
 		End Function
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getcontentView Lib UIKitLibName Selector "contentView" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getdetailTextLabel Lib UIKitLibName Selector "detailTextLabel" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getEditing Lib UIKitLibName Selector "isEditing" (id as ptr) As boolean
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h1
 		Protected Function getEnabled(id as ptr) As Boolean
 		  Declare function enabled lib UIKitLibname selector "isEnabled" (id as ptr) as Boolean
@@ -41,12 +61,68 @@ Protected Module UIKitFramework
 		End Function
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getgestureRecognizers Lib UIKitLibName Selector "gestureRecognizers" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h1
 		Protected Function getOpaque(id as ptr) As Boolean
 		  declare function opaque lib UIKitLibname selector "isOpaque" (id as ptr) as Boolean
 		  return opaque (id)
 		End Function
 	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getreuseIdentifier Lib UIKitLibName Selector "reuseIdentifier" (id as ptr) As CFStringRef
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getScale Lib UIKItLibName Selector "scale" (id as ptr) As double
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getScale32 Lib UIKItLibName Selector "scale" (id as ptr) As single
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getseparatorInset Lib UIKitLibName Selector "separatorInset" (id as ptr) As UIEdgeInsets
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getseparatorInset32 Lib UIKitLibName Selector "separatorInset" (id as ptr) As UIEdgeInsets32Bit
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function gettextLabel Lib UIKitLibName Selector "textLabel" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getTimeStamp Lib UIKitLibName Selector "timestamp" (id as ptr) As Double
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function gettintColor Lib UIKitLibName Selector "tintColor" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getView Lib UIKItLibName Selector "view" (id as ptr) As ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getWindow Lib UIKItLibName Selector "window" (id as ptr) As ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub prepareForReuse Lib UIKitLibName Selector "prepareForReuse" (id as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setbackgroundColor Lib UIKitLibName Selector "setBackgroundColor:" (id as ptr, value as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setbackgroundView Lib UIKitLibName Selector "setBackgroundView:" (id as ptr, value as ptr)
+	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
 		Protected Sub setBounds(id as ptr, value as FoundationFramework.NSRect)
@@ -69,6 +145,10 @@ Protected Module UIKitFramework
 		End Sub
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setEditing Lib UIKitLibName Selector "setEditing:" (id as ptr, value as Boolean)
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h1
 		Protected Sub SetEnabled(id as ptr, value as Boolean)
 		  Declare Sub setEnabled lib UIKitLibname selector "setEnabled:" (id as ptr, value as Boolean)
@@ -89,6 +169,10 @@ Protected Module UIKitFramework
 		End Sub
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setgestureRecognizers Lib UIKitLibName Selector "setGestureRecognizers:" (id as ptr, value as ptr)
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h1
 		Protected Sub setOpaque(id as ptr, value as boolean)
 		  declare sub setOpaque lib UIKitLibname selector "setOpaque:" (id as ptr, value as Boolean)
@@ -96,6 +180,26 @@ Protected Module UIKitFramework
 		  
 		End Sub
 	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setScale Lib UIKItLibName Selector "setScale:" (id as ptr, value as double)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setScale32 Lib UIKItLibName Selector "setScale:" (id as ptr, value as single)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setseparatorInset Lib UIKitLibName Selector "setSeparatorInset:" (id as ptr, value as UIEdgeInsets)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setseparatorInset32 Lib UIKitLibName Selector "setSeparatorInset:" (id as ptr, value as UIEdgeInsets32Bit)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub settintColor Lib UIKitLibName Selector "setTintColor:" (id as ptr, value as ptr)
+	#tag EndExternalMethod
 
 
 	#tag Constant, Name = UIKitLibName, Type = Text, Dynamic = False, Default = \"UIKit.framework", Scope = Public
@@ -116,23 +220,10 @@ Protected Module UIKitFramework
 	#tag EndStructure
 
 
-	#tag Enum, Name = NSTextAlignment, Flags = &h0
-		Left
-		  Center
-		  Right
-		  Justified
-		Natural
-	#tag EndEnum
-
 	#tag Enum, Name = UIAlertActionStyle, Type = Integer, Flags = &h0
 		Default
 		  Cancel
 		Destructive
-	#tag EndEnum
-
-	#tag Enum, Name = UIAlertControllerStyle, Type = Integer, Flags = &h0
-		ActionSheet
-		Alert
 	#tag EndEnum
 
 	#tag Enum, Name = UIBarMetrics, Type = Integer, Flags = &h0
@@ -152,35 +243,6 @@ Protected Module UIKitFramework
 	#tag Enum, Name = UIBarStyle, Type = Integer, Flags = &h0
 		Default
 		Black
-	#tag EndEnum
-
-	#tag Enum, Name = UIControlContentHorizontalAlignment, Type = Integer, Flags = &h0
-		Center
-		  Left
-		  Right
-		Fill
-	#tag EndEnum
-
-	#tag Enum, Name = UIControlContentVerticalAlignment, Type = Integer, Flags = &h0
-		Center
-		  Top
-		  Bottom
-		Fill
-	#tag EndEnum
-
-	#tag Enum, Name = UIControlState, Type = UInteger, Flags = &h0
-		Normal
-		  Highlighted
-		  Disabled
-		  Selected
-		  Application
-		Reserved
-	#tag EndEnum
-
-	#tag Enum, Name = UIDynamicItemCollisionBoundsType, Type = UInteger, Flags = &h0
-		Rectangle
-		  Ellipse
-		Path
 	#tag EndEnum
 
 	#tag Enum, Name = UIGestureRecognizerState, Type = Integer, Flags = &h0
@@ -246,20 +308,6 @@ Protected Module UIKitFramework
 		Minimal
 	#tag EndEnum
 
-	#tag Enum, Name = UITextFieldBorderStyle, Type = Integer, Flags = &h0
-		None
-		  Line
-		  Bezel
-		RoundedRect
-	#tag EndEnum
-
-	#tag Enum, Name = UITextFieldViewMode, Type = Integer, Flags = &h0
-		Never
-		  WhileEditing
-		  UnlessEditing
-		Always
-	#tag EndEnum
-
 	#tag Enum, Name = UIUserInterfaceIdiom, Type = Integer, Flags = &h0
 		Unspecified = -1
 		  iPhone
@@ -270,66 +318,6 @@ Protected Module UIKitFramework
 		Unspecified
 		  Compact
 		Regular
-	#tag EndEnum
-
-	#tag Enum, Name = UIVIewAnimationCurve, Type = Integer, Flags = &h0
-		EaseInEaseOut
-		  EaseIn
-		  EaseOut
-		Linear
-	#tag EndEnum
-
-	#tag Enum, Name = UIVIewAnimationTransition, Type = Integer, Flags = &h0
-		None
-		  FlipFromLeft
-		  FlipFromRight
-		  CurlUp
-		CurlDown
-	#tag EndEnum
-
-	#tag Enum, Name = UIViewContentMode, Type = Integer, Flags = &h0
-		ScaleToFill
-		  ScaleAspectFit
-		  ScaleAspectFill
-		  Redraw
-		  Center
-		  Top
-		  Bottom
-		  Left
-		  Right
-		  TopLeft
-		  TopRight
-		  BottomLeft
-		BottomRight
-	#tag EndEnum
-
-	#tag Enum, Name = UIViewModalPresentationStyle, Type = Integer, Flags = &h0
-		FullScreen = 0
-		  PageSheet
-		  FormSheet
-		  CurrentContext
-		  Custom
-		  OverFullScreen
-		  OverCurrentContext
-		  PopOver
-		None = -1
-	#tag EndEnum
-
-	#tag Enum, Name = UIViewTintAdjustmentMode, Type = Integer, Flags = &h0
-		Automatic
-		  Normal
-		Dimmed
-	#tag EndEnum
-
-	#tag Enum, Name = UIVIewTransition, Type = Integer, Flags = &h0
-		None
-		  FlipFromLeft
-		  FlipFromRight
-		  CurlUp
-		  CurlDown
-		  CrossDissolve
-		  FlipFromTop
-		FlipFromBottom
 	#tag EndEnum
 
 

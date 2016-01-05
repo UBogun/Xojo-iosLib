@@ -94,7 +94,7 @@ Inherits AppleObject
 			Get
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
-			    if AppleSKView.SpriteKitEnabled then
+			    if AppleSKView.classavailable then
 			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKRegion")
 			    end if
 			  end if

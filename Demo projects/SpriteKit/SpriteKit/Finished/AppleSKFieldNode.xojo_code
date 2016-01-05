@@ -185,7 +185,7 @@ Inherits AppleSKNode
 			Get
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
-			    if AppleSKView.SpriteKitEnabled then
+			    if AppleSKView.classavailable then
 			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKFieldNode")
 			    end if
 			  end if
@@ -355,6 +355,11 @@ Inherits AppleSKNode
 			Name="AnimationSpeed"
 			Group="Behavior"
 			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CategoryBitMask"
+			Group="Behavior"
+			Type="UInt32"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Enabled"

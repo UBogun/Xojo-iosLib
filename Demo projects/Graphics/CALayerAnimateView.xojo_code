@@ -10,10 +10,10 @@ Begin iosView CALayerAnimateView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ImageView1, 4, iOSLibPicker1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   117.0
       Image           =   "857282559"
@@ -29,13 +29,14 @@ Begin iosView CALayerAnimateView
    Begin iOSLabel Label3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label3, 3, Slider3, 3, False, +1.00, 1, 1, -18, 
-      AutoLayout      =   Label3, 1, <Parent>, 1, False, +1.00, 1, 1, 17, 
-      AutoLayout      =   Label3, 7, Slider3, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label3, 1, <Parent>, 1, False, +1.00, 1, 1, 17, 
+      AutoLayout      =   Label3, 3, Slider3, 3, False, +1.00, 1, 1, -18, 
+      AutoLayout      =   Label3, 7, Slider3, 7, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   17
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset X"
@@ -50,10 +51,10 @@ Begin iosView CALayerAnimateView
    Begin iOSSlider Slider3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider3, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   Slider3, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Slider3, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       AutoLayout      =   Slider3, 4, Button1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Slider3, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider3, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Slider3, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -69,10 +70,10 @@ Begin iosView CALayerAnimateView
    Begin iOSSlider Slider4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider4, 3, Slider3, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Slider4, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Slider4, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       AutoLayout      =   Slider4, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider4, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Slider4, 3, Slider3, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Slider4, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   160
@@ -88,13 +89,14 @@ Begin iosView CALayerAnimateView
    Begin iOSLabel Label4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label4, 3, Label3, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label4, 1, Slider4, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label4, 7, Slider4, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label4, 1, Slider4, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label4, 3, Label3, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label4, 7, Slider4, 7, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset Y"
@@ -109,10 +111,10 @@ Begin iosView CALayerAnimateView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 68, 
-      AutoLayout      =   Button1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       AutoLayout      =   Button1, 1, Slider3, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 68, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Caption         =   "Animate"
       Enabled         =   True
       Height          =   30.0
@@ -129,10 +131,10 @@ Begin iosView CALayerAnimateView
    Begin iOSSegmentedControl SegmentedControl1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   SegmentedControl1, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   SegmentedControl1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   SegmentedControl1, 8, , 0, True, +1.00, 1, 1, 29, 
       AutoLayout      =   SegmentedControl1, 7, , 0, False, +1.00, 1, 1, 143, 
+      AutoLayout      =   SegmentedControl1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   SegmentedControl1, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   SegmentedControl1, 8, , 0, True, +1.00, 1, 1, 29, 
       Caption         =   ""
       Enabled         =   True
       Height          =   29.0
@@ -146,33 +148,27 @@ Begin iosView CALayerAnimateView
       Width           =   143.0
    End
    Begin iOSLibPicker iOSLibPicker1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   iOSLibPicker1, 4, Label1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   iOSLibPicker1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   iOSLibPicker1, 7, , 0, False, +1.00, 1, 1, 320, 
       AutoLayout      =   iOSLibPicker1, 8, , 0, False, +1.00, 1, 1, 146, 
+      AutoLayout      =   iOSLibPicker1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   iOSLibPicker1, 4, Label1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   iOSLibPicker1, 7, , 0, False, +1.00, 1, 1, 320, 
       Height          =   146.0
-      Left            =   0
+      Left            =   0.0
       LockedInPosition=   False
-      NumberOfComponents=   0
-      Scope           =   0
-      SelectedColumn  =   0
-      SelectionText   =   ""
-      Top             =   198
-      Visible         =   True
+      Top             =   198.0
       Width           =   320.0
    End
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 3, Slider1, 3, False, +1.00, 1, 1, -18, 
-      AutoLayout      =   Label1, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 7, Slider1, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 3, Slider1, 3, False, +1.00, 1, 1, -18, 
+      AutoLayout      =   Label1, 7, Slider1, 7, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset X"
@@ -187,10 +183,10 @@ Begin iosView CALayerAnimateView
    Begin iOSSlider Slider1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Slider1, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       AutoLayout      =   Slider1, 4, Label3, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   Slider1, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -206,10 +202,10 @@ Begin iosView CALayerAnimateView
    Begin iOSSlider Slider2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider2, 3, Slider1, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Slider2, 1, Slider1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Slider2, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       AutoLayout      =   Slider2, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider2, 1, Slider1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Slider2, 3, Slider1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Slider2, 7, ImageView1, 7, False, +0.50, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   160
@@ -225,13 +221,14 @@ Begin iosView CALayerAnimateView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 3, Label1, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   Label2, 7, Slider2, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   Label2, 3, Label1, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label2, 7, Slider2, 7, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   160
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "ShadowOffset Y"
@@ -246,10 +243,10 @@ Begin iosView CALayerAnimateView
    Begin iOSTextField XField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   XField, 3, Label3, 3, False, +1.00, 1, 1, 10, 
-      AutoLayout      =   XField, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   XField, 7, , 0, False, +1.00, 1, 1, 82, 
       AutoLayout      =   XField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   XField, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   XField, 3, Label3, 3, False, +1.00, 1, 1, 10, 
+      AutoLayout      =   XField, 7, , 0, False, +1.00, 1, 1, 82, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -270,11 +267,11 @@ Begin iosView CALayerAnimateView
    Begin iOSTextField YField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   YField, 9, ImageView1, 9, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   YField, 3, XField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   YField, 7, , 0, False, +1.00, 1, 1, 82, 
-      AutoLayout      =   YField, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   YField, 1, <Parent>, 1, False, +1.00, 1, 1, 119, 
-      AutoLayout      =   YField, 9, ImageView1, 9, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -295,11 +292,11 @@ Begin iosView CALayerAnimateView
    Begin iOSTextField ZField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   ZField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   ZField, 1, <Parent>, 1, False, +1.00, 1, 1, 218, 
       AutoLayout      =   ZField, 3, XField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ZField, 7, , 0, False, +1.00, 1, 1, 82, 
-      AutoLayout      =   ZField, 1, <Parent>, 1, False, +1.00, 1, 1, 218, 
       AutoLayout      =   ZField, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   ZField, 8, , 0, True, +1.00, 1, 1, 31, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -320,9 +317,9 @@ Begin iosView CALayerAnimateView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button2, 1, Button1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       AutoLayout      =   Button2, 3, Button1, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button2, 1, Button1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
       Caption         =   "Help"
       Enabled         =   True
       Height          =   30.0
@@ -339,10 +336,10 @@ Begin iosView CALayerAnimateView
    Begin iOSSwitch Switch1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Switch1, 4, Label4, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
-      AutoLayout      =   Switch1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   Switch1, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   Switch1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Switch1, 4, Label4, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
+      AutoLayout      =   Switch1, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
       Left            =   134
@@ -356,13 +353,14 @@ Begin iosView CALayerAnimateView
    Begin iOSLabel SwitchLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   SwitchLabel, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   SwitchLabel, 10, Label1, 10, False, +1.00, 1, 1, , 
-      AutoLayout      =   SwitchLabel, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   SwitchLabel, 2, Switch1, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
+      AutoLayout      =   SwitchLabel, 10, Label1, 10, False, +1.00, 1, 1, , 
+      AutoLayout      =   SwitchLabel, 1, <Parent>, 1, False, +1.00, 2, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   SwitchLabel, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
+      LineBreakMode   =   "0"
       LockedInPosition=   False
       Scope           =   0
       Text            =   "Untitled"
@@ -418,19 +416,19 @@ End
 		    dim newtransform as CATransform3D = CATransform3DMakeRotation (Slider1.Value.DegreeToRadian, double.Parse (XField.text), double.Parse (YField.text), Double.Parse (ZField.text))
 		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "Rotate"
-		    dim newtransform as CATransform3D = CATransform3DRotate (ImageView1.AppleView.layer.Transform, Slider1.Value.DegreeToRadian, double.Parse (XField.text), double.Parse (YField.text), Double.Parse (ZField.text))
+		    dim newtransform as CATransform3D = CATransform3DRotate (ImageView1.view.layer.Transform, Slider1.Value.DegreeToRadian, double.Parse (XField.text), double.Parse (YField.text), Double.Parse (ZField.text))
 		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "MakeScale"
 		    dim newtransform as CATransform3D = CATransform3DMakeScale (Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
 		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "Scale"
-		    dim newtransform as CATransform3D = CATransform3DScale (ImageView1.AppleView.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
+		    dim newtransform as CATransform3D = CATransform3DScale (ImageView1.view.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
 		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "MakeTranslation"
 		    dim newtransform as CATransform3D = CATransform3DMakeTranslation(Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
 		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "Translate"
-		    dim newtransform as CATransform3D = CATransform3DTranslate (ImageView1.AppleView.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
+		    dim newtransform as CATransform3D = CATransform3DTranslate (ImageView1.view.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value * double.Parse (YField.text), Slider1.Value * Double.Parse (ZField.text))
 		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, newtransform)
 		  case "Identity"
 		    myanimation = new AppleCABasicAnimation (AppleCABasicAnimation.Properties.Transform,  ImageView1.CoreAnimationLayer.Transform, CATransform3DIdentity)
@@ -448,7 +446,7 @@ End
 		    myanimation.Duration = AnimationDuration
 		    myanimation.RepeatCount = AnimationRepeats
 		    myanimation.Autoreverses = AnimationAutoReverse
-		    ImageView1.AppleView.layer.addanimation (myanimation)
+		    ImageView1.view.layer.addanimation (myanimation)
 		  end if
 		  
 		End Sub
@@ -456,43 +454,43 @@ End
 
 	#tag Method, Flags = &h0
 		Sub HideSliders()
-		  slider1.AppleView.Hidden = true
-		  slider2.AppleView.Hidden = true
-		  slider3.AppleView.Hidden = true
-		  slider4.AppleView.Hidden = true
-		  slider1.AppleView.Frame.Size_.width = ImageView1.Width/2
+		  slider1.view.Hidden = true
+		  slider2.view.Hidden = true
+		  slider3.view.Hidden = true
+		  slider4.view.Hidden = true
+		  slider1.view.Frame.Size_.width = ImageView1.Width/2
 		  
-		  label1.AppleView.Hidden = true
-		  label2.AppleView.Hidden = true
-		  label3.AppleView.Hidden = true
-		  label4.AppleView.Hidden = true
+		  label1.view.Hidden = true
+		  label2.view.Hidden = true
+		  label3.view.Hidden = true
+		  label4.view.Hidden = true
 		  
-		  XField.AppleView.Hidden = True
-		  YField.AppleView.Hidden = True
-		  ZField.AppleView.Hidden = True
+		  XField.view.Hidden = True
+		  YField.view.Hidden = True
+		  ZField.view.Hidden = True
 		  
-		  SwitchLabel.AppleView.Hidden = true
-		  Switch1.AppleView.hidden = true
+		  SwitchLabel.view.Hidden = true
+		  Switch1.view.hidden = true
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetMultipleSliderSize()
-		  dim mybounds as  FoundationFrameWork.nsrect = slider1.AppleView.Frame
+		  dim mybounds as  FoundationFrameWork.nsrect = slider1.view.Frame
 		  mybounds.Size_.width = ImageView1.Width/2
 		  dim options as AppleViewAnimationOption = AppleViewAnimationOption.OptionNone
-		  slider1.AppleView.AnimateFrame mybounds, options
+		  slider1.view.AnimateFrame mybounds, options
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetSingleSliderSize()
-		  dim mybounds as  FoundationFrameWork.nsrect = slider1.AppleView.Frame
+		  dim mybounds as  FoundationFrameWork.nsrect = slider1.view.Frame
 		  mybounds.Size_.width = ImageView1.Width
 		  dim options as AppleViewAnimationOption = AppleViewAnimationOption.OptionNone
-		  slider1.AppleView.AnimateFrame mybounds, options, 0.2, UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, 0
+		  slider1.view.AnimateFrame mybounds, options, 0.2, appleview.UIViewAnimationCurve.EaseInEaseOut, 0
 		  
 		  
 		End Sub
@@ -545,19 +543,19 @@ End
 		    CATransform3DMakeRotation (Slider1.Value.DegreeToRadian, double.Parse (XField.text), double.Parse (YField.text), Double.Parse (ZField.text))
 		  case "Rotate"
 		    if SegmentedControl1.value = 0 then ImageView1.CoreAnimationLayer.Transform = _
-		    CATransform3DRotate (ImageView1.AppleView.layer.Transform, Slider1.Value.DegreeToRadian, double.Parse (XField.text), double.Parse (YField.text), Double.Parse (ZField.text))
+		    CATransform3DRotate (ImageView1.view.layer.Transform, Slider1.Value.DegreeToRadian, double.Parse (XField.text), double.Parse (YField.text), Double.Parse (ZField.text))
 		  case "MakeScale"
 		    if SegmentedControl1.value = 0 then ImageView1.CoreAnimationLayer.Transform = _
 		    CATransform3DMakeScale ( Slider1.Value *double.Parse (XField.text), Slider1.Value *double.Parse (YField.text),Slider1.Value * Double.Parse (ZField.text))
 		  case "Scale"
 		    if SegmentedControl1.value = 0 then ImageView1.CoreAnimationLayer.Transform = _
-		    CATransform3DScale (ImageView1.AppleView.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value *double.Parse (YField.text), Slider1.Value *Double.Parse (ZField.text))
+		    CATransform3DScale (ImageView1.view.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value *double.Parse (YField.text), Slider1.Value *Double.Parse (ZField.text))
 		  case "MakeTranslation"
 		    if SegmentedControl1.value = 0 then ImageView1.CoreAnimationLayer.Transform = _
 		    CATransform3DMakeTranslation ( Slider1.Value *double.Parse (XField.text), Slider1.Value *double.Parse (YField.text),Slider1.Value * Double.Parse (ZField.text))
 		  case "Translate"
 		    if SegmentedControl1.value = 0 then ImageView1.CoreAnimationLayer.Transform = _
-		    CATransform3DTranslate (ImageView1.AppleView.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value *double.Parse (YField.text), Slider1.Value *Double.Parse (ZField.text))
+		    CATransform3DTranslate (ImageView1.view.layer.Transform, Slider1.Value * double.Parse (XField.text), Slider1.Value *double.Parse (YField.text), Slider1.Value *Double.Parse (ZField.text))
 		    
 		  case "contentsScale"
 		    ImageView1.CoreAnimationLayer.ContentsScale = slider1.value
@@ -576,8 +574,8 @@ End
 
 	#tag Method, Flags = &h0
 		Sub ShowBoolean(Value as Boolean, Caption as text)
-		  SwitchLabel.AppleView.Hidden = false
-		  Switch1.AppleView.hidden = false
+		  SwitchLabel.view.Hidden = false
+		  Switch1.view.hidden = false
 		  switch1.value = value
 		  
 		  SwitchLabel.Text = Caption
@@ -688,20 +686,20 @@ End
 	#tag Method, Flags = &h0
 		Sub ShowSliders(Number as integer)
 		  if number > 0 then
-		    slider1.AppleView.Hidden = false
-		    label1.AppleView.Hidden = false
+		    slider1.view.Hidden = false
+		    label1.view.Hidden = false
 		  end if
 		  if number > 1 then
-		    slider2.AppleView.Hidden = false
-		    label2.AppleView.Hidden = false
+		    slider2.view.Hidden = false
+		    label2.view.Hidden = false
 		  end if
 		  if number > 2 then
-		    slider3.AppleView.Hidden = false
-		    label3.AppleView.Hidden = false
+		    slider3.view.Hidden = false
+		    label3.view.Hidden = false
 		  end if
 		  if number > 3 then
-		    slider4.AppleView.Hidden = false
-		    label4.AppleView.Hidden = false
+		    slider4.view.Hidden = false
+		    label4.view.Hidden = false
 		  end if
 		  
 		End Sub
@@ -715,9 +713,9 @@ End
 		  
 		  slider1.Value = value
 		  
-		  XField.AppleView.Hidden = false
-		  YField.AppleView.Hidden = false
-		  ZField.AppleView.Hidden = false
+		  XField.view.Hidden = false
+		  YField.view.Hidden = false
+		  ZField.view.Hidden = false
 		  
 		  
 		  label1.Text = Caption
@@ -783,7 +781,7 @@ End
 		  case "Identity"
 		    if SegmentedControl1.value = 0 then ImageView1.CoreAnimationLayer.Transform = CATransform3DIdentity
 		  case "Invert"
-		    if SegmentedControl1.value = 0 then ImageView1.CoreAnimationLayer.Transform = CATransform3DInvert (ImageView1.AppleView.layer.Transform)
+		    if SegmentedControl1.value = 0 then ImageView1.CoreAnimationLayer.Transform = CATransform3DInvert (ImageView1.view.layer.Transform)
 		  case "AutoReverses"
 		    ShowBoolean (AnimationAutoReverse, selection)
 		    
@@ -812,7 +810,7 @@ End
 	#tag Event
 		Sub Open()
 		  me.Alpha = 0
-		  me.FadeIn (3, UIVIewAnimationCurve.EaseOut)
+		  me.FadeIn (3, Appleview.UIVIewAnimationCurve.EaseOut)
 		  me.CoreAnimationLayer.ShadowPath = new AppleCGPathRoundedRect (FoundationFrameWork.NSMakeRect (0,0,200,100), 50,50)
 		  
 		End Sub
@@ -888,11 +886,11 @@ End
 #tag Events Button2
 	#tag Event
 		Sub Action()
-		  dim help as new InfoView ("Here you have access to many of the properties CALayer offers, including Core Animations."+endofline + _
-		  "To use, select one of the properties and change it via the slider(s). As long as <Property> is selected, the CALayer property is changed immediately." + endofline + _
-		  "When you select <Animation> and change the values, there is no visible change until you click on <Animate>, in which case a Core Animation for the selected property is triggered."+endofline + _
-		  "You can change some of the animation values like duration and number of repeats too."+EndOfline+endofline+ _
-		  "The Transform3D properties take values for X, Y and Z axis which are displayed and can be changed if necessary."+ endofline+ _
+		  dim help as new InfoView ("Here you have access to many of the properties CALayer offers, including Core Animations."+eol + _
+		  "To use, select one of the properties and change it via the slider(s). As long as <Property> is selected, the CALayer property is changed immediately." + eol + _
+		  "When you select <Animation> and change the values, there is no visible change until you click on <Animate>, in which case a Core Animation for the selected property is triggered."+eol + _
+		  "You can change some of the animation values like duration and number of repeats too."+eol+eol+ _
+		  "The Transform3D properties take values for X, Y and Z axis which are displayed and can be changed if necessary."+ eol+ _
 		  "Don't be surprised changing the property makes the image jump. Contentmode and constraints of the view may change its appearance on screen updates.")
 		  self.PushToCurl help
 		End Sub

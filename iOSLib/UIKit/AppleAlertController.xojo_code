@@ -9,22 +9,95 @@ Inherits AppleViewController
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub AddTextField(TextField as AppleTextfield, configurationHandler as Ptr = nil)
+		Sub AddCancelButton(CancelText as Text = "", resultblock as appleblock = nil)
+		  if ResultBlock = nil then ResultBlock = new AppleBlock (AddressOf OKBlock)
+		  If canceltext.Empty then canceltext = "Cancel"
+		  AddAction (new AppleAlertAction (self, CancelText, UIAlertActionStyle.Cancel, resultblock))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub AddOKAndCancelButtons(Oktext as text = "", CancelText as Text = "", resultblock as appleblock = nil)
+		  if ResultBlock = nil then ResultBlock = new AppleBlock (AddressOf OKBlock)
+		  AddOKButton (oktext, resultblock)
+		  AddCancelButton (canceltext, resultblock)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub AddOKButton(OKText as Text = "", resultblock as appleblock = nil)
+		  if ResultBlock = nil then ResultBlock = new AppleBlock (AddressOf OKBlock)
+		  if OKText.Empty then oktext = "OK"
+		  AddAction (new AppleAlertAction (self, Oktext, UIAlertActionStyle.Default, resultblock))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub AddPasswordTextField(placeholder as text = "", callback as appleblock = nil)
+		  dim t as new AppleTextField (FoundationFrameWork.NSMakeRect (0,0,100,31))
+		  t.Placeholder = placeholder
+		  t.Secure = true
+		  AddTextField  t, callback
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub AddPasswordTextField(password as text, placeholder as text, callback as appleblock = nil)
+		  dim t as new AppleTextField (FoundationFrameWork.NSMakeRect (0,0,100,31))
+		  t.Placeholder = placeholder
+		  t.Caption = password
+		  t.Secure = true
+		  AddTextField  t, callback
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub AddStandardTextfield(Caption as text, placeholder as text = "", callback as appleblock = nil)
+		  dim t as new AppleTextField (FoundationFrameWork.NSMakeRect (0,0,100,31))
+		  t.Caption = caption
+		  t.Placeholder = placeholder
+		  AddTextField  t, callback
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub AddTextField(TextField as AppleTextField, configurationHandler as appleblock = nil)
+		  if TextFieldDict = nil then TextFieldDict = new Dictionary
+		  if not TextFieldDict.HasKey (id) then TextFieldDict.value(id) = new AppleMutableArray
+		  dim myarray as AppleMutableArray = AppleMutableArray(TextFieldDict.Value (id))
+		  myarray.Addobject TextField
+		  
+		  if configurationHandler = nil then configurationHandler = new AppleBlock (AddressOf ConfigurationHandlerTemplate)
 		  declare sub addTextFieldWithConfigurationHandler lib UIKitLibname selector "addTextFieldWithConfigurationHandler:" (obj_id as ptr, confighandler as ptr)
-		  addTextFieldWithConfigurationHandler id, configurationHandler
+		  addTextFieldWithConfigurationHandler id, configurationHandler.Handle
+		  
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub ConfigurationHandlerTemplate(TextFieldPtr as Ptr)
-		  dim textfield as new AppleTextfield(TextFieldPtr)
+		  if me <> nil then
+		    dim textfield as new AppleTextField(TextFieldPtr)
+		    for q as Integer = 1 to me.TextFields.Count
+		      dim curfield as AppleTextField = AppleTextField.MakefromPtr(me.TextFields.PtrAtIndex(q-1))
+		      if textfield.id = curfield.id then
+		        if TextFieldDict <> nil then
+		          if TextFieldDict.HasKey (id) then
+		            dim textfieldarray as AppleArray = AppleArray (TextFieldDict.Value(id))
+		            if textfieldarray.Count >=q then
+		              dim realfield as AppleTextField = AppleTextField.MakefromPtr (textfieldarray.PtrAtIndex(q-1))
+		              textfield.Caption = realfield.Caption
+		              textfield.Placeholder = realfield.Placeholder
+		              textfield.Secure = realfield.Secure
+		            end if
+		          end if
+		        end if
+		      end if
+		    next
+		    // RaiseEvent TextFieldResult (textfield)
+		  end if
 		  // Here, do something with your textfield properties.
-		  #pragma unused TextField
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h1021
-		Private Sub Constructor()
 		  
 		End Sub
 	#tag EndMethod
@@ -48,22 +121,44 @@ Inherits AppleViewController
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informOnAlertFinished(Selection as text)
-		  RaiseEvent Alert (selection)
+	#tag Method, Flags = &h21
+		Private Sub OKBlock(actionPtr as Ptr)
+		  if me <> nil then
+		    dim action as new AppleAlertAction(actionptr)
+		    if action.Style = UIAlertActionStyle.Default or Action.style = UIAlertActionStyle.Destructive then
+		      dim textfields as AppleArray = me.TextFields
+		      dim Fields() as text
+		      if textfields <> nil then
+		        for q as integer = 1 to TextFields.count
+		          dim field as AppleTextField = AppleTextField.MakefromPtr(TextFields.PtrAtIndex(q-1))
+		          fields.Append field.Caption
+		        next
+		      end if
+		      RaiseEvent Result (action.title, fields)
+		    else
+		      RaiseEvent AlertClosed (action.title)
+		    end if
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Show(ViewControl as AppleViewController, animated as boolean = true)
+		Sub Show(ViewControl as AppleViewController, animated as boolean = true, ResultBlock as AppleBlock = nil)
 		  ParentViewControl = ViewControl
-		  viewcontrol.Present (self, true)
+		  if ResultBlock = nil then ResultBlock = new AppleBlock (AddressOf OKBlock)
+		  if Actions.Count = 0 then AddOKButton ("",ResultBlock)
+		  viewcontrol.Present (self, animated)
 		End Sub
 	#tag EndMethod
 
 
 	#tag Hook, Flags = &h0
-		Event Alert(SelectedButtonTitle as Text)
+		Event AlertClosed(SelectedButtonTitle as Text)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event Result(button as text, captions() as text)
 	#tag EndHook
 
 
@@ -129,14 +224,9 @@ Inherits AppleViewController
 		PreferredStyle As UIAlertControllerStyle
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  return AppleAlertAction.LastSelectedTitle
-			End Get
-		#tag EndGetter
-		SelectedTitle As Text
-	#tag EndComputedProperty
+	#tag Property, Flags = &h21
+		Private Shared TextFieldDict As Dictionary
+	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
@@ -164,63 +254,19 @@ Inherits AppleViewController
 	#tag EndComputedProperty
 
 
+	#tag Enum, Name = UIAlertControllerStyle, Flags = &h0
+		ActionSheet
+		Alert
+	#tag EndEnum
+
+
 	#tag ViewBehavior
-		#tag ViewProperty
-			Name="AutomaticallyAdjustsScrollViewInsets"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AutoRotate"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="DebugDescription"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ExtendedLayoutIncludesOpaqueBars"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Hash"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsFirstResponder"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -235,37 +281,10 @@ Inherits AppleViewController
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ModalInPopover"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ModalPresentationStyle"
-			Group="Behavior"
-			Type="UIViewModalPresentationStyle"
-			EditorType="Enum"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ModalTransitonStyle"
-			Group="Behavior"
-			Type="UIModalTransitionStyle"
-			EditorType="Enum"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="NibName"
-			Group="Behavior"
-			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PreferredStyle"
@@ -278,25 +297,10 @@ Inherits AppleViewController
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="RetainCount"
-			Group="Behavior"
-			Type="UInteger"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="SelectedTitle"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TextInputContextIdentifier"
-			Group="Behavior"
-			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Title"
@@ -309,11 +313,6 @@ Inherits AppleViewController
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ViewIsLoaded"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

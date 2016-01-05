@@ -10,49 +10,27 @@ Begin iosView SplashView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 58, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
       ContentMode     =   "1"
       Height          =   240.0
       Image           =   "857282559"
-      Left            =   20
+      Left            =   20.0
       LockedInPosition=   False
       Scope           =   0
-      Top             =   28
-      Visible         =   True
-      Width           =   280.0
-   End
-   Begin iOSLabel Label1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 3, ImageView1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      Enabled         =   True
-      Height          =   30.0
-      Left            =   20
-      LineBreakMode   =   "0"
-      LockedInPosition=   False
-      Scope           =   0
-      Text            =   "2015 by Ulrich Bogun, xojoblog.me"
-      TextAlignment   =   "1"
-      TextColor       =   &c0F237700
-      TextFont        =   ""
-      TextSize        =   12
-      Top             =   276
+      Top             =   58.0
       Visible         =   True
       Width           =   280.0
    End
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, -37, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, -37, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       Caption         =   "Info"
       Enabled         =   True
       Height          =   30.0
@@ -69,20 +47,51 @@ Begin iosView SplashView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button2, 2, Label1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 3.0e+1, 
-      AutoLayout      =   Button2, 1, Label1, 1, False, +1.00, 1, 1, 0, 
-      Caption         =   "Now with UIDynamics (tap me)"
+      AutoLayout      =   Button2, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      Caption         =   "v 0.8.0"
       Enabled         =   True
       Height          =   30.0
-      Left            =   20
+      Left            =   0
       LockedInPosition=   False
       Scope           =   0
-      TextColor       =   &cDA770000
+      TextColor       =   &c435B9600
       TextFont        =   ""
       TextSize        =   20
       Top             =   20
+      Visible         =   True
+      Width           =   320.0
+   End
+   Begin iOSLabeliOSLibEnhanced Label1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AdjustFontSize  =   False
+      AllowTightening =   False
+      AutoLayout      =   Label1, 3, BottomLayoutGuide, 3, False, +1.00, 1, 1, -50, 
+      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      Enabled         =   True
+      Height          =   30.0
+      Highlighted     =   False
+      HighlightedTextColor=   &c44444400
+      Left            =   20.0
+      LineBreakMode   =   "0"
+      LockedInPosition=   False
+      MinimumScaleFactor=   0.0
+      NumberOfLines   =   0
+      Scope           =   0
+      ShadowColor     =   &cBFBFBF00
+      ShadowXOffset   =   1.0
+      ShadowYOffset   =   1.0
+      Text            =   "2015, 2016 by Ulrich Bogun, xojoblog.me"
+      TextAlignment   =   "1"
+      TextColor       =   &c13131300
+      TextFont        =   "System Bold		"
+      TextSize        =   14
+      Top             =   430.0
       Visible         =   True
       Width           =   280.0
    End
@@ -90,13 +99,30 @@ End
 #tag EndIOSView
 
 #tag WindowCode
+	#tag Event
+		Sub Open()
+		  AnimateColorBlock
+		End Sub
+	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub AnimateColorBlock()
+		  dim b as new appleblock (addressof animatecolorblock)
+		  dim acolor as color = RandomColor (200, 250)
+		  dim option as new AppleViewAnimationOption
+		  option.AllowUserInteraction = true
+		  me.view.AppleView.AnimateColor (acolor.toapplecolor, Option, 5, appleview.UIVIewAnimationCurve.EaseInEaseOut, 0, b)
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub buttonmove()
-		  dim newrect as FoundationFrameWork.NSRect = Button1.AppleView.Frame
-		  newrect.Origin.y = ImageView1.AppleView.Frame.Size_.height +  ImageView1.AppleView.Frame.Size_.height /3
+		  dim newrect as FoundationFrameWork.NSRect = Button1.view.Frame
+		  newrect.Origin.y = ImageView1.view.Frame.Size_.height +  ImageView1.view.Frame.Size_.height /3
 		  dim options as new AppleViewAnimationOption
 		  options.AllowUserInteraction = true
-		  button1.AppleView.SpringAnimateFrame (newrect , options, 0.3, 10, 5)
+		  button1.view.SpringAnimateFrame (newrect , options, 0.3, 10, 5)
 		  Button2.FadeIn (5)
 		  
 		  
@@ -125,17 +151,9 @@ End
 #tag Events ImageView1
 	#tag Event
 		Sub Open()
-		  me.AppleView.SetScale 80
+		  me.View.SetScale 80
 		  me.AnimateSize 0.5, 0.5, 2
 		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events Label1
-	#tag Event
-		Sub Open()
-		  me.Alpha = 0
-		  me.AppleView.AnimateAlpha 1, AppleViewAnimationOption.OptionNone, 1, UIKitFramework.UIVIewAnimationCurve.EaseInEaseOut, 2
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -149,18 +167,18 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Action()
-		  dim v2 as new InfoView ( "Hello and welcome to iOSLib!"+EndOfline+EndOfline+ _
-		  "This is a library extending Xojo iOS by Declares. There's many of them, some snippets, some already mighty libraries."+endofline+ _
-		  "You should definitely check them out on forum.xojo.com."+endofline+"So why another iOSLib?"+Endofline+ _
-		  "Special about iOSLib is it goes into the depth not into the height, at least for now. This means you will find a lot of additions to already existing Xojo controls. "+ endofline + _
-		  "And what's more is I try to add convenience methods to the most frequently used methods. This means you mostly do not have to dig into the mysteries of iOS API calls but can use Xojo controls and Xojo-like methods and properties." +endofline + _
+		  dim v2 as new InfoView ( "Hello and welcome to iOSLib!"+eol+eol+ _
+		  "This is a library extending Xojo iOS by Declares. There's many of them, some snippets, some already mighty libraries."+eol+ _
+		  "You should definitely check them out on forum.xojo.com."+eol+"So why another iOSLib?"+eol+ _
+		  "Special about iOSLib is it goes into the depth not into the height, at least for now. This means you will find a lot of additions to already existing Xojo controls. "+ eol + _
+		  "And what's more is I try to add convenience methods to the most frequently used methods. This means you mostly do not have to dig into the mysteries of iOS API calls but can use Xojo controls and Xojo-like methods and properties." +eol + _
 		  "But if you want to explore iOS, you will find many iOS classes rebuilt as Xojo classes, even those that do not really exist in the API like Core Foundation objects. "+ _
-		  "This makes it easy to view them in debugger."+endofline+EndOfline + endofline + _
-		  "To use, simply drag the iOSLib folder into your project." + endofline +  _
-		  "You can find the most recent version and a documentation in form of the GitHub Wiki on https://github.com/UBogun/Xojo-iosLib." + EndOfline + _
+		  "This makes it easy to view them in debugger."+eol+eol + eol + _
+		  "To use, simply drag the iOSLib folder into your project." + eol +  _
+		  "You can find the most recent version and a documentation in form of the GitHub Wiki on https://github.com/UBogun/Xojo-iosLib." + eol + _
 		  "But make sure to examine the demo projects too as they will often give you an idea on how to use iOSLib's features.")
 		  
-		  v2.AppleViewController.ModalPresentationStyle = UIKitFramework.UIViewModalPresentationStyle.PopOver
+		  v2.View.ModalPresentationStyle = appleview.UIViewModalPresentationStyle.PopOver
 		  self.PushToCover v2
 		  
 		  
@@ -179,7 +197,6 @@ End
 		  collision.TranslatesReferenceBoundsIntoBoundary = true
 		  animator.AddBehavior gravity
 		  animator.AddBehavior collision
-		  me.Caption ="More in the Graphics Demo!"
 		  
 		End Sub
 	#tag EndEvent
@@ -187,6 +204,14 @@ End
 		Sub Open()
 		  me.alpha = 0
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Label1
+	#tag Event
+		Sub Open()
+		  me.Alpha = 0
+		  me.view.AnimateAlpha 1, AppleViewAnimationOption.OptionNone, 1, appleview.UIVIewAnimationCurve.EaseInEaseOut, 5
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -8,45 +8,34 @@ Begin iosView CAKEyframeView
    Title           =   "CAKeyframeAnimation"
    Top             =   0
    Begin ioslibpicker HTMLViewer1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   HTMLViewer1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 162, 
-      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   HTMLViewer1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 8, , 0, False, +1.00, 1, 1, 162, 
+      AutoLayout      =   HTMLViewer1, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   HTMLViewer1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
       Height          =   162.0
-      Left            =   0
+      Left            =   0.0
       LockedInPosition=   False
-      NumberOfComponents=   0
-      Scope           =   0
-      SelectedColumn  =   0
-      SelectionText   =   ""
-      Top             =   318
-      Visible         =   True
+      Top             =   318.0
       Width           =   320.0
    End
    Begin ioslibgradientview Canvas1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Canvas1, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   Canvas1, 7, <Parent>, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Canvas1, 3, TopLayoutGuide, 4, False, +1.00, 2, 1, *kStdControlGapV, 
+      AutoLayout      =   Canvas1, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Canvas1, 1, <Parent>, 1, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Canvas1, 7, <Parent>, 7, False, +1.00, 1, 1, 0, 
       Height          =   237.0
-      Left            =   0
+      Left            =   0.0
       LockedInPosition=   False
-      Scope           =   0
-      Top             =   73
-      Visible         =   True
+      Top             =   73.0
       Width           =   320.0
    End
    Begin iosimageview animationcanvas
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   animationcanvas, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   animationcanvas, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   animationcanvas, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   animationcanvas, 2, <Parent>, 2, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   animationcanvas, 4, HTMLViewer1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   animationcanvas, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   animationcanvas, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       ContentMode     =   "4"
       Height          =   237.0
       Image           =   "35192831"
@@ -95,8 +84,8 @@ End
 		    animationcanvas.CoreAnimationLayer.ResumeAnimation
 		  else
 		    dim help as new InfoView ("A CAKeyframeAnimation lets you animate a CALayer property the same way you can with a CABasicAnimation but this time along a path. You can choose between three CGPath forms: "+ _
-		    "Circle, Rect and Rounded Rect, but CGPath offers a lot of method for custom paths. You are not bound to position changes, the path is taken as a value function over animation time to calculate the animation value – in other words, you can animate colors, borders etc. too."+endofline+ _
-		    "The RotationMode property lets you choose between 3 kinds of auto-rotation while the object is animated – towards the center, away from it or none. There are still a few properties missing to influence the cubic computation mode but I hope it's enough for a first start."+endofline + _
+		    "Circle, Rect and Rounded Rect, but CGPath offers a lot of method for custom paths. You are not bound to position changes, the path is taken as a value function over animation time to calculate the animation value – in other words, you can animate colors, borders etc. too."+eol+ _
+		    "The RotationMode property lets you choose between 3 kinds of auto-rotation while the object is animated – towards the center, away from it or none. There are still a few properties missing to influence the cubic computation mode but I hope it's enough for a first start."+eol + _
 		    "Try adding several animations at once – this works too!")
 		    self.PushToCurl help
 		  end Select

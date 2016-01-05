@@ -4,7 +4,7 @@ Inherits AppleViewControl
 	#tag Event
 		Function CreateView() As UInteger
 		  dim frame as  FoundationFrameWork.NSRect = FoundationFrameWork.NSMakeRect (0,0,100,100)
-		  viewobject = new AppleSCNView (frame, self)
+		  viewobject = new AppleSCNView (frame)
 		  ViewObject.AutoRelease
 		  Return UInteger(viewobject.id)
 		  

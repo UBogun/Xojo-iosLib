@@ -37,7 +37,7 @@ Inherits AppleSKNode
 			Get
 			  static mClassPtr as Ptr
 			  if mClassPtr = nil then
-			    if AppleSKView.SpriteKitEnabled then
+			    if AppleSKView.classavailable then
 			      mClassPtr  =  FoundationFramework.NSClassFromString ("SKEmitterNode")
 			    end if
 			  end if
@@ -1120,6 +1120,11 @@ Inherits AppleSKNode
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="FieldBitMask"
+			Group="Behavior"
+			Type="UInt32"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Height"
 			Group="Behavior"
 			Type="Double"
@@ -1283,6 +1288,11 @@ Inherits AppleSKNode
 			Name="ParticleSpeedRange"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ParticlesToEmit"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ParticleZPosition"

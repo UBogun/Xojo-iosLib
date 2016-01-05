@@ -21,6 +21,14 @@ Inherits AppleObject
 		End Sub
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h0
+		Attributes( hidden ) Declare Function getHost Lib foundationlibname Selector "host" (id as ptr) As cfstringref
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h0
+		Attributes( hidden ) Declare Function getPath Lib foundationlibname Selector "path" (id as ptr) As cfstringref
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function MakefromPtr(aPtr as Ptr) As AppleURL
 		  return if (aptr = nil, nil, new appleurl(aptr))
@@ -38,22 +46,30 @@ Inherits AppleObject
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return gethost(id)
+			End Get
+		#tag EndGetter
+		Host As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getpath(id)
+			End Get
+		#tag EndGetter
+		Path As Text
+	#tag EndComputedProperty
+
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="DebugDescription"
+			Name="Host"
 			Group="Behavior"
 			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="HasOwnership"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -63,16 +79,6 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="IsNIL"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="isProxy"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
@@ -80,15 +86,15 @@ Inherits AppleObject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="mHasOwnership"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Path"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
