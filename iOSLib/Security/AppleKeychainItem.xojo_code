@@ -1,7 +1,7 @@
 #tag Class
 Protected Class AppleKeychainItem
 Inherits AppleMutableDictionary
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 547269657320746F2061646420746865206974656D20746F20746865206B6579636861696E20616E642072657475726E73206120726573756C742E2030206966207375636365737366756C2E
 		Function AddItem() As int32
 		  dim resultptr as ptr
 		  dim result as int32  = SecurityFramework.SecItemAdd(self.id, resultptr)
@@ -11,7 +11,7 @@ Inherits AppleMutableDictionary
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 437265617465732061206E65772C20656D707479204B6579636861696E6974656D2E
 		Sub Constructor()
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
@@ -52,7 +52,7 @@ Inherits AppleMutableDictionary
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 4D6F64696669657320746865205F4D617463684C696D69745F204B6579206F662061206B6579636861696E6974656D207573656420666F72207175657269657320746F2072657475726E20616E2061727261792028616C6C206D61746368696E67206B6579636861696E6974656D733B20536561726368416C6C203D2074727565292C2031206974656D2028536561726368416C6C203D2066616C73652C204C696D6974203D203129206F722061206365727461696E206E756D6265722E204E6F742075736566756C2063757272656E746C79206173207468657265206973206E6F20636F6E76656E69656E6365206D6574686F642068616E646C696E6720616E206172726179206F66206B6579636861696E6974656D73207965742E20
 		Sub setMatchLimit(searchAll as boolean, limit as integer = 0)
 		  if searchAll then
 		    setMatchLimit (kMatchLimitAll)
@@ -65,13 +65,13 @@ Inherits AppleMutableDictionary
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub setMatchLimit(value as ptr)
+	#tag Method, Flags = &h21, Description = 4D6F64696669657320746865205F4D617463684C696D69745F204B6579206F662061206B6579636861696E6974656D207573656420666F72207175657269657320746F2072657475726E20616E2061727261792028616C6C206D61746368696E67206B6579636861696E6974656D733B20536561726368416C6C203D2074727565292C2031206974656D2028536561726368416C6C203D2066616C73652C204C696D6974203D203129206F722061206365727461696E206E756D6265722E204E6F742075736566756C2063757272656E746C79206173207468657265206973206E6F20636F6E76656E69656E6365206D6574686F642068616E646C696E6720616E206172726179206F66206B6579636861696E6974656D73207965742E20
+		Attributes( hidden ) Private Sub setMatchLimit(value as ptr)
 		  me.PtrForKey(kMatchLimit) = value
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 547269657320746F206D6F6469667920746865206B6579636861696E6974656D2069742067657473206166746572207175657279696E6720776974682074686520636F6E74656E74206F66207468652063757272656E74204B6579636861696E4974656D2E2054686973206974656D206D757374206F6E6C7920636F6E7461696E20227265616C22206B6579636861696E646174612C206E6F206D65746164617461206C696B65205F536572766963654E616D655F206F72205F4163636F756E745F2E2052657475726E73206120526573756C742C2030206966207375636365737366756C2E
 		Function UpdateItem(query as AppleKeychainItem) As int32
 		  dim result as int32  = SecurityFramework.SecItemUpdate(query.id, self.id)
 		  if result <> 0 then RaiseEvent Error(result)
@@ -147,7 +147,7 @@ Inherits AppleMutableDictionary
 		Accessibility As keychainaccessibility
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 546865206163636F756E74206E616D6520666F72205365637572697479206163636573732E
 		#tag Getter
 			Get
 			  if me.PtrForKey (kAttributeAccount) <> nil then return me.TextForKey(kAttributeAccount)
@@ -490,7 +490,7 @@ Inherits AppleMutableDictionary
 		CertificateType As Integer
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 416E206F7074696F6E616C20636F6D6D656E742E20
 		#tag Getter
 			Get
 			  if me.PtrForKey (kAttributeComment) <> nil then return me.TextForKey(kAttributeComment)
@@ -536,7 +536,7 @@ Inherits AppleMutableDictionary
 		Attributes( incomplete = "should be OSType" ) CreatorCode As text
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 416E206F7074696F6E616C20646573637269707469766520746578742E2020
 		#tag Getter
 			Get
 			  if me.PtrForKey (kAttributeDescription) <> nil then return me.TextForKey(kAttributeDescription)
@@ -1965,7 +1965,7 @@ Inherits AppleMutableDictionary
 		Attributes( hidden ) Private Shared kValueRef As Ptr
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 416E206F7074696F6E616C206C6162656C2E
 		#tag Getter
 			Get
 			  if me.PtrForKey (kAttributeLabel) <> nil then return me.TextForKey(kAttributeLabel)
@@ -2173,7 +2173,7 @@ Inherits AppleMutableDictionary
 		Negative As Boolean
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 5468652070617373776F72642E
 		#tag Getter
 			Get
 			  if me.PtrForKey (kValueData) <> nil then
@@ -2407,7 +2407,7 @@ Inherits AppleMutableDictionary
 		ServerDomain As Text
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0
+	#tag ComputedProperty, Flags = &h0, Description = 5468652073657276696365206E616D6520746F20726567697374657220756E6465722E
 		#tag Getter
 			Get
 			  if me.PtrForKey (kAttributeService) <> nil then return me.TextForKey(kAttributeService)

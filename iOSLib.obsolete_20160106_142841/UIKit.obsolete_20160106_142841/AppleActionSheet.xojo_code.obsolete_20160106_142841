@@ -1,0 +1,104 @@
+#tag Class
+Protected Class AppleActionSheet
+Inherits AppleView
+	#tag Method, Flags = &h0
+		Sub AddButton(ButtonTitle as CFStringRef)
+		  Declare sub addButtonWithTitle  lib UIKitLibname selector "addButtonWithTitle:" (id as ptr, title as CFStringRef)
+		  addButtonWithTitle id, ButtonTitle
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1021
+		Private Sub constructor()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(Title As CFStringRef, CancelButtonTitle as text, DestructiveButtonTitle As text)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  
+		  // dim cancel as new AppleCFString(CancelButtonTitle)
+		  // dim desttruct as new AppleCFString (DestructiveButtonTitle)
+		  
+		  Declare Function initWithTitle lib UIKitLibname selector "initWithTitle:delegate:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:" _
+		  (id as ptr, Title as cfstringref, delegate_ as ptr,  CancelButtonTitle as CFStringRef, DestructiveButtonTitle as CFStringRef, otherbuttonTitles as ptr) as ptr
+		  
+		  if CancelButtonTitle.Empty then
+		    Super.Constructor initWithTitle (Alloc(classptr), Title, Nil, Nil,  DestructiveButtonTitle, Nil)
+		  elseif DestructiveButtonTitle.Empty then
+		    Super.Constructor initWithTitle (Alloc(classptr), Title, Nil, CancelButtonTitle,  NIL, Nil)
+		  else
+		    Super.Constructor initWithTitle (Alloc(classptr), Title, Nil, CancelButtonTitle,  DestructiveButtonTitle, Nil)
+		  end if
+		  
+		  
+		  mHasOwnership = true
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ShowInView(view as AppleView)
+		  Declare sub showInView  lib UIKitLibname selector "showInView:" (id as ptr, view as ptr)
+		  showInView id, view.id
+		End Sub
+	#tag EndMethod
+
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("UIActionSheet")
+			  return mClassPtr
+			End Get
+		#tag EndGetter
+		Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass

@@ -1,0 +1,180 @@
+#tag Class
+Protected Class AppleCATransition
+Inherits AppleCAAnimation
+	#tag Method, Flags = &h1021
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  static mtext as text = SystemConstantName ("kCATransitionFade", QuartzCorePath)
+			  return mtext
+			End Get
+		#tag EndGetter
+		Private Shared CFade As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  static mtext as text = SystemConstantName ("kCATransitionFromBottom", QuartzCorePath)
+			  return mtext
+			End Get
+		#tag EndGetter
+		Private Shared CFromBottom As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  static mtext as text = SystemConstantName ("kCATransitionFromLeft", QuartzCorePath)
+			  return mtext
+			End Get
+		#tag EndGetter
+		Private Shared CFromLeft As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  static mtext as text = SystemConstantName ("kCATransitionFromRight", QuartzCorePath)
+			  return mtext
+			End Get
+		#tag EndGetter
+		Private Shared CFromRight As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  static mtext as text = SystemConstantName ("kCATransitionFromTop", QuartzCorePath)
+			  return mtext
+			End Get
+		#tag EndGetter
+		Private Shared CFromTop As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("CATransition")
+			  return mClassPtr
+			End Get
+		#tag EndGetter
+		Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  static mtext as text = SystemConstantName ("kCATransitionMoveIn", QuartzCorePath)
+			  return mtext
+			End Get
+		#tag EndGetter
+		Private Shared CMoveIn As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  static mtext as text = SystemConstantName ("kCATransitionPush", QuartzCorePath)
+			  return mtext
+			End Get
+		#tag EndGetter
+		Private Shared CPush As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  static mtext as text = SystemConstantName ("kCATransitionReveal", QuartzCorePath)
+			  return mtext
+			End Get
+		#tag EndGetter
+		Private Shared CReveal As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function endProgress lib QuartzCoreLib selector "endProgress" (id as ptr) as Single
+			  Return endProgress (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setEndProgress lib QuartzCoreLib selector "setEndProgress:" (id as ptr, value as Single)
+			  setEndProgress id, value
+			End Set
+		#tag EndSetter
+		EndProgress As Single
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function startProgress lib QuartzCoreLib selector "startProgress" (id as ptr) as Single
+			  Return startProgress (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setStartProgress lib QuartzCoreLib selector "setStartProgress:" (id as ptr, value as Single)
+			  setStartProgress id, value
+			End Set
+		#tag EndSetter
+		StartProgress As Single
+	#tag EndComputedProperty
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="EndProgress"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="StartProgress"
+			Group="Behavior"
+			Type="Single"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass

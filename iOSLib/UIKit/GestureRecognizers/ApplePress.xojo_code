@@ -7,14 +7,6 @@ Inherits AppleObject
 		End Sub
 	#tag EndMethod
 
-	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target64Bit)) or  (TargetWeb and (Target64Bit)) or  (TargetDesktop and (Target64Bit)) or  (TargetIOS and (Target64Bit))
-		Attributes( hidden ) Private Declare Function getForce Lib uikitlibname Selector "force" (id as ptr) As double
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit)) or  (TargetWeb and (Target32Bit)) or  (TargetDesktop and (Target32Bit)) or  (TargetIOS and (Target32Bit))
-		Attributes( hidden ) Private Declare Function getForce Lib uikitlibname Selector "force" (id as ptr) As single
-	#tag EndExternalMethod
-
 	#tag ExternalMethod, Flags = &h21
 		Attributes( hidden ) Private Declare Function getPhase Lib uikitlibname Selector "phase" (id as ptr) As UIPressPhase
 	#tag EndExternalMethod
@@ -63,10 +55,10 @@ Inherits AppleObject
 		Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
-	#tag ComputedProperty, Flags = &h0, Description = 54686520666F726365206F662074686520627574746F6E2070726573732E2028726561642D6F6E6C7929
+	#tag ComputedProperty, Flags = &h0, Description = 54686520666F726365206F662074686520627574746F6E2070726573732E2028726561642D6F6E6C792E20417661696C61626C652073696E636520694F5320392E302E
 		#tag Getter
 			Get
-			  return getForce (id)
+			  if RespondsToSelector (classptr, "force") then return uikitframework.getForce (id)
 			End Get
 		#tag EndGetter
 		Force As Double

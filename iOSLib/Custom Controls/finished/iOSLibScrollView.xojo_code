@@ -876,6 +876,7 @@ Inherits iOSLIbCanvas
 			Name="ContentMode"
 			Group="Behavior"
 			Type="UIKitFramework.UIViewContentMode"
+			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentScaleFactor"
@@ -956,11 +957,23 @@ Inherits iOSLIbCanvas
 			Name="IndicatorStyle"
 			Group="Behavior"
 			Type="Uikitframework.uiScrollViewIndicatorStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Black"
+				"2 - White"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="KeyboardDismissMode"
 			Group="Behavior"
 			Type="uikitframework.UIScrollViewKeyboardDismissMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - None"
+				"1 - OnDrag"
+				"2 - Interactive"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -1057,6 +1070,7 @@ Inherits iOSLIbCanvas
 			Name="TintAdjustmentMode"
 			Group="Behavior"
 			Type="AppleView.UIViewTintAdjustmentMode"
+			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

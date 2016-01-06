@@ -48,6 +48,14 @@ Protected Module UIKitFramework
 		End Function
 	#tag EndMethod
 
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target64Bit)) or  (TargetWeb and (Target64Bit)) or  (TargetDesktop and (Target64Bit)) or  (TargetIOS and (Target64Bit))
+		Attributes( hidden ) Protected Declare Function getForce Lib uikitlibname Selector "force" (id as ptr) As double
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit)) or  (TargetWeb and (Target32Bit)) or  (TargetDesktop and (Target32Bit)) or  (TargetIOS and (Target32Bit))
+		Attributes( hidden ) Protected Declare Function getForce Lib uikitlibname Selector "force" (id as ptr) As single
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h1
 		Protected Function getFrame(id as ptr) As FoundationFramework.NSRect
 		  #if target32bit

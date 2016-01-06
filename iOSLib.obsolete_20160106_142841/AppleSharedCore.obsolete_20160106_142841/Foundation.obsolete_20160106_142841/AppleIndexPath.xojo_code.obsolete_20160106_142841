@@ -1,0 +1,270 @@
+#tag Class
+Protected Class AppleIndexPath
+Inherits AppleObject
+	#tag Method, Flags = &h0
+		Function AddIndex(index as UInteger) As AppleIndexPath
+		  return AppleIndexPath.MakeFromPtr (IndexPathByAddingIndex(id, index))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Compare(IndexPath as AppleIndexPath) As FoundationFramework.NSComparisonResult
+		  return Compare (id, IndexPath.id)
+		End Function
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function compare Lib FoundationLibname Selector "compare:" (id as ptr, otherPath as ptr) As FoundationFramework.NSComparisonResult
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h21
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(Indexes as applearray, length as uinteger)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (initwithIndexes(alloc(classptr), indexes.id, length))
+		  MHasOwnership = true
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(Index as integer)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (initwithIndex(alloc(classptr), index))
+		  MHasOwnership = true
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getindexAtPosition Lib FoundationLibname Selector "indexAtPosition:" (id as ptr, position as uinteger) As uinteger
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Sub getIndexes Lib FoundationLibname Selector "getIndexes:range:" (id as ptr, indexes as ptr, range as FoundationFrameWork . nsrange)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getItem Lib FoundationLibname Selector "item" (id as ptr) As Integer
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getLength Lib FoundationLibname Selector "length" (id as ptr) As uinteger
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getrow Lib FoundationLibname Selector "row" (id as ptr) As Integer
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function getsection Lib FoundationLibname Selector "section" (id as ptr) As Integer
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		Function IndexAtPosition(Position as uinteger) As uinteger
+		  return getindexAtPosition (id, position)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Indexes() As UInteger()
+		  dim rg as FoundationFrameWork.nsrange
+		  rg.location = 0
+		  rg.length = me.Length
+		  return Indexes (rg)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Indexes(range as FoundationFrameWork.nsrange) As UInteger()
+		  dim ResultBlock as new MutableMemoryBlock (range.length*IntegerSize+integersize)
+		  getindexes (id, ResultBlock.Data, range)
+		  return resultblock.CArrayMBToUIntegerArray
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Indexes(location as uinteger, length as uinteger) As UInteger()
+		  dim rg as FoundationFrameWork.nsrange
+		  rg.location = location
+		  rg.length = length
+		  return Indexes (rg)
+		End Function
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function indexPathByAddingIndex Lib FoundationLibname Selector "indexPathByAddingIndex:" (id as ptr, index as uinteger) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function indexPathByRemovingLastIndex Lib FoundationLibname Selector "indexPathByRemovingLastIndex" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function IndexPathForItem(item as integer, section as integer) As AppleIndexPath
+		  dim result as new AppleIndexPath(IndexPathForItem(classptr, item, section))
+		  result.RetainClassObject
+		  return result
+		End Function
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function indexPathForItem Lib FoundationLibname Selector "indexPathForItem:inSection:" (id as ptr, Item as integer, inSection as integer) As Ptr
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function IndexPathForRow(row as integer, section as integer) As AppleIndexPath
+		  dim result as new AppleIndexPath(IndexPathForRow(classptr, row, section))
+		  result.RetainClassObject
+		  return result
+		End Function
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function indexPathForRow Lib FoundationLibname Selector "indexPathForRow:inSection:" (id as ptr, row as integer, inSection as integer) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function InitWithIndex Lib FoundationLibname Selector "initWithIndex:" (id as ptr, index as integer) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function InitWithIndexes Lib FoundationLibname Selector "initWithIndexes:length:" (id as ptr, indexes as ptr, length as uinteger) As Ptr
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As AppleIndexPath
+		  return if (aptr = nil, nil, new AppleIndexPath(aptr))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function RemoveLastIndex() As AppleIndexPath
+		  return AppleIndexPath.MakeFromPtr (IndexPathByRemovingLastIndex(id))
+		End Function
+	#tag EndMethod
+
+
+	#tag Note, Name = Status Complete
+		
+		
+	#tag EndNote
+
+
+	#tag ComputedProperty, Flags = &h1
+		#tag Getter
+			Get
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("NSIndexPath")
+			  return mClassPtr
+			End Get
+		#tag EndGetter
+		Protected Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getitem(id)
+			End Get
+		#tag EndGetter
+		Item As Integer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getlength(id)
+			End Get
+		#tag EndGetter
+		Length As UInteger
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getrow(id)
+			End Get
+		#tag EndGetter
+		Row As Integer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getsection(id)
+			End Get
+		#tag EndGetter
+		Section As Integer
+	#tag EndComputedProperty
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Item"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Length"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Row"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Section"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass

@@ -48,13 +48,22 @@ Protected Module SecurityFramework
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
+	#tag Method, Flags = &h0, Description = 547269657320746F207265616420746865206B6579636861696E6974656D20736176656420756E64657220736572766963656E616D6520616E64206163636F756E742E
 		Function ReadKeychainitem(Service As Text, Account as Text) As AppleKeychainItem
+		  dim result as int32 
+		  dim resultdict as Applekeychainitem = ReadKeychainitem (Service, Account, result)
+		  return resultDict
+		  #Pragma unused result
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 547269657320746F207265616420746865206B6579636861696E6974656D20736176656420756E64657220736572766963656E616D6520616E64206163636F756E742E
+		Function ReadKeychainitem(Service As Text, Account as Text, byref result as int32) As AppleKeychainItem
 		  dim dict as  AppleKeychainItem = MakeQueryKeychainItem(service, account)
 		  dict.ReturnValue = AppleKeychainItem.KeyChainReturnAttribute.KeychainItem
 		  
 		  dim resultDict as  AppleKeychainItem
-		  dim result as int32 = dict.GetKeychainItem (resultdict)
+		  result  = dict.GetKeychainItem (resultdict)
 		  
 		  if result = 0 then
 		    dict.ReturnValue = AppleKeychainItem.KeyChainReturnAttribute.Data

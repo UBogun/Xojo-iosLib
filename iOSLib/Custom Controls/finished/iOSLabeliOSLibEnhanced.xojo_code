@@ -196,6 +196,12 @@ Inherits iOSLabel
 			Name="BaselineAdjustment"
 			Group="Behavior"
 			Type="AppleLabel.UIBaselineAdjustment"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - BaseLines"
+				"1 - Centers"
+				"2 - None"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Enabled"

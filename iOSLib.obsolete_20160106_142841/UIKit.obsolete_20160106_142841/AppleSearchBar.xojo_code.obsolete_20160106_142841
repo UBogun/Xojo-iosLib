@@ -1,0 +1,988 @@
+#tag Class
+Protected Class AppleSearchBar
+Inherits AppleView
+	#tag Event , Description = 4669726573207768656E207468652072656374616E676C6520286F722077686F6C65206172656129206F662074686520766965772067657473207265647261776E
+		Sub DrawRect(Rect  as FoundationFramework.NSRect)
+		  #pragma unused rect
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub LayoutSubviews()
+		  
+		End Sub
+	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub AnimateCancelButton(value as boolean)
+		  Declare sub setShowsCancelButton lib UIKitLibname selector "setShowsCancelButton:animated:" (id as ptr, value as boolean, animated as boolean)
+		  setShowsCancelButton id, value, true
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 52657475726E732074686520617070656172616E63652070726F787920666F7220746865207265636569766572207468617420686173207468652070617373656420747261697420636F6C6C656374696F6E2E
+		 Shared Function Appearance(Collection as AppleTraitCollection) As AppleSearchBar
+		  return AppleSearchBar.MakeFromPtr (getappearanceForTrait(classptr, collection))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function BackgroundImage(BarPosition As UIBarPosition, BarMetrics As UIBarMetrics) As AppleImage
+		  Declare function backgroundImageForBarPosition lib UIKitLibname selector "backgroundImageForBarPosition:barMetrics:" (id as ptr, BarPosition as UIBarPosition, BarMetrics as UIBarMetrics) as ptr
+		  return appleimage.MakeFromPtr(backgroundImageForBarPosition(id, BarPosition, BarMetrics))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub BackgroundImage(BarPosition As UIBarPosition, BarMetrics As UIBarMetrics, assigns value as appleimage)
+		  Declare sub setBackgroundImageForBarPosition lib UIKitLibname selector "setBackgroundImage:forBarPosition:barMetrics:" (id as ptr, value as ptr, BarPosition as UIBarPosition, BarMetrics as UIBarMetrics)
+		  setbackgroundImageForBarPosition(id,  if (value = nil, nil, value.id), BarPosition, BarMetrics)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1021
+		Private Sub Constructor()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(aRect as FoundationFramework.NSRect)
+		  // Calling the overridden superclass constructor.
+		  // Note that this may need modifications if there are multiple constructor choices.
+		  // Possible constructor calls:
+		  // Constructor() -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(aFrame  as FoundationFramework.NSRect, observer as AppleNSEventReceiver) -- From AppleView
+		  // Constructor() -- From AppleResponder
+		  // Constructor() -- From AppleObject
+		  // Constructor(AnId as Ptr) -- From AppleObject
+		  Super.Constructor (DoInitWithFrame(alloc(ClassPtr), aRect))
+		  MHasOwnerShip = true
+		  me.setDelegate id, id
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1000
+		Sub Constructor(aFrame as FoundationFramework.NSRect, observer as AppleNSEventReceiver)
+		  Constructor (aFrame)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Image(Icon As UISearchBarIcon, state as AppleControlState) As AppleImage
+		  Declare function imageForSearchBarIcon lib UIKitLibname selector "imageForSearchBarIcon:state:" (id as ptr, Icon As UISearchBarIcon, state as uinteger) as ptr
+		  return appleimage.MakeFromPtr(imageForSearchBarIcon(id, icon, state.id))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Image(Icon As UISearchBarIcon, state as AppleControlState, assigns value as AppleImage)
+		  Declare Sub setimageForSearchBarIcon lib UIKitLibname selector "setImage:forSearchBarIcon:state:" (id as ptr, value as ptr, Icon As UISearchBarIcon, state as uinteger)
+		  setimageForSearchBarIcon id, if (value = nil, nil, value.id), icon, state.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_SearchBarBookmarkButtonClicked(pid as ptr, sel as ptr, searchbar as ptr)
+		  dim ego as new AppleSearchBar (pid)
+		  ego.informonBookmarkButtonClicked  ()
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_SearchBarCancelButtonClicked(pid as ptr, sel as ptr, searchbar as ptr)
+		  dim ego as new AppleSearchBar (pid)
+		  ego.informonCancelButtonClicked  ()
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_SearchBarResultsListButtonClicked(pid as ptr, sel as ptr, searchbar as ptr)
+		  dim ego as new AppleSearchBar (pid)
+		  ego.informonResultsListButtonClicked  ()
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_SearchBarSearchButtonClicked(pid as ptr, sel as ptr, searchbar as ptr)
+		  dim ego as new AppleSearchBar (pid)
+		  ego.informonSearchButtonClicked  ()
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function impl_SearchBarShouldBeginEditing(pid as ptr, sel as ptr, searchbar as ptr) As Boolean
+		  dim ego as new AppleSearchBar (pid)
+		  return ego.informonShouldBeginEditing  ()
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function impl_SearchBarShouldChangeText(pid as ptr, sel as ptr, searchbar as ptr, Range as FoundationFramework.NSRange, searchtext as cfstringref) As Boolean
+		  dim ego as new AppleSearchBar (pid)
+		  return ego.informonShouldChangeText  (range, SearchText)
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function impl_SearchBarShouldEndEditing(pid as ptr, sel as ptr, searchbar as ptr) As Boolean
+		  dim ego as new AppleSearchBar (pid)
+		  return ego.informonShouldEndEditing  ()
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_SearchBarTextDidBeginEditing(pid as ptr, sel as ptr, searchbar as ptr)
+		  dim ego as new AppleSearchBar (pid)
+		  ego.informonTextDidBeginEditing  ()
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_SearchBarTextDidChange(pid as ptr, sel as ptr, searchbar as ptr, searchtext as cfstringref)
+		  dim ego as new AppleSearchBar (pid)
+		  ego.informonTextDidChange  (SearchText)
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_SearchBarTextDidEndEditing(pid as ptr, sel as ptr, searchbar as ptr)
+		  dim ego as new AppleSearchBar (pid)
+		  ego.informonTextDidEndEditing  ()
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Sub impl_SelectedScopeButtonIndexDidChange(pid as ptr, sel as ptr, searchbar as ptr, buttonIndex as Integer)
+		  dim ego as new AppleSearchBar (pid)
+		  ego.informonSelectedScopeButtonIndexDidChange  (buttonIndex)
+		  
+		  #Pragma Unused  sel
+		  #pragma unused searchbar
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonBookmarkButtonClicked()
+		  if ParentControl <> nil then
+		    ParentControl.informonBookmarkButtonClicked ( )
+		  else
+		    RaiseEvent BookmarkButtonClicked ()
+		  end if
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonCancelButtonClicked()
+		  if ParentControl <> nil then
+		    ParentControl.informonCancelButtonClicked ( )
+		  else
+		    RaiseEvent CancelButtonClicked ()
+		  end if
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonResultsListButtonClicked()
+		  if ParentControl <> nil then
+		    ParentControl.informonResultsListButtonClicked ( )
+		  else
+		    RaiseEvent ResultsListButtonClicked ()
+		  end if
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonSearchButtonClicked()
+		  if ParentControl <> nil then
+		    ParentControl.informonSearchButtonClicked ( )
+		  else
+		    RaiseEvent SearchButtonClicked ()
+		  end if
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonSelectedScopeButtonIndexDidChange(Index as integer)
+		  if ParentControl <> nil then
+		    ParentControl.informonSelectedScopeButtonIndexDidChange (index )
+		  else
+		    RaiseEvent ScopeButtonSelectionChanged (index)
+		  end if
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Function informonShouldBeginEditing() As boolean
+		  if ParentControl <> nil then
+		    return not ParentControl.informonShouldBeginEditing ( )
+		  else
+		    return not RaiseEvent ShouldNotBeginEditing ()
+		  end if
+		  
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Function informonShouldChangeText(aRange as FoundationFramework.NSRange, SearchText as Text) As boolean
+		  if ParentControl <> nil then
+		    return not ParentControl.informonShouldChangeText ( )
+		  else
+		    return not RaiseEvent ShouldNotChangeText ()
+		  end if
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Function informonShouldEndEditing() As boolean
+		  if ParentControl <> nil then
+		    return not ParentControl.informonShouldEndEditing ( )
+		  else
+		    return not RaiseEvent ShouldNotEndEditing ()
+		  end if
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informOnTextDidBeginEditing()
+		  if ParentControl <> nil then
+		    ParentControl.informOnTextDidBeginEditing ( )
+		  else
+		    RaiseEvent TextDidBeginEditing ()
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informonTextDidChange(SearchText as Text)
+		  if ParentControl <> nil then
+		    ParentControl.informonTextDidChange ( searchtext)
+		  else
+		    RaiseEvent TextDidChange (SearchText)
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( hidden )  Sub informOnTextDidEndEditing()
+		  if ParentControl <> nil then
+		    ParentControl.informOnTextDidEndEditing ( )
+		  else
+		    RaiseEvent TextDidEndEditing ()
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function MakeFromPtr(aPtr as Ptr) As AppleSearchBar
+		  return if (aptr = nil, nil, new AppleSearchBar(aptr))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 496E7465726E616C3A2054686520694F5375736572636F6E74726F6C20737562636C61737320696620636F6E7461696E656420696E20737563682E
+		Attributes( hidden )  Function ParentControl() As ioslibsearchbar
+		  if xojocontrols <> nil and XojoControls.HasKey (id)  then
+		    dim wr as weakref = XojoControls.Value (id)
+		    if wr <> NIL then
+		      return ioslibsearchbar(wr.Value)
+		    end if
+		  end if
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function PositionAdjustment(Icon As UISearchBarIcon) As UIOffset
+		  #if Target64Bit
+		    Declare function positionAdjustmentForSearchBarIcon lib UIKitLibname selector "positionAdjustmentForSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon) as UIOffset
+		    return positionAdjustmentForSearchBarIcon (id, Icon)
+		  #elseif Target32Bit
+		    Declare function positionAdjustmentForSearchBarIcon lib UIKitLibname selector "positionAdjustmentForSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon) as UIOffset32Bit
+		    return positionAdjustmentForSearchBarIcon(id, Icon).toUIOffset
+		  #endif
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub PositionAdjustment(Icon As UISearchBarIcon, assigns value as uioffset)
+		  #if Target64Bit
+		    Declare Sub setPositionAdjustmentForSearchBarIcon lib UIKitLibname selector "setPositionAdjustment:forSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon, value as UIOffset)
+		    setpositionAdjustmentForSearchBarIcon (id, Icon, value)
+		  #elseif Target32Bit
+		    Declare Sub setPositionAdjustmentForSearchBarIcon lib UIKitLibname selector "setPositionAdjustment:forSearchBarIcon:" (id as ptr, Icon As UISearchBarIcon, value as UIOffset32Bit)
+		    setpositionAdjustmentForSearchBarIcon (id, Icon, value.toUIOffset32)
+		  #endif
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 496E7465726E616C20666F72207265676973746572696E6720746865206D616E746C6520694F5355736572436F6E74726F6C2E
+		Attributes( hidden )  Sub RegisterControl(ParentControl as ioslibsearchbar)
+		  if XojoControls = nil then XojoControls = new Dictionary
+		  XojoControls.Value (id) = weakref.create(parentcontrol)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ScopeBarButtonDividerImage(Leftstate as AppleControlState, RightState as AppleControlState) As AppleImage
+		  Declare function scopeBarButtonDividerImageForLeftSegmentState lib UIKitLibname selector "scopeBarButtonDividerImageForLeftSegmentState:rightSegmentState:" (id as ptr, Leftstate as uinteger, RightState as uinteger) as ptr
+		  return appleimage.MakeFromPtr(scopeBarButtonDividerImageForLeftSegmentState(id, Leftstate.id, RightState.id))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ScopeBarButtonDividerImage(Leftstate as AppleControlState, RightState as AppleControlState, assigns value as appleimage)
+		  Declare Sub setScopeBarButtonDividerImageForLeftSegmentState lib UIKitLibname selector "setScopeBarButtonDividerImage:forLeftSegmentState:rightSegmentState:" (id as ptr, value as ptr, Leftstate as uinteger, RightState as uinteger)
+		  setScopeBarButtonDividerImageForLeftSegmentState (id, if (value = nil, nil, value.id), Leftstate.id, RightState.id)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ScopeBarButtonTitleTextAttributes(State as AppleControlState) As ApplemutableDictionary
+		  Declare function scopeBarButtonTitleTextAttributesForState lib UIKitLibname selector "scopeBarButtonTitleTextAttributesForState:" (id as ptr, State as uinteger) as ptr
+		  return AppleMutableDictionary.MakeFromPtr(scopeBarButtonTitleTextAttributesForState(id, State.id))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ScopeBarButtonTitleTextAttributes(State as AppleControlState, assigns value as AppleDictionary)
+		  Declare Sub setScopeBarButtonTitleTextAttributes lib UIKitLibname selector "setScopeBarButtonTitleTextAttributes:forState:" (id as ptr, value as ptr, State as uinteger)
+		  setScopeBarButtonTitleTextAttributes id, if (value = nil, nil, value.id), state.id
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function SearchFieldBackgroundImage(state as AppleControlState) As AppleImage
+		  Declare function searchFieldBackgroundImageForState lib UIKitLibname selector "searchFieldBackgroundImageForState:" (id as ptr, state as uinteger) as ptr
+		  return appleimage.MakeFromPtr(searchFieldBackgroundImageForState(id, state.id))
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SearchFieldBackgroundImage(state as AppleControlState, assigns value as AppleImage)
+		  Declare Sub setSearchFieldBackgroundImage lib UIKitLibname selector "setSearchFieldBackgroundImage:forState:" (id as ptr, value as ptr, state as uinteger)
+		  setSearchFieldBackgroundImage id, if (value = nil, nil, value.id), state.id
+		End Sub
+	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event BookmarkButtonClicked()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event CancelButtonClicked()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ResultsListButtonClicked()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ScopeButtonSelectionChanged(ButtonIndex as Integer)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event SearchButtonClicked()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ShouldNotBeginEditing() As Boolean
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ShouldNotChangeText() As Boolean
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event ShouldNotEndEditing() As Boolean
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event TextDidBeginEditing()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event TextDidChange(SearchText As Text)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event TextDidEndEditing()
+	#tag EndHook
+
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return new AppleSearchBar(GetAppearance(classptr))
+			End Get
+		#tag EndGetter
+		Shared Appearance As AppleSearchBar
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function backgroundImage lib UIKitLibname selector "backgroundImage" (id as ptr) as Ptr
+			  Return AppleImage.MakeFromPtr (backgroundImage (id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setBackgroundImage lib UIKitLibname selector "setBackgroundImage:" (id as ptr, value as Ptr)
+			  setBackgroundImage id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		BackgroundImage As appleimage
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function barStyle lib UIKitLibname selector "barStyle" (id as ptr) as UIBarStyle
+			  Return barStyle (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setBarStyle lib UIKitLibname selector "setBarStyle:" (id as ptr, value as UIBarStyle)
+			  setbarStyle id, value
+			End Set
+		#tag EndSetter
+		BarStyle As UIBarStyle
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function barTintColor lib UIKitLibname selector "barTintColor" (id as ptr) as Ptr
+			  Return AppleColor.MakeFromPtr (barTintColor (id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setBarTintColor lib UIKitLibname selector "setBarTintColor:" (id as ptr, value as Ptr)
+			  setBarTintColor id, value.Id
+			End Set
+		#tag EndSetter
+		BarTintColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static targetID as ptr
+			  if targetID = Nil then
+			    dim methods() as TargetClassMethodHelper
+			    //override UIView methods
+			    methods.Append new TargetClassMethodHelper("willMoveToWindow:", AddressOf impl_willMoveToWindow, "v@:@")
+			    methods.Append new TargetClassMethodHelper("didMoveToWindow", AddressOf impl_DidMoveToWindow, "v@:")
+			    methods.Append new TargetClassMethodHelper("willMoveToSuperview:", AddressOf impl_willMoveToSuperview, "v@:@")
+			    methods.Append new TargetClassMethodHelper("didMoveToSuperview", AddressOf impl_DidMoveToSuperview, "v@:")
+			    methods.Append new TargetClassMethodHelper("willRemoveSubview:", AddressOf impl_willRemoveSubview, "v@:@")
+			    methods.Append new TargetClassMethodHelper("didAddSubview:", AddressOf impl_DidAddSubview, "v@:@")
+			    // methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
+			    // methods.Append new TargetClassMethodHelper("layerClass", AddressOf impl_layerclass, "@@:", true, true)
+			    methods.Append new TargetClassMethodHelper("tintColorDidChange", AddressOf impl_tintColorDidChange, "v@:")
+			    
+			    // #if Target64Bit
+			    // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")
+			    // #elseif Target32Bit
+			    // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect32, "v@:{CGRect}")
+			    // #endif
+			    
+			    //TraitEnvironment Protocol
+			    methods.Append new TargetClassMethodHelper("traitCollectionDidChange:", AddressOf impl_traitCollectionDidChange, "v@:@")
+			    
+			    
+			    //Add UIResponder methods too
+			    methods.Append new TargetClassMethodHelper("touchesBegan:withEvent:", AddressOf impl_TouchesBeganWithEvent, "v@:@@")
+			    methods.Append new TargetClassMethodHelper("touchesEnded:withEvent:", AddressOf impl_TouchesEndedWithEvent, "v@:@@")
+			    methods.Append new TargetClassMethodHelper("touchesMoved:withEvent:", AddressOf impl_TouchesMovedWithEvent, "v@:@@")
+			    methods.Append new TargetClassMethodHelper("touchesCancelled:withEvent:", AddressOf impl_TouchesCancelledWithEvent, "v@:@@")
+			    
+			    methods.Append new TargetClassMethodHelper("motionBegan:withEvent:", AddressOf impl_MotionBeganWithEvent, "v@:i@")
+			    methods.Append new TargetClassMethodHelper("motionEnded:withEvent:", AddressOf impl_MotionEndedWithEvent, "v@:i@")
+			    methods.Append new TargetClassMethodHelper("motionCancelled:withEvent:", AddressOf impl_MotionCancelledWithEvent, "v@:i@")
+			    
+			    methods.Append new TargetClassMethodHelper("touchesEstimatedPropertiesUpdated:", AddressOf impl_touchesEstimatedPropertiesUpdated, "v@:@")
+			    methods.Append new TargetClassMethodHelper("remoteControlReceivedWithEvent:", AddressOf impl_remoteControlReceivedWithEvent, "v@:@")
+			    
+			    if ApplePress.ClassAvailable then
+			      methods.Append new TargetClassMethodHelper("pressesBegan:withEvent:", AddressOf impl_pressesBeganWithEvent, "v@:@@")
+			      methods.Append new TargetClassMethodHelper("pressesCancelled:withEvent:", AddressOf impl_pressesCancelledWithEvent, "v@:@@")
+			      methods.Append new TargetClassMethodHelper("pressesChanged:withEvent:", AddressOf impl_pressesChangedWithEvent, "v@:@@")
+			      methods.Append new TargetClassMethodHelper("pressesEnded:withEvent:", AddressOf impl_pressesEndedWithEvent, "v@:@@")
+			    end if
+			    
+			    
+			    // UISearchBar method
+			    Methods.Append new TargetClassMethodHelper("searchBar:textDidChange:", AddressOf impl_SearchBarTextDidChange, "v@:@@")
+			    Methods.Append new TargetClassMethodHelper("searchBar:shouldChangeTextInRange:replacementText:", AddressOf impl_SearchBarShouldChangeText, "b@:@{NSRange}@")
+			    Methods.Append new TargetClassMethodHelper("searchBarTextDidBeginEditing:", AddressOf impl_SearchBarTextDidBeginEditing, "v@:@")
+			    Methods.Append new TargetClassMethodHelper("searchBarShouldBeginEditing:", AddressOf impl_SearchBarShouldBeginEditing, "b@:@")
+			    Methods.Append new TargetClassMethodHelper("searchBarTextDidEndEditing:", AddressOf impl_SearchBarTextDidEndEditing, "v@:@")
+			    Methods.Append new TargetClassMethodHelper("searchBarShouldEndEditing:", AddressOf impl_SearchBarShouldEndEditing, "b@:@")
+			    
+			    Methods.Append new TargetClassMethodHelper("searchBarBookmarkButtonClicked:", AddressOf impl_SearchBarBookmarkButtonClicked, "v@:@")
+			    Methods.Append new TargetClassMethodHelper("searchBarCancelButtonClicked:", AddressOf impl_SearchBarCancelButtonClicked, "v@:@")
+			    Methods.Append new TargetClassMethodHelper("searchBarSearchButtonClicked:", AddressOf impl_SearchBarSearchButtonClicked, "v@:@")
+			    Methods.Append new TargetClassMethodHelper("searchBarResultsListButtonClicked:", AddressOf impl_SearchBarResultsListButtonClicked, "v@:@")
+			    
+			    Methods.Append new TargetClassMethodHelper("searchBar:selectedScopeButtonIndexDidChange:", AddressOf impl_SelectedScopeButtonIndexDidChange, "v@:@i")
+			    
+			    
+			    targetID = BuildTargetClass ("UISearchBar", "iOSLibSearchBar",methods)
+			  end if
+			  Return targetID
+			End Get
+		#tag EndGetter
+		Shared ClassPtr As Ptr
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getplaceholder
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  SetPlaceHolder value
+			End Set
+		#tag EndSetter
+		Placeholder As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function prompt lib UIKitLibname selector "prompt" (id as ptr) as CFStringRef
+			  Return prompt (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setPrompt lib UIKitLibname selector "setPrompt:" (id as ptr, value as CFStringRef)
+			  setPrompt id, value
+			End Set
+		#tag EndSetter
+		Prompt As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function scopeBarBackgroundImage lib UIKitLibname selector "scopeBarBackgroundImage" (id as ptr) as Ptr
+			  Return AppleImage.MakeFromPtr (scopeBarBackgroundImage (id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setScopeBarBackgroundImage lib UIKitLibname selector "setScopeBarBackgroundImage:" (id as ptr, value as Ptr)
+			  setScopeBarBackgroundImage id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		ScopeBarBackgroundImage As appleimage
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function scopeButtonTitles lib UIKitLibname selector "scopeButtonTitles" (id as ptr) as Ptr
+			  Return AppleArray.MakeFromPtr (scopeButtonTitles (id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setScopeButtonTitles lib UIKitLibname selector "setScopeButtonTitles:" (id as ptr, value as Ptr)
+			  setScopeButtonTitles id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		ScopeButtonTitles As AppleArray
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function searchbarStyle lib UIKitLibname selector "searchBarStyle" (id as ptr) as UIsearchBarStyle
+			  Return searchbarStyle (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setSearchbarStyle lib UIKitLibname selector "setSearchBarStyle:" (id as ptr, value as UIsearchBarStyle)
+			  setSearchbarStyle id, value
+			End Set
+		#tag EndSetter
+		SearchBarStyle As UIsearchBarStyle
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if Target64Bit
+			    Declare function searchFieldBackgroundPositionAdjustment lib UIKitLibname selector "searchFieldBackgroundPositionAdjustment" (id as ptr) as UIOffset
+			    return searchFieldBackgroundPositionAdjustment (id)
+			  #elseif Target32Bit
+			    Declare function searchFieldBackgroundPositionAdjustment lib UIKitLibname selector "searchFieldBackgroundPositionAdjustment" (id as ptr) as UIOffset32Bit
+			    return searchFieldBackgroundPositionAdjustment(id).toUIOffset
+			  #endif
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    Declare Sub setSearchFieldBackgroundPositionAdjustment lib UIKitLibname selector "setSearchFieldBackgroundPositionAdjustment:" (id as ptr, value as UIOffset)
+			    setSearchFieldBackgroundPositionAdjustment (id, value)
+			  #elseif Target32Bit
+			    Declare Sub setSearchFieldBackgroundPositionAdjustment lib UIKitLibname selector "setSearchFieldBackgroundPositionAdjustment:" (id as ptr, value as UIOffset32Bit)
+			    setSearchFieldBackgroundPositionAdjustment (id,  value.toUIOffset32)
+			  #endif
+			End Set
+		#tag EndSetter
+		SearchFieldBackgroundPositionAdjustment As UIOffset
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function searchResultsButtonSelected lib UIKitLibname selector "isSearchResultsButtonSelected" (id as ptr) as Boolean
+			  Return searchResultsButtonSelected (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setSearchResultsButtonSelected lib UIKitLibname selector "setSearchResultsButtonSelected:" (id as ptr, value as boolean)
+			  setSearchResultsButtonSelected id, value
+			End Set
+		#tag EndSetter
+		SearchResultsButtonSelected As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return getText
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setText value
+			End Set
+		#tag EndSetter
+		SearchText As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  #if Target64Bit
+			    Declare function searchTextPositionAdjustment lib UIKitLibname selector "searchTextPositionAdjustment" (id as ptr) as UIOffset
+			    return searchTextPositionAdjustment (id)
+			  #elseif Target32Bit
+			    Declare function searchTextPositionAdjustment lib UIKitLibname selector "searchTextPositionAdjustment" (id as ptr) as UIOffset32Bit
+			    return searchTextPositionAdjustment(id).toUIOffset
+			  #endif
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    Declare Sub setSearchTextPositionAdjustment lib UIKitLibname selector "setSearchTextPositionAdjustment:" (id as ptr, value as UIOffset)
+			    setSearchTextPositionAdjustment (id, value)
+			  #elseif Target32Bit
+			    Declare Sub setSearchTextPositionAdjustment lib UIKitLibname selector "setSearchTextPositionAdjustment:" (id as ptr, value as UIOffset32Bit)
+			    setSearchTextPositionAdjustment (id,  value.toUIOffset32)
+			  #endif
+			End Set
+		#tag EndSetter
+		SearchTextPositionAdjustment As UIOffset
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function selectedScopeButtonIndex lib UIKitLibname selector "selectedScopeButtonIndex" (id as ptr) as Integer
+			  Return selectedScopeButtonIndex (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setSelectedScopeButtonIndex lib UIKitLibname selector "setSelectedScopeButtonIndex:" (id as ptr, value as integer)
+			  setSelectedScopeButtonIndex id, value
+			End Set
+		#tag EndSetter
+		SelectedScopeButtonIndex As Integer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function showsBookmarkButton lib UIKitLibname selector "showsBookmarkButton" (id as ptr) as Boolean
+			  Return showsBookmarkButton (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setShowsBookmarkButton lib UIKitLibname selector "setShowsBookmarkButton:" (id as ptr, value as boolean)
+			  setShowsBookmarkButton id, value
+			End Set
+		#tag EndSetter
+		ShowsBookmarkButton As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function showsCancelButton lib UIKitLibname selector "showsCancelButton" (id as ptr) as Boolean
+			  Return showsCancelButton (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setShowsCancelButton lib UIKitLibname selector "setShowsCancelButton:" (id as ptr, value as boolean)
+			  setShowsCancelButton id, value
+			End Set
+		#tag EndSetter
+		ShowsCancelButton As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function showsScopeBar lib UIKitLibname selector "showsScopeBar" (id as ptr) as Boolean
+			  Return showsScopeBar (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setShowsScopeBar lib UIKitLibname selector "setShowsScopeBar:" (id as ptr, value as boolean)
+			  setShowsScopeBar id, value
+			End Set
+		#tag EndSetter
+		ShowsScopeBar As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function showsSearchResultsButton lib UIKitLibname selector "showsSearchResultsButton" (id as ptr) as Boolean
+			  Return showsSearchResultsButton (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setShowsSearchResultsButton lib UIKitLibname selector "setShowsSearchResultsButton:" (id as ptr, value as boolean)
+			  setShowsSearchResultsButton id, value
+			End Set
+		#tag EndSetter
+		ShowsSearchResultsButton As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function tintColor lib UIKitLibname selector "tintColor" (id as ptr) as Ptr
+			  Return AppleColor.MakeFromPtr (tintColor (id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setTintColor lib UIKitLibname selector "setTintColor:" (id as ptr, value as Ptr)
+			  setTintColor id, value.Id
+			End Set
+		#tag EndSetter
+		TintColor As AppleColor
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Declare Function Translucent lib UIKitLibname selector "isTranslucent" (id as ptr) as Boolean
+			  Return Translucent (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  Declare Sub setTranslucent lib UIKitLibname selector "setTranslucent:" (id as ptr, value as boolean)
+			  setTranslucent id, value
+			End Set
+		#tag EndSetter
+		Translucent As Boolean
+	#tag EndComputedProperty
+
+
+	#tag Constant, Name = kBookmarkButtonClicked, Type = Text, Dynamic = False, Default = \"BookmarkButtonClicked", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kCancelButtonClicked, Type = Text, Dynamic = False, Default = \"CancelButtonClicked", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kResultsListButtonClicked, Type = Text, Dynamic = False, Default = \"ResultsListButtonClicked", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kScopeButtonSelectionChanged, Type = Text, Dynamic = False, Default = \"ScopeButtonSelectionChanged", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kSearchButtonClicked, Type = Text, Dynamic = False, Default = \"SearchButtonClicked", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kShouldBeginEditing, Type = Text, Dynamic = False, Default = \"ShouldBeginEditing", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kShouldEndEditing, Type = Text, Dynamic = False, Default = \"ShouldEndEditing", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kTextDidBeginEditing, Type = Text, Dynamic = False, Default = \"TextDidBeginEditing", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kTextDidChange, Type = Text, Dynamic = False, Default = \"TextDidChange", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kTextDidEndEditing, Type = Text, Dynamic = False, Default = \"TextDidEndEditing", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = kTextShouldChange, Type = Text, Dynamic = False, Default = \"TextShouldChange", Scope = Public
+	#tag EndConstant
+
+
+	#tag ViewBehavior
+		#tag ViewProperty
+			Name="Index"
+			Visible=true
+			Group="ID"
+			InitialValue="-2147483648"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Left"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Name"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Placeholder"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Prompt"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SearchResultsButtonSelected"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SearchText"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SelectedScopeButtonIndex"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ShowsBookmarkButton"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ShowsCancelButton"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ShowsScopeBar"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ShowsSearchResultsButton"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Super"
+			Visible=true
+			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Top"
+			Visible=true
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Translucent"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+	#tag EndViewBehavior
+End Class
+#tag EndClass

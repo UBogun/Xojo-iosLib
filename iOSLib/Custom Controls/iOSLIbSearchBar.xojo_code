@@ -584,6 +584,11 @@ Inherits iOSLIbCanvas
 			Name="BarStyle"
 			Group="Behavior"
 			Type="UIKitFRamework.UIBarStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Black"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BookmarkButton"
@@ -743,6 +748,12 @@ Inherits iOSLIbCanvas
 			Name="SearchbarStyle"
 			Group="Behavior"
 			Type="UIKitFramework.UIsearchBarStyle"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Default"
+				"1 - Prominent"
+				"2 - Minimal"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SearchResultsButton"
