@@ -320,6 +320,41 @@ Protected Module UIKitFramework
 		Regular
 	#tag EndEnum
 
+	#tag Enum, Name = UIVIewAnimationCurve, Type = Integer, Flags = &h0
+		EaseInEaseOut
+		  EaseIn
+		  EaseOut
+		  Linear
+		Keyboard = 7
+	#tag EndEnum
+
+	#tag Enum, Name = UIVIewAnimationTransition, Type = Integer, Flags = &h0
+		None
+		  FlipFromLeft
+		  FlipFromRight
+		  CurlUp
+		  CurlDown
+		  CrossDissolve
+		  FlipFromTop
+		FlipFromBottom
+	#tag EndEnum
+
+	#tag Enum, Name = UIViewContentMode, Flags = &h0
+		ScaleToFill
+		  ScaleAspectFit
+		  ScaleAspectFill
+		  Redraw
+		  Center
+		  Top
+		  Bottom
+		  Left
+		  Right
+		  TopLeft
+		  TopRight
+		  BottomLeft
+		BottomRight
+	#tag EndEnum
+
 
 	#tag ViewBehavior
 		#tag ViewProperty

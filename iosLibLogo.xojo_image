@@ -1,0 +1,40 @@
+#tag MultiImage
+Image iosLibLogo
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGCAAAAAAGCAAIAAAdGanVzY2huAAAAAAAAAAAAAAAAAAAAAAAAAADQ+wqvSCsAAAM5+RkOaW9zTGliTG9nby5wbmcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzn5LdHKP+IAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAABkltYWdlcwAQAAgAAND6/J8AAAARAAgAANHKI8IAAAABABADOfkZAzmLWwAuVokALDnEAAIAOkZqdXNjaG46VXNlcnM6AHVsaToAbmV3WG9qby1pb3NMaWI6AEltYWdlczoAaW9zTGliTG9nby5wbmcADgAeAA4AaQBvAHMATABpAGIATABvAGcAbwAuAHAAbgBnAA8AEAAHAEYAagB1AHMAYwBoAG4AEgAuVXNlcnMvdWxpL25ld1hvam8taW9zTGliL0ltYWdlcy9pb3NMaWJMb2dvLnBuZwATAAEvAAAVAAIACv//AAAAAAAAAAA=
+		FullPath = /Users/uli/newXojo-iosLib/Images/iosLibLogo.png
+		PartialPath = Images\iosLibLogo.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

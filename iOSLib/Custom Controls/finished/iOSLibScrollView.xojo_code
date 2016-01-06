@@ -36,50 +36,50 @@ Inherits iOSLIbCanvas
 
 	#tag Method, Flags = &h0, Description = 456D62656473206120636F6E74726F6C20746F20746865207363726F6C6C76696577E280997320636F6E74656E74766965772E
 		Sub EmbedControl(c as iOSControl)
-		  id.ContentView.AddSubview c.view
+		  id.ContentView.AddSubview c.appleview
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 456D62656473206120636F6E74726F6C20746F20746865207363726F6C6C76696577E280997320636F6E74656E7476696577206174207820616E64207920706F736974696F6E732E
 		Sub EmbedControl(c as iOSControl, x as double, y as double)
-		  id.ContentView.AddSubview c.view
-		  c.view.Left = x
-		  c.view.top = y
+		  id.ContentView.AddSubview c.appleview
+		  c.appleview.Left = x
+		  c.appleview.top = y
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 456D62656473206120636F6E74726F6C20746F20746865207363726F6C6C76696577E280997320636F6E74656E747669657720776974682074686520646566696E6564206672616D652E
 		Sub EmbedControl(c as iOSControl, x as double, y as double, width as double, height as Double)
-		  id.ContentView.AddSubview c.view
-		  c.view.Frame = FoundationFrameWork.NSMakerect (x,y,width, height)
+		  id.ContentView.AddSubview c.appleview
+		  c.appleview.Frame = FoundationFrameWork.NSMakerect (x,y,width, height)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 456D62656473206120636F6E74726F6C20746F20746865207363726F6C6C76696577E280997320636F6E74656E747669657720616E64207365747320697473206175746F726573697A696E6720746F20612066697865642073657474696E672E
 		Sub EmbedControlFixed(c as iOSControl)
-		  c.view.AutoresizingMask = new AppleAutoresizingMask
-		  c.view.TranslatesAutoresizingMaskIntoConstraints = true
-		  id.ContentView.AddSubview c.view
+		  c.appleview.AutoresizingMask = new AppleAutoresizingMask
+		  c.appleview.TranslatesAutoresizingMaskIntoConstraints = true
+		  id.ContentView.AddSubview c.appleview
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 456D62656473206120636F6E74726F6C20746F20746865207363726F6C6C76696577E280997320636F6E74656E7476696577206174207820616E64207920706F736974696F6E7320616E64207365747320697473206175746F726573697A696E6720746F20612066697865642073657474696E672E
 		Sub EmbedControlFixed(c as iOSControl, x as double, y as double)
-		  c.view.AutoresizingMask = new AppleAutoresizingMask
-		  c.view.TranslatesAutoresizingMaskIntoConstraints = true
-		  id.ContentView.AddSubview c.view
-		  c.view.Left = x
-		  c.view.top = y
+		  c.appleview.AutoresizingMask = new AppleAutoresizingMask
+		  c.appleview.TranslatesAutoresizingMaskIntoConstraints = true
+		  id.ContentView.AddSubview c.appleview
+		  c.appleview.Left = x
+		  c.appleview.top = y
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 456D62656473206120636F6E74726F6C20746F20746865207363726F6C6C76696577E280997320636F6E74656E74766965772061742074686520737065636966696564206672616D6520616E64207365747320697473206175746F726573697A696E6720746F20612066697865642073657474696E672E
 		Sub EmbedControlFixed(c as iOSControl, x as double, y as double, width as double, height as Double)
-		  c.view.AutoresizingMask = new AppleAutoresizingMask
-		  c.view.TranslatesAutoresizingMaskIntoConstraints = true
-		  id.ContentView.AddSubview c.view
-		  c.view.Frame = FoundationFrameWork.NSMakerect (x,y,width, height)
+		  c.appleview.AutoresizingMask = new AppleAutoresizingMask
+		  c.appleview.TranslatesAutoresizingMaskIntoConstraints = true
+		  id.ContentView.AddSubview c.appleview
+		  c.appleview.Frame = FoundationFrameWork.NSMakerect (x,y,width, height)
 		End Sub
 	#tag EndMethod
 
@@ -875,8 +875,7 @@ Inherits iOSLIbCanvas
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="AppleView.UIViewContentMode"
-			EditorType="Enum"
+			Type="UIKitFramework.UIViewContentMode"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentScaleFactor"
@@ -957,23 +956,11 @@ Inherits iOSLIbCanvas
 			Name="IndicatorStyle"
 			Group="Behavior"
 			Type="Uikitframework.uiScrollViewIndicatorStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - Black"
-				"2 - White"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="KeyboardDismissMode"
 			Group="Behavior"
 			Type="uikitframework.UIScrollViewKeyboardDismissMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - None"
-				"1 - OnDrag"
-				"2 - Interactive"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -1070,7 +1057,6 @@ Inherits iOSLIbCanvas
 			Name="TintAdjustmentMode"
 			Group="Behavior"
 			Type="AppleView.UIViewTintAdjustmentMode"
-			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

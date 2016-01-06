@@ -2,145 +2,145 @@
 Protected Module iOSLabelExtension
 	#tag Method, Flags = &h0, Description = 576865746865722074686520666F6E742073697A652073686F756C64206265207265647563656420696E206F7264657220746F2066697420746865207469746C6520737472696E6720696E746F20746865206C6162656CE280997320626F756E64696E672072656374616E676C652E
 		Function AdjustFontSize(extends l as iOSLabel) As Boolean
-		  return l.view.AdjustsFontSizeToFitWidth
+		  return l.AppleView.AdjustsFontSizeToFitWidth
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 576865746865722074686520666F6E742073697A652073686F756C64206265207265647563656420696E206F7264657220746F2066697420746865207469746C6520737472696E6720696E746F20746865206C6162656CE280997320626F756E64696E672072656374616E676C652E
 		Sub AdjustFontSize(extends l as iOSLabel, assigns value as Boolean)
-		  l.view.AdjustsFontSizeToFitWidth= value
+		  l.AppleView.AdjustsFontSizeToFitWidth= value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 5768657468657220746865206C6162656C207469676874656E732074657874206265666F7265207472756E636174696E672E20417661696C61626C652073696E636520694F5320392E302E
 		Function AllowTightening(extends l as iOSLabel) As Boolean
-		  return l.view.AllowsDefaultTighteningForTruncation
+		  return l.AppleView.AllowsDefaultTighteningForTruncation
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 5768657468657220746865206C6162656C207469676874656E732074657874206265666F7265207472756E636174696E672E20417661696C61626C652073696E636520694F5320392E302E
 		Sub AllowTightening(extends l as iOSLabel, assigns value as Boolean)
-		  l.view.AllowsDefaultTighteningForTruncation= value
+		  l.AppleView.AllowsDefaultTighteningForTruncation= value
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0, Description = 54686520636F6E74726F6C20697473656C66206173204170706C654C6162656C2028726561642D6F6E6C7929
+		Function AppleView(extends l as ioslabel) As AppleLabel
+		  return new AppleLabel (l.Handle)
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 546865207374796C6564207465787420646973706C6179656420627920746865206C6162656C2E
 		Function AttributedText(extends l as iOSLabel) As AppleAttributedString
-		  return l.view.AttributedCaption
+		  return l.AppleView.AttributedCaption
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 546865207374796C6564207465787420646973706C6179656420627920746865206C6162656C2E
 		Sub AttributedText(extends l as iOSLabel, assigns value as AppleAttributedString)
-		  l.view.AttributedCaption = value
+		  l.AppleView.AttributedCaption = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 486F77207465787420626173656C696E6573206172652061646A7573746564207768656E2074657874206E6565647320746F20736872696E6B20746F2066697420696E20746865206C6162656C2E
 		Function BaseLineAdjustment(extends l as iOSLabel) As AppleLabel.UIBaselineAdjustment
-		  return l.view.BaselineAdjustment
+		  return l.AppleView.BaselineAdjustment
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 486F77207465787420626173656C696E6573206172652061646A7573746564207768656E2074657874206E6565647320746F20736872696E6B20746F2066697420696E20746865206C6162656C2E
 		Sub BaseLineAdjustment(extends l as iOSLabel, assigns value as AppleLabel.UIBaselineAdjustment)
-		  l.view.BaselineAdjustment = value
+		  l.AppleView.BaselineAdjustment = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 576865746865722074686520636F6E74726F6C2073686F756C6420626520647261776E2077697468206120686967686C696768742E
 		Function Highlighted(extends l as iOSLabel) As Boolean
-		  return l.view.Highlighted
+		  return l.AppleView.Highlighted
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 576865746865722074686520636F6E74726F6C2073686F756C6420626520647261776E2077697468206120686967686C696768742E
 		Sub Highlighted(extends l as iOSLabel, assigns value as Boolean)
-		  l.view.Highlighted = value
+		  l.AppleView.Highlighted = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 54686520686967686C6967687420636F6C6F72206170706C69656420746F20746865206C6162656CE280997320746578742E
 		Function HighlightedTextColor(extends l as iOSLabel) As Color
-		  return l.view.HighlightedTextColor.toColor
+		  return l.AppleView.HighlightedTextColor.toColor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 54686520686967686C6967687420636F6C6F72206170706C69656420746F20746865206C6162656CE280997320746578742E
 		Sub HighlightedTextColor(extends l as iOSLabel, assigns value as Color)
-		  l.view.HighlightedTextColor = value.toapplecolor
+		  l.AppleView.HighlightedTextColor = value.toapplecolor
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 546865206D696E696D756D207363616C6520666163746F7220737570706F7274656420666F7220746865206C6162656CE280997320746578742E
 		Function MinimumScaleFactor(extends l as iOSLabel) As double
-		  return l.view.MinimumScaleFactor
+		  return l.AppleView.MinimumScaleFactor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 546865206D696E696D756D207363616C6520666163746F7220737570706F7274656420666F7220746865206C6162656CE280997320746578742E
 		Sub MinimumScaleFactor(extends l as iOSLabel, assigns value as double)
-		  l.view.MinimumScaleFactor= value
+		  l.AppleView.MinimumScaleFactor= value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 54686520707265666572726564206D6178696D756D2077696474682028696E20706F696E74732920666F722061206D756C74696C696E65206C6162656C2E
 		Function MultilineMaxWidth(extends l as iOSLabel) As double
-		  return l.view.PreferredMaxLayoutWidth
+		  return l.AppleView.PreferredMaxLayoutWidth
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 54686520707265666572726564206D6178696D756D2077696474682028696E20706F696E74732920666F722061206D756C74696C696E65206C6162656C2E
 		Sub MultilineMaxWidth(extends l as iOSLabel, assigns value as double)
-		  l.view.PreferredMaxLayoutWidth= value
+		  l.AppleView.PreferredMaxLayoutWidth= value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 546865206D6178696D756D206E756D626572206F66206C696E657320746F2075736520666F722072656E646572696E6720746578742E2044656661756C74203D20312E20556E6C696D69746564203D20302E
 		Function NumberOfLines(extends l as iOSLabel) As integer
-		  return l.view.NumberOfLines
+		  return l.AppleView.NumberOfLines
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 546865206D6178696D756D206E756D626572206F66206C696E657320746F2075736520666F722072656E646572696E6720746578742E2044656661756C74203D20312E20556E6C696D69746564203D20302E
 		Sub NumberOfLines(extends l as iOSLabel, assigns value as integer)
-		  l.view.NumberOfLines = value
+		  l.AppleView.NumberOfLines = value
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 54686520636F6C6F72206170706C69656420746F20746865206C6162656CE2809973207465787420736861646F772E
 		Function ShadowColor(extends l as iOSLabel) As Color
-		  return l.view.ShadowColor.toColor
+		  return l.AppleView.ShadowColor.toColor
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 54686520636F6C6F72206170706C69656420746F20746865206C6162656CE2809973207465787420736861646F772E
 		Sub ShadowColor(extends l as iOSLabel, assigns value as Color)
-		  l.view.ShadowColor= value.toapplecolor
+		  l.AppleView.ShadowColor= value.toapplecolor
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 54686520736861646F77206F666673657420286D6561737572656420696E20706F696E74732920666F722074686520746578742E
 		Function ShadowOffset(extends l as ioslabel) As xojo.core.size
-		  return l.view.ShadowOffset.tocoresize
+		  return l.AppleView.ShadowOffset.tocoresize
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 54686520736861646F77206F666673657420286D6561737572656420696E20706F696E74732920666F722074686520746578742E
 		Sub ShadowOffset(extends l as ioslabel, assigns value as xojo.core.size)
-		  l.view.ShadowOffset= value.tonssize
+		  l.AppleView.ShadowOffset= value.tonssize
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 54686520636F6D70757465642064726177696E672072656374616E676C6520666F7220746865206C6162656CE280997320746578742E28726561642D6F6E6C7929
 		Function TextRect(extends l as ioslabel) As xojo.core.rect
-		  return l.view.TextRect.tocorerect
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0, Description = 54686520636F6E74726F6C20697473656C66206173204170706C654C6162656C2028726561642D6F6E6C7929
-		Function View(extends l as ioslabel) As AppleLabel
-		  return new AppleLabel (l.Handle)
+		  return l.AppleView.TextRect.tocorerect
 		End Function
 	#tag EndMethod
 

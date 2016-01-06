@@ -10,8 +10,8 @@ Begin iosView UIdynamicsView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 58, 
       AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 58, 
+      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 58, 
       ContentMode     =   "0"
       Height          =   58.0
       Image           =   "1557645311"
@@ -25,10 +25,10 @@ Begin iosView UIdynamicsView
    Begin iOSCanvas Canvas1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Canvas1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Canvas1, 3, <Parent>, 3, False, +1.00, 1, 1, 315, 
-      AutoLayout      =   Canvas1, 8, , 0, False, +1.00, 1, 1, 24, 
       AutoLayout      =   Canvas1, 7, , 0, False, +1.00, 2, 1, 29, 
+      AutoLayout      =   Canvas1, 3, <Parent>, 3, False, +1.00, 1, 1, 315, 
+      AutoLayout      =   Canvas1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Canvas1, 8, , 0, False, +1.00, 1, 1, 24, 
       Height          =   24.0
       Left            =   0
       LockedInPosition=   False
@@ -38,19 +38,11 @@ Begin iosView UIdynamicsView
       Width           =   29.0
    End
    Begin AppleDynamicsEventDelegate AppleDynamicsEventDelegate1
-      DebugDescription=   ""
-      Description     =   ""
-      Hash            =   ""
-      HasOwnership    =   False
-      IsNIL           =   False
-      Left            =   0
+      Height          =   0.0
+      Left            =   0.0
       LockedInPosition=   False
-      mHasOwnership   =   False
-      PanelIndex      =   -1
-      Parent          =   ""
-      RetainCount     =   ""
-      Scope           =   0
-      Top             =   0
+      Top             =   0.0
+      Width           =   0.0
    End
 End
 #tag EndIOSView
@@ -90,7 +82,7 @@ End
 		  
 		  dim collision as new AppleCollisionBehavior (ImageView1)
 		  collision.TranslatesReferenceBoundsIntoBoundary = true
-		  collision.AddBoundary ("barrier", new AppleBezierPath(Canvas1.view.Frame))
+		  collision.AddBoundary ("barrier", new AppleBezierPath(Canvas1.AppleView.Frame))
 		  collision.CollisionBehavior = AppleCollisionBehavior.UICollisionBehaviorMode.Everything
 		  
 		  dim Behavior as new AppleDynamicItemBehavior (ImageView1)

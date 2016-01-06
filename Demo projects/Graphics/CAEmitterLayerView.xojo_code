@@ -8,18 +8,14 @@ Begin iosView CAEmitterLayerView
    Title           =   "AppleCAEmitterLayer"
    Top             =   0
    Begin ioslibemitterview testview
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   testview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   testview, 4, <Parent>, 4, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   testview, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       Height          =   415.0
-      Left            =   0
+      Left            =   0.0
       LockedInPosition=   False
-      Scope           =   0
-      Top             =   65
-      Visible         =   False
+      Top             =   65.0
       Width           =   320.0
    End
 End
@@ -61,9 +57,9 @@ End
 		    MakeEmitter
 		    // iOSLibTextView1.Layer.MasksToBounds = true
 		  else
-		    // dim myvalue as AppleNumber = AppleNumber.MakeFromPtr (testview.view.ValueForKeyPath ("layer.self"))
-		    // testview.view.setValueForKeyPath ("layer.sublayers.%@.emitterCells.%@.enabled", new AppleNumber (fALSE))
-		    // testview.view.setValueForKeyPath ("layer.Emitterlayer.zPosition", new AppleNumber (-2))
+		    // dim myvalue as AppleNumber = AppleNumber.MakeFromPtr (testview.AppleView.ValueForKeyPath ("layer.self"))
+		    // testview.AppleView.setValueForKeyPath ("layer.sublayers.%@.emitterCells.%@.enabled", new AppleNumber (fALSE))
+		    // testview.AppleView.setValueForKeyPath ("layer.Emitterlayer.zPosition", new AppleNumber (-2))
 		    testview.EmitterLayer.DisableEmitters
 		    
 		  end if
@@ -74,7 +70,7 @@ End
 	#tag Method, Flags = &h0
 		Sub MakeEmitter()
 		  // dim  mylayer as new AppleCAEmitterLayer
-		  // mylayer.bounds = testview.view.Bounds
+		  // mylayer.bounds = testview.AppleView.Bounds
 		  // myLayer.Frame = myLayer.bounds
 		  // myLayer.MasksToBounds = true
 		  // myLayer.name = "EmitterLayer"
@@ -83,9 +79,9 @@ End
 		  
 		  // mylayer.ContentsPositioning = AppleCALayer.CaLayerContentPosition.Center
 		  // mylayer.LevelsOfDetail = 1
-		  // testview.view.Layer.AddSubLayer mylayer
+		  // testview.AppleView.Layer.AddSubLayer mylayer
 		  // mylayer.Seed = 1394639
-		  // testview.view.layer.Contents =new AppleObject ( myimage.toCGImage)
+		  // testview.AppleView.layer.Contents =new AppleObject ( myimage.toCGImage)
 		  
 		  
 		  dim  myEmitterCell as new AppleCAEmitterCell

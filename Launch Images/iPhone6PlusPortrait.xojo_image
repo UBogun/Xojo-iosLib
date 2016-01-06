@@ -1,0 +1,40 @@
+#tag MultiImage
+Image iPhone6PlusPortrait
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAHyAAAAAAHyAAIAAAdGanVzY2huAAAAAAAAAAAAAAAAAAAAAAAAAADQ+wqvSCsAAAM6MJcXaVBob25lNlBsdXNQb3J0cmFpdC5wbmcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzown9HK5V8AAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAADUxhdW5jaCBJbWFnZXMAABAACAAA0Pr8nwAAABEACAAA0crJPwAAAAEAGAM6MJcDOjCUAzn5GQM5i1sALlaJACw5xAACAGFGanVzY2huOlVzZXJzOgB1bGk6AG5ld1hvam8taW9zTGliOgBJbWFnZXM6AExhdW5jaCBJbWFnZXM6AExhdW5jaCBJbWFnZXM6AGlQaG9uZTZQbHVzUG9ydHJhaXQucG5nAAAOADAAFwBpAFAAaABvAG4AZQA2AFAAbAB1AHMAUABvAHIAdAByAGEAaQB0AC4AcABuAGcADwAQAAcARgBqAHUAcwBjAGgAbgASAFNVc2Vycy91bGkvbmV3WG9qby1pb3NMaWIvSW1hZ2VzL0xhdW5jaCBJbWFnZXMvTGF1bmNoIEltYWdlcy9pUGhvbmU2UGx1c1BvcnRyYWl0LnBuZwAAEwABLwAAFQACAAr//wAAAAAAAAAA
+		FullPath = /Users/uli/newXojo-iosLib/Images/Launch Images/Launch Images/iPhone6PlusPortrait.png
+		PartialPath = Images\Launch Images\Launch Images\iPhone6PlusPortrait.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

@@ -221,7 +221,7 @@ Inherits iOSLIbCanvas
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="AppleView.UIViewContentMode"
+			Type="UIKitFramework.UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"

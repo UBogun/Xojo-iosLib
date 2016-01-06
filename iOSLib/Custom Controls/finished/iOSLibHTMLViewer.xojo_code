@@ -474,7 +474,7 @@ Inherits iOSLIbCanvas
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="AppleView.UIViewContentMode"
+			Type="UIKitFramework.UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"
@@ -593,24 +593,11 @@ Inherits iOSLIbCanvas
 			Name="PaginationBreakingMode"
 			Group="Behavior"
 			Type="AppleWebView.UIWebPaginationBreakingMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Page"
-				"1 - Column"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PaginationMode"
 			Group="Behavior"
 			Type="AppleWebView.UIWebPaginationMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Unpaginated"
-				"1 - LeftToRight"
-				"2 - TopToBottom"
-				"3 - BottomToTop"
-				"4 - RightToLeft"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PlayMediaAutomatically"

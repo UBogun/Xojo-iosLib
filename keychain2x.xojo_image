@@ -1,0 +1,40 @@
+#tag MultiImage
+Image keychain2x
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAIQAAAAAAIQAAIAAAdGanVzY2huAAAAAAAAAAAAAAAAAAAAAAAAAADQ+wqvSCsAAAP1LYMPa2V5Y2hhaW5AMngucG5nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/UthdIJ7FgAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAACVJlc291cmNlcwAAEAAIAADQ+vyfAAAAEQAIAADSCdA4AAAAAQAYA/UtgwP1LXAD9S1uAEzIqAAuVokALDnEAAIAa0ZqdXNjaG46VXNlcnM6AHVsaToARG93bmxvYWRzOgBLZXljaGFpblRvdWNoSURVc2luZ1RvdSMzRjUyRDZFOgBLZXljaGFpblRvdWNoSUQ6AFJlc291cmNlczoAa2V5Y2hhaW5AMngucG5nAAAOACAADwBrAGUAeQBjAGgAYQBpAG4AQAAyAHgALgBwAG4AZwAPABAABwBGAGoAdQBzAGMAaABuABIAe1VzZXJzL3VsaS9Eb3dubG9hZHMvS2V5Y2hhaW5Ub3VjaElEVXNpbmdUb3VjaElEd2l0aEtleWNoYWluYW5kTG9jYWxBdXRoZW50aWNhdGlvbi9LZXljaGFpblRvdWNoSUQvUmVzb3VyY2VzL2tleWNoYWluQDJ4LnBuZwAAEwABLwAAFQACAAr//wAAAAAAAAAA
+		FullPath = /Users/uli/Downloads/KeychainTouchIDUsingTouchIDwithKeychainandLocalAuthentication/KeychainTouchID/Resources/keychain@2x.png
+		PartialPath = ..\Downloads\KeychainTouchIDUsingTouchIDwithKeychainandLocalAuthentication\KeychainTouchID\Resources\keychain@2x.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

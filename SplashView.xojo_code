@@ -10,27 +10,27 @@ Begin iosView SplashView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 58, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 58, 
+      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       ContentMode     =   "1"
       Height          =   240.0
-      Image           =   "857282559"
-      Left            =   20.0
+      Image           =   "458336255"
+      Left            =   20
       LockedInPosition=   False
       Scope           =   0
-      Top             =   58.0
+      Top             =   58
       Visible         =   True
       Width           =   280.0
    End
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, -37, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, -37, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Info"
       Enabled         =   True
       Height          =   30.0
@@ -47,11 +47,11 @@ Begin iosView SplashView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 3.0e+1, 
-      AutoLayout      =   Button2, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      Caption         =   "v 0.8.0"
+      AutoLayout      =   Button2, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 3.0e+1, 
+      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      Caption         =   "v 0.8.1"
       Enabled         =   True
       Height          =   30.0
       Left            =   0
@@ -69,18 +69,20 @@ Begin iosView SplashView
       AccessibilityLabel=   ""
       AdjustFontSize  =   False
       AllowTightening =   False
+      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 3, BottomLayoutGuide, 3, False, +1.00, 1, 1, -50, 
       AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      BaselineAdjustment=   ""
       Enabled         =   True
       Height          =   30.0
       Highlighted     =   False
       HighlightedTextColor=   &c44444400
-      Left            =   20.0
+      Left            =   20
       LineBreakMode   =   "0"
       LockedInPosition=   False
       MinimumScaleFactor=   0.0
+      MultilineMaxWidth=   0.0
       NumberOfLines   =   0
       Scope           =   0
       ShadowColor     =   &cBFBFBF00
@@ -90,8 +92,8 @@ Begin iosView SplashView
       TextAlignment   =   "1"
       TextColor       =   &c13131300
       TextFont        =   "System Bold		"
-      TextSize        =   14
-      Top             =   430.0
+      TextSize        =   "14"
+      Top             =   430
       Visible         =   True
       Width           =   280.0
    End
@@ -112,17 +114,17 @@ End
 		  dim acolor as color = RandomColor (200, 250)
 		  dim option as new AppleViewAnimationOption
 		  option.AllowUserInteraction = true
-		  me.view.AppleView.AnimateColor (acolor.toapplecolor, Option, 5, appleview.UIVIewAnimationCurve.EaseInEaseOut, 0, b)
+		  me.appleview.AnimateColor (acolor.toapplecolor, Option, 5, uikitframework.UIVIewAnimationCurve.EaseInEaseOut, 0, b)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub buttonmove()
-		  dim newrect as FoundationFrameWork.NSRect = Button1.view.Frame
-		  newrect.Origin.y = ImageView1.view.Frame.Size_.height +  ImageView1.view.Frame.Size_.height /3
+		  dim newrect as FoundationFrameWork.NSRect = Button1.Appleview.Frame
+		  newrect.Origin.y = ImageView1.appleview.Frame.Size_.height +  ImageView1.appleview.Frame.Size_.height /3
 		  dim options as new AppleViewAnimationOption
 		  options.AllowUserInteraction = true
-		  button1.view.SpringAnimateFrame (newrect , options, 0.3, 10, 5)
+		  button1.appleview.SpringAnimateFrame (newrect , options, 0.3, 10, 5)
 		  Button2.FadeIn (5)
 		  
 		  
@@ -151,7 +153,7 @@ End
 #tag Events ImageView1
 	#tag Event
 		Sub Open()
-		  me.View.SetScale 80
+		  me.Appleview.SetScale 80
 		  me.AnimateSize 0.5, 0.5, 2
 		  
 		End Sub
@@ -174,11 +176,12 @@ End
 		  "And what's more is I try to add convenience methods to the most frequently used methods. This means you mostly do not have to dig into the mysteries of iOS API calls but can use Xojo controls and Xojo-like methods and properties." +eol + _
 		  "But if you want to explore iOS, you will find many iOS classes rebuilt as Xojo classes, even those that do not really exist in the API like Core Foundation objects. "+ _
 		  "This makes it easy to view them in debugger."+eol+eol + eol + _
-		  "To use, simply drag the iOSLib folder into your project." + eol +  _
+		  "To use, simply copy(!) – don’t drag(!) –  the iOSLib folder into your project." + eol +  _
 		  "You can find the most recent version and a documentation in form of the GitHub Wiki on https://github.com/UBogun/Xojo-iosLib." + eol + _
-		  "But make sure to examine the demo projects too as they will often give you an idea on how to use iOSLib's features.")
+		  "But make sure to examine the demo projects too as they will often give you an idea on how to use iOSLib's features."+eol+ _
+		  "Don’t forget to copy iOSLib into them too – I tried to avoid redundanies.")
 		  
-		  v2.View.ModalPresentationStyle = appleview.UIViewModalPresentationStyle.PopOver
+		  v2.PresentationStyle = iosviewextension.UIViewModalPresentationStyle.PopOver
 		  self.PushToCover v2
 		  
 		  
@@ -211,7 +214,7 @@ End
 	#tag Event
 		Sub Open()
 		  me.Alpha = 0
-		  me.view.AnimateAlpha 1, AppleViewAnimationOption.OptionNone, 1, appleview.UIVIewAnimationCurve.EaseInEaseOut, 5
+		  me.AnimateAlpha 1,  5
 		End Sub
 	#tag EndEvent
 #tag EndEvents

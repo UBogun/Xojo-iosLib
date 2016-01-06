@@ -1,0 +1,40 @@
+#tag MultiImage
+Image iPhone5Portrait
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAHiAAAAAAHiAAIAAAdGanVzY2huAAAAAAAAAAAAAAAAAAAAAAAAAADQ+wqvSCsAAAM6MJcTaVBob25lNVBvcnRyYWl0LnBuZwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzowmdHK5V8AAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAADUxhdW5jaCBJbWFnZXMAABAACAAA0Pr8nwAAABEACAAA0crJPwAAAAEAGAM6MJcDOjCUAzn5GQM5i1sALlaJACw5xAACAF1GanVzY2huOlVzZXJzOgB1bGk6AG5ld1hvam8taW9zTGliOgBJbWFnZXM6AExhdW5jaCBJbWFnZXM6AExhdW5jaCBJbWFnZXM6AGlQaG9uZTVQb3J0cmFpdC5wbmcAAA4AKAATAGkAUABoAG8AbgBlADUAUABvAHIAdAByAGEAaQB0AC4AcABuAGcADwAQAAcARgBqAHUAcwBjAGgAbgASAE9Vc2Vycy91bGkvbmV3WG9qby1pb3NMaWIvSW1hZ2VzL0xhdW5jaCBJbWFnZXMvTGF1bmNoIEltYWdlcy9pUGhvbmU1UG9ydHJhaXQucG5nAAATAAEvAAAVAAIACv//AAAAAAAAAAA=
+		FullPath = /Users/uli/newXojo-iosLib/Images/Launch Images/Launch Images/iPhone5Portrait.png
+		PartialPath = Images\Launch Images\Launch Images\iPhone5Portrait.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

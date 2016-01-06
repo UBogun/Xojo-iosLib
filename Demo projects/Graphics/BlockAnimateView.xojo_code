@@ -10,10 +10,10 @@ Begin iosView BlockAnimateView
    Begin iOSImageView ImageView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
-      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 160, 
       AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 39, 
+      AutoLayout      =   ImageView1, 8, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView1, 7, , 0, False, +1.00, 1, 1, 160, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "857282559"
@@ -27,10 +27,10 @@ Begin iosView BlockAnimateView
    Begin iostable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 177, 
       AutoLayout      =   Table1, 7, , 0, False, +1.00, 1, 1, 320, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 253, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 177, 
       Format          =   "0"
       Height          =   177.0
       Left            =   0
@@ -45,10 +45,10 @@ Begin iosView BlockAnimateView
    Begin iOSImageView ImageView2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView2, 8, , 0, False, +1.00, 1, 1, 160, 
-      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 199, 
-      AutoLayout      =   ImageView2, 7, , 0, False, +1.00, 1, 1, 160, 
       AutoLayout      =   ImageView2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView2, 3, <Parent>, 3, False, +1.00, 1, 1, 199, 
+      AutoLayout      =   ImageView2, 8, , 0, False, +1.00, 1, 1, 160, 
+      AutoLayout      =   ImageView2, 7, , 0, False, +1.00, 1, 1, 160, 
       ContentMode     =   "1"
       Height          =   160.0
       Image           =   "1945587711"
@@ -62,10 +62,10 @@ Begin iosView BlockAnimateView
    Begin iOSImageView ImageView3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ImageView3, 8, , 0, False, +1.00, 1, 1, 107, 
-      AutoLayout      =   ImageView3, 3, <Parent>, 3, False, +1.00, 1, 1, -16, 
-      AutoLayout      =   ImageView3, 7, , 0, False, +1.00, 1, 1, 117, 
       AutoLayout      =   ImageView3, 1, <Parent>, 1, False, +1.00, 1, 1, 222, 
+      AutoLayout      =   ImageView3, 3, <Parent>, 3, False, +1.00, 1, 1, -16, 
+      AutoLayout      =   ImageView3, 8, , 0, False, +1.00, 1, 1, 107, 
+      AutoLayout      =   ImageView3, 7, , 0, False, +1.00, 1, 1, 117, 
       ContentMode     =   "1"
       Height          =   107.0
       Image           =   "1557645311"
@@ -96,19 +96,19 @@ End
 		Sub ToolbarPressed(button As iOSToolButton)
 		  
 		  if button.Caption = "Animate" then
-		    ImageView1.view.TransitionWithAlpha (0.2, appleview.UIVIewAnimationTransition.FlipFromRight, AppleViewAnimationOption.OptionRepeatAndReverse, 2.5, appleview.UIViewAnimationCurve.EaseInEaseOut)
+		    ImageView1.AppleView.TransitionWithAlpha (0.2, UIKitFramework.UIVIewAnimationTransition.FlipFromRight, AppleViewAnimationOption.OptionRepeatAndReverse, 2.5, UIKitFramework.UIVIewAnimationCurve.EaseInEaseOut)
 		    dim newframe as new Rect (200,250,160,160)
-		    ImageView1.view.AnimateFrame (newframe.ToNSRect, AppleViewAnimationOption.OptionRepeatAndReverse, 2)
+		    ImageView1.AppleView.AnimateFrame (newframe.ToNSRect, AppleViewAnimationOption.OptionRepeatAndReverse, 2)
 		    dim newcolor as color = &c145B7000
-		    ImageView1.view.AnimateColor (newcolor.toAppleColor, AppleViewAnimationOption.OptionRepeatAndReverse, 0.8)
+		    ImageView1.AppleView.AnimateColor (newcolor.toAppleColor, AppleViewAnimationOption.OptionRepeatAndReverse, 0.8)
 		    dim angle as double = 180
 		    dim myTransform as CGAffineTransform = TransformExtension.CGAffineTransformMakeRotation (angle.DegreeToRadian)
 		    dim myoption as new AppleViewAnimationOption
 		    myoption.BeginFromCurrentState = true
 		    myoption.Repeat = true
 		    myoption.OverrideInheritedOptions = true
-		    ImageView1.view.AnimateTransform myTransform, myoption, 3, appleview.UIViewAnimationCurve.Linear
-		    ImageView1.view.TranslatesAutoresizingMaskIntoConstraints = true
+		    ImageView1.AppleView.AnimateTransform myTransform, myoption, 3, UIKitFramework.UIVIewAnimationCurve.Linear
+		    ImageView1.AppleView.TranslatesAutoresizingMaskIntoConstraints = true
 		    
 		    Animate
 		  else
@@ -128,25 +128,25 @@ End
 		  dim myTransform as CGAffineTransform = TransformExtension.CGAffineTransformMakeRotation (angle.DegreeToRadian)
 		  dim myoption as  AppleViewAnimationOption = AppleViewAnimationOption.OptionRepeat
 		  myoption.AllowUserInteraction = true
-		  table1.view.AnimateTransform myTransform, myoption, 5, appleview.UIViewAnimationCurve.Linear, 1
+		  table1.AppleView.AnimateTransform myTransform, myoption, 5, UIKitFramework.UIVIewAnimationCurve.Linear, 1
 		  
 		  dim newframe1 as new Rect (200,850,30,30)
-		  imageview2.view.AnimateFrame (newframe1.ToNSRect, AppleViewAnimationOption.OptionRepeatAndReverse, 2)
+		  imageview2.AppleView.AnimateFrame (newframe1.ToNSRect, AppleViewAnimationOption.OptionRepeatAndReverse, 2)
 		  
 		  
-		  imageview3.view.SpringAnimateAlpha (0.5, AppleViewAnimationOption.OptionRepeatAndReverse, 0.2, 8, 1)
+		  imageview3.AppleView.SpringAnimateAlpha (0.5, AppleViewAnimationOption.OptionRepeatAndReverse, 0.2, 8, 1)
 		  dim newframe as new Rect (50,50,5,5)
-		  imageview3.view.SpringAnimateBounds (newframe.ToNSRect, AppleViewAnimationOption.OptionRepeatAndReverse, 0.5, 8, 1)
+		  imageview3.AppleView.SpringAnimateBounds (newframe.ToNSRect, AppleViewAnimationOption.OptionRepeatAndReverse, 0.5, 8, 1)
 		  dim newpos as new rect (600,50, 107,107)
-		  imageview3.view.SpringAnimateFrame (newpos.toNSRect, AppleViewAnimationOption.OptionRepeatAndReverse, 0.3, 2, 10)
+		  imageview3.AppleView.SpringAnimateFrame (newpos.toNSRect, AppleViewAnimationOption.OptionRepeatAndReverse, 0.3, 2, 10)
 		  
 		  dim newcolor as color = &cB3FFCA00
 		  
-		  self.view.BackgroundColor = newcolor.toAppleColor
+		  self.AppleView.BackgroundColor = newcolor.toAppleColor
 		  dim newcolor1 as color  = &cD9D0EF00
 		  dim option as  AppleViewAnimationOption = AppleViewAnimationOption.OptionRepeatAndReverse
 		  option.AllowUserInteraction = true
-		  self.view.springAnimateColor (newcolor1.toAppleColor, option, 0.1, 20, 10)
+		  self.AppleView.springAnimateColor (newcolor1.toAppleColor, option, 0.1, 20, 10)
 		  
 		End Sub
 	#tag EndMethod

@@ -257,7 +257,7 @@ Inherits AppleSKEffectNode
 	#tag Method, Flags = &h0
 		Attributes( hidden )  Sub informonwillMoveFromView(view as ptr)
 		  if view <> nil then
-		     appleskview.makefromptr(view).informonWillMoveFromView(id)
+		    appleskview.makefromptr(view).informonWillMoveFromView(id)
 		  else
 		    RaiseEvent WillMoveFromView (appleskview.makefromptr(view))
 		  end if

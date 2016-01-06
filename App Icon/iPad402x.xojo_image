@@ -1,0 +1,40 @@
+#tag MultiImage
+Image iPad402x
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAHOAAAAAAHOAAIAAAdGanVzY2huAAAAAAAAAAAAAAAAAAAAAAAAAADQ+wqvSCsAAAM6MhgMaVBhZDQwMngucG5nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzoyItHK5jsAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAACEFwcCBJY29uABAACAAA0Pr8nwAAABEACAAA0crKGwAAAAEAHAM6MhgDOjIUAzowlAM5+RkDOYtbAC5WiQAsOcQAAgBcRmp1c2NobjpVc2VyczoAdWxpOgBuZXdYb2pvLWlvc0xpYjoASW1hZ2VzOgBMYXVuY2ggSW1hZ2VzOgBBcHAgaWNvbnM6AEFwcCBJY29uOgBpUGFkNDAyeC5wbmcADgAaAAwAaQBQAGEAZAA0ADAAMgB4AC4AcABuAGcADwAQAAcARgBqAHUAcwBjAGgAbgASAE1Vc2Vycy91bGkvbmV3WG9qby1pb3NMaWIvSW1hZ2VzL0xhdW5jaCBJbWFnZXMvQXBwIGljb25zL0FwcCBJY29uL2lQYWQ0MDJ4LnBuZwAAEwABLwAAFQACAAr//wAAAAAAAAAA
+		FullPath = /Users/uli/newXojo-iosLib/Images/Launch Images/App icons/App Icon/iPad402x.png
+		PartialPath = Images\Launch Images\App icons\App Icon\iPad402x.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = -1
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = -1
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

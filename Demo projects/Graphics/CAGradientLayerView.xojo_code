@@ -8,27 +8,23 @@ Begin iosView CAGradientLayerView
    Title           =   "AppleCAGradientLayer"
    Top             =   0
    Begin iOSLibGradientView ImageView1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 4, ColorField, 3, False, +1.00, 2, 1, -20, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 4, ColorField, 3, False, +1.00, 2, 1, -20, 
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Height          =   248.0
-      Left            =   20
+      Left            =   20.0
       LockedInPosition=   False
-      Scope           =   0
-      Top             =   73
-      Visible         =   False
+      Top             =   73.0
       Width           =   280.0
    End
    Begin iOSTextField ColorField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ColorField, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   ColorField, 4, LocationsField, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   ColorField, 2, ImageView1, 2, False, +1.00, 1, 1, -58, 
       AutoLayout      =   ColorField, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ColorField, 4, LocationsField, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   ColorField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   ColorField, 2, ImageView1, 2, False, +1.00, 1, 1, -58, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -49,9 +45,9 @@ Begin iosView CAGradientLayerView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   Button2, 3, ColorField, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       Caption         =   "Set"
       Enabled         =   True
       Height          =   30.0
@@ -68,10 +64,10 @@ Begin iosView CAGradientLayerView
    Begin iOSTextField LocationsField
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   LocationsField, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   LocationsField, 4, Slider1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   LocationsField, 2, Button4, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       AutoLayout      =   LocationsField, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   LocationsField, 4, Slider1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   LocationsField, 8, , 0, True, +1.00, 1, 1, 31, 
+      AutoLayout      =   LocationsField, 2, Button4, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
       Enabled         =   True
       Height          =   31.0
       KeyboardType    =   "0"
@@ -92,10 +88,10 @@ Begin iosView CAGradientLayerView
    Begin iOSButton Button3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button3, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button3, 7, , 0, False, +1.00, 1, 1, 41, 
       AutoLayout      =   Button3, 3, LocationsField, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button3, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button3, 2, <Parent>, 2, False, +1.00, 2, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   Button3, 7, , 0, False, +1.00, 1, 1, 41, 
       Caption         =   "Set"
       Enabled         =   True
       Height          =   30.0
@@ -112,10 +108,10 @@ Begin iosView CAGradientLayerView
    Begin iOSButton Button4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button4, 2, Button3, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
-      AutoLayout      =   Button4, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button4, 7, , 0, False, +1.00, 1, 1, 41, 
       AutoLayout      =   Button4, 3, LocationsField, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Button4, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button4, 2, Button3, 1, False, +1.00, 2, 1, -*kStdControlGapH, 
+      AutoLayout      =   Button4, 7, , 0, False, +1.00, 1, 1, 41, 
       Caption         =   "Distr."
       Enabled         =   True
       Height          =   30.0
@@ -132,10 +128,10 @@ Begin iosView CAGradientLayerView
    Begin iOSSlider Slider1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Slider1, 4, Label1, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Slider1, 7, ImageView1, 7, False, +0.25, 1, 1, 0, 
       AutoLayout      =   Slider1, 1, LocationsField, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Slider1, 4, Label1, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider1, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider1, 7, ImageView1, 7, False, +0.25, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -151,10 +147,10 @@ Begin iosView CAGradientLayerView
    Begin iOSSlider Slider2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider2, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Slider2, 4, Label1, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Slider2, 7, Slider1, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider2, 1, Slider1, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Slider2, 4, Label1, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider2, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider2, 7, Slider1, 7, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   90
@@ -170,10 +166,10 @@ Begin iosView CAGradientLayerView
    Begin iOSSlider Slider5
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider5, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Slider5, 4, Label2, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Slider5, 7, Slider1, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider5, 1, Slider2, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Slider5, 4, Label2, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider5, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider5, 7, Slider1, 7, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   160
@@ -189,10 +185,10 @@ Begin iosView CAGradientLayerView
    Begin iOSSlider Slider6
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Slider6, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Slider6, 4, Label2, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   Slider6, 7, Slider5, 7, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Slider6, 1, Slider5, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Slider6, 4, Label2, 3, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   Slider6, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   Slider6, 7, Slider5, 7, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   23.0
       Left            =   230
@@ -208,10 +204,10 @@ Begin iosView CAGradientLayerView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   Label1, 2, Slider2, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 1, Slider1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label1, 2, Slider2, 2, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -230,10 +226,10 @@ Begin iosView CAGradientLayerView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label2, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   Label2, 2, Slider6, 2, False, +1.00, 2, 1, 0, 
       AutoLayout      =   Label2, 1, Slider5, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label2, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
+      AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Label2, 2, Slider6, 2, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   160
@@ -326,13 +322,13 @@ End
 	#tag Event
 		Sub Open()
 		  me.Alpha = 0
-		  me.FadeIn (3, appleview.UIViewAnimationCurve.EaseOut)
-		  me.view.ContentMode = appleview.UIViewContentMode.Center
+		  me.FadeIn (3, UIKitFramework.UIVIewAnimationCurve.EaseOut)
+		  me.AppleView.ContentMode =UIKitFramework.UIViewContentMode.Center
 		  dim mypic as iOSImage = Birnebuntklein
 		  dim myimage as new AppleImage (mypic.Handle)
 		  me.CoreAnimationLayer.Contents =new AppleObject ( myimage.CGImage.CFTypeRef)
 		  dim myarray() as color = array (&c394D7E00, &cDA770033, &c44996522, &c38782244 )
-		  me.view.setValueForKeyPath ("layer.borderWidth", new AppleNumber(2))
+		  me.AppleView.setValueForKeyPath ("layer.borderWidth", new AppleNumber(2))
 		  me.GradientLayer.CornerRadius = 20
 		  me.GradientLayer.SetColors (myarray)
 		  me.GradientLayer.SetLocations (array(0, 0.3, 0.6, 0.9))

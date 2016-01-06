@@ -16,7 +16,7 @@ Inherits AppleResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F2074686520616C7068612070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateAlpha(alpha as Double, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub AnimateAlpha(alpha as Double, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  TransformToAlpha = alpha
 		  dim block as new appleblock (AddressOf TransformAlphaBlock)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
@@ -26,7 +26,7 @@ Inherits AppleResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 537461727473206120637573746F6D206D6574686F642066726F6D206120626C6F636B20776869636820796F752063616E2075736520746F206368616E676520646966666572656E742070726F70657274696573206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateBlock(ChangeBlock as AppleBlock, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub AnimateBlock(ChangeBlock as AppleBlock, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  animateWithDuration ( seconds, changeblock.handle, completion.Handle, delay, AnimationOption (options, curve, UIVIewAnimationTransition.None))
 		  
@@ -54,7 +54,7 @@ Inherits AppleResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F20746865206261636B67726F756E64636F6C6F722070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateColor(newColor as AppleColor, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIVIewAnimationCurve = uiviewanimationcurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
+		Sub AnimateColor(newColor as AppleColor, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
 		  TransformToColor = newColor
 		  dim block as new AppleBlock (AddressOf TransformColorBlock)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
@@ -2075,41 +2075,6 @@ Inherits AppleResponder
 		Delete
 	#tag EndEnum
 
-	#tag Enum, Name = UIVIewAnimationCurve, Flags = &h0
-		EaseInEaseOut
-		  EaseIn
-		  EaseOut
-		  Linear
-		Keyboard = 7
-	#tag EndEnum
-
-	#tag Enum, Name = UIVIewAnimationTransition, Flags = &h0
-		None
-		  FlipFromLeft
-		  FlipFromRight
-		  CurlUp
-		  CurlDown
-		  CrossDissolve
-		  FlipFromTop
-		FlipFromBottom
-	#tag EndEnum
-
-	#tag Enum, Name = UIViewContentMode, Flags = &h0
-		ScaleToFill
-		  ScaleAspectFit
-		  ScaleAspectFill
-		  Redraw
-		  Center
-		  Top
-		  Bottom
-		  Left
-		  Right
-		  TopLeft
-		  TopRight
-		  BottomLeft
-		BottomRight
-	#tag EndEnum
-
 	#tag Enum, Name = UIViewModalPresentationStyle, Flags = &h0
 		FullScreen = 0
 		  PageSheet
@@ -2164,27 +2129,6 @@ Inherits AppleResponder
 				"0 - Rectangle"
 				"1 - Ellipse"
 				"2 - Path"
-			#tag EndEnumValues
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ContentMode"
-			Group="Behavior"
-			Type="UIViewContentMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - ScaleToFill"
-				"1 - ScaleAspectFit"
-				"2 - ScaleAspectFill"
-				"3 - Redraw"
-				"4 - Center"
-				"5 - Top"
-				"6 - Bottom"
-				"7 - Left"
-				"8 - Right"
-				"9 - TopLeft"
-				"10 - TopRight"
-				"11 - BottomLeft"
-				"12 - BottomRight"
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty

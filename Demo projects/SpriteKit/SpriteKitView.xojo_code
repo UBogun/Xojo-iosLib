@@ -8,31 +8,24 @@ Begin iosView SpriteKitView
    Title           =   ""
    Top             =   0
    Begin ioslibskview ImageView1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      Alpha           =   1.0
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoresizesSubviews=   True
-      BackgroundColor =   &cFFFFFF00
-      ClearsContextBeforeDrawing=   False
-      ClipsToBounds   =   True
-      ContentScaleFactor=   1.0
-      ExclusiveTouch  =   False
-      Height          =   407.0
-      Hidden          =   False
-      Left            =   0.0
+      AllowsTransparency=   False
+      Asynchronous    =   False
+      FrameInterval   =   0
+      IgnoresSiblingOrder=   False
+      Left            =   0
       LockedInPosition=   False
-      MultipleTouchEnabled=   False
-      Opaque          =   False
+      PanelIndex      =   -1
+      Parent          =   ""
+      Paused          =   False
       Scope           =   0
-      Tag             =   0
-      Top             =   73.0
-      UserInteractionEnabled=   True
-      Visible         =   True
-      Width           =   320.0
+      ShouldCullNonVisibleNodes=   False
+      ShowsDrawCount  =   False
+      ShowsFields     =   False
+      ShowsFPS        =   False
+      ShowsNodeCount  =   False
+      ShowsPhysics    =   False
+      ShowsQuadCount  =   False
+      Top             =   0
    End
 End
 #tag EndIOSView
@@ -471,7 +464,7 @@ End
 	#tag Method, Flags = &h21
 		Private Sub ShootWorld()
 		  SpaceShooterScene = nil
-		  dim myscene as new AppleSKScene (ImageView1.View.frame.Size_)
+		  dim myscene as new AppleSKScene (ImageView1.appleview.frame.Size_)
 		  myscene.PhysicsWorld.Gravity = CoreGraphicsFramework.CGMakeVector (0,-0.05)
 		  ImageView1.PresentScene (myscene)
 		  
@@ -483,7 +476,7 @@ End
 		    mynode.VerticalAlignment = AppleSKLabelNode.SKLabelVerticalAlignmentMode.Center
 		    myscene.AddChild mynode
 		    mynode.Position = FoundationFramework.NSMakePoint ( randomint (20, ImageView1.width - 20),  randomint (10, ImageView1.height- 100))
-		    mynode.BlendColor = new AppleColor (&cff229933)
+		    mynode.BlendColor = new AppleColor (RandomColor (20,250))
 		    mynode.ColorBlendFactor = 0.5
 		    
 		    dim firstbody as new AppleSKPhysicsBody (mynode.Frame.Size_)
@@ -509,7 +502,7 @@ End
 		  dim myaction as AppleSKAction = AppleSKAction.PlaySound ("scifi016.mp3", false)
 		  anothernode.RunActionWithEvent myaction
 		  myscene.AddChild anothernode
-		  myaction = AppleSKAction.MoveTo (FoundationFrameWork.NSMakePoint( ImageView1.view.Frame.Size_.width/2 + 80, ImageView1.Height + anothernode.Frame.Size_.height * 2), 2)
+		  myaction = AppleSKAction.MoveTo (FoundationFrameWork.NSMakePoint( ImageView1.appleview.Frame.Size_.width/2 + 80, ImageView1.Height + anothernode.Frame.Size_.height * 2), 2)
 		  
 		  
 		  dim mybody as new AppleSKPhysicsBody (anothernode.Frame.Size_)
@@ -524,7 +517,7 @@ End
 		  
 		  // Frame border
 		  
-		  dim myframe  as FoundationFramework.NSRect = ImageView1.view.Frame
+		  dim myframe  as FoundationFramework.NSRect = ImageView1.Appleview.Frame
 		  myframe.Size_.height = myframe.Size_.height - 10
 		  myframe.Size_.width = myframe.Size_.width - 10
 		  myframe.Origin.x = 5
@@ -580,7 +573,7 @@ End
 		  // Setup for SpaceShooter, in case it exists simply show the scene
 		  
 		  if SpaceShooterScene = nil then // do we have to create a new scene or does one still exist?
-		    SpaceShooterScene = new AppleSKScene (ImageView1.view.Bounds.Size_) // Dim a new Scene the size of the view
+		    SpaceShooterScene = new AppleSKScene (ImageView1.AppleView.Bounds.Size_) // Dim a new Scene the size of the view
 		    SpaceShooterScene.name = "SpaceShooter" //and give it a name..
 		    SpaceShooterScene.PhysicsWorld.Gravity = CoreGraphicsFramework.CGMakeVector (0,0) // No gravity in space
 		    // Now prepare the images and sprites:

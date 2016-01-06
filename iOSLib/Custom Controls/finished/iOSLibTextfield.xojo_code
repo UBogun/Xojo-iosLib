@@ -762,24 +762,11 @@ Inherits iOSLIbCanvas
 			Name="AutocapitalizationType"
 			Group="Behavior"
 			Type="AppleTextfield.UITextAutocapitalizationType"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - None"
-				"1 - Words"
-				"2 - Sentences"
-				"3 - AllCharacters"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutocorrectionType"
 			Group="Behavior"
 			Type="appletextfield.UITextAutocorrectionType"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - No"
-				"2 - Yes"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutoresizesSubviews"
@@ -799,13 +786,6 @@ Inherits iOSLIbCanvas
 			Name="BorderStyle"
 			Group="Behavior"
 			Type="appletextfield.UITextFieldBorderStyle"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - None"
-				"1 - Line"
-				"2 - Bezel"
-				"3 - RoundedRect"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CanBecomeFocused"
@@ -822,13 +802,6 @@ Inherits iOSLIbCanvas
 			Name="ClearButtonMode"
 			Group="Behavior"
 			Type="appletextfield.UITextFieldViewMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Never"
-				"1 - WhileEditing"
-				"2 - UnlessEditing"
-				"3 - Always"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsContextBeforeDrawing"
@@ -859,7 +832,7 @@ Inherits iOSLIbCanvas
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="AppleView.UIViewContentMode"
+			Type="UIKitFramework.UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"
@@ -949,30 +922,11 @@ Inherits iOSLIbCanvas
 			Name="KeyboardAppearance"
 			Group="Behavior"
 			Type="appletextfield.UIKeyboardAppearance"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - Dark"
-				"2 - Light"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="KeyboardType"
 			Group="Behavior"
 			Type="appletextfield.UIKeyboardType"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - ASCIICapable"
-				"2 - NumbersAndPunctuation"
-				"3 - URL"
-				"4 - NumberPad"
-				"5 - PhonePad"
-				"6 - EMailAddress"
-				"7 - DecimalPad"
-				"8 - Twitter"
-				"9 - WebSearch"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -984,13 +938,6 @@ Inherits iOSLIbCanvas
 			Name="LeftViewMode"
 			Group="Behavior"
 			Type="appletextfield.UITextFieldViewMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Never"
-				"1 - WhileEditing"
-				"2 - UnlessEditing"
-				"3 - Always"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="MinimumFontSize"
@@ -1039,44 +986,16 @@ Inherits iOSLIbCanvas
 			Name="ReturnKeyType"
 			Group="Behavior"
 			Type="appletextfield.UIReturnKeyType"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - Go"
-				"2 - Google"
-				"3 - Join"
-				"4 - Next_"
-				"5 - Route"
-				"6 - Search"
-				"7 - Send"
-				"8 - Yahoo"
-				"9 - Done"
-				"10 - EmergencyCall"
-				"11 - Continue_"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RightViewMode"
 			Group="Behavior"
 			Type="appletextfield.UITextFieldViewMode"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Never"
-				"1 - WhileEditing"
-				"2 - UnlessEditing"
-				"3 - Always"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SpellCheckingType"
 			Group="Behavior"
 			Type="appletextfield.UITextSpellCheckingType"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Default"
-				"1 - No"
-				"2 - Yes"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
@@ -1094,14 +1013,6 @@ Inherits iOSLIbCanvas
 			Name="TextAlignment"
 			Group="Behavior"
 			Type="appletextfield.NSTextAlignment"
-			EditorType="Enum"
-			#tag EnumValues
-				"0 - Left"
-				"1 - Center"
-				"2 - Right"
-				"3 - Justified"
-				"4 - Natural"
-			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextColor"

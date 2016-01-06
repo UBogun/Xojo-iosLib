@@ -11,8 +11,8 @@ Protected Class AppleColorPicker
 	#tag Method, Flags = &h0
 		Function GetColor(currentView as iosview, byref Cancelled as Boolean) As Color
 		  dim cp as new ColorPickerView (self, if (SendColor <> &c00000000, SendColor, LastColor))
-		  cp.View.ModalPresentationStyle = appleview.UIViewModalPresentationStyle.FormSheet
-		  currentview.View.Present cp.View, true
+		  cp.AppleViewController.ModalPresentationStyle = appleview.UIViewModalPresentationStyle.FormSheet
+		  currentview.AppleViewController.Present cp.AppleViewController, true
 		  while not Returned
 		    Thread.CurrentThread.Sleep (500)
 		  wend

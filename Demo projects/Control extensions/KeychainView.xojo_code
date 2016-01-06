@@ -10,10 +10,10 @@ Begin iosView KeychainView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   407.0
       Left            =   0
@@ -95,7 +95,7 @@ End
 		    end if
 		  else
 		    dim AlertController as new AppleAlertController ("No UserDefaults","For the keychain demo to work, you must define an idenifier and a username. Please do so from the last entry of the table", AppleAlertController.UIAlertControllerStyle.alert)
-		    AlertController.Show (self.View)
+		    AlertController.Show (self.AppleViewController)
 		  end if
 		End Sub
 	#tag EndMethod
@@ -110,7 +110,7 @@ End
 		    AlertController.AddstandardTextField (UDefaults.TextValue(UNameTag), UNameTag)
 		    AlertController.AddOKAndCancelButtons
 		    AddHandler AlertController.Result, AddressOf AlertResult
-		    AlertController.Show (self.View)
+		    AlertController.Show (self.AppleViewController)
 		  else
 		    Service = UDefaults.TextValue(UIDTag)
 		    Account = UDefaults.TextValue(UNameTag)
@@ -127,7 +127,7 @@ End
 		  dim result as Boolean = c.CanEvaluatePolicy (error)
 		  dim resulttext as text = if (result = True, "LAContext gave no error – TouchID is available", "LAContext replied with error "+EOL+error.LocalizedDescription)
 		  Dim alert as new AppleAlertController ("TouchID result", resulttext)
-		  alert.Show (self.View)
+		  alert.Show (self.AppleViewController)
 		End Sub
 	#tag EndMethod
 
@@ -139,13 +139,13 @@ End
 		    dim result as  int32 = SecurityFramework.DeleteKeychainItem (service, account)
 		    dim alert as AppleAlertController
 		    if result <> 0 then
-		       alert = new AppleAlertController("Delete Failed", "SecItemDelete replied with error "+result.ToText+eol + _
+		      alert = new AppleAlertController("Delete Failed", "SecItemDelete replied with error "+result.ToText+eol + _
 		      SecurityFramework.OSStatusErrorText(result)+eol+"for Service "+Service+ eol+"Account "+Account)
 		    else
 		      alert = new AppleAlertController("Delete successful", "SecItemDelete replied with error 0 for"+eol + _
 		      "Service "+Service+ eol+"Account "+Account)
 		    end if
-		    alert.Show (self.View)
+		    alert.Show (self.AppleViewController)
 		  end if
 		  
 		End Sub
@@ -163,7 +163,7 @@ End
 		Sub EvaluationFinished(context as appleLAContext, success as boolean, errorNr as ioslibtouchId.TouchIDError, result as Text)
 		  dim resultmessage as text = if (success, "Evaluation was successful", "Evaluation failed"+EOL+result)
 		  dim alert as new AppleAlertController ("LAContext evaluation finished", resultmessage)
-		  alert.show (self.View)
+		  alert.show (self.AppleViewController)
 		End Sub
 	#tag EndMethod
 
@@ -212,7 +212,7 @@ End
 		    else
 		      alertcontroller = new AppleAlertController("Write failed","Method Returned "+result.ToText+EOL+OSStatusErrorText(result))
 		    end if
-		    alertcontroller.show (self.View)
+		    alertcontroller.show (self.AppleViewController)
 		  end if
 		End Sub
 	#tag EndMethod
@@ -220,7 +220,7 @@ End
 	#tag Method, Flags = &h21
 		Private Sub NoUserDefaultSet()
 		  dim alert as new AppleAlertController("No userdata saved", "Please define an identifier and an account name first under UserDefaults.")
-		  alert.Show (self.View)
+		  alert.Show (self.AppleViewController)
 		End Sub
 	#tag EndMethod
 
@@ -241,7 +241,7 @@ End
 		      password = resultDict.Password
 		    else
 		      dim alert as new AppleAlertController("No Keychain saved", "No keychain could be read with the Service and Account identifiers you set in the UserDefaults.")
-		      alert.Show (self.View)
+		      alert.Show (self.AppleViewController)
 		    end if
 		  end if
 		End Sub
@@ -276,7 +276,7 @@ End
 		    end if
 		    
 		    
-		    AlertController.Show (self.View)
+		    AlertController.Show (self.AppleViewController)
 		  end if
 		  
 		  
@@ -378,7 +378,7 @@ End
 		      deleteKeychain
 		    else
 		      dim ac as new AppleAlertController("Not yet implemented", "This feature has not been implemented yet. Plase look for the next iOSLib release")
-		      ac.Show(self.view)
+		      ac.Show(self.AppleViewController)
 		    end select
 		  elseif section = 1 then
 		    select case row

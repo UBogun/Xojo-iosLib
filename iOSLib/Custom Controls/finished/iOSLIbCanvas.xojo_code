@@ -30,49 +30,49 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F2074686520616C7068612070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateAlpha(alpha as Double, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub AnimateAlpha(alpha as Double, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  if completion = nil then completion = new appleblock (addressof completionBlock)
 		  id.AnimateAlpha alpha, options, seconds, curve, delay, completion
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 537461727473206120637573746F6D206D6574686F642066726F6D206120626C6F636B20776869636820796F752063616E2075736520746F206368616E676520646966666572656E742070726F70657274696573206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateBlock(ChangeBlock as AppleBlock, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub AnimateBlock(ChangeBlock as AppleBlock, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  if completion = nil then completion = new appleblock (addressof completionBlock)
 		  id.Animateblock changeblock, options, seconds, curve, delay, completion
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F2074686520626F756E64732070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateBounds(newBounds as xojo.core.rect , options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
+		Sub AnimateBounds(newBounds as xojo.core.rect , options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
 		  if completion = nil then completion = new appleblock (addressof completionBlock)
 		  id.AnimateBounds newBounds.toNSREct, options, seconds, curve, delay, completion
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F207468652063656E7465722070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateCenter(aCenter as xojo.core.point, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
+		Sub AnimateCenter(aCenter as xojo.core.point, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
 		  if completion = nil then completion = new appleblock (addressof completionBlock)
 		  id.AnimateCenter aCenter.tonspoint, options, seconds, curve, delay, completion
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F20746865206261636B67726F756E64636F6C6F722070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateColor(newColor as Color, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
+		Sub AnimateColor(newColor as Color, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
 		  if completion = nil then completion = new appleblock (addressof completionBlock)
 		  id.AnimateColor newcolor.toapplecolor, options, seconds, curve, delay, completion
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F20746865206672616D652070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateFrame(aFrame as xojo.core.rect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
+		Sub AnimateFrame(aFrame as xojo.core.rect, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0 , completion as appleblock = nil)
 		  if completion = nil then completion = new appleblock (addressof completionBlock)
 		  id.AnimateFrame aFrame.toNSREct, options, seconds, curve, delay, completion
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 416E696D617465206368616E67657320746F20746865207472616E73666F726D2070726F7065727479206F66207468652076696577207573696E672074686520737065636966696564206475726174696F6E2C2064656C61792C206F7074696F6E732C20616E6420636F6D706C6574696F6E2068616E646C65722E20
-		Sub AnimateTransform(aTransform as CGAffineTransform, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as AppleView.UIVIewAnimationCurve = AppleView.uiviewanimationcurve.EaseInEaseOut,  delay as double = 0 , completion as appleblock = nil)
+		Sub AnimateTransform(aTransform as CGAffineTransform, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut,  delay as double = 0 , completion as appleblock = nil)
 		  if completion = nil then completion = new appleblock (addressof completionBlock)
 		  id.AnimateTransform atransform, options, seconds, curve, delay, completion
 		End Sub
@@ -359,7 +359,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E2074686520616C7068612070726F7065727479206F662074686520766965772E
-		Sub SpringAnimateAlpha(alpha as Double, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub SpringAnimateAlpha(alpha as Double, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.SpringAnimateAlpha ( alpha, options, DampingRatio, velocity, seconds, curve, delay,  completion)
 		  
@@ -368,7 +368,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 506572666F726D73206120737072696E6720616E696D6174696F6E206F6E206120637573746F6D20626C6F636B20746861742072756E73206F6E20636C617373206C6576656C2C20736F2069742063616E206368616E67652074686520616E696D617461626C652070726F70657274696573206F66207365766572616C207669657773206174206F6E63652E
-		Sub SpringAnimateBlock(Changeblock as Appleblock, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub SpringAnimateBlock(Changeblock as Appleblock, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.SpringAnimateblock ( changeblock, options, DampingRatio, velocity, seconds, curve, delay,  completion)
 		  
@@ -377,7 +377,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E2074686520626F756E64732070726F7065727479206F662074686520766965772E
-		Sub SpringAnimateBounds(NewBounds as xojo.core.rect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub SpringAnimateBounds(NewBounds as xojo.core.rect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.SpringAnimateBounds ( NewBounds.tonsrect, options, DampingRatio, velocity, seconds, curve, delay,  completion)
 		  
@@ -386,7 +386,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E207468652043656E7465722070726F7065727479206F662074686520766965772E
-		Sub SpringAnimateCenter(NewCenter As xojo.core.point, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub SpringAnimateCenter(NewCenter As xojo.core.point, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.SpringAnimateCenter ( newcenter.tonspoint, options, DampingRatio, velocity, seconds, curve, delay,  completion)
 		  
@@ -395,7 +395,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E20746865206261636B67726F756E64636F6C6F722070726F7065727479206F662074686520766965772E
-		Sub SpringAnimateColor(NewColor As Color, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub SpringAnimateColor(NewColor As Color, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.SpringAnimatecolor ( newcolor.toAppleColor, options, DampingRatio, velocity, seconds, curve, delay,  completion)
 		  
@@ -404,7 +404,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E20746865206672616D652070726F7065727479206F662074686520766965772E
-		Sub SpringAnimateFrame(NewFrame as xojo.core.rect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
+		Sub SpringAnimateFrame(NewFrame as xojo.core.rect, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.SpringAnimateFrame ( newframe.tonsrect, options, DampingRatio, velocity, seconds, curve, delay,  completion)
 		  
@@ -413,7 +413,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 537461727473206120737072696E6720616E696D6174696F6E206F6E20746865207472616E73666F726D2070726F7065727479206F662074686520766965772E
-		Sub SpringAnimateTransform(NewTransform As CGAffineTransform, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, delay as double = 0, completion as AppleBlock = nil)
+		Sub SpringAnimateTransform(NewTransform As CGAffineTransform, options as AppleViewAnimationOption, DampingRatio As Double = 1, Velocity As Double = 0.5, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, delay as double = 0, completion as AppleBlock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.SpringAnimateTransform ( NewTransform, options, DampingRatio, velocity, seconds, curve, delay,  completion)
 		  
@@ -438,7 +438,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Transition(Transition as AppleView.UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		Sub Transition(Transition as UIKitFramework.UIVIewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.Transition (transition, options, seconds, curve, completion)
 		  
@@ -446,7 +446,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithAlpha(alpha as Double, Transition as appleview.UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		Sub TransitionWithAlpha(alpha as Double, Transition as UIKitFramework.UIVIewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.TransitionWithAlpha (alpha, transition, options, seconds, curve, completion)
 		  
@@ -454,7 +454,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 437265617465732061207472616E736974696F6E20616E696D6174696F6E20666F72207468652073706563696669656420636F6E7461696E657220766965772E
-		Sub TransitionWithBlock(animation as appleblock, Transition as appleview.UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		Sub TransitionWithBlock(animation as appleblock, Transition as UIKitFramework.UIVIewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.TransitionWithBlock (animation, transition, options, seconds, curve, completion)
 		  
@@ -462,7 +462,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithBounds(newBounds as xojo.core.rect, transition as appleview.uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		Sub TransitionWithBounds(newBounds as xojo.core.rect, transition as UIKitFramework.UIVIewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.TransitionWithBounds (newBounds.tonsrect, transition, options, seconds, curve, completion)
 		  
@@ -470,7 +470,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithCenter(aCenter as xojo.core.point, Transition as appleview.UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		Sub TransitionWithCenter(aCenter as xojo.core.point, Transition as UIKitFramework.UIVIewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.TransitionWithCenter (aCenter.toNSPoint, transition, options, seconds, curve, completion)
 		  
@@ -478,7 +478,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithColor(newColor as Color, Transition As appleview.UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		Sub TransitionWithColor(newColor as Color, Transition As UIKitFramework.UIVIewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.TransitionWithColor (newcolor.toapplecolor, transition, options, seconds, curve, completion)
 		  
@@ -486,7 +486,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithFrame(aFrame as xojo.core.rect, Transition as appleview.uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		Sub TransitionWithFrame(aFrame as xojo.core.rect, Transition as UIKitFramework.UIVIewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.TransitionWithFrame (aFrame.tonsrect, transition, options, seconds, curve, completion)
 		  
@@ -494,7 +494,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub TransitionWithTransform(aTransform as CGAffineTransform, Transition as appleview.uiviewanimationtransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		Sub TransitionWithTransform(aTransform as CGAffineTransform, Transition as UIKitFramework.UIVIewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.TransitionWithTransform (aTransform, transition, options, seconds, curve, completion)
 		  
@@ -508,7 +508,7 @@ Inherits iOSLibResponder
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, Description = 437265617465732061207472616E736974696F6E20616E696D6174696F6E206265747765656E2074686520737065636966696564207669657773207573696E672074686520676976656E20706172616D65746572732E
-		Sub ViewTransition(fromview as appleview, toView as Appleview, Transition as appleview.UIViewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as appleview.UIVIewAnimationCurve = appleview.uiviewanimationcurve.EaseInEaseOut, completion as appleblock = nil)
+		Sub ViewTransition(fromview as appleview, toView as Appleview, Transition as UIKitFramework.UIVIewAnimationTransition, options as AppleViewAnimationOption, Seconds as Double = 0.2, Curve as UIKitFramework.UIViewAnimationCurve = UIKitFramework.UIViewAnimationCurve.EaseInEaseOut, completion as appleblock = nil)
 		  if completion = nil then completion = new AppleBlock (AddressOf CompletionBlock)
 		  id.ViewTransition (fromview, toview, Transition, options, seconds, curve, completion)
 		  
@@ -712,7 +712,7 @@ Inherits iOSLibResponder
 			  id.contentmode = value
 			End Set
 		#tag EndSetter
-		ContentMode As AppleView.UIViewContentMode
+		ContentMode As UIKitFramework.UIViewContentMode
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0, Description = 546865207363616C6520666163746F72206170706C69656420746F2074686520766965772E
@@ -1053,7 +1053,7 @@ Inherits iOSLibResponder
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="AppleView.UIViewContentMode"
+			Type="UIKitFramework.UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"
