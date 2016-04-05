@@ -760,6 +760,7 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutocapitalizationType"
+			Visible=true
 			Group="Behavior"
 			Type="AppleTextfield.UITextAutocapitalizationType"
 			EditorType="Enum"
@@ -772,6 +773,7 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutocorrectionType"
+			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UITextAutocorrectionType"
 			EditorType="Enum"
@@ -797,6 +799,7 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BorderStyle"
+			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UITextFieldBorderStyle"
 			EditorType="Enum"
@@ -809,7 +812,9 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CanBecomeFocused"
+			Visible=true
 			Group="Appearance"
+			InitialValue="true"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -947,6 +952,7 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="KeyboardAppearance"
+			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UIKeyboardAppearance"
 			EditorType="Enum"
@@ -958,6 +964,7 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="KeyboardType"
+			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UIKeyboardType"
 			EditorType="Enum"
@@ -1069,6 +1076,7 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SpellCheckingType"
+			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UITextSpellCheckingType"
 			EditorType="Enum"
@@ -1092,6 +1100,7 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextAlignment"
+			Visible=true
 			Group="Behavior"
 			Type="appletextfield.NSTextAlignment"
 			EditorType="Enum"
@@ -1112,6 +1121,7 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
+			Visible=true
 			Group="Behavior"
 			Type="AppleView.UIViewTintAdjustmentMode"
 			EditorType="Enum"

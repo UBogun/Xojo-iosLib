@@ -10,9 +10,9 @@ Begin iosView FrameWorkDetailView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 129, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 4, <Parent>, 4, False, +1.00, 1, 1, -4, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 129, 
       Caption         =   "Return"
       Enabled         =   True
       Height          =   30.0
@@ -29,12 +29,12 @@ Begin iosView FrameWorkDetailView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 221, 
       AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 2, 1, 36, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 4, TextArea1, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Format          =   "0"
-      Height          =   221.0
+      Height          =   233.0
       Left            =   0
       LockedInPosition=   False
       Scope           =   0
@@ -46,10 +46,10 @@ Begin iosView FrameWorkDetailView
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 161, 
-      AutoLayout      =   TextArea1, 4, Button1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
-      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
+      AutoLayout      =   TextArea1, 4, Button1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
+      AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 161, 
+      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       Editable        =   True
       Height          =   161.0
       KeyboardType    =   "0"
@@ -83,11 +83,72 @@ End
 
 	#tag Method, Flags = &h0
 		Sub showdetails()
-		  table1.AddSection "Bundle: "+myBundle.Identifier
+		  table1.AddSection "CFBundle: "+myBundle.Identifier
 		  table1.AddRow 0, "Executable "+if (myBundle.ExecutableIsLoaded, "loaded","NOT LOADED")
 		  table1.AddRow 0,"Development Region: "+myBundle.DevelopmentRegion
 		  table1.AddRow 0,"Package Type: "+text.fromCString (myBundle.PackageType, StandardTextEncoding)
 		  table1.AddRow 0,"Package Creator: "+text.fromCString (myBundle.packageCreator, StandardTextEncoding)
+		  table1.AddSection "Info Dictionary"
+		  if myBundle.InfoDictionary <> nil then
+		    dim allkeys as AppleArray = myBundle.InfoDictionary.Allkeys
+		    for q as uinteger = 0 to allkeys.Count -1
+		      dim key as text = allkeys.TextAtIndex(q)
+		      dim value as text 
+		      System.debuglog "K: "+key
+		      try 
+		        if myBundle.InfoDictionary.ValueForKey(key)<> nil then
+		          dim bptr as AppleObject = AppleObject.MakeFromPtr(myBundle.InfoDictionary.PtrForKey(key))
+		          dim desc as text =  text.fromCString(bptr.ClassName, StandardTextEncoding)
+		          if desc.IndexOf("String") > -1 then
+		            value = myBundle.InfoDictionary.TextForKey(key)
+		          elseif desc.IndexOf("Number") > -1 then
+		            dim mynumber as applenumber = AppleNumber.MakefromPtr (myBundle.InfoDictionary.PtrForKey(key))
+		            value = mynumber.DoubleValue.ToText
+		          elseif desc.IndexOf ("NSURL") > -1 then
+		            dim myURL as aPpleurl = AppleURL.MakefromPtr(myBundle.InfoDictionary.PtrForKey(key))
+		            value = myURL.Path
+		          else
+		            value = "<"+desc+">"
+		          end if
+		        end if
+		      catch
+		      end try
+		      table1.AddRow 1, key+": "+value
+		      System.DebugLog "V: "+value
+		    next
+		    table1.SectionTitle(1)  = allkeys.count.totext+" keys in Info Dictionary"
+		  end if
+		  table1.AddSection "No Local Info Dictionary"
+		  
+		  if myBundle.localinfodictionary <> nil then
+		    dim allkeys as AppleArray = myBundle.localinfodictionary.Allkeys
+		    for q as uinteger = 0 to allkeys.Count -1
+		      dim key as text = allkeys.TextAtIndex(q)
+		      dim value as text 
+		      System.debuglog "K: "+key
+		      try 
+		        if myBundle.localinfodictionary.ValueForKey(key)<> nil then
+		          dim bptr as AppleObject = AppleObject.MakeFromPtr(myBundle.localinfodictionary.PtrForKey(key))
+		          dim desc as text =  text.fromCString(bptr.ClassName, StandardTextEncoding)
+		          if desc.IndexOf("String") > -1 then
+		            value = myBundle.InfoDictionary.TextForKey(key)
+		          elseif desc.IndexOf("Number") > -1 then
+		            dim mynumber as applenumber = AppleNumber.MakefromPtr (myBundle.localinfodictionary.PtrForKey(key))
+		            value = mynumber.DoubleValue.ToText
+		          elseif desc.IndexOf ("NSURL") > -1 then
+		            dim myURL as aPpleurl = AppleURL.MakefromPtr(myBundle.localinfodictionary.PtrForKey(key))
+		            value = myURL.Path
+		          else
+		            value = "<"+desc+">"
+		          end if
+		        end if
+		      catch
+		      end try
+		      table1.AddRow 2, key+": "+value
+		      System.DebugLog "V: "+value
+		    next
+		    table1.SectionTitle(2)  = allkeys.count.totext+" keys in Local Info Dictionary"
+		  end if
 		  
 		  TextArea1.text = "Description:  "+ myBundle.Description
 		End Sub

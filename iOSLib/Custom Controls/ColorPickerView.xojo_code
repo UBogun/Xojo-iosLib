@@ -10,10 +10,10 @@ Begin iosView ColorPickerView
    Begin iOSCanvas ColorPreview
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   ColorPreview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 52, 
-      AutoLayout      =   ColorPreview, 7, <Parent>, 7, False, +1.00, 1, 1, -40, 
-      AutoLayout      =   ColorPreview, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       AutoLayout      =   ColorPreview, 4, RedLabel, 3, False, +1.00, 2, 1, -60, 
+      AutoLayout      =   ColorPreview, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 52, 
+      AutoLayout      =   ColorPreview, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ColorPreview, 7, <Parent>, 7, False, +1.00, 1, 1, -40, 
       Height          =   17.0
       Left            =   20
       LockedInPosition=   False
@@ -25,10 +25,10 @@ Begin iosView ColorPickerView
    Begin iOSSlider RedSlider
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   RedSlider, 1, ColorPreview, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   RedSlider, 3, GreenLabel, 3, False, +1.00, 1, 1, -40, 
-      AutoLayout      =   RedSlider, 2, ColorPreview, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   RedSlider, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   RedSlider, 1, ColorPreview, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   RedSlider, 2, ColorPreview, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   RedSlider, 3, GreenLabel, 3, False, +1.00, 1, 1, -40, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -44,11 +44,11 @@ Begin iosView ColorPickerView
    Begin iOSLabel RedLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   RedLabel, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   RedLabel, 2, RedSlider, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   RedLabel, 1, RedSlider, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   RedLabel, 4, RedSlider, 3, False, +1.00, 2, 1, 0, 
       AutoLayout      =   RedLabel, 7, RedSlider, 7, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   RedLabel, 1, RedSlider, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   RedLabel, 8, , 0, False, +1.00, 1, 1, 30, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -67,10 +67,10 @@ Begin iosView ColorPickerView
    Begin iOSLabel RedValue
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   RedValue, 3, RedSlider, 4, False, +1.00, 1, 1, -5, 
-      AutoLayout      =   RedValue, 8, , 0, False, +1.00, 1, 1, 17, 
-      AutoLayout      =   RedValue, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   RedValue, 7, RedSlider, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   RedValue, 3, RedSlider, 4, False, +1.00, 1, 1, -5, 
+      AutoLayout      =   RedValue, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   RedValue, 8, , 0, False, +1.00, 1, 1, 17, 
       Enabled         =   True
       Height          =   17.0
       Left            =   20
@@ -89,10 +89,10 @@ Begin iosView ColorPickerView
    Begin iOSSlider BlueSlider
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   BlueSlider, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
-      AutoLayout      =   BlueSlider, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   BlueSlider, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   BlueSlider, 3, AlphaLabel, 3, False, +1.00, 1, 1, -40, 
+      AutoLayout      =   BlueSlider, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
+      AutoLayout      =   BlueSlider, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   BlueSlider, 8, , 0, True, +1.00, 1, 1, 23, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -108,10 +108,10 @@ Begin iosView ColorPickerView
    Begin iOSLabel RedLabel1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   RedLabel1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   RedLabel1, 4, BlueSlider, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   RedLabel1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   RedLabel1, 7, BlueSlider, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   RedLabel1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   RedLabel1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   RedLabel1, 4, BlueSlider, 3, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -130,10 +130,10 @@ Begin iosView ColorPickerView
    Begin iOSLabel BlueValue
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   BlueValue, 3, BlueSlider, 4, False, +1.00, 1, 1, -5, 
-      AutoLayout      =   BlueValue, 8, , 0, False, +1.00, 1, 1, 17, 
-      AutoLayout      =   BlueValue, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   BlueValue, 7, BlueSlider, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   BlueValue, 3, BlueSlider, 4, False, +1.00, 1, 1, -5, 
+      AutoLayout      =   BlueValue, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   BlueValue, 8, , 0, False, +1.00, 1, 1, 17, 
       Enabled         =   True
       Height          =   17.0
       Left            =   20
@@ -152,10 +152,10 @@ Begin iosView ColorPickerView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 2, <Parent>, 2, False, +1.00, 1, 1, -20, 
-      AutoLayout      =   Button1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 43, 
+      AutoLayout      =   Button1, 2, <Parent>, 2, False, +1.00, 1, 1, -20, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       Caption         =   "OK"
       Enabled         =   True
       Height          =   30.0
@@ -172,10 +172,10 @@ Begin iosView ColorPickerView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   Button2, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 67, 
+      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, -*kStdControlGapV, 
       Caption         =   "Cancel"
       Enabled         =   True
       Height          =   30.0
@@ -192,10 +192,10 @@ Begin iosView ColorPickerView
    Begin iOSSlider AlphaSlider
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   AlphaSlider, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   AlphaSlider, 4, Button1, 3, False, +1.00, 2, 1, -30, 
-      AutoLayout      =   AlphaSlider, 8, , 0, True, +1.00, 1, 1, 23, 
       AutoLayout      =   AlphaSlider, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
+      AutoLayout      =   AlphaSlider, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   AlphaSlider, 8, , 0, True, +1.00, 1, 1, 23, 
+      AutoLayout      =   AlphaSlider, 4, Button1, 3, False, +1.00, 2, 1, -30, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -211,10 +211,10 @@ Begin iosView ColorPickerView
    Begin iOSLabel AlphaLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   AlphaLabel, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   AlphaLabel, 4, AlphaSlider, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   AlphaLabel, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   AlphaLabel, 7, AlphaSlider, 7, False, +1.00, 2, 1, 0, 
+      AutoLayout      =   AlphaLabel, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   AlphaLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   AlphaLabel, 4, AlphaSlider, 3, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -233,10 +233,10 @@ Begin iosView ColorPickerView
    Begin iOSLabel AlphaValue
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   AlphaValue, 3, AlphaSlider, 4, False, +1.00, 1, 1, -5, 
-      AutoLayout      =   AlphaValue, 8, , 0, False, +1.00, 1, 1, 17, 
-      AutoLayout      =   AlphaValue, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   AlphaValue, 7, AlphaLabel, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   AlphaValue, 3, AlphaSlider, 4, False, +1.00, 1, 1, -5, 
+      AutoLayout      =   AlphaValue, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   AlphaValue, 8, , 0, False, +1.00, 1, 1, 17, 
       Enabled         =   True
       Height          =   17.0
       Left            =   20
@@ -255,10 +255,10 @@ Begin iosView ColorPickerView
    Begin iOSSlider Greenslider
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Greenslider, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
-      AutoLayout      =   Greenslider, 8, , 0, True, +1.00, 1, 1, 23, 
-      AutoLayout      =   Greenslider, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Greenslider, 3, RedLabel1, 3, False, +1.00, 1, 1, -40, 
+      AutoLayout      =   Greenslider, 2, <Parent>, 2, False, +1.00, 2, 1, -20, 
+      AutoLayout      =   Greenslider, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Greenslider, 8, , 0, True, +1.00, 1, 1, 23, 
       Enabled         =   True
       Height          =   23.0
       Left            =   20
@@ -274,10 +274,10 @@ Begin iosView ColorPickerView
    Begin iOSLabel GreenLabel
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   GreenLabel, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   GreenLabel, 4, Greenslider, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   GreenLabel, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   GreenLabel, 7, Greenslider, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   GreenLabel, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   GreenLabel, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   GreenLabel, 4, Greenslider, 3, False, +1.00, 2, 1, 0, 
       Enabled         =   True
       Height          =   30.0
       Left            =   20
@@ -296,10 +296,10 @@ Begin iosView ColorPickerView
    Begin iOSLabel Greenvalue
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Greenvalue, 3, Greenslider, 4, False, +1.00, 1, 1, -5, 
-      AutoLayout      =   Greenvalue, 8, , 0, False, +1.00, 1, 1, 17, 
-      AutoLayout      =   Greenvalue, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Greenvalue, 7, Greenslider, 7, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Greenvalue, 3, Greenslider, 4, False, +1.00, 1, 1, -5, 
+      AutoLayout      =   Greenvalue, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   Greenvalue, 8, , 0, False, +1.00, 1, 1, 17, 
       Enabled         =   True
       Height          =   17.0
       Left            =   20
@@ -318,10 +318,10 @@ Begin iosView ColorPickerView
    Begin iOSLabel hexvalue
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   hexvalue, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   hexvalue, 10, Button1, 10, False, +1.00, 1, 1, , 
-      AutoLayout      =   hexvalue, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       AutoLayout      =   hexvalue, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   hexvalue, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   hexvalue, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   hexvalue, 10, Button1, 10, False, +1.00, 1, 1, , 
       Enabled         =   True
       Height          =   30.0
       Left            =   110
@@ -340,10 +340,10 @@ Begin iosView ColorPickerView
    Begin iOSLabel Caption
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Caption, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Caption, 1, hexvalue, 1, False, +1.00, 1, 1, -314, 
-      AutoLayout      =   Caption, 2, Greenvalue, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Caption, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Caption, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      AutoLayout      =   Caption, 2, Greenvalue, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Caption, 1, hexvalue, 1, False, +1.00, 1, 1, -314, 
       Enabled         =   True
       Height          =   30.0
       Left            =   -204

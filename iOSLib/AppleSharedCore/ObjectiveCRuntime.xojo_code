@@ -173,6 +173,15 @@ Protected Module ObjectiveCRuntime
 		Protected Declare Function ivar_getTypeEncoding Lib obj_C (Ivar as Ptr) As CString
 	#tag EndExternalMethod
 
+	#tag Method, Flags = &h0
+		Function MakeSuper(extends instance as AppleObject) As ObjectiveCRuntime.objc_super
+		  dim superStruct as ObjectiveCRuntime.objc_super
+		  superStruct.Instance = instance.Id
+		  superStruct.SuperClass = instance.SuperClass
+		  return superStruct
+		End Function
+	#tag EndMethod
+
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Function method_copyArgumentType Lib obj_C (aMethod as Ptr, index as uint32) As CString
 	#tag EndExternalMethod
@@ -238,7 +247,7 @@ Protected Module ObjectiveCRuntime
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
-		Protected Declare Sub objc_msgSendSuper Lib obj_C (SuperObject as ObjectiveCRuntime . objc_super, SEL as Ptr)
+		Protected Declare Sub objc_msgSendSuper Lib obj_C (SuperObject as ObjectiveCRuntime . objc_super, SEL as Ptr, arguments as ptr = nil)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1

@@ -1,5 +1,5 @@
 #tag IOSView
-Begin iosView AVAudioView
+Begin iosView TableViewView
    BackButtonTitle =   ""
    Compatibility   =   ""
    Left            =   0
@@ -10,9 +10,9 @@ Begin iosView AVAudioView
    Begin iOSLibTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, *kStdControlGapV, 
-      AutoLayout      =   Table1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       Editing         =   False
       Format          =   "0"
@@ -116,9 +116,9 @@ End
 		  // 
 		  // end if
 		  
-		  // dim cell as new AppleTableViewCell (AppleTableViewCell.UITableViewCellStyle.Value1)
-		  // cell.SetEditing (true)
-		  // cell.PrepareForReuse
+		  dim cell as new AppleTableViewCell (AppleTableViewCell.UITableViewCellStyle.Value1)
+		  cell.SetEditing (true)
+		  cell.PrepareForReuse
 		  
 		  table1.AddSection ("Test")
 		  dim d as new iOSTableCellData
