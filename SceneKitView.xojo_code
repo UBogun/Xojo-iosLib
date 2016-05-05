@@ -81,15 +81,17 @@ End
 		  dim ambiennode as new AppleSCNNode
 		  ambiennode.Light = new AppleSCNLight
 		  ambiennode.Light.Type = AppleSCNLight.SCNLightType.Ambient
-		  ambiennode.Light.LightColor = AppleColor.FromColor (&cDA770000)
+		  ambiennode.Light.LightColor = AppleColor.FromColor (&c99999999)
 		  scene.RootNode.AddChildNode ambiennode
 		  
 		  dim omniLightNode as new AppleSCNNode
 		  omniLightNode.light =new AppleSCNLight
 		  omniLightNode.light.type = AppleSCNLight.SCNLightType.Omni
-		  omniLightNode.light.lightcolor = AppleColor.FromGrayscale (0.35, 1)
+		  omniLightNode.light.lightcolor = new applecolor(&cCDFF6600)
 		  omniLightNode.position = SCNVector3Make(0, 50, 50)
 		  scene.rootNode.addChildNode(omniLightNode)
+		  dim logoimg as new AppleImage (iosLibLogo)
+		  scene.Background.Contents = logoimg
 		  
 		  dim floor as new AppleSCNFloor
 		  dim floornode as new AppleSCNNode(floor)
@@ -105,14 +107,15 @@ End
 		  
 		  // dim t as text = SystemConstantName("SCNSceneEndTimeAttributeKey", SceneKitPath)
 		  dim textnode as new AppleSCNText("SceneKit iOSLib", 2)
-		  textnode.Flatness = 0.01
+		  textnode.Flatness = 0.1
+		  textnode.FirstMaterial.Shininess = 0.9
 		  // textnode.FirstMaterial.Normal.BorderColor = new applecolor(&c5D81D300)
 		  boxnode.AddChildNode textnode
 		  scene.FogStartDistance = 100
 		  scene.FogEndDistance = 200
 		  scene.FogColor = new applecolor (&c2433C400)
 		  scene.FogDensityExponent = 1
-		  boxnode.Geometry.FirstMaterial.Normal.Contents =new  AppleImage(iosLibLogo)
+		  boxnode.Geometry.FirstMaterial.Normal.Contents =logoimg
 		  // dim al as AppleSCNNode = me.id.AudioListener
 		  // break
 		  timer.CallLater 2000, AddressOf untitled
