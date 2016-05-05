@@ -112,6 +112,7 @@ End
 		  scene.FogEndDistance = 200
 		  scene.FogColor = new applecolor (&c2433C400)
 		  scene.FogDensityExponent = 1
+		  boxnode.Geometry.FirstMaterial.Normal.Contents =new  AppleImage(iosLibLogo)
 		  // dim al as AppleSCNNode = me.id.AudioListener
 		  // break
 		  timer.CallLater 2000, AddressOf untitled
