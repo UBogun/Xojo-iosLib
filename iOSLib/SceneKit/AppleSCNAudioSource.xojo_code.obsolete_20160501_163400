@@ -1,0 +1,5 @@
+#tag Class
+Protected Class AppleSCNAudioSource
+Inherits AppleObject
+End Class
+#tag EndClass

@@ -7,17 +7,30 @@ Begin iosView SpriteKitView
    TabTitle        =   ""
    Title           =   ""
    Top             =   0
-   Begin ioslibskview ImageView1
+   Begin iOSLibSKView ImageView1
       AllowsTransparency=   False
+      Alpha           =   1.0
       Asynchronous    =   False
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   ImageView1, 4, BottomLayoutGuide, 4, False, +1.00, 1, 1, 0, 
+      AutoresizesSubviews=   True
+      BackgroundColor =   &cFFFFFF00
+      ClearsContextBeforeDrawing=   False
+      ClipsToBounds   =   True
+      ContentScaleFactor=   1.0
+      ExclusiveTouch  =   False
       FrameInterval   =   0
+      Height          =   415.0
+      Hidden          =   False
       IgnoresSiblingOrder=   False
-      Left            =   0
+      Left            =   0.0
       LockedInPosition=   False
-      PanelIndex      =   -1
-      Parent          =   ""
+      MultipleTouchEnabled=   False
+      Opaque          =   False
       Paused          =   False
-      Scope           =   0
+      Scope           =   2
       ShouldCullNonVisibleNodes=   False
       ShowsDrawCount  =   False
       ShowsFields     =   False
@@ -25,7 +38,11 @@ Begin iosView SpriteKitView
       ShowsNodeCount  =   False
       ShowsPhysics    =   False
       ShowsQuadCount  =   False
-      Top             =   0
+      Tag             =   0
+      Top             =   65.0
+      UserInteractionEnabled=   True
+      Visible         =   True
+      Width           =   320.0
    End
 End
 #tag EndIOSView

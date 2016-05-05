@@ -178,6 +178,13 @@ Implements AppleGeneralObject
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h1, CompatibilityFlags = (TargetIOS)
+		Attributes( hidden ) Protected Shared Function GetAppearance(classptr as ptr, collection as ptr) As Ptr
+		  declare function appearanceForTraitCollection lib UIKitLibname selector "appearanceForTraitCollection:" (id as ptr, collection as ptr) as ptr
+		  return appearanceForTraitCollection (classptr, collection)
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h1
 		Attributes( hidden ) Protected Function getAttributes() As Ptr
 		  #if targetmacos
@@ -516,8 +523,8 @@ Implements AppleGeneralObject
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, Description = 412053686F727463757220666F722072657461696E696E6720616E642074616B696E67206F776E657273686970206F66206F626A6563747320637265617465642066726F6D206120636C61737320696E697469616C697A65722E
-		Attributes( hidden ) Protected Sub RetainClassObject()
+	#tag Method, Flags = &h0, Description = 412053686F727463757220666F722072657461696E696E6720616E642074616B696E67206F776E657273686970206F66206F626A6563747320637265617465642066726F6D206120636C61737320696E697469616C697A65722E
+		Attributes( hidden )  Sub RetainClassObject()
 		  Retain
 		  mhasownership = true
 		End Sub

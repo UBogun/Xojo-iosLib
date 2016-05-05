@@ -332,12 +332,8 @@ Inherits AppleView
 
 	#tag Method, Flags = &h0, Description = 496E7465726E616C3A2054686520694F5375736572636F6E74726F6C20737562636C61737320696620636F6E7461696E656420696E20737563682E
 		Attributes( hidden )  Function ParentControl() As ioslibsearchbar
-		  if xojocontrols <> nil and XojoControls.HasKey (id)  then
-		    dim wr as weakref = XojoControls.Value (id)
-		    if wr <> NIL then
-		      return ioslibsearchbar(wr.Value)
-		    end if
-		  end if
+		  dim  wr as weakref = XojoControls.Lookup (id, nil)  
+		  return if (wr = nil, nil,  iOSLIbSearchBar(wr.Value))
 		  
 		End Function
 	#tag EndMethod
@@ -981,6 +977,11 @@ Inherits AppleView
 			Name="ContentScaleFactor"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ControlsCount"
+			Group="Behavior"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"

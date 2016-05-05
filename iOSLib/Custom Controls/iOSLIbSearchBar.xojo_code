@@ -2,6 +2,12 @@
 Protected Class iOSLIbSearchBar
 Inherits iOSLIbCanvas
 	#tag Event
+		Sub Close()
+		  mid.RemoveControl
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Function CreateView() As uinteger
 		  dim subID as uinteger = raiseEvent CreateView
 		  if  subid = 0 then

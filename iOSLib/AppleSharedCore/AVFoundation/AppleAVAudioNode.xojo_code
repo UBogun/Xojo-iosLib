@@ -125,6 +125,12 @@ Inherits AppleObject
 		Attributes( hidden ) Private Declare Sub installTapOnBus Lib AVFoundationLibname Selector "installTapOnBus:bufferSize:format:block:" (id as ptr, Bus as UInteger, BufferSize as UInt32, Format as Ptr, Block as Ptr)
 	#tag EndExternalMethod
 
+	#tag Method, Flags = &h1
+		Protected Shared Function MakeFromPtr(aPtr as Ptr) As AppleAVAudioNode
+		  return if (aptr = nil, nil, new AppleAVAudioNode(aptr))
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Function OutputBusName(Bus as UInteger) As text
 		  return getNameForOutBus (id, bus)

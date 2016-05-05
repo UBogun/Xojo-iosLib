@@ -42,16 +42,16 @@ Begin iosView View11
       TranslatesAutoresizingMaskIntoConstraints=   False
       UpdateOK        =   False
       UserInteractionEnabled=   True
-      Visible         =   False
+      Visible         =   True
       Width           =   290.0
    End
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, 210, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, 210, 
       AutoLayout      =   Button1, 4, <Parent>, 4, False, +1.00, 1, 1, -*kStdGapCtlToViewV, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       Caption         =   "Untitled"
       Enabled         =   True
       Height          =   30.0
@@ -74,14 +74,14 @@ Begin iosView View11
       Alpha           =   1.0
       AutocapitalizationType=   ""
       AutocorrectionType=   ""
+      AutoLayout      =   iOSLibTextfield1, 7, , 0, False, +1.00, 1, 1, 257, 
       AutoLayout      =   iOSLibTextfield1, 3, <Parent>, 3, False, +1.00, 1, 1, 277, 
       AutoLayout      =   iOSLibTextfield1, 8, , 0, False, +1.00, 1, 1, 64, 
-      AutoLayout      =   iOSLibTextfield1, 7, , 0, False, +1.00, 1, 1, 257, 
       AutoLayout      =   iOSLibTextfield1, 1, <Parent>, 1, False, +1.00, 1, 1, 36, 
       AutoresizesSubviews=   True
       BackgroundColor =   &cFFFFFF00
       BorderStyle     =   ""
-      CanBecomeFocused=   True
+      CanBecomeFocused=   False
       Caption         =   ""
       ClearButtonMode =   ""
       ClearsContextBeforeDrawing=   False
@@ -100,7 +100,7 @@ Begin iosView View11
       Height          =   64.0
       Hidden          =   False
       KeyboardAppearance=   ""
-      KeyboardType    =   "7"
+      KeyboardType    =   ""
       Left            =   36
       LeftViewMode    =   ""
       LockedInPosition=   False

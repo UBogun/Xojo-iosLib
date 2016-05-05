@@ -43,13 +43,6 @@ Inherits AppleObject
 		Attributes( hidden ) Private Sub EvaluationTrigger(success as boolean, errorptr as ptr)
 		  #pragma StackOverflowChecking false
 		  #pragma NilObjectChecking false
-		  // system.DebugLog "Evaluation started"
-		  // dim sel as ptr = FoundationFrameWork.NSSelectorFromString("LAContextevaluationresult:")
-		  // system.DebugLog integer(sel).ToText
-		  
-		  // Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
-		  // (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean)
-		  /// runs until here, but performSelectr call fails
 		  
 		  Declare Function retain lib FoundationLibName selector "retain" (id as ptr) as ptr
 		  // need to retain the ptr because it is endangered to fade else
@@ -58,17 +51,16 @@ Inherits AppleObject
 		  
 		  dim block as new AppleBlock(AddressOf EventRaiser)
 		  
-		  Declare Function dlopen Lib appleLibSystem.LibSystemWithoutB ( path As CString, mode As Int32 ) As Ptr
-		  Declare Function dlsym Lib appleLibSystem.LibSystemWithoutB ( handle As Ptr, name As CString ) As ptr
-		  dim sysLib as ptr = dlopen("/usr/lib/libSystem.B.dylib",5)
-		  Declare sub dispatch_async lib appleLibSystem.LibSystemWithoutB (queue as ptr, block as ptr)
 		  
-		  dim disp as ptr = dlsym(sysLib,"_dispatch_main_q")
-		  dispatch_async (disp, block.Handle)
+		  AppleLibSystem.RunBlockOnMainThread(block)
 		  
-		  // dispatch_async_f (disp, errorptr, sel)
-		  // dim GCD as  GCDQueue= GCDQueue.MainQueue
-		  // performSelectorOnMainThread id, sel, errorptr, false
+		  // Declare Function dlopen Lib appleLibSystem.LibSystemWithoutB ( path As CString, mode As Int32 ) As Ptr
+		  // Declare Function dlsym Lib appleLibSystem.LibSystemWithoutB ( handle As Ptr, name As CString ) As ptr
+		  // dim sysLib as ptr = dlopen("/usr/lib/libSystem.B.dylib",5)
+		  // Declare sub dispatch_async lib appleLibSystem.LibSystemWithoutB (queue as ptr, block as ptr)
+		  // 
+		  // dim disp as ptr = dlsym(sysLib,"_dispatch_main_q")
+		  // dispatch_async (disp, block.Handle)
 		  
 		  
 		End Sub
@@ -76,11 +68,11 @@ Inherits AppleObject
 
 	#tag Method, Flags = &h21
 		Attributes( hidden ) Private Sub EventRaiser()
-		  dim error as AppleError = AppleError.MakefromPtr(lastError)
-		  // System.DebugLog LAErrorPasscodeNotSet.totext
-		  dim success as Boolean = lastResult
-		  RaiseEvent EvaluationResult(success, if (success, ioslibtouchid.TouchIDError.NoError, ioslibtouchid.TouchIdError(error.code)), if (success, "Success", error.localizedDescription))
-		  
+		  if me <> nil then
+		    dim error as AppleError = AppleError.MakefromPtr(lastError)
+		    dim success as Boolean = lastResult
+		    RaiseEvent EvaluationResult(success, if (success, ioslibtouchid.TouchIDError.NoError, ioslibtouchid.TouchIdError(error.code)), if (success, "Success", error.localizedDescription))
+		  end if
 		End Sub
 	#tag EndMethod
 

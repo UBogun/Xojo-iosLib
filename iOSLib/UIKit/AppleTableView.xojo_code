@@ -1858,6 +1858,11 @@ Inherits AppleScrollView
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="ControlsCount"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="DebugDescription"
 			Group="Behavior"
 			Type="Text"

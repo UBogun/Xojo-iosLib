@@ -95,6 +95,16 @@ Protected Module FoundationFrameWork
 		Protected Declare Function NSStringFromSelector Lib FoundationLibName (aSelector as Ptr) As cfstringref
 	#tag EndExternalMethod
 
+	#tag Method, Flags = &h1
+		Protected Sub PerformSelectorOnMainThread(id as ptr, Selector as ptr, AnObject as Ptr, waitUntilDone as Boolean = false)
+		  #Pragma StackOverflowChecking false
+		  Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
+		  (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
+		  performSelectorOnMainThread id, selector, anObject, waitUntilDone // and have the change checked
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag ExternalMethod, Flags = &h1
 		Protected Declare Sub setlocalizedDescription Lib FoundationLibName Selector "setLocalizedDescription:" (id as ptr, value as CFStringRef)
 	#tag EndExternalMethod

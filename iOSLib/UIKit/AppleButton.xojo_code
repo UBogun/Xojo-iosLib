@@ -501,6 +501,11 @@ Inherits AppleControl
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="ControlsCount"
+			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="CurrentTitle"
 			Group="Behavior"
 			Type="Text"

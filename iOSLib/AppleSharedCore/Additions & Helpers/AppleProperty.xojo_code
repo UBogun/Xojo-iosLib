@@ -116,6 +116,11 @@ Protected Class AppleProperty
 			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Attributetranslated"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"

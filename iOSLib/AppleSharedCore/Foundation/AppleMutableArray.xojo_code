@@ -102,6 +102,16 @@ Inherits AppleArray
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Function MakeArrayPtr(Capacity as uinteger = 1) As Ptr
+		  #pragma StackOverflowChecking false
+		  Declare Function initWithCapacity lib FoundationLibName  selector "initWithCapacity:" (id as ptr, capacity as UINteger) as Ptr
+		  Declare Function alloc lib FoundationLibName selector "alloc" (id as ptr) as ptr
+		  return initWithCapacity (alloc(ThreadSafeClassPtr), capacity)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		 Shared Function NSPointArray(Pointarray() as Foundationframework.NSPoint) As AppleMutableArray
 		  dim count as uinteger = pointarray.Ubound + 1
 		  dim myarray as new AppleMutableArray (count)
@@ -139,6 +149,23 @@ Inherits AppleArray
 		    myarray.AddText Textarray(q)
 		  next
 		  return myarray
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Sub ThreadSafeAdd(NSarray as ptr, anObject as ptr)
+		  #pragma StackOverflowChecking false
+		  Declare Sub addObject lib FoundationLibName  selector "addObject:" (id as ptr, value as ptr)
+		  addObject (NSarray, anObject)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function ThreadSafeClassPtr() As ptr
+		  #pragma StackOverflowChecking false
+		  static macptr as ptr
+		  if macptr= nil then macptr= FoundationFrameWork.NSClassFromString("NSMutableArray")
+		  return macptr
 		End Function
 	#tag EndMethod
 

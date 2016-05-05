@@ -175,7 +175,7 @@ Inherits Appleresponder
 		Attributes( hidden ) Private Declare Function getsharedApplication Lib UIKItLibName Selector "sharedApplication" (id as ptr) As ptr
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target64Bit)) or  (TargetWeb and (Target64Bit)) or  (TargetDesktop and (Target64Bit)) or  (TargetIOS and (Target64Bit))
+	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Attributes( hidden ) Private Declare Function getstatusBarFrame Lib UIKItLibName Selector "statusBarFrame" (id as ptr) As FoundationFrameWork.nsrect
 	#tag EndExternalMethod
 
@@ -737,6 +737,11 @@ Inherits Appleresponder
 			Name="CanResignFirstResponder"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ControlsCount"
+			Group="Behavior"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"

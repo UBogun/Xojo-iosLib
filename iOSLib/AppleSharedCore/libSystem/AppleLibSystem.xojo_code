@@ -83,6 +83,21 @@ Protected Module AppleLibSystem
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
+		Sub RunBlockOnMainThread(block as appleblock)
+		  #pragma StackOverflowChecking false
+		  #pragma NilObjectChecking false
+		  
+		  Declare Function dlopen Lib appleLibSystem.LibSystemWithoutB ( path As CString, mode As Int32 ) As Ptr
+		  Declare Function dlsym Lib appleLibSystem.LibSystemWithoutB ( handle As Ptr, name As CString ) As ptr
+		  dim sysLib as ptr = dlopen("/usr/lib/libSystem.B.dylib",5)
+		  Declare sub dispatch_async lib appleLibSystem.LibSystemWithoutB (queue as ptr, block as ptr)
+		  
+		  dim disp as ptr = dlsym(sysLib,"_dispatch_main_q")
+		  dispatch_async (disp, block.Handle)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function SystemConstantDouble(name as CFStringRef, frameworkPath as CFStringRef) As Double
 		  Return DataPointerforName (name, frameworkPath).double(0)
 		  

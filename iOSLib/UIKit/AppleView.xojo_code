@@ -421,7 +421,6 @@ Inherits AppleResponder
 		Attributes( hidden ) Protected Shared Sub impl_willMoveToSuperview(pid as ptr, sel as ptr, view as Ptr)
 		  dim ego as new AppleView (pid)
 		  if not ego.isnil then ego.informonwillMoveToSuperview  (view)
-		  
 		  #Pragma Unused  sel
 		End Sub
 	#tag EndMethod
@@ -617,13 +616,10 @@ Inherits AppleResponder
 
 	#tag Method, Flags = &h0, Description = 496E7465726E616C3A2054686520694F5375736572636F6E74726F6C20737562636C61737320696620636F6E7461696E656420696E20737563682E
 		Attributes( hidden )  Function ParentControl() As iOSLibCanvas
-		  if xojocontrols <> nil and XojoControls.HasKey (id)  then
-		    dim wr as weakref = XojoControls.Value (id)
-		    if wr <> NIL then
-		      return iOSLIbCanvas(wr.Value)
-		    end if
+		  if XojoControls <> nil then
+		    dim  wr as weakref = XojoControls.Lookup (id, nil)  
+		    return if (wr = nil, nil,  ioslibcanvas(wr.Value))
 		  end if
-		  
 		End Function
 	#tag EndMethod
 
@@ -2120,6 +2116,11 @@ Inherits AppleResponder
 			Name="ContentScaleFactor"
 			Group="Behavior"
 			Type="Double"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ControlsCount"
+			Group="Behavior"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"

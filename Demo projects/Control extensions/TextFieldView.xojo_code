@@ -10,9 +10,9 @@ Begin iosView TextFieldView
    Begin iOSTextField TextField1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TextField1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextField1, 3, <Parent>, 3, False, +1.00, 1, 1, 47, 
       AutoLayout      =   TextField1, 8, , 0, False, +1.00, 1, 1, 32, 
-      AutoLayout      =   TextField1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   TextField1, 1, <Parent>, 1, False, +1.00, 1, 1, *kStdGapCtlToViewH, 
       Enabled         =   True
       Height          =   32.0
@@ -34,9 +34,9 @@ Begin iosView TextFieldView
    Begin iOSSwitch AdFontSize
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   AdFontSize, 3, <Parent>, 3, False, +1.00, 1, 1, 140, 
       AutoLayout      =   AdFontSize, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   AdFontSize, 1, TextField1, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   AdFontSize, 3, <Parent>, 3, False, +1.00, 1, 1, 140, 
       AutoLayout      =   AdFontSize, 7, , 0, True, +1.00, 1, 1, 51, 
       Enabled         =   True
       Height          =   31.0
@@ -51,9 +51,9 @@ Begin iosView TextFieldView
    Begin iOSLabel Label1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label1, 3, AdFontSize, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Label1, 1, AdFontSize, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   Label1, 3, AdFontSize, 3, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label1, 2, TextField1, 2, False, +1.00, 1, 1, -107, 
       Enabled         =   True
       Height          =   30.0
@@ -73,9 +73,9 @@ Begin iosView TextFieldView
    Begin iOSTextField TextField2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TextField2, 10, Label1, 10, False, +1.00, 1, 1, , 
       AutoLayout      =   TextField2, 8, , 0, True, +1.00, 1, 1, 31, 
       AutoLayout      =   TextField2, 1, Label1, 2, False, +1.00, 1, 1, *kStdControlGapH, 
-      AutoLayout      =   TextField2, 10, Label1, 10, False, +1.00, 1, 1, , 
       AutoLayout      =   TextField2, 7, , 0, False, +1.00, 1, 1, 100, 
       Enabled         =   True
       Height          =   31.0
@@ -97,9 +97,9 @@ Begin iosView TextFieldView
    Begin iOSSwitch LeftView
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   LeftView, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   LeftView, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   LeftView, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   LeftView, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   LeftView, 3, <Parent>, 3, False, +1.00, 1, 1, 179, 
       Enabled         =   True
       Height          =   31.0
@@ -114,9 +114,9 @@ Begin iosView TextFieldView
    Begin iOSLabel Label2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 114, 
       AutoLayout      =   Label2, 1, <Parent>, 1, False, +1.00, 1, 1, 79, 
       AutoLayout      =   Label2, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label2, 7, , 0, False, +1.00, 1, 1, 114, 
       AutoLayout      =   Label2, 3, <Parent>, 3, False, +1.00, 1, 1, 179, 
       Enabled         =   True
       Height          =   30.0
@@ -136,9 +136,9 @@ Begin iosView TextFieldView
    Begin iOSSwitch LeftView1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   LeftView1, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   LeftView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   LeftView1, 8, , 0, True, +1.00, 1, 1, 31, 
-      AutoLayout      =   LeftView1, 7, , 0, True, +1.00, 1, 1, 51, 
       AutoLayout      =   LeftView1, 3, <Parent>, 3, False, +1.00, 1, 1, 218, 
       Enabled         =   True
       Height          =   31.0
@@ -153,9 +153,9 @@ Begin iosView TextFieldView
    Begin iOSLabel Label3
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 114, 
       AutoLayout      =   Label3, 1, <Parent>, 1, False, +1.00, 1, 1, 79, 
       AutoLayout      =   Label3, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label3, 7, , 0, False, +1.00, 1, 1, 114, 
       AutoLayout      =   Label3, 3, <Parent>, 3, False, +1.00, 1, 1, 218, 
       Enabled         =   True
       Height          =   30.0
@@ -175,9 +175,9 @@ Begin iosView TextFieldView
    Begin iOSLabel Label4
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Label4, 3, <Parent>, 3, False, +1.00, 1, 1, 274, 
       AutoLayout      =   Label4, 2, TextField1, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Label4, 8, , 0, False, +1.00, 1, 1, 187, 
-      AutoLayout      =   Label4, 3, <Parent>, 3, False, +1.00, 1, 1, 274, 
       AutoLayout      =   Label4, 1, LeftView1, 1, False, +1.00, 1, 1, 0, 
       Enabled         =   True
       Height          =   187.0

@@ -92,6 +92,13 @@ Inherits AppleDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub SetObjectForKeyName(Key as cfstringref, anObject as AppleGeneralObject)
+		  Declare sub setObjectForKeyName lib FoundationLibName  selector "setObject:forKey:" (id as ptr, value  as ptr, key as cfstringref)
+		  setObjectForKeyNAme id, anObject.GeneralID, key
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub TextForKey(akey as cfstringref, assigns value as cfstringref)
 		  Declare sub setObjectForKeyString lib FoundationLibName  selector "setObject:forKey:" (id as ptr, value  as cfstringref, key as cfstringref)
 		  setObjectForKeyString id, value, akey

@@ -3,8 +3,10 @@ Protected Class iOSLIbCanvas
 Inherits iOSLibResponder
 	#tag Event
 		Sub Close()
+		  RaiseEvent close
 		  mid.RemoveControl
 		  me.mid = nil
+		  
 		End Sub
 	#tag EndEvent
 
@@ -531,6 +533,10 @@ Inherits iOSLibResponder
 
 	#tag Hook, Flags = &h0
 		Event BecameSubview()
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event Close()
 	#tag EndHook
 
 	#tag Hook, Flags = &h0

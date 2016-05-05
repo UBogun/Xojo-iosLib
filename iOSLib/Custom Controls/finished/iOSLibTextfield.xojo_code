@@ -760,7 +760,6 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutocapitalizationType"
-			Visible=true
 			Group="Behavior"
 			Type="AppleTextfield.UITextAutocapitalizationType"
 			EditorType="Enum"
@@ -773,7 +772,6 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutocorrectionType"
-			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UITextAutocorrectionType"
 			EditorType="Enum"
@@ -799,7 +797,6 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="BorderStyle"
-			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UITextFieldBorderStyle"
 			EditorType="Enum"
@@ -812,9 +809,7 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CanBecomeFocused"
-			Visible=true
 			Group="Appearance"
-			InitialValue="true"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -952,7 +947,6 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="KeyboardAppearance"
-			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UIKeyboardAppearance"
 			EditorType="Enum"
@@ -964,7 +958,6 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="KeyboardType"
-			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UIKeyboardType"
 			EditorType="Enum"
@@ -975,10 +968,11 @@ Inherits iOSLIbCanvas
 				"3 - URL"
 				"4 - NumberPad"
 				"5 - PhonePad"
-				"6 - EMailAddress"
-				"7 - DecimalPad"
-				"8 - Twitter"
-				"9 - WebSearch"
+				"6 - NamePhonePad"
+				"7 - EMailAddress"
+				"8 - DecimalPad"
+				"9 - Twitter"
+				"10 - WebSearch"
 			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -1076,7 +1070,6 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="SpellCheckingType"
-			Visible=true
 			Group="Behavior"
 			Type="appletextfield.UITextSpellCheckingType"
 			EditorType="Enum"
@@ -1100,7 +1093,6 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TextAlignment"
-			Visible=true
 			Group="Behavior"
 			Type="appletextfield.NSTextAlignment"
 			EditorType="Enum"
@@ -1121,7 +1113,6 @@ Inherits iOSLIbCanvas
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
-			Visible=true
 			Group="Behavior"
 			Type="AppleView.UIViewTintAdjustmentMode"
 			EditorType="Enum"

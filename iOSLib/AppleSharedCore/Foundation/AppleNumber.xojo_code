@@ -90,6 +90,34 @@ Inherits AppleValue
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		 Shared Function MakeNumberPtr(Number as double) As Ptr
+		  #pragma StackOverflowChecking false
+		  declare function initWithDouble lib FoundationLibName  Selector "initWithDouble:" (id as ptr, aDouble as double) as ptr
+		  return initWithDouble(AppleObject.alloc(ThreadsafeClassPtr), number)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Shared Function ThreadsafeClassPtr() As Ptr
+		  #pragma StackOverflowChecking false
+		  static cptr as ptr
+		  if cptr = nil then  cptr   = FoundationFrameWork.NSClassFromString("NSNumber")
+		  return cptr
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Function UintegerNumber(anint as UInteger) As applenumber
+		  declare function initWithUnsignedInteger lib FoundationLibName  Selector "initWithUnsignedInteger:" (id as ptr, anint as uinteger) as ptr
+		  dim result as  new applenumber( initWithUnsignedInteger (Alloc(ClassPtr), anint))
+		  result.mhasOwnership = true
+		  return result
+		End Function
+	#tag EndMethod
+
 
 	#tag Note, Name = Status leak check ok
 		

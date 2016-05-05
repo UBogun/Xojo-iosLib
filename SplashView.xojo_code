@@ -7,30 +7,13 @@ Begin iosView SplashView
    TabTitle        =   ""
    Title           =   ""
    Top             =   0
-   Begin iOSImageView ImageView1
-      AccessibilityHint=   ""
-      AccessibilityLabel=   ""
-      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
-      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
-      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
-      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 58, 
-      ContentMode     =   "1"
-      Height          =   240.0
-      Image           =   "458336255"
-      Left            =   20
-      LockedInPosition=   False
-      Scope           =   0
-      Top             =   58
-      Visible         =   True
-      Width           =   280.0
-   End
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, -37, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Info"
       Enabled         =   True
       Height          =   30.0
@@ -47,11 +30,11 @@ Begin iosView SplashView
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 3.0e+1, 
-      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Button2, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
-      Caption         =   "v 0.8.2"
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 3.0e+1, 
+      AutoLayout      =   Button2, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      Caption         =   "v 0.9.0"
       Enabled         =   True
       Height          =   30.0
       Left            =   0
@@ -69,13 +52,13 @@ Begin iosView SplashView
       AccessibilityLabel=   ""
       AdjustFontSize  =   False
       AllowTightening =   False
-      AutoLayout      =   Label1, 2, ImageView1, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 30, 
-      AutoLayout      =   Label1, 1, ImageView1, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Label1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
       AutoLayout      =   Label1, 3, BottomLayoutGuide, 3, False, +1.00, 1, 1, -50, 
+      AutoLayout      =   Label1, 2, <Parent>, 2, False, +1.00, 1, 1, -20, 
+      AutoLayout      =   Label1, 8, , 0, False, +1.00, 1, 1, 53, 
       BaselineAdjustment=   ""
       Enabled         =   True
-      Height          =   30.0
+      Height          =   53.0
       Highlighted     =   False
       HighlightedTextColor=   &c44444400
       Left            =   20
@@ -83,7 +66,7 @@ Begin iosView SplashView
       LockedInPosition=   False
       MinimumScaleFactor=   0.0
       MultilineMaxWidth=   0.0
-      NumberOfLines   =   0
+      NumberOfLines   =   2
       Scope           =   0
       ShadowColor     =   &cBFBFBF00
       ShadowXOffset   =   1.0
@@ -94,6 +77,23 @@ Begin iosView SplashView
       TextFont        =   "System Bold		"
       TextSize        =   "14"
       Top             =   430
+      Visible         =   True
+      Width           =   280.0
+   End
+   Begin iOSImageView ImageView1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   ImageView1, 1, <Parent>, 1, False, +1.00, 1, 1, 20, 
+      AutoLayout      =   ImageView1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
+      AutoLayout      =   ImageView1, 3, <Parent>, 3, False, +1.00, 1, 1, 58, 
+      AutoLayout      =   ImageView1, 8, <Parent>, 8, False, +0.50, 1, 1, 0, 
+      ContentMode     =   "1"
+      Height          =   240.0
+      Image           =   "458336255"
+      Left            =   20
+      LockedInPosition=   False
+      Scope           =   0
+      Top             =   58
       Visible         =   True
       Width           =   280.0
    End
@@ -150,15 +150,6 @@ End
 
 #tag EndWindowCode
 
-#tag Events ImageView1
-	#tag Event
-		Sub Open()
-		  me.Appleview.SetScale 80
-		  me.AnimateSize 0.5, 0.5, 2
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events Button1
 	#tag Event
 		Sub Open()
@@ -215,6 +206,15 @@ End
 		Sub Open()
 		  me.Alpha = 0
 		  me.AnimateAlpha 1,  5
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ImageView1
+	#tag Event
+		Sub Open()
+		  me.Appleview.SetScale 80
+		  me.AnimateSize 0.5, 0.5, 2
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

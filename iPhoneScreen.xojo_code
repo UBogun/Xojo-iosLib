@@ -5,7 +5,7 @@
 	OrientationPortraitUpsideDown = True
 	Begin ScreenContent
 		ItemName = 
-		Target = 744368127
+		Target = 801304575
 		Icon = 0
 	End ScreenContent
 #tag EndIOSScreen

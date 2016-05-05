@@ -557,6 +557,15 @@ Inherits AppleObject
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  if XojoControls <> nil then return XojoControls.Count
+			End Get
+		#tag EndGetter
+		ControlsCount As Integer
+	#tag EndComputedProperty
+
 	#tag Property, Flags = &h0
 		Attributes( hidden ) hasInited As Boolean
 	#tag EndProperty
@@ -695,6 +704,11 @@ Inherits AppleObject
 			Name="CanResignFirstResponder"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ControlsCount"
+			Group="Behavior"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"
