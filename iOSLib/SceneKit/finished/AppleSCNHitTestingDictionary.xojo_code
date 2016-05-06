@@ -177,6 +177,16 @@ Inherits AppleMutabledictionary
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IgnoreChildNodes"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IgnoreHiddenNodes"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -209,7 +219,17 @@ Inherits AppleMutabledictionary
 		#tag ViewProperty
 			Name="OnlyFirstObject"
 			Group="Behavior"
-			Type="Integer"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="OnlySearchCurrentDepthRange"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="OnlyTestFacingPolygons"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RetainCount"
@@ -217,10 +237,25 @@ Inherits AppleMutabledictionary
 			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="SortFromNearestToFarthest"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="StringsFileFormat"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TestBoundingBoxOnly"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

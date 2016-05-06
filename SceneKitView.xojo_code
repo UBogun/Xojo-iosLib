@@ -11,9 +11,9 @@ Begin iosView SceneKitView
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
       Alpha           =   1.0
+      AutoLayout      =   OSLIbSCNView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       AutoLayout      =   OSLIbSCNView1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   OSLIbSCNView1, 4, BottomLayoutGuide, 3, False, +1.00, 2, 1, 0, 
-      AutoLayout      =   OSLIbSCNView1, 3, TopLayoutGuide, 4, False, +1.00, 1, 1, 0, 
       AutoLayout      =   OSLIbSCNView1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoresizesSubviews=   True
       BackgroundColor =   &cFFFFFF00
@@ -47,7 +47,7 @@ End
 #tag WindowCode
 	#tag Method, Flags = &h0
 		Sub Untitled()
-		  boxnode.RunAction AppleSCNAction.Group(AppleSCNAction.ScaleBy (0.8, 5.0) , AppleSCNAction.MoveBy (0, 10, -20, 5.0))
+		  boxnode.RunAction AppleSCNAction.Group(AppleSCNAction.ScaleBy (0.8, 5.0) , AppleSCNAction.MoveBy (0, 10, -40, 5.0))
 		  // boxnode.RunAction AppleSCNAction.ScaleBy (0.8, 5.0)
 		End Sub
 	#tag EndMethod
@@ -68,6 +68,7 @@ End
 		  boxnode = new AppleSCNNode(boxGeometry)
 		  scene.RootNode.AddChildNode(boxnode)
 		  scene.rootNode.addChildNode(boxNode)
+		  // scene.PhysicsWorld.Gravity = SCNVector3Make (3, 0.65, -1.2)
 		  
 		  dim pbody as AppleSCNPhysicsBody = AppleSCNPhysicsBody.DynamicBody
 		  boxnode.PhysicsBody = pbody
@@ -118,6 +119,23 @@ End
 		  boxnode.Geometry.FirstMaterial.Normal.Contents =logoimg
 		  // dim al as AppleSCNNode = me.id.AudioListener
 		  // break
+		  
+		  dim emitter as new AppleSCNParticleSystem
+		  emitter.BirthRate = 150
+		  emitter.BirthRateVariation = 250
+		  emitter.BirthDirection = AppleSCNParticleSystem.SCNParticleBirthDirection.RandomDirection
+		  emitter.ParticleVelocity = 80
+		  emitter.ParticleVelocityVariation = 80
+		  emitter.ParticleAngularVelocityVariation = 270
+		  emitter.ParticleAngleVariation = 180
+		  emitter.ParticleLifeSpan = 50
+		  emitter.ParticleLifeSpanVariation = 48
+		  emitter.ParticleSizeVariation = 3
+		  emitter.AffectedByGravity = true
+		  emitter.ParticleImage = logoimg
+		  emitter.ParticleColorVariation = SCNVector4Make(1, 0.3,0.2,0.8)
+		  boxnode.AddParticleSystem (emitter)
+		  
 		  timer.CallLater 2000, AddressOf untitled
 		  
 		End Sub

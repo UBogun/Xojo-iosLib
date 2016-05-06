@@ -52,17 +52,14 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h1000, Description = 437265617465732061206E65772053434E56696577206F626A6563742E
-		Sub Constructor(aFrame as FoundationFramework.NSRect)
+		Sub Constructor(aFrame as FoundationFramework.NSRect, dict as AppleSCNViewInitializationOptionDictionary = nil)
 		  #if Target64Bit
 		    Declare function initWithFrameOptions lib SceneKitLib selector "initWithFrame:options:" (id as ptr, frame  as FoundationFramework.NSRect, options as ptr) as ptr
-		    super.Constructor ( initWithFrameOptions (alloc(ClassPtr), aframe, NIL))
+		    super.Constructor ( initWithFrameOptions (alloc(ClassPtr), aframe, if (dict = nil, NIL, dict.id)))
 		  #elseif Target32Bit
 		    Declare function initWithFrameOptions lib SceneKitLib selector "initWithFrame:options:" (id as ptr, frame as FoundationFramework.NSRect32Bit, options as ptr) as ptr
-		    super.Constructor ( initWithFrameOptions (alloc(ClassPtr), aframe.toNSRect32, NIL))
+		    super.Constructor ( initWithFrameOptions (alloc(ClassPtr), aframe.toNSRect32, if (dict = nil, NIL, dict.id)))
 		  #endif
-		  // dim emptyDict as new AppleDictionary
-		  // optional parameters should follow to build a dict on Metal options for full iOS 9 compatibility
-		  
 		  mHasOwnership = true
 		  
 		  setDelegate id, id
@@ -1070,6 +1067,48 @@ Inherits AppleView
 		JitteringEnabled As Boolean
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static mkSCNPreferLowPowerDeviceKey as text
+			  try
+			    mkSCNPreferLowPowerDeviceKey = SystemConstantName("SCNPreferLowPowerDeviceKey", SceneKitPath)
+			  catch
+			  end try
+			  return mkSCNPreferLowPowerDeviceKey
+			End Get
+		#tag EndGetter
+		Shared kSCNPreferLowPowerDeviceKey As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static mkSCNPreferredDeviceKey as text
+			  try
+			    mkSCNPreferredDeviceKey = SystemConstantName("SCNPreferredDeviceKey", SceneKitPath)
+			  catch
+			  end try
+			  return mkSCNPreferredDeviceKey
+			End Get
+		#tag EndGetter
+		Shared kSCNPreferredDeviceKey As Text
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  static mkSCNPreferredRenderingAPIKey as text
+			  try
+			    mkSCNPreferredRenderingAPIKey = SystemConstantName("SCNPreferredRenderingAPIKey", SceneKitPath)
+			  catch
+			  end try
+			  return mkSCNPreferredRenderingAPIKey
+			End Get
+		#tag EndGetter
+		Shared kSCNPreferredRenderingAPIKey As Text
+	#tag EndComputedProperty
+
 	#tag Property, Flags = &h0
 		Attributes( hidden ) LastPWorld As AppleSCNPhysicsWorld
 	#tag EndProperty
@@ -1471,6 +1510,11 @@ Inherits AppleView
 			Name="RenderingAPI"
 			Group="Behavior"
 			Type="SceneKitFrameWork.SCNRenderingAPI"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Metal"
+				"1 - OpenGLES2"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="RenderSceneTime"

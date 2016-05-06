@@ -148,34 +148,20 @@ Inherits AppleMutabledictionary
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="OnlySearchCurrentDepthRange"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="OnlyTestFacingPolygons"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="RetainCount"
 			Group="Behavior"
 			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Scale"
-			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="ShapeType"
 			Group="Behavior"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="SortFromNearestToFarthest"
-			Group="Behavior"
-			Type="Boolean"
+			Type="SCNShapeType"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - BoundingBox"
+				"1 - LowDetail"
+				"2 - HighDetail"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="StringsFileFormat"
@@ -187,11 +173,6 @@ Inherits AppleMutabledictionary
 			Visible=true
 			Group="ID"
 			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="TestBoundingBoxOnly"
-			Group="Behavior"
-			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"

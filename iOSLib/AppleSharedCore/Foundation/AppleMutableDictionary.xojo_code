@@ -99,6 +99,14 @@ Inherits AppleDictionary
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub setPtrForKey(akey as cfstringref,  value as ptr)
+		  Declare sub setPtrForKeyName lib FoundationLibName  selector "setObject:forKey:" (id as ptr, value  as ptr, key as cfstringref)
+		  setPtrForKeyName id, value, akey
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub TextForKey(akey as cfstringref, assigns value as cfstringref)
 		  Declare sub setObjectForKeyString lib FoundationLibName  selector "setObject:forKey:" (id as ptr, value  as cfstringref, key as cfstringref)
 		  setObjectForKeyString id, value, akey
