@@ -22,6 +22,12 @@ Protected Class iOSLibTouchID
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
+		Private Sub destructor()
+		  RemoveHandler mLAC.EvaluationResult, addressof EvaluationForwarder
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Attributes( hidden ) Private Sub EvaluationForwarder(Context as AppleLAContext, Success As Boolean, ErrorNr as iOSLibTouchID.TouchIDError, errorDescription as Text)
 		  #pragma unused Context
 		  if Success then

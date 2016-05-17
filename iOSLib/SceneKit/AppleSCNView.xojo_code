@@ -75,21 +75,7 @@ Inherits AppleView
 		  #pragma BreakOnExceptions false
 		  dim view as new AppleSCNView(pid)
 		  dim time as new AppleNumber(attime)
-		  // System.DebugLog "Animation Time retrieved "+time.DoubleValue.ToText
-		  if view <> nil then
-		    view.AnimationsTime = time.DoubleValue
-		    view.RaiseAnimationsUpdate
-		  end if
-		  
-		  
-		  // if NotificationDict.HasKey(pid) then
-		  // dim d as dictionary = NotificationDict.value (pid)
-		  // d.Value (kdidApplyAnimationsAtTime) = attime // left side is the constant, right side the value
-		  // Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
-		  // (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
-		  // performSelectorOnMainThread pid, FoundationFramework.NSSelectorFromString("checkAnimationsAtTime:"), pid, false // and have the change checked
-		  // end if
-		  
+		  if view <> nil then view.RaiseAnimationsUpdate (time.DoubleValue)
 		  #Pragma Unused Sel
 		  
 		  
@@ -103,12 +89,10 @@ Inherits AppleView
 		  #Pragma DisableBackgroundTasks
 		  #pragma BreakOnExceptions false
 		  dim view as new AppleSCNView(pid)
-		  dim ApArr as new AppleArray(ar)
+		  dim ApArr as  AppleArray = AppleArray.MakeFromPtr(ar)
 		  // System.DebugLog "Animation Time retrieved "+time.DoubleValue.ToText
 		  if view <> nil and ApArr <> nil  then
-		    view.LastPWorld = AppleSCNPhysicsWorld.MakefromPtr(ApArr.PtrAtIndex(0))
-		    view.DidBeginContact = AppleSCNPhysicsContact.MakefromPtr(aparr.PtrAtIndex(1))
-		    view.RaiseDidBeginContact
+		    view.RaiseDidBeginContact (AppleSCNPhysicsWorld.MakefromPtr(ApArr.PtrAtIndex(0)), AppleSCNPhysicsContact.MakefromPtr(aparr.PtrAtIndex(1)))
 		  end if
 		  
 		  
@@ -133,12 +117,9 @@ Inherits AppleView
 		  #Pragma DisableBackgroundTasks
 		  #pragma BreakOnExceptions false
 		  dim view as new AppleSCNView(pid)
-		  dim ApArr as new AppleArray(ar)
-		  System.DebugLog "Did End Contact Forward"
+		  dim ApArr as AppleArray = AppleArray.MakefromPtr(ar)
 		  if view <> nil and ApArr <> nil  then
-		    view.LastPWorld = AppleSCNPhysicsWorld.MakefromPtr(ApArr.PtrAtIndex(0))
-		    view.DidEndContact = AppleSCNPhysicsContact.MakefromPtr(aparr.PtrAtIndex(1))
-		    view.RaiseDidEndContact
+		    view.RaiseDidEndContact (AppleSCNPhysicsWorld.MakefromPtr(ApArr.PtrAtIndex(0)), AppleSCNPhysicsContact.MakefromPtr(aparr.PtrAtIndex(1)))
 		  end if
 		  
 		  
@@ -164,13 +145,9 @@ Inherits AppleView
 		  #pragma BreakOnExceptions false
 		  dim a as AppleArray = AppleArray.MakeFromPtr(nsarray)
 		  dim view as new AppleSCNView(pid)
-		  dim scene as  AppleSCNScene = AppleSCNScene.MakefromPtr(a.PtrAtIndex(0))
 		  dim time as new AppleNumber(a.PtrAtIndex(1))
-		  // System.DebugLog "Rendered Scene Time retrieved "+time.DoubleValue.ToText
 		  if view <> nil then
-		    view.RenderSceneTime = time.DoubleValue
-		    view.renderedscene = scene
-		    view.RaiseDidRenderUpdate
+		    view.RaiseDidRenderUpdate (AppleSCNScene.MakefromPtr(a.PtrAtIndex(0)), time.DoubleValue)
 		  end if
 		  
 		  
@@ -198,9 +175,7 @@ Inherits AppleView
 		  dim ApArr as new AppleArray(ar)
 		  // System.DebugLog "Animation Time retrieved "+time.DoubleValue.ToText
 		  if view <> nil and ApArr <> nil  then
-		    view.LastPWorld = AppleSCNPhysicsWorld.MakefromPtr(ApArr.PtrAtIndex(0))
-		    view.DidUpdateContact = AppleSCNPhysicsContact.MakefromPtr(aparr.PtrAtIndex(1))
-		    view.RaisedidUpdateContact
+		    view.RaisedidUpdateContact (AppleSCNPhysicsWorld.MakefromPtr(ApArr.PtrAtIndex(0)), AppleSCNPhysicsContact.MakefromPtr(aparr.PtrAtIndex(1)))
 		  end if
 		  
 		  
@@ -226,20 +201,7 @@ Inherits AppleView
 		  #pragma BreakOnExceptions false
 		  dim view as new AppleSCNView(pid)
 		  dim time as new AppleNumber(attime)
-		  // System.DebugLog "Time retrieved "+time.DoubleValue.ToText
-		  if view <> nil then
-		    view.Physicstime = time.DoubleValue
-		    view.RaisephysicsUpdate
-		  end if
-		  
-		  
-		  // if NotificationDict.HasKey(pid) then
-		  // dim d as dictionary = NotificationDict.value (pid)
-		  // d.Value (kdidApplyAnimationsAtTime) = attime // left side is the constant, right side the value
-		  // Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
-		  // (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
-		  // performSelectorOnMainThread pid, FoundationFramework.NSSelectorFromString("checkAnimationsAtTime:"), pid, false // and have the change checked
-		  // end if
+		  if view <> nil then view.RaisephysicsUpdate (time.DoubleValue)
 		  
 		  #Pragma Unused Sel
 		  
@@ -255,11 +217,7 @@ Inherits AppleView
 		  #pragma BreakOnExceptions false
 		  dim view as new AppleSCNView(pid)
 		  dim time as new AppleNumber(attime)
-		  // System.DebugLog "Time retrieved "+time.DoubleValue.ToText
-		  if view <> nil then
-		    view.updatetime = time.DoubleValue
-		    view.RaiseRenderUpdate
-		  end if
+		  if view <> nil then view.RaiseRenderUpdate (time.DoubleValue)
 		  
 		  
 		  // if NotificationDict.HasKey(pid) then
@@ -288,9 +246,9 @@ Inherits AppleView
 		  dim time as new AppleNumber(a.PtrAtIndex(1))
 		  // System.DebugLog "Render Scene Time retrieved "+time.DoubleValue.ToText
 		  if view <> nil then
-		    view.RenderTime = time.DoubleValue
-		    view.renderscene = scene
-		    view.RaiseRenderSceneUpdate
+		    // view.RenderTime = time.DoubleValue
+		    // view.renderscene = scene
+		    view.RaiseRenderSceneUpdate (scene, time.DoubleValue)
 		  end if
 		  
 		  
@@ -485,8 +443,7 @@ Inherits AppleView
 	#tag Method, Flags = &h21
 		Private Shared Sub impl_rendererUpdateAtTime(pid as ptr, sel as ptr, renderer as ptr, attime as double)
 		  #Pragma StackOverflowChecking false
-		  static Selector as ptr
-		  if Selector = nil then Selector= FoundationFrameWork.NSSelectorFromString("checkUpdateAtTime:")
+		  static Selector as ptr = FoundationFrameWork.NSSelectorFromString("checkUpdateAtTime:")
 		  
 		  dim n as ptr = AppleNumber.MakeNumberPtr(attime)
 		  FoundationFrameWork.PerformSelectorOnMainThread (pid, Selector, n)
@@ -494,22 +451,7 @@ Inherits AppleView
 		  #Pragma Unused Sel
 		  #Pragma Unused renderer
 		  
-		  // #Pragma DisableBackgroundTasks
-		  // system.DebugLog integer(pid).ToText
-		  // dim n as new AppleNumber(attime)
-		  // dim view as  AppleSCNView = AppleSCNView.MakeFromPtr(pid)
-		  // declare function initWithDouble lib FoundationLibName  Selector "initWithDouble:" (id as ptr, aDouble as double) as ptr
-		  // dim cptr as ptr = FoundationFrameWork.NSClassFromString("NSNumber")
-		  // dim n as ptr = initWithDouble(AppleObject.alloc(cptr), attime)
 		  
-		  // Declare sub performSelectorOnMainThread lib FoundationLibName  selector "performSelectorOnMainThread:withObject:waitUntilDone:" _
-		  // (id as ptr, aselector as Ptr, withObject as Ptr, waituntildone as boolean) // cannot address an external method, therefore we have to keep the declare here
-		  // performSelectorOnMainThread pid, FoundationFramework.NSSelectorFromString("checkUpdateAtTime:"), n, false // and have the change checked
-		  
-		  // if view <> nil then
-		  // view.updatetime = attime
-		  // // view.RaiseRenderUpdate
-		  // end if
 		End Sub
 	#tag EndMethod
 
@@ -626,102 +568,6 @@ Inherits AppleView
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub processAnimationsAtTime()
-		  if ParentControl <> nil then
-		    ParentControl.informonDidAnimate (AnimationsTime)
-		  else
-		    RaiseEvent DidAnimate (AnimationsTime)
-		  end if
-		  
-		  // dim result as Dictionary = NotificationDict.Value (id)
-		  // dim time as double
-		  // dim myArray as new AppleMutableArray(2)
-		  // time = result.Value (kdidApplyAnimationsAtTime)
-		  // RaiseEvent DidAnimate (time)
-		  // myArray.addtext kdidApplyAnimationsAtTime
-		  // myArray.Addobject new AppleNumber (time)
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub processDidRenderSceneAtTime()
-		  if ParentControl <> nil then
-		    ParentControl.informonDidRenderScene (renderedscene, renderSceneTime)
-		  else
-		    RaiseEvent DidRenderScene (renderedscene, renderSceneTime)
-		  end if
-		  
-		  
-		  // dim result as Dictionary = NotificationDict.Value (id)
-		  // 
-		  // dim myArray as new AppleMutableArray(3)
-		  // dim time as double = result.Value (kDidRenderScene)
-		  // dim scene as AppleSCNScene = AppleSCNScene.MakefromPtr (result.value(kRenderScene))
-		  // RaiseEvent DidRenderScene (scene, time)
-		  // myArray.addtext kDidRenderScene
-		  // myArray.Addobject scene
-		  // myArray.Addobject new AppleNumber (time)
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub processPhysicsAtTime()
-		  // dim result as Dictionary = NotificationDict.Value (id)
-		  // dim time as double
-		  // dim myArray as new AppleMutableArray(2)
-		  // time = result.Value (kDidSimulatePhysics)
-		  // RaiseEvent DidSimulatePhysics (time)
-		  // myArray.addtext kDidSimulatePhysics
-		  // myArray.Addobject new AppleNumber (time)
-		  if ParentControl <> nil then
-		    ParentControl.informonDidSimulatePhysics(physicstime)
-		  else
-		    RaiseEvent DidSimulatePhysics (physicstime)
-		  end if
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub ProcessUpdateAtTime()
-		  // dim result as Dictionary = NotificationDict.Value (id)
-		  // dim time as double
-		  // dim myArray as new AppleMutableArray(2)
-		  // time = result.Value (kUpdateAtTime)
-		  // RaiseEvent WillUpdate (time)
-		  // myArray.addtext kUpdateAtTime
-		  // myArray.Addobject new AppleNumber (time)
-		  if ParentControl <> nil then
-		    ParentControl.informonWillupdate(updatetime)
-		  else
-		    RaiseEvent WillUpdate (updatetime)
-		  end if
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub processWillRenderSceneAtTime()
-		  if ParentControl <> nil then
-		    ParentControl.informonwillrenderscene (renderscene, rendertime)
-		  else
-		    RaiseEvent willrenderscene (renderscene, rendertime)
-		  end if
-		  
-		  // dim result as Dictionary = NotificationDict.Value (id)
-		  // 
-		  // dim myArray as new AppleMutableArray(3)
-		  // dim time as double = result.Value (kWillRenderScene)
-		  // dim scene as AppleSCNScene = AppleSCNScene.MakefromPtr (result.value(kRenderScene))
-		  // RaiseEvent WillRenderScene (scene, time)
-		  // myArray.addtext kWillRenderScene
-		  // myArray.Addobject scene
-		  // myArray.Addobject new AppleNumber (time)
-		  
-		End Sub
-	#tag EndMethod
-
 	#tag Method, Flags = &h0, Description = 50726F6A65637473206120706F696E742066726F6D2074686520334420776F726C6420636F6F7264696E6174652073797374656D206F6620746865207363656E6520746F2074686520324420706978656C20636F6F7264696E6174652073797374656D206F66207468652072656E64657265722E
 		Function ProjectPoint(aPoint as SCNVector3) As SCNVector3
 		  #if Target64Bit
@@ -734,50 +580,87 @@ Inherits AppleView
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub RaiseAnimationsUpdate()
-		  xojo.core.timer.CallLater 0, AddressOf ProcessAnimationsAtTime
+		Attributes( hidden )  Sub RaiseAnimationsUpdate(AnimationsTime as Double)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidAnimate (AnimationsTime)
+		  else
+		    RaiseEvent DidAnimate (AnimationsTime)
+		  end if
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub RaisedidBeginContact()
-		  RaiseEvent didbegincontact lastPWorld, didbegincontact
+		Attributes( hidden )  Sub RaisedidBeginContact(lastPWorld As AppleSCNPhysicsWorld, contact as AppleSCNPhysicsContact)
+		  if ParentControl <> nil then
+		    ParentControl.informondidbegincontact (lastPWorld, contact)
+		  else
+		    RaiseEvent didbegincontact (lastPWorld, contact)
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub RaisedidEndContact()
-		  RaiseEvent didendcontact lastPWorld, didendcontact
+		Attributes( hidden )  Sub RaisedidEndContact(lastPWorld As AppleSCNPhysicsWorld, contact as AppleSCNPhysicsContact)
+		  if ParentControl <> nil then
+		    ParentControl.informondidendcontact (lastPWorld, contact)
+		  else
+		    RaiseEvent didendcontact (lastPWorld, contact)
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub RaiseDidRenderUpdate()
-		  xojo.core.timer.CallLater 0, AddressOf processDidRenderSceneAtTime
+		Attributes( hidden )  Sub RaiseDidRenderUpdate(renderscene as AppleSCNScene, rendertime as double)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidRenderScene (renderscene, rendertime)
+		  else
+		    RaiseEvent DidRenderScene (renderscene, rendertime)
+		  end if
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub RaisedidUpdateContact()
-		  RaiseEvent didendcontact lastPWorld, didupdatecontact
+		Attributes( hidden )  Sub RaisedidUpdateContact(lastPWorld As AppleSCNPhysicsWorld, contact as AppleSCNPhysicsContact)
+		  if ParentControl <> nil then
+		    ParentControl.informondidupdatecontact (lastPWorld, contact)
+		  else
+		    RaiseEvent DidUpdateContact lastPWorld, contact
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub RaisePhysicsUpdate()
-		  xojo.core.timer.CallLater 0, AddressOf ProcessPhysicsAtTime
+		Attributes( hidden )  Sub RaisePhysicsUpdate(physicstime as double)
+		  if ParentControl <> nil then
+		    ParentControl.informonDidSimulatePhysics(physicstime)
+		  else
+		    RaiseEvent DidSimulatePhysics (physicstime)
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub RaiseRenderSceneUpdate()
-		  xojo.core.timer.CallLater 0, AddressOf processWillRenderSceneAtTime
+		Attributes( hidden )  Sub RaiseRenderSceneUpdate(renderscene as AppleSCNScene, rendertime as double)
+		  if ParentControl <> nil then
+		    ParentControl.informonwillrenderscene (renderscene, rendertime)
+		  else
+		    RaiseEvent willrenderscene (renderscene, rendertime)
+		  end if
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub RaiseRenderUpdate()
-		  xojo.core.timer.CallLater 0, AddressOf ProcessUpdateAtTime
+		Attributes( hidden )  Sub RaiseRenderUpdate(updateTime as double)
+		  if ParentControl <> nil then
+		    ParentControl.informonWillupdate(updatetime)
+		  else
+		    RaiseEvent WillUpdate (updatetime)
+		  end if
 		End Sub
 	#tag EndMethod
 
@@ -876,10 +759,6 @@ Inherits AppleView
 		#tag EndSetter
 		AllowsCameraControl As Boolean
 	#tag EndComputedProperty
-
-	#tag Property, Flags = &h0
-		Attributes( hidden ) AnimationsTime As double
-	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0, Description = 5468652074797065206F6620736D6F6F74696E6720746F206170706C792E2044656661756C74206E6F6E652E
 		#tag Getter
@@ -1025,18 +904,6 @@ Inherits AppleView
 		DebugOptions As AppleSCNDebugOptions
 	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
-		Attributes( hidden ) DidBeginContact As AppleSCNPhysicsContact
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		Attributes( hidden ) DidEndContact As AppleSCNPhysicsContact
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		Attributes( hidden ) DidUpdateContact As AppleSCNPhysicsContact
-	#tag EndProperty
-
 	#tag ComputedProperty, Flags = &h0, Description = 496620796F7520757365204F70656E474C20455320666F7220637573746F6D2072656E646572696E672C20796F752063616E2075736520746869732070726F706572747920746F207368617265204F70656E474C204553207265736F7572636573206265747765656E2074686520636F6E74657874207573656420666F722072656E646572696E6720746865207363656E6520616E64206F74686572204F70656E474C20455320636F6E746578747320796F75722061707020757365732E205363656E654B6974206175746F6D61746963616C6C792073686172657320697473206F776E204F70656E474C204553207265736F7572636573206265747765656E206D756C7469706C652053434E5669657720696E7374616E63657320696E20796F757220617070206173206E65656465642E0A0A
 		#tag Getter
 			Get
@@ -1109,10 +976,6 @@ Inherits AppleView
 		Shared kSCNPreferredRenderingAPIKey As Text
 	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
-		Attributes( hidden ) LastPWorld As AppleSCNPhysicsWorld
-	#tag EndProperty
-
 	#tag ComputedProperty, Flags = &h0, Description = 57686574686572205363656E654B697420726573746172747320746865207363656E652074696D6520616674657220616C6C20616E696D6174696F6E7320696E20746865207363656E65206861766520706C617965642E
 		#tag Getter
 			Get
@@ -1126,10 +989,6 @@ Inherits AppleView
 		#tag EndSetter
 		Loops As Boolean
 	#tag EndComputedProperty
-
-	#tag Property, Flags = &h0
-		Attributes( hidden ) PhysicsTime As double
-	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0, Description = 5768657468657220746865207363656E6520697320706C6179696E672E2049662046616C736520287468652064656661756C74292C205363656E654B697420646F6573206E6F7420696E6372656D656E7420746865207363656E652074696D652C20736F20616E696D6174696F6E73206173736F636961746564207769746820746865207363656E6520646F206E6F7420706C61792E20
 		#tag Getter
@@ -1175,10 +1034,6 @@ Inherits AppleView
 		PreferredFramesPerSecond As Integer
 	#tag EndComputedProperty
 
-	#tag Property, Flags = &h0
-		Attributes( hidden ) RenderedScene As AppleSCNScene
-	#tag EndProperty
-
 	#tag ComputedProperty, Flags = &h0, Description = 54686520677261706869637320746563686E6F6C6F6779205363656E654B6974207573657320746F2072656E64657220746865207363656E652E2028726561642D6F6E6C79292E20417661696C61626C652073696E636520694F5320392E302E
 		#tag Getter
 			Get
@@ -1189,18 +1044,6 @@ Inherits AppleView
 		#tag EndGetter
 		RenderingAPI As SceneKitFrameWork.SCNRenderingAPI
 	#tag EndComputedProperty
-
-	#tag Property, Flags = &h0
-		Attributes( hidden ) RenderScene As AppleSCNScene
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		Attributes( hidden ) RenderSceneTime As double
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		Attributes( hidden ) RenderTime As double
-	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0, Description = 546865207363656E6520746F20626520646973706C6179656420696E2074686520766965772E
 		#tag Getter
@@ -1246,10 +1089,6 @@ Inherits AppleView
 		#tag EndSetter
 		ShowsStatistics As Boolean
 	#tag EndComputedProperty
-
-	#tag Property, Flags = &h0
-		Attributes( hidden ) UpdateTime As double
-	#tag EndProperty
 
 
 	#tag Constant, Name = kdidApplyAnimationsAtTime, Type = Text, Dynamic = False, Default = \"didApplyAnimationsAtTime", Scope = Public

@@ -586,14 +586,12 @@ Inherits AppleSCNObject
 	#tag ComputedProperty, Flags = &h0, Description = 5468652067656F6D6574727920617474616368656420746F20746865206E6F64652E0A41206E6F64652063616E2068617665206F6E6C79206F6E652067656F6D6574727920617474616368656420746F2069742E20546F20636F6D62696E652067656F6D65747269657320736F20746865792063616E20626520636F6E74726F6C6C6564206F7220616E696D6174656420746F6765746865722C206372656174652061206E6F64652077697468206E6F2067656F6D6574727920616E6420616464206F74686572206E6F64657320746F2069742E
 		#tag Getter
 			Get
-			  Declare function geometry lib SceneKitLib selector "geometry" (id as ptr) as ptr
-			  return AppleSCNGeometry.MakeFromPtr (geometry(id))
+			  return AppleSCNGeometry.MakeFromPtr (SceneKitFrameWork.getgeometry(id))
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  Declare Sub setGeometry lib SceneKitLib selector "setGeometry:" (id as ptr, value as Ptr)
-			  setGeometry id, if (value = nil, nil, value.id)
+			  SceneKitFrameWork.setGeometry id, if (value = nil, nil, value.id)
 			End Set
 		#tag EndSetter
 		Geometry As AppleSCNGeometry

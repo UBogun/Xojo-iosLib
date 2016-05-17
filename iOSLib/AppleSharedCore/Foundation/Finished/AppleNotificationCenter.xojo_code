@@ -2,16 +2,16 @@
 Protected Class AppleNotificationCenter
 Inherits AppleObject
 	#tag Method, Flags = &h0, Description = 4164647320616E20656E74727920746F20746865204E6F74696669636174696F6E43656E746572E2809973206469737061746368207461626C6520776974682061206E6F74696669636174696F6E20717565756520616E64206120626C6F636B20746861742077696C6C2062652063616C6C6564207768656E20746865206E6F74696669636174696F6E206F63637572732C20616E64206F7074696F6E616C2063726974657269613A206E6F74696669636174696F6E206E616D6520616E642073656E6465722E0A496620796F7520646F6E277420646566696E652061206E6F74696669636174696F6E206E616D652C20616C6C206E6F74696669636174696F6E732066726F6D206F626A2077696C6C206265207573656420746F20666972652074686520626C6F636B2E20596F752063616E2070617373206E696C20696E7374656164206F66206120717565756520746F2075736520746865206D61696E2071756575652E
-		 Shared Function AddObserverForName(NotificationName as CFStringRef, Obj as appleobject, queue as AppleOperationQueue, block as appleblock) As iOSLibNotificationObject
+		 Shared Function AddObserverForName(NotificationName as CFStringRef, Obj as appleobject, queue as AppleOperationQueue, block as appleblock) As AppleNotificationObject
 		  return addObserverForName (NotificationName, if (obj =nil, nil, obj.id),  Queue, block.Handle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function addObserverForName(NotificationName as CFStringRef, Obj as ptr, queue as AppleOperationQueue, block as ptr) As iOSLibNotificationObject
+		 Shared Function addObserverForName(NotificationName as CFStringRef, Obj as ptr, queue as AppleOperationQueue, block as ptr) As AppleNotificationObject
 		  declare function addObserverForName lib FoundationLibName  selector "addObserverForName:object:queue:usingBlock:" _
 		  (id as ptr, NotificationName as CFStringRef, Obj as Ptr, queue as ptr, block as ptr) as ptr
-		  return new iOSLibNotificationObject (addObserverForName (DefaultCenter.id, NotificationName, obj, if (queue = nil, nil, Queue.id), block))
+		  return new AppleNotificationObject (addObserverForName (DefaultCenter.id, NotificationName, obj, if (queue = nil, nil, Queue.id), block))
 		End Function
 	#tag EndMethod
 

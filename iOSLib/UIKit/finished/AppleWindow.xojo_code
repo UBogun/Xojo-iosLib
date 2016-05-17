@@ -5,7 +5,7 @@ Inherits AppleView
 		Attributes( hidden ) Private Sub AttachNotificationCenter()
 		  if NotificationObjects = nil then 
 		    NotificationObjects = new Dictionary
-		    dim result as iOSLibNotificationObject
+		    dim result as AppleNotificationObject
 		    dim VisibleBlock as new AppleBlock (addressof BecameVisibleBlock)
 		    result = AppleNotificationCenter.DefaultCenter.addObserverForName (kUIWindowDidBecomeVisibleNotification, id, AppleOperationQueue.MainQueue, VisibleBlock.Handle)
 		    NotificationObjects.Value(result) = result

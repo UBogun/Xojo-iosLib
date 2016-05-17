@@ -11,9 +11,9 @@ Begin iosView View11
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
       Alpha           =   1.0
-      AutoLayout      =   ProgressBar1, 1, <Parent>, 1, False, +1.00, 1, 1, 10, 
       AutoLayout      =   ProgressBar1, 2, <Parent>, 2, False, +1.00, 1, 1, -*kStdGapCtlToViewH, 
       AutoLayout      =   ProgressBar1, 3, <Parent>, 3, False, +1.00, 1, 1, 152, 
+      AutoLayout      =   ProgressBar1, 1, <Parent>, 1, False, +1.00, 1, 1, 10, 
       AutoLayout      =   ProgressBar1, 8, , 0, True, +1.00, 1, 1, 48, 
       AutoresizesSubviews=   True
       BackgroundColor =   &cFFFFFF00
@@ -48,10 +48,10 @@ Begin iosView View11
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, 210, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, 210, 
       AutoLayout      =   Button1, 4, <Parent>, 4, False, +1.00, 1, 1, -*kStdGapCtlToViewV, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       Caption         =   "Untitled"
       Enabled         =   True
       Height          =   30.0
@@ -74,10 +74,10 @@ Begin iosView View11
       Alpha           =   1.0
       AutocapitalizationType=   ""
       AutocorrectionType=   ""
-      AutoLayout      =   iOSLibTextfield1, 1, <Parent>, 1, False, +1.00, 1, 1, 36, 
+      AutoLayout      =   iOSLibTextfield1, 1, <Parent>, 1, False, +1.00, 1, 1, 46, 
       AutoLayout      =   iOSLibTextfield1, 8, , 0, False, +1.00, 1, 1, 64, 
+      AutoLayout      =   iOSLibTextfield1, 3, <Parent>, 3, False, +1.00, 1, 1, 49, 
       AutoLayout      =   iOSLibTextfield1, 7, , 0, False, +1.00, 1, 1, 257, 
-      AutoLayout      =   iOSLibTextfield1, 3, <Parent>, 3, False, +1.00, 1, 1, 277, 
       AutoresizesSubviews=   True
       BackgroundColor =   &cFFFFFF00
       BorderStyle     =   ""
@@ -101,7 +101,7 @@ Begin iosView View11
       Hidden          =   False
       KeyboardAppearance=   ""
       KeyboardType    =   ""
-      Left            =   36
+      Left            =   46
       LeftViewMode    =   ""
       LockedInPosition=   False
       MinimumFontSize =   0.0
@@ -118,7 +118,7 @@ Begin iosView View11
       TextAlignment   =   ""
       TextColor       =   &c00000000
       TintAdjustmentMode=   ""
-      Top             =   277
+      Top             =   49
       TranslatesAutoresizingMaskIntoConstraints=   False
       UserInteractionEnabled=   True
       Visible         =   True

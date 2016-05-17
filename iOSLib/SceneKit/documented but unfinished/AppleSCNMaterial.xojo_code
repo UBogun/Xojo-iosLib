@@ -16,10 +16,6 @@ Inherits AppleObject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
-		Private Declare Function getfresnelExponent Lib SceneKitLib Selector "fresnelExponent" (id as ptr) As cgfloat
-	#tag EndExternalMethod
-
-	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Private Declare Function getshininess Lib SceneKitLib Selector "shininess" (id as ptr) As cgfloat
 	#tag EndExternalMethod
 
@@ -32,10 +28,6 @@ Inherits AppleObject
 		  return if (aptr= nil, nil, new AppleSCNMaterial(aptr))
 		End Function
 	#tag EndMethod
-
-	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
-		Private Declare Sub setfresnelExponent Lib SceneKitLib Selector "setFresnelExponent:" (id as ptr, value as cgfloat)
-	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Private Declare Sub setshininess Lib SceneKitLib Selector "setShininess:" (id as ptr, value as cgfloat)
@@ -161,12 +153,12 @@ Inherits AppleObject
 	#tag ComputedProperty, Flags = &h0, Description = 4120666163746F7220616666656374696E6720746865206D6174657269616CE2809973207265666C65637469766974792E20416E696D617461626C652E
 		#tag Getter
 			Get
-			  return getfresnelExponent(id)
+			  return SceneKitFrameWork.getfresnelExponent(id)
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
-			  setfresnelExponent id, value
+			  SceneKitFrameWork.setfresnelExponent id, value
 			End Set
 		#tag EndSetter
 		FresnelExponent As Double
@@ -487,11 +479,25 @@ Inherits AppleObject
 			Name="BlendMode"
 			Group="Behavior"
 			Type="SCNBlendMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Alpha"
+				"1 - Add"
+				"2 - Subtract"
+				"3 - Multiply"
+				"4 - Screen"
+				"5 - Replace"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CullMode"
 			Group="Behavior"
 			Type="SCNCullMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Back"
+				"1 - Front"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="DebugDescription"
@@ -546,6 +552,13 @@ Inherits AppleObject
 			Name="LightingModel"
 			Group="Behavior"
 			Type="SCNLightingModel"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Phong"
+				"1 - Blinn"
+				"2 - Lambert"
+				"3 - ConstantLighting"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LightingModelName"
@@ -610,6 +623,11 @@ Inherits AppleObject
 			Name="TransparencyMode"
 			Group="Behavior"
 			Type="SCNTransparencyMode"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - AOne"
+				"1 - RGBZero"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="WritesToDepthBuffer"

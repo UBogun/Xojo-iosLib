@@ -29,6 +29,18 @@ Inherits Appleobject
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getacceleration Lib SceneKitLib Selector "acceleration" (id as ptr) As SCNVector3
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getacceleration32 Lib SceneKitLib Selector "acceleration" (id as ptr) As SCNVector3_32Bit
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getaffectedByPhysicsFields Lib SceneKitLib Selector "affectedByPhysicsFields" (id as ptr) As Boolean
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Function getbirthDirection Lib SceneKitLib Selector "birthDirection" (id as ptr) As SCNParticleBirthDirection
 	#tag EndExternalMethod
 
@@ -42,6 +54,14 @@ Inherits Appleobject
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Function getbirthRateVariation Lib SceneKitLib Selector "birthRateVariation" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getcolliderNodes Lib SceneKitLib Selector "colliderNodes" (id as ptr) As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getdampingFactor Lib SceneKitLib Selector "dampingFactor" (id as ptr) As cgfloat
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
@@ -73,6 +93,34 @@ Inherits Appleobject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getimageSequenceAnimationMode Lib SceneKitLib Selector "imageSequenceAnimationMode" (id as ptr) As SCNParticleImageSequenceAnimationMode
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getimageSequenceColumnCount Lib SceneKitLib Selector "imageSequenceColumnCount" (id as ptr) As uinteger
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getimageSequenceFrameRate Lib SceneKitLib Selector "imageSequenceFrameRate" (id as ptr) As CGFloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getimageSequenceFrameRateVariation Lib SceneKitLib Selector "imageSequenceFrameRateVariation" (id as ptr) As CGFloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getimageSequenceInitialFrame Lib SceneKitLib Selector "imageSequenceInitialFrame" (id as ptr) As CGFloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getimageSequenceInitialFrameVariation Lib SceneKitLib Selector "imageSequenceInitialFrameVariation" (id as ptr) As CGFloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getimageSequenceRowCount Lib SceneKitLib Selector "imageSequenceRowCount" (id as ptr) As uinteger
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Function getparticleAngle Lib SceneKitLib Selector "particleAngle" (id as ptr) As CGFloat
 	#tag EndExternalMethod
 
@@ -89,6 +137,22 @@ Inherits Appleobject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getparticleBounce Lib SceneKitLib Selector "particleBounce" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getparticleBounceVariation Lib SceneKitLib Selector "particleBounceVariation" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getparticleCharge Lib SceneKitLib Selector "particleCharge" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getparticleChargeVariation Lib SceneKitLib Selector "particleChargeVariation" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Function getparticleColor Lib SceneKitLib Selector "particleColor" (id as ptr) As Ptr
 	#tag EndExternalMethod
 
@@ -101,6 +165,18 @@ Inherits Appleobject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getparticleDiesOnCollision Lib SceneKitLib Selector "particleDiesOnCollision" (id as ptr) As Boolean
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getparticleFriction Lib SceneKitLib Selector "particleFriction" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getparticleFrictionVariation Lib SceneKitLib Selector "particleFrictionVariation" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Function getparticleImage Lib SceneKitLib Selector "particleImage" (id as ptr) As Ptr
 	#tag EndExternalMethod
 
@@ -110,6 +186,14 @@ Inherits Appleobject
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Function getparticleLifeSpanVariation Lib SceneKitLib Selector "particleLifeSpanVariation" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getparticleMass Lib SceneKitLib Selector "particleMass" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getparticleMassVariation Lib SceneKitLib Selector "particleMassVariation" (id as ptr) As cgfloat
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
@@ -133,6 +217,10 @@ Inherits Appleobject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getstretchFactor Lib SceneKitLib Selector "stretchFactor" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Function getwarmupDuration Lib SceneKitLib Selector "warmupDuration" (id as ptr) As cgfloat
 	#tag EndExternalMethod
 
@@ -151,6 +239,18 @@ Inherits Appleobject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setacceleration Lib SceneKitLib Selector "setAcceleration:" (id as ptr, value as SCNVector3)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setacceleration32 Lib SceneKitLib Selector "setAcceleration:" (id as ptr, value as SCNVector3_32Bit)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setaffectedByPhysicsFields Lib SceneKitLib Selector "setAffectedByPhysicsFields:" (id as ptr, value as Boolean)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Sub setbirthDirection Lib SceneKitLib Selector "setBirthDirection:" (id as ptr, value as SCNParticleBirthDirection)
 	#tag EndExternalMethod
 
@@ -164,6 +264,14 @@ Inherits Appleobject
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Sub setBirthRateVariation Lib SceneKitLib Selector "setBirthRateVariation:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setcolliderNodes Lib SceneKitLib Selector "setColliderNodes:" (id as ptr, value as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setdampingFactor Lib SceneKitLib Selector "setDampingFactor:" (id as ptr, value as cgfloat)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
@@ -195,6 +303,34 @@ Inherits Appleobject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setimageSequenceAnimationMode Lib SceneKitLib Selector "setImageSequenceAnimationMode:" (id as ptr, value as SCNParticleImageSequenceAnimationMode)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setimageSequenceColumnCount Lib SceneKitLib Selector "setImageSequenceColumnCount:" (id as ptr, value as uinteger)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setimageSequenceFrameRate Lib SceneKitLib Selector "setImageSequenceFrameRate:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setimageSequenceFrameRateVariation Lib SceneKitLib Selector "setImageSequenceFrameRateVariation:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setimageSequenceInitialFrame Lib SceneKitLib Selector "setImageSequenceInitialFrame:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setimageSequenceInitialFrameVariation Lib SceneKitLib Selector "setImageSequenceInitialFrameVariation:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setimageSequenceRowCount Lib SceneKitLib Selector "setImageSequenceRowCount:" (id as ptr, value as uinteger)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Sub setParticleAngle Lib SceneKitLib Selector "setParticleAngle:" (id as ptr, value as CGFloat)
 	#tag EndExternalMethod
 
@@ -211,6 +347,22 @@ Inherits Appleobject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setparticleBounce Lib SceneKitLib Selector "setParticleBounce:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setparticleBounceVariation Lib SceneKitLib Selector "setParticleBounceVariation:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setparticleCharge Lib SceneKitLib Selector "setParticleCharge:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setparticleChargeVariation Lib SceneKitLib Selector "setParticleChargeVariation:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Sub setparticleColor Lib SceneKitLib Selector "setParticleColor:" (id as ptr, value as ptr)
 	#tag EndExternalMethod
 
@@ -223,6 +375,18 @@ Inherits Appleobject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setparticleDiesOnCollision Lib SceneKitLib Selector "setParticleDiesOnCollision:" (id as ptr, value as Boolean)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setparticleFriction Lib SceneKitLib Selector "setParticleFriction:" (id as ptr, value as CGFloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setparticleFrictionVariation Lib SceneKitLib Selector "setParticleFrictionVariation:" (id as ptr, value as CGFloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Sub setparticleImage Lib SceneKitLib Selector "setParticleImage:" (id as ptr, value as ptr)
 	#tag EndExternalMethod
 
@@ -232,6 +396,14 @@ Inherits Appleobject
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Sub setparticleLifeSpanVariation Lib SceneKitLib Selector "setParticleLifeSpanVariation:" (id as ptr, value as CGFloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setparticleMass Lib SceneKitLib Selector "setParticleMass:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setparticleMassVariation Lib SceneKitLib Selector "setParticleMassVariation:" (id as ptr, value as cgfloat)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
@@ -255,6 +427,10 @@ Inherits Appleobject
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setstretchFactor Lib SceneKitLib Selector "setStretchFactor:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Sub setwarmupDuration Lib SceneKitLib Selector "setWarmupDuration:" (id as ptr, value as cgfloat)
 	#tag EndExternalMethod
 
@@ -265,7 +441,29 @@ Inherits Appleobject
 	#tag EndNote
 
 
-	#tag ComputedProperty, Flags = &h0, Description = 4120426F6F6C65616E2076616C756520746861742064657465726D696E6573207768657468657220677261766974792C20617320646566696E656420627920746865207363656E65E280997320706879736963732073696D756C6174696F6E2C206166666563747320746865206D6F74696F6E206F66207061727469636C65732E
+	#tag ComputedProperty, Flags = &h0, Description = 54686520636F6E7374616E7420616363656C65726174696F6E20766563746F722C20696E20756E69747320706572207365636F6E6420706572207365636F6E642C206170706C69656420746F20616C6C207061727469636C657320696E207468652073797374656D2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  #if Target64Bit
+			    return getacceleration(id)
+			  #elseif Target32Bit
+			    return getacceleration32(id).toVector3
+			  #endif
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  #if Target64Bit
+			    setacceleration id, value
+			  #elseif Target32Bit
+			    setacceleration32 id, value.toVector3_32
+			  #endif
+			End Set
+		#tag EndSetter
+		Acceleration As SCNVector3
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 5768657468657220677261766974792C20617320646566696E656420627920746865207363656E65E280997320706879736963732073696D756C6174696F6E2C206166666563747320746865206D6F74696F6E206F66207061727469636C65732E
 		#tag Getter
 			Get
 			  return SceneKitFrameWork.getaffectedByGravity(id)
@@ -277,6 +475,20 @@ Inherits Appleobject
 			End Set
 		#tag EndSetter
 		AffectedByGravity As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 576865746865722070687973696373206669656C647320696E20746865207363656E652061666665637420746865206D6F74696F6E206F66207061727469636C65732E
+		#tag Getter
+			Get
+			  return getaffectedByPhysicsFields(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setaffectedByPhysicsFields (id, value)
+			End Set
+		#tag EndSetter
+		AffectedByPhysicsField As Boolean
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0, Description = 54686520706F737369626C6520696E697469616C20646972656374696F6E7320666F72206E65776C7920737061776E6564207061727469636C65732C2072656C617469766520746F2074686520656D69747465722073686170652E2044656661756C7420697320436F6E7374616E74446972656374696F6E2E
@@ -345,6 +557,34 @@ Inherits Appleobject
 		Protected Shared ClassPtr As Ptr
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0, Description = 546865206E6F6465732077686F73652067656F6D65747279207468652073797374656DE2809973207061727469636C65732063616E20636F6C6C69646520776974682E
+		#tag Getter
+			Get
+			  return AppleArray.MakeFromPtr(getcolliderNodes(id))
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setcolliderNodes id, if (value = nil, nil, value.id)
+			End Set
+		#tag EndSetter
+		ColliderNodes As AppleArray
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 4120666163746F72207468617420736C6F7773207061727469636C65732072656C617469766520746F2074686569722076656C6F636974792E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getdampingFactor(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setdampingFactor id, value
+			End Set
+		#tag EndSetter
+		DampingFactor As Double
+	#tag EndComputedProperty
+
 	#tag ComputedProperty, Flags = &h0, Description = 546865206475726174696F6E2C20696E207365636F6E64732C206F766572207768696368207468652073797374656D20737061776E73206E6577207061727469636C65732E20416E696D617461626C652E
 		#tag Getter
 			Get
@@ -409,6 +649,20 @@ Inherits Appleobject
 		EmittingDirection As SCNVector3
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0, Description = 546865207265666C6563746976697479206578706F6E656E74205363656E654B69742075736573207768656E2072656E646572696E6720746865207061727469636C65E280997320696D61676520617320612063756265206D61702E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return SceneKitFrameWork.getfresnelExponent(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  SceneKitFrameWork.setfresnelExponent id, value
+			End Set
+		#tag EndSetter
+		FresnelExponent As Double
+	#tag EndComputedProperty
+
 	#tag ComputedProperty, Flags = &h0, Description = 546865206475726174696F6E2C20696E207365636F6E64732C206F6620706572696F6473207768656E207468652073797374656D20656D697473206E6F207061727469636C65732E20416E696D617461626C652E
 		#tag Getter
 			Get
@@ -435,6 +689,104 @@ Inherits Appleobject
 			End Set
 		#tag EndSetter
 		IdleDurationVariation As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 54686520616E696D6174696F6E206D6F646520666F72207061727469636C6520696D61676520616E696D6174696F6E2E
+		#tag Getter
+			Get
+			  return getimageSequenceAnimationMode (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setimageSequenceAnimationMode id, value
+			End Set
+		#tag EndSetter
+		ImageSequenceAnimationMode As SCNParticleImageSequenceAnimationMode
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 546865206E756D626572206F6620636F6C756D6E7320666F72207472656174696E6720746865207061727469636C6520696D61676520617320612067726964206F6620616E696D6174696F6E206672616D65732E
+		#tag Getter
+			Get
+			  return getimageSequenceColumnCount(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setimageSequenceColumnCount id, value
+			End Set
+		#tag EndSetter
+		ImageSequenceColumnCount As UInteger
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 54686520726174652C20696E206672616D657320706572207365636F6E642C206F66207061727469636C6520696D61676520616E696D6174696F6E2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getimageSequenceFrameRate (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setimageSequenceFrameRate id, value
+			End Set
+		#tag EndSetter
+		ImageSequenceFrameRate As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 54686520726174652C20696E206672616D657320706572207365636F6E642C206F66207061727469636C6520696D61676520616E696D6174696F6E2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getimageSequenceFrameRateVariation (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setimageSequenceFrameRateVariation id, value
+			End Set
+		#tag EndSetter
+		ImageSequenceFrameRateVariation As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 54686520696E646578206F6620746865206669727374206672616D6520696E2061207061727469636C6520696D61676520616E696D6174696F6E2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getimageSequenceInitialFrame (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setimageSequenceInitialFrame id, value
+			End Set
+		#tag EndSetter
+		ImageSequenceInitialFrame As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 54686520696E646578206F6620746865206669727374206672616D6520696E2061207061727469636C6520696D61676520616E696D6174696F6E2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getimageSequenceInitialFrameVariation (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setimageSequenceInitialFrameVariation id, value
+			End Set
+		#tag EndSetter
+		ImageSequenceInitialFrameVariation As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 546865206E756D626572206F6620726F777320666F72207472656174696E6720746865207061727469636C6520696D61676520617320612067726964206F6620616E696D6174696F6E206672616D65732E
+		#tag Getter
+			Get
+			  return getimageSequenceRowCount(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setimageSequenceRowCount id, value
+			End Set
+		#tag EndSetter
+		ImageSequenceRowCount As UInteger
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0, Description = 57686574686572207468652073797374656D20726570656174732069747320656D697373696F6E20616E642069646C6520706572696F64732E2044656661756C7420547275652E
@@ -507,6 +859,62 @@ Inherits Appleobject
 		ParticleAngularVelocityVariation As Double
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0, Description = 546865207265737469747574696F6E20636F656666696369656E74206F662065616368207061727469636C6520696E207468652073797374656D2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getparticleBounce(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setparticleBounce id, value
+			End Set
+		#tag EndSetter
+		ParticleBounce As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 546865207265737469747574696F6E20636F656666696369656E74206F662065616368207061727469636C6520696E207468652073797374656D2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getparticleBounceVariation(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setparticleBounceVariation id, value
+			End Set
+		#tag EndSetter
+		ParticleBounceVariation As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 54686520656C656374726963206368617267652C20696E20636F756C6F6D62732C206F662065616368207061727469636C6520696E207468652073797374656D2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getparticleCharge(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setparticleCharge id, value
+			End Set
+		#tag EndSetter
+		ParticleCharge As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 5468652072616E67652C20696E20636F756C6F6D62732C206F662072616E646F6D697A6564207061727469636C6520636861726765732E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getparticleChargeVariation(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setparticleChargeVariation id, value
+			End Set
+		#tag EndSetter
+		ParticleChargeVariation As Double
+	#tag EndComputedProperty
+
 	#tag ComputedProperty, Flags = &h0, Description = 54686520636F6C6F72206F66206E65776C7920737061776E6564207061727469636C65732E20416E696D617461626C652E
 		#tag Getter
 			Get
@@ -541,6 +949,48 @@ Inherits Appleobject
 			End Set
 		#tag EndSetter
 		ParticleColorVariation As SCNVector4
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 57686574686572207061727469636C6573206172652072656D6F7665642066726F6D20746865207363656E652075706F6E20636F6C6C6964696E67207769746820616E6F74686572206F626A6563742E
+		#tag Getter
+			Get
+			  return getparticleDiesOnCollision (id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setparticleDiesOnCollision (id, value)
+			End Set
+		#tag EndSetter
+		ParticleDiesOnCollision As Boolean
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 546865206672696374696F6E20636F656666696369656E74206F662065616368207061727469636C6520696E207468652073797374656D2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getparticleFriction(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setparticleFriction id, value
+			End Set
+		#tag EndSetter
+		ParticleFriction As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 546865206672696374696F6E20636F656666696369656E74206F662065616368207061727469636C6520696E207468652073797374656D2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getparticleFrictionVariation(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setparticleFrictionVariation id, value
+			End Set
+		#tag EndSetter
+		ParticleFrictionVariation As Double
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0, Description = 54686520636F6C6F72206F66206E65776C7920737061776E6564207061727469636C65732E20416E696D617461626C652E
@@ -583,6 +1033,34 @@ Inherits Appleobject
 			End Set
 		#tag EndSetter
 		ParticleLifeSpanVariation As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 546865206D6173732C20696E206B696C6F6772616D732C206F662065616368207061727469636C6520696E207468652073797374656D2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getparticleMass(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setparticleMass id, value
+			End Set
+		#tag EndSetter
+		ParticleMass As Double
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0, Description = 5468652072616E67652C20696E206B696C6F6772616D732C206F662072616E646F6D697A6564207061727469636C65206D61737365732E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getparticleMassVariation(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setparticleMassVariation id, value
+			End Set
+		#tag EndSetter
+		ParticleMassVariation As Double
 	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h0, Description = 5468652072656E64657265642073697A652C20696E20756E697473206F6620746865207363656E65E280997320776F726C6420636F6F7264696E6174652073706163652C206F6620746865207061727469636C6520696D6167652E20416E696D617461626C652E
@@ -655,6 +1133,20 @@ Inherits Appleobject
 		SpreadingAngle As Double
 	#tag EndComputedProperty
 
+	#tag ComputedProperty, Flags = &h0, Description = 41206D756C7469706C69657220666F722073747265746368696E67207061727469636C6520696D6167657320616C6F6E6720746865697220646972656374696F6E206F66206D6F74696F6E2E20416E696D617461626C652E
+		#tag Getter
+			Get
+			  return getstretchFactor(id)
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  setstretchFactor id, value
+			End Set
+		#tag EndSetter
+		StretchFactor As Double
+	#tag EndComputedProperty
+
 	#tag ComputedProperty, Flags = &h0, Description = 546865206475726174696F6E2C20696E207365636F6E64732C20666F72207768696368207061727469636C65732061726520737061776E6564206265666F7265207468652073797374656D2069732066697273742072656E64657265642E20416E696D617461626C652E2044656661756C7420302E302E
 		#tag Getter
 			Get
@@ -680,6 +1172,12 @@ Inherits Appleobject
 		Surface
 		  Volume
 		Vertex
+	#tag EndEnum
+
+	#tag Enum, Name = SCNParticleImageSequenceAnimationMode , Type = Integer, Flags = &h0
+		Repeat
+		  Clamp
+		AutoReverse
 	#tag EndEnum
 
 

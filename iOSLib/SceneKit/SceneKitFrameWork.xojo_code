@@ -141,7 +141,15 @@ Protected Module SceneKitFrameWork
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getfresnelExponent Lib SceneKitLib Selector "fresnelExponent" (id as ptr) As cgfloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Function getfriction Lib SceneKitLib Selector "friction" (id as ptr) As CGFloat
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getGeometry Lib SceneKitLib Selector "geometry" (id as ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
@@ -178,6 +186,10 @@ Protected Module SceneKitFrameWork
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Function getmomentOfInertia32 Lib SceneKitLib Selector "momentOfInertia" (id as ptr) As SCNVector3_32Bit
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Function getnode Lib SceneKitLib Selector "node" (id as ptr) As ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1
@@ -548,7 +560,15 @@ Protected Module SceneKitFrameWork
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Sub setfresnelExponent Lib SceneKitLib Selector "setFresnelExponent:" (id as ptr, value as cgfloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
 		Protected Declare Sub setfriction Lib SceneKitLib Selector "setFriction:" (id as ptr, value as CGFloat)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1
+		Protected Declare Sub setGeometry Lib SceneKitLib Selector "setGeometry:" (id as ptr, value as ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h1

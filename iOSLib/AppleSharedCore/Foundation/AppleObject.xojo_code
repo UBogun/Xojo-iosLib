@@ -95,6 +95,7 @@ Implements AppleGeneralObject
 
 	#tag Method, Flags = &h0, Description = 54686520636F6E7374727563746F7220666F722061206E6577204170706C654F626A6563742E
 		Sub Constructor()
+		  
 		  mid = createinstance(classptr)
 		  MHasOwnership = true
 		End Sub

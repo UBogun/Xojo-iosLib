@@ -1,6 +1,30 @@
 #tag Class
 Protected Class AppleSCNPhysicsBehavior
 Inherits AppleScnObject
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getAnchorA Lib SceneKitLib Selector "anchorA" (id as ptr) As SCNVector3
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getAnchorA32 Lib SceneKitLib Selector "anchorA" (id as ptr) As SCNVector3_32Bit
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getAnchorB Lib SceneKitLib Selector "anchorB" (id as ptr) As SCNVector3
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getAnchorB32 Lib SceneKitLib Selector "anchorB" (id as ptr) As SCNVector3_32Bit
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getBodyA Lib SceneKitLib Selector "bodyA" (id as ptr) As ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h1, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit or Target64Bit)) or  (TargetIOS and (Target32Bit or Target64Bit))
+		Protected Declare Function getBodyB Lib SceneKitLib Selector "bodyB" (id as ptr) As ptr
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h0
 		 Shared Function MakefromPtr(aPtr as Ptr) As AppleSCNPhysicsBehavior
 		  return if (aptr = nil, nil, new AppleSCNPhysicsBehavior(aptr))

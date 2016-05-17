@@ -1,40 +1,40 @@
 #tag Class
-Protected Class AppleEAGLContext
-Inherits appleobject
-	#tag Method, Flags = &h21
-		Private Sub Constructor()
-		  
-		End Sub
-	#tag EndMethod
-
+Protected Class AppleGLKView
+Inherits AppleView
 	#tag Method, Flags = &h0
-		Sub Constructor(API as EAGLRenderingAPI)
+		Sub Constructor(aFrame As FoundationFrameWork.NSRect, Context as AppleEAGLContext)
 		  // Calling the overridden superclass constructor.
 		  // Note that this may need modifications if there are multiple constructor choices.
 		  // Possible constructor calls:
+		  // Constructor() -- From AppleView
+		  // Constructor(aFrame as FoundationFramework.NSRect) -- From AppleView
+		  // Constructor(anID as Ptr) -- From AppleView
+		  // Constructor() -- From AppleResponder
 		  // Constructor() -- From AppleObject
 		  // Constructor(AnId as Ptr) -- From AppleObject
-		  Super.Constructor(initwithAPI(alloc(classptr), api))
-		  MHasOwnership = true
+		  #if Target64Bit
+		    Super.Constructor(initWithFrameContext(alloc(classptr), aFrame, context.id))
+		  #elseif Target32Bit
+		    Super.Constructor(initWithFrameContext32(alloc(classptr), aFrame.toNSREct32, context.id))
+		  #endif
 		  
+		  // 
 		End Sub
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Attributes( hidden ) Private Declare Function initWithAPI Lib openGLESLibName Selector "initWithAPI:" (id as ptr, API as EAGLRenderingAPI) As Ptr
+		Attributes( hidden ) Private Declare Function initWithFrameContext Lib GLKItLib Selector "initWithFrame:context:" (id as ptr, frame as FoundationFramework . NSREct, context as ptr) As Ptr
 	#tag EndExternalMethod
 
-	#tag Method, Flags = &h0
-		 Shared Function MakefromPtr(aPtr as Ptr) As AppleEAGLContext
-		  return if (aptr = nil, nil, new AppleEAGLContext (aptr))
-		End Function
-	#tag EndMethod
+	#tag ExternalMethod, Flags = &h21
+		Attributes( hidden ) Private Declare Function initWithFrameContext32 Lib GLKItLib Selector "initWithFrame:context:" (id as ptr, frame as FoundationFramework . NSREct32Bit, context as ptr) As Ptr
+	#tag EndExternalMethod
 
 
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("EAGLContext")
+			  static mClassPtr as Ptr = FoundationFramework.NSClassFromString ("GLKView")
 			  return mClassPtr
 			End Get
 		#tag EndGetter
@@ -42,68 +42,57 @@ Inherits appleobject
 	#tag EndComputedProperty
 
 
-	#tag Enum, Name = EAGLRenderingAPI, Type = UInteger, Flags = &h0
-		OpenGLES1 = 1
-		  OpenGLES2 = 2
-		OpenGLES3 = 3
-	#tag EndEnum
-
-
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="AccessibilityHint"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="AccessibilityLabel"
-			Group="Behavior"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Alpha"
-			Visible=true
-			Group="Appearance"
-			InitialValue="1"
+			Group="Behavior"
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="AutoresizesSubviews"
-			Visible=true
 			Group="Behavior"
-			InitialValue="true"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="BackgroundColor"
-			Visible=true
-			Group="Appearance"
-			InitialValue="&cFFFFFF00"
-			Type="Color"
+			Name="CanBecomeFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="CanBecomeFocused"
-			Group="Appearance"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CanResignFirstResponder"
+			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClearsContextBeforeDrawing"
-			Visible=true
 			Group="Behavior"
-			InitialValue="False"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ClipsToBounds"
-			Visible=true
 			Group="Behavior"
-			InitialValue="True"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="CollisionBoundsType"
+			Group="Behavior"
+			Type="UIDynamicItemCollisionBoundsType"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Rectangle"
+				"1 - Ellipse"
+				"2 - Path"
+			#tag EndEnumValues
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentMode"
 			Group="Behavior"
-			Type="UIKitFramework.UIViewContentMode"
+			Type="UIViewContentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - ScaleToFill"
@@ -123,39 +112,62 @@ Inherits appleobject
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ContentScaleFactor"
-			Visible=true
-			Group="Appearance"
-			InitialValue="1"
+			Group="Behavior"
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="ExclusiveTouch"
-			Visible=true
+			Name="ControlsCount"
 			Group="Behavior"
-			InitialValue="False"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DebugDescription"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Description"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExclusiveTouch"
+			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Focused"
-			Group="Appearance"
+			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="HasAmbiguousLayout"
-			Group="Appearance"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Hash"
+			Group="Behavior"
+			Type="UInteger"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="hasInited"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="HasOwnership"
+			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Height"
-			Visible=true
-			Group="Position"
+			Group="Behavior"
 			Type="Double"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Hidden"
-			Visible=true
-			Group="Appearance"
-			InitialValue="False"
+			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -166,6 +178,16 @@ Inherits appleobject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="IsFirstResponder"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="IsNIL"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Left"
 			Visible=true
 			Group="Position"
@@ -173,8 +195,12 @@ Inherits appleobject
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="mHasOwnership"
+			Group="Behavior"
+			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="MultipleTouchEnabled"
-			Visible=true
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
@@ -186,15 +212,23 @@ Inherits appleobject
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Opaque"
-			Visible=true
-			Group="Appearance"
-			InitialValue="False"
+			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="PreservesSuperviewLayoutMargins"
-			Group="Appearance"
+			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RestorationIdentifier"
+			Group="Behavior"
+			Type="Text"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="RetainCount"
+			Group="Behavior"
+			Type="UInteger"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
@@ -204,14 +238,18 @@ Inherits appleobject
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Tag"
-			Visible=true
-			Group="ID"
+			Group="Behavior"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextInputContextIdentifier"
+			Group="Behavior"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TintAdjustmentMode"
 			Group="Behavior"
-			Type="AppleView.UIViewTintAdjustmentMode"
+			Type="UIViewTintAdjustmentMode"
 			EditorType="Enum"
 			#tag EnumValues
 				"0 - Automatic"
@@ -228,26 +266,17 @@ Inherits appleobject
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TranslatesAutoresizingMaskIntoConstraints"
-			Group="Appearance"
+			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="UserInteractionEnabled"
-			Visible=true
-			Group="Behavior"
-			InitialValue="True"
-			Type="Boolean"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Visible"
-			Visible=true
 			Group="Behavior"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"
-			Visible=true
-			Group="Position"
+			Group="Behavior"
 			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior

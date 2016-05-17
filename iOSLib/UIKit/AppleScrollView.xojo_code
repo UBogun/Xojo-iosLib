@@ -13,6 +13,12 @@ Inherits AppleView
 		End Sub
 	#tag EndEvent
 
+	#tag Event , Description = 4669726573207768656E207468652074696E74636F6C6F72206368616E6765642E
+		Sub TintColorDidChange()
+		  
+		End Sub
+	#tag EndEvent
+
 
 	#tag Method, Flags = &h0
 		Sub AnimateContentOffset(value as FoundationFramework.NSPoint)
@@ -669,7 +675,7 @@ Inherits AppleView
 			    // methods.Append new TargetClassMethodHelper("didAddSubview:", AddressOf impl_DidAddSubview, "v@:@")
 			    // methods.Append new TargetClassMethodHelper("layoutSubviews", AddressOf impl_layoutSubviews, "v@:")
 			    // methods.Append new TargetClassMethodHelper("layerClass", AddressOf impl_layerclass, "@@:", true, true)
-			    methods.Append new TargetClassMethodHelper("tintColorDidChange", AddressOf impl_tintColorDidChange, "v@:")
+			    // methods.Append new TargetClassMethodHelper("tintColorDidChange", AddressOf impl_tintColorDidChange, "v@:")
 			    
 			    // #if Target64Bit
 			    // methods.Append new TargetClassMethodHelper ("drawRect:", AddressOf impl_DrawRect64, "v@:{CGRect}")

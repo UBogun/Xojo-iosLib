@@ -1,15 +1,9 @@
 #tag Class
-Protected Class OSLIbSCNView
-Inherits iOSLIbCanvas
-	#tag Event
-		Sub AddedSubview(Subview as AppleView)
-		  #pragma unused subview
-		End Sub
-	#tag EndEvent
-
+Protected Class iOSLibGLKView
+Inherits ioslibcanvas
 	#tag Event
 		Function CreateView() As uinteger
-		  dim myview as new AppleSCNView (FoundationFrameWork.nsmakerect (0,0,100,100))
+		  dim myview as new AppleGLKView (FoundationFrameWork.nsmakerect (0,0,100,100), new AppleEAGLContext(AppleEAGLContext.EAGLRenderingAPI.OpenGLES3))
 		  mid = myview
 		  myview.RegisterControl (self)
 		  return uinteger(myview.id)
@@ -17,124 +11,14 @@ Inherits iOSLIbCanvas
 		End Function
 	#tag EndEvent
 
-	#tag Event
-		Sub DidMoveToWindow()
-		  
-		End Sub
-	#tag EndEvent
-
-	#tag Event
-		Sub TintColorChanged()
-		  
-		End Sub
-	#tag EndEvent
-
-	#tag Event
-		Sub WillRemoveSubview(Subview as AppleView)
-		  #pragma unused subview
-		End Sub
-	#tag EndEvent
-
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informOnDidAnimate(AnimationsTime as double)
-		  raiseevent DidAnimate (animationstime)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informOnDidBeginContact(World As AppleSCNPhysicsWorld, Contact As AppleSCNPhysicsContact)
-		  raiseevent ContactBegan (world, contact)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informondidendcontact(World As AppleSCNPhysicsWorld, Contact As AppleSCNPhysicsContact)
-		  raiseevent ContactEnded (world, contact)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informonDidRenderScene(scene as applescnscene, AnimationsTime as double)
-		  raiseevent DidRenderScene (scene, animationstime)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informOnDidSimulatePhysics(time as double)
-		  raiseevent DidSimulatePhysics (time)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informondidupdatecontact(World As AppleSCNPhysicsWorld, Contact As AppleSCNPhysicsContact)
-		  raiseevent ContactUpdate (world, contact)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informOnObjectsPreparationEnded(Success As Boolean)
-		  raiseevent ObjectsPreparationEnded (success)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informOnWillRenderScene(scene as applescnscene, time as double)
-		  raiseevent willRenderScene (scene, time)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Attributes( hidden )  Sub informOnWillUpdate(time as double)
-		  raiseevent willUpdate (time)
-		End Sub
-	#tag EndMethod
-
-
-	#tag Hook, Flags = &h0
-		Event ContactBegan(World As AppleSCNPhysicsWorld, Contact As AppleSCNPhysicsContact)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event ContactEnded(World As AppleSCNPhysicsWorld, Contact As AppleSCNPhysicsContact)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event ContactUpdate(World As AppleSCNPhysicsWorld, Contact As AppleSCNPhysicsContact)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event DidAnimate(Time As Double)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event DidRenderScene(scene as applescnscene, Time As Double)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event DidSimulatePhysics(Time As Double)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event ObjectsPreparationEnded(Success As Boolean)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event willRenderScene(Scene as AppleSCNScene, Time As Double)
-	#tag EndHook
-
-	#tag Hook, Flags = &h0
-		Event WillUpdate(Time As Double)
-	#tag EndHook
-
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return AppleSCNView(mID)
+			  return AppleGLKView(mID)
 			End Get
 		#tag EndGetter
-		ID As AppleSCNView
+		AppleObject As AppleGLKView
 	#tag EndComputedProperty
 
 
@@ -258,6 +142,7 @@ Inherits iOSLIbCanvas
 			Name="Left"
 			Visible=true
 			Group="Position"
+			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -311,6 +196,7 @@ Inherits iOSLIbCanvas
 			Name="Top"
 			Visible=true
 			Group="Position"
+			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty

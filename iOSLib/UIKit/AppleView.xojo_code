@@ -385,6 +385,7 @@ Inherits AppleResponder
 
 	#tag Method, Flags = &h1
 		Attributes( hidden ) Protected Shared Function impl_layerclass(pid as ptr, sel as ptr) As Ptr
+		  Break
 		  return if (customLayerClass = nil, LayerClass, customLayerClass)
 		  #Pragma Unused  sel
 		End Function
